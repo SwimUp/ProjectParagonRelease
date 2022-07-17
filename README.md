@@ -21,7 +21,7 @@ VK: https://vk.com/rimprojectparagon
 Windows:
 - `C:\Users\<USER>\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Config`
 
-OR
+ИЛИ
 
 - `windows button + R`
 - Введите `%APPDATA%\..\LocalLow`
