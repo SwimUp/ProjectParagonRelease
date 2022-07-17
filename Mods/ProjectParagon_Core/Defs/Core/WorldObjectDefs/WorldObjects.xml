@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<WorldObjectDef>
+		<defName>PlayerCulturalSite</defName>
+		<label>Cultural site</label>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.PlayerCultureSite</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>World/WorldObjects/JourneyDestination</expandingIconTexture>
+		<expandingIconPriority>50</expandingIconPriority>
+		<expandMore>true</expandMore>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+		</comps>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.WorldObjects.WITab_SignalTower</li>
+		</inspectorTabs>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>CaravanAI</defName>
+		<label>caravan</label>
+		<description>A group of traveling people.</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Caravans.CaravanAI</worldObjectClass>
+		<texture>World/WorldObjects/Caravan</texture>
+		<useDynamicDrawer>true</useDynamicDrawer>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>World/WorldObjects/Expanding/Caravan</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<expandMore>true</expandMore>
+		<allowCaravanIncidentsWhichGenerateMap>false</allowCaravanIncidentsWhichGenerateMap>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.WorldObjects.Caravans.WITab_CaravanAI_Items</li>
+			<li>ProjectParagon.Core.WorldObjects.Caravans.WITab_CaravanAI_Social</li>
+		</inspectorTabs>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>CaravanBattlePlace</defName>
+		<label>Place of battle</label>
+		<description>Place of battle with {0}</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.CaravanBattlePlace</worldObjectClass>
+		<expandingIcon>true</expandingIcon>
+		<texture>Core/World/Objects/CaravanBattlePlace/CaravanBattlePlace</texture>
+		<expandingIconTexture>Core/World/Objects/Expanding/DefaultExpandingIcon</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<IncidentTargetTags>
+			<li>Map_Misc</li>
+		</IncidentTargetTags>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>RandomPlace</defName>
+		<label>Unknown place</label>
+		<description>Unknown place</description>
+		<worldObjectClass>ProjectParagon.Core.RandomPlaces.RandomPlace</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/UnknownObject/UnknownObject</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>TaurusCamp</defName>
+		<label>Taurus camp</label>
+		<description>Taurus Temporary Camp</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.TaurusCamp</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Factions/TaurusHorde/TaurusFaction</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="WorldObjectCompProperties_EnterCooldown" />
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>2</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>TaurusBattleWatcher</defName>
+		<label>Taurus battle watcher</label>
+		<description>Taurus battle watcher</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.TaurusBattleWatcher</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>false</expandingIcon>
+		<expandingIconPriority>100</expandingIconPriority>
+		<useDynamicDrawer>false</useDynamicDrawer>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>BattleWatcher</defName>
+		<label>battle watcher</label>
+		<description>battle watcher</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.BattleWatcher</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>false</expandingIcon>
+		<expandingIconPriority>100</expandingIconPriority>
+		<useDynamicDrawer>false</useDynamicDrawer>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>SearchLocation</defName>
+		<label>Search location</label>
+		<description>Search location for the missing settler</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.SearchLocation</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/UnknownObject/UnknownObject</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<IncidentTargetTags>
+			<li>Map_Misc</li>
+		</IncidentTargetTags>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ExitMapGrid"/>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>ShamanCamp</defName>
+		<label>Shaman's camp</label>
+		<description>Shaman's camp</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.ShamanCamp</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/Events/Event_ShamanCamp</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<IncidentTargetTags>
+			<li>Map_Misc</li>
+		</IncidentTargetTags>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ExitMapGrid"/>
+			<li Class="WorldObjectCompProperties_Timeout"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>2</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>RoutePlannerWaypointParagon</defName>
+		<label>waypoint</label>
+		<description>A temporary waypoint.</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.RoutePlannerWaypointParagon</worldObjectClass>
+		<texture>World/WorldObjects/RoutePlannerWaypoint</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>World/WorldObjects/Expanding/RoutePlannerWaypoint</expandingIconTexture>
+		<expandingIconPriority>1000</expandingIconPriority>
+		<allowCaravanIncidentsWhichGenerateMap>true</allowCaravanIncidentsWhichGenerateMap>
+		<saved>false</saved>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>Plot</defName>
+		<label>Plot</label>
+		<description>Plot with resources</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.Plot</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/Events/Event_Plot</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<IncidentTargetTags>
+			<li>Map_Misc</li>
+		</IncidentTargetTags>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ExitMapGrid"/>
+			<li Class="WorldObjectCompProperties_Timeout"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>5</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>ParagonMapHolder</defName>
+		<label>Paragon map holder</label>
+		<description>Paragon map holder</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.ParagonMapHolder</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>false</expandingIcon>
+		<expandingIconPriority>100</expandingIconPriority>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<selectable>false</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<comps>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ExitMapGrid"/>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>FairPlace</defName>
+		<label>Fair</label>
+		<description>Venue of the fair.</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.FairPlace</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/Events/FairPlace</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>GladiatorsArena</defName>
+		<label>Gladiatorial arena</label>
+		<description>Gladiatorial arena</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.GladiatorsArena</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/Events/GladiatorsArena</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>WatchTower</defName>
+		<label>Watch tower</label>
+		<description>Watch tower</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.WatchTower</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/Events/WatchTower</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="WorldObjectCompProperties_EnterCooldown" />
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>2</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>StalkersParking</defName>
+		<label>Parking lot of stalkers</label>
+		<description>Researchers of the remains of ships, settlements and other abandoned places in search of valuables.</description>
+		<worldObjectClass>ProjectParagon.Core.RandomPlaces.Places.RandomPlace_StalkersParking</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/UnknownObject/Scavengers</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>2</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>StolenDealers</defName>
+		<label>Dealers in stolen goods</label>
+		<description>They sell what was not obtained in a completely honest way.</description>
+		<worldObjectClass>ProjectParagon.Core.RandomPlaces.Places.RandomPlace_StolenDealers</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/UnknownObject/BlackMerchants</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>2</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>Tavern</defName>
+		<label>Tavern</label>
+		<description>A large tavern to quench thirst, hunger and fatigue.</description>
+		<worldObjectClass>ProjectParagon.Core.RandomPlaces.Places.RandomPlace_Tavern</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/UnknownObject/Tavern</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>2</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>Mercenaries</defName>
+		<label>Mercenaries</label>
+		<description>Camp of various kinds of mercenaries.</description>
+		<worldObjectClass>ProjectParagon.Core.RandomPlaces.Places.RandomPlace_Mercenaries</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/UnknownObject/Mercenaries</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>2</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>ParagonSettlementPreview</defName>
+		<label>Paragon settlement preview</label>
+		<description>Paragon settlement preview</description>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.ParagonSettlementPreview</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>false</expandingIcon>
+		<expandingIconPriority>100</expandingIconPriority>
+		<useDynamicDrawer>false</useDynamicDrawer>
+		<selectable>false</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+	</WorldObjectDef>
+	
+	<WorldObjectDef>
+		<defName>ParagonSiegeCamp</defName>
+		<label>Siege camp</label>
+		<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.ParagonSiegeCamp</worldObjectClass>
+		<texture>Core/World/Objects/Expanding/DefaultExpandingIcon</texture>
+		<expandingIcon>true</expandingIcon>
+		<expandingIconTexture>Core/World/Objects/ParagonSiegeCamp/ParagonSiegeCamp</expandingIconTexture>
+		<expandingIconPriority>100</expandingIconPriority>
+		<IncidentTargetTags>
+			<li>Map_Misc</li>
+		</IncidentTargetTags>
+		<comps>
+			<li Class="WorldObjectCompProperties_FormCaravan"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ExitMapGrid"/>
+			<li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_ForceFormCaravan" >
+				<daysToForceFormCaravan>2</daysToForceFormCaravan>
+			</li>
+		</comps>
+	</WorldObjectDef>
+</Defs>

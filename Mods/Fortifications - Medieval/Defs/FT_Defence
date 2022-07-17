@@ -1,0 +1,302 @@
+<!-- 中世紀砲塔基本類
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+
+
+ <ThingDef Name="FT_BaseStationryDefenseBuilding" ParentName="BuildingBase" Abstract="True">
+ 	<thingClass>Building_TurretGun</thingClass>
+    <tickerType>Normal</tickerType>
+    <comps>
+	  <li Class="CompProperties_Mannable">
+        <manWorkType>Violent</manWorkType>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <hasInteractionCell>true</hasInteractionCell>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+	<size>(1,1)</size>
+	<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <fillPercent>0.5</fillPercent>
+    <hasTooltip>true</hasTooltip>
+    <designationCategory>Security</designationCategory>
+	<altitudeLayer>Building</altitudeLayer>
+	<stealable>false</stealable>
+	<rotatable>true</rotatable>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+  </ThingDef>
+	 
+
+  <ThingDef ParentName="FT_BaseStationryDefenseBuilding">
+	    <defName>FT_Turret_HotOil</defName>
+		<label>Hot Oil</label>
+		<description>An ancient missile weapon that launched rock at a distant target..</description>
+		<graphicData>
+			<texPath>Things/Building/Defence/HotPot</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Defence/HotPot</uiIconPath>
+		<uiIconScale>0.90</uiIconScale>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<WorkToBuild>1800</WorkToBuild>
+			<Beauty>-10</Beauty>
+			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Fuel</fuelLabel>
+				<fuelGizmoLabel>Fuel</fuelGizmoLabel>
+				<outOfFuelMessage>Cannot shoot: Out of wood to heat oil.</outOfFuelMessage>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelConsumptionRate>10.0</fuelConsumptionRate>
+				<fuelCapacity>10.0</fuelCapacity>
+				<fuelConsumptionPerTickInRain>0.0012</fuelConsumptionPerTickInRain>
+				<fuelMultiplier>1</fuelMultiplier>
+				<initialFuelPercent>1</initialFuelPercent>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<factorByDifficulty>true</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
+				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>10</glowRadius>
+				<glowColor>(252,187,113,0)</glowColor>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>21</heatPerSecond>
+				<heatPushMaxTemperature>28</heatPushMaxTemperature>
+			</li>
+		</comps>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>20</costStuffCount>
+		<costList>
+			<Steel>35</Steel>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<building>
+			<combatPower>45</combatPower>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretGunDef>FT_Gun_HotOil</turretGunDef>
+			<turretTopDrawSize>2	</turretTopDrawSize>
+			<turretBurstCooldownTime>4.8</turretBurstCooldownTime>
+		</building>
+		<researchPrerequisites>
+			<li>Smithing</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+	</ThingDef>
+
+	 <ThingDef ParentName="BaseBullet">
+    <defName>FT_Bullet_HotOil</defName>
+    <label>Hot Oil</label>
+    <graphicData>
+      <texPath>Things/Projectile/HotOil</texPath>
+	  <drawSize>1.5</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <speed>20</speed>
+      <flyOverhead>true</flyOverhead>
+      <damageDef>Flame</damageDef>
+      <explosionRadius>1.6</explosionRadius>
+      <preExplosionSpawnThingDef>FT_Filth_Oil</preExplosionSpawnThingDef>
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <arcHeightFactor>0.2</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>FT_Gun_HotOil</defName>
+    <label>Hot Oil</label>
+    <description>A weapon filled with Oil that heated to high temperatures and poured over an enemy.</description>
+    <graphicData>
+      <texPath>Things/Nothing</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.30</AccuracyTouch>
+      <AccuracyShort>0.40</AccuracyShort>
+      <AccuracyMedium>0.30</AccuracyMedium>
+      <AccuracyLong>0.30</AccuracyLong>
+      <RangedWeapon_Cooldown>10</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>50</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>FT_Bullet_HotOil</defaultProjectile>
+        <warmupTime>2</warmupTime>
+        <range>4.9</range>
+		<burstShotCount>5</burstShotCount>
+        <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+        <soundCast>Bow_Large</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+<ThingDef ParentName="BaseFilth">
+    <defName>FT_Filth_Oil</defName>
+    <label>Oil puddle</label>
+    <description>A puddle of sticky flammable Oil.</description>
+    <thingClass>LiquidFuel</thingClass>
+    <useHitPoints>true</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <Beauty>-10</Beauty>
+      <Cleanliness>-15</Cleanliness>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>1.5</Flammability>
+    </statBases>
+    <graphicData>
+      <texPath>Things/FT_Filth_Oil</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <filth>
+      <disappearsInDays>35~40</disappearsInDays>
+      <rainWashes>true</rainWashes>
+      <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <maxThickness>1</maxThickness>
+      <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+    </filth>
+  </ThingDef>
+	   
+  <ThingDef ParentName="FT_BaseStationryDefenseBuilding">
+	    <defName>FT_Turret_stoneBox</defName>
+		<label>Stone Box</label>
+		<description>a box filled with stone projectile used for defense fortification.</description>
+		<graphicData>
+			<texPath>Things/Building/Defence/RollingStone</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Defence/RollingStone</uiIconPath>
+		<uiIconScale>0.90</uiIconScale>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<WorkToBuild>1800</WorkToBuild>
+			<Beauty>-10</Beauty>
+			<ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Rocks</fuelLabel>
+				<fuelGizmoLabel>Projectile</fuelGizmoLabel>
+				<outOfFuelMessage>Cannot shoot: Out of Rocks</outOfFuelMessage>
+				<fuelFilter>
+					<categories>
+						<li>StoneBlocks</li>
+					</categories>
+				</fuelFilter>
+				<fuelCapacity>40</fuelCapacity>
+				<fuelMultiplier>1</fuelMultiplier>
+				<initialFuelPercent>1</initialFuelPercent>
+				<autoRefuelPercent>0.5</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<factorByDifficulty>true</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+			</li>
+		</comps>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>20</costStuffCount>
+		<costList>
+			<Steel>50</Steel>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<building>
+			<combatPower>45</combatPower> 
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretGunDef>FT_Gun_stoneBox</turretGunDef>
+			<turretTopDrawSize>1</turretTopDrawSize>
+			<turretBurstCooldownTime>4.8</turretBurstCooldownTime>
+		</building>
+		<researchPrerequisites>
+			<li>Smithing</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	 <ThingDef ParentName="BaseBullet">
+    <defName>FT_Bullet_stone</defName>
+    <label>stone</label>
+    <graphicData>
+      <texPath>Things/Projectile/GunStone</texPath>
+	  <drawSize>1</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <flyOverhead>true</flyOverhead>
+      <damageAmountBase>3</damageAmountBase>
+      <stoppingPower>1</stoppingPower>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
+      <speed>20</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>FT_Gun_stoneBox</defName>
+    <label>stoneBox</label>
+    <description>a box filled with stone projectile used for defense fortification.</description>
+    <graphicData>
+      <texPath>Things/Nothing</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.10</AccuracyTouch>
+      <AccuracyShort>0.40</AccuracyShort>
+      <AccuracyMedium>0.21</AccuracyMedium>
+      <AccuracyLong>0.22</AccuracyLong>
+      <RangedWeapon_Cooldown>5</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>50</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>FT_Bullet_stone</defaultProjectile>
+        <warmupTime>5</warmupTime>
+        <range>4.9</range>
+		<burstShotCount>10</burstShotCount>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <soundCast>Bow_Large</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+
+</Defs>	-->

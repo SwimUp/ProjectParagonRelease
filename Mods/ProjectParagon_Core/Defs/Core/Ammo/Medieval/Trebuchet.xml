@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<CombatExtended.AmmoCategoryDef>
+		<defName>TrebuchetBall</defName>
+		<label>trebuchet ball</label>
+		<description>A large, heavy stone that is suitable for demolition of walls in its mass.</description>
+	</CombatExtended.AmmoCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>AmmoTrebuchetBalls</defName>
+		<label>trebuchet balls</label>
+		<parent>AmmoNeolithic</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberArrow</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_TrebuchetBalls</defName>
+		<label>trebuchet balls</label>
+		<ammoTypes>
+			<Ammo_TrebuchetBalls>Projectile_TrebuchetBalls</Ammo_TrebuchetBalls>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="AmmoTrebuchetBallsBase" ParentName="NeolithicAmmoBase" Abstract="True">
+		<description>A trebuchet ball.</description>
+		<statBases>
+			<Mass>5</Mass>
+			<Bulk>5</Bulk>
+			<Flammability>0</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>AmmoTrebuchetBalls</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<tradeTags>
+			<li>CE_PreIndustrialAmmo</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoTrebuchetBallsBase">
+		<defName>Ammo_TrebuchetBalls</defName>
+		<label>trebuchet ball</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/TrebuchetBalls/TrebuchetBalls</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>4</Mass>
+			<MarketValue>0.5</MarketValue>
+		</statBases>
+		<ammoClass>TrebuchetBall</ammoClass>
+		<tradeTags>
+			<!--<li>CE_AutoEnableCrafting_CraftingSpot</li>-->
+		</tradeTags>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>80</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>5</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>3</Fragment_Large>
+					<Fragment_Small>8</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+
+	<!-- ================== Projectiles ================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="BaseTrebuchetBallsProjectile" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<texPath>Things/Projectile/Arrow_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Arrow</damageDef>
+			<speed>10</speed>
+		</projectile>
+	</ThingDef>
+
+	<!-- The amount of arrows usable over the ammo lifetime for each resource cost is equal to
+		[r / (1 - x)];
+			x = preExplosionSpawnChance,
+			r = resource cost. -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseTrebuchetBallsProjectile">
+		<defName>Projectile_TrebuchetBalls</defName>
+		<label>trebuchet ball</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/TrebuchetBalls/TrebuchetBall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>80</damageAmountBase>
+			<armorPenetrationSharp>20</armorPenetrationSharp>
+			<armorPenetrationBlunt>50</armorPenetrationBlunt>
+			<explosionRadius>2</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>3</Fragment_Large>
+					<Fragment_Small>8</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_TrebuchetBalls</defName>
+		<label>make trebuchet balls 5</label>
+		<description>Craft 5 trebuchet balls.</description>
+		<jobString>Making trebuchet balls.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>StoneChunks</li>
+					</categories>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>StoneChunks</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_TrebuchetBalls>5</Ammo_TrebuchetBalls>
+		</products>
+		<workAmount>1500</workAmount>	
+		<researchPrerequisite>AssaultWeapons</researchPrerequisite>
+		<recipeUsers>
+			<li>TableStonecutter</li>
+		</recipeUsers>
+	</RecipeDef>
+
+</Defs>

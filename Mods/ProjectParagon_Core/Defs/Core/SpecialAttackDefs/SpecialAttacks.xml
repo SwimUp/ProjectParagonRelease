@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Силовые удары --> 
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef Abstract="True" Name="PowerBlowBase">
+		<iconTexturePath>Core/UI/FightSystem/Icon_PowerSmash</iconTexturePath>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<bodyPartDepth>Outside</bodyPartDepth>
+		<minRest>0.25</minRest>
+		<restUseMultiplier>1.5</restUseMultiplier>
+		<hitChanceMult>0.90</hitChanceMult>
+		<chanceFactor>0.4</chanceFactor>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="PowerBlowBase">
+		<defName>PowerBlow_Hammer</defName>
+		<label>Power blow (hammer)</label>
+		<description>A powerful blow with the upper part of the hammer, causing great damage to the enemy. Such a blow can inflict great damage, but the chance of a miss is increased.</description>
+		<verbProperties>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>2.0</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>2.5</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>2</damageMult>
+				<armorPetentrationMult>2.5</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.5</damageMult>
+				<armorPetentrationMult>2</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>7</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="PowerBlowBase">
+		<defName>PowerBlow_Axe</defName>
+		<label>Power blow (axe)</label>
+		<description>A powerful blow with an axe blade, causing great damage to the enemy. Such a blow can inflict great damage, but the chance of a miss is increased.</description>
+		<verbProperties>
+			<meleeDamageDef>Cut</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>3.0</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>2.5</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>3</damageMult>
+				<armorPetentrationMult>2.5</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.5</damageMult>
+				<armorPetentrationMult>2</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>6</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="PowerBlowBase">
+		<defName>PowerBlow_Sword</defName>
+		<label>Power blow (sword)</label>
+		<description>A powerful blow with an sword blade, causing great damage to the enemy. Such a blow can inflict great damage, but the chance of a miss is increased.</description>
+		<verbProperties>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>3.0</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>2.5</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>3</damageMult>
+				<armorPetentrationMult>2.5</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.8</damageMult>
+				<armorPetentrationMult>2.2</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>5</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="PowerBlowBase">
+		<defName>PowerBlow_Club</defName>
+		<label>Power blow (club)</label>
+		<description>A powerful blow with the upper part of the club, causing great damage to the enemy. Such a blow can inflict great damage, but the chance of a miss is increased.</description>
+		<verbProperties>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>1.8</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>2.0</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1.8</damageMult>
+				<armorPetentrationMult>2.0</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.2</damageMult>
+				<armorPetentrationMult>1.5</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>5</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	<!-- ====================================================== -->
+	
+	<!-- Размашистые удары --> 
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef Abstract="True" Name="SweepingBlowBase">
+		<iconTexturePath>Core/UI/FightSystem/Icon_BaseBlow</iconTexturePath>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<bodyPartDepth>Outside</bodyPartDepth>
+		<minRest>0.2</minRest>
+		<restUseMultiplier>1.3</restUseMultiplier>
+		<enemyDodgeChanceMult>0.7</enemyDodgeChanceMult>
+		<parryMult>0.5</parryMult>
+		<chanceFactor>0.4</chanceFactor>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="SweepingBlowBase">
+		<defName>SweepingBlow_Hammer</defName>
+		<label>Sweeping blow (hammer)</label>
+		<description>A glancing hammer blow, moderately strong. It is harder to dodge such a blow than others.</description>
+		<verbProperties>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>0.8</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>1.2</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>0.8</damageMult>
+				<armorPetentrationMult>1.2</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>0.5</damageMult>
+				<armorPetentrationMult>0.5</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>4</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="SweepingBlowBase">
+		<defName>SweepingBlow_Axe</defName>
+		<label>Sweeping blow (axe)</label>
+		<description>A glancing blow with an axe blade, moderately strong. It is harder to dodge such a blow than others.</description>
+		<verbProperties>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>1.8</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>1.2</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1.8</damageMult>
+				<armorPetentrationMult>1.2</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>0.5</damageMult>
+				<armorPetentrationMult>0.5</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>3</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="SweepingBlowBase">
+		<defName>SweepingBlow_Sword</defName>
+		<label>Sweeping blow (sword)</label>
+		<description>A glancing blow with an sword blade, moderately strong. It is harder to dodge such a blow than others.</description>
+		<verbProperties>
+			<meleeDamageDef>Cut</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>2.0</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>1.35</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>2.0</damageMult>
+				<armorPetentrationMult>1.35</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>0.6</damageMult>
+				<armorPetentrationMult>0.6</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>3</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="SweepingBlowBase">
+		<defName>SweepingBlow_Club</defName>
+		<label>Sweeping blow (club)</label>
+		<description>A glancing club blow, moderately strong. It is harder to dodge such a blow than others.</description>
+		<verbProperties>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>0.6</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>1.1</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>0.6</damageMult>
+				<armorPetentrationMult>1.1</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>0.4</damageMult>
+				<armorPetentrationMult>0.4</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>3</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	<!-- ====================================================== -->
+	
+	<!-- Дробящие удары --> 
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef Abstract="True" Name="CrushingBlowBase">
+		<iconTexturePath>Core/UI/FightSystem/Icon_Smash</iconTexturePath>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<bodyPartDepth>Outside</bodyPartDepth>
+		<minRest>0.2</minRest>
+		<restUseMultiplier>1.7</restUseMultiplier>
+		<chanceFactor>0.4</chanceFactor>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="CrushingBlowBase">
+		<defName>CrushingBlow_Hammer</defName>
+		<label>Crushing blow (hammer)</label>
+		<description>A powerful hammer blow from top to bottom, dealing heavy damage and practically ignoring armor. It takes a lot of effort.</description>
+		<verbProperties>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>3.0</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>3.5</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1.2</damageMult>
+				<armorPetentrationMult>3.5</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.5</damageMult>
+				<armorPetentrationMult>3.0</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>10</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="CrushingBlowBase">
+		<defName>CrushingBlow_Club</defName>
+		<label>Crushing blow (club)</label>
+		<description>A powerful club blow from top to bottom, dealing heavy damage and practically ignoring armor. It takes a lot of effort.</description>
+		<verbProperties>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>2.5</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>3.0</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1.2</damageMult>
+				<armorPetentrationMult>3.0</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.3</damageMult>
+				<armorPetentrationMult>2.5</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>7</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<!-- ====================================================== -->
+	
+	<!-- Режущие удары --> 
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef Abstract="True" Name="SlashingBlowBase">
+		<iconTexturePath>Core/UI/FightSystem/Icon_Slash</iconTexturePath>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Cut</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<bodyPartDepth>Outside</bodyPartDepth>
+		<minRest>0.25</minRest>
+		<restUseMultiplier>1.25</restUseMultiplier>
+		<parryMult>0.6</parryMult>
+		<chanceFactor>0.4</chanceFactor>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="SlashingBlowBase">
+		<defName>SlashingBlow_Sword</defName>
+		<label>Slashing blow (sword)</label>
+		<description>Cutting blow with a blade. Deals great damage to leather armor and naked body, moderately effective against armor.</description>
+		<verbProperties>
+			<meleeDamageDef>Cut</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>2.5</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>2.0</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1.5</damageMult>
+				<armorPetentrationMult>1.25</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.25</damageMult>
+				<armorPetentrationMult>0.7</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>6</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<!-- ====================================================== -->
+	
+	<!-- Колющие удары --> 
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef Abstract="True" Name="StabbingBlowBase">
+		<iconTexturePath>Core/UI/FightSystem/Icon_Stab</iconTexturePath>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Stab</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<bodyPartDepth>Outside</bodyPartDepth>
+		<minRest>0.25</minRest>
+		<restUseMultiplier>1.25</restUseMultiplier>
+		<hitChanceMult>0.85</hitChanceMult>
+		<critMult>1.25</critMult>
+		<parryMult>1.2</parryMult>
+		<chanceFactor>0.4</chanceFactor>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="StabbingBlowBase">
+		<defName>StabbingBlow_Sword</defName>
+		<label>Stabbing blow (sword)</label>
+		<description>A stabbing blow with a blade. Effective against chain mail, deals more damage to leather armor and bare skin, but practically useless against armor. Harder to hit the enemy.</description>
+		<verbProperties>
+			<meleeDamageDef>Stab</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>2.5</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>2.0</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>2.0</damageMult>
+				<armorPetentrationMult>1.5</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>0.2</damageMult>
+				<armorPetentrationMult>0.2</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>6</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="StabbingBlowBase">
+		<defName>StabbingBlow_Spear</defName>
+		<label>Stabbing blow (spear)</label>
+		<description>A stabbing blow with a blade. Effective against chain mail, deals more damage to leather armor and bare skin, but practically useless against armor. Harder to hit the enemy.</description>
+		<verbProperties>
+			<meleeDamageDef>Stab</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>3.0</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>2.0</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>3.0</damageMult>
+				<armorPetentrationMult>2.0</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>0.5</damageMult>
+				<armorPetentrationMult>0.4</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>7</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<!-- ====================================================== -->
+	
+	<!-- Простые удары --> 
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef Abstract="True" Name="SimpleBlowBase">
+		<iconTexturePath>Core/UI/FightSystem/Icon_BaseBlow</iconTexturePath>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Stab</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<bodyPartDepth>Outside</bodyPartDepth>
+		<minRest>0.25</minRest>
+		<restUseMultiplier>1.15</restUseMultiplier>
+		<chanceFactor>0.4</chanceFactor>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="SimpleBlowBase">
+		<defName>SimpleBlow_Spear</defName>
+		<label>Simple blow (spear)</label>
+		<description>Blow with the base of the spear. Useless against armor and ineffective against unprotected targets, but can unbalance.</description>
+		<verbProperties>
+			<meleeDamageDef>Stab</meleeDamageDef>
+		</verbProperties>
+		<nakedDamageMultiplier>0.3</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>0.2</nakedArmorPenetrationMultiplier>
+		<stunChance>0.25</stunChance>
+		<stunTicks>300</stunTicks>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>0.1</damageMult>
+				<armorPetentrationMult>0.2</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>0.1</damageMult>
+				<armorPetentrationMult>0.1</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<restUseMultiplier>3</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	
+	<!-- ====================================================== -->
+	
+	<!-- Удары щитом --> 
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef Abstract="True" Name="ShieldBashBase">
+		<iconTexturePath>Core/UI/FightSystem/Icon_ShieldBash</iconTexturePath>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<bodyPartDepth>Outside</bodyPartDepth>
+		<minRest>0.25</minRest>
+		<restUseMultiplier>1.5</restUseMultiplier>
+		<chanceFactor>0.4</chanceFactor>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef ParentName="ShieldBashBase">
+		<defName>ShieldBash_Shield</defName>
+		<label>Shield bash</label>
+		<description>A sharp blow with a shield. Does not deal any damage to shielded targets, but can unbalance.</description>
+		<nakedDamageMultiplier>0.3</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>0.2</nakedArmorPenetrationMultiplier>
+		<stunChance>0.35</stunChance>
+		<stunTicks>250</stunTicks>
+		<restUseMultiplier>2</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	
+	<!-- ====================================================== -->
+	
+	<!--
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef>
+		<defName>TestAttack</defName>
+		<label>test attack AUE</label>
+		<description>A swift attack from behind a shield to inflict unexpected defeat on an enemy.</description>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<iconTexturePath>Core/UI/FightSystem/Icon_PiercingBlow</iconTexturePath>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Stab</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+			<warmupTime>2</warmupTime>
+			<burstShotCount>10</burstShotCount>
+		</verbProperties>
+		<nakedDamageMultiplier>1.3</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>1.5</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1</damageMult>
+				<armorPetentrationMult>1.4</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.0</damageMult>
+				<armorPetentrationMult>1.4</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<requirements>
+			<reqFightningStyle>GreekSchool</reqFightningStyle>
+		</requirements>
+		<hitChanceMult>1.3</hitChanceMult>
+		<chanceFactor>0</chanceFactor>
+		<minRest>0.2</minRest>
+		<useRest>true</useRest>
+		<restUseMultiplier>1.2</restUseMultiplier>
+		<aoeSettings>
+			<pattern>
+				<li>(0, 1)</li>
+				<li>(1, 1)</li>
+				<li>(-1, 1)</li>
+				
+				<li>(1, 0)</li>
+				<li>(-1, 0)</li>
+				
+				<li>(0, -1)</li>
+				<li>(1, -1)</li>
+				<li>(0, -1)</li>
+			</pattern>
+			<rotateByCaster>true</rotateByCaster>
+		</aoeSettings>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	-->
+</Defs>

@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef Name="SpecializationBase" Abstract="true">
+		<maxLevel>20</maxLevel>
+		<xpForLevel>
+			<points>
+				<li>(0, 0)</li>
+				<li>(1, 1000)</li>
+				<li>(20, 30000)</li>
+			</points>
+		</xpForLevel>
+		<skillDef>Melee</skillDef>
+		<xpForHit>25</xpForHit>
+		<descriptors>
+			<li>
+				<label>Complete zero</label>
+			</li>
+			<li>
+				<label>Utter beginner</label>
+			</li>
+			<li>
+				<label>Beginner</label>
+			</li>
+			<li>
+				<label>Basic familiarity</label>
+			</li>
+			<li>
+				<label>Some familiarity</label>
+			</li>
+			<li>
+				<label>Significant familiarity</label>
+			</li>
+			<li>
+				<label>Capable amateur</label>
+			</li>
+			<li>
+				<label>Weak professional</label>
+			</li>
+			<li>
+				<label>Employable professional</label>
+			</li>
+			<li>
+				<label>Solid professional</label>
+			</li>
+			<li>
+				<label>Skilled professional</label>
+			</li>
+			<li>
+				<label>Very skilled professional</label>
+			</li>
+			<li>
+				<label>Expert</label>
+			</li>
+			<li>
+				<label>Strong expert</label>
+			</li>
+			<li>
+				<label>Master</label>
+			</li>
+			<li>
+				<label>Strong master</label>
+			</li>
+			<li>
+				<label>Region-known master</label>
+			</li>
+			<li>
+				<label>Region-leading master</label>
+			</li>
+			<li>
+				<label>Planet-known master</label>
+			</li>
+			<li>
+				<label>Planet-leading master</label>
+			</li>
+			<li>
+				<label>Legendary master</label>
+			</li>
+		</descriptors>
+		<leveling>
+			<li>
+				<thingCategory>Building</thingCategory>
+				<levels>
+					<points>
+						<li>(0, 1)</li>
+						<li>(5, 0.15)</li>
+						<li>(10, 0)</li>
+						<li>(20, 0)</li>
+					</points>
+				</levels>
+			</li>
+			<li>
+				<thingCategory>Pawn</thingCategory>
+				<levels>
+					<points>
+						<li>(0, 2)</li>
+						<li>(10, 1)</li>
+						<li>(20, 0.5)</li>
+					</points>
+				</levels>
+			</li>
+		</leveling>
+		<passions>
+			<None>0.5</None>
+			<Minor>1</Minor>
+			<Major>1.5</Major>
+		</passions>
+		<defaultPassionsChance>
+			<None>70</None>
+			<Minor>20</Minor>
+			<Major>10</Major>
+		</defaultPassionsChance>
+		<basePawnValueOffset>15</basePawnValueOffset>
+		<priceMultiplierByLevel>
+			<points>
+				<li>(0, 0)</li>
+				<li>(5, 1)</li>
+				<li>(20, 3)</li>
+			</points>
+		</priceMultiplierByLevel>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef ParentName="SpecializationBase">
+		<defName>Swords</defName>
+		<label>Sword</label>
+		<description>The sword is an old and tried-and-true weapon. Swift attacks or defensive stance? The choice is yours.</description>
+		<subSpecializations>
+			<li>Daggers</li>
+			<li>ShortSwords</li>
+			<li>LongSwords</li>
+		</subSpecializations>
+		<passions>
+			<None>0.3</None>
+			<Minor>1</Minor>
+			<Major>1.5</Major>
+		</passions>
+		<statAffecters>
+			<li>
+				<statDef>MeleeHitChance</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.15)</li>
+						<li>(20, 1.3)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+			<li>
+				<statDef>MeleeCritChance</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.1)</li>
+						<li>(20, 1.25)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+		</statAffecters>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef ParentName="SpecializationBase">
+		<defName>Axes</defName>
+		<label>Axes</label>
+		<description>A deadly weapon in its simplicity and deadly power. Use it wisely.</description>
+		<subSpecializations>
+			<li>ShortAxes</li>
+			<li>HeavyAxes</li>
+		</subSpecializations>
+		<passions>
+			<None>0.3</None>
+			<Minor>1</Minor>
+			<Major>1.5</Major>
+		</passions>
+		<statAffecters>
+			<li>
+				<statDef>MeleeArmorPenetration</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.1)</li>
+						<li>(20, 1.2)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+			<li>
+				<statDef>MeleeDPS</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.15)</li>
+						<li>(20, 1.25)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+		</statAffecters>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef ParentName="SpecializationBase">
+		<defName>Spears</defName>
+		<label>Spears</label>
+		<description>Long and sharp spears prevent the enemy from getting close enough. With the proper skill, they will become an excellent weapon.</description>
+		<subSpecializations>
+			<li>StraightSpears</li>
+			<li>Halberds</li>
+			<li>MultiPointedSpears</li>
+		</subSpecializations>
+		<statAffecters>
+			<li>
+				<statDef>MeleeArmorPenetration</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.15)</li>
+						<li>(20, 1.3)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+		</statAffecters>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef ParentName="SpecializationBase">
+		<defName>Hammers</defName>
+		<label>Hammers</label>
+		<description>Heavy and huge or light and fast? Any hammer is a dangerous weapon of murder in the hands of a desperate warrior.</description>
+		<subSpecializations>
+			<li>LightHammers</li>
+			<li>HeavyHammers</li>
+		</subSpecializations>
+		<passions>
+			<None>0.3</None>
+			<Minor>1</Minor>
+			<Major>1.5</Major>
+		</passions>
+		<statAffecters>
+			<li>
+				<statDef>MeleeArmorPenetration</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.1)</li>
+						<li>(20, 1.2)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+			<li>
+				<statDef>MeleeDPS</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.15)</li>
+						<li>(20, 1.25)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+		</statAffecters>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef ParentName="SpecializationBase">
+		<defName>Clubs</defName>
+		<label>Clubs</label>
+		<description>This type of weapon does a good job of breaking through armor, which allows its masters to defeat even armored knights.</description>
+		<subSpecializations>
+			<li>LightClubs</li>
+			<li>HeavyClubs</li>
+		</subSpecializations>
+		<passions>
+			<None>0.5</None>
+			<Minor>1</Minor>
+			<Major>1.5</Major>
+		</passions>
+		<statAffecters>
+			<li>
+				<statDef>MeleeArmorPenetration</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.1)</li>
+						<li>(20, 1.2)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+			<li>
+				<statDef>MeleeDPS</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.15)</li>
+						<li>(20, 1.3)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+		</statAffecters>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef ParentName="SpecializationBase">
+		<defName>Bows</defName>
+		<label>Bows</label>
+		<description>Sounds primitive? Not at all! A well-aimed archer hiding in the thickets can be more dangerous than a heavy warrior due to his stealth.</description>
+		<subSpecializations>
+			<li>ShortBows</li>
+			<li>LongBows</li>
+		</subSpecializations>
+		<skillDef>Shooting</skillDef>
+		<passions>
+			<None>0.5</None>
+			<Minor>1</Minor>
+			<Major>1.75</Major>
+		</passions>
+		<statAffecters>
+			<li>
+				<statDef>AimingAccuracy</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.15)</li>
+						<li>(20, 1.3)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+			<li>
+				<statDef>ReloadSpeed</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.2)</li>
+						<li>(20, 1.4)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+		</statAffecters>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef ParentName="SpecializationBase">
+		<defName>Crossbows</defName>
+		<label>Crossbows</label>
+		<description>Impressive ranged weapon capable of piercing heavy armor. The use requires a certain skill and reaction speed.</description>
+		<subSpecializations>
+			<li>LightCrossbows</li>
+			<li>HeavyCrossbows</li>
+		</subSpecializations>
+		<skillDef>Shooting</skillDef>
+		<passions>
+			<None>0.3</None>
+			<Minor>1</Minor>
+			<Major>1.5</Major>
+		</passions>
+		<statAffecters>
+			<li>
+				<statDef>AimingAccuracy</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.15)</li>
+						<li>(20, 1.3)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+			<li>
+				<statDef>ReloadSpeed</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(10, 1.1)</li>
+						<li>(20, 1.25)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+		</statAffecters>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+	<ProjectParagon.Core.FightSystem.WeaponSpecializationDef ParentName="SpecializationBase">
+		<defName>Guns</defName>
+		<label>Guns</label>
+		<description>What could be better than the smell of powder gases? Especially if your death was not the cause of their appearance.</description>
+		<subSpecializations>
+			<li>Pistols</li>
+			<li>Rifles</li>
+		</subSpecializations>
+		<skillDef>Shooting</skillDef>
+		<passions>
+			<None>0.2</None>
+			<Minor>1</Minor>
+			<Major>1.5</Major>
+		</passions>
+		<statAffecters>
+			<li>
+				<statDef>AimingAccuracy</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 1)</li>
+						<li>(10, 1.15)</li>
+						<li>(20, 1.3)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+			<li>
+				<statDef>ReloadSpeed</statDef>
+				<multiplierCurve>
+					<points>
+						<li>(0, 1)</li>
+						<li>(10, 1.1)</li>
+						<li>(20, 1.2)</li>
+					</points>
+				</multiplierCurve>
+			</li>
+		</statAffecters>
+	</ProjectParagon.Core.FightSystem.WeaponSpecializationDef>
+</Defs>

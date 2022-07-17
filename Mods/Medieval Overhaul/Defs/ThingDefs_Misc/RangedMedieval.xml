@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="BaseWeaponNeolithic">
+		<defName>DankPyon_Crossbow</defName>
+		<label>crossbow</label>
+		<description>A projectile launching weapon that, much like the bow, relies on a string pulled back for tension and propels a projectile upon release. However, the crossbow allows the wielder to maintain the draw thanks to the crossbow’s locking mechanism, thus making the ranged weapon both accessible to novices and powerful in combat.</description>
+		<graphicData>
+			<texPath>WeaponRanged/Crossbow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Bow_Recurve</soundInteract>
+		<costList>
+			<WoodLog>60</WoodLog>
+			<ComponentSimple>4</ComponentSimple>
+			<MechanismSimple>4</MechanismSimple>
+		</costList>
+		<recipeMaker>
+			<recipeUsers>
+				<li>ForgeWithAnvil</li>
+			</recipeUsers>
+			<researchPrerequisite>WeaponsI</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<statBases>
+			<Mass>2.5</Mass>
+			<AccuracyTouch>0.86</AccuracyTouch>
+			<AccuracyShort>0.85</AccuracyShort>
+			<AccuracyMedium>0.67</AccuracyMedium>
+			<AccuracyLong>0.38</AccuracyLong>
+			<RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+		</statBases>
+		<equippedStatOffsets>
+			<ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+		</equippedStatOffsets>
+		<weaponTags>
+			<li>MedievalRangedLight</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>DankPyon_Arrow_Crossbow</defaultProjectile>
+				<warmupTime>1.35</warmupTime>
+				<range>25</range>
+				<soundCast>Bow_Recurve</soundCast>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>1.6</cooldownTime>
+				<armorPenetrationBlunt>0.65</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>LightCrossbows</subWeaponSpecialization>
+			</li>
+			<!--<li Class="ProjectParagon.Core.FightSystem.CompProperties_SpecialAttacks">
+				<styleAttacks>
+					<li>SteppeSchool</li>
+				</styleAttacks>
+			</li>-->
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseWeaponNeolithic">
+		<defName>DankPyon_CrossbowHeavy</defName>
+		<label>heavy crossbow</label>
+		<description>Although cumbersome to carry, the heavy crossbow is capable of inflicting heavy damage and piercing armored foes. Longer range and higher damage than the crossbow but takes time to reload. This makes the heavy crossbow a formidable defensive weapon and otherwise most effective in a group.</description>
+		<graphicData>
+			<texPath>WeaponRanged/CrossbowHeavy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.17,1.17)</drawSize>
+		</graphicData>
+		<costList>
+			<WoodLog>75</WoodLog>
+			<ComponentSimple>6</ComponentSimple>
+			<MechanismSimple>6</MechanismSimple>
+		</costList>
+		<recipeMaker>
+			<recipeUsers>
+				<li>ForgeWithAnvil</li>
+			</recipeUsers>
+			<researchPrerequisite>WeaponsI</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<comps>
+			<li>
+				<compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>HeavyCrossbows</subWeaponSpecialization>
+			</li>
+		</comps>
+		<soundInteract>Bow_Large</soundInteract>
+		<statBases>
+			<Mass>4</Mass>
+			<AccuracyTouch>0.86</AccuracyTouch>
+			<AccuracyShort>0.9</AccuracyShort>
+			<AccuracyMedium>0.76</AccuracyMedium>
+			<AccuracyLong>0.54</AccuracyLong>
+			<RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
+		</statBases>
+		<equippedStatOffsets>
+			<ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+		</equippedStatOffsets>
+		<weaponTags>
+			<li>MedievalRangedLight</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>DankPyon_Arrow_CrossbowHeavy</defaultProjectile>
+				<warmupTime>1.35</warmupTime>
+				<range>30</range>
+				<soundCast>Bow_Large</soundCast>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>1.6</cooldownTime>
+				<armorPenetrationBlunt>0.65</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+
+</Defs>

@@ -1,0 +1,887 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- ========================= Actual Meals ==========================-->
+
+<!--============== Preserved Food ===============-->
+  <!-- Rations --> 
+  <ThingDef ParentName="MealBase">
+    <defName>DankPyon_MealRations</defName>
+    <label>packaged rations</label>
+    <description>A hearty and nutritious packaged meal, packed for use in survival situations. While it never rots, it can still deteriorate if left outside. Great for adventuring.</description>
+    <graphicData>
+      <texPath>Meal/Rations</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <DeteriorationRate>0.25</DeteriorationRate>
+      <MarketValue>24</MarketValue>
+      <Mass>0.3</Mass>
+      <WorkToMake>450</WorkToMake>
+      <Nutrition>0.9</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>-5</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Meal_Eat</ingestSound>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+  
+  <!-- Dried Meats -->
+  <ThingDef ParentName="MealBase">
+    <defName>DankPyon_DriedMeat</defName>
+    <label>Dried Meat</label>
+    <description>Dried meat to preserve and prolong shelf life.</description>
+    <graphicData>
+      <texPath>Meal/DriedMeat</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>	  
+    </graphicData>
+    <statBases>
+      <MarketValue>13</MarketValue>
+		<Nutrition>0.7</Nutrition>
+    </statBases>	
+    <ingestible>
+      <preferability>MealAwful</preferability>
+      <optimalityOffsetHumanlikes>-5</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals> 
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>60</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+  </ThingDef> 
+
+  <!-- Dried Meats -->
+  <ThingDef ParentName="MealBase">
+    <defName>DankPyon_SmokedMeat</defName>
+    <label>Smoked Meat</label>
+    <description>Dried meat to preserve and prolong shelf life.</description>
+    <graphicData>
+      <texPath>Meal/SmokedMeat</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>	  
+    </graphicData>
+    <statBases>
+    <MarketValue>15</MarketValue>
+		<Nutrition>0.85</Nutrition>
+    </statBases>	
+    <ingestible>
+      <preferability>MealAwful</preferability>
+      <tasteThought>DankPyon_AteSmokedMeat</tasteThought>
+      <optimalityOffsetHumanlikes>-5</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals> 
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>30</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+  </ThingDef> 
+  
+  <!-- Cheese -->
+  <ThingDef ParentName="MealBase">
+    <defName>DankPyon_MealCheese</defName>
+    <label>Cheese</label>
+    <description>A sharp-tasting wheel of cheese, created by a special process of pursposely curdling animal milk. It makes for both a tasty treat on its own, as well as a versatile ingredient in meals.</description>
+    <graphicData>
+      <texPath>Meal/Cheese</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.65</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>10</MarketValue>
+		<Nutrition>0.85</Nutrition>
+    </statBases>	
+    <ingestible>
+      <preferability>MealSimple</preferability>
+	  <tasteThought>DankPyon_AteCheese</tasteThought>	  
+      <optimalityOffsetHumanlikes>15</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-10</optimalityOffsetFeedingAnimals>   
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>45</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <researchPrerequisites>
+			<li>DankPyon_Presser</li>
+		</researchPrerequisites>
+  </ThingDef>
+
+<!--============== Tier 4 Meals ===============-->
+<!-- Rox Steak -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealRoxSteak</defName>
+    <label>rox steak</label>
+    <description>A thick slab of fatty rox meat, grilled to infuse smoky and savory flavors while seasoned with salt and stewed in ale. A luxurious feast that every king desires.</description>
+    <graphicData>
+      <texPath>Meal/RoxSteak</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>75</MarketValue>
+      <WorkToMake>1100</WorkToMake>
+      <Nutrition>1</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealLavish</preferability>
+      <tasteThought>DankPyon_AteRoxSteak</tasteThought>
+      <optimalityOffsetHumanlikes>18</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-30</optimalityOffsetFeedingAnimals> 
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteRoxSteak</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+<!-- Griffon Berry Pie -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealGriffonBerryPie</defName>
+    <label>griffon berry pie</label>
+    <description>A delicious fruit-tart pie, consisting of a flakey sugar crust layer with a filling of pureed Griffon Berry, topped with a light lemon glaze.</description>
+    <graphicData>
+      <texPath>Meal/GriffonPie</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>75</MarketValue>
+      <WorkToMake>950</WorkToMake>
+      <Nutrition>1</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealLavish</preferability>
+      <tasteThought>DankPyon_AteGriffonBerryPie</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-30</optimalityOffsetFeedingAnimals> 
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteRoxSteak</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+<!--============== Tier 3 Meals ===============-->
+<!-- Steak with Wine -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealSteakWithWine</defName>
+    <label>Steak with wine</label>
+    <description>A rich meal consisting of spiced steak with chopped onion, sauteed in a light wine broth. A delightfully rich and bold-tasting meal.</description>
+    <graphicData>
+      <texPath>Meal/SteakWithWine</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>55</MarketValue>
+      <WorkToMake>800</WorkToMake>
+      <Nutrition>1</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealLavish</preferability>
+      <tasteThought>DankPyon_AteSteakWithWine</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-30</optimalityOffsetFeedingAnimals> 
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSteakWithWine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Cheese Soup -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealCheeseSoup</defName>
+    <label>Cheese soup</label>
+    <description>A delightfully gooey soup consisting of cuts of melted cheese curd housed in a rich broth of garlic-spiced ale. A hearty dish best served warm, soothing for both the body and soul.</description>
+    <graphicData>
+      <texPath>Meal/SoupCheese</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>52</MarketValue>
+      <WorkToMake>650</WorkToMake>
+      <Nutrition>1</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealLavish</preferability>
+      <tasteThought>DankPyon_AteCheeseSoup</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-30</optimalityOffsetFeedingAnimals> 
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoupLavish</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+<!--============== Tier 2 Meals ===============-->
+<!-- Bread Soup -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealBreadSoup</defName>
+    <label>bread soup</label>
+    <description>A thick, milky soup housed in a bowl made from a hollowed out chunk of sour bread. A hearty, filling meal.</description>
+    <graphicData>
+      <texPath>Meal/SoupBread</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <WorkToMake>450</WorkToMake>
+      <Nutrition>0.9</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+      <tasteThought>DankPyon_AteBreadSoup</tasteThought>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoupFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Hearty Stew -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealHeartyStew</defName>
+    <label>Hearty Stew</label>
+    <description>A Hearty Stew, containing various ingredients, and cooked in a reasonable amount of time.</description>
+    <graphicData>
+      <texPath>Meal/HeartyStew</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <Nutrition>0.9</Nutrition>
+      <WorkToMake>450</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AteHeartyStew</tasteThought>	  
+      <optimalityOffsetHumanlikes>15</optimalityOffsetHumanlikes>	  
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoupFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Apple Pie -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealApplePie</defName>
+    <label>Apple pie</label>
+    <description>A pie that uses sliced apples for its principal filling ingredient, mixed together with profound spices. Typically covered with a lattice patterned crust then sprinkled with sugar for its finish.</description>
+    <graphicData>
+      <texPath>Meal/ApplePie</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>24</MarketValue>
+      <Nutrition>0.9</Nutrition>
+      <WorkToMake>515</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AteApplePie</tasteThought>
+      <optimalityOffsetHumanlikes>15</optimalityOffsetHumanlikes>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteBakeFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Hunters Stew -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealHuntersStew</defName>
+    <label>Hunter's stew</label>
+    <description>A hearty stew consisting of boiled sausage sauteed in a vegetable broth with minced cabbage.</description>
+    <graphicData>
+      <texPath>Meal/HuntersStew</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>22</MarketValue>
+      <Nutrition>1</Nutrition>
+      <WorkToMake>450</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AteHuntersStew</tasteThought>
+      <optimalityOffsetHumanlikes>16</optimalityOffsetHumanlikes>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoupFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Grilled Cheese -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealGrilledCheese</defName>
+    <label>Grilled cheese</label>
+    <description>A simple dish consisting of a rich cut of cheese grilled with smoky fire.</description>
+    <graphicData>
+      <texPath>Meal/GrilledCheese</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <Nutrition>0.9</Nutrition>
+      <WorkToMake>200</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AteGrilledCheese</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteGrillFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Grilled Sausages -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealGrilledSausages</defName>
+    <label>Grilled Sausages</label>
+    <description>Seasoned meat with spices encased in a cylindrical manner. Grilled in an open flame to bring out smoky flavors.</description>
+    <graphicData>
+      <texPath>Meal/GrilledSausages</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>15</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>150</WorkToMake>	
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <tasteThought>DankPyon_AteGrilledSausages</tasteThought>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>18</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteGrillFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>  
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Quiche -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealQuiche</defName>
+    <label>quiche</label>
+    <description>A pie-adjacent breakfast food, consisting of layers of fluffy egg intermitted with delicious morsels of meat, baked into a hearty meal.</description>
+    <graphicData>
+      <texPath>Meal/Quiche</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>23</MarketValue>
+      <Nutrition>0.9</Nutrition>
+      <WorkToMake>450</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AteQuiche</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteBakeFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Sweet Pancakes -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealSweetPancakes</defName>
+    <label>sweet pancakes</label>
+    <description>Stacks of fluffy pan-fried shortcakes with a drizzel of sweet syrup plastered atop. A delicious, if not particularly healthy start to a day.</description>
+    <graphicData>
+      <texPath>Meal/SweetPancakes</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>22</MarketValue>
+      <Nutrition>0.9</Nutrition>
+      <WorkToMake>450</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AteSweetPancakes</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSweetPancakes</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Pumpkin Pie -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealPumpkinPie</defName>
+    <label>pumpking pie</label>
+    <description>A dense, rich pie made from mashed pumpkin mixed with strong spices, layered atop a sweet, flakey crust. A fall-favorite desert.</description>
+    <graphicData>
+      <texPath>Meal/PumpkinPie</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>21</MarketValue>
+      <Nutrition>0.9</Nutrition>
+      <WorkToMake>400</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AtePumpkinPie</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteBakeFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Pumpkin Soup -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealPumpkinSoup</defName>
+    <label>pumpkin soup</label>
+    <description>A creamy soup made from finely pureed pumpkin and a light assortment of spices.</description>
+    <graphicData>
+      <texPath>Meal/PumpkinSoup</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>21</MarketValue>
+      <Nutrition>0.9</Nutrition>
+      <WorkToMake>366</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AtePumpkinSoup</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoupFine</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Tomato Omelette -->   
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealTomatoOmelette</defName>
+    <label>tomato omelette</label>
+    <description>A sheet of fried, folded egg housing a tasteful cumilation of runny yolk and sauteed tomato.</description>
+    <graphicData>
+      <texPath>Meal/TomatoOmelette</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <Nutrition>0.9</Nutrition>
+      <WorkToMake>500</WorkToMake>	
+      <Mass>0.5</Mass>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+	    <tasteThought>DankPyon_AteTomatoOmelette</tasteThought>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteTomatoOmelette</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+<!--============== Tier 1 Meals ===============-->
+<!-- Bone Soup -->
+<ThingDef ParentName="MealCooked">
+  <defName>DankPyon_MealBoneSoup</defName>
+  <label>bone soup</label>
+  <description>A weak broth made from animal bones. Not so filling on its own.</description>
+  <graphicData>
+    <texPath>Meal/BoneSoup</texPath>
+    <graphicClass>Graphic_StackCount</graphicClass>
+  </graphicData>
+  <statBases>
+  <MarketValue>5</MarketValue>
+  <Nutrition>0.3</Nutrition>
+  <WorkToMake>300</WorkToMake>	
+  <Mass>0.5</Mass>
+  </statBases>	
+  <ingestible>
+    <!--tasteThought>DankPyon_AteBoneSoup</tasteThought-->
+    <preferability>MealSimple</preferability>
+    <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+    <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>  
+    <!--outcomeDoers>
+      <li Class="IngestionOutcomeDoer_GiveHediff">
+        <hediffDef>DankPyon_AteSoup</hediffDef>
+        <severity>1</severity>
+      </li>
+    </outcomeDoers-->
+  </ingestible>
+  <rotatable>false</rotatable>
+</ThingDef>
+
+<!-- Bread --> 
+ <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealBread</defName>
+    <label>bread</label>
+    <description>Made from flour and water. A classic staple to start a day.</description>
+    <graphicData>
+      <texPath>Meal/Bread</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>25</stackLimit>    
+    <statBases>
+      <MarketValue>9</MarketValue>
+      <Mass>0.4</Mass>
+      <Nutrition>0.4</Nutrition>
+      <WorkToMake>350</WorkToMake>  
+    </statBases>
+    <ingestible>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>16</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>
+    </ingestible>
+    <comps Inherit="False">
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>8</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Weak Stew --> 
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealWeakStew</defName>
+    <label>weak stew</label>
+    <description>A light stew, consisting primarily of bone broth with a few morsels of meat floating within. Not quite saturating, but a filling meal nonetheless.</description>
+    <graphicData>
+      <texPath>Meal/WeakStew</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>15</MarketValue>
+		<Nutrition>0.8</Nutrition>
+		<WorkToMake>450</WorkToMake>	
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <preferability>MealSimple</preferability>
+	    <tasteThought>DankPyon_AteWeakStew</tasteThought>	 	  
+      <optimalityOffsetHumanlikes>18</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>  
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoup</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+<!-- Fried Eggs -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealFriedEggs</defName>
+    <label>Fried Eggs</label>
+    <description>A simple meal, consisting of eggs quickly prepared and optionally served with a light sprinkling of salt and or pepper.</description>
+    <graphicData>
+      <texPath>Meal/FriedEggs</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>15</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>100</WorkToMake>	
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>16</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>  
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteFriedEggs</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+<!-- Mashed Potatoes -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealMashedPotatoes</defName>
+    <label>Mashed potatoes</label>
+    <description>A simple dish made with boiled potatos then mashed into a soft mixture while supplmented with milk for a creamy base.</description>
+    <graphicData>
+      <texPath>Meal/MashedPotatoes</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>17</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>300</WorkToMake>	
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <tasteThought>DankPyon_AteMashedPotatoes</tasteThought>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>  
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteMashedPotatoes</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+<!-- Mushroom Soup -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealMushroomSoup</defName>
+    <label>Mushroom soup</label>
+    <description>A fragrant soup consisting of minced sauteed mushrooms in a rich milky broth, making for a bold-tasting, somewhat hearty meal.</description>
+    <graphicData>
+      <texPath>Meal/MushroomSoup</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>15</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>300</WorkToMake>	
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <tasteThought>DankPyon_AteMushroomSoup</tasteThought>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>  
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoup</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Vegetable Pot -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealVegetablePot</defName>
+    <label>Vegetable pot</label>
+    <description>A rich stew of chopped vegetables, sauteed and boiled in a lightly seasoned broth. A hearty, yet healthy meal.</description>
+    <graphicData>
+      <texPath>Meal/VegetablePot</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>15</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>350</WorkToMake>	  
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <tasteThought>DankPyon_AteVegetablePot</tasteThought>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>  
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoup</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Pumpkin Fritters -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealPumpkinFritters</defName>
+    <label>Pumpkin fritters</label>
+    <description>A sweet, dense biscuit of pumpkin and flour with a caramelized confectionery glaze.</description>
+    <graphicData>
+      <texPath>Meal/PumpkinFritters</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>15</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>250</WorkToMake>	  
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <tasteThought>DankPyon_AtePumpkinFritters</tasteThought>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals> 
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AtePumpkinFritters</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers> 
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Grilled Skewers -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealGrilledSkewers</defName>
+    <label>Grilled skewers</label>
+    <description>Thick-cut chunks of seared meat arranged on a wooden stake, making for an easily-eaten, tasty meal.</description>
+    <graphicData>
+      <texPath>Meal/GrilledSkewers</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>21</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>300</WorkToMake>	  
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <tasteThought>DankPyon_AteGrilledSkewers</tasteThought>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals> 
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteGrill</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers> 
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+  
+  <!-- Boiled Bean and Onion -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealBoiledBeansAndOnion</defName>
+    <label>Boiled beans and onion</label>
+    <description>A simple, yet hearty meal consisting of beans and chopped onion boiled in a light lentil broth.</description>
+    <graphicData>
+      <texPath>Meal/BoiledBeansAndOnion</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>15</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>300</WorkToMake>	  
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <tasteThought>DankPyon_AteBoiledBeansAndOnion</tasteThought>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>  
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoup</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+
+  <!-- Winter Lentil Soup -->
+  <ThingDef ParentName="MealCooked">
+    <defName>DankPyon_MealWinterLentilSoup</defName>
+    <label>winter lentil soup</label>
+    <description>A light, homey soup primarily made up from lentils with a light sprinkling of herbs and seasonings. A perfect dish to sip on during a cold winter afternoon.</description>
+    <graphicData>
+      <texPath>Meal/WinterLentilSoup</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+		<MarketValue>15</MarketValue>
+		<Nutrition>0.9</Nutrition>
+		<WorkToMake>300</WorkToMake>	  
+		<Mass>0.5</Mass>
+    </statBases>	
+    <ingestible>
+      <tasteThought>DankPyon_AteWinterLentilSoup</tasteThought>
+      <preferability>MealSimple</preferability>
+      <optimalityOffsetHumanlikes>17</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>-8</optimalityOffsetFeedingAnimals>  
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>DankPyon_AteSoup</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <rotatable>false</rotatable>
+  </ThingDef>
+  
+</Defs>

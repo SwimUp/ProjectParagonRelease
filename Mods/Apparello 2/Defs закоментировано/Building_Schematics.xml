@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="BuildingelloBase" Abstract="True">
+    <category>Building</category>
+    <thingClass>Building</thingClass>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<statBases>
+			<SellPriceFactor>0.70</SellPriceFactor>
+		</statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingelloBase">
+    <defName>ApparelloSchematics</defName>
+    <label>Schematic cabinet</label>
+    <thingClass>Building</thingClass>
+    <description>Can be connected to HiTech research bench and Tinkering bench. Increases research and work speed. This cabinet contains schematics and patterns. Each scribbled full of drafts for gear that couldn't possibly even work.. or could they? Atleast they're a source of inspiration.</description>
+    <graphicData>
+      <texPath>Tables/Cabinet</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <damageData>
+        <rect>(0.15,0.15,1.7,1.7)</rect>
+      </damageData>
+    </graphicData>
+    <!--<uiIconPath>Tables/CabinetMenu</uiIconPath>-->
+    <size>(1,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+	    <tradeTags>
+      <li>Artifact</li>
+    </tradeTags>
+    <statBases>
+	      <MarketValue>1000</MarketValue>
+	      <Mass>15</Mass>
+      <MaxHitPoints>200</MaxHitPoints>
+<!--      <WorkToBuild>5000</WorkToBuild>-->
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.10</ResearchSpeedFactor>
+          <WorkTableWorkSpeedFactor>0.10</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>2</maxSimultaneous>
+      </li>
+
+    </comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+  </ThingDef>
+
+</Defs>

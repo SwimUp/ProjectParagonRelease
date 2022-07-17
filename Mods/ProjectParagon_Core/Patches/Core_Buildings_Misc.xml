@@ -1,0 +1,1781 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="EggBox"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>EggBox</defName>
+						<label>egg box</label>
+						<description>A box with soft material made to hold eggs. Egg-laying animals will lay eggs in egg boxes if they can. Your haulers will take all the eggs out only when the box is full, to save time. The box also protects eggs from deteriorating outdoors, though it does not protect from temperature damage.</description>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<fillPercent>0.3</fillPercent>
+						<tickerType>Normal</tickerType>
+						<drawGUIOverlay>true</drawGUIOverlay>
+						<graphicData>
+							<texPath>Things/Building/Misc/EggBox</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shadowData>
+								<volume>(1,0.5,1)</volume>
+							</shadowData>
+							<damageData>
+								<rect>(0,0,1,1)</rect>
+							</damageData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>2000</WorkToBuild>
+							<Flammability>1</Flammability>
+							<Mass>3</Mass>
+						</statBases>
+						<comps>
+							<li Class="CompProperties_ThingContainer">
+								<compClass>CompEggContainer</compClass>
+								<stackLimit>25</stackLimit>
+								<minCountToEmpty>20</minCountToEmpty>
+								<drawStackLabel>true</drawStackLabel>
+							</li>
+						</comps>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<pathCost>10</pathCost>
+						<rotatable>false</rotatable>
+						<designationCategory>Production</designationCategory>
+						<designatorDropdown>Farming</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="PenMarker"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>PenMarker</defName>
+						<label>pen marker</label>
+						<description>A post with a sign designating an animal pen. It must be placed in an area enclosed by fences, barricades, walls, and doors. You can assign each pen marker a set of animals to accept, and handlers will bring animals to an appropriate pen.</description>
+						<thingClass>Building</thingClass>
+						<tickerType>Long</tickerType>
+						<designationCategory>Production</designationCategory>
+						<designatorDropdown>Farming</designatorDropdown>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.15</fillPercent>
+						<pathCost>0</pathCost>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<Mass>8</Mass>
+							<WorkToBuild>600</WorkToBuild>
+							<Flammability>1.0</Flammability>
+							<Beauty>0</Beauty>
+						</statBases>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>30</costStuffCount>
+						<rotatable>false</rotatable>
+						<fertility>0</fertility>
+						<building>
+							<isInert>true</isInert>
+							<ai_chillDestination>false</ai_chillDestination>
+							<ai_neverTrashThis>true</ai_neverTrashThis>
+							<relatedBuildCommands>
+								<li>Fence</li>
+								<li>FenceGate</li>
+							</relatedBuildCommands>
+						</building>
+						<graphicData>
+							<texPath>Things/Building/Furniture/PenMarker</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shadowData>
+								<volume>(0.2, 0.5, 0.2)</volume>
+								<offset>(0,0,-0.23)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.25,0.6,0.5,0.2)</rect>
+							</damageData>
+						</graphicData>
+						<comps>
+							<li Class="CompProperties_AnimalPenMarker"/>
+							<li Class="CompProperties_Forbiddable"/>
+						</comps>
+						<inspectorTabs>
+							<li>ITab_PenAutoCut</li>
+							<li>ITab_PenFood</li>
+							<li>ITab_PenAnimals</li>
+						</inspectorTabs>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+						<placeWorkers>
+							<li>PlaceWorker_AnimalPenMarker</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SteleLarge"]</xpath>
+				<value>
+					<ThingDef ParentName="SteleBase">
+						<defName>SteleLarge</defName>
+						<label>large stele</label>
+						<description>A tall, thick slab with engravings on the sides. Steles have been used since ancient times to memorialize individuals, battles, and other important events.</description>
+						<size>(2,2)</size>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<WorkToBuild>8000</WorkToBuild>
+							<Beauty>15</Beauty>
+							<MeditationFocusStrength>0.15</MeditationFocusStrength>
+						</statBases>
+						<costStuffCount>125</costStuffCount>
+						<uiIconScale>0.8</uiIconScale>
+						<uiIconOffset>(0, 0.04)</uiIconOffset>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<designationCategory>Furniture</designationCategory>
+						<designatorDropdown>Monuments</designatorDropdown>
+						<graphicData>
+							<graphicClass>Graphic_Random</graphicClass>
+							<texPath>Things/Building/Furniture/SteleLarge</texPath>
+							<drawSize>(4,4)</drawSize>
+							<drawOffset>(0,0,0.05)</drawOffset>
+							<shadowData>
+								<volume>(1.5, 0.6, 1.5)</volume>
+								<offset>(0, 0, -0.15)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.1,0.1,1.9,1.9)</rect>
+							</damageData>
+						</graphicData>
+						<comps>
+							<li Class="CompProperties_MeditationFocus">
+								<statDef>MeditationFocusStrength</statDef>
+								<focusTypes>
+									<li>Artistic</li>
+								</focusTypes>
+							</li>
+						</comps>
+						<researchPrerequisites Inherit="false">
+							<li>MonumentsI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SteleGrand"]</xpath>
+				<value>
+					<ThingDef ParentName="SteleBase">
+						<defName>SteleGrand</defName>
+						<label>grand stele</label>
+						<description>A towering slab with extensive engravings on the sides. Steles have been used since ancient times to memorialize individuals, battles, and other important events.</description>
+						<size>(3,3)</size>
+						<statBases>
+							<MaxHitPoints>400</MaxHitPoints>
+							<WorkToBuild>16000</WorkToBuild>
+							<Beauty>30</Beauty>
+							<MeditationFocusStrength>0.18</MeditationFocusStrength>
+						</statBases>
+						<designationCategory>Furniture</designationCategory>
+						<designatorDropdown>Monuments</designatorDropdown>
+						<costStuffCount>250</costStuffCount>
+						<uiIconScale>0.7</uiIconScale>
+						<uiIconOffset>(0, 0.02)</uiIconOffset>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Furniture/GrandStele</texPath>
+							<drawSize>(5,5)</drawSize>
+							<drawOffset>(0,0,0.25)</drawOffset>
+							<shadowData>
+								<volume>(2.2, 1, 2.2)</volume>
+								<offset>(0, 0, -0.1)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.1,0.1,2.9,2.9)</rect>
+							</damageData>
+						</graphicData>
+						<researchPrerequisites Inherit="false">
+							<li>MonumentsII</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_MeditationFocus">
+								<statDef>MeditationFocusStrength</statDef>
+								<focusTypes>
+									<li>Artistic</li>
+								</focusTypes>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Lectern"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>Lectern</defName>
+						<label>lectern</label>
+						<description>A slanted platform that holds a text in front of a speaker. Place it near the focus of rituals and speeches to extend the duration of their positive effects.</description>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/Lectern/Lectern</texPath>
+							<drawSize>(1,1)</drawSize>
+							<shadowData>
+								<volume>(0.8, 1, 0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<fillPercent>0.35</fillPercent>
+						<selectable>true</selectable>
+						<useHitPoints>true</useHitPoints>
+						<size>(1,1)</size>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>10000</WorkToBuild>
+							<Beauty>10</Beauty>
+							<Flammability>1.0</Flammability>
+							<Mass>25</Mass>
+						</statBases>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<hasInteractionCell>True</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<building>
+							<buildingTags>
+								<li>RitualFocus</li>
+							</buildingTags>
+						</building>
+						<comps>
+							<li Class="CompProperties_Styleable"/>
+						</comps>
+						<ritualFocus>
+							<spectateDistance>2</spectateDistance>
+							<allowedSpectateSides>Up</allowedSpectateSides>
+						</ritualFocus>
+						<placeWorkers>
+							<li>PlaceWorker_RitualPosition</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<drawPlaceWorkersWhileSelected>True</drawPlaceWorkersWhileSelected>
+						<designationCategory>Ideology</designationCategory>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Reliquary"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>Reliquary</defName>
+						<label>reliquary</label>
+						<description>A ceremonial building that protects and displays a relic. Relics are ancient objects venerated by believers of a specific ideoligion.</description>
+						<statBases>
+							<MaxHitPoints>350</MaxHitPoints>
+							<WorkToBuild>40000</WorkToBuild>
+							<Mass>100</Mass>
+							<Flammability>1.0</Flammability>
+						</statBases>
+						<graphicData>
+							<drawSize>(3.2,2.4)</drawSize>
+							<texPath>Things/Building/Misc/Reliquary/Reliquary</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawOffsetNorth>(0,0,0.2)</drawOffsetNorth>
+							<drawOffsetSouth>(0,0,0.2)</drawOffsetSouth>
+							<shadowData>
+								<volume>(2.9,0.6,1.9)</volume>
+							</shadowData>
+							<damageData>
+								<rect>(0.1,0.1,2.8,1.8)</rect>
+							</damageData>
+						</graphicData>
+						<castEdgeShadows>true</castEdgeShadows>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<tickerType>Normal</tickerType>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<category>Building</category>
+						<size>(3,2)</size>
+						<pathCost>30</pathCost>
+						<fillPercent>0.4</fillPercent>
+						<uiIconOffset>(0, -0.02)</uiIconOffset>
+						<uiIconScale>1.2</uiIconScale>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>300</costStuffCount>
+						<costList>
+							<ComponentSimple>6</ComponentSimple>
+							<GoldIngot>75</GoldIngot>
+						</costList>
+						<researchPrerequisites Inherit="false">
+							<li>ExquisiteFurniture</li>
+						</researchPrerequisites>
+						<building>
+							<buildingSizeCategory>Medium</buildingSizeCategory>
+						</building>
+						<hasInteractionCell>true</hasInteractionCell>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<comps>
+							<li Class="CompProperties_ThingContainer">
+								<compClass>CompRelicContainer</compClass>
+								<containedThingOffset>(0,0,1)</containedThingOffset>
+								<stackLimit>1</stackLimit>
+							</li>
+						</comps>
+						<designationCategory>Ideology</designationCategory>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="StylingStation"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>StylingStation</defName>
+						<label>styling station</label>
+						<description>A table with a mirror and styling tools. People can use this to change their look.</description>
+						<thingClass>Building_StylingStation</thingClass>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<statBases>
+							<WorkToBuild>2000</WorkToBuild>
+							<MaxHitPoints>120</MaxHitPoints>
+							<Flammability>0.8</Flammability>
+							<Mass>15</Mass>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Building/Misc/StylingStation/TableStyling</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(3.5,1.5)</drawSize>
+							<shadowData>
+								<volume>(3,0.5,1)</volume>
+							</shadowData>
+							<damageData>
+								<rect>(0.1,0.1,2.8,0.8)</rect>
+							</damageData>
+						</graphicData>
+						<thingCategories>
+							<li>BuildingsFurniture</li>
+						</thingCategories>
+						<canOverlapZones>false</canOverlapZones>
+						<altitudeLayer>Building</altitudeLayer>
+						<fillPercent>0.5</fillPercent>
+						<useHitPoints>True</useHitPoints>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<hasInteractionCell>true</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<size>(3,1)</size>
+						<costStuffCount>100</costStuffCount>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costList>
+							<ComponentSimple>2</ComponentSimple>
+						</costList>
+						<researchPrerequisites Inherit="false">
+							<li>ExquisiteFurniture</li>
+						</researchPrerequisites>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<designationCategory>Ideology</designationCategory>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GibbetCage"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>GibbetCage</defName>
+						<label>gibbet cage</label>
+						<description>A steel cage for holding and displaying corpses. This horrifying sight inspires terror and disgust in observers. It is an especially brutal and effective way to terrorize slaves.</description>
+						<thingClass>Building_GibbetCage</thingClass>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<altitudeLayer>Building</altitudeLayer>
+						<graphicData>
+							<texPath>Things/Building/Misc/GibbetCageBottom</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(1.3,1.3)</drawSize>
+						</graphicData>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<uiIconPath>Things/Building/Misc/GibbetCage_MenuIcon</uiIconPath>
+						<passability>PassThroughOnly</passability>
+						<pathCost>42</pathCost>
+						<blockWind>true</blockWind>
+						<fillPercent>0.5</fillPercent>
+						<canOverlapZones>false</canOverlapZones>
+						<statBases>
+							<WorkToBuild>1600</WorkToBuild>
+							<MaxHitPoints>150</MaxHitPoints>
+							<Flammability>0</Flammability>
+							<TerrorSource MayRequire="Ludeon.RimWorld.Ideology">0</TerrorSource>
+							<Mass>25</Mass>
+						</statBases>
+						<tickerType>Rare</tickerType>
+						<size>(1,1)</size>
+						<designationCategory>Ideology</designationCategory>
+						<defaultPlacingRot>North</defaultPlacingRot>
+						<rotatable>false</rotatable>
+						<building>
+							<ai_chillDestination>false</ai_chillDestination>
+							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+							<haulToContainerDuration>500</haulToContainerDuration>
+							<gibbetCageTopGraphicData>
+								<texPath>Things/Building/Misc/GibbetCageTop</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>(1.3,1.3)</drawSize>
+								<shaderType>Cutout</shaderType>
+							</gibbetCageTopGraphicData>
+							<gibbetCorposeDrawOffset>(0, 0, 0.15)</gibbetCorposeDrawOffset>
+							<gibbetCagePlaceCorpseEffecter>GibbetCage_PlaceCorpse</gibbetCagePlaceCorpseEffecter>
+							<fixedStorageSettings>
+								<filter>
+									<categories>
+										<li>CorpsesHumanlike</li>
+									</categories>
+								</filter>
+							</fixedStorageSettings>
+							<defaultStorageSettings>
+								<priority>Important</priority>
+								<filter>
+									<categories>
+										<li>CorpsesHumanlike</li>
+									</categories>
+									<specialFiltersToDisallow>
+										<li>AllowCorpsesColonist</li>
+									</specialFiltersToDisallow>
+									<specialFiltersToAllow>
+										<li MayRequire="Ludeon.RimWorld.Ideology">AllowCorpsesSlave</li>
+										<li>AllowCorpsesStranger</li>
+									</specialFiltersToAllow>
+								</filter>
+							</defaultStorageSettings>
+						</building>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<ComponentSimple>2</ComponentSimple>
+						</costList>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_Forbiddable"/>
+							<li>
+								<compClass>CompQuality</compClass>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<inspectorTabs>
+							<li>ITab_ContentsCasket</li>
+							<li>ITab_Storage</li>
+						</inspectorTabs>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="LightBall"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>LightBall</defName>
+						<label>lightball</label>
+						<description>A decorative light that rotates and changes colors. Used as a focus for dance parties.</description>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Misc/Lightball/Lightball</texPath>
+							<drawSize>(1,1)</drawSize>
+							<shadowData>
+								<volume>(0.5, 1, 0.5)</volume>
+							</shadowData>
+						</graphicData>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<designationCategory>Ideology</designationCategory>
+						<rotatable>false</rotatable>
+						<receivesSignals>true</receivesSignals>
+						<fillPercent>0.35</fillPercent>
+						<selectable>true</selectable>
+						<useHitPoints>true</useHitPoints>
+						<tickerType>Normal</tickerType>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<size>(1,1)</size>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>1000</WorkToBuild>
+							<Mass>5</Mass>
+						</statBases>
+						<researchPrerequisites>
+							<li>Electricity</li>
+						</researchPrerequisites>
+						<costList>
+							<Steel>30</Steel>
+							<ComponentIndustrial>1</ComponentIndustrial>
+						</costList>
+						<building>
+							<relatedBuildCommands>
+								<li>Loudspeaker</li>
+							</relatedBuildCommands>
+						</building>
+						<comps>
+							<li Class="CompProperties_Glower">
+								<overlightRadius>2.0</overlightRadius>
+								<glowRadius>7</glowRadius>
+								<glowColor>(170,170,170,0)</glowColor>
+							</li>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<shortCircuitInRain>true</shortCircuitInRain>
+								<showPowerNeededIfOff>false</showPowerNeededIfOff>
+								<basePowerConsumption>60</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Lightball">
+								<soundDefsPerSpeakerCount>
+									<li>Loudspeaker_Music_1</li>
+									<li>Loudspeaker_Music_2</li>
+									<li>Loudspeaker_Music_3</li>
+									<li>Loudspeaker_Music_4</li>
+									<li>Loudspeaker_Music_5</li>
+									<li>Loudspeaker_Music_6</li>
+								</soundDefsPerSpeakerCount>
+								<maxSpeakerDistance>12</maxSpeakerDistance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Loudspeaker"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>Loudspeaker</defName>
+						<label>loudspeaker</label>
+						<description>A large loudspeaker for playing music. At least one is necessary to hold a dance party, and more loudspeakers will enhance the effect.</description>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/Loudspeaker/Loudspeaker</texPath>
+							<drawRotated>false</drawRotated>
+							<drawSize>(1.32, 1.32)</drawSize>
+							<drawOffset>(0, 0, 0.18)</drawOffset>
+							<shadowData>
+								<volume>(0.8, 1, 0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<designationCategory>Ideology</designationCategory>
+						<fillPercent>0.35</fillPercent>
+						<selectable>true</selectable>
+						<useHitPoints>true</useHitPoints>
+						<tickerType>Normal</tickerType>
+						<receivesSignals>true</receivesSignals>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<size>(1,1)</size>
+						<uiIconScale>0.8</uiIconScale>
+						<rotatable>true</rotatable>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>1000</WorkToBuild>
+							<Mass>15</Mass>
+						</statBases>
+						<researchPrerequisites>
+							<li>Electricity</li>
+						</researchPrerequisites>
+						<costList>
+							<Steel>80</Steel>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+						<building>
+							<relatedBuildCommands>
+								<li>LightBall</li>
+							</relatedBuildCommands>
+						</building>
+						<comps>
+							<li Class="CompProperties_Glower">
+								<overlightRadius>1.5</overlightRadius>
+								<glowRadius>3</glowRadius>
+								<glowColor>(170,170,170,0)</glowColor>
+							</li>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<shortCircuitInRain>true</shortCircuitInRain>
+								<showPowerNeededIfOff>false</showPowerNeededIfOff>
+								<basePowerConsumption>150</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Loudspeaker"/>
+							<li Class="CompProperties_ThrownFleckEmitter">
+								<fleck>Music</fleck>
+								<offsetMin>(-0.6,0,0.3)</offsetMin>
+								<offsetMax>(0.6,0,0.5)</offsetMax>
+								<emissionInterval>100</emissionInterval>
+								<scale>0.6~0.9</scale>
+								<rotationRate>-15~15</rotationRate>
+								<velocityX>0.3~0.7</velocityX>
+								<velocityY>0.7~1.0</velocityY>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Drum"]</xpath>
+				<value>
+					<ThingDef ParentName="MusicalInstrumentBase">
+						<defName>Drum</defName>
+						<label>drum</label>
+						<description>A large wooden drum used as a music source for tribal rituals and parties.</description>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Misc/Drum/Drum</texPath>
+							<drawSize>(1,1)</drawSize>
+							<drawRotated>False</drawRotated>
+							<shadowData>
+								<volume>(0.5, 1, 0.5)</volume>
+							</shadowData>
+						</graphicData>
+						<designationCategory>Ideology</designationCategory>
+						<fillPercent>0.35</fillPercent>
+						<selectable>true</selectable>
+						<useHitPoints>true</useHitPoints>
+						<tickerType>Normal</tickerType>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<size>(1,1)</size>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>800</WorkToBuild>
+							<Mass>5</Mass>
+						</statBases>
+						<stuffCategories>
+							<li>Leathery</li>
+							<li>Fabric</li>
+						</stuffCategories>
+						<costStuffCount>30</costStuffCount>
+						<costList>
+							<WoodLog>50</WoodLog>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+						<recipeMaker/>
+						<comps Inherit="False">
+							<li Class="CompProperties_ThrownFleckEmitter">
+								<fleck>Music</fleck>
+								<offsetMin>(-0.6,0,0.3)</offsetMin>
+								<offsetMax>(0.6,0,0.5)</offsetMax>
+								<emissionInterval>100</emissionInterval>
+								<scale>0.6~0.9</scale>
+								<rotationRate>-15~15</rotationRate>
+								<velocityX>0.3~0.7</velocityX>
+								<velocityY>0.7~1.0</velocityY>
+							</li>
+						</comps>
+						<placeWorkers Inherit="False">
+							<li>PlaceWorker_LinkToCampfire</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Pew"]</xpath>
+				<value>
+					<ThingDef ParentName="RitualSeatBase">
+						<defName>Pew</defName>
+						<label>pew</label>
+						<description>A long bench where ritual participants can sit while listening to a speaker. Place it facing rituals and speeches to extend the duration of their positive effects.</description>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/Pew/Pew</texPath>
+							<drawSize>(3,1)</drawSize>
+							<shadowData>
+								<volume>(0.8, 1, 0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<fillPercent>0.35</fillPercent>
+						<size>(3,1)</size>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<costList>
+							<ComponentPrimitive>4</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>2400</WorkToBuild>
+							<Beauty>10</Beauty>
+							<Flammability>1.0</Flammability>
+							<Comfort>0.60</Comfort>
+							<Mass>15</Mass>
+							<StyleDominance>5</StyleDominance>
+						</statBases>
+						<building>
+							<multiSittable>true</multiSittable>
+						</building>
+						<designationCategory>Ideology</designationCategory>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="KneelSheet"]</xpath>
+				<value>
+					<ThingDef ParentName="RitualSeatBase">
+						<defName>KneelSheet</defName>
+						<label>kneel sheet</label>
+						<description>A sheet on which believers kneel while observing rituals, praying, or discussing.</description>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/KneelSheet/KneelSheet</texPath>
+							<drawSize>(2,2)</drawSize>
+						</graphicData>
+						<fillPercent>0.05</fillPercent>
+						<size>(2,2)</size>
+						<stuffCategories>
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<costStuffCount>80</costStuffCount>
+						<statBases>
+							<MaxHitPoints>40</MaxHitPoints>
+							<WorkToBuild>2400</WorkToBuild>
+							<Beauty>10</Beauty>
+							<Flammability>1.0</Flammability>
+							<Comfort>0.60</Comfort>
+							<Mass>2.5</Mass>
+							<StyleDominance>5</StyleDominance>
+						</statBases>
+						<building>
+							<multiSittable>true</multiSittable>
+							<sitIgnoreOrientation>true</sitIgnoreOrientation>
+						</building>
+						<designationCategory>Ideology</designationCategory>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="KneelPillow"]</xpath>
+				<value>
+					<ThingDef ParentName="RitualSeatBase">
+						<defName>KneelPillow</defName>
+						<label>kneel pillow</label>
+						<description>A pillow on which believers kneel while observing rituals, praying, or discussing.</description>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/KneelPillow/KneelPillow</texPath>
+							<drawSize>(1,1)</drawSize>
+						</graphicData>
+						<fillPercent>0.05</fillPercent>
+						<size>(1,1)</size>
+						<stuffCategories>
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<costStuffCount>45</costStuffCount>
+						<statBases>
+							<MaxHitPoints>20</MaxHitPoints>
+							<WorkToBuild>2400</WorkToBuild>
+							<Beauty>10</Beauty>
+							<Flammability>1.0</Flammability>
+							<Comfort>0.60</Comfort>
+							<Mass>2.5</Mass>
+							<StyleDominance>5</StyleDominance>
+						</statBases>
+						<building>
+							<sitIgnoreOrientation>true</sitIgnoreOrientation>
+						</building>
+						<designationCategory>Ideology</designationCategory>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SlabBed"]</xpath>
+				<value>
+					<ThingDef ParentName="Bed">
+						<defName>SlabBed</defName>
+						<label>slab bed</label>
+						<description>A slab of hard material made to sleep on. Slab beds are uncomfortable, but some see their use as a demonstration of moral good.</description>
+						<graphicData Inherit="False">
+							<texPath>Things/Building/Misc/SlabBed/SlabBed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2,2)</drawSize>
+						</graphicData>
+						<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+						<statBases Inherit="False">
+							<MaxHitPoints>140</MaxHitPoints>
+							<WorkToBuild>400</WorkToBuild>
+							<Mass>30</Mass>
+							<BedRestEffectiveness>1</BedRestEffectiveness>
+							<ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.7</SurgerySuccessChanceFactor>
+							<Flammability>1.0</Flammability>
+						</statBases>
+						<size>(1,2)</size>
+						<building>
+							<bed_slabBed>true</bed_slabBed>
+							<bed_showSleeperBody>true</bed_showSleeperBody>
+						</building>
+						<stuffCategories Inherit="False">
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<fillPercent>0.3</fillPercent>
+						<pathCost>20</pathCost>
+						<staticSunShadowHeight>0.17</staticSunShadowHeight>
+						<castEdgeShadows>True</castEdgeShadows>
+						<designationHotKey>Misc2</designationHotKey>
+						<techLevel>Neolithic</techLevel>
+						<uiIconScale>0.90</uiIconScale>
+						<designationCategory>Ideology</designationCategory>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SlabDoubleBed"]</xpath>
+				<value>
+					<ThingDef ParentName="DoubleBed">
+						<defName>SlabDoubleBed</defName>
+						<label>slab double bed</label>
+						<description>A slab of hard material made to sleep on. Slab beds are uncomfortable, but some see their use as a demonstration of moral good. This one is wide enough to fit two people.</description>
+						<graphicData Inherit="False">
+							<texPath>Things/Building/Misc/DoubleSlabBed/DoubleSlabBed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2,2)</drawSize>
+						</graphicData>
+						<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+						<statBases Inherit="False">
+							<MaxHitPoints>200</MaxHitPoints>
+							<WorkToBuild>750</WorkToBuild>
+							<Mass>50</Mass>
+							<BedRestEffectiveness>1</BedRestEffectiveness>
+							<ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.7</SurgerySuccessChanceFactor>
+							<Flammability>1.0</Flammability>
+						</statBases>
+						<size>(2,2)</size>
+						<building>
+							<bed_slabBed>true</bed_slabBed>
+							<bed_showSleeperBody>true</bed_showSleeperBody>
+						</building>
+						<stuffCategories Inherit="False">
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<fillPercent>0.3</fillPercent>
+						<pathCost>20</pathCost>
+						<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+						<staticSunShadowHeight>0.17</staticSunShadowHeight>
+						<castEdgeShadows>True</castEdgeShadows>
+						<designationHotKey>Misc3</designationHotKey>
+						<techLevel>Medieval</techLevel>
+						<uiIconScale>0.90</uiIconScale>
+						<designationCategory>Ideology</designationCategory>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Skullspike"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>Skullspike</defName>
+						<label>skullspike</label>
+						<description>A spike mounted upright for the purpose of piercing and displaying a human skull. To some, displayed skulls are a symbol of power. To others, they represent barbaric evil. Skullspikes are an especially brutal and effective way to terrorize slaves.</description>
+						<thingClass>Building_Skullspike</thingClass>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<altitudeLayer>Building</altitudeLayer>
+						<graphicData>
+							<texPath>Things/Building/Misc/Skullspike/Skullspike</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(1.3,1.3)</drawSize>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<uiIconPath>Things/Building/Misc/Skullspike/Skullspike</uiIconPath>
+						<passability>PassThroughOnly</passability>
+						<pathCost>30</pathCost>
+						<blockWind>true</blockWind>
+						<fillPercent>0.5</fillPercent>
+						<canOverlapZones>false</canOverlapZones>
+						<statBases>
+							<WorkToBuild>1600</WorkToBuild>
+							<MaxHitPoints>150</MaxHitPoints>
+							<TerrorSource>25</TerrorSource>
+							<Beauty>0</Beauty>
+							<Mass>15</Mass>
+						</statBases>
+						<size>(1,1)</size>
+						<defaultPlacingRot>North</defaultPlacingRot>
+						<rotatable>false</rotatable>
+						<building>
+							<ai_chillDestination>false</ai_chillDestination>
+							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+							<haulToContainerDuration>500</haulToContainerDuration>
+						</building>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>25</costStuffCount>
+						<costList>
+							<Skull>1</Skull>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+						<comps>
+							<li Class="CompProperties_HasSources">
+								<affectLabel>false</affectLabel>
+								<inspectStringLabel>skull of</inspectStringLabel>
+							</li>
+						</comps>
+						<designationCategory>Ideology</designationCategory>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Autobong"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>Autobong</defName>
+						<label>autobong</label>
+						<description>An automatic smokeleaf-burning device which generates a smoke cloud around itself. Anyone in the cloud will become high on smokeleaf over time.</description>
+						<category>Building</category>
+						<graphicData>
+							<texPath>Things/Building/Misc/Autobong/Autobong</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(2,2)</drawSize>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<uiIconPath>Things/Building/Misc/Autobong/Autobong</uiIconPath>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>42</pathCost>
+						<tickerType>Normal</tickerType>
+						<drawerType>RealtimeOnly</drawerType>
+						<fillPercent>0.20</fillPercent>
+						<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+						<size>(2,2)</size>
+						<statBases>
+							<MaxHitPoints>80</MaxHitPoints>
+							<WorkToBuild>800</WorkToBuild>
+						</statBases>
+						<selectable>true</selectable>
+						<costList>
+							<SmokeleafLeaves>25</SmokeleafLeaves>
+							<ComponentIndustrial>3</ComponentIndustrial>
+						</costList>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+						<researchPrerequisites>
+							<li>MicroelectronicsBasics</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_Refuelable">
+								<fuelConsumptionRate>1.66</fuelConsumptionRate>
+								<fuelCapacity>25.0</fuelCapacity>
+								<fuelFilter>
+									<thingDefs>
+										<li>SmokeleafLeaves</li>
+									</thingDefs>
+								</fuelFilter>
+								<initialFuelPercent>1</initialFuelPercent>
+								<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+								<consumeFuelOnlyWhenPowered>true</consumeFuelOnlyWhenPowered>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>10</glowRadius>
+								<glowColor>(252,187,113,0)</glowColor>
+							</li>
+							<li>
+								<compClass>CompGatherSpot</compClass>
+							</li>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>150</basePowerConsumption>
+								<shortCircuitInRain>true</shortCircuitInRain>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_GiveHediffSeverity">
+								<hediff>SmokeleafHigh</hediff>
+								<range>4.9</range>
+								<severityPerSecond>0.005</severityPerSecond>
+								<drugExposure>true</drugExposure>
+								<chemical>Smokeleaf</chemical>
+								<allowMechs>false</allowMechs>
+							</li>
+							<li Class="CompProperties_SmokeCloudMaker">
+								<sourceStreamEffect>BurnbongSmoke</sourceStreamEffect>
+								<cloudRadius>4.9</cloudRadius>
+								<fleckScale>4</fleckScale>
+								<cloudFleck>AutobongSmoke</cloudFleck>
+								<fleckSpawnMTB>25</fleckSpawnMTB>
+							</li>
+						</comps>
+						<designationCategory>Ideology</designationCategory>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+						<placeWorkers>
+							<li>PlaceWorker_SmokeCloudMaker</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[@Name="IdeoBuildingBase"]/designationCategory</xpath>
+				<value>
+					<designationCategory>Ideology</designationCategory>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Altar_Small"]</xpath>
+				<value>
+					<ThingDef ParentName="AltarBase">
+						<defName>Altar_Small</defName>
+						<label>small altar</label>
+						<description>A small platform that plays a role in ideoligious rituals.</description>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/Altars/Altar1x1</texPath>
+							<drawSize>(1,1)</drawSize>
+							<shadowData>
+								<volume>(0.8, 1, 0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(1,1)</size>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<ComponentPrimitive>4</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>5000</WorkToBuild>
+							<Beauty>10</Beauty>
+							<StyleDominance>10</StyleDominance>
+						</statBases>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Altar_Medium"]</xpath>
+				<value>
+					<ThingDef ParentName="AltarBase">
+						<defName>Altar_Medium</defName>
+						<label>medium altar</label>
+						<description>A medium platform that plays a role in ideoligious rituals.</description>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/Altars/Altar1x3</texPath>
+							<drawSize>(3,1)</drawSize>
+							<shadowData>
+								<volume>(2.4, 1, 0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(3,1)</size>
+						<castEdgeShadows>true</castEdgeShadows>
+						<costStuffCount>125</costStuffCount>
+						<costList>
+							<ComponentPrimitive>4</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>150</MaxHitPoints>
+							<WorkToBuild>15000</WorkToBuild>
+							<Beauty>15</Beauty>
+							<StyleDominance>20</StyleDominance>
+						</statBases>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Altar_Large"]</xpath>
+				<value>
+					<ThingDef ParentName="AltarBase">
+						<defName>Altar_Large</defName>
+						<label>large altar</label>
+						<description>A large platform that plays a role in ideoligious rituals.</description>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/Altars/Altar2x3</texPath>
+							<drawSize>(3,2)</drawSize>
+							<shadowData>
+								<volume>(2.4, 1, 1.6)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(3,2)</size>
+						<castEdgeShadows>true</castEdgeShadows>
+						<costStuffCount>200</costStuffCount>
+						<costList>
+							<ComponentSimple>4</ComponentSimple>
+						</costList>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<WorkToBuild>20000</WorkToBuild>
+							<Beauty>20</Beauty>
+							<StyleDominance>40</StyleDominance>
+						</statBases>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Altar_Grand"]</xpath>
+				<value>
+					<ThingDef ParentName="AltarBase">
+						<defName>Altar_Grand</defName>
+						<label>grand altar</label>
+						<description>A grand platform that plays a role in ideoligious rituals.</description>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/Altars/Altar3x3</texPath>
+							<drawSize>(3,3)</drawSize>
+							<shadowData>
+								<volume>(2.4, 1, 2.4)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(3,3)</size>
+						<castEdgeShadows>true</castEdgeShadows>
+						<costStuffCount>300</costStuffCount>
+						<costList>
+							<ComponentSimple>6</ComponentSimple>
+						</costList>
+						<statBases>
+							<MaxHitPoints>350</MaxHitPoints>
+							<WorkToBuild>30000</WorkToBuild>
+							<Beauty>30</Beauty>
+							<StyleDominance>50</StyleDominance>
+						</statBases>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<interactionCellOffset>(0,0, -2)</interactionCellOffset>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Ideogram"]</xpath>
+				<value>
+					<ThingDef ParentName="IdeoBuildingBase">
+						<defName>Ideogram</defName>
+						<label>ideogram</label>
+						<description>A large image drawn on the ground and reinforced with metal edges. It is used as a focus for rituals.</description>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<color>(105,105,105)</color>
+							<texPath>Things/Building/Misc/Ideogram/IconChristian/IconChristianA</texPath>
+							<drawSize>(3,3)</drawSize>
+							<shadowData>
+								<volume>(0.8, 1, 0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(3,3)</size>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>25000</WorkToBuild>
+							<Beauty>10</Beauty>
+							<StyleDominance>20</StyleDominance>
+						</statBases>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<ideoBuildingNamerBase>NamerIdeogram</ideoBuildingNamerBase>
+						<passability>Standable</passability>
+						<selectable>true</selectable>
+						<useHitPoints>true</useHitPoints>
+						<isAltar>true</isAltar>
+						<hasInteractionCell>True</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<canEditAnyStyle>true</canEditAnyStyle>
+						<building>
+							<buildingTags>
+								<li>RitualFocus</li>
+							</buildingTags>
+						</building>
+						<placeWorkers Inherit="False">
+							<li>PlaceWorker_RitualFocusNoArrow</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<drawPlaceWorkersWhileSelected>True</drawPlaceWorkersWhileSelected>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ChristmasTree"]</xpath>
+				<value>
+					<ThingDef ParentName="IdeoBuildingConsumableBase">
+						<defName>ChristmasTree</defName>
+						<label>christmas tree</label>
+						<description>A celebratory tree decorated with ornaments and lights traditionally made as part of Christmas celebrations.</description>
+						<ideoBuildingNamerBase>NamerChristmasTree</ideoBuildingNamerBase>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Misc/ChristmasTree/ChristmasTree</texPath>
+							<drawSize>(2.2,2.2)</drawSize>
+							<drawOffset>(0, 0, 0.75)</drawOffset>
+							<shadowData>
+								<volume>(0.8, 1.5, 0.8)</volume>
+								<offset>(0, 0, -0.25)</offset>
+							</shadowData>
+						</graphicData>
+						<size>(1,1)</size>
+						<uiIconScale>0.5</uiIconScale>
+						<costList>
+							<WoodLog>120</WoodLog>
+							<ComponentSimple>2</ComponentSimple>
+						</costList>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>10000</WorkToBuild>
+							<Beauty>10</Beauty>
+							<Mass>25</Mass>
+						</statBases>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<passability>PassThroughOnly</passability>
+						<rotatable>false</rotatable>
+						<comps>
+							<li Class="CompProperties_RitualTargetEffecterSpawner">
+								<effecter>ChristmasTreeTwinkle</effecter>
+							</li>
+							<li Class="CompProperties_RitualSignalSender"/>
+							<li Class="CompProperties_Glower">
+								<glowRadius>8</glowRadius>
+								<glowColor>(255,255,108,0)</glowColor>
+							</li>
+						</comps>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="CannibalPlatter"]</xpath>
+				<value>
+					<ThingDef ParentName="IdeoBuildingConsumableBase">
+						<defName>CannibalPlatter</defName>
+						<label>cannibal platter</label>
+						<description>An area of floor covered with pre-chopped and arranged human meat ready for a cannibal feast.</description>
+						<ideoBuildingNamerBase>NamerCannibalPlatter</ideoBuildingNamerBase>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Misc/CannibalPlatter/CannibalPlatter</texPath>
+							<drawSize>(2.2,3.3)</drawSize>
+							<shadowData>
+								<volume>(0.8, 1 ,0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(2,3)</size>
+						<costList>
+							<Meat_Human>120</Meat_Human>
+						</costList>
+						<killedLeavings>
+							<Meat_Human>120</Meat_Human>
+						</killedLeavings>
+						<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+						<defaultPlacingRot>East</defaultPlacingRot>
+						<ritualFocus>
+							<spectateDistance>1~2</spectateDistance>
+						</ritualFocus>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>10000</WorkToBuild>
+							<Mass>25</Mass>
+						</statBases>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<passability>PassThroughOnly</passability>
+						<placeWorkers Inherit="False"/>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Effigy"]</xpath>
+				<value>
+					<ThingDef ParentName="IdeoBurnableBase">
+						<defName>Effigy</defName>
+						<label>effigy</label>
+						<description>A rough wooden frame in the shape of a human, ready to be burned as part of a ritual.</description>
+						<ideoBuildingNamerBase>NamerBurnTarget</ideoBuildingNamerBase>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Misc/Effigy/Effigy</texPath>
+							<drawSize>(1,1)</drawSize>
+							<shadowData>
+								<volume>(0.5, 0.3 ,0.5)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(1,1)</size>
+						<costList>
+							<WoodLog>120</WoodLog>
+						</costList>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>3000</WorkToBuild>
+							<Mass>25</Mass>
+						</statBases>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<passability>PassThroughOnly</passability>
+						<comps>
+							<li Class="CompProperties_FireOverlayRitual">
+								<fireSize>0.8</fireSize>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>10</glowRadius>
+								<glowColor>(252,187,113,0)</glowColor>
+							</li>
+						</comps>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SacrificialFlag"]</xpath>
+				<value>
+					<ThingDef ParentName="IdeoBurnableBase">
+						<defName>SacrificialFlag</defName>
+						<label>sacrificial flag</label>
+						<description>A flag representing enemies, ready to be burned as part of a ritual.</description>
+						<ideoBuildingNamerBase>NamerBurnTarget</ideoBuildingNamerBase>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Misc/SacrificialFlag/SacrificialFlag</texPath>
+							<drawSize>(1,1)</drawSize>
+							<shaderType>CutoutComplex</shaderType>
+							<shadowData>
+								<volume>(0.3, 0.3 ,0.3)</volume>
+								<offset>(0, 0, -0.2)</offset>
+							</shadowData>
+						</graphicData>
+						<size>(1,1)</size>
+						<costList>
+							<WoodLog>50</WoodLog>
+						</costList>
+						<stuffCategories>
+							<li>Fabric</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<statBases>
+							<MaxHitPoints>20</MaxHitPoints>
+							<WorkToBuild>3000</WorkToBuild>
+							<Mass>5</Mass>
+						</statBases>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<passability>PassThroughOnly</passability>
+						<comps>
+							<li Class="CompProperties_FireOverlayRitual">
+								<fireSize>0.8</fireSize>
+								<offset>(0,0,0.2)</offset>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>10</glowRadius>
+								<glowColor>(252,187,113,0)</glowColor>
+							</li>
+						</comps>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Pyre"]</xpath>
+				<value>
+					<ThingDef ParentName="IdeoBurnableBase">
+						<defName>Pyre</defName>
+						<label>pyre</label>
+						<description>A wooden tower for ritual burning.</description>
+						<ideoBuildingNamerBase>NamerBurnTarget</ideoBuildingNamerBase>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Misc/Pyre/Pyre</texPath>
+							<drawSize>(2,2)</drawSize>
+							<shadowData>
+								<volume>(0.8, 1 ,0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(2,2)</size>
+						<costList>
+							<WoodLog>150</WoodLog>
+						</costList>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>5000</WorkToBuild>
+							<Mass>25</Mass>
+						</statBases>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<passability>Impassable</passability>
+						<canOverlapZones>false</canOverlapZones>
+						<castEdgeShadows>true</castEdgeShadows>
+						<comps Inherit="False">
+							<li Class="CompProperties_FireOverlayRitual">
+								<fireSize>1.0</fireSize>
+								<offset>(0,0,0.5)</offset>
+								<finalFireSize>1.75</finalFireSize>
+								<fireGrowthDurationTicks>500</fireGrowthDurationTicks>
+								<minRitualProgress>0.25</minRitualProgress>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>18</glowRadius>
+								<glowColor>(252,187,113,0)</glowColor>
+							</li>
+							<li Class="CompProperties_RitualTargetEffecterSpawner">
+								<effecter>FireSmoke</effecter>
+								<minRitualProgress>0.25</minRitualProgress>
+							</li>
+							<li Class="CompProperties_RitualSignalSender"/>
+							<li Class="CompProperties_Styleable"/>
+						</comps>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Burnbong"]</xpath>
+				<value>
+					<ThingDef ParentName="IdeoSmokerBase">
+						<defName>Burnbong</defName>
+						<label>burnbong</label>
+						<description>A wood structure packed with smokeleaf. It can be ignited during a ritual and produce a huge amount of smokeleaf smoke for a few hours, after which it is destroyed.</description>
+						<drawerType>RealtimeOnly</drawerType>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Misc/Burnbong/Burnbong</texPath>
+							<drawSize>(1.2,1.2)</drawSize>
+							<shadowData>
+								<volume>(0.92, 1 ,0.92)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(1,1)</size>
+						<costList>
+							<WoodLog>50</WoodLog>
+							<SmokeleafLeaves>150</SmokeleafLeaves>
+							<ComponentPrimitive>4</ComponentPrimitive>
+						</costList>
+						<killedLeavings>
+							<SmokeleafLeaves>150</SmokeleafLeaves>
+						</killedLeavings>
+						<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>10000</WorkToBuild>
+							<Mass>25</Mass>
+						</statBases>
+						<comps>
+							<li Class="CompProperties_RitualTargetEffecterSpawner">
+								<effecter>BurnbongSmoke</effecter>
+							</li>
+							<li Class="CompProperties_FireOverlayRitual">
+								<fireSize>0.5</fireSize>
+								<offset>(0, 0, 0.42)</offset>
+							</li>
+							<li Class="CompProperties_RitualHediffGiverInRoom">
+								<hediff>SmokeleafHigh</hediff>
+								<resetLastRecreationalDrugTick>true</resetLastRecreationalDrugTick>
+								<minRadius>10</minRadius>
+								<severity>0.01</severity>
+							</li>
+						</comps>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="IncenseShrine"]</xpath>
+				<value>
+					<ThingDef ParentName="IdeoSmokerBase">
+						<defName>IncenseShrine</defName>
+						<label>incense shrine</label>
+						<description>A collection of packed incense containers. It can be ignited and produce a powerful incense effect as a focus for rituals. It is destroyed after it burns down.</description>
+						<graphicData>
+							<graphicClass>Graphic_Single</graphicClass>
+							<texPath>Things/Building/Misc/IncenseShrine/IncenseShrine</texPath>
+							<drawSize>(2,2)</drawSize>
+							<shadowData>
+								<volume>(0.8, 1 ,0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(2,2)</size>
+						<costList>
+							<WoodLog>125</WoodLog>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>80</MaxHitPoints>
+							<WorkToBuild>12000</WorkToBuild>
+							<Mass>25</Mass>
+						</statBases>
+						<comps>
+							<li Class="CompProperties_RitualTargetEffecterSpawner">
+								<effecter>IncenseShrineSmoke</effecter>
+							</li>
+						</comps>
+						<researchPrerequisites Inherit="false">
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="RitualSpot"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>RitualSpot</defName>
+						<label>ritual spot</label>
+						<description>A spot for carrying out certain kinds of rituals.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/RitualSpot</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<altitudeLayer>FloorEmplacement</altitudeLayer>
+						<statBases>
+							<WorkToBuild>0</WorkToBuild>
+						</statBases>
+						<rotatable>false</rotatable>
+						<scatterableOnMapGen>false</scatterableOnMapGen>
+						<useHitPoints>False</useHitPoints>
+						<designationCategory>Ideology</designationCategory>
+						<passability>Standable</passability>
+						<building>
+							<sowTag>SupportPlantsOnly</sowTag>
+							<canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+							<ai_chillDestination>false</ai_chillDestination>
+							<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+							<buildingTags>
+								<li>RitualFocus</li>
+							</buildingTags>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="NatureShrine_Small"]</xpath>
+				<value>
+					<ThingDef ParentName="NatureShrineBase">
+						<defName>NatureShrine_Small</defName>
+						<label>small nature shrine</label>
+						<description>A small shrine for honoring spiritual beings. Tribal psycasters can focus on this shrine while meditating to increase psyfocus gain. Nature shrines lose their power if they are close to artificial structures, so they are always built in nature. Since they look like natural objects to unobservant outsiders, raiders will generally ignore them.</description>
+						<graphicData>
+							<graphicClass>Graphic_Appearances</graphicClass>
+							<texPath>Things/Building/Misc/NatureShrine_Small</texPath>
+							<drawSize>(2,2)</drawSize>
+							<shadowData>
+								<volume>(1.4, 1, 0.8)</volume>
+								<offset>(0,0,-0.5)</offset>
+							</shadowData>
+						</graphicData>
+						<size>(2,2)</size>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<designationCategory>Ideology</designationCategory>
+						<comps>
+							<li Class="CompProperties_MeditationFocus">
+								<statDef>MeditationFocusStrength</statDef>
+								<focusTypes>
+									<li>Natural</li>
+								</focusTypes>
+								<offsets>
+									<li Class="FocusStrengthOffset_ArtificialBuildings">
+										<radius>34.9</radius>
+										<curve>
+											<points>
+												<li>(0,   0.0)</li>
+												<li>(5,  -0.06)</li>
+												<li>(10, -0.12)</li>
+												<li>(50, -0.22)</li>
+											</points>
+										</curve>
+									</li>
+									<li Class="FocusStrengthOffset_BuildingDefs">
+										<defs>
+											<AnimusStone>0.02</AnimusStone>
+										</defs>
+										<radius>9.9</radius>
+										<maxBuildings>4</maxBuildings>
+										<explanationKey>MeditationFocusPerAnimusStone</explanationKey>
+										<explanationKeyAbstract>MeditationFocusPerAnimusStoneAbstract</explanationKeyAbstract>
+									</li>
+								</offsets>
+							</li>
+						</comps>
+						<statBases>
+							<MaxHitPoints>150</MaxHitPoints>
+							<WorkToBuild>15000</WorkToBuild>
+							<Beauty>10</Beauty>
+							<MeditationFocusStrength>0.22</MeditationFocusStrength>
+							<Mass>25</Mass>
+						</statBases>
+						<costStuffCount>200</costStuffCount>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint"/>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+							</li>
+						</modExtensions>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="NatureShrine_Large"]</xpath>
+				<value>
+					<ThingDef ParentName="NatureShrineBase">
+						<defName>NatureShrine_Large</defName>
+						<label>large nature shrine</label>
+						<description>A large shrine for honoring spiritual beings. Tribal psycasters can focus on this shrine while meditating to increase psyfocus gain. Nature shrines lose their power if they are close to artificial structures, so they are always built in nature. Since they look like natural objects to unobservant outsiders, raiders will generally ignore them.</description>
+						<graphicData>
+							<graphicClass>Graphic_Appearances</graphicClass>
+							<texPath>Things/Building/Misc/NatureShrine_Large</texPath>
+							<drawSize>(3,3)</drawSize>
+							<shadowData>
+								<volume>(1.3,1.5,0.8)</volume>
+								<offset>(0,0,-0.9)</offset>
+							</shadowData>
+						</graphicData>
+						<size>(3,3)</size>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<designationCategory>Ideology</designationCategory>
+						<comps>
+							<li Class="CompProperties_MeditationFocus">
+								<statDef>MeditationFocusStrength</statDef>
+								<focusTypes>
+									<li>Natural</li>
+								</focusTypes>
+								<offsets>
+									<li Class="FocusStrengthOffset_ArtificialBuildings">
+										<radius>34.9</radius>
+										<curve>
+											<points>
+												<li>(0,   0.0)</li>
+												<li>(5,  -0.06)</li>
+												<li>(10, -0.13)</li>
+												<li>(50, -0.30)</li>
+											</points>
+										</curve>
+									</li>
+									<li Class="FocusStrengthOffset_BuildingDefs">
+										<defs>
+											<AnimusStone>0.02</AnimusStone>
+										</defs>
+										<radius>9.9</radius>
+										<maxBuildings>4</maxBuildings>
+										<explanationKey>MeditationFocusPerAnimusStone</explanationKey>
+										<explanationKeyAbstract>MeditationFocusPerAnimusStoneAbstract</explanationKeyAbstract>
+									</li>
+								</offsets>
+							</li>
+						</comps>
+						<statBases>
+							<MaxHitPoints>300</MaxHitPoints>
+							<WorkToBuild>30000</WorkToBuild>
+							<MeditationFocusStrength>0.30</MeditationFocusStrength>
+							<Beauty>20</Beauty>
+							<Mass>50</Mass>
+						</statBases>
+						<costStuffCount>350</costStuffCount>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint"/>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+							</li>
+						</modExtensions>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

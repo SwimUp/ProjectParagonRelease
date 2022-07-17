@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>PropolisTincture</defName>
+		<label>Propolis tincture</label>
+		<description>Tincture of bee propolis, which has toxin-removing properties. Helps to slow down infection and alleviate poisoning.</description>
+		<descriptionHyperlinks>
+			<HediffDef>PropolisHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Tincture/PropolisTincture</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>800</WorkToMake>
+			<MarketValue>10</MarketValue>
+			<Mass>0.009</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.001</Nutrition>
+			<Protein>0.0</Protein>
+			<Fat>0.0</Fat>
+			<Carbohydrates>0.025</Carbohydrates>
+			<Vitamins>0.015</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<techLevel>Medieval</techLevel>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>PropolisHigh</hediffDef>
+					<severity>0.25</severity>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_ChangeHediffsLevel">
+					<hediffDefs>
+						<li>ToxicBuildup</li>
+					</hediffDefs>
+					<severityRange>-0.05~-0.1</severityRange>
+					<chance>0.25</chance>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_ChangeHediffsLevel">
+					<hediffDefs>
+						<li>WoundInfection</li>
+					</hediffDefs>
+					<severityRange>-0.01~-0.05</severityRange>
+					<chance>0.1</chance>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker>
+			<researchPrerequisite>Alchemy</researchPrerequisite>
+			<recipeUsers>
+				<li>AlchemyStance</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<Propolis>5</Propolis>
+			<Honey>5</Honey>
+			<WaterForBill>2</WaterForBill>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>PropolisHigh</defName>
+		<label>propolis impact</label>
+		<description>The antibacterial properties of propolis make infections easier.</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<defaultLabelColor>(0.5, 1.0, 0.0)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<statOffsets>
+					<ImmunityGainSpeed>0.05</ImmunityGainSpeed>
+					<HungerRateMultiplier>0.2</HungerRateMultiplier>
+				</statOffsets>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.5</minSeverity>
+				<statOffsets>
+					<ImmunityGainSpeed>0.1</ImmunityGainSpeed>
+					<HungerRateMultiplier>0.5</HungerRateMultiplier>
+				</statOffsets>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.8</minSeverity>
+				<statOffsets>
+					<ImmunityGainSpeed>0.15</ImmunityGainSpeed>
+					<HungerRateMultiplier>0.8</HungerRateMultiplier>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

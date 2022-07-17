@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+  
+  
+  <!-- Power Conduit -->
+  <ThingDef ParentName="BuildingBase" Name="SadjuukPowerConduitA">
+    <defName>SadjuukPowerConduitA</defName>
+    <label>Power Conduit</label>
+    <description>Standard bundle of electrical cables for moving power around. Can be placed under walls and other buildings.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukPowerConduitA</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>Transmitter</linkType>
+      <linkFlags>
+        <li>PowerConduit</li>
+      </linkFlags>
+      <damageData>
+        <rect>(0,0.35,1,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukPowerConduitA_Icon</uiIconPath>
+    <uiIconScale>1</uiIconScale>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+      <blueprintGraphicData>
+        <texPath>SadjuukGenerator/SadjuukPowerConduitA_Blueprint</texPath>
+      </blueprintGraphicData>
+    </building>
+    <altitudeLayer>Conduits</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>35</WorkToBuild>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <placingDraggableDimensions>1</placingDraggableDimensions>
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTransmitter</compClass>
+        <transmitsPower>true</transmitsPower>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_Conduit</li>
+    </placeWorkers>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>SadjuukUN-Industry</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <clearBuildingArea>false</clearBuildingArea>
+    <designationHotKey>Misc1</designationHotKey>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  
+
+  <!-- Heavy generator base -->
+  <ThingDef Name="SadjuukHeavyGeneratorBase" ParentName="BuildingBase" Abstract="True">
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <altitudeLayer>Building</altitudeLayer>
+    <selectable>true</selectable>
+    <rotatable>true</rotatable>
+    <clearBuildingArea>true</clearBuildingArea>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <blockWind>false</blockWind>
+    <fillPercent>1</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>SadjuukUN-Industry</designationCategory>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+  </ThingDef>
+  <!-- Portable generator base -->
+  <ThingDef Name="SadjuukPortableGeneratorBase" ParentName="BuildingBase" Abstract="True">
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <altitudeLayer>Building</altitudeLayer>
+    <selectable>true</selectable>
+    <rotatable>true</rotatable>
+    <clearBuildingArea>true</clearBuildingArea>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <blockWind>false</blockWind>
+    <fillPercent>0.2</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsFurniture</li>
+    </thingCategories>
+    <designationCategory>SadjuukUN-Industry</designationCategory>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+  </ThingDef>
+
+
+
+  <!-- SadjuukGeneratorAA -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorAA</defName>
+    <label>Wood Generator 1.5kW</label>
+    <description>HP : 450
+Power : 1500W
+A very rustic generator, using water steam as source of power.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorAA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorAA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <size>(3,2)</size>
+    <costList>
+      <Steel>150</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-1500</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>33.0</fuelConsumptionRate>
+        <fuelCapacity>100</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(217,112,33,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>6</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  
+  
+  
+  <!-- SadjuukGeneratorPA -->
+  <ThingDef ParentName="SadjuukPortableGeneratorBase">
+    <defName>SadjuukGeneratorPA</defName>
+    <label>Portable Generator 0.5kW</label>
+    <description>HP : 150
+Power : 500W
+Mass : 50kg
+A Chemfuel portable generator. Low capacity tank and low power but sufficient for most nomadic situations.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorPA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorPA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <MarketValue>372</MarketValue>
+      <Mass>50</Mass>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-500</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>2.5</fuelConsumptionRate>
+        <fuelCapacity>15</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>1</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>1</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukGeneratorBA -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorBA</defName>
+    <label>Chemfuel Generator 3kW</label>
+    <description>HP : 450
+Power : 3000W
+Efficiency : 103%
+A rustic and simple Chemfuel generator using a reliable combustion engine coupled with an alternator to generate electricity.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorBA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorBA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <size>(2,3)</size>
+    <costList>
+      <Steel>150</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-3000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>15</fuelConsumptionRate>
+        <fuelCapacity>150</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>3</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukGeneratorBB -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorBB</defName>
+    <label>Chemfuel Generator 18KW</label>
+    <description>HP : 450
+Power : 18000W
+Efficiency : 118%
+A very large Chemfuel generator. This rustic version of the standard UN-FGEN18K is mainly used for its low cost and large capacity tank.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorBB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(8,8)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorBB_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <size>(8,4)</size>
+    <costList>
+      <Steel>300</Steel>
+      <ComponentIndustrial>18</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-18000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>74</fuelConsumptionRate>
+        <fuelCapacity>1800</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>18</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>17.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukGeneratorBC -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorBC</defName>
+    <label>UN-FGEN18K 18KW</label>
+    <description>HP : 2400
+Power : 18000W
+Efficiency : 118%
+The standard industrial Chemfuel generator UN-FGEN18K. Double injection system, double filtration system, high production rate and capacity.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorBC</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(8,8)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorBC_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>2400</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <size>(8,4)</size>
+    <costList>
+      <Steel>600</Steel>
+      <ComponentIndustrial>22</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-18000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>74</fuelConsumptionRate>
+        <fuelCapacity>1800</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>18</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>17.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukGeneratorCA -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorCA</defName>
+    <label>Industrial Generator 3KW</label>
+    <description>HP : 900
+Power : 3000W
+Efficiency : 103%
+An industrial armored Chemfuel generator, designed to withstand extreme conditions.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorCA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorCA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>900</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <costList>
+      <Steel>300</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-3000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>15</fuelConsumptionRate>
+        <fuelCapacity>150</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>3</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukGeneratorCB -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorCB</defName>
+    <label>Industrial Generator 6KW</label>
+    <description>HP : 1800
+Power : 6000W
+Efficiency : 106%
+An industrial Armored Chemfuel generator, very reliable with its reinforced structure.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorCB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(5,5)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorCB_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>1800</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <size>(4,2)</size>
+    <costList>
+      <Steel>600</Steel>
+      <ComponentIndustrial>12</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-6000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>28</fuelConsumptionRate>
+        <fuelCapacity>300</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>6</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  
+  
+  
+  <!-- SadjuukGeneratorPB -->
+  <ThingDef ParentName="SadjuukPortableGeneratorBase">
+    <defName>SadjuukGeneratorPB</defName>
+    <label>Portable CGEN01K 1kW</label>
+    <description>HP : 1500
+Power : 1000W
+Mass : 100kg
+A military Chemfuel generator from UNSC standard. Mainly used in defence positions and outpost structures.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorPB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorPB_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>1500</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.1</Flammability>
+      <MarketValue>817</MarketValue>
+      <Mass>100</Mass>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>150</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-1000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>5</fuelConsumptionRate>
+        <fuelCapacity>30</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>1</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>1</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukGeneratorMA -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorMA</defName>
+    <label>Armored FGEN03K 3kW</label>
+    <description>HP : 3000
+Power : 3000W
+Efficiency : 103%
+An armored Generator from UNSC standard. Foolproof design, high production rate, intended for military use, mainly for long-term entrenchments.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorMA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorMA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>3000</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Flammability>0.1</Flammability>
+    </statBases>
+    <size>(2,2)</size>
+    <costList>
+      <Steel>1000</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-3000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>15</fuelConsumptionRate>
+        <fuelCapacity>150</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>3</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukGeneratorMB -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorMB</defName>
+    <label>Armored FGEN06K 6kW</label>
+    <description>HP : 6000
+Power : 6000W
+Efficiency : 106%
+An armored Generator from UNSC standard. All elements are fully shielded.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorMB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(5,5)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorMB_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>6000</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+      <Flammability>0.1</Flammability>
+    </statBases>
+    <size>(4,2)</size>
+    <costList>
+      <Steel>2000</Steel>
+      <ComponentIndustrial>12</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-6000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>28</fuelConsumptionRate>
+        <fuelCapacity>300</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>6</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+  </ThingDef>
+  
+  
+  
+  <!-- SadjuukGeneratorPC -->
+  <ThingDef ParentName="SadjuukPortableGeneratorBase">
+    <defName>SadjuukGeneratorPC</defName>
+    <label>Portable Fuel Cell 3kW</label>
+    <description>HP : 450
+Power : 3000W
+Efficiency : 175%
+Mass : 30kg
+An advanced portable Fuel Cell. Gives the fuel a very long service life. High Pressure Hydrogen divides by 4 the need for organic materials.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorPC</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorPC_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.1</Flammability>
+      <MarketValue>1558</MarketValue>
+      <Mass>30</Mass>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+      <Plasteel>50</Plasteel>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerC</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-3000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0.03</fuelConsumptionRate>
+        <fuelCapacity>3</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>SadjuukHydrogen</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(25,110,150,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukGeneratorYA -->
+  <ThingDef ParentName="SadjuukHeavyGeneratorBase">
+    <defName>SadjuukGeneratorYA</defName>
+    <label>Large Fuel Cell 12kW</label>
+    <description>HP : 1800
+Power : 12000W
+Efficiency : 175%
+An advanced Fuel Cell that converts the chemical energy of hydrogen into electricity.  High Pressure Hydrogen divides by 4 the need for organic materials.</description>
+    <graphicData>
+      <texPath>SadjuukGenerator/SadjuukGeneratorYA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukGenerator/SadjuukGeneratorYA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>1800</MaxHitPoints>
+      <WorkToBuild>12000</WorkToBuild>
+      <Flammability>0.1</Flammability>
+    </statBases>
+    <size>(2,2)</size>
+    <costList>
+      <Steel>300</Steel>
+      <ComponentIndustrial>24</ComponentIndustrial>
+      <Plasteel>300</Plasteel>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukPowerC</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-12000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0.1</fuelConsumptionRate>
+        <fuelCapacity>12</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>SadjuukHydrogen</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(25,110,150,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>11.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+</Defs>

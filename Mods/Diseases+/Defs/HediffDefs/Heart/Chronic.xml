@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>Diseases_HediffDef_Arrhythmia</defName>
+		<label>Arrhythmia</label>
+		<description>A heart rhythm disorder characterized by a decrease or increase in heart rate.</description>
+		<descriptionHyperlinks>
+			<HediffDef>HeartAttack</HediffDef>
+		</descriptionHyperlinks>
+		<initialSeverity>0.001</initialSeverity>
+		<minSeverity>0.001</minSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>true</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.25</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>48</baseTendDurationHours>
+				<severityPerDayTended>-0.5</severityPerDayTended>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>1200000~1500000</intervalTicks>
+						<hediffDefs>
+							<li>HeartAttack</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Heart</li>
+							<li>HeartWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.15</chance>
+						<severityRange>0.2~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<partEfficiencyOffset>-0.05</partEfficiencyOffset>
+			</li>
+			<li>
+				<label>medium</label>
+				<painOffset>0.1</painOffset>
+				<minSeverity>0.3</minSeverity>
+				<partEfficiencyOffset>-0.15</partEfficiencyOffset>
+			</li>
+			<li>
+				<label>severe</label>
+				<painOffset>0.25</painOffset>
+				<minSeverity>0.7</minSeverity>
+				<partEfficiencyOffset>-0.3</partEfficiencyOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>Diseases_HediffDef_HeartDefect</defName>
+		<label>Heart defect</label>
+		<description>Congenital or acquired disease that undermines the work of the heart muscle.</description>
+		<descriptionHyperlinks>
+			<HediffDef>HeartAttack</HediffDef>
+			<HediffDef>Diseases_HediffDef_CardiacAsthma</HediffDef>
+			<HediffDef>Diseases_HediffDef_Stenocardia</HediffDef>
+		</descriptionHyperlinks>
+		<initialSeverity>1.0</initialSeverity>
+		<minSeverity>0.001</minSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>false</makesSickThought>
+		<stages>
+			<li>
+				<partEfficiencyOffset>-0.5</partEfficiencyOffset>
+			</li>
+		</stages>
+		<comps>
+		<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>1200000~1500000</intervalTicks>
+						<hediffDefs>
+							<li>HeartAttack</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Heart</li>
+							<li>HeartWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.2</chance>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>400000~600000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_CardiacAsthma</li>
+							<li>Diseases_HediffDef_Stenocardia</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Heart</li>
+							<li>HeartWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.3</chance>
+					</li>
+				</comps>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>Diseases_HediffDef_Stenocardia</defName>
+		<label>Stenocardia</label>
+		<description>A disease that causes pain in the heart muscle.</description>
+		<descriptionHyperlinks>
+			<HediffDef>HeartAttack</HediffDef>
+		</descriptionHyperlinks>
+		<initialSeverity>0.001</initialSeverity>
+		<minSeverity>0.001</minSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>true</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.25</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>96</baseTendDurationHours>
+				<severityPerDayTended>-0.4</severityPerDayTended>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>1300000~1500000</intervalTicks>
+						<hediffDefs>
+							<li>HeartAttack</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Heart</li>
+							<li>HeartWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.25</chance>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<painOffset>0.1</painOffset>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.3</minSeverity>
+				<painOffset>0.2</painOffset>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.7</minSeverity>
+				<painOffset>0.3</painOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

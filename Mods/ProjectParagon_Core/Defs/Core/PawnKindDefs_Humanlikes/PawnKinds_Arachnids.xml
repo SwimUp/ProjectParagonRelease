@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<PawnKindDef Name="BaseArachnidPawn" Abstract="True">
+		<defaultFactionType>Arachnids</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+		<invNutrition>1.0</invNutrition>
+		<invFoodDef>InsectJelly</invFoodDef>
+		<apparelMoney>0~0</apparelMoney>
+		<initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>7~12</initialResistanceRange>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Worker" Abstract="True">
+		<race>Alien_Arachnids_Worker</race>
+		<combatPower>100</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>InsectWorker</li>
+					<li>InsectCommon</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Construction</li>
+						<li>Mining</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~1500</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~4</Minor>
+							<Major>0~2</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	
+	<PawnKindDef ParentName="Arachnid_Worker">
+		<defName>Arachnid_WorkerCommon</defName>
+		<label>Arachnid worker</label>
+		<combatPower>70</combatPower>
+		<chemicalAddictionChance>0.05</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.3~1.1</gearHealthRange>
+		<apparelRequired>
+			<li>Apparel_Loincloth</li>
+		</apparelRequired>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.05</techHediffsChance>
+	</PawnKindDef>
+	
+	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Soldier" Abstract="True">
+		<race>Alien_Arachnids_Soldier</race>
+		<combatPower>200</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>InsectSoldier</li>
+					<li>InsectCommon</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~1</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~3</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~2500</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~4</Minor>
+							<Major>0~2</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="Arachnid_Soldier">
+		<defName>Arachnid_SoldierMelee</defName>
+		<label>Arachnid soldier</label>
+		<combatPower>200</combatPower>
+		<chemicalAddictionChance>0.05</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.2~1.1</gearHealthRange>
+		<apparelRequired>
+			<li>Apparel_Loincloth</li>
+		</apparelRequired>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.05</techHediffsChance>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="Arachnid_Soldier">
+		<defName>Arachnid_SoldierShooter</defName>
+		<label>Arachnid archer</label>
+		<combatPower>180</combatPower>
+		<chemicalAddictionChance>0.05</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.2~1.1</gearHealthRange>
+		<weaponMoney>100~200</weaponMoney>
+		<weaponTags>
+			<li>NeolithicRangedDecent</li>
+			<li>NeolithicRangedChief</li>
+			<li>NeolithicRangedBasic</li>
+		</weaponTags>
+		<apparelRequired>
+			<li>Apparel_Loincloth</li>
+		</apparelRequired>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<disallowedTraits>
+			<li>Brawler</li>
+		</disallowedTraits>
+		<techHediffsChance>0.05</techHediffsChance>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>20</min>
+					<max>40</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<sidearmMoney>
+							<min>80</min>
+							<max>160</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>CE_Sidearm_Tribal</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+
+
+	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Warrior" Abstract="True">
+		<race>Alien_Arachnids_Warrior</race>
+		<combatPower>300</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>InsectWarrior</li>
+					<li>InsectCommon</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.4</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~3000</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~4</Minor>
+							<Major>0~2</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="Arachnid_Warrior">
+		<defName>Arachnid_WarriorMelee</defName>
+		<label>Arachnid warrior</label>
+		<combatPower>300</combatPower>
+		<chemicalAddictionChance>0.08</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.3~1.1</gearHealthRange>
+		<apparelRequired>
+			<li>Apparel_Loincloth</li>
+		</apparelRequired>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.05</techHediffsChance>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="Arachnid_Warrior">
+		<defName>Arachnid_WarriorShooter</defName>
+		<label>Arachnid chief archer</label>
+		<combatPower>270</combatPower>
+		<chemicalAddictionChance>0.08</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.3~1.1</gearHealthRange>
+		<weaponMoney>100~200</weaponMoney>
+		<weaponTags>
+			<li>NeolithicRangedDecent</li>
+			<li>NeolithicRangedChief</li>
+			<li>NeolithicRangedBasic</li>
+		</weaponTags>
+		<apparelRequired>
+			<li>Apparel_Loincloth</li>
+		</apparelRequired>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<disallowedTraits>
+			<li>Brawler</li>
+		</disallowedTraits>
+		<techHediffsChance>0.05</techHediffsChance>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>25</min>
+					<max>40</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<sidearmMoney>
+							<min>80</min>
+							<max>160</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>CE_Sidearm_Tribal</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="Arachnid_Warrior">
+		<defName>Arachnid_WarriorShaman</defName>
+		<label>Arachnid shaman</label>
+		<combatPower>280</combatPower>
+		<chemicalAddictionChance>0.08</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.3~1.1</gearHealthRange>
+		<factionLeader>true</factionLeader>
+		<apparelRequired>
+			<li>Apparel_Loincloth</li>
+		</apparelRequired>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.05</techHediffsChance>
+	</PawnKindDef>
+
+</Defs>

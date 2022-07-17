@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<RulePackDef>
+		<defName>NamerFactionHorde</defName>
+		<include>
+			<li>TribalWordUtility</li>
+		</include>
+		<rulePack>
+			<rulesStrings>
+				<li>r_name(p=2)->[horde] of [ofThing]</li>
+				<li>r_name->The Holy [horde]</li>
+				<li>r_name->The Great [horde]</li>
+				<li>r_name->The Bloody [horde]</li>
+				<li>r_name->The [Color] [horde]</li>
+
+				<li>horde(p=2)->Horde</li>
+				<li>horde->Clan</li>
+
+				<li>ofThing->Gold</li>
+				<li>ofThing->Wealth</li>
+				<li>ofThing->Blood</li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
+
+	<FactionDef ParentName="FactionBase">
+		<defName>TaurusHorde</defName>
+		<label>Taurus horde</label>
+		<description>Militarized formation of nomadic groups consisting of Taurus. They do not have a permanent place of residence, preferring to rob their neighbors and replenish supplies at their expense.</description>
+		<pawnSingular>taurus</pawnSingular>
+		<pawnsPlural>tauruses</pawnsPlural>
+		<listOrderPriority>20</listOrderPriority>
+		<settlementGenerationWeight>0</settlementGenerationWeight>
+		<requiredCountAtGameStart>1</requiredCountAtGameStart>
+		<maxCountAtGameStart>1</maxCountAtGameStart>
+		<canMakeRandomly>true</canMakeRandomly>
+		<canSiege>false</canSiege>
+		<canStageAttacks>false</canStageAttacks>
+		<leaderTitle>khan</leaderTitle>
+		<permanentEnemyToEveryoneExceptPlayer>true</permanentEnemyToEveryoneExceptPlayer>
+		<naturalEnemy>true</naturalEnemy>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<structureMemeWeights>
+			<Structure_Animist MayRequire="Ludeon.RimWorld.Ideology">2</Structure_Animist>
+			<Structure_OriginIslamic MayRequire="Ludeon.RimWorld.Ideology">1</Structure_OriginIslamic>
+		</structureMemeWeights>
+		<allowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">MaleSupremacy</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Collectivist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">AnimalPersonhood</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">PainIsVirtue</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Rancher</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">NaturePrimacy</li>
+		</allowedMemes>
+		<requiredMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+		</requiredMemes>
+		<factionIconPath>Core/World/Factions/TaurusHorde/TaurusFaction</factionIconPath>
+		<colorSpectrum>
+			<li>(0.79, 0.61, 0.27)</li>
+			<li>(0.92, 0.51, 0.12)</li>
+		</colorSpectrum>
+		<factionNameMaker>NamerFactionHorde</factionNameMaker>
+		<settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+		<techLevel>Medieval</techLevel>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Taurus</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<geneticVariance>0.0</geneticVariance>
+		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+		<raidLootMaker>MedievalLootMaker</raidLootMaker>
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,1000)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
+		<pawnGroupMakers>
+			<li>
+				<!-- Normal fights, ranged with melee mix-ins -->
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<Taurus_Shooter>15</Taurus_Shooter>
+					<Taurus_Worker>30</Taurus_Worker>
+					<Taurus_Warrior>20</Taurus_Warrior>
+					<Taurus_HeavyWarrior>10</Taurus_HeavyWarrior>
+					<Taurus_Khan>1</Taurus_Khan>
+				</options>
+			</li>
+			<li>
+				<!-- Пушечное мясо -->
+				<kindDef>Combat</kindDef>
+				<commonality>50</commonality>
+				<options>
+					<Taurus_Worker>10</Taurus_Worker>
+				</options>
+			</li>
+			<li>
+				<!-- Стрелки -->
+				<kindDef>Combat</kindDef>
+				<commonality>30</commonality>
+				<options>
+					<Taurus_Shooter>10</Taurus_Shooter>
+				</options>
+			</li>
+			<li>
+				<!-- Тяжелые воины -->
+				<kindDef>Combat</kindDef>
+				<commonality>60</commonality>
+				<options>
+					<Taurus_Warrior>20</Taurus_Warrior>
+					<Taurus_HeavyWarrior>10</Taurus_HeavyWarrior>
+				</options>
+			</li>
+			<li>
+				<!-- С животными -->
+				<kindDef>Combat</kindDef>
+				<commonality>80</commonality>
+				<options>
+					<Taurus_Shooter>15</Taurus_Shooter>
+					<Taurus_Worker>30</Taurus_Worker>
+					<Taurus_Warrior>20</Taurus_Warrior>
+					<Taurus_HeavyWarrior>10</Taurus_HeavyWarrior>
+					<DankPyon_MuskOx>30</DankPyon_MuskOx>
+				</options>
+			</li>
+			<li>
+				<!-- Peaceful -->
+				<kindDef>Peaceful</kindDef>
+				<options>
+					<Taurus_Shooter>15</Taurus_Shooter>
+					<Taurus_Worker>30</Taurus_Worker>
+					<Taurus_Warrior>20</Taurus_Warrior>
+					<Taurus_HeavyWarrior>10</Taurus_HeavyWarrior>
+					<Taurus_Khan>1</Taurus_Khan>
+				</options>
+			</li>
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<Taurus_HeavyWarrior>1</Taurus_HeavyWarrior>
+				</traders>
+				<carriers>
+					<Muffalo>6</Muffalo>
+					<Dromedary>5</Dromedary>
+					<Alpaca>2.5</Alpaca>
+					<Elephant>2</Elephant>
+				</carriers>
+				<guards>
+					<Taurus_Shooter>15</Taurus_Shooter>
+					<Taurus_Worker>30</Taurus_Worker>
+					<Taurus_Warrior>20</Taurus_Warrior>
+					<Taurus_HeavyWarrior>10</Taurus_HeavyWarrior>
+					<Taurus_Khan>1</Taurus_Khan>
+				</guards>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<Taurus_Shooter>15</Taurus_Shooter>
+					<Taurus_Worker>100</Taurus_Worker>
+					<Taurus_Warrior>20</Taurus_Warrior>
+					<Taurus_HeavyWarrior>10</Taurus_HeavyWarrior>
+					<Taurus_Khan>1</Taurus_Khan>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+		<caravanTraderKinds>
+			<li>TaurusHordeTrader</li>
+		</caravanTraderKinds>
+		<visitorTraderKinds>
+			<li>TaurusHordeVisitor</li>
+		</visitorTraderKinds>
+		<baseTraderKinds>
+			<li>TaurusHordeTrader</li>
+		</baseTraderKinds>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<factionCaravanAISettings>
+					<maxCaravanPower>3000</maxCaravanPower>
+					<minCaravanPower>501</minCaravanPower>
+					<totalPowerMultiplier>1</totalPowerMultiplier>
+					<powerMultiplierByCaravansCount>
+						<points>
+							<li>(0, 1)</li>
+							<li>(10, 1)</li>
+							<li>(15, 0.7)</li>
+							<li>(20, 0.3)</li>
+							<li>(50, 0)</li>
+						</points>
+					</powerMultiplierByCaravansCount>
+					<powerByTechLevel>
+						<Animal>300</Animal>
+						<Neolithic>300</Neolithic>
+						<Medieval>500</Medieval>
+						<Industrial>800</Industrial>
+						<Spacer>1200</Spacer>
+						<Ultra>1500</Ultra>
+						<Archotech>2000</Archotech>
+					</powerByTechLevel>
+					<powerMultiplierByTechLevel>
+						<Animal>1</Animal>
+						<Neolithic>1</Neolithic>
+						<Medieval>1.25</Medieval>
+						<Industrial>1.5</Industrial>
+						<Spacer>2</Spacer>
+						<Ultra>2.5</Ultra>
+						<Archotech>3</Archotech>
+					</powerMultiplierByTechLevel>
+				</factionCaravanAISettings>
+				<raidGenerationSettings>
+					<minPlayerGameStage>Medieval</minPlayerGameStage>
+					<maxRaidDistance>120</maxRaidDistance>
+				</raidGenerationSettings>
+				<settlementGenerationSettings>
+					<canHaveSettlements>false</canHaveSettlements>
+				</settlementGenerationSettings>
+				<settlementGlobalSettings>
+					<cultureForDestroySettlementsByWealth>
+						<points>
+							<li>(0, 50)</li>
+							<li>(500, 75)</li>
+							<li>(1000, 100)</li>
+							<li>(2000, 150)</li>
+							<li>(5000, 200)</li>
+							<li>(8000, 250)</li>
+							<li>(12000, 300)</li>
+							<li>(15000, 350)</li>
+							<li>(20000, 400)</li>
+						</points>
+					</cultureForDestroySettlementsByWealth>
+				</settlementGlobalSettings>
+				<factionEconomySettings>
+					<economyList>
+						<li>
+							<thingCategoryDefs>
+								<li>Foods</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.5</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Manufactured</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>ResourcesRaw</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.25</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Weapons</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>2</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>2</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Apparel</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>2</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>2</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Animals</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>2</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>2</priceSellMultiplier>
+						</li>
+					</economyList>
+					<successTradeMultiplierRange>0.75~1</successTradeMultiplierRange>
+				</factionEconomySettings>
+			</li>
+		</modExtensions>
+	</FactionDef>
+
+	<TraderKindDef>
+		<defName>TaurusHordeTrader</defName>
+		<stockGenerators>
+			<!-- Resources -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>700~1000</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>5~15</countRange>
+			</li> 
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>RoastedMeat</thingDef>
+				<countRange>8~20</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentPrimitive</thingDef>
+				<countRange>7~15</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentSimple</thingDef>
+				<countRange>3~8</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MechanismSimple</thingDef>
+				<countRange>2~5</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Caoutchouc</thingDef>
+				<countRange>25~120</countRange>
+			</li> 
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Glass</thingDef>
+				<countRange>30~120</countRange>
+			</li> 
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Gunpowder</thingDef>
+				<countRange>15~100</countRange>
+			</li> 
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Sugar</thingDef>
+				<countRange>25~80</countRange>
+			</li> 
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Paper</thingDef>
+				<countRange>10~50</countRange>
+			</li> 
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Book</thingDef>
+				<countRange>2~10</countRange>
+			</li> 
+			<li Class="StockGenerator_Category">
+				<categoryDef>Alloys_Simple</categoryDef>
+				<thingDefCountRange>1~3</thingDefCountRange>
+				<countRange>50~100</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>WoodPlanks</thingDef>
+				<countRange>50~150</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Slag</thingDef>
+				<countRange>50~120</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Sand</thingDef>
+				<countRange>70~250</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Clay</thingDef>
+				<countRange>70~250</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>FuriousAle</thingDef>
+				<countRange>10~30</countRange>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+
+	<TraderKindDef>
+		<defName>TaurusHordeVisitor</defName>
+		<label>trader</label>
+		<stockGenerators>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>100~250</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>3~8</countRange>
+			</li> 
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>RoastedMeat</thingDef>
+				<countRange>3~8</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentPrimitive</thingDef>
+				<countRange>3~8</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Book</thingDef>
+				<countRange>1~2</countRange>
+			</li> 
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentSimple</thingDef>
+				<countRange>2~5</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MechanismSimple</thingDef>
+				<countRange>1~2</countRange>
+			</li>
+			<li Class="StockGenerator_Category">
+				<categoryDef>Alloys_Simple</categoryDef>
+				<thingDefCountRange>1~3</thingDefCountRange>
+				<countRange>10~35</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>WoodPlanks</thingDef>
+				<countRange>25~50</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>FuriousAle</thingDef>
+				<countRange>2~5</countRange>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+</Defs>

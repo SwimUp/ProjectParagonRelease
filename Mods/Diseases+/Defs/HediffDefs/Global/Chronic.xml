@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>Diseases_HediffDef_Diabetes</defName>
+		<label>Diabetes</label>
+		<makesSickThought>false</makesSickThought>
+		<tendable>true</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<lethalSeverity>1</lethalSeverity>
+		<description>An extensive disease characterized by an increase in sugar in the body. Deadly if you do not take drugs.</description>
+		<descriptionHyperlinks>
+			<HediffDef>Diseases_HediffDef_Numbness</HediffDef>
+			<HediffDef>Diseases_HediffDef_Glaucoma</HediffDef>
+			<HediffDef>Diseases_HediffDef_Coma</HediffDef>
+		</descriptionHyperlinks>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.3</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>24</baseTendDurationHours>
+				<severityPerDayTended>-0.4</severityPerDayTended>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>600000~720000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Glaucoma</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Eye</li>
+							<li>EyeWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>true</letter>
+						<chance>0.3</chance>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>420000~500000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Numbness</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Leg</li>
+							<li>Shoulder</li>
+							<li>LegWithoutBlood</li>
+							<li>ShoulderWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>false</letter>
+						<chance>0.25</chance>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>60000~180000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Coma</li>
+						</hediffDefs>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.25</chance>
+						<severityRange>0.9~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<restFallFactorOffset>0.1</restFallFactorOffset>
+				<totalBleedFactor>1.25</totalBleedFactor>
+				<statOffsets>
+					<HungerRateMultiplier>0.1</HungerRateMultiplier>
+				</statOffsets>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.3</minSeverity>
+				<restFallFactorOffset>0.25</restFallFactorOffset>
+				<totalBleedFactor>1.5</totalBleedFactor>
+				<statOffsets>
+					<HungerRateMultiplier>0.25</HungerRateMultiplier>
+				</statOffsets>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.5</minSeverity>
+				<restFallFactorOffset>0.5</restFallFactorOffset>
+				<totalBleedFactor>1.75</totalBleedFactor>
+				<statOffsets>
+					<HungerRateMultiplier>0.5</HungerRateMultiplier>
+				</statOffsets>
+			</li>
+			<li>
+				<label>hard</label>
+				<minSeverity>0.8</minSeverity>
+				<restFallFactorOffset>1.0</restFallFactorOffset>
+				<totalBleedFactor>2.0</totalBleedFactor>
+				<lifeThreatening>true</lifeThreatening>
+				<statOffsets>
+					<HungerRateMultiplier>1.0</HungerRateMultiplier>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>Diseases_HediffDef_Immunodeficiency</defName>
+		<label>Immunodeficiency</label>
+		<makesSickThought>false</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<description>It is characterized by a slow weakening of the protective functions of the body.</description>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>0.016</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<statOffsets>
+					<ImmunityGainSpeed>-0.25</ImmunityGainSpeed>
+				</statOffsets>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.5</minSeverity>
+				<statOffsets>
+					<ImmunityGainSpeed>-0.5</ImmunityGainSpeed>
+				</statOffsets>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.9</minSeverity>
+				<statOffsets>
+					<ImmunityGainSpeed>-0.75</ImmunityGainSpeed>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>Diseases_HediffDef_MotorParalysis</defName>
+		<label>Motor paralysis</label>
+		<makesSickThought>true</makesSickThought>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<description>The death of neurons in the brain and bone marrow tissue leads to their replacement by connective tissue. The patient gradually loses the ability to move.</description>
+		<descriptionHyperlinks>
+			<HediffDef>Diseases_HediffDef_Numbness</HediffDef>
+		</descriptionHyperlinks>
+		<tendable>true</tendable>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.01</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>24</baseTendDurationHours>
+				<severityPerDayTended>-0.015</severityPerDayTended>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>420000~500000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Numbness</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Leg</li>
+							<li>Shoulder</li>
+							<li>LegWithoutBlood</li>
+							<li>ShoulderWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>false</letter>
+						<chance>0.25</chance>
+						<severityRange>0.05~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<statOffsets>
+					<MoveSpeed>-0.5</MoveSpeed>
+				</statOffsets>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.25</minSeverity>
+				<statOffsets>
+					<MoveSpeed>-1</MoveSpeed>
+				</statOffsets>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.5</minSeverity>
+				<statOffsets>
+					<MoveSpeed>-2</MoveSpeed>
+				</statOffsets>
+			</li>
+			<li>
+				<label>extreme</label>
+				<minSeverity>0.9</minSeverity>
+				<statOffsets>
+					<MoveSpeed>-3</MoveSpeed>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>Diseases_HediffDef_PainNumbnessSyndrome</defName>
+		<label>Pain numbness syndrome</label>
+		<makesSickThought>true</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<description>A syndrome characterized by a gradual loss of sensitivity to pain in a patient. May occur as a rare disease at a young age.Often causes partial or complete paralysis.</description>
+		<descriptionHyperlinks>
+			<HediffDef>Diseases_HediffDef_MotorParalysis</HediffDef>
+		</descriptionHyperlinks>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>0.01</severityPerDay>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>1400000~1600000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_MotorParalysis</li>
+						</hediffDefs>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.2</chance>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<painFactor>0.85</painFactor>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.25</minSeverity>
+				<painFactor>0.5</painFactor>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.5</minSeverity>
+				<painFactor>0.25</painFactor>
+			</li>
+			<li>
+				<label>complete loss of sensitivity</label>
+				<minSeverity>0.9</minSeverity>
+				<painFactor>0.0</painFactor>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>Diseases_HediffDef_SoreJoints</defName>
+		<label>Sore joints</label>
+		<makesSickThought>true</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<description>Wear and tear on joints leads to pain and deterioration of the general condition.</description>
+		<stages>
+			<li>
+				<painFactor>1.25</painFactor>
+				<statFactors>
+					<WorkSpeedGlobal>0.8</WorkSpeedGlobal>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	
+</Defs>

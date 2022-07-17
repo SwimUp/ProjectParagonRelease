@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingCategoryDef>
+		<defName>AmmoMusketBall</defName>
+		<label>Musket ball</label>
+		<parent>AmmoRifles</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<!-- High Velocity -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_FastMusketBall</defName>
+		<label>Musket Ball</label>
+		<ammoTypes>
+			<Ammo_MusketBall>Bullet_FastMusketBall</Ammo_MusketBall>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- Low Velocity -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_SlowMusketBall</defName>
+		<label>Musket Ball</label>
+		<ammoTypes>
+			<Ammo_MusketBall>Bullet_SlowMusketBall</Ammo_MusketBall>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="MusketBallBase" ParentName="SmallAmmoBase" Abstract="True">
+		<description>A paper cartridge sealed with wax containing a round projectile and black powder, fired by early, smoothbore firearms.</description>
+		<statBases>
+			<Mass>0.087</Mass>
+			<Bulk>0.12</Bulk>
+		</statBases>
+		<stackLimit>75</stackLimit>
+		<tradeTags>
+			<li>CE_PreIndustrialAmmo</li>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting_FueledSmithy</li>
+			<li>CE_AutoEnableCrafting_ElectricSmithy</li>
+		</tradeTags>
+		<thingCategories>
+			<li>AmmoMusketBall</li>
+		</thingCategories>
+		<techLevel>Medieval</techLevel>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="MusketBallBase">
+		<defName>Ammo_MusketBall</defName>
+		<label>musket ball</label>
+		<graphicData>
+			<texPath>Things/Ammo/Medieval/Musket/Paper</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.35</MarketValue>
+		</statBases>
+		<ammoClass>MusketBall</ammoClass>
+	</ThingDef>
+
+	<!-- ================== Projectile Base ================== -->
+
+	<ThingDef Name="MusketBallBullet" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_big</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<dropsCasings>false</dropsCasings>
+		</projectile>
+	</ThingDef>
+
+	<!-- ================== Projectiles (High Velocity) ================== -->
+
+	<ThingDef ParentName="MusketBallBullet">
+		<defName>Bullet_FastMusketBall</defName>
+		<label>musket ball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>90</speed>	
+			<damageAmountBase>30</damageAmountBase>		
+			<armorPenetrationSharp>20</armorPenetrationSharp>
+			<armorPenetrationBlunt>30</armorPenetrationBlunt>				
+		</projectile>
+	</ThingDef>
+
+	<!-- ================== Projectiles (Low Velocity) ================== -->
+
+	<ThingDef ParentName="MusketBallBullet">
+		<defName>Bullet_SlowMusketBall</defName>
+		<label>musket ball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>60</speed>	
+			<damageAmountBase>20</damageAmountBase>		
+			<armorPenetrationSharp>12</armorPenetrationSharp>
+			<armorPenetrationBlunt>20</armorPenetrationBlunt>				
+		</projectile>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_MusketBall</defName>
+		<label>make musket ball x100</label>
+		<description>Craft 100 musket balls.</description>
+		<jobString>Making musket balls.</jobString>
+		<workAmount>4000</workAmount>		
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+					</categories>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Paper</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys</li>
+			</categories>
+			<thingDefs>
+				<li>Paper</li>
+				<li>Gunpowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_MusketBall>100</Ammo_MusketBall>
+		</products>
+		<researchPrerequisites>
+			<li>WeaponsII</li>
+		</researchPrerequisites>
+		<recipeUsers>
+			<li>ForgeWithAnvil</li>
+		</recipeUsers>
+	</RecipeDef>
+
+</Defs>

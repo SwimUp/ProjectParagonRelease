@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Grass"]/plant</xpath>
+				<value>
+					<plant>
+					  <fertilityMin>0.05</fertilityMin>
+					  <fertilitySensitivity>0.3</fertilitySensitivity>
+					  <growDays>2.5</growDays>
+					  <leaflessGraphicPath>Things/Plant/Grass_Leafless</leaflessGraphicPath>
+					  <harvestWork>40</harvestWork>
+					  <maxMeshCount>9</maxMeshCount>
+					  <visualSizeRange>0.4~0.6</visualSizeRange>
+					  <topWindExposure>0.4</topWindExposure>
+					  <wildOrder>1</wildOrder>
+					  <harvestedThingDef>Hay</harvestedThingDef>
+					  <harvestYield>6</harvestYield>
+					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[@Name="PlantBaseNonEdible"]/thingClass</xpath>
+				<value>
+					<thingClass>ProjectParagon.Core.Bees.PlantParagon</thingClass>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Cotton"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Cotton</defName>
+						<label>cotton plant</label>
+						<description>A mid-size crop that yields fine white cotton fibers. These are used to make cloth.</description>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+							<Nutrition>0.2</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/CottonPlant</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<growDays>7</growDays>
+							<lifespanDaysPerGrowDays>2.5</lifespanDaysPerGrowDays>
+							<sowMinSkill>7</sowMinSkill>
+							<dieIfLeafless>true</dieIfLeafless>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>Flora_RawCotton</harvestedThingDef>
+							<harvestYield>15</harvestYield>
+							<sowTags>
+								<li>Ground</li>
+								<li>Hydroponic</li>
+							</sowTags>
+							<topWindExposure>0.1</topWindExposure>
+							<immatureGraphicPath>Things/Plant/CottonPlant_Immature</immatureGraphicPath>
+							<visualSizeRange>0.3~1.05</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<fertilityMin>0.65</fertilityMin>
+							<fertilitySensitivity>1.0</fertilitySensitivity>
+							<sowResearchPrerequisites>
+								<li>Agro_TextileCropsI</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_HealrootWild"]/plant</xpath>
+				<value>
+					<harvestYield>3</harvestYield>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Healroot"]</xpath>
+				<value>
+					<ThingDef ParentName="HealrootBase">
+						<defName>Plant_Healroot</defName>
+						<label>healroot</label>
+						<description>A slow-growing plant which yields herbal medicine when harvested. Sowing and harvesting healroot are both very labor-intensive tasks because of its delicate shoots.\n\nHealroot was selectively bred for centuries by settlers. It is sometimes also called &quot;healer's hand&quot; by tribespeople - a nickname it owes to its five major medicinal virtues.</description>
+						<plant>
+							<growDays>8</growDays>
+							<lifespanDaysPerGrowDays>2.5</lifespanDaysPerGrowDays>
+							<sowWork>800</sowWork>
+							<sowMinSkill>6</sowMinSkill>
+							<harvestYield>5</harvestYield>
+							<sowTags>
+								<li>Ground</li>
+								<li>Hydroponic</li>
+							</sowTags>
+							<fertilityMin>0.25</fertilityMin>
+							<fertilitySensitivity>0.5</fertilitySensitivity>
+							<purpose>Health</purpose>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Healroot"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_MedicinalPlantsI</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_TreeCocoa"]</xpath>
+				<value>
+					<ThingDef ParentName="Flora_FruitTreeBase">
+						<defName>Plant_TreeCocoa</defName>
+						<label>cocoa tree</label>
+						<description>A tropical tree that produces chocolate, genetically engineered to sweeten its own product, and survive in slightly less-warm climates.</description>
+						<graphicData>
+							<texPath>Things/Plant/TreeCocoa</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+							<shadowData>
+								<volume>(0.15, 0.3, 0.15)</volume>
+								<offset>(0,0,-0.38)</offset>
+							</shadowData>
+						</graphicData>
+						<plant>
+							<lifespanDaysPerGrowDays>8.3</lifespanDaysPerGrowDays>
+							<harvestYield>20</harvestYield>
+							<growDays>18</growDays>
+							<harvestedThingDef>Flora_RawCocoa</harvestedThingDef>
+							<immatureGraphicPath>Things/Plant/TreeCocoa_Immature</immatureGraphicPath>
+							<wildOrder>2</wildOrder>
+							<purpose>Food</purpose>
+							<sowResearchPrerequisites>
+								<li>Agro_TropicalCropsII</li>
+							</sowResearchPrerequisites>
+							<fertilityMin>1.0</fertilityMin>
+							<fertilitySensitivity>1.0</fertilitySensitivity>
+							<visualSizeRange>0.8~2.0</visualSizeRange>
+							<sowMinSkill>12</sowMinSkill>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Rice"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Rice</defName>
+						<label>rice plant</label>
+						<description>A short, fast-growing crop that yields small edible grains. Its great nutritional ouput and ease of cultivation has made it the economic core of many great civilizations. While rice grows quickly, it is sensitive to soil fertility and will not fare well in poor soil.</description>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+							<Nutrition>0.1</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/RicePlant</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<dieIfLeafless>true</dieIfLeafless>
+							<maxMeshCount>4</maxMeshCount>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>RawRice</harvestedThingDef>
+							<harvestYield>10</harvestYield>
+							<fertilitySensitivity>1.0</fertilitySensitivity>
+							<fertilityMin>1.0</fertilityMin>
+							<sowTags>
+								<li>WaterPlot</li>
+							</sowTags>
+							<topWindExposure>0.1</topWindExposure>
+							<sowMinSkill>6</sowMinSkill>
+							<growDays>3</growDays>
+							<lifespanDaysPerGrowDays>2</lifespanDaysPerGrowDays>
+							<visualSizeRange>0.3~0.8</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<purpose>Food</purpose>
+							<sowResearchPrerequisites>
+								<li>Agro_CerealsIII</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Potato"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Potato</defName>
+						<label>potato plant</label>
+						<description>A highly nutritious tuber. Potatoes grow well even in somewhat poor soil, and form a delicious crispy outer coating when fried in oil.</description>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+							<Nutrition>0.2</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/PotatoPlant</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<dieIfLeafless>true</dieIfLeafless>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>RawPotatoes</harvestedThingDef>
+							<harvestYield>20</harvestYield>
+							<fertilitySensitivity>0.2</fertilitySensitivity>
+							<fertilityMin>0.6</fertilityMin>
+							<sowTags>
+								<li>Ground</li>
+							</sowTags>
+							<topWindExposure>0.1</topWindExposure>
+							<sowMinSkill>2</sowMinSkill>
+							<growDays>7</growDays>
+							<lifespanDaysPerGrowDays>2.4</lifespanDaysPerGrowDays>
+							<visualSizeRange>0.3~1.05</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<purpose>Food</purpose>
+							<sowResearchPrerequisites>
+								<li>Agro_VegetablesI</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Corn"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Corn</defName>
+						<label>corn plant</label>
+						<description>A tall grain plant which produces ears of soft, edible seeds. While corn takes a long time to grow, it yields lots of food compared to other crops. Harvested corn takes a long time to spoil.</description>
+						<statBases>
+							<MaxHitPoints>150</MaxHitPoints>
+							<Nutrition>0.3</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/CornPlant</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<dieIfLeafless>true</dieIfLeafless>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>RawCorn</harvestedThingDef>
+							<harvestYield>20</harvestYield>
+							<fertilitySensitivity>0.9</fertilitySensitivity>
+							<fertilityMin>0.85</fertilityMin>
+							<sowTags>
+								<li>Ground</li>
+								<li>Hydroponic</li>
+							</sowTags>
+							<topWindExposure>0.35</topWindExposure>
+							<sowMinSkill>6</sowMinSkill>
+							<growDays>10</growDays>
+							<lifespanDaysPerGrowDays>2.5</lifespanDaysPerGrowDays>
+							<immatureGraphicPath>Things/Plant/CornPlant_Immature</immatureGraphicPath>
+							<visualSizeRange>0.3~1.4</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<purpose>Food</purpose>
+							<sowResearchPrerequisites>
+								<li>Agro_CerealsII</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Strawberry"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Strawberry</defName>
+						<label>strawberry plant</label>
+						<description>A low bush-like plant that yields fragile but delicious strawberries. While it isn't quite as productive calorie-for-calorie as other crops, strawberries are delicious even when raw.</description>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+							<Nutrition>0.2</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/StrawberryPlant</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<dieIfLeafless>true</dieIfLeafless>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>RawBerries</harvestedThingDef>
+							<harvestYield>12</harvestYield>
+							<fertilitySensitivity>1.0</fertilitySensitivity>
+							<fertilityMin>0.9</fertilityMin>
+							<sowTags>
+								<li>Ground</li>
+								<li>Hydroponic</li>
+							</sowTags>
+							<topWindExposure>0.1</topWindExposure>
+							<sowMinSkill>9</sowMinSkill>
+							<growDays>4</growDays>
+							<lifespanDaysPerGrowDays>2.8</lifespanDaysPerGrowDays>
+							<immatureGraphicPath>Things/Plant/StrawberryPlant_Immature</immatureGraphicPath>
+							<visualSizeRange>0.3~1.05</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<purpose>Food</purpose>
+							<sowResearchPrerequisites>
+								<li>Agro_FruitII</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Devilstrand"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Devilstrand</defName>
+						<label>devilstrand</label>
+						<description>This fragile mushroom was genetically engineered to produce a silk net that is both difficult to tear and soft to the touch. While the mushroom takes a very long time to grow, only exotic ultra-tech fabrics outperform its devilstrand fibers.\n\nSome say it's called devilstrand because of its red color. Others think it owes its name to the greed it inspires in people.</description>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+							<Nutrition>0.15</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/Devilstrand</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<sowWork>400</sowWork>
+							<dieIfLeafless>true</dieIfLeafless>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>Flora_Devilstrand</harvestedThingDef>
+							<harvestYield>6</harvestYield>
+							<fertilitySensitivity>1.2</fertilitySensitivity>
+							<fertilityMin>1.2</fertilityMin>
+							<neverBlightable>true</neverBlightable>
+							<sowTags>
+								<li>Ground</li>
+							</sowTags>
+							<sowMinSkill>12</sowMinSkill>
+							<growDays>18</growDays>
+							<lifespanDaysPerGrowDays>2.7</lifespanDaysPerGrowDays>
+							<topWindExposure>0.1</topWindExposure>
+							<visualSizeRange>0.3~1.0</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<sowResearchPrerequisites>
+								<li>Agro_TextileCropsIII</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Hops"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_Hop</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Smokeleaf"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Smokeleaf</defName>
+						<label>smokeleaf plant</label>
+						<description>A leafy crop grown for the psychological effects of chemicals in its leaves. Smokeleaf leaves can be prepared into joints at the crafting spot. Smokeleaf makes a user feel relaxed, but reduces motivation, and can be addictive.</description>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+							<Nutrition>0.15</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/SmokeleafPlant</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<dieIfLeafless>true</dieIfLeafless>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>SmokeleafLeaves</harvestedThingDef>
+							<harvestYield>9</harvestYield>
+							<sowMinSkill>5</sowMinSkill>
+							<growDays>7</growDays>
+							<lifespanDaysPerGrowDays>2.5</lifespanDaysPerGrowDays>
+							<sowTags>
+								<li>Ground</li>
+								<li>Hydroponic</li>
+							</sowTags>
+							<topWindExposure>0.1</topWindExposure>
+							<visualSizeRange>0.3~1.0</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<fertilitySensitivity>0.3</fertilitySensitivity>
+							<fertilityMin>0.5</fertilityMin>
+							<sowResearchPrerequisites>
+								<li>Agro_AddictivePlantsI</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Psychoid"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Psychoid</defName>
+						<label>psychoid plant</label>
+						<description>A leafy plant which generates the chemical compound psychite. Originally evolved as a defense mechanism to ward off plant-eating animals by overstimulating and sickening them, the psychite drug can be extracted and refined into various forms for recreational use. It is addictive.</description>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+							<Nutrition>0.15</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/PsychoidPlant</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<dieIfLeafless>true</dieIfLeafless>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>PsychoidLeaves</harvestedThingDef>
+							<harvestYield>8</harvestYield>
+							<sowMinSkill>10</sowMinSkill>
+							<growDays>12</growDays>
+							<lifespanDaysPerGrowDays>2.3</lifespanDaysPerGrowDays>
+							<fertilitySensitivity>0.6</fertilitySensitivity>
+							<fertilityMin>0.8</fertilityMin>
+							<sowTags>
+								<li>Ground</li>
+								<li>Hydroponic</li>
+							</sowTags>
+							<topWindExposure>0.1</topWindExposure>
+							<visualSizeRange>0.3~1.0</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<sowResearchPrerequisites>
+								<li>Agro_AddictivePlantsII</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreePalm"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesI</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeCecropia"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesI</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreePoplar"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesI</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeDrago"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesI</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeWillow"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesI</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreePine"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeBirch"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeMaple"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeBamboo"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeTeak"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesIII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeOak"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesIII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_TreeCypress"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_TreesIII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Dandelion"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_FlowersI</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Daylily"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_FlowersI</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Rose"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_FlowersII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Agave"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Agave</defName>
+						<label>agave</label>
+						<description>A large-leafed desert plant with edible flowers and stalks.</description>
+						<statBases>
+							<MaxHitPoints>120</MaxHitPoints>
+							<Nutrition>0.2</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/Agave</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+							<shadowData>
+								<volume>(0.2, 0.6, 0.2)</volume>
+							</shadowData>
+						</graphicData>
+						<selectable>true</selectable>
+						<neverMultiSelect>false</neverMultiSelect>
+						<fillPercent>0.20</fillPercent>
+						<pathCost>30</pathCost>
+						<ingestible/>
+						<plant>
+							<harvestYield>10</harvestYield>
+							<sowMinSkill>5</sowMinSkill>
+							<growDays>5</growDays>
+							<lifespanDaysPerGrowDays>2</lifespanDaysPerGrowDays>
+							<fertilitySensitivity>0.0</fertilitySensitivity>
+							<fertilityMin>0.25</fertilityMin>
+							<harvestTag>Standard</harvestTag>
+							<harvestAfterGrowth>0.5</harvestAfterGrowth>
+							<harvestedThingDef>RawAgave</harvestedThingDef>
+							<harvestWork>300</harvestWork>
+							<visualSizeRange>0.9~1.4</visualSizeRange>
+							<topWindExposure>0.3</topWindExposure>
+							<wildClusterRadius>8</wildClusterRadius>
+							<wildClusterWeight>300</wildClusterWeight>
+							<wildOrder>2</wildOrder>
+							<purpose>Food</purpose>
+							<sowResearchPrerequisites>
+								<li>Agro_FruitI</li>
+							</sowResearchPrerequisites>
+							<sowTags>
+								<li>Ground</li>
+							</sowTags>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Rose"]/statBases/Beauty</xpath>
+				<value>
+					<Beauty>8</Beauty>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Daylily"]/statBases/Beauty</xpath>
+				<value>
+					<Beauty>6</Beauty>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Agarilux"]/plant/harvestedThingDef</xpath>
+				<value>
+					<harvestedThingDef>Raw_Agarilux</harvestedThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Agarilux"]/plant</xpath>
+				<value>
+					<sowResearchPrerequisites>
+						<li>Agro_MushroomsII</li>
+					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Agarilux"]/graphicData</xpath>
+				<value>
+					<graphicData>
+						<texPath>Core/Plants/PlantsReadyHarvest/Agarilux</texPath>
+						<graphicClass>Graphic_Random</graphicClass>
+					</graphicData>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bryolux"]/plant</xpath>
+				<value>
+					<plant>
+						<lifespanDaysPerGrowDays>2</lifespanDaysPerGrowDays>
+						<dieIfLeafless>false</dieIfLeafless>
+						<harvestedThingDef>Raw_Bryolux</harvestedThingDef>
+						<harvestYield>3</harvestYield>
+						<sowMinSkill>7</sowMinSkill>
+						<growDays>12</growDays>
+						<fertilitySensitivity>0.0</fertilitySensitivity>
+						<fertilityMin>0.1</fertilityMin>
+						<sowResearchPrerequisites>
+							<li>Agro_MushroomsII</li>
+						</sowResearchPrerequisites>
+						<wildOrder>2</wildOrder>
+						<purpose>Food</purpose>
+						<sowTags>
+							<li>Hydroponic</li>
+							<li>Ground</li>
+						</sowTags>
+					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Glowstool"]/graphicData</xpath>
+				<value>
+					<graphicData>
+						<texPath>Core/Plants/PlantsReadyHarvest/Glowstool</texPath>
+						<graphicClass>Graphic_Random</graphicClass>
+					</graphicData>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Glowstool"]/plant</xpath>
+				<value>
+					<plant>
+						<lifespanDaysPerGrowDays>2.5</lifespanDaysPerGrowDays>
+						<dieIfLeafless>false</dieIfLeafless>
+						<harvestedThingDef>Raw_Glowstool</harvestedThingDef>
+						<harvestYield>8</harvestYield>
+						<sowMinSkill>10</sowMinSkill>
+						<growDays>16</growDays>
+						<fertilitySensitivity>0.0</fertilitySensitivity>
+						<fertilityMin>0.25</fertilityMin>
+						<sowResearchPrerequisites>
+							<li>Agro_MushroomsII</li>
+						</sowResearchPrerequisites>
+						<wildOrder>2</wildOrder>
+						<purpose>Food</purpose>
+						<sowTags>
+							<li>Hydroponic</li>
+							<li>Ground</li>
+						</sowTags>
+					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Nutrifungus"]/plant</xpath>
+				<value>
+					<plant>
+						<fertilityMin>0.3</fertilityMin>
+						<fertilitySensitivity>0.15</fertilitySensitivity>
+						<harvestTag>Standard</harvestTag>
+						<harvestedThingDef>RawFungus</harvestedThingDef>
+						<harvestYield>11</harvestYield>
+						<sowTags>
+							<li>Ground</li>
+							<li>Hydroponic</li>
+						</sowTags>
+						<topWindExposure>0</topWindExposure>
+						<growDays>6</growDays>
+						<cavePlantWeight>0</cavePlantWeight>
+						<visualSizeRange>0.3~0.65</visualSizeRange>
+						<purpose>Food</purpose>
+						<humanFoodPlant>true</humanFoodPlant>
+						<maxMeshCount>9</maxMeshCount>
+						<sowResearchPrerequisites>
+							<li>Agro_MutatedPlantsI</li>
+						</sowResearchPrerequisites>
+					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Tinctoria"]/plant</xpath>
+				<value>
+					<plant>
+						<dieIfLeafless>true</dieIfLeafless>
+						<sowWork>540</sowWork>
+						<growMinGlow>0.3</growMinGlow>
+						<topWindExposure>0.1</topWindExposure>
+						<growDays>2</growDays>
+						<lifespanDaysPerGrowDays>3</lifespanDaysPerGrowDays>
+						<allowAutoCut>false</allowAutoCut>
+						<wildClusterWeight>0</wildClusterWeight>
+						<harvestedThingDef>Dye</harvestedThingDef>
+						<harvestYield>1</harvestYield>
+						<harvestTag>Standard</harvestTag>
+						<purpose>Misc</purpose>
+						<sowTags>
+							<li>Ground</li>
+							<li>Hydroponic</li>
+						</sowTags>
+						<sowResearchPrerequisites>
+							<li>Agro_MutatedPlantsI</li>
+						</sowResearchPrerequisites>
+					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_TreeBonsai"]/plant</xpath>
+				<value>
+					<plant>
+						<sowTags Inherit="False">
+							<li>DecorativeTree</li>
+						</sowTags>
+						<burnedThingDef IsNull="True"/>
+						<sowWork>750</sowWork>
+						<growMinGlow>0.3</growMinGlow>
+						<topWindExposure>0.1</topWindExposure>
+						<growDays>1.5</growDays>
+						<visualSizeRange>0.3~1.05</visualSizeRange>
+						<interferesWithRoof>false</interferesWithRoof>
+						<blockAdjacentSow>false</blockAdjacentSow>
+						<treeLoversCareIfChopped>false</treeLoversCareIfChopped>
+						<purpose>Beauty</purpose>
+						<treeCategory>Mini</treeCategory>
+						<harvestedThingDef IsNull="True"/>
+					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Fibercorn"]</xpath>
+				<value>
+					<ThingDef ParentName="PlantBaseNonEdible">
+						<defName>Plant_Fibercorn</defName>
+						<label>fibercorn</label>
+						<description>An inedible, fibrous plant which produces a small amount of a wood-like substance.</description>
+						<graphicData>
+							<texPath>Things/Plant/Fibercorn</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<minifiedDef IsNull="True"/>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+						</statBases>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<plant>
+							<fertilityMin>0.2</fertilityMin>
+							<fertilitySensitivity>0.1</fertilitySensitivity>
+							<growMinGlow>0.3</growMinGlow>
+							<harvestWork>300</harvestWork>
+							<harvestedThingDef>WoodLog</harvestedThingDef>
+							<burnedThingDef IsNull="True"/>
+							<harvestYield>2</harvestYield>
+							<harvestTag>Wood</harvestTag>
+							<sowTags>
+								<li>Ground</li>
+								<li>Hydroponic</li>
+							</sowTags>
+							<topWindExposure>0</topWindExposure>
+							<growDays>6</growDays>
+							<visualSizeRange>0.3~0.65</visualSizeRange>
+							<treeLoversCareIfChopped>false</treeLoversCareIfChopped>
+							<sowResearchPrerequisites>
+								<li>Agro_TreesII</li>
+							</sowResearchPrerequisites>
+						</plant>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Timbershroom"]/plant</xpath>
+				<value>
+					<plant>
+						<topWindExposure>0</topWindExposure>
+						<fertilityMin>0.01</fertilityMin>
+						<growDays>20</growDays>
+						<harvestYield>25</harvestYield>
+						<neverBlightable>true</neverBlightable>
+						<wildClusterWeight>0</wildClusterWeight>
+						<growMinGlow>0</growMinGlow>
+						<growOptimalGlow>0</growOptimalGlow>
+						<cavePlant>true</cavePlant>
+						<wildOrder>1</wildOrder>
+						<sowResearchPrerequisites Inherit="false"></sowResearchPrerequisites>
+						<treeLoversCareIfChopped>false</treeLoversCareIfChopped>
+						<sowTags Inherit="false"></sowTags>
+					</plant>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

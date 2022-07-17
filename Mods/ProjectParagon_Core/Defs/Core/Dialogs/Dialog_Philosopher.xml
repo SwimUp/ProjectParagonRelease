@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ProjectParagon.Dialogs.DialogDef>
+		<defName>Philosopher</defName>
+		<label>Philosopher</label>
+		<firstPageId>0</firstPageId>
+		<interactLabel>Discuss</interactLabel>
+		<pages>
+			<li>
+				<id>0</id>
+				<text>The philosopher sits on a stone and looks thoughtfully at you. In the end, he offers to answer the question.</text>
+				<options>
+					<li>
+						<id>0</id>
+						<label>Ask a question!</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Social</skillDef>
+								<skillLevel>4</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>2</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>1</id>
+						<label>Exit</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<li>
+				<id>1000</id>
+				<text>I do not find your answer satisfactory.</text>
+				<options>
+					<li>
+						<id>0</id>
+						<label>But...</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<li>
+				<id>1</id>
+				<text>Who are you?</text>
+				<options>
+					<li>
+						<id>1</id>
+						<label>I am a rational thinking being.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Intellectual</skillDef>
+								<skillLevel>6</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.25</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>I am a unique set of principles, features and genes.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Intellectual</skillDef>
+								<skillLevel>6</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.25</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>0</id>
+						<label>I do not know</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<li>
+				<id>2</id>
+				<text>What is the purpose of your existence?</text>
+				<options>
+					<li>
+						<id>1</id>
+						<label>Existence itself is a great goal.</label>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>Biology tells me that I must procreate.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Animals</skillDef>
+								<skillLevel>6</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.1</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.3</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>3</id>
+						<label>I must leave something in this world.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Intellectual</skillDef>
+								<skillLevel>12</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.05</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.3</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>0</id>
+						<label>I do not know</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<li>
+				<id>3</id>
+				<text>The biggest threat to human existence?</text>
+				<options>
+					<li>
+						<id>1</id>
+						<label>Human.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Intellectual</skillDef>
+								<skillLevel>10</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>Other humans.</label>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.15</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.3</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>3</id>
+						<label>Xenos.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Melee</skillDef>
+								<skillLevel>6</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>0</id>
+						<label>I do not know</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<li>
+				<id>4</id>
+				<text>Does fate exist?</text>
+				<options>
+					<li>
+						<id>1</id>
+						<label>Yes, we are pawns in the theater.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Intellectual</skillDef>
+								<skillLevel>6</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.3</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>There are no grounds for asserting this.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Intellectual</skillDef>
+								<skillLevel>4</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.15</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>0</id>
+						<label>I do not know</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<!-- 2 вопрос -->
+			<li>
+				<id>10</id>
+				<text>I am not completely satisfied with your answer. I want you to answer one more.</text>
+				<options>
+					<li>
+						<id>1</id>
+						<label>Ask a question!</label>
+						<transitions>
+							<li>
+								<key>11</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>12</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>0</id>
+						<label>I don't have time for you.</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<li>
+				<id>11</id>
+				<text>Death or dishonor?</text>
+				<options>
+					<li>
+						<id>1</id>
+						<label>Honor has no meaning without life.</label>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>Honor, unlike life, is a very vague concept.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Social</skillDef>
+								<skillLevel>4</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.4</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>3</id>
+						<label>Honor is certainly important.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Melee</skillDef>
+								<skillLevel>8</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.25</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>0</id>
+						<label>I do not know</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<li>
+				<id>12</id>
+				<text>You or society?</text>
+				<options>
+					<li>
+						<id>1</id>
+						<label>What is the point of existence without society?</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Social</skillDef>
+								<skillLevel>6</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.25</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>I refuse to choose.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Intellectual</skillDef>
+								<skillLevel>8</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.1</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>3</id>
+						<label>I am more important in my value system.</label>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>0</id>
+						<label>I do not know</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<li>
+				<id>13</id>
+				<text>End justifies the means?</text>
+				<options>
+					<li>
+						<id>1</id>
+						<label>Absolutely.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Melee</skillDef>
+								<skillLevel>6</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.3</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.5</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>Not always.</label>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.1</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.3</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>3</id>
+						<label>My ends always justify the means.</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Social</skillDef>
+								<skillLevel>8</skillLevel>
+							</li>
+						</conditions>
+						<transitions>
+							<li>
+								<key>1000</key>
+								<value>0.4</value>
+							</li>
+							<li>
+								<key>10</key>
+								<value>0.3</value>
+							</li>
+							<li>
+								<key>100</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>0</id>
+						<label>I do not know</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>0</resolveSignal>
+					</li>
+				</options>
+			</li>
+			<!-- завершение диалога -->
+			<li>
+				<id>100</id>
+				<text>Interesting answer. I need to think about it. Go on, don't bother me anymore.</text>
+				<options>
+					<li>
+						<id>0</id>
+						<label>Strange old man...</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>1</resolveSignal>
+					</li>
+				</options>
+			</li>
+		</pages>
+	</ProjectParagon.Dialogs.DialogDef>
+</Defs>

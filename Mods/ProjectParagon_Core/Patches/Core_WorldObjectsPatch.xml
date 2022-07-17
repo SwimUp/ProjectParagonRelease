@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/WorldObjectDef[defName="Caravan"]</xpath>
+				<value>
+					<comps>
+					  <li Class="ProjectParagon.Core.WorldObjects.WorldObjectCompProperties_CaravanGizmos">
+						<commands>
+							<li Class="ProjectParagon.Core.WorldObjects.Caravans.Command_SetupCulturalSite">
+							</li>
+						</commands>
+					  </li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/WorldObjectDef[defName="Caravan"]/worldObjectClass</xpath>
+				<value>
+					<worldObjectClass>ProjectParagon.Core.WorldObjects.Caravans.CaravanParagon</worldObjectClass>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/WorldObjectDef[defName="Settlement"]/worldObjectClass</xpath>
+				<value>
+					<worldObjectClass>ProjectParagon.Core.WorldObjects.Objects.ParagonSettlement</worldObjectClass>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/WorldObjectDef[defName="Settlement"]</xpath>
+				<value>
+					<inspectorTabs>
+						<li>ProjectParagon.Core.WorldObjects.WITab_SettlementNews</li>
+					</inspectorTabs>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/WorldObjectDef[defName="Settlement"]</xpath>
+				<value>
+					<useDynamicDrawer>true</useDynamicDrawer>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.WorldObjects.Objects.DefExtension_ParagonSettlement">
+							<priorityForAlly>40</priorityForAlly>
+							<priorityForNeutral>30</priorityForNeutral>
+							<priorityForHostile>80</priorityForHostile>
+							<startedWealthByTechLevel>
+								<points>
+									<li>(0, 0)</li> <!-- Undefined -->
+									<li>(1, 500)</li> <!-- Animal -->
+									<li>(2, 1200)</li> <!-- Neolithic -->
+									<li>(3, 1600)</li> <!-- Medieval -->
+									<li>(4, 2400)</li> <!-- Industrial -->
+									<li>(5, 3500)</li> <!-- Spacer -->
+									<li>(6, 5000)</li> <!-- Ultra -->
+									<li>(7, 10000)</li> <!-- Archotech -->
+								</points>
+							</startedWealthByTechLevel>
+							<maxWealthByTechLevel>
+								<points>
+									<li>(0, 0)</li> <!-- Undefined -->
+									<li>(1, 2500)</li> <!-- Animal -->
+									<li>(2, 4500)</li> <!-- Neolithic -->
+									<li>(3, 6000)</li> <!-- Medieval -->
+									<li>(4, 8000)</li> <!-- Industrial -->
+									<li>(5, 12000)</li> <!-- Spacer -->
+									<li>(6, 17000)</li> <!-- Ultra -->
+									<li>(7, 35000)</li> <!-- Archotech -->
+								</points>
+							</maxWealthByTechLevel>
+							<wealthMultiplierByTechLevel>
+								<points>
+									<li>(0, 0)</li> <!-- Undefined -->
+									<li>(1, 0.4)</li> <!-- Animal -->
+									<li>(2, 0.56)</li> <!-- Neolithic -->
+									<li>(3, 0.8)</li> <!-- Medieval -->
+									<li>(4, 0.89)</li> <!-- Industrial -->
+									<li>(5, 1)</li> <!-- Spacer -->
+									<li>(6, 1)</li> <!-- Ultra -->
+									<li>(7, 1)</li> <!-- Archotech -->
+								</points>
+							</wealthMultiplierByTechLevel>
+							<wealthMultiplierByHilliness>
+								<points>
+									<li>(0, 1)</li> <!-- Undefined -->
+									<li>(1, 1)</li> <!-- Flat -->
+									<li>(2, 0.9)</li> <!-- SmallHills -->
+									<li>(3, 1.1)</li> <!-- LargeHills -->
+									<li>(4, 1.15)</li> <!-- Mountainous -->
+									<li>(5, 1)</li> <!-- Impassable -->
+								</points>
+							</wealthMultiplierByHilliness>
+							<biomeWealths>
+								<BorealForest>1.0</BorealForest>
+								<Tundra>0.9</Tundra>
+								<ColdBog>0.8</ColdBog>
+								<IceSheet>0.7</IceSheet>
+								<SeaIce>0.6</SeaIce>
+								<TemperateForest>1.05</TemperateForest>
+								<TemperateSwamp>1.0</TemperateSwamp>
+								<TropicalRainforest>1.05</TropicalRainforest>
+								<TropicalSwamp>0.95</TropicalSwamp>
+								<AridShrubland>0.9</AridShrubland>
+								<Desert>0.8</Desert>
+								<ExtremeDesert>0.7</ExtremeDesert>
+								<Biome_SaltDesert>0.6</Biome_SaltDesert>
+								<Biome_Oasis>1.1</Biome_Oasis>
+								<Biome_Savanna>0.9</Biome_Savanna>
+								<Biome_Wasteland>0.8</Biome_Wasteland>
+								<Biome_Grassland>1.15</Biome_Grassland>
+								<Biome_Steppes>0.85</Biome_Steppes>
+								<Biome_Permafrost>0.75</Biome_Permafrost>
+								<Biome_TemperateDesert>0.85</Biome_TemperateDesert>
+								<Biome_SeaReefs>0.7</Biome_SeaReefs>
+								<Biome_RedForest>0.5</Biome_RedForest>
+								<Biome_VolcanicFields>0.7</Biome_VolcanicFields>
+								<Biome_IcePeaks>0.5</Biome_IcePeaks>
+							</biomeWealths>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

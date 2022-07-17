@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<PawnKindDef Name="TreantBase" Abstract="True">
+		<race>TreantRace</race>
+		<defaultFactionType>TreantForestUnion</defaultFactionType>
+		<chemicalAddictionChance>0.0</chemicalAddictionChance>
+		<backstoryCryptosleepCommonality>0.0</backstoryCryptosleepCommonality>
+		<invNutrition>0.0</invNutrition>
+		<biocodeWeaponChance>0.0</biocodeWeaponChance>
+		<initialWillRange>0~1</initialWillRange>
+		<initialResistanceRange>7~12</initialResistanceRange>
+		<apparelMoney>0~0</apparelMoney>
+		<techHediffsChance>0</techHediffsChance>
+	</PawnKindDef>
+	<PawnKindDef Name="DryadBase" Abstract="True">
+		<race>DryadRace</race>
+		<defaultFactionType>TreantForestUnion</defaultFactionType>
+		<chemicalAddictionChance>0.0</chemicalAddictionChance>
+		<backstoryCryptosleepCommonality>0.0</backstoryCryptosleepCommonality>
+		<invNutrition>0.0</invNutrition>
+		<biocodeWeaponChance>0.0</biocodeWeaponChance>
+		<initialWillRange>0~1</initialWillRange>
+		<initialResistanceRange>7~12</initialResistanceRange>
+		<apparelMoney>0~0</apparelMoney>
+		<techHediffsChance>0</techHediffsChance>
+	</PawnKindDef>
+	<PawnKindDef ParentName="TreantBase" Name="Treant">
+		<defName>Treant</defName>
+		<label>Treant</label>
+		<combatPower>300</combatPower>
+		<itemQuality>Poor</itemQuality>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+		<inventoryOptions>
+			<skipChance>0.75</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>LifeExtract</thingDef>
+					<countRange>1~2</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.5</skillChance>
+					<skillsCount>1~2</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+						<li>Growing</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~1000</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~2</Minor>
+							<Major>0~1</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Treant">
+		<defName>GrandTreant</defName>
+		<factionLeader>true</factionLeader>
+	</PawnKindDef>
+	<PawnKindDef ParentName="DryadBase">
+		<defName>Dryad</defName>
+		<label>Dryad</label>
+		<combatPower>120</combatPower>
+		<itemQuality>Poor</itemQuality>
+		<trader>true</trader>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+		<inventoryOptions>
+			<skipChance>0.5</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>LifeExtract</thingDef>
+					<countRange>1~3</countRange>
+				</li>
+				<li>
+					<thingDef>Weapon_BeeGrenade</thingDef>
+					<countRange>3~5</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>1</skillChance>
+					<skillsCount>1~2</skillsCount>
+					<allowedTags>
+						<li>Growing</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~1000</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~2</Minor>
+							<Major>0~1</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+</Defs>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Wall"]</xpath>
+				<value>
+					<designatorDropdown>Structure_Walls</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Door"]</xpath>
+				<value>
+					<designatorDropdown>Structure_Doors</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Autodoor"]</xpath>
+				<value>
+					<designatorDropdown>Structure_Doors</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AnimalFlap"]</xpath>
+				<value>
+					<ThingDef ParentName="DoorBase">
+						<defName>AnimalFlap</defName>
+						<label>animal flap</label>
+						<description>A doorway hung with thick overlapping strips of fabric or leather. It allows animals to pass while insulating the temperature. Animal flaps are commonly used as barn doors to give penned animals a sheltered place to sleep.</description>
+						<statBases>
+							<WorkToBuild>850</WorkToBuild>
+							<MaxHitPoints>20</MaxHitPoints>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Building/Door/AnimalFlap_Mover</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<damageData>
+								<!-- no damage marks because they don't move with the door -->
+								<enabled>false</enabled>
+							</damageData>
+						</graphicData>
+						<uiIconPath>Things/Building/Door/AnimalFlap_MenuIcon</uiIconPath>
+						<costList>
+							<ComponentPrimitive>1</ComponentPrimitive>
+						</costList>
+						<costStuffCount>25</costStuffCount>
+						<stuffCategories Inherit="False">
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<researchPrerequisites>
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+						<building>
+							<roamerCanOpen>true</roamerCanOpen>
+							<ai_chillDestination>false</ai_chillDestination>
+							<blueprintGraphicData>
+								<texPath>Things/Building/Door/AnimalFlap_Blueprint</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+							</blueprintGraphicData>
+						</building>
+						<designatorDropdown>Structure_Doors</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

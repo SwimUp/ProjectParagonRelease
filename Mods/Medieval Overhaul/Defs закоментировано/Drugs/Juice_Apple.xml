@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="MealBase">
+        <defName>DankPyon_JuiceApple</defName>
+        <label>apple juice</label>
+        <description>Freshly pressed apple juice, a sweet and refreshing drink. Ferment for a few days at target temperature to turn into cider.</description>
+        <graphicData>
+            <texPath>Drug/JuiceApple</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <equippedAngleOffset>-150</equippedAngleOffset>
+        <rotatable>false</rotatable>
+        <stackLimit>75</stackLimit>
+
+        <statBases>
+            <DeteriorationRate>0.5</DeteriorationRate>
+            <MarketValue>5</MarketValue>
+            <Mass>0.3</Mass>
+            <Flammability>0.5</Flammability>
+            <Nutrition>0.08</Nutrition>
+        </statBases>
+
+        <ingestible>
+            <preferability>DesperateOnly</preferability>
+            <foodType>Processed</foodType>
+            <joy>0.05</joy>
+            <joyKind>Gluttonous</joyKind>
+            <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
+            <ingestSound>Meal_Eat</ingestSound>
+          </ingestible>
+        
+        <thingCategories Inherit="False">
+            <li>DankPyon_NonAlcoholic</li>
+        </thingCategories>
+        <equipmentType>Primary</equipmentType>
+        <techLevel>Neolithic</techLevel>
+        <comps>
+            <li>
+                <compClass>CompEquippable</compClass>
+            </li>
+        </comps>
+        <tools>
+			<li>
+				<label>bottle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>neck</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+		<researchPrerequisites>
+			<li>DankPyon_Presser</li>
+		</researchPrerequisites>
+    </ThingDef>
+
+	<ThingDef ParentName="MealBase">
+        <defName>DankPyon_JuiceAppleUnfermented</defName>
+        <label>unfermented apple juice</label>
+        <description>Apple juice that is undergoing fermentation. Keep at room temperature to finish fermentation process.</description>
+        <graphicData>
+            <texPath>Drug/UnfermentedJuiceApple</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <equippedAngleOffset>-150</equippedAngleOffset>
+        <rotatable>false</rotatable>
+        <stackLimit>75</stackLimit>
+
+        <statBases>
+            <DeteriorationRate>0.5</DeteriorationRate>
+            <MarketValue>5</MarketValue>
+            <Mass>0.3</Mass>
+            <Flammability>0.5</Flammability>
+            <Nutrition>0.08</Nutrition>
+        </statBases>
+
+        <ingestible>
+            <preferability>DesperateOnly</preferability>
+            <foodType>Processed</foodType>
+            <joy>0.05</joy>
+            <joyKind>Gluttonous</joyKind>
+            <maxNumToIngestAtOnce>4</maxNumToIngestAtOnce>
+            <ingestSound>Meal_Eat</ingestSound>
+          </ingestible>
+        
+        <thingCategories Inherit="False">
+            <li>DankPyon_NonAlcoholic</li>
+        </thingCategories>
+        <equipmentType>Primary</equipmentType>
+        <techLevel>Neolithic</techLevel>
+        <comps>
+            <li>
+                <compClass>CompEquippable</compClass>
+            </li>
+            <li Class="VanillaCookingExpanded.CompProperties_MaturingAlcohol">
+				<daysToRotStart>5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+				<maturingString>DankPyon_JuiceAppleMaturing</maturingString>
+				<maturingProperly>DankPyon_JuiceAppleMaturingCorrectly</maturingProperly>
+				<maturingSlowly>DankPyon_JuiceAppleCurrentlyRefrigerated</maturingSlowly>
+				<maturingStopped>DankPyon_JuiceAppleCurrentlyFrozen</maturingStopped>
+				<thingToTransformTo>DankPyon_Cider</thingToTransformTo>
+			</li>
+        </comps>
+        <tools>
+			<li>
+				<label>bottle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>neck</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+    </ThingDef>
+
+    <ThingDef ParentName="ResourceBase">
+		<defName>DankPyon_MincedApple</defName>
+		<label>apple mince</label>
+		<description>Apples sliced and diced into smaller pieces. Needs to be pressed to become juice.</description>
+		<graphicData>
+		  <texPath>Resources/MincedApple</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<thingCategories>
+		  <li>Manufactured</li>
+		</thingCategories>
+		<statBases>
+		  <DeteriorationRate>1.0</DeteriorationRate>
+		  <MarketValue>2.5</MarketValue>
+		  <Mass>0.8</Mass>
+		  <Flammability>0.2</Flammability>
+		  <MaxHitPoints>60</MaxHitPoints>
+		</statBases>
+		<tickerType>Rare</tickerType>
+		<comps>
+		  <li Class="CompProperties_Rottable">
+			<daysToRotStart>5</daysToRotStart>
+			<rotDestroys>true</rotDestroys>
+		  </li>
+		</comps>
+	  </ThingDef>
+
+</Defs>

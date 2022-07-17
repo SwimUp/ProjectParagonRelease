@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Примитивный стол для исследований -->
+	<ThingDef ParentName="BenchBase">
+		<defName>PrimitiveResearchBench</defName>
+		<label>primitive research bench</label>
+		<description>The minimum set for studying the world around you and gaining new knowledge.</description>
+		<thingClass>Building_ResearchBench</thingClass>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>125</costStuffCount>
+		<graphicData>
+			<texPath>Core/Buildings/PrimitiveResearchBench/PrimitiveResearchBench</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,2)</drawSize>
+			<shadowData>
+				<volume>(2,0.5,0.6)</volume>
+				<offset>(0,0,-0.2)</offset>
+			</shadowData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<size>(2, 1)</size>
+		<castEdgeShadows>false</castEdgeShadows>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<researchPrerequisites>
+			<li>LessonsPast</li>
+		</researchPrerequisites>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>2800</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<ResearchSpeedFactor>0.70</ResearchSpeedFactor>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>Research_ResourceBox</li>
+					<li>SmallLibrary</li>
+					<li>ResearchLibrary</li>
+					<li>Globe</li>
+					<li>SimpleScienceSet</li>
+				</linkableFacilities>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<fillPercent>0.5</fillPercent>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<hasInteractionCell>true</hasInteractionCell>
+		<designationCategory>Science</designationCategory>
+		<designatorDropdown>ResearchBenches</designatorDropdown>
+		<surfaceType>Item</surfaceType>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>Research_ResourceBox</defName>
+		<label>Resource box</label>
+		<description>Storage area for research items.</description>
+		<thingClass>ProjectParagon.Core.ResearchSystem.Building_Research_ResourceBox</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Research_ResourceBox/Research_ResourceBox</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3.2,1.5)</drawSize>
+			<shadowData>
+				<volume>(2,0.5,0.6)</volume>
+				<offset>(0,0,-0.2)</offset>
+			</shadowData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<size>(2,1)</size>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>0.75</Flammability>
+			<Mass>15</Mass>
+		</statBases>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<fillPercent>0.15</fillPercent>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<comps>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<ResearchSpeedFactor>0.0</ResearchSpeedFactor>
+				</statOffsets>
+				<maxSimultaneous>1</maxSimultaneous>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<pathCost>14</pathCost>
+		<designationCategory>Science</designationCategory>
+		<rotatable>true</rotatable>
+		<stuffCategories>
+			<li>Woody</li>
+			<li>Metallic</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+	</ThingDef>
+	
+</Defs>

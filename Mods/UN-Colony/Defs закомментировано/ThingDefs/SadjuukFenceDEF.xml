@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- SadjuukGateBase : Gate Base -->  
+  <ThingDef ParentName="BuildingBase" Name="SadjuukGateBase" Abstract="True">
+    <thingClass>Building_Door</thingClass>
+    <category>Building</category>
+    <altitudeLayer>DoorMoveable</altitudeLayer>
+    <designationCategory>SadjuukUN-Building</designationCategory>
+    <useHitPoints>true</useHitPoints>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <holdsRoof>false</holdsRoof>
+    <castEdgeShadows>false</castEdgeShadows>
+    <drawerType>RealtimeOnly</drawerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_DoorLearnOpeningSpeed</li>
+    </placeWorkers>
+    <building>
+      <isInert>true</isInert>
+      <canPlaceOverWall>true</canPlaceOverWall>
+      <soundDoorOpenPowered>Door_OpenPowered</soundDoorOpenPowered>
+      <soundDoorClosePowered>Door_ClosePowered</soundDoorClosePowered>
+      <soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+      <soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+      <blueprintClass>Blueprint_Door</blueprintClass>
+    </building>
+  </ThingDef>
+	<!-- SadjuukFenceBase : Fence Base -->  
+  <ThingDef ParentName="BuildingBase" Name="SadjuukFenceBase" Abstract="True">
+    <category>Building</category>
+    <thingClass>Building</thingClass>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>false</blockWind>
+    <coversFloor>false</coversFloor>
+    <placingDraggableDimensions>1</placingDraggableDimensions>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <holdsRoof>false</holdsRoof>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>SadjuukUN-Building</designationCategory>
+  </ThingDef>
+
+
+
+	<!-- SadjuukGateBaseG : Tier 1 Wooden Gate -->  
+  <ThingDef ParentName="SadjuukGateBase" Name="SadjuukGateBaseG" Abstract="True">
+    <designatorDropdown>SadjuukGateBaseG</designatorDropdown>
+    <description>HP : 100
+Flammability : 100%
+A rustic Wooden gate.</description>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+      <Flammability>1</Flammability>
+    </statBases>
+    <costList>
+      <WoodLog>5</WoodLog>
+      <Steel>2</Steel>
+    </costList>
+    <blockLight>false</blockLight>
+    <fillPercent>0.4</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+  </ThingDef>
+	<!-- SadjuukGateGH (Wooden Gate Horizontal) -->  
+  <ThingDef ParentName="SadjuukGateBaseG">
+    <defName>SadjuukGateGH</defName>
+    <label>Wooden Gate (H)</label>
+    <graphicData>
+      <texPath>SadjuukFence/SadjuukGateG/SadjuukGateGH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukFence/SadjuukGateG/SadjuukGateGH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukGateGV (Wooden Gate Vertical) -->  
+  <ThingDef ParentName="SadjuukGateBaseG">
+    <defName>SadjuukGateGV</defName>
+    <label>Wooden Gate (V)</label>
+    <graphicData>
+      <texPath>SadjuukFence/SadjuukGateG/SadjuukGateGV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukFence/SadjuukGateG/SadjuukGateGV_Icon</uiIconPath>
+  </ThingDef>
+  	<!-- SadjuukFenceA : Tier 1 Wooden Fence -->  
+  <ThingDef ParentName="SadjuukFenceBase">
+    <defName>SadjuukFenceA</defName>
+    <designatorDropdown>SadjuukFenceA</designatorDropdown>
+    <label>Wood Fence</label>
+    <description>HP : 200
+Flammability : 100%
+Cover : 40%
+A rustic but good wooden fence.</description>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>SadjuukFence/SadjuukFenceA/SadjuukFenceA</texPath>
+      <linkType>Basic</linkType>
+      <linkFlags>
+        <li>Custom7</li>
+      </linkFlags>
+    </graphicData>
+    <building>
+      <isInert>true</isInert>
+      <blueprintGraphicData>
+        <texPath>SadjuukFence/SadjuukFenceA/SadjuukFenceA_Blueprint</texPath>
+      </blueprintGraphicData>
+    </building>
+    <uiIconPath>SadjuukFence/SadjuukFenceA/SadjuukFenceA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>1</Flammability>
+    </statBases>
+    <costList>
+      <WoodLog>5</WoodLog>
+    </costList>
+    <blockLight>false</blockLight>
+    <fillPercent>0.4</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+  </ThingDef>
+  
+  
+  
+	<!-- SadjuukGateBaseH : Tier 2 Grid Gate -->  
+  <ThingDef ParentName="SadjuukGateBase" Name="SadjuukGateBaseH" Abstract="True">
+    <designatorDropdown>SadjuukGateBaseH</designatorDropdown>
+    <description>HP : 225
+Flammability : 20%
+Cover : 20%
+An industrial metal grid gate.</description>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <statBases>
+      <MaxHitPoints>225</MaxHitPoints>
+      <WorkToBuild>900</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <costList>
+      <Steel>7</Steel>
+    </costList>
+    <blockLight>false</blockLight>
+    <fillPercent>0.2</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukGateHH (Grid Gate Horizontal) -->  
+  <ThingDef ParentName="SadjuukGateBaseH">
+    <defName>SadjuukGateHH</defName>
+    <label>Grid Gate (H)</label>
+    <graphicData>
+      <texPath>SadjuukFence/SadjuukGateH/SadjuukGateHH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukFence/SadjuukGateH/SadjuukGateHH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- 25- SadjuukGateHV (Grid Gate Vertical) -->  
+  <ThingDef ParentName="SadjuukGateBaseH">
+    <defName>SadjuukGateHV</defName>
+    <label>Grid Gate (V)</label>
+    <graphicData>
+      <texPath>SadjuukFence/SadjuukGateH/SadjuukGateHV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukFence/SadjuukGateH/SadjuukGateHV_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukFenceB : Tier 2 Grid Fence -->  
+  <ThingDef ParentName="SadjuukFenceBase">
+    <defName>SadjuukFenceB</defName>
+    <designatorDropdown>SadjuukFenceB</designatorDropdown>
+    <label>Grid Fence</label>
+    <description>HP : 450
+Flammability : 20%
+Cover : 20%
+An industrial metal grid fence.</description>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>SadjuukFence/SadjuukFenceB/SadjuukFenceB</texPath>
+      <linkType>Basic</linkType>
+      <linkFlags>
+        <li>Custom7</li>
+      </linkFlags>
+    </graphicData>
+    <building>
+      <isInert>true</isInert>
+      <blueprintGraphicData>
+        <texPath>SadjuukFence/SadjuukFenceB/SadjuukFenceB_Blueprint</texPath>
+      </blueprintGraphicData>
+    </building>
+    <uiIconPath>SadjuukFence/SadjuukFenceB/SadjuukFenceB_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <WorkToBuild>450</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <costList>
+      <Steel>5</Steel>
+    </costList>
+    <blockLight>false</blockLight>
+    <fillPercent>0.2</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+  
+  
+  
+	<!-- SadjuukFenceD : Tier 2 Concrete Fence --> 
+  <ThingDef ParentName="SadjuukFenceBase">
+    <defName>SadjuukFenceD</defName>
+    <designatorDropdown>SadjuukFenceD</designatorDropdown>
+    <label>Concrete Fence</label>
+    <description>HP : 500
+Flammability : 0%
+An industrial concrete fence.</description>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>SadjuukFence/SadjuukFenceD/SadjuukFenceD</texPath>
+      <linkType>Basic</linkType>
+      <linkFlags>
+        <li>Custom7</li>
+      </linkFlags>
+    </graphicData>
+    <staticSunShadowHeight>1</staticSunShadowHeight>
+    <uiIconPath>SadjuukFence/SadjuukFenceD/SadjuukFenceD_Icon</uiIconPath>
+    <building>
+      <isInert>true</isInert>
+      <blueprintGraphicData>
+        <texPath>SadjuukFence/SadjuukFenceD/SadjuukFenceD_Blueprint</texPath>
+      </blueprintGraphicData>
+    </building>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>500</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <SadjuukConcrete>5</SadjuukConcrete>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+  
+   
+   
+	<!-- SadjuukGateBaseI : Tier 2 Glass Autodoor -->  
+  <ThingDef ParentName="SadjuukGateBase" Name="SadjuukGateBaseI" Abstract="True">
+    <designatorDropdown>SadjuukGateBaseI</designatorDropdown>
+    <description>HP : 100
+Flammability : 20%
+Power : 50W
+Beauty : 2
+A very pleasant bullet-proof glass Autodoor. Gives beauty to a room.</description>
+    <staticSunShadowHeight>1</staticSunShadowHeight>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>2</Beauty>
+    </statBases>
+    <costList>
+      <SadjuukGlass>5</SadjuukGlass>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <blockLight>false</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+	<!-- SadjuukGateIH (Glass Autodoor Horizontal) -->  
+  <ThingDef ParentName="SadjuukGateBaseI">
+    <defName>SadjuukGateIH</defName>
+    <label>Glass Autodoor (H)</label>
+    <graphicData>
+      <texPath>SadjuukFence/SadjuukGateI/SadjuukGateIH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukFence/SadjuukGateI/SadjuukGateIH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukGateIV (Glass Autodoor Vertical) -->    
+  <ThingDef ParentName="SadjuukGateBaseI">
+    <defName>SadjuukGateIV</defName>
+    <label>Glass Autodoor (V)</label>
+    <graphicData>
+      <texPath>SadjuukFence/SadjuukGateI/SadjuukGateIV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukFence/SadjuukGateI/SadjuukGateIV_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukFenceC : Tier 2 Glass Fence -->  
+  <ThingDef ParentName="SadjuukFenceBase">
+    <defName>SadjuukFenceC</defName>
+    <designatorDropdown>SadjuukFenceC</designatorDropdown>
+    <label>Glass Partition</label>
+    <description>HP : 200
+Flammability : 20%
+Beauty : 2
+A very pleasant bullet-proof glass partition. Gives beauty to a room.</description>
+    <staticSunShadowHeight>1</staticSunShadowHeight>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>SadjuukFence/SadjuukFenceC/SadjuukFenceC</texPath>
+      <linkType>Basic</linkType>
+      <linkFlags>
+        <li>Custom7</li>
+      </linkFlags>
+    </graphicData>
+    <uiIconPath>SadjuukFence/SadjuukFenceC/SadjuukFenceC_Icon</uiIconPath>
+    <building>
+      <isInert>true</isInert>
+      <blueprintGraphicData>
+        <texPath>SadjuukFence/SadjuukFenceC/SadjuukFenceC_Blueprint</texPath>
+      </blueprintGraphicData>
+    </building>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>2</Beauty>
+    </statBases>
+    <costList>
+      <SadjuukGlass>5</SadjuukGlass>
+    </costList>
+    <blockLight>false</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+  
+  
+  
+  
+</Defs>

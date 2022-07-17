@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase" Abstract="true" Name="MonumentBase">
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<rotatable>false</rotatable>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Monuments</designatorDropdown>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.50</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>50</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Artistic</li>
+				</focusTypes>
+			</li>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+	</ThingDef>
+	<ThingDef ParentName="MonumentBase" Name="SmallPedestal">
+		<defName>SmallPedestal</defName>
+		<label>small pedestal</label>
+		<description>A small stone pedestal.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/Pedestal/Pedestal</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2.8,2.8)</drawSize>
+			<drawOffset>0,0,0.3</drawOffset>
+			<shadowData>
+				<volume>(0.85, 2, 0.4)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>3000</WorkToBuild>
+			<Beauty>15</Beauty>
+			<MeditationFocusStrength>0.10</MeditationFocusStrength>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>85</costStuffCount>
+		<size>(1,1)</size>
+		<researchPrerequisites>
+			<li>MonumentsI</li>
+		</researchPrerequisites>
+		<uiIconScale>0.5</uiIconScale>
+	</ThingDef>
+	<ThingDef ParentName="SmallPedestal">
+		<defName>SmallRoyalPedestal</defName>
+		<label>small royal pedestal</label>
+		<description>A small stone pedestal with a golden bowl.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/Pedestal/RoyalPedestal</texPath>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<WorkToBuild>4000</WorkToBuild>
+			<Beauty>20</Beauty>
+			<MeditationFocusStrength>0.12</MeditationFocusStrength>
+		</statBases>
+		<costList>
+			<GoldIngot>5</GoldIngot>
+		</costList>
+	</ThingDef>
+	<ThingDef ParentName="MonumentBase">
+		<defName>SmallStella</defName>
+		<label>small statue</label>
+		<description>The figure of a person, fertilizing the type of activity.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/SmallStella</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(4,4)</drawSize>
+			<drawOffset>-0.05,0,1.15</drawOffset>
+			<drawRotated>false</drawRotated>
+			<shadowData>
+				<volume>(1.3, 5, 0.8)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>6000</WorkToBuild>
+			<Beauty>15</Beauty>
+			<MeditationFocusStrength>0.15</MeditationFocusStrength>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<size>(2,2)</size>
+		<researchPrerequisites>
+			<li>MonumentsI</li>
+		</researchPrerequisites>
+		<uiIconScale>0.5</uiIconScale>
+	</ThingDef>
+	<ThingDef ParentName="MonumentBase">
+		<defName>BloodyPedestal</defName>
+		<label>Bloody pedestal</label>
+		<description>An ancient symbol that became the site of bloody rituals of local tribes.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/BloodyPedestal</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,4)</drawSize>
+			<drawRotated>false</drawRotated>
+			<drawOffset>0,0,0.5</drawOffset>
+			<shadowData>
+				<volume>(2.1, 3, 0.6)</volume>
+				<offset>(0,0,-0.2)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>3500</WorkToBuild>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<size>(2,2)</size>
+		<rotatable>true</rotatable>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<researchPrerequisites>
+			<li>MonumentsI</li>
+		</researchPrerequisites>
+		<uiIconScale>0.75</uiIconScale>
+	</ThingDef>
+	<ThingDef ParentName="MonumentBase">
+		<defName>Obelisk</defName>
+		<label>Obelisk</label>
+		<description>An ancient statue, possibly built in honor of a deity or as a symbol.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/Obelisk/Obelisk</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(18,18)</drawSize>
+			<drawOffset>0,0,0.25</drawOffset>
+			<drawRotated>false</drawRotated>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>20000</WorkToBuild>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>500</costStuffCount>
+		<size>(3,3)</size>
+		<staticSunShadowHeight>1</staticSunShadowHeight>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<rotatable>true</rotatable>
+		<researchPrerequisites>
+			<li>MonumentsIII</li>
+		</researchPrerequisites>
+		<uiIconScale>0.5</uiIconScale>
+	</ThingDef>
+	<ThingDef ParentName="MonumentBase">
+		<defName>SmallObelisk</defName>
+		<label>Small obelisk</label>
+		<description>An ancient statue, possibly built in honor of a deity or as a symbol.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/Obelisk/SmallObelisk</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(12,12)</drawSize>
+			<drawOffset>0,0,0.25</drawOffset>
+			<drawRotated>false</drawRotated>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>15000</WorkToBuild>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>250</costStuffCount>
+		<rotatable>true</rotatable>
+		<size>(2,2)</size>
+		<staticSunShadowHeight>0.6</staticSunShadowHeight>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<researchPrerequisites>
+			<li>MonumentsII</li>
+		</researchPrerequisites>
+		<uiIconScale>0.5</uiIconScale>
+	</ThingDef>
+	<ThingDef ParentName="MonumentBase" Name="LargePedestal">
+		<defName>LargePedestal</defName>
+		<label>large pedestal</label>
+		<description>A large stone pedestal.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/LargePedestal/LargePedestal</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5.5,5.5)</drawSize>
+			<drawOffset>0,0,0.0</drawOffset>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>7000</WorkToBuild>
+			<Beauty>20</Beauty>
+			<MeditationFocusStrength>0.13</MeditationFocusStrength>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>125</costStuffCount>
+		<size>(2,2)</size>
+		<researchPrerequisites>
+			<li>MonumentsII</li>
+		</researchPrerequisites>
+		<uiIconScale>0.5</uiIconScale>
+		<staticSunShadowHeight>0.5</staticSunShadowHeight>
+	</ThingDef>
+	<ThingDef ParentName="LargePedestal">
+		<defName>LargeRoyalPedestal</defName>
+		<label>large royal pedestal</label>
+		<description>A large stone pedestal with a golden bowl.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/LargePedestal/LargeRoyalPedestal</texPath>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<statBases>
+			<WorkToBuild>10000</WorkToBuild>
+			<Beauty>25</Beauty>
+			<MeditationFocusStrength>0.16</MeditationFocusStrength>
+		</statBases>
+		<costList>
+			<GoldIngot>15</GoldIngot>
+		</costList>
+	</ThingDef>
+	<ThingDef ParentName="MonumentBase" Name="Tomb">
+		<defName>Tomb</defName>
+		<label>tomb</label>
+		<description>A large and exquisitely decorated funeral complex for high-ranking persons.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/Tomb/Tomb</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(8,6)</drawSize>
+			<drawOffset>0,0,0</drawOffset>
+		</graphicData>
+		<thingClass>Building_Sarcophagus</thingClass>
+		<tickerType>Rare</tickerType>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+			<li>ITab_ContentsCasket</li>
+		</inspectorTabs>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<preventDeteriorationInside>true</preventDeteriorationInside>
+			<haulToContainerDuration>500</haulToContainerDuration>
+			<fullGraveGraphicData>
+				<texPath>Core/Buildings/CustomMapsOnly/Tomb/Tomb</texPath>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>(8,6)</drawSize>
+				<drawOffset>0,0,0</drawOffset>
+			</fullGraveGraphicData>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>CorpsesHumanlike</li>
+					</categories>
+					<specialFiltersToDisallow>
+						<li>AllowCorpsesStranger</li>
+					</specialFiltersToDisallow>
+				</filter>
+			</defaultStorageSettings>
+			<buildingTags>
+				<li>RitualFocus</li>
+			</buildingTags>
+		</building>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>25000</WorkToBuild>
+			<Beauty>40</Beauty>
+			<MeditationFocusStrength>0.20</MeditationFocusStrength>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>400</costStuffCount>
+		<size>(4,3)</size>
+		<staticSunShadowHeight>1</staticSunShadowHeight>
+		<researchPrerequisites>
+			<li>MonumentsIII</li>
+		</researchPrerequisites>
+		<comps Inherit="false">
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>NamerArtSarcophagusPlate</nameMaker>
+				<descriptionMaker>ArtDescription_SarcophagusPlate</descriptionMaker>
+				<mustBeFullGrave>true</mustBeFullGrave>
+			</li>
+			<li Class="CompProperties_AssignableToPawn">
+				<drawAssignmentOverlay>false</drawAssignmentOverlay>
+				<compClass>CompAssignableToPawn_Grave</compClass>
+			</li>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Morbid</li>
+				</focusTypes>
+				<offsets>
+					<li Class="FocusStrengthOffset_GraveFull">
+						<offset>0.13</offset>
+					</li>
+					<li Class="FocusStrengthOffset_GraveCorpseRelationship">
+						<offset>0.13</offset>
+					</li>
+				</offsets>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_MeditationOffsetBuildingsNear</li>
+		</placeWorkers>
+	</ThingDef>
+	<ThingDef ParentName="Tomb">
+		<defName>RoyalTomb</defName>
+		<label>royal tomb</label>
+		<description>A large and exquisitely decorated funeral complex for high-ranking persons.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/Tomb/RoyalTomb</texPath>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<building>
+			<fullGraveGraphicData>
+				<texPath>Core/Buildings/CustomMapsOnly/Tomb/RoyalTomb</texPath>
+				<shaderType>CutoutComplex</shaderType>
+			</fullGraveGraphicData>
+		</building>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>30000</WorkToBuild>
+			<Beauty>50</Beauty>
+			<MeditationFocusStrength>0.25</MeditationFocusStrength>
+		</statBases>
+		<costList>
+			<GoldIngot>75</GoldIngot>
+		</costList>
+	</ThingDef>
+	<ThingDef ParentName="MonumentBase">
+		<defName>LargeStella</defName>
+		<label>large statue</label>
+		<description>The figure of a person, fertilizing the type of activity.</description>
+		<graphicData>
+			<texPath>Core/Buildings/CustomMapsOnly/LargeStella</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(13,13)</drawSize>
+			<drawOffset>0,0,0.8</drawOffset>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>20000</WorkToBuild>
+			<Beauty>50</Beauty>
+			<MeditationFocusStrength>0.21</MeditationFocusStrength>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>400</costStuffCount>
+		<size>(5,5)</size>
+		<staticSunShadowHeight>1</staticSunShadowHeight>
+		<researchPrerequisites>
+			<li>MonumentsIII</li>
+		</researchPrerequisites>
+	</ThingDef>
+</Defs>

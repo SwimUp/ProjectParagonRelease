@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Harp"]</xpath>
+				<value>
+					<ThingDef ParentName="MusicalInstrumentBase">
+						<defName>Harp</defName>
+						<label>harp</label>
+						<description>A simple stationary musical instrument. A row of strings are stretched over a frame and plucked directly by a musician's fingers.</description>
+						<thingClass>ProjectParagon.Core.Things.Building_ParagonMusicalInstrument</thingClass>
+						<descriptionHyperlinks>
+							<ThingDef>Harpsichord</ThingDef>
+							<ThingDef>Piano</ThingDef>
+						</descriptionHyperlinks>
+						<size>(1,1)</size>
+						<pathCost>30</pathCost>
+						<minTechLevelToBuild>Medieval</minTechLevelToBuild>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<soundPlayInstrument>Harp_Play</soundPlayInstrument>
+						<researchPrerequisites>
+							<li>Harp</li>
+						</researchPrerequisites>
+						<thingSetMakerTags>
+							<li>RewardStandardQualitySuper</li>
+						</thingSetMakerTags>
+						<statBases>
+							<MaxHitPoints>70</MaxHitPoints>
+							<WorkToMake>18000</WorkToMake>
+							<Mass>4</Mass>
+							<JoyGainFactor>1</JoyGainFactor>
+							<Beauty>10</Beauty>
+						</statBases>
+						<costList>
+							<ComponentSimple>4</ComponentSimple>
+							<MechanismSimple>4</MechanismSimple>
+						</costList>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costStuffCount>150</costStuffCount>
+						<building>
+							<instrumentRange>8</instrumentRange>
+						</building>
+						<specialDisplayRadius>8</specialDisplayRadius>
+						<uiIconOffset>(0, 0.08)</uiIconOffset>
+						<uiIconScale>0.9</uiIconScale>
+						<designationCategory>Furniture</designationCategory>
+						<designatorDropdown>Music</designatorDropdown>
+						<graphicData>
+							<texPath>Things/Building/Joy/harp_south</texPath>
+							<drawSize>(2,2)</drawSize>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawRotated>false</drawRotated>
+							<allowFlip>false</allowFlip>
+							<shaderType>CutoutComplex</shaderType>
+							<shadowData>
+								<volume>(0.08, 0.2, 0.08)</volume>
+								<offset>(0, 0, -0.1)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.3,0.3,0.4,0.4)</rect>
+							</damageData>
+						</graphicData>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_ParagonMusicalInstrument">
+								<allowedThingDefs>
+									<li>MusicalComposition</li>
+								</allowedThingDefs>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Harpsichord"]</xpath>
+				<value>
+					<ThingDef ParentName="MusicalInstrumentBase">
+						<defName>Harpsichord</defName>
+						<label>harpsichord</label>
+						<description>A complex stationary musical instrument crafted at a smithy. A musician touches a row of keys on the front of the instrument. Each key is attached to an internal mechanism which plucks one of a row of strings stretched over a wooden frame. While it permits more complex composition than the harp, its wooden construction and plucking mechanism limit its output volume and expressiveness.</description>
+						<thingClass>ProjectParagon.Core.Things.Building_ParagonMusicalInstrument</thingClass>
+						<descriptionHyperlinks>
+							<ThingDef>Harp</ThingDef>
+							<ThingDef>Piano</ThingDef>
+						</descriptionHyperlinks>
+						<size>(2,3)</size>
+						<minTechLevelToBuild>Medieval</minTechLevelToBuild>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<soundPlayInstrument>Harpsichord_Play</soundPlayInstrument>
+						<defaultPlacingRot>West</defaultPlacingRot>
+						<researchPrerequisites>
+							<li>Harpsichord</li>
+						</researchPrerequisites>
+						<thingSetMakerTags>
+							<li>RewardStandardQualitySuper</li>
+						</thingSetMakerTags>
+						<statBases>
+							<MaxHitPoints>150</MaxHitPoints>
+							<WorkToMake>32000</WorkToMake>
+							<Mass>30</Mass>
+							<JoyGainFactor>1</JoyGainFactor>
+							<Beauty>14</Beauty>
+						</statBases>
+						<costList>
+							<ComponentSimple>10</ComponentSimple>
+							<MechanismSimple>12</MechanismSimple>
+							<WoodLog>100</WoodLog>
+						</costList>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>175</costStuffCount>
+						<building>
+							<instrumentRange>12</instrumentRange>
+						</building>
+						<specialDisplayRadius>12</specialDisplayRadius>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Joy/Harpsichord</texPath>
+							<drawSize>(3.5,3.5)</drawSize>
+							<drawOffsetNorth>(0,0,0.08)</drawOffsetNorth>
+							<shaderType>CutoutComplex</shaderType>
+							<shadowData>
+								<volume>(0.8, 0.3, 1.1)</volume>
+								<offset>(0, 0, 0.1)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.6,0.2,1,1.7)</rect>
+							</damageData>
+						</graphicData>
+						<designationCategory>Furniture</designationCategory>
+						<designatorDropdown>Music</designatorDropdown>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_ParagonMusicalInstrument">
+								<allowedThingDefs>
+									<li>MusicalComposition</li>
+								</allowedThingDefs>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Piano"]</xpath>
+				<value>
+					<ThingDef ParentName="MusicalInstrumentBase">
+						<defName>Piano</defName>
+						<label>piano</label>
+						<description>An advanced stationary musical instrument. It is played by pressing a row of keys, which causes hammers to strike internal strings stretched over a steel frame. The hammer mechanism and high-tension strings allow the musician to play both very soft and very loud, making the piano a very expressive instrument.\n\nIt can be crafted at a smithy.</description>
+						<thingClass>ProjectParagon.Core.Things.Building_ParagonMusicalInstrument</thingClass>
+						<descriptionHyperlinks>
+							<ThingDef>Harp</ThingDef>
+							<ThingDef>Harpsichord</ThingDef>
+						</descriptionHyperlinks>
+						<size>(3,3)</size>
+						<minTechLevelToBuild>Industrial</minTechLevelToBuild>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<soundPlayInstrument>Piano_Play</soundPlayInstrument>
+						<defaultPlacingRot>West</defaultPlacingRot>
+						<researchPrerequisites>
+							<li>Piano</li>
+						</researchPrerequisites>
+						<thingSetMakerTags>
+							<li>RewardStandardQualitySuper</li>
+						</thingSetMakerTags>
+						<statBases>
+							<MaxHitPoints>180</MaxHitPoints>
+							<WorkToMake>50000</WorkToMake>
+							<Mass>60</Mass>
+							<JoyGainFactor>1</JoyGainFactor>
+							<Beauty>18</Beauty>
+						</statBases>
+						<costList>
+							<ComponentSimple>20</ComponentSimple>
+							<MechanismSimple>20</MechanismSimple>
+							<WoodLog>150</WoodLog>
+						</costList>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>250</costStuffCount>
+						<building>
+							<instrumentRange>16</instrumentRange>
+						</building>
+						<specialDisplayRadius>16</specialDisplayRadius>
+						<uiIconScale>0.9</uiIconScale>
+						<graphicData>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<texPath>Things/Building/Joy/GrandPiano</texPath>
+							<drawSize>(3.5,3.5)</drawSize>
+							<shaderType>CutoutComplex</shaderType>
+							<drawOffsetNorth>(0,0,0.25)</drawOffsetNorth>
+							<shadowData>
+								<volume>(2.2, 0.4, 0.8)</volume>
+								<offset>(0, 0, 0.1)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.6,0.3,2,1.2)</rect>
+							</damageData>
+						</graphicData>
+						<designationCategory>Furniture</designationCategory>
+						<designatorDropdown>Music</designatorDropdown>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_ParagonMusicalInstrument">
+								<allowedThingDefs>
+									<li>MusicalComposition</li>
+								</allowedThingDefs>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

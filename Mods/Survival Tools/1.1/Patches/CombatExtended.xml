@@ -1,0 +1,223 @@
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- Axe (cd = 2.4s) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Axe" or defName="SurvivalTools_Axe" or defName="SurvivalTools_Chainsaw"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>8</power>
+                                <armorPenetration>0.075</armorPenetration>
+                                <cooldownTime>2</cooldownTime>
+                                <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>head</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <chanceFactor>1.33</chanceFactor>
+                                <power>14</power>
+                                <armorPenetration>0.142</armorPenetration>
+                                <cooldownTime>2</cooldownTime>
+                                <linkedBodyPartsGroup>Head</linkedBodyPartsGroup>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Axe" or defName="SurvivalTools_Axe"]</xpath>
+                    <value>
+                        <equippedStatOffsets>
+                            <MeleeCritChance>0.375</MeleeCritChance>
+                            <MeleeParryChance>0.375</MeleeParryChance>
+                        </equippedStatOffsets>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Chainsaw"]/equippedStatOffsets</xpath>
+                    <value>
+						<MeleeCritChance>0.375</MeleeCritChance>
+						<MeleeParryChance>0.375</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Axe" or defName="SurvivalTools_Axe" or defName="SurvivalTools_Chainsaw"]/statBases</xpath>
+                    <value>
+                        <Bulk>4.5</Bulk>
+                        <MeleeCounterParryBonus>1.25</MeleeCounterParryBonus>
+                    </value>
+                </li>
+
+                <!-- Pickaxe (cd = 2.4s) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Pickaxe" or defName="SurvivalTools_Jackhammer" or defName="SurvivalTools_Multitool"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>8</power>
+                                <armorPenetration>0.075</armorPenetration>
+                                <cooldownTime>2</cooldownTime>
+                                <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>head</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <chanceFactor>1.33</chanceFactor>
+                                <power>14</power>
+                                <armorPenetration>0.266</armorPenetration>
+                                <cooldownTime>2</cooldownTime>
+                                <linkedBodyPartsGroup>Head</linkedBodyPartsGroup>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Pickaxe" or defName="SurvivalTools_Multitool"]</xpath>
+                    <value>
+                        <equippedStatOffsets>
+                            <MeleeCritChance>0.375</MeleeCritChance>
+                            <MeleeParryChance>0.375</MeleeParryChance>
+                        </equippedStatOffsets>
+                    </value>
+                </li>
+                 <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Jackhammer"]/equippedStatOffsets</xpath>
+                    <value>
+						<MeleeCritChance>0.375</MeleeCritChance>
+						<MeleeParryChance>0.375</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Pickaxe" or defName="SurvivalTools_Jackhammer" or defName="SurvivalTools_Multitool"]/statBases</xpath>
+                    <value>
+                        <Bulk>4.5</Bulk>
+                        <MeleeCounterParryBonus>1.25</MeleeCounterParryBonus>
+                    </value>
+                </li>
+
+                <!-- Hammer (cd = 1.85s) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Hammer" or defName="SurvivalTools_Hammer" or defName="SurvivalTools_BuildingOmnitool"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>6</power>
+                                <armorPenetration>0.087</armorPenetration>
+                                <cooldownTime>1.55</cooldownTime>
+                                <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>head</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <chanceFactor>1.33</chanceFactor>
+                                <power>10.7</power>
+                                <armorPenetration>0.123</armorPenetration>
+                                <cooldownTime>1.55</cooldownTime>
+                                <linkedBodyPartsGroup>Head</linkedBodyPartsGroup>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Hammer" or defName="SurvivalTools_Hammer"]</xpath>
+                    <value>
+                        <equippedStatOffsets>
+                            <MeleeCritChance>0.25</MeleeCritChance>
+                            <MeleeParryChance>0.25</MeleeParryChance>
+                        </equippedStatOffsets>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_BuildingOmnitool"]/equippedStatOffsets</xpath>
+                    <value>
+						<MeleeCritChance>0.25</MeleeCritChance>
+						<MeleeParryChance>0.25</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Hammer" or defName="SurvivalTools_Hammer" or defName="SurvivalTools_BuildingOmnitool"]/statBases</xpath>
+                    <value>
+                        <Bulk>1.5</Bulk>
+                    </value>
+                </li>
+
+                <!-- Sickle (cd = 1.85s) -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Sickle" or defName="SurvivalTools_Sickle" or defName="SurvivalTools_Shovel"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>6</power>
+                                <armorPenetration>0.087</armorPenetration>
+                                <cooldownTime>1.55</cooldownTime>
+                                <linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>blade</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <chanceFactor>1.33</chanceFactor>
+                                <power>10.7</power>
+                                <armorPenetration>0.119</armorPenetration>
+                                <cooldownTime>1.55</cooldownTime>
+                                <linkedBodyPartsGroup>Blade</linkedBodyPartsGroup>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Sickle" or defName="SurvivalTools_Sickle"]</xpath>
+                    <value>
+                        <equippedStatOffsets>
+                            <MeleeCritChance>0.25</MeleeCritChance>
+                            <MeleeParryChance>0.25</MeleeParryChance>
+                        </equippedStatOffsets>
+                    </value>
+                </li>
+                 <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Shovel"]/equippedStatOffsets</xpath>
+                    <value>
+						<MeleeCritChance>0.25</MeleeCritChance>
+						<MeleeParryChance>0.25</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[defName="SurvivalTools_Primitive_Sickle" or defName="SurvivalTools_Sickle" or defName="SurvivalTools_Shovel"]/statBases</xpath>
+                    <value>
+                        <Bulk>1.5</Bulk>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

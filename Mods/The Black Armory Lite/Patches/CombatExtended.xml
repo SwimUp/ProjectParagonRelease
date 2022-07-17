@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="BA_Gun_Arquebus_R"]/tools</xpath>
+					<value>
+						<tools>
+							<li Class="CombatExtended.ToolCE">
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>8</power>
+								<cooldownTime>1.55</cooldownTime>
+								<chanceFactor>1.5</chanceFactor>
+								<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+								<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+							</li>
+							<li Class="CombatExtended.ToolCE">
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>5</power>
+								<cooldownTime>2.02</cooldownTime>
+								<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+								<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+							</li>
+							<li Class="CombatExtended.ToolCE">
+								<label>muzzle</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>8</power>
+								<cooldownTime>1.55</cooldownTime>
+								<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+								<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+							</li>
+						</tools>
+					</value>
+				</li>
+				<!-- === 短火銃 === -->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="BA_Gun_Jezail_P"]/tools</xpath>
+					<value>
+						<tools>
+							<li Class="CombatExtended.ToolCE">
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>2</power>
+								<cooldownTime>1.54</cooldownTime>
+								<chanceFactor>1.5</chanceFactor>
+								<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+								<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+							</li>
+							<li Class="CombatExtended.ToolCE">
+								<label>muzzle</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>2</power>
+								<cooldownTime>1.54</cooldownTime>
+								<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+								<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+							</li>
+						</tools>
+					</value>
+				</li>
+
+				<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+					<!--BA_Gun_Jezail_P-->
+					<defName>BA_Gun_Jezail_P</defName>
+					<statBases>
+						<WorkToMake>9000</WorkToMake>
+						<!--工作量/照舊-->
+						<Mass>1.5</Mass>
+						<!--重量/照舊-->
+						<Bulk>2.55</Bulk>
+						<!--體積 短槍基本2.5,偏移量+-0.5 長槍基本15 偏移量+-2 ,棍狀兵器15~18-->
+						<SwayFactor>2.3</SwayFactor>
+						<!--首發偏移率:最高2.5最低至少也得1.7-->
+						<ShotSpread>0.10</ShotSpread>
+						<!--次發偏移率:最高0.3最低0.1-->
+						<SightsEfficiency>0.8</SightsEfficiency>
+						<!--準心可靠度,棍狀0.5 短槍0.8 長槍1-->
+						<RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
+						<!--冷卻時間/照舊-->
+					</statBases>
+					<costList>
+						<!--製造材料/照舊-->
+						<WoodLog>25</WoodLog>
+						<Steel>50</Steel>
+						<ComponentSimple>5</ComponentSimple>
+						<MechanismSimple>2</MechanismSimple>
+					</costList>
+					<Properties>
+						<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+						<hasStandardCommand>True</hasStandardCommand>
+						<defaultProjectile>BA_Bullet_BasicRound</defaultProjectile>
+						<warmupTime>1.2</warmupTime>
+						<range>17</range>
+						<soundCast>BA_Musket</soundCast>
+						<soundCastTail>GunTail_Medium</soundCastTail>
+						<muzzleFlashScale>12</muzzleFlashScale>
+					</Properties>
+					<AmmoUser>
+						<magazineSize>1</magazineSize>
+						<reloadTime>8</reloadTime>
+						<!--填裝時間:火門15 火繩10 隧發8 簧輪6 短槍-2 -->
+						<ammoSet>AmmoSet_SlowMusketBall</ammoSet>
+						<!--彈藥(物品)-->
+					</AmmoUser>
+					<FireModes>
+						<aiAimMode>AimedShot</aiAimMode>
+					</FireModes>
+					<weaponTags>
+						<!--武器標籤-->
+						<li>MedievalRanged</li>
+					</weaponTags>
+				</li>
+
+				<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+					<!--BA_Gun_Arquebus_R-->
+					<defName>BA_Gun_Arquebus_R</defName>
+					<statBases>
+						<WorkToMake>12000</WorkToMake>
+						<!--工作量/照舊-->
+						<Mass>4</Mass>
+						<!--重量/照舊-->
+						<Bulk>17</Bulk>
+						<!--體積 短槍基本2.5,偏移量+-0.5 長槍基本15 偏移量+-2 ,棍狀兵器15~18-->
+						<SwayFactor>1.92</SwayFactor>
+						<!--首發偏移率:最高2.5最低至少也得1.7-->
+						<ShotSpread>0.10</ShotSpread>
+						<!--次發偏移率:最高0.3最低0.1-->
+						<SightsEfficiency>1</SightsEfficiency>
+						<!--準心可靠度,棍狀0.5 短槍0.8 長槍1-->
+						<RangedWeapon_Cooldown>3.7</RangedWeapon_Cooldown>
+						<!--冷卻時間/照舊-->
+					</statBases>
+					<costList>
+						<!--製造材料/照舊-->
+						<WoodLog>60</WoodLog>
+						<Steel>80</Steel>
+						<ComponentSimple>8</ComponentSimple>
+						<MechanismSimple>6</MechanismSimple>
+					</costList>
+					<Properties>
+						<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+						<hasStandardCommand>True</hasStandardCommand>
+						<defaultProjectile>BA_Bullet_BasicRound</defaultProjectile>
+						<warmupTime>1.5</warmupTime>
+						<range>30.9</range>
+						<soundCast>BA_Musket</soundCast>
+						<soundCastTail>GunTail_Medium</soundCastTail>
+						<muzzleFlashScale>12</muzzleFlashScale>
+					</Properties>
+					<AmmoUser>
+						<magazineSize>1</magazineSize>
+						<reloadTime>15</reloadTime>
+						<!--填裝時間:火門15 火繩10 隧發8 簧輪6 短槍-2 -->
+						<ammoSet>AmmoSet_FastMusketBall</ammoSet>
+						<!--彈藥(物品)-->
+					</AmmoUser>
+					<FireModes>
+						<aiAimMode>AimedShot</aiAimMode>
+					</FireModes>
+					<weaponTags>
+						<!--武器標籤-->
+						<li>MedievalRanged</li>
+					</weaponTags>
+				</li>
+
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

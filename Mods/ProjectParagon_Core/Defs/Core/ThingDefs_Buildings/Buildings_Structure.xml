@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>RubberWall</defName>
+		<label>Wall treated with rubber</label>
+		<description>Wall of logs impregnated with rubber. Rubber strengthens the structure, making it more durable, but also more vulnerable to fire.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/Linked/RubberWall/RubberWall_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Core/Buildings/Linked/RubberWall/RubberWall_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<WorkToBuild>170</WorkToBuild>
+			<Flammability>1.5</Flammability>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<costStuffCount>5</costStuffCount>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<costList>
+			<Caoutchouc>3</Caoutchouc>
+		</costList>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<researchPrerequisites>
+			<li>AdvancedWoodProcessing</li>
+		</researchPrerequisites>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+		</building>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Minimal</li>
+				</focusTypes>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>1.9</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>0.65</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>1.1</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>1.0</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>1.35</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>1.2</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>1.2</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.6</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>1.1</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>1.1</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>1.7</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>1.1</multiplier>
+			</li>
+		</damageMultipliers>
+		<designationHotKey>Misc3</designationHotKey>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>SolidStoneWall</defName>
+		<label>Solid stone wall</label>
+		<description>Wall of stone blocks, reinforced with clay with rubble.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/Linked/SolidStoneWall/SolidStoneWall_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Core/Buildings/Linked/SolidStoneWall/SolidStoneWall_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<WorkToBuild>170</WorkToBuild>
+			<Flammability>0</Flammability>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<costStuffCount>5</costStuffCount>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<costList>
+			<Clay>3</Clay>
+			<Slag>2</Slag>
+		</costList>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<researchPrerequisites>
+			<li>AdvancedStoneProcessing</li>
+		</researchPrerequisites>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+		</building>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>1.5</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>0.5</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>1.0</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>1.0</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>0.9</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>0.9</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.5</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>1.5</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>0.95</multiplier>
+			</li>
+		</damageMultipliers>
+		<designationHotKey>Misc3</designationHotKey>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>GlassWall</defName>
+		<label>Glass wall</label>
+		<description>A fragile and beautiful wall that lets light through.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Things/Building/Linked/Wall</texPath>
+			<graphicClass>Graphic_Appearances</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+			</linkFlags>
+			<color>(0.61, 0.78, 1, 0.5)</color>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>0</Flammability>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>false</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<costList>
+			<Glass>5</Glass>
+		</costList>
+		<researchPrerequisites>
+			<li>GlassMaking</li>
+		</researchPrerequisites>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+		</building>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Minimal</li>
+				</focusTypes>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>3</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>2.5</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>1.5</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>1.8</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>1.8</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>3</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>4</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>3</multiplier>
+			</li>
+		</damageMultipliers>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>SnowWall</defName>
+		<label>Snow wall</label>
+		<description>Compacted snow wall.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Things/Building/Linked/Wall</texPath>
+			<graphicClass>Graphic_Appearances</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<color>(222, 222, 222, 255)</color>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>15</MaxHitPoints>
+			<WorkToBuild>100</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+		</building>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>5</multiplier>
+			</li>
+		</damageMultipliers>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>UntreatedStoneWall</defName>
+		<label>Untreated stone wall</label>
+		<description>A wall made of rough cobblestones. It is very easy to explode.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/Linked/UntreatedStoneWall/UntreatedStoneWall_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Core/Buildings/Linked/UntreatedStoneWall/UntreatedStoneWall_MenuIcon</uiIconPath>
+		<uiIconScale>0.8</uiIconScale>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>100</WorkToBuild>
+			<Flammability>0</Flammability>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<costStuffCount>2</costStuffCount>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<costList>
+			<Clay>5</Clay>
+		</costList>
+		<stuffCategories>
+			<li>UntreatedStony</li>
+		</stuffCategories>
+		<researchPrerequisites>
+			<li>SimpleStoneProcessing</li>
+		</researchPrerequisites>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+		</building>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>3</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>1.0</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>0.5</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>0.5</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>0.5</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>0.5</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>0.5</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.5</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>0.45</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+		</damageMultipliers>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+	</ThingDef>
+</Defs>

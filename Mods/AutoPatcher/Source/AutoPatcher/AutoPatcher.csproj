@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8853D5B4-7350-4D62-B81F-949CFE84CF9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoPatcher</RootNamespace>
+    <AssemblyName>AutoPatcher</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '1.2|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\1.2\Assemblies\</OutputPath>
+    <DefineConstants>TRACE;V12</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.1|AnyCPU'">
+    <OutputPath>..\..\1.1\Assemblies\</OutputPath>
+    <DefineConstants>TRACE;V11</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.3|AnyCPU'">
+    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref">
+      <Version>1.3.3076</Version>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony">
+      <Version>2.1.1</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MathParser.org-mXparser">
+      <Version>4.4.2</Version>
+    </PackageReference>
+    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib">
+      <Version>9.0.0</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\AssemblyInfo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AssemblyInfo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Harmony\BackCompatibility.cs" />
+    <Compile Include="Harmony\Scribe_Values.cs" />
+    <Compile Include="Harmony\Scribe_Universal.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Utility\CastUtility.cs" />
+    <Compile Include="Utility\Utility.cs" />
+    <Compile Include="Def\NodeBases\EndNode.cs" />
+    <Compile Include="Def\NodeBases\BeginNode.cs" />
+    <Compile Include="Def\NodeBases\DefPatchNode.cs" />
+    <Compile Include="Def\NodeBases\EnumerableMethodPatchNode.cs" />
+    <Compile Include="Def\NodeBases\PatchNode.cs" />
+    <Compile Include="Def\Nodes\JobSearch.cs" />
+    <Compile Include="Def\Nodes\StatInject.cs" />
+    <Compile Include="PatchTree\Port.cs" />
+    <Compile Include="Def\Nodes\ToilPatch.cs" />
+    <Compile Include="PatchTree\PatchTreeBranch.cs" />
+    <Compile Include="PatchTree\Interfaces.cs" />
+    <Compile Include="Def\Nodes\ActionSearch.cs" />
+    <Compile Include="Def\Nodes\ToilSearch.cs" />
+    <Compile Include="Harmony\GenTypes.cs" />
+    <Compile Include="MiscClasses\HelperClasses.cs" />
+    <Compile Include="MiscClasses\Formula.cs" />
+    <Compile Include="PatchTree\Node.cs" />
+    <Compile Include="Utility\NodeUtility.cs" />
+    <Compile Include="MainMod.cs" />
+    <Compile Include="AutoPatcher_Controller.cs" />
+    <Compile Include="DefOf\NodeDefOf.cs" />
+    <Compile Include="Def\Nodes\BeginNodes.cs" />
+    <Compile Include="Def\NodeBases\SearchNode.cs" />
+    <Compile Include="Def\NodeBases\MethodPatchNode.cs" />
+    <Compile Include="Def\NodeBases\PassNode.cs" />
+    <Compile Include="Def\Nodes\DriverInOutDef.cs" />
+    <Compile Include="Def\Nodes\StatSearch.cs" />
+    <Compile Include="Def\Nodes\StatPatch.cs" />
+    <Compile Include="Def\PatchTree.cs" />
+    <Compile Include="Def\NodeDef.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssemblyInfo.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="TransformOnBuild" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <_TransformExe>$(MSBuildExtensionsPath)\..\Common7\IDE\TextTransform.exe</_TransformExe>
+      <_TextTransform>$(ProjectDir)Properties\AssemblyInfo.tt</_TextTransform>
+      <_TextTransformResult>$(ProjectDir)Properties\AssemblyInfo.cs</_TextTransformResult>
+    </PropertyGroup>
+    <Exec Command="del &quot;$(_TextTransformResult)&quot;" />
+    <Exec Command="&quot;$(_TransformExe)&quot; &quot;$(_TextTransform)&quot; -out &quot;$(_TextTransformResult)&quot;" />
+  </Target>
+</Project>

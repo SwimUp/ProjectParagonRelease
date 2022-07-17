@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  
+  <!-- Base SadjuukRefineryBase -->
+  <ThingDef Name="SadjuukRefineryBase" ParentName="BenchBase" Abstract="True">
+    <thingClass>Building_WorkTable</thingClass>
+    <category>Building</category>
+    <altitudeLayer>Building</altitudeLayer>
+    <selectable>true</selectable>
+    <rotatable>true</rotatable>
+    <clearBuildingArea>true</clearBuildingArea>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <blockWind>false</blockWind>
+    <fillPercent>1</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>SadjuukUN-Industry</designationCategory>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <hasInteractionCell>true</hasInteractionCell>
+    <surfaceType>Item</surfaceType>
+  </ThingDef>
+  <!-- SadjuukRefineryA : Refinery -->
+  <ThingDef ParentName="SadjuukRefineryBase">
+    <defName>SadjuukRefineryA</defName>
+    <label>Medium Refinery</label>
+    <description>HP : 300
+Power : 450W
+A medium capacity Refinery, far from conventional industrial capabilities but reliable and versatile.
+It's 30% more efficient to produce directly a whole barrel than small quantity of chemfuel.</description>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>1</Flammability>
+    </statBases>
+    <minifiedDef />
+    <thingCategories Inherit="false" />
+    <size>(5,3)</size>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>450</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>5</heatPerSecond>
+      </li>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>SadjuukRefineryUpgradeA</li>
+          <li>SadjuukRefineryUpgradeB</li>
+          <li>SadjuukRefineryUpgradeC</li>
+        </linkableFacilities>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>
+    <graphicData>
+      <texPath>SadjuukRefinery/SadjuukRefineryA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(6,6)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukRefinery/SadjuukRefineryA_Icon</uiIconPath>
+    <recipes>
+	<!-- Vanilla Recipe Wood : 70 Wood => 35 Chemfuel-->
+      <li>Make_ChemfuelFromWood</li>
+	<!-- Vanilla Recipe organics : 3.5 organics => 35 Chemfuel-->
+      <li>Make_ChemfuelFromOrganics</li>
+	<!-- SadjuukChemfuelRecipeC : 140 Hay => 35 Chemfuel-->
+      <li>SadjuukChemfuelRecipeC</li>
+	<!-- SadjuukChemfuelRecipeD : 1 corps => 10 Chemfuel -->
+      <li>SadjuukChemfuelRecipeD</li>
+	<!-- SadjuukChemfuelRecipeG : 35 Leathers => 35 Chemfuel -->
+      <li>SadjuukChemfuelRecipeG</li>
+	<!-- SadjuukChemfuelRecipeH : 35 Textiles => 35 Chemfuel -->
+      <li>SadjuukChemfuelRecipeB</li>
+	<!-- SadjuukChemfuelRecipeA : 450 Chemfuel => 1 Chemfuel Barrel -->
+      <li>SadjuukChemfuelRecipeA</li>
+	<!-- SadjuukChemfuelRecipeE : 225 Wood => 1 Chemfuel Barrel
+      <li>SadjuukChemfuelRecipeE</li> -->
+	<!-- SadjuukChemfuelRecipeF : 600 Hay => 1 Chemfuel Barrel
+      <li>SadjuukChemfuelRecipeF</li> -->
+	<!-- SadjuukHydrogenRecipeA : 1 Chemfuel Barrel + 3 component => 3 SadjuukHydrogen -->
+      <li>SadjuukHydrogenRecipeA</li>
+	<!-- SadjuukHydrogenRecipeB : 150 Chemfuel + 1 component => 1 SadjuukHydrogen -->
+      <li>SadjuukHydrogenRecipeB</li>
+	<!-- SadjuukSynthreadRecipeA : 150 Chemfuel => 75 Synthread -->
+      <li>SadjuukSynthreadRecipeA</li>
+	<!-- Vanilla Recipe burning trash-->
+      <li>BurnApparel</li>
+      <li>BurnWeapon</li>
+      <li>BurnDrugs</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <interactionCellOffset>(0,0,-2)</interactionCellOffset>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>SadjuukPowerA</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  
+
+  <!-- Base SadjuukRefineryUpgradeBase -->
+  <ThingDef Name="SadjuukRefineryUpgradeBase" ParentName="BuildingBase" Abstract="True">
+    <altitudeLayer>Building</altitudeLayer>
+    <thingClass>Building</thingClass>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <castEdgeShadows>false</castEdgeShadows>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <fillPercent>1</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <rotatable>false</rotatable>
+    <designationCategory>SadjuukUN-Industry</designationCategory>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+  </ThingDef>
+  <!-- SadjuukRefineryUpgradeA -->
+  <ThingDef ParentName="SadjuukRefineryUpgradeBase">
+    <defName>SadjuukRefineryUpgradeA</defName>
+    <label>Chemfuel Tank</label>
+    <description>HP : 150
+Power : 50W
+Speed : +5%
+Refinery Upgrade : 10 of these small tanks can be added to improve the speed of refining, making quickly available the heaviest organic elements.</description>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>700</WorkToBuild>
+      <Flammability>2</Flammability>
+    </statBases>
+    <graphicData>
+      <texPath>SadjuukRefinery/SadjuukRefineryUpgradeA</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <size>(1,2)</size>
+    <uiIconPath>SadjuukRefinery/SadjuukRefineryUpgradeA_Icon</uiIconPath>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>SadjuukPowerA</li>
+    </researchPrerequisites>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <WorkTableWorkSpeedFactor>0.05</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>10</maxSimultaneous>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>1</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukRefineryUpgradeB -->
+  <ThingDef ParentName="SadjuukRefineryUpgradeBase">
+    <defName>SadjuukRefineryUpgradeB</defName>
+    <label>Cracking Unit</label>
+    <description>HP : 300
+Power : 450W
+Speed : +30%
+Refinery Upgrade : Works in parallel with the refinery units to process the heaviest elements.</description>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>1</Flammability>
+    </statBases>
+    <graphicData>
+      <texPath>SadjuukRefinery/SadjuukRefineryUpgradeB</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <size>(3,3)</size>
+    <uiIconPath>SadjuukRefinery/SadjuukRefineryUpgradeB_Icon</uiIconPath>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>SadjuukPowerB</li>
+    </researchPrerequisites>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <WorkTableWorkSpeedFactor>0.30</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>450</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>6</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>4</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukRefineryUpgradeC -->
+  <ThingDef ParentName="SadjuukRefineryUpgradeBase">
+    <defName>SadjuukRefineryUpgradeC</defName>
+    <label>Hydrolyzer</label>
+    <description>HP : 300
+Power : 450W
+Speed : +60%
+Refinery Upgrade : The hydrolyzer significantly increases the transformation of organic matter.</description>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>1</Flammability>
+    </statBases>
+    <graphicData>
+      <texPath>SadjuukRefinery/SadjuukRefineryUpgradeC</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <size>(3,3)</size>
+    <uiIconPath>SadjuukRefinery/SadjuukRefineryUpgradeC_Icon</uiIconPath>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>SadjuukPowerC</li>
+    </researchPrerequisites>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <WorkTableWorkSpeedFactor>0.60</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>450</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>6</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>6</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>0.2</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  
+
+</Defs>

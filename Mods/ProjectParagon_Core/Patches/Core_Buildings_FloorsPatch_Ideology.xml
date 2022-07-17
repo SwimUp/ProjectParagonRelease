@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[@Name="IdeoStoneTileBase"]</xpath>
+				<value>
+				  <TerrainDef ParentName="FloorBase" Name="IdeoStoneTileBase" Abstract="True">
+					<statBases>
+					  <WorkToBuild>5000</WorkToBuild>
+					  <Beauty>3</Beauty>
+					  <StyleDominance>1</StyleDominance>
+					</statBases>
+					<renderPrecedence>220</renderPrecedence>
+					<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+					<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+					<researchPrerequisites>
+					  <li>StoneFloorsI</li>
+					</researchPrerequisites>
+					<tags>
+					  <li>FineFloor</li>
+					</tags>
+				  </TerrainDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MorbidSlab_Medium"]</xpath>
+				<value>
+				  <ThingDef ParentName="BuildingFloorCoveringMediumBase">
+					<defName>MorbidSlab_Medium</defName>
+					<label>morbid slab (medium)</label>
+					<description>A stone bas relief of morbid imagery for decorating a floor.</description>
+					<dominantStyleCategory>Morbid</dominantStyleCategory>
+					<graphicData>
+					  <graphicClass>Graphic_Random</graphicClass>
+					  <texPath>Things/Building/FloorCoverings/SlabMorbidMedium</texPath>
+					  <drawSize>(3,3)</drawSize>
+					</graphicData>
+					<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+					<stuffCategories>
+					  <li>Stony</li>
+					</stuffCategories>
+					<costStuffCount>100</costStuffCount>
+					<researchPrerequisites>
+					  <li>StoneFloorsI</li>
+					</researchPrerequisites>
+				  </ThingDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MorbidSlab_Broad"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingFloorCoveringBroadBase">
+						<defName>MorbidSlab_Broad</defName>
+						<label>morbid slab (broad)</label>
+						<description>A stone bas relief of morbid imagery for decorating a floor.</description>
+						<dominantStyleCategory>Morbid</dominantStyleCategory>
+						<graphicData>
+						  <graphicClass>Graphic_Random</graphicClass>
+						  <texPath>Things/Building/FloorCoverings/SlabMorbidBroad</texPath>
+						  <drawSize>(4,4)</drawSize>
+						</graphicData>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<stuffCategories>
+						  <li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>150</costStuffCount>
+						<researchPrerequisites>
+						  <li>StoneFloorsI</li>
+						</researchPrerequisites>
+					  </ThingDef>
+				</value>
+			</li>
+			
+		</operations>
+	</Operation>
+</Patch>

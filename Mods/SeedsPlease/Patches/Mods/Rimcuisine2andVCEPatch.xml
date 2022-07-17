@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+            <li>Vanilla Cooking Expanded</li>
+        </mods>
+		<match Class="PatchOperationFindMod">
+			<mods><li>[1.0, 1.1] RimCuisine 2 Core</li></mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+				
+				<!--Change seed names-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/SeedsPlease.SeedDef[defName="Seed_VCEWheat"]/label</xpath>
+					<value><label>Spelt seeds</label></value>
+				</li>
+				
+				
+				<!--Change recipe names and description-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName="ExtractSeed_VCEWheat"]/label</xpath>
+					<value><label>Synthetize seeds from spelt flour</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName="ExtractSeed_VCEWheat"]/description</xpath>
+					<value><description>Synthetize seeds from spelt flour</description></value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName="ExtractSeed_VCESugarCane"]/label</xpath>
+					<value><label>Synthetize seeds from brown sugar</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName="ExtractSeed_VCESugarCane"]/description</xpath>
+					<value><description>Synthetize seeds from brown sugar</description></value>
+				</li>
+				</operations>
+			</match>
+			
+			
+		</match>
+	</Operation>
+</Patch>

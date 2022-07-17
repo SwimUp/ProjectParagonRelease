@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  
+  <!-- Base SadjuukExtractorBase -->
+  <ThingDef Name="SadjuukExtractorBase" ParentName="BenchBase" Abstract="True">
+    <thingClass>Building_WorkTable</thingClass>
+    <category>Building</category>
+    <altitudeLayer>Building</altitudeLayer>
+    <selectable>true</selectable>
+    <rotatable>true</rotatable>
+    <clearBuildingArea>true</clearBuildingArea>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <blockWind>false</blockWind>
+    <fillPercent>1</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>SadjuukUN-Industry</designationCategory>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <hasInteractionCell>true</hasInteractionCell>
+    <surfaceType>Item</surfaceType>
+  </ThingDef>
+  <!-- SadjuukExtractorA : Silicon Extractor -->
+  <ThingDef ParentName="SadjuukExtractorBase">
+    <defName>SadjuukExtractorA</defName>
+    <label>Silicon Extractor</label>
+    <description>HP : 450
+Power : 600W
+A very complex machinery capable of extracting silicon from the rock. Produce construction components like glass and concrete from stone.</description>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <minifiedDef />
+    <thingCategories Inherit="false" />
+    <size>(5,2)</size>
+    <costList>
+      <Steel>450</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>600</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>6</heatPerSecond>
+      </li>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>SadjuukExtractorUpgradeA</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <graphicData>
+      <texPath>SadjuukExtractor/SadjuukExtractorA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(7,7)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukExtractor/SadjuukExtractorA_Icon</uiIconPath>
+    <recipes>
+      <li>SadjuukConcreteRecipeA</li>
+      <li>SadjuukConcreteRecipeB</li>
+      <li>SadjuukGlassRecipeA</li>
+      <li>SadjuukGlassRecipeB</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <interactionCellOffset>(-1,0,-1)</interactionCellOffset>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+
+
+  <!-- Base SadjuukExtractorUpgradeBase -->
+  <ThingDef Name="SadjuukExtractorUpgradeBase" ParentName="BuildingBase" Abstract="True">
+    <altitudeLayer>Building</altitudeLayer>
+    <thingClass>Building</thingClass>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <castEdgeShadows>false</castEdgeShadows>
+    <staticSunShadowHeight>0</staticSunShadowHeight>
+    <fillPercent>1</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <rotatable>false</rotatable>
+    <designationCategory>SadjuukUN-Industry</designationCategory>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+  </ThingDef>
+  <!-- SadjuukExtractorUpgradeA : Mineral Heater -->
+  <ThingDef ParentName="SadjuukExtractorUpgradeBase">
+    <defName>SadjuukExtractorUpgradeA</defName>
+    <label>Mineral Heater</label>
+    <description>HP : 150
+Power : 450W
+Speed : +15%
+Extractor Upgrade : Improve the speed of the Silicon Extractor by heating mineral residues in a very high temperature air circuit.</description>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <graphicData>
+      <texPath>SadjuukExtractor/SadjuukExtractorUpgradeA</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <size>(3,2)</size>
+    <uiIconPath>SadjuukExtractor/SadjuukExtractorUpgradeA_Icon</uiIconPath>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>450</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(230,170,25,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>6</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <WorkTableWorkSpeedFactor>0.15</WorkTableWorkSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+  </ThingDef>
+  
+
+</Defs>

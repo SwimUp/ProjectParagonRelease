@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef>
+		<defName>PiercingBlow</defName>
+		<label>Piercing blow</label>
+		<description>A swift attack from behind a shield to inflict unexpected defeat on an enemy.</description>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<iconTexturePath>Core/UI/FightSystem/Icon_PiercingBlow</iconTexturePath>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee_Ranged</verbClass>
+			<meleeDamageDef>Stab</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+			<warmupTime>2</warmupTime>
+			<range>2</range>
+		</verbProperties>
+		<nakedDamageMultiplier>1.3</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>1.5</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1</damageMult>
+				<armorPetentrationMult>1.4</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.0</damageMult>
+				<armorPetentrationMult>1.4</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<requirements>
+			<reqFightningStyle>GreekSchool</reqFightningStyle>
+		</requirements>
+		<hitChanceMult>1.3</hitChanceMult>
+		<chanceFactor>0</chanceFactor>
+		<minRest>0.2</minRest>
+		<useRest>true</useRest>
+		<restUseMultiplier>5</restUseMultiplier>
+		<orderJobDef>UseVerbOnThingStatic</orderJobDef>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef>
+		<defName>ShieldBash</defName>
+		<label>Shield bash</label>
+		<description>A devastating shield bash that can throw you off balance.</description>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<iconTexturePath>Core/UI/FightSystem/Icon_ShieldBashGreek</iconTexturePath>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Blunt</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+			<linkedBodyPartsGroup>Torso</linkedBodyPartsGroup>
+		</verbProperties>
+		<requirements>
+			<reqFightningStyle>GreekSchool</reqFightningStyle>
+		</requirements>
+		<nakedDamageMultiplier>1.1</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>0.3</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>0.4</damageMult>
+				<armorPetentrationMult>0.8</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>0.2</damageMult>
+				<armorPetentrationMult>0.4</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<chanceFactor>0</chanceFactor>
+		<minRest>0.2</minRest>
+		<useRest>true</useRest>
+		<restUseMultiplier>2</restUseMultiplier>
+		<stunChance>0.45</stunChance>
+		<stunTicks>150</stunTicks>
+		<extraRequirements>
+			<li Class="ProjectParagon.Core.FightSystem.SpecialAttackExtraRequirement_ShieldEquipped" />
+		</extraRequirements>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+</Defs>

@@ -1,0 +1,2280 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Vanilla basetwo -->
+
+	<ThingDef Name="ApparelloBasetwo" Abstract="True">
+		<thingClass>Apparel</thingClass>
+		<category>Item</category>
+		<selectable>True</selectable>
+		<pathCost>10</pathCost>
+		<useHitPoints>True</useHitPoints>
+		<graphicData>
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+		</graphicData>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>2</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+		</statBases>
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>True</alwaysHaulable>
+		<tickerType>Never</tickerType>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Tailor</effectWorking>
+			<soundWorking>Recipe_Tailor</soundWorking>
+			<recipeUsers>
+				<li>ElectricTailoringBench</li>
+				<li>HandTailoringBench</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+		</recipeMaker>
+	</ThingDef>
+
+
+
+
+
+
+	<!--Wendy-->
+
+	<ThingDef ParentName="ArmorelloMakeableBase">
+		<defName>Apparello_Wendywelder</defName>
+		<label>welding mask</label>
+		<description>A little spark in they eye is said to be a good thing. Still, being prepared never harmed anyone.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Weld</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<smeltable>true</smeltable>
+
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchWork</researchPrerequisite>
+		</recipeMaker>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSetCrafterer</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>1</Mass>
+			<MarketValue>200</MarketValue>
+			<WorkToMake>7000</WorkToMake>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+			<ArmorRating_Blunt>3</ArmorRating_Blunt>
+		</statBases>
+		<equippedStatOffsets>
+			<WorkSpeedGlobal>0.02</WorkSpeedGlobal>
+			<GeneralLaborSpeed>0.15</GeneralLaborSpeed>
+			<SmeltingSpeed>0.30</SmeltingSpeed>
+			<ButcheryMechanoidSpeed>0.30</ButcheryMechanoidSpeed>
+			<ButcheryMechanoidEfficiency>0.20</ButcheryMechanoidEfficiency>
+		</equippedStatOffsets>
+		<generateCommonality>0.6</generateCommonality>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Weld</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>IndustrialMilitaryBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+	<!--Hardhat-->
+
+	<ThingDef ParentName="ArmorelloMakeableBase">
+		<defName>Apparello_Hardhat</defName>
+		<label>hardhat</label>
+		<description>Favoured by the constructions workers all across the galaxy. These are known to have saved lives of many a prey of the terrifying falling lunchbox, hammer or brick</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Hardhat</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<smeltable>true</smeltable>
+
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchWork</researchPrerequisite>
+		</recipeMaker>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloConstructionSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>1</Mass>
+			<MarketValue>200</MarketValue>
+			<WorkToMake>7000</WorkToMake>
+			<ArmorRating_Blunt>3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1</ArmorRating_Sharp>
+		</statBases>
+		<equippedStatOffsets>
+			<WorkSpeedGlobal>0.02</WorkSpeedGlobal>
+			<MiningSpeed>0.15</MiningSpeed>
+		</equippedStatOffsets>
+		<generateCommonality>0.6</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Hardhat</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>IndustrialMilitaryBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+	<!--Chef-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Chefhat</defName>
+		<label>chef's hat</label>
+		<description>These iconic chef hats do serve an actual purpose - Keeping the hair in check. Finding hair in your soup often means dissatisfied customer.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Chef</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchWork</researchPrerequisite>
+		</recipeMaker>
+
+		<costList>
+			<Cloth>80</Cloth>
+		</costList>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSetCookie</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<MarketValue>100</MarketValue>
+			<WorkToMake>3000</WorkToMake>
+			<ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+					<ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+		</statBases>
+		<equippedStatOffsets>
+			<CookSpeed>0.05</CookSpeed>
+			<FoodPoisonChance>-0.05</FoodPoisonChance>
+		</equippedStatOffsets>
+		<generateCommonality>1</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Chef</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>Chef</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+	<!-- Chefplus -->
+
+	<ThingDef ParentName="ApparelloMakeableBase">
+		<defName>Apparello_Chefhatplus</defName>
+		<label>tinkercraft chefhat</label>
+		<description>Armed with timers and very basic scent-detector helps anyone cook the meals just right. The chef hat on it is just for declaring the purpose of this headgear</description>
+
+		<smeltable>true</smeltable>
+
+		<costList>
+			<Apparello_Chefhat>1</Apparello_Chefhat>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Steel>20</Steel>
+		</costList>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchPrototype</researchPrerequisite>
+		</recipeMaker>
+
+		<graphicData>
+			<texPath>Hats/Display/Chefplus</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSetCookie</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>1</Mass>
+			<WorkToMake>7000</WorkToMake>
+			<ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+					<ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+			<MaxHitPoints>120</MaxHitPoints>
+		</statBases>
+		<equippedStatOffsets>
+			<CookSpeed>0.20</CookSpeed>
+			<FoodPoisonChance>-0.10</FoodPoisonChance>
+			<DrugCookingSpeed>0.05</DrugCookingSpeed>
+		</equippedStatOffsets>
+		<generateCommonality>0.2</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+				<li>Eyes</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Chefplus</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>Prototype</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+	<!-- Cyberninja -->
+
+	<ThingDef ParentName="ArmorelloMakeableBase">
+		<defName>Apparello_Cyninja</defName>
+		<label>tac-team headcover</label>
+		<description>Designed to be used by tactical squads in urban warfare situations. comes with pre-installed velocity booster and inbuilt aiming assist. It does expose the wearer's brain to minimal and totally acceptable levels of radioactivity, which is okay!</description>
+
+		<costList>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<costStuffCount>75</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchLPOW</researchPrerequisite>
+		</recipeMaker>
+
+		<graphicData>
+			<texPath>Hats/Display/Cyberninja</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingCategories>
+			<li>ArmorHeadgear</li>
+			<li>ApparelloSetRachel</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.9</Mass>
+			<WorkToMake>7000</WorkToMake>
+			<ArmorRating_Blunt>12</ArmorRating_Blunt>
+			<ArmorRating_Sharp>8</ArmorRating_Sharp>
+			<MaxHitPoints>120</MaxHitPoints>
+		</statBases>
+		<equippedStatOffsets>
+			<MentalBreakThreshold>-0.01</MentalBreakThreshold>
+			<PsychicSensitivity>-0.10</PsychicSensitivity>
+			<AimingAccuracy>0.05</AimingAccuracy>
+			<MoveSpeed>0.02</MoveSpeed>
+		</equippedStatOffsets>
+		<generateCommonality>0.2</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Cyberninja</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialMilitaryBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+	<!--Medic-->
+
+	<ThingDef ParentName="ApparelloMakeableBase">
+		<defName>Apparello_Medihelmet</defName>
+		<label>medic's kevlar helmet</label>
+		<description>A lightweight combat helmet with a complex design, reinforced with plasteel. Not effective against blunt weapons.</description>
+
+		<costList>
+			<Apparel_AdvancedHelmet>1</Apparel_AdvancedHelmet>
+			<MedicineIndustrial>1</MedicineIndustrial>
+			<Cloth>5</Cloth>
+		</costList>
+
+		<graphicData>
+			<texPath>Hats/Display/Medihelm</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingCategories>
+			<li>ArmorHeadgear</li>
+			<li>ApparelloMedicalSet</li>
+		</thingCategories>
+
+		<statBases>
+			<WorkToMake>8000</WorkToMake>
+			<MaxHitPoints>120</MaxHitPoints>
+			<Mass>1.2</Mass>
+			<ArmorRating_Blunt>12</ArmorRating_Blunt>
+			<ArmorRating_Sharp>8</ArmorRating_Sharp>
+			<StuffEffectMultiplierInsulation_Cold>0.15</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>2.5</EquipDelay>
+			<Bulk>5</Bulk>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.02</MoveSpeed>
+			<MedicalTendSpeed>0.05</MedicalTendSpeed>
+			<MedicalTendQuality>0.05</MedicalTendQuality>
+		</equippedStatOffsets>
+		<generateCommonality>0.6</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Medihelm</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialMilitaryAdvanced</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+	<!--AI proto-->
+
+	<ThingDef ParentName="ApparelloMakeableBase">
+		<defName>Apparello_Proto</defName>
+		<label>prototype nerve-enhancer</label>
+		<description>Prototype of very innovative headgear aimed to enhance synaptic reaction rates. It has some very unsavory side effects such as overbearing nervousness, Ringing ears, strange background noises and/or voices.</description>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchPrototype</researchPrerequisite>
+		</recipeMaker>
+
+		<smeltable>true</smeltable>
+
+		<costList>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<Steel>20</Steel>
+			<Plasteel>75</Plasteel>
+		</costList>
+
+		<graphicData>
+			<texPath>Hats/Display/Proto</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingCategories>
+			<li>ArmorHeadgear</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>2</Mass>
+			<MarketValue>1000</MarketValue>
+			<WorkToMake>7000</WorkToMake>
+			<ArmorRating_Blunt>6</ArmorRating_Blunt>
+			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<MaxHitPoints>300</MaxHitPoints>
+		</statBases>
+		<equippedStatOffsets>
+			<AimingDelayFactor>-0.15</AimingDelayFactor>
+			<WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+			<MoveSpeed>0.05</MoveSpeed>
+			<GlobalLearningFactor>0.02</GlobalLearningFactor>
+			<MentalBreakThreshold>0.35</MentalBreakThreshold>
+			<PsychicSensitivity>-0.1</PsychicSensitivity>
+		</equippedStatOffsets>
+		<generateCommonality>0.6</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Proto</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>Prototype</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+	<!--AI protofin-->
+
+	<ThingDef ParentName="ApparelloRareBase">
+		<defName>Apparello_ProtoFin</defName>
+		<label>nerve-enhancer</label>
+		<description>Very innovative headgear aimed to enhance synaptic reaction rates. It still has some very unsavory side effects although not as bad as before. placing the advanced AI core on it seemed to work out most of the kinks. Unfortunately the AI core also amplifies wearer psychic sensitivity, leaving them extremely vulnerable to psychic powers</description>
+
+		<recipeMaker>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<recipeUsers>
+				<li>ApparelloTinkerer</li>
+			</recipeUsers>
+			<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+			<researchPrerequisite>PoweredArmor</researchPrerequisite>
+		</recipeMaker>
+
+		<tradeability>Sellable</tradeability>
+
+		<smeltable>true</smeltable>
+
+		<costList>
+			<AIPersonaCore>1</AIPersonaCore>
+			<Apparello_Proto>1</Apparello_Proto>
+			<Plasteel>20</Plasteel>
+		</costList>
+
+		<graphicData>
+			<texPath>Hats/Display/PowerAI</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingCategories>
+			<li>ArmorHeadgear</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>2</Mass>
+			<MarketValue>6000</MarketValue>
+			<WorkToMake>7000</WorkToMake>
+			<ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.85</ArmorRating_Sharp>
+
+		</statBases>
+		<equippedStatOffsets>
+			<AimingDelayFactor>-0.17</AimingDelayFactor>
+			<WorkSpeedGlobal>0.12</WorkSpeedGlobal>
+			<MoveSpeed>0.06</MoveSpeed>
+			<GlobalLearningFactor>0.03</GlobalLearningFactor>
+			<MentalBreakThreshold>0.25</MentalBreakThreshold>
+			<PsychicSensitivity>1</PsychicSensitivity>
+		</equippedStatOffsets>
+		<generateCommonality>0.6</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/PowerAI</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>Prototype</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+	<!--Commissar-->
+
+	<ThingDef ParentName="ApparelloBaseNoCol">
+		<defName>Apparello_Commissar</defName>
+		<label>peaked cap</label>
+		<description>Often seen on military officers. These indigenous alpha mammals of the battlefields tend to be so amazing their skills rubs off on their clothes</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Commissar</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>40</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchSF</researchPrerequisite>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Tailor</effectWorking>
+			<soundWorking>Recipe_Tailor</soundWorking>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>	
+
+		</recipeMaker>	
+
+		<thingCategories>
+			<li>Headgear</li>
+		</thingCategories>
+
+		<statBases>
+			<WorkToMake>7000</WorkToMake>
+			<Mass>0.16</Mass>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+
+		</statBases>
+		<equippedStatOffsets>
+			<GlobalLearningFactor>0.03</GlobalLearningFactor>
+			<MentalBreakThreshold>-0.07</MentalBreakThreshold>
+		</equippedStatOffsets>
+		<generateAllowChance>0.1</generateAllowChance>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Commissar</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>SpacerMilitary</li>
+				<li>IndustrialMilitaryAdvanced</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<!--   <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>4</weight>
+          <only>RGBA(1,1,1,1)</only>
+        </li>
+      </options>
+    </colorGenerator>-->
+	</ThingDef>
+
+
+
+
+
+	<!--Gas-->
+
+	<ThingDef ParentName="ApparelloBase">
+		<defName>Apparello_Gassy</defName>
+		<label>gasmask</label>
+		<description>Unwieldy and cumbersome protection from gas attacks, Not in common use anymore due to better more advanced alternatives. However, still favoured by the raiders for it's intimidating look</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Gas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingCategories>
+			<li>Headgear</li>
+		</thingCategories>
+
+		<costStuffCount>40</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchWork</researchPrerequisite>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Tailor</effectWorking>
+			<soundWorking>Recipe_Tailor</soundWorking>
+			<recipeUsers>
+				<li>TableMachining</li>
+			</recipeUsers>	
+
+		</recipeMaker>	
+
+
+		<statBases>
+			<Mass>0.4</Mass>
+			<StuffEffectMultiplierArmor>0.4</StuffEffectMultiplierArmor>
+			<WorkToMake>7000</WorkToMake>
+		</statBases>
+		<equippedStatOffsets>
+			<SocialImpact>-0.05</SocialImpact>
+			<ToxicSensitivity>-0.50</ToxicSensitivity>
+			<SmokeSensitivity>-1</SmokeSensitivity>
+		</equippedStatOffsets>
+		<generateCommonality>0.3</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Gas</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>IndustrialMilitaryBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+		<modExtensions>
+			<li Class="CombatExtended.ApparelHediffExtension">
+				<hediff>WearingGasMask</hediff>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+	<!-- Cybissar -->
+
+	<ThingDef ParentName="ApparelloMakeableBase">
+		<defName>Apparello_Cybissar</defName>
+		<label>Tac-Team peaked cap</label>
+		<description>it's just a Tac-Team mask with peaked cap attached. It's very neat.</description>
+
+		<costList>
+			<ComponentIndustrial>1</ComponentIndustrial>
+			<Steel>5</Steel>
+			<Apparello_Cyninja>1</Apparello_Cyninja>
+			<Apparello_Commissar>1</Apparello_Commissar>
+		</costList>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchLPOW</researchPrerequisite>
+		</recipeMaker>
+
+		<graphicData>
+			<texPath>Hats/Display/Cybissar</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSetRachel</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>1</Mass>
+			<MarketValue>3300</MarketValue>
+			<WorkToMake>7000</WorkToMake>
+			<ArmorRating_Blunt>12</ArmorRating_Blunt>
+			<ArmorRating_Sharp>8</ArmorRating_Sharp>
+
+			<MaxHitPoints>120</MaxHitPoints>
+		</statBases>
+		<equippedStatOffsets>
+			<PsychicSensitivity>-0.15</PsychicSensitivity>
+			<AimingAccuracy>0.05</AimingAccuracy>
+			<GlobalLearningFactor>0.02</GlobalLearningFactor>
+			<MentalBreakThreshold>-0.06</MentalBreakThreshold>
+		</equippedStatOffsets>
+		<generateCommonality>0.05</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Cybissar</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>SpacerMilitary</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+	<!--Nurse-->
+
+	<ThingDef ParentName="ApparelloBasetwo">
+		<defName>Apparello_Medband</defName>
+		<label>medic's bandana</label>
+		<description>Medic's bandana. Used to point out people who shouldn't be shot at from the crowd. Such rules are hardly ever followed on the Rimworlds.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Medband</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costList>
+			<Cloth>25</Cloth>
+			<MedicineHerbal>5</MedicineHerbal>
+		</costList>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloMedicalSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.08</Mass>
+			<MarketValue>200</MarketValue>
+			<WorkToMake>3000</WorkToMake>
+			<ArmorRating_Blunt>0.015</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.01</ArmorRating_Sharp>
+		</statBases>
+		<equippedStatOffsets>
+			<MedicalTendQuality>0.07</MedicalTendQuality>
+		</equippedStatOffsets>
+		<generateCommonality>0.7</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Medband</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<!-- <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>4</weight>
+          <only>RGBA(1,1,1,1)</only>
+        </li>
+      </options>
+    </colorGenerator> -->
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+	<!--Surgeon-->
+
+	<ThingDef ParentName="ApparelloMakeableBase">
+		<defName>Apparello_Docteur</defName>
+		<label>surgeon's headgear</label>
+		<description>When fiddling with someone else's vital organs, sanitary equipment is crucial. Wearing these enhances the doctor's sight with the amplifier modules on the goggles. And the surgical mask prevents unwanted bacteria entering the vic.. patient</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Dochat</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costList>
+			<Apparello_Medband>1</Apparello_Medband>
+			<Apparello_Goggles>1</Apparello_Goggles>
+			<MedicineIndustrial>5</MedicineIndustrial>
+			<Cloth>5</Cloth>
+		</costList>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloMedicalSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.16</Mass>
+			<MarketValue>500</MarketValue>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.1</StuffEffectMultiplierArmor>
+
+		</statBases>
+		<equippedStatOffsets>
+			<MedicalSurgerySuccessChance>0.05</MedicalSurgerySuccessChance>
+			<MedicalTendQuality>0.1</MedicalTendQuality>
+		</equippedStatOffsets>
+		<generateCommonality>1</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Dochat</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>Doctor</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--Farmhat-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Plainhat</defName>
+		<label>cork hat</label>
+		<description>Weighted hats for the hardy men who worked the desert plains where winds were strong enough to blow mans hat off, The sun so strong it would fell an ox. But not the Plainsmen, no! They'd work dusk till dawn ..or atleast till supper.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Tralia</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchQuilting</researchPrerequisite>
+		</recipeMaker>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloGrowerSet</li>
+			<li>ApparelloHandlingSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.2</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+
+			<Insulation_Heat>8</Insulation_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<PlantWorkSpeed>0.10</PlantWorkSpeed>
+			<TameAnimalChance>0.02</TameAnimalChance>
+			<TrainAnimalChance>0.02</TrainAnimalChance>
+		</equippedStatOffsets>
+		<generateCommonality>0.8</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Tralia</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--Vodkafur-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Furhat</defName>
+		<label>ushanka</label>
+		<description>Keep your head warm in cold climates, wear fur! Be warned though, in the right place, the fur wears you!</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Vodkafur</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchDesign</researchPrerequisite>
+		</recipeMaker>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+			<li>ApparelloWinterwald</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<ArmorRating_Blunt>0.04</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+
+			<StuffEffectMultiplierInsulation_Cold>0.50</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+
+		</statBases>
+		<equippedStatOffsets>
+			<SocialImpact>0.10</SocialImpact>
+			<MentalBreakThreshold>-0.05</MentalBreakThreshold>
+		</equippedStatOffsets>
+		<generateCommonality>0.5</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Vodkafur</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+	<!--Bad nit-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Bandit</defName>
+		<label>bandit scarf</label>
+		<description>Robbing a stagecoach has never been as much fun without wearing a scarf on your face. Scarves provide small resistance against toxic fallout.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Bandit</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>7</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.05</Mass>
+			<WorkToMake>1000</WorkToMake>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+		</statBases>
+		<equippedStatOffsets>
+			<ToxicSensitivity>-0.15</ToxicSensitivity>
+		</equippedStatOffsets>
+		<generateCommonality>0.005</generateCommonality>
+		<apparel>
+			<hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
+			<bodyPartGroups>
+				<li>Teeth</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Bandit</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialAdvanced</li>
+				<li>ApparelloBandit</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--Cardshark-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Cardshark</defName>
+		<label>cardshark hat</label>
+		<description>Stylish, elegant and soft to the touch. Known as the most important part of western attire. Especially amongst the card cheats and otherwise slippery individuals</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Cardshark</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+			<li>ApparelloSomerset</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>4000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<NegotiationAbility>0.25</NegotiationAbility>
+		</equippedStatOffsets>
+		<generateCommonality>1</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Cardshark</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--Cardshark-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_TriMeCornMatey</defName>
+		<label>Tricorn</label>
+		<description>The wide brim of this hat is cocked up at three points thus the triangular shape. The points of the hat are believed to represent power, wisdom and courage. This information Zeldom comes up even though it is Linked to many a triangular objects, no one questions it's validity and is widely accepted as Ganon.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Tricorn</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+			<li>ApparelloSomerset</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>4000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<NegotiationAbility>0.25</NegotiationAbility>
+		</equippedStatOffsets>
+		<generateCommonality>1</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Tricorn</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--Sand trader-->
+
+	<ThingDef ParentName="ApparelloMakeableBase">
+		<defName>Apparello_Sandtrader</defName>
+		<label>caravaneer's hat</label>
+		<description>Roaming merchants use these to protect their face from dust storms, toxic fallouts and the like.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/SandTrader</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<smeltable>true</smeltable>
+
+		<costList>
+			<Steel>40</Steel>
+			<Apparel_CowboyHat>1</Apparel_CowboyHat>
+		</costList>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+			<li>ApparelloSomerset</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>1</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+			<StuffEffectMultiplierInsulation_Cold>0.30</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.45</StuffEffectMultiplierInsulation_Heat>
+
+		</statBases>
+		<equippedStatOffsets>
+			<NegotiationAbility>0.15</NegotiationAbility>
+			<ToxicSensitivity>-0.40</ToxicSensitivity>
+			<SmokeSensitivity>-1</SmokeSensitivity>
+		</equippedStatOffsets>
+		<generateCommonality>0.2</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>FullHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/SandTrader</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>OutlanderTrader</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+	<!--Tradecone-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Tradecone</defName>
+		<label>paddy hat</label>
+		<description>Traveling merchants and rice paddy farmers would often protect themselves from the sun with hats like these. It has very oriental feel to it.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Tradecone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>40</costStuffCount>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+			<li>ApparelloGrowerSet</li>
+			<li>ApparelloSomerset</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.2</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+
+		</statBases>
+		<equippedStatOffsets>
+			<PlantWorkSpeed>0.10</PlantWorkSpeed>
+			<ForagedNutritionPerDay>0.10</ForagedNutritionPerDay>
+		</equippedStatOffsets>
+		<generateCommonality>0.6</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Tradecone</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>OutlanderTrader</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--Fedora-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Fedora</defName>
+		<label>fedora</label>
+		<description>These hats are often associated with gangsters and government officials, which are both practically the same. "Will m'lady join the colony. Nyaah?"</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Fedora</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchDesign</researchPrerequisite>
+		</recipeMaker>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
+
+		</statBases>
+		<equippedStatOffsets>
+			<NegotiationAbility>0.10</NegotiationAbility>
+			<SocialImpact>0.05</SocialImpact>
+		</equippedStatOffsets>
+		<generateCommonality>0.5</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Fedora</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>Spacer</li>
+				<li>IndustrialBasic</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+	<!--Headset-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Headset</defName>
+		<label>headset with bandana</label>
+		<description>Common usage for these has been communication. it's wireless and doesn't work. But it gives the impression that you're somehow more social and capable at things that require social skills.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Headset</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.00</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
+
+		</statBases>
+		<equippedStatOffsets>
+			<SocialImpact>0.10</SocialImpact>
+			<NegotiationAbility>0.05</NegotiationAbility>
+		</equippedStatOffsets>
+		<generateCommonality>0.5</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Headset</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>Spacer</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--Beret-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Beret</defName>
+		<label>beret</label>
+		<description>Soft and keeps the head warm. Very common amongst both offduty soldiers and high ranking officers. Uniforms commonly inspire respect but also creates a very stern image of the wearer</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Beret</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchDesign</researchPrerequisite>
+		</recipeMaker>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+		</statBases>
+		<equippedStatOffsets>
+			<NegotiationAbility>0.15</NegotiationAbility>
+		</equippedStatOffsets>
+		<generateCommonality>0.5</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Beret</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>IndustrialMilitaryBasic</li>
+				<li>Spacer</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--McDuck-->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Tophat</defName>
+		<label>tophat</label>
+		<description>Rare sight on the rimworlds, Tophats make the wearer feel the power over the lesser beings</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchDesign</researchPrerequisite>
+		</recipeMaker>
+
+		<costStuffCount>20</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSocialSet</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.40</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.8</EquipDelay>
+
+		</statBases>
+		<equippedStatOffsets>
+			<SocialImpact>0.15</SocialImpact>
+		</equippedStatOffsets>
+		<generateCommonality>0.3</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Top</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>Spacer</li>
+				<li>OutlanderTrader</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<min>RGBA(0.3,0.3,0.3,1)</min>
+					<max>RGBA(0.9,0.9,0.9,1)</max>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Bandal -->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Bandal</defName>
+		<label>baseball cap</label>
+		<description>Your common cap. Perhaps most famed from the ages old game where you hit balls with your bat and then run home. This was a very violent game and entirely based on dirty hit and run tactics. Thankfully it is not practiced any longer at this day and age.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Batcap</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchDesign</researchPrerequisite>
+		</recipeMaker>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSetRachel</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.1</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.15</StuffEffectMultiplierInsulation_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<ShootingAccuracyPawn>0.05</ShootingAccuracyPawn>
+			<AimingDelayFactor>0.01</AimingDelayFactor>
+		</equippedStatOffsets>
+		<generateCommonality>0.7</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Batcap</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>Spacer</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>10</weight>
+					<only>RGBA(0.9,0.54,0.15,1)</only>
+				</li>
+				<li>
+					<weight>15</weight>
+					<only>RGBA(0.9,0.6,0.18,1)</only>
+				</li>
+				<li>
+					<weight>20</weight>
+					<only>RGBA(0.9,0.42,0.23,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+	<!-- Vandal -->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Vandal</defName>
+		<label>scarf</label>
+		<description>Urbworld crims would often don these on while robbing the local corner store. These kind of criminals are famous for their itchy trigger fingers, poor aim, brick throwing and trashcan kicking shenanigans. Scarves provide small resistance against toxic fallout.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Vandal</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchDesign</researchPrerequisite>
+		</recipeMaker>
+
+		<costStuffCount>7</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.05</Mass>
+			<WorkToMake>1000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.1</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.1</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.1</StuffEffectMultiplierInsulation_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<ToxicSensitivity>-0.15</ToxicSensitivity>
+		</equippedStatOffsets>
+		<generateCommonality>0.005</generateCommonality>
+		<apparel>
+			<hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
+			<bodyPartGroups>
+				<li>Teeth</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Vandal</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialAdvanced</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>10</weight>
+					<only>RGBA(0.9,0.54,0.15,1)</only>
+				</li>
+				<li>
+					<weight>15</weight>
+					<only>RGBA(0.9,0.6,0.18,1)</only>
+				</li>
+				<li>
+					<weight>20</weight>
+					<only>RGBA(0.9,0.42,0.23,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+	<!-- LeCap -->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Lecap</defName>
+		<label>kepi</label>
+		<description>The most important piece of many a rebel army uniform. Designed to be worn on hot climates.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Lecap</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<recipeMaker>
+			<researchPrerequisite>ApparelloResearchDesign</researchPrerequisite>
+		</recipeMaker>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSomerset</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.8</EquipDelay>
+
+		</statBases>
+		<equippedStatOffsets>
+			<MentalBreakThreshold>-0.03</MentalBreakThreshold>
+		</equippedStatOffsets>
+		<generateCommonality>1</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Lecap</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>Western</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_StandardApparel" />
+	</ThingDef>
+
+
+
+	<!-- Hood -->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Hoood</defName>
+		<label>hood</label>
+		<description>Ultimate protection from the wind! The kind of headwear you see worn by shady characters in dark alleys, glaring at you, with gleaming eyes, Ready to stab yo- *gurgle*</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Hood</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloWinterwald</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.50</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.00</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.8</EquipDelay>
+
+		</statBases>
+		<equippedStatOffsets>
+			<MentalBreakThreshold>-0.03</MentalBreakThreshold>
+			<SocialImpact>-0.05</SocialImpact>
+		</equippedStatOffsets>
+		<generateCommonality>0.4</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Hood</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>Norbal</li>
+				<li>Medieval</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_StandardApparel" />
+	</ThingDef>
+
+
+
+
+
+
+	<!-- Sombrero -->
+
+	<ThingDef ParentName="ApparelloVanillaBase">
+		<defName>Apparello_Sombrero</defName>
+		<label>sombrero</label>
+		<description>Keeps the sun off your eyes during siesta! Ay caramba!</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Sombrero</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+
+		<thingCategories>
+			<li>Headgear</li>
+			<li>ApparelloSomerset</li>
+		</thingCategories>
+
+		<statBases>
+			<Mass>0.14</Mass>
+			<WorkToMake>3000</WorkToMake>
+			<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.10</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.50</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>0.8</EquipDelay>
+
+		</statBases>
+		<equippedStatOffsets>
+			<MentalBreakThreshold>-0.05</MentalBreakThreshold>
+		</equippedStatOffsets>
+		<generateCommonality>1</generateCommonality>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Sombrero</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>Western</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>10</weight>
+					<only>RGBA(0.9,0.54,0.15,1)</only>
+				</li>
+				<li>
+					<weight>15</weight>
+					<only>RGBA(0.9,0.6,0.18,1)</only>
+				</li>
+				<li>
+					<weight>20</weight>
+					<only>RGBA(0.9,0.42,0.23,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+	<!--Unique Morion-->
+
+	<ThingDef ParentName="ApparelloRareBase">
+		<defName>Apparello_Moron</defName>
+		<label>explorer's morion</label>
+		<description>17th century morion. Extremely common in medieval worlds. However finding these usually means it's remnants of the Spacefaring lockpick expedition (Named such for their mark: a lock with two razors or wings painted on their morions)
+The Lockpick expedition was one of the largest expedition teams in known history. Their last destination were reported being 'the transcended space'. Their fate is unknown and they've not been heard of or seen since.
+Their fairly pristine condition equipment are still found floating around the far corners of space.</description>
+
+		<graphicData>
+			<texPath>Hats/Display/Morion</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+
+		<statBases>
+			<Mass>2</Mass>
+			<MarketValue>400</MarketValue>
+			<ArmorRating_Blunt>3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+		</statBases>
+		<equippedStatOffsets>
+			<GlobalLearningFactor>0.02</GlobalLearningFactor>
+			<PsychicSensitivity>0.25</PsychicSensitivity>
+		</equippedStatOffsets>
+		<generateAllowChance>0.05</generateAllowChance>
+		<apparel>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Hats/Morion</wornGraphicPath>
+			<layers>
+				<li>Overhead</li>
+			</layers>
+			<tags>
+				<li>IndustrialBasic</li>
+				<li>Pirate</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<thingCategories>
+			<li>ArmorHeadgear</li>
+		</thingCategories>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>RGBA(1,1,1,1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+
+
+
+
+
+
+
+
+
+</Defs>

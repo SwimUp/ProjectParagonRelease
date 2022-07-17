@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- вдохновение -->
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Inspiration</defName>
+		<label>Inspiration</label>
+		<description>Inspiration that gives energy to achieve goals. May be a consequence of brain diseases such as schizophrenia, as well as the effect of genius.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<makesSickThought>false</makesSickThought>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>45000~180000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<GlobalLearningFactor>0.3</GlobalLearningFactor>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Alienation</defName>
+		<label>Alienation</label>
+		<description>Alienation that takes away hope and desire to move forward. May be a consequence of brain diseases such as schizophrenia, as well as the effect of genius.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<makesSickThought>false</makesSickThought>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>45000~180000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<GlobalLearningFactor>-0.3</GlobalLearningFactor>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Depression</defName>
+		<label>Depression</label>
+		<description>This illness is characterized by fatigue and sad thoughts.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<makesSickThought>true</makesSickThought>
+		<initialSeverity>0.001</initialSeverity>
+		<minSeverity>0.001</minSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>true</tendable>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.15</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>24</baseTendDurationHours>
+				<severityPerDayTended>-0.05</severityPerDayTended>
+				<disappearsAtTotalTendQuality>3</disappearsAtTotalTendQuality>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>weariness</label>
+				<restFallFactorOffset>0.1</restFallFactorOffset>
+				<socialFightChanceFactor>1.0</socialFightChanceFactor>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Wander_OwnRoom</mentalState>
+						<mtbDays>20</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+			<li>
+				<label>melancholy</label>
+				<minSeverity>0.3</minSeverity>
+				<socialFightChanceFactor>1.5</socialFightChanceFactor>
+				<restFallFactorOffset>0.3</restFallFactorOffset>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Wander_OwnRoom</mentalState>
+						<mtbDays>15</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+			<li>
+				<label>sadness</label>
+				<minSeverity>0.5</minSeverity>
+				<socialFightChanceFactor>2</socialFightChanceFactor>
+				<restFallFactorOffset>0.5</restFallFactorOffset>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Wander_OwnRoom</mentalState>
+						<mtbDays>8</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+			<li>
+				<label>suicidal thoughts</label>
+				<socialFightChanceFactor>3</socialFightChanceFactor>
+				<restFallFactorOffset>0.85</restFallFactorOffset>
+				<minSeverity>0.8</minSeverity>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Wander_OwnRoom</mentalState>
+						<mtbDays>1</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Hallucinosis</defName>
+		<label>Hallucinosis</label>
+		<description>A strange mental disorder that manifests itself in people with schizophrenia or other mental illness. Causes brief hallucinations.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<makesSickThought>false</makesSickThought>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>25000~50000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.85</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_ParanoidSyndrome</defName>
+		<label>Paranoid syndrome</label>
+		<description>A state of excessive suspicion towards others.</description>
+		<descriptionHyperlinks>
+			<HediffDef>Diseases_HediffDef_PsychosisOfHypersensitivity</HediffDef>
+		</descriptionHyperlinks>
+		<hediffClass>HediffWithComps</hediffClass>
+		<makesSickThought>true</makesSickThought>
+		<initialSeverity>0.001</initialSeverity>
+		<minSeverity>0.001</minSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>true</tendable>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.15</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>24</baseTendDurationHours>
+				<severityPerDayTended>-0.05</severityPerDayTended>
+				<disappearsAtTotalTendQuality>5</disappearsAtTotalTendQuality>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>300000~400000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_PsychosisOfHypersensitivity</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Brain</li>
+						</partsToAffect>
+						<severityRange>0.7~1.0</severityRange>
+						<letter>false</letter>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>suspicion</label>
+				<restFallFactorOffset>0.15</restFallFactorOffset>
+				<socialFightChanceFactor>2</socialFightChanceFactor>
+				<mentalStateGivers>
+					<li>
+						<mentalState>TargetedInsultingSpree</mentalState>
+						<mtbDays>50</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+			<li>
+				<label>paranoia</label>
+				<minSeverity>0.5</minSeverity>
+				<restFallFactorOffset>0.3</restFallFactorOffset>
+				<socialFightChanceFactor>3</socialFightChanceFactor>
+				<mentalStateGivers>
+					<li>
+						<mentalState>TargetedInsultingSpree</mentalState>
+						<mtbDays>30</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+			<li>
+				<label>severe paranoia</label>
+				<minSeverity>0.8</minSeverity>
+				<restFallFactorOffset>0.5</restFallFactorOffset>
+				<socialFightChanceFactor>4</socialFightChanceFactor>
+				<mentalStateGivers>
+					<li>
+						<mentalState>TargetedInsultingSpree</mentalState>
+						<mtbDays>10</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_PsychosisOfHypersensitivity</defName>
+		<label>Psychosis of hypersensitivity</label>
+		<description>Disruption of the brain, causing fatigue and increased sensitivity.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<makesSickThought>true</makesSickThought>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>30000~160000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<partEfficiencyOffset>-0.15</partEfficiencyOffset>
+				<statOffsets>
+					<PsychicSensitivity>1.00</PsychicSensitivity>
+					<RestRateMultiplier>-0.5</RestRateMultiplier>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Ravings</defName>
+		<label>Ravings</label>
+		<description>Strange delusional thoughts, words and actions.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<makesSickThought>false</makesSickThought>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>30000~90000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<partEfficiencyOffset>-0.15</partEfficiencyOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.9</setMax>
+					</li>
+					<li>
+						<capacity>Talking</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_DeliriumTremens</defName>
+		<label>Delirium tremens</label>
+		<description>A disease that occurs at the stage of stopping alcohol use. It is expressed in delusional thoughts, chills and outbursts of anger.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<makesSickThought>true</makesSickThought>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>true</tendable>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>60000~120000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>15000~30000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Depression</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Brain</li>
+						</partsToAffect>
+						<letter>true</letter>
+						<chance>0.25</chance>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<restFallFactorOffset>0.25</restFallFactorOffset>
+				<socialFightChanceFactor>4.0</socialFightChanceFactor>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Berserk</mentalState>
+						<mtbDays>2</mtbDays>
+					</li>
+				</mentalStateGivers>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.5</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef ParentName="DiseaseBase">
+		<defName>Diseases_HediffDef_Hypotimia</defName>
+		<label>Hypotimia</label>
+		<makesSickThought>false</makesSickThought>
+		<description>Mood swings common in bipolar disorder.</description>
+		<initialSeverity>1.00</initialSeverity>
+		<maxSeverity>1.00</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<WorkSpeedGlobal>-0.3</WorkSpeedGlobal>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="DiseaseBase">
+		<defName>Diseases_HediffDef_Hypomania</defName>
+		<label>Hypomania</label>
+		<makesSickThought>false</makesSickThought>
+		<description>Mood swings common in bipolar disorder.</description>
+		<initialSeverity>1.00</initialSeverity>
+		<maxSeverity>1.00</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.85</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<WorkSpeedGlobal>0.3</WorkSpeedGlobal>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_ManicStupor</defName>
+		<label>Manic stupor</label>
+		<description>Violation of motor activity, characteristic of manic syndrome.</description>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>30000~75000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_EpilepsySeizure</defName>
+		<label>Epilepsy seizure</label>
+		<description>Exacerbation of epilepsy causing seizures, confusion of speech and consciousness. Timely treatment will allow you to quickly stop the attack.</description>
+		<initialSeverity>0.2</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.5</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>40000~90000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>initial</label>
+				<painOffset>0.1</painOffset>
+				<partEfficiencyOffset>-0.1</partEfficiencyOffset>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Berserk</mentalState>
+						<mtbDays>2</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.3</minSeverity>
+				<painOffset>0.25</painOffset>
+				<partEfficiencyOffset>-0.15</partEfficiencyOffset>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Berserk</mentalState>
+						<mtbDays>1</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+			<li>
+				<label>painful</label>
+				<minSeverity>0.6</minSeverity>
+				<painOffset>0.5</painOffset>
+				<partEfficiencyOffset>-0.25</partEfficiencyOffset>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Berserk</mentalState>
+						<mtbDays>0.5</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

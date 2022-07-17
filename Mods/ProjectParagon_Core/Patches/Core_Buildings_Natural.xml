@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MineableComponentsIndustrial"]</xpath>
+				<value>
+					<ThingDef ParentName="RockBase">
+						<defName>MineableComponentsIndustrial</defName>
+						<label>compacted machinery</label>
+						<description>Ancient machinery, compacted over time. Can be mined for useful components.</description>
+						<graphicData>
+							<texPath>Things/Building/Linked/CompactedMachinery_Atlas</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>2000</MaxHitPoints>
+						</statBases>
+						<mineable>false</mineable>
+						<building>
+							<isResourceRock>true</isResourceRock>
+							<mineableThing>ComponentIndustrial</mineableThing>
+							<mineableYield>0</mineableYield>
+							<mineableScatterCommonality>0</mineableScatterCommonality>
+							<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="MineablePlasteel"]</xpath>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

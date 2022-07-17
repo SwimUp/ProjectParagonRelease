@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef Abstract="True" Name="ParagonFoodTemplateItemBase">
+		<thingClass>ProjectParagon.Core.FoodSystem.Thing_CustomFood</thingClass>
+		<category>Item</category>
+		<useHitPoints>true</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<selectable>true</selectable>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Beauty>0</Beauty>
+			<Mass>0.25</Mass>
+			<DeteriorationRate>10</DeteriorationRate>
+			<MarketValue>10</MarketValue>
+			<SellPriceFactor>0.3</SellPriceFactor>
+			<Nutrition>0.1</Nutrition>
+		</statBases>
+		<tradeability>None</tradeability>
+		<altitudeLayer>Item</altitudeLayer>
+		<stackLimit>10</stackLimit>
+		<tickerType>Rare</tickerType>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<thingCategories>
+			<li>FoodMeals</li>
+		</thingCategories>
+		<alwaysHaulable>true</alwaysHaulable>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>Meal</foodType>
+			<optimalityOffsetHumanlikes>16</optimalityOffsetHumanlikes>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<pathCost>14</pathCost>
+		<resourceReadoutPriority>Last</resourceReadoutPriority>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<uiIconForStackCount>1</uiIconForStackCount>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefExtension_BlockThingGeneration"/>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Soup</defName>
+		<label>soup</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Soup/Soup_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Stew</defName>
+		<label>Stew</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Stew/Stew_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>4</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Salad</defName>
+		<label>Salad</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Salad/Salad_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Fried</defName>
+		<label>Fried</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Fried/Fried_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Boiled</defName>
+		<label>Boiled</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Boiled/Boiled_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Juice</defName>
+		<label>Juice</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Juice/Juice_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_HotDrink</defName>
+		<label>HotDrink</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/HotDrink/HotDrink_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Bake</defName>
+		<label>Bake</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Bake/Bake_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>2.5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Preserves</defName>
+		<label>Preserves</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Preserves/Preserves_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Beauty>-4</Beauty>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>2</costStuffCount>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>120</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Decoction</defName>
+		<label>Decoction</label>
+		<thingClass>ProjectParagon.Core.FoodSystem.Thing_CustomFood_Potion</thingClass>
+		<graphicData>
+			<texPath>Core/Food/Meals/Decoction/Decoction_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Beauty>-4</Beauty>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>60</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Sushi</defName>
+		<label>Sushi</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Sushi/Sushi_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Beauty>-4</Beauty>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>6</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>RoastedMeat</defName>
+		<label>roasted meat</label>
+		<description>Heat-treated meat. Pretty tough.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/RoastedMeat</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>7</MarketValue>
+			<WorkToMake>300</WorkToMake>
+			<Nutrition>0.65</Nutrition>
+			<Protein>0.25</Protein>
+			<Fat>0.35</Fat>
+			<Carbohydrates>0.0</Carbohydrates>
+			<Vitamins>0.0</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>Meat</foodType>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>BoiledMeat</defName>
+		<label>boiled meat</label>
+		<description>Heat-treated meat. Sufficiently bland, but edible</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/BoiledMeat</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>7</MarketValue>
+			<WorkToMake>300</WorkToMake>
+			<Nutrition>0.6</Nutrition>
+			<Protein>0.35</Protein>
+			<Fat>0.25</Fat>
+			<Carbohydrates>0.0</Carbohydrates>
+			<Vitamins>0.0</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>Meat</foodType>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>RoastedFish</defName>
+		<label>roasted fish</label>
+		<description>Heat-treated fish. Pretty tough.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/RoastedFish</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>6</MarketValue>
+			<WorkToMake>400</WorkToMake>
+			<Nutrition>0.5</Nutrition>
+			<Protein>0.20</Protein>
+			<Fat>0.20</Fat>
+			<Carbohydrates>0.005</Carbohydrates>
+			<Vitamins>0.002</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>Meat</foodType>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>BoiledFish</defName>
+		<label>boiled fish</label>
+		<description>Heat-treated fish. Sufficiently bland, but edible.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/BoiledFish</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>6</MarketValue>
+			<WorkToMake>400</WorkToMake>
+			<Nutrition>0.6</Nutrition>
+			<Protein>0.20</Protein>
+			<Fat>0.15</Fat>
+			<Carbohydrates>0.1</Carbohydrates>
+			<Vitamins>0.01</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>Meat</foodType>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>WhiteBread</defName>
+		<label>White bread</label>
+		<description>Baked white bread made from wheat flour.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/WhiteBread</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>4</MarketValue>
+			<WorkToMake>500</WorkToMake>
+			<Nutrition>0.5</Nutrition>
+			<Protein>0.0</Protein>
+			<Fat>0.15</Fat>
+			<Carbohydrates>0.4</Carbohydrates>
+			<Vitamins>0.03</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>VegetableOrFruit</foodType>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>6</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>BlackBread</defName>
+		<label>Black bread</label>
+		<description>Baked black bread made from rye flour.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/BlackBread</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>3</MarketValue>
+			<WorkToMake>500</WorkToMake>
+			<Nutrition>0.4</Nutrition>
+			<Protein>0.0</Protein>
+			<Fat>0.2</Fat>
+			<Carbohydrates>0.3</Carbohydrates>
+			<Vitamins>0.05</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>VegetableOrFruit</foodType>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>8</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>JellyButter</defName>
+		<label>Jelly butter</label>
+		<description>Fresh sandwich made from bread and insect jelly. Rich in vitamins and carbohydrates.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/JellyButter</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>15</MarketValue>
+			<WorkToMake>500</WorkToMake>
+			<Nutrition>0.8</Nutrition>
+			<Protein>0.0</Protein>
+			<Fat>0.05</Fat>
+			<Carbohydrates>0.2</Carbohydrates>
+			<Vitamins>0.1</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>AnimalProduct</foodType>
+			<joy>0.15</joy>
+			<joyKind>Gluttonous</joyKind>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>6</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>RoastedEggs</defName>
+		<label>roasted eggs</label>
+		<description>Fried eggs. Rich in almost all useful substances.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/RoastedEggs</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>5</MarketValue>
+			<WorkToMake>300</WorkToMake>
+			<Nutrition>0.5</Nutrition>
+			<Protein>0.25</Protein>
+			<Fat>0.25</Fat>
+			<Carbohydrates>0.03</Carbohydrates>
+			<Vitamins>0.10</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>Meal</foodType>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>BoiledEggs</defName>
+		<label>boiled eggs</label>
+		<description>Hard-boiled eggs. Rich in almost all useful substances.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/BoiledEggs</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>5</MarketValue>
+			<WorkToMake>350</WorkToMake>
+			<Nutrition>0.5</Nutrition>
+			<Protein>0.22</Protein>
+			<Fat>0.22</Fat>
+			<Carbohydrates>0.05</Carbohydrates>
+			<Vitamins>0.12</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>Meal</foodType>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>3</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

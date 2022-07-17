@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="WoodLog"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceVerbBase">
+						<defName>WoodLog</defName>
+						<label>wood</label>
+						<description>Wood from trees or other fibrous plants. Useful for building structures and weapons. It is a good fuel for campfires and generators, and can be refined into chemfuel. In a pinch, a piece of wood can be used as a weapon or a leg.</description>
+						<graphicData>
+							<texPath>Things/Item/Resource/WoodLog</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<equippedAngleOffset>-20</equippedAngleOffset>
+						<soundInteract>Wood_Drop</soundInteract>
+						<soundDrop>Wood_Drop</soundDrop>
+						<statBases>
+							<MarketValue>1.2</MarketValue>
+							<MaxHitPoints>120</MaxHitPoints>
+							<Mass>0.4</Mass>
+							<Flammability>1.0</Flammability>
+							<DeteriorationRate>0.5</DeteriorationRate>
+							<StuffPower_Armor_Sharp>0.4</StuffPower_Armor_Sharp>
+							<StuffPower_Armor_Blunt>0.5</StuffPower_Armor_Blunt>
+							<StuffPower_Armor_Heat>0.0</StuffPower_Armor_Heat>
+							<StuffPower_Insulation_Cold>5</StuffPower_Insulation_Cold>
+							<StuffPower_Insulation_Heat>3</StuffPower_Insulation_Heat>
+							<SharpDamageMultiplier>0.35</SharpDamageMultiplier>
+							<BluntDamageMultiplier>0.5</BluntDamageMultiplier>
+						</statBases>
+						<burnableByRecipe>true</burnableByRecipe>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<minRewardCount>10</minRewardCount>
+						<stuffProps>
+							<stuffAdjective>wooden</stuffAdjective>
+							<categories>
+								<li>Woody</li>
+							</categories>
+							<commonality>1.00</commonality>
+							<color>(133,97,67)</color>
+							<constructEffect>ConstructWood</constructEffect>
+							<appearance>Planks</appearance>
+							<soundImpactStuff>BulletImpact_Wood</soundImpactStuff>
+							<soundMeleeHitSharp>MeleeHit_Wood</soundMeleeHitSharp>
+							<soundMeleeHitBlunt>MeleeHit_Wood</soundMeleeHitBlunt>
+							<statFactors>
+								<MaxHitPoints>0.4</MaxHitPoints>
+								<Beauty>0.9</Beauty>
+								<Flammability>1</Flammability>
+								<WorkToMake>0.7</WorkToMake>
+								<WorkToBuild>0.7</WorkToBuild>
+								<DoorOpenSpeed>1.2</DoorOpenSpeed>
+								<BedRestEffectiveness>0.8</BedRestEffectiveness>
+								<ImmunityGainSpeedFactor>0.9</ImmunityGainSpeedFactor>
+								<WorkTableWorkSpeedFactor>0.65</WorkTableWorkSpeedFactor>
+							</statFactors>
+						</stuffProps>
+						<isTechHediff>true</isTechHediff>
+						<thingCategories>
+							<li>ResourcesRaw</li>
+						</thingCategories>
+						<techHediffsTags>
+							<li>Poor</li>
+						</techHediffsTags>
+						<tools>
+							<li Class="CombatExtended.ToolCE">
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>2</power>
+								<cooldownTime>0.99</cooldownTime>
+								<armorPenetrationBlunt>0.288</armorPenetrationBlunt>
+							</li>
+						</tools>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_StuffProperties">
+								<damageMultipliers>
+									<li>
+										<!-- Бомба -->
+										<damageDef>Bomb</damageDef>
+										<multiplier>2</multiplier>
+									</li>
+									<li>
+										<!-- Укус -->
+										<damageDef>Bite</damageDef>
+										<multiplier>0.7</multiplier>
+									</li>
+									<li>
+										<!-- Удар -->
+										<damageDef>Blunt</damageDef>
+										<multiplier>1.2</multiplier>
+									</li>
+									<li>
+										<!-- Давка -->
+										<damageDef>Crush</damageDef>
+										<multiplier>1</multiplier>
+									</li>
+									<li>
+										<!-- Порез -->
+										<damageDef>Cut</damageDef>
+										<multiplier>1.4</multiplier>
+									</li>
+									<li>
+										<!-- Тычок -->
+										<damageDef>Poke</damageDef>
+										<multiplier>1</multiplier>
+									</li>
+									<li>
+										<!-- Рваная рана -->
+										<damageDef>Scratch</damageDef>
+										<multiplier>1.4</multiplier>
+									</li>
+									<li>
+										<!-- Рана с ядом -->
+										<damageDef>ScratchToxic</damageDef>
+										<multiplier>1.4</multiplier>
+									</li>
+									<li>
+										<!-- Укол -->
+										<damageDef>Stab</damageDef>
+										<multiplier>1</multiplier>
+									</li>
+									<li>
+										<!-- Ядовитый укус -->
+										<damageDef>ToxicBite</damageDef>
+										<multiplier>0.7</multiplier>
+									</li>
+									<li>
+										<!-- Стрела -->
+										<damageDef>Arrow</damageDef>
+										<multiplier>1.25</multiplier>
+									</li>
+									<li>
+										<!-- Стрела (выс.скорость) -->
+										<damageDef>ArrowHighVelocity</damageDef>
+										<multiplier>1.25</multiplier>
+									</li>
+									<li>
+										<!-- Пуля -->
+										<damageDef>Bullet</damageDef>
+										<multiplier>1.8</multiplier>
+									</li>
+									<li>
+										<!-- Укол (дальний бой) -->
+										<damageDef>RangedStab</damageDef>
+										<multiplier>1.2</multiplier>
+									</li>
+								</damageMultipliers>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Steel"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>Steel</defName>
+						<label>steel</label>
+						<description>An iron-carbon metal alloy used for building a huge variety of structures, weapons, and machines.</description>
+						<graphicData>
+							<texPath>Core/Resources/Mineable/Ingots</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+							<color>(120,120,120)</color>
+						</graphicData>
+						<soundInteract>Metal_Drop</soundInteract>
+						<soundDrop>Metal_Drop</soundDrop>
+						<statBases>
+							<MarketValue>2.0</MarketValue>
+							<Mass>0.7</Mass>
+							<StuffPower_Armor_Sharp>1.0</StuffPower_Armor_Sharp>
+							<StuffPower_Armor_Blunt>1.5</StuffPower_Armor_Blunt>
+							<StuffPower_Armor_Heat>0.0</StuffPower_Armor_Heat>
+							<StuffPower_Insulation_Cold>-3</StuffPower_Insulation_Cold>
+							<StuffPower_Insulation_Heat>3</StuffPower_Insulation_Heat>
+							<SharpDamageMultiplier>0.85</SharpDamageMultiplier>
+							<BluntDamageMultiplier>1</BluntDamageMultiplier>
+						</statBases>
+						<useHitPoints>false</useHitPoints>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<slagDef>ChunkSlagSteel</slagDef>
+						<thingCategories>
+							<li>Alloys_Strong</li>
+						</thingCategories>
+						<deepCommonality>0</deepCommonality>
+						<deepCountPerPortion>0</deepCountPerPortion>
+						<deepLumpSizeRange>0</deepLumpSizeRange>
+						<burnableByRecipe>false</burnableByRecipe>
+						<smeltable>true</smeltable>
+						<stuffProps>
+							<categories>
+								<li>Metallic</li>
+							</categories>
+							<commonality>1.00</commonality>
+							<constructEffect>ConstructMetal</constructEffect>
+							<color>(105,105,105)</color>
+							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+							<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+							<statFactors>
+								<MaxHitPoints>2</MaxHitPoints>
+								<Beauty>0.85</Beauty>
+								<Flammability>0.0</Flammability>
+								<BedRestEffectiveness>0.85</BedRestEffectiveness>
+								<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
+								<WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
+								<MeleePenetrationFactor>1.0</MeleePenetrationFactor>
+							</statFactors>
+						</stuffProps>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_StuffRequiredTech">
+								<reqResearch>Smithing</reqResearch>
+							</li>
+							<li Class="ProjectParagon.Core.Things.CompProperties_StuffProperties">
+								<damageMultipliers>
+									<li>
+										<!-- Бомба -->
+										<damageDef>Bomb</damageDef>
+										<multiplier>1.4</multiplier>
+									</li>
+									<li>
+										<!-- Укус -->
+										<damageDef>Bite</damageDef>
+										<multiplier>0.4</multiplier>
+									</li>
+									<li>
+										<!-- Удар -->
+										<damageDef>Blunt</damageDef>
+										<multiplier>1.0</multiplier>
+									</li>
+									<li>
+										<!-- Давка -->
+										<damageDef>Crush</damageDef>
+										<multiplier>0.7</multiplier>
+									</li>
+									<li>
+										<!-- Порез -->
+										<damageDef>Cut</damageDef>
+										<multiplier>1.0</multiplier>
+									</li>
+									<li>
+										<!-- Тычок -->
+										<damageDef>Poke</damageDef>
+										<multiplier>0.65</multiplier>
+									</li>
+									<li>
+										<!-- Рваная рана -->
+										<damageDef>Scratch</damageDef>
+										<multiplier>0.8</multiplier>
+									</li>
+									<li>
+										<!-- Рана с ядом -->
+										<damageDef>ScratchToxic</damageDef>
+										<multiplier>0.8</multiplier>
+									</li>
+									<li>
+										<!-- Укол -->
+										<damageDef>Stab</damageDef>
+										<multiplier>0.7</multiplier>
+									</li>
+									<li>
+										<!-- Ядовитый укус -->
+										<damageDef>ToxicBite</damageDef>
+										<multiplier>0.4</multiplier>
+									</li>
+									<li>
+										<!-- Стрела -->
+										<damageDef>Arrow</damageDef>
+										<multiplier>0.5</multiplier>
+									</li>
+									<li>
+										<!-- Стрела (выс.скорость) -->
+										<damageDef>ArrowHighVelocity</damageDef>
+										<multiplier>0.5</multiplier>
+									</li>
+									<li>
+										<!-- Пуля -->
+										<damageDef>Bullet</damageDef>
+										<multiplier>1.4</multiplier>
+									</li>
+									<li>
+										<!-- Укол (дальний бой) -->
+										<damageDef>RangedStab</damageDef>
+										<multiplier>0.8</multiplier>
+									</li>
+								</damageMultipliers>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Silver"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>Silver</defName>
+						<label>silver coins</label>
+						<description>This metal is mostly used as a commodity currency. It can also be used for making decorations.</description>
+						<graphicData>
+							<texPath>Things/Item/Resource/Silver</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<resourceReadoutPriority>First</resourceReadoutPriority>
+						<soundInteract>Silver_Drop</soundInteract>
+						<soundDrop>Silver_Drop</soundDrop>
+						<useHitPoints>false</useHitPoints>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<resourceReadoutAlwaysShow>true</resourceReadoutAlwaysShow>
+						<statBases>
+							<MarketValue>1</MarketValue>
+							<Mass>0.008</Mass>
+							<Bulk>0.01</Bulk>
+							<!--<StuffPower_Armor_Sharp>0.72</StuffPower_Armor_Sharp>
+							<StuffPower_Armor_Blunt>0.36</StuffPower_Armor_Blunt>
+							<StuffPower_Armor_Heat>0.36</StuffPower_Armor_Heat>
+							<StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+							<StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+							<SharpDamageMultiplier>0.85</SharpDamageMultiplier>
+							<BluntDamageMultiplier>1.0</BluntDamageMultiplier>-->
+						</statBases>
+						<thingCategories>
+							<li>ResourcesRaw</li>
+						</thingCategories>
+						<stackLimit>500</stackLimit>
+						<smallVolume>true</smallVolume>
+						<deepCommonality>0</deepCommonality>
+						<deepCountPerPortion>0</deepCountPerPortion>
+						<deepLumpSizeRange>0</deepLumpSizeRange>
+						<burnableByRecipe>false</burnableByRecipe>
+						<smeltable>true</smeltable>
+						<!--<stuffProps>
+							<categories>
+								<li>Metallic_NonConstruct</li>
+							</categories>
+							<color>(180,173,150)</color>
+							<commonality>0.05</commonality>
+							<constructEffect>ConstructMetal</constructEffect>
+							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+							<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+							<statOffsets>
+								<Beauty>6</Beauty>
+							</statOffsets>
+							<statFactors>
+								<MaxHitPoints>0.7</MaxHitPoints>
+								<Flammability>0.4</Flammability>
+								<Beauty>2</Beauty>
+							</statFactors>
+						</stuffProps>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>-->
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Gold"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>Gold</defName>
+						<label>gold coins</label>
+						<description>The most seductive metal of them all. While it is too soft to be of much practical use, it is strikingly beautiful and never tarnishes. Millions have died in attempting to feed the endless human thirst for gold.</description>
+						<graphicData>
+							<texPath>Core/Items/MoneyGold</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<soundInteract>Silver_Drop</soundInteract>
+						<soundDrop>Silver_Drop</soundDrop>
+						<useHitPoints>false</useHitPoints>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+							<MarketValue>1.6</MarketValue>
+							<RoyalFavorValue>0.015</RoyalFavorValue>
+							<Mass>0.008</Mass>
+							<Bulk>0.01</Bulk>
+							<!--<StuffPower_Armor_Sharp>0.72</StuffPower_Armor_Sharp>
+							<StuffPower_Armor_Blunt>0.36</StuffPower_Armor_Blunt>
+							<StuffPower_Armor_Heat>0.36</StuffPower_Armor_Heat>
+							<StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+							<StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+							<SharpDamageMultiplier>0.75</SharpDamageMultiplier>
+							<BluntDamageMultiplier>1.0</BluntDamageMultiplier>-->
+						</statBases>
+						<thingCategories>
+							<li>Jewerly</li>
+						</thingCategories>
+						<stackLimit>500</stackLimit>
+						<smallVolume>true</smallVolume>
+						<deepCommonality>0</deepCommonality>
+						<deepCountPerPortion>0</deepCountPerPortion>
+						<deepLumpSizeRange>0</deepLumpSizeRange>
+						<burnableByRecipe>false</burnableByRecipe>
+						<smeltable>true</smeltable>
+						<!--<stuffProps>
+							<stuffAdjective>golden</stuffAdjective>
+							<categories>
+								<li>Metallic_NonConstruct</li>
+							</categories>
+							<commonality>0.02</commonality>
+							<color>(255,235,122)</color>
+							<constructEffect>ConstructMetal</constructEffect>
+							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+							<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+							<statOffsets>
+								<Beauty>20</Beauty>
+							</statOffsets>
+							<statFactors>
+								<MaxHitPoints>0.6</MaxHitPoints>
+								<Flammability>0.4</Flammability>
+								<Beauty>4</Beauty>
+								<WorkToMake>0.9</WorkToMake>
+								<WorkToBuild>0.9</WorkToBuild>
+								<MeleeWeapon_CooldownMultiplier>1.0</MeleeWeapon_CooldownMultiplier>
+							</statFactors>
+						</stuffProps>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>-->
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Uranium"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>Uranium</defName>
+						<label>uranium</label>
+						<description>A dark, heavy metal. While it is best known as a fuel for nuclear devices, its extreme density and hardness also make it good for making certain weapons, armor, and ammunition.</description>
+						<graphicData>
+							<texPath>Things/Item/Resource/Uranium</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<useHitPoints>false</useHitPoints>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<soundInteract>Metal_Drop</soundInteract>
+						<soundDrop>Metal_Drop</soundDrop>
+						<statBases>
+							<MarketValue>6</MarketValue>
+							<Mass>1</Mass>
+							<StuffPower_Armor_Sharp>1.08</StuffPower_Armor_Sharp>
+							<StuffPower_Armor_Blunt>0.54</StuffPower_Armor_Blunt>
+							<StuffPower_Armor_Heat>0.65</StuffPower_Armor_Heat>
+							<StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+							<StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+							<SharpDamageMultiplier>1.1</SharpDamageMultiplier>
+							<BluntDamageMultiplier>1.5</BluntDamageMultiplier>
+						</statBases>
+						<thingCategories>
+							<li>ResourcesRaw</li>
+						</thingCategories>
+						<deepCommonality>0</deepCommonality>
+						<deepCountPerPortion>0</deepCountPerPortion>
+						<deepLumpSizeRange>0</deepLumpSizeRange>
+						<burnableByRecipe>false</burnableByRecipe>
+						<smeltable>true</smeltable>
+						<minRewardCount>10</minRewardCount>
+						<stuffProps>
+							<categories>
+								<li>Metallic_NonConstruct</li>
+							</categories>
+							<commonality>0.05</commonality>
+							<color>(100,100,100)</color>
+							<constructEffect>ConstructMetal</constructEffect>
+							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+							<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+							<statFactors>
+								<MaxHitPoints>2.5</MaxHitPoints>
+								<WorkToMake>1.9</WorkToMake>
+								<WorkToBuild>1.9</WorkToBuild>
+								<Beauty>0.5</Beauty>
+								<Flammability>0.0</Flammability>
+								<DoorOpenSpeed>0.75</DoorOpenSpeed>
+								<MeleeWeapon_CooldownMultiplier>1.10</MeleeWeapon_CooldownMultiplier>
+							</statFactors>
+						</stuffProps>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.Things.DefExtension_BlockThingGeneration"></li>
+						</modExtensions>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Jade"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>Jade</defName>
+						<label>jade</label>
+						<description>A hard, green stone. Because of its beauty and rarity, jade is often used for ornaments and decorations. Its hardness and density also makes it a good material for blunt weapons.</description>
+						<graphicData>
+							<texPath>Things/Item/Resource/Jade</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<useHitPoints>false</useHitPoints>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<soundInteract>ChunkRock_Drop</soundInteract>
+						<soundDrop>ChunkRock_Drop</soundDrop>
+						<statBases>
+							<MarketValue>5</MarketValue>
+							<Mass>0.5</Mass>
+							<StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
+							<StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
+							<StuffPower_Armor_Heat>0.54</StuffPower_Armor_Heat>
+							<StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+							<StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
+							<BluntDamageMultiplier>1.5</BluntDamageMultiplier>
+						</statBases>
+						<deepCommonality>0</deepCommonality>
+						<deepCountPerPortion>0</deepCountPerPortion>
+						<deepLumpSizeRange>0</deepLumpSizeRange>
+						<burnableByRecipe>false</burnableByRecipe>
+						<smeltable>false</smeltable>
+						<stuffProps>
+							<categories>
+								<li>Stony_NonConstruct</li>
+							</categories>
+							<commonality>0.05</commonality>
+							<color>(85,118,69)</color>
+							<constructEffect>ConstructMetal</constructEffect>
+							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+							<soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+							<statOffsets>
+								<Beauty>10</Beauty>
+							</statOffsets>
+							<statFactors>
+								<MaxHitPoints>0.5</MaxHitPoints>
+								<WorkToMake>1.4</WorkToMake>
+								<WorkToBuild>5.0</WorkToBuild>
+								<Beauty>2.5</Beauty>
+								<Flammability>0</Flammability>
+								<MeleeWeapon_CooldownMultiplier>1.3</MeleeWeapon_CooldownMultiplier>
+							</statFactors>
+						</stuffProps>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MineableSteel"]</xpath>
+				<value>
+					<ThingDef ParentName="RockBase">
+						<defName>MineableSteel</defName>
+						<label>compacted steel</label>
+						<description>The remains of some ancient, collapsed structure. Rich in steel.</description>
+						<graphicData>
+							<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>(114,92,83)</color>
+							<colorTwo>(155,133,107)</colorTwo>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>1500</MaxHitPoints>
+						</statBases>
+						<building>
+							<isResourceRock>true</isResourceRock>
+							<mineableThing>Steel</mineableThing>
+							<mineableYield>0</mineableYield>
+							<mineableScatterCommonality>0</mineableScatterCommonality>
+							<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MineableSilver"]</xpath>
+				<value>
+					<ThingDef ParentName="RockBase">
+						<defName>MineableSilver</defName>
+						<label>silver ore</label>
+						<description>Rock containing bits of silver.</description>
+						<graphicData>
+							<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>(89,83,68)</color>
+							<colorTwo>(147,144,134)</colorTwo>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>1500</MaxHitPoints>
+						</statBases>
+						<building>
+							<isResourceRock>true</isResourceRock>
+							<mineableThing>Silver</mineableThing>
+							<mineableYield>0</mineableYield>
+							<mineableScatterCommonality>0</mineableScatterCommonality>
+							<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MineableGold"]</xpath>
+				<value>
+					<ThingDef ParentName="RockBase">
+						<defName>MineableGold</defName>
+						<label>gold ore</label>
+						<description>Rock containing bits of gold.</description>
+						<graphicData>
+							<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>(89,83,68)</color>
+							<colorTwo>(187,173,25)</colorTwo>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>1500</MaxHitPoints>
+						</statBases>
+						<building>
+							<isResourceRock>true</isResourceRock>
+							<mineableThing>Gold</mineableThing>
+							<mineableYield>0</mineableYield>
+							<mineableScatterCommonality>0</mineableScatterCommonality>
+							<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MineableUranium"]</xpath>
+				<value>
+					<ThingDef ParentName="RockBase">
+						<defName>MineableUranium</defName>
+						<label>uranium ore</label>
+						<description>Rock containing bits of uranium.</description>
+						<graphicData>
+							<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>(114,114,114)</color>
+							<colorTwo>(70,70,70)</colorTwo>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>4000</MaxHitPoints>
+						</statBases>
+						<building>
+							<isResourceRock>true</isResourceRock>
+							<mineableThing>Uranium</mineableThing>
+							<mineableYield>0</mineableYield>
+							<mineableScatterCommonality>0</mineableScatterCommonality>
+							<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MineableJade"]</xpath>
+				<value>
+					<ThingDef ParentName="RockBase">
+						<defName>MineableJade</defName>
+						<label>jade</label>
+						<description>Rock containing bits of jade.</description>
+						<graphicData>
+							<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>(68,83,68)</color>
+							<colorTwo>(30,173,25)</colorTwo>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>1500</MaxHitPoints>
+						</statBases>
+						<building>
+							<isResourceRock>true</isResourceRock>
+							<mineableThing>Jade</mineableThing>
+							<mineableYield>0</mineableYield>
+							<mineableScatterCommonality>0</mineableScatterCommonality>
+							<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[@Name = "StoneBlocksBase"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase" Name="StoneBlocksBase" Abstract="True">
+						<description>Blocks of stone. Mostly useful for building long-lasting, simple structures.</description>
+						<graphicData>
+							<texPath>Things/Item/Resource/StoneBlocks</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<soundInteract>Stone_Drop</soundInteract>
+						<soundDrop>Stone_Drop</soundDrop>
+						<useHitPoints>false</useHitPoints>
+						<tradeability>Buyable</tradeability>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<MarketValue>0.9</MarketValue>
+							<SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+							<BluntDamageMultiplier>1.0</BluntDamageMultiplier>
+							<Beauty>-12</Beauty>
+							<ConstructionSpeedFactor>0.8</ConstructionSpeedFactor>
+						</statBases>
+						<thingCategories>
+							<li>StoneBlocks</li>
+						</thingCategories>
+						<burnableByRecipe>false</burnableByRecipe>
+						<minRewardCount>10</minRewardCount>
+						<stuffProps>
+							<categories>
+								<li>Stony</li>
+							</categories>
+							<commonality>0.20</commonality>
+							<!-- because there are so many stone types -->
+							<appearance>Bricks</appearance>
+							<statOffsets>
+								<WorkToBuild>140</WorkToBuild>
+							</statOffsets>
+							<statFactors>
+								<MarketValue>0.4</MarketValue>
+								<MaxHitPoints>1.8</MaxHitPoints>
+								<Flammability>0</Flammability>
+								<WorkToBuild>6.0</WorkToBuild>
+								<WorkToMake>1.3</WorkToMake>
+								<DoorOpenSpeed>0.45</DoorOpenSpeed>
+								<MeleeWeapon_CooldownMultiplier>1.30</MeleeWeapon_CooldownMultiplier>
+								<BedRestEffectiveness>0.75</BedRestEffectiveness>
+								<ImmunityGainSpeedFactor>0.75</ImmunityGainSpeedFactor>
+								<WorkTableWorkSpeedFactor>0.75</WorkTableWorkSpeedFactor>
+							</statFactors>
+						</stuffProps>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="BlocksSandstone" or defName="BlocksGranite" or defName="BlocksLimestone" or defName="BlocksSlate" or defName="BlocksMarble"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Things.CompProperties_StuffRequiredTech">
+							<reqResearch>SimpleStoneProcessing</reqResearch>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="Greatbow" or defName="RecurveBow"]</xpath>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="ChunkRockBase"]</xpath>
+				<value>
+					<thingClass>ThingWithComps</thingClass>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkSandstone"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Things.CompProperties_ExtraRecipeItems">
+							<specialProducts>
+								<li>
+									<targetRecipe>Make_SmashRock</targetRecipe>
+									<products>
+										<li>
+											<thingDef>Sand</thingDef>
+											<countRange>3~3</countRange>
+										</li>
+									</products>
+								</li>
+							</specialProducts>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkGranite"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Things.CompProperties_ExtraRecipeItems">
+							<specialProducts>
+								<li>
+									<targetRecipe>Make_SmashRock</targetRecipe>
+									<products>
+										<li>
+											<thingDef>Sand</thingDef>
+											<countRange>2~2</countRange>
+										</li>
+										<li>
+											<thingDef>Slag</thingDef>
+											<countRange>6~6</countRange>
+										</li>
+									</products>
+								</li>
+							</specialProducts>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkLimestone"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Things.CompProperties_ExtraRecipeItems">
+							<specialProducts>
+								<li>
+									<targetRecipe>Make_SmashRock</targetRecipe>
+									<products>
+										<li>
+											<thingDef>Sand</thingDef>
+											<countRange>3~3</countRange>
+										</li>
+										<li>
+											<thingDef>Slag</thingDef>
+											<countRange>5~5</countRange>
+										</li>
+									</products>
+								</li>
+							</specialProducts>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkSlate"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Things.CompProperties_ExtraRecipeItems">
+							<specialProducts>
+								<li>
+									<targetRecipe>Make_SmashRock</targetRecipe>
+									<products>
+										<li>
+											<thingDef>Slag</thingDef>
+											<countRange>8~8</countRange>
+										</li>
+									</products>
+								</li>
+							</specialProducts>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkMarble"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Things.CompProperties_ExtraRecipeItems">
+							<specialProducts>
+								<li>
+									<targetRecipe>Make_SmashRock</targetRecipe>
+									<products>
+										<li>
+											<thingDef>Sand</thingDef>
+											<countRange>3~3</countRange>
+										</li>
+										<li>
+											<thingDef>Slag</thingDef>
+											<countRange>3~3</countRange>
+										</li>
+									</products>
+								</li>
+							</specialProducts>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/deepCommonality</xpath>
+				<value>
+					<deepCommonality>0</deepCommonality>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/deepCountPerPortion</xpath>
+				<value>
+					<deepCountPerPortion>0</deepCountPerPortion>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/deepLumpSizeRange</xpath>
+				<value>
+					<deepLumpSizeRange>0</deepLumpSizeRange>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ProjectParagon.Dialogs.DialogDef>
+		<defName>Plot</defName>
+		<label>Plot</label>
+		<firstPageId>0</firstPageId>
+		<interactLabel>Discuss about plot</interactLabel>
+		<pages>
+			<li>
+				<id>0</id>
+				<text>
+				</text>
+				<options>
+					<li>
+						<id>0</id>
+						<label>Ask for coordinates</label>
+						<resolveTree>true</resolveTree>
+						<resolveSignal>1</resolveSignal>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_FactionRelations">
+								<reqRelation>Ally</reqRelation>
+							</li>
+						</conditions>
+					</li>
+					<li>
+						<id>1</id>
+						<label>Ask for coordinates</label>
+						<resolveTree>true</resolveTree>
+						<resolveSignal>2</resolveSignal>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Social</skillDef>
+								<skillLevel>15</skillLevel>
+							</li>
+						</conditions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>Ask for coordinates</label>
+						<resolveTree>true</resolveTree>
+						<resolveSignal>3-1000</resolveSignal>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_Item">
+								<thingDef>Silver</thingDef>
+								<count>1000</count>
+							</li>
+						</conditions>
+					</li>
+					<li>
+						<id>3</id>
+						<label>Go away</label>
+						<resolveTree>true</resolveTree>
+						<resolveSignal>-1</resolveSignal>
+					</li>
+				</options>
+			</li>
+		</pages>
+	</ProjectParagon.Dialogs.DialogDef>
+	
+</Defs>

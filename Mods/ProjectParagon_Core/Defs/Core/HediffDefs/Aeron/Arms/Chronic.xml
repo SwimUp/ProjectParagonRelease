@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>HediffDef_AeronClaw</defName>
+		<label>Claw</label>
+		<description>The size of the claw affects its damage and the movement speed of the creature.</description>
+		<isBad>false</isBad>
+		<initialSeverity>0.001</initialSeverity>
+		<minSeverity>0.001</minSeverity>
+		<maxSeverity>1</maxSeverity>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1</partEfficiency>
+		</addedPartProps>
+		<stages>
+			<li>
+				<label>small</label>
+				<statFactors>
+					<MeleeCritChance>0.5</MeleeCritChance>
+				</statFactors>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.33</minSeverity>
+				<statFactors>
+					<MoveSpeed>0.95</MoveSpeed>
+					<WorkSpeedGlobal>0.95</WorkSpeedGlobal>
+					<MeleeCritChance>1.05</MeleeCritChance>
+				</statFactors>
+			</li>
+			<li>
+				<label>large</label>
+				<minSeverity>0.66</minSeverity>
+				<statFactors>
+					<MoveSpeed>0.9</MoveSpeed>
+					<WorkSpeedGlobal>0.85</WorkSpeedGlobal>
+					<MeleeCritChance>2</MeleeCritChance>
+				</statFactors>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li Class="CombatExtended.ToolCE">
+						<capacities>
+							<li>Scratch</li>
+						</capacities>
+						<power>12.0</power>
+						<cooldownTime>2</cooldownTime>
+						<surpriseAttack>
+							<extraMeleeDamages>
+								<li>
+									<def>Stun</def>
+									<amount>14</amount>
+								</li>
+							</extraMeleeDamages>
+						</surpriseAttack>
+						<chanceFactor>0.2</chanceFactor>
+						<armorPenetrationSharp>3</armorPenetrationSharp>
+						<armorPenetrationBlunt>5</armorPenetrationBlunt>
+					</li>
+				</tools>
+			</li>
+		</comps>
+	</HediffDef>
+</Defs>

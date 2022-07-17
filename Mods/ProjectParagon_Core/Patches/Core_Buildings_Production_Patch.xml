@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SimpleResearchBench"]</xpath>
+				<value>
+					<ThingDef ParentName="BenchBase">
+						<defName>SimpleResearchBench</defName>
+						<label>simple research bench</label>
+						<description>A simple bench with writing implements and simple measurement devices. Researchers work here to discover new things.</description>
+						<thingClass>Building_ResearchBench</thingClass>
+						<size>(3,2)</size>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>250</costStuffCount>
+						<costList>
+							<Book>16</Book>
+							<ComponentSimple>8</ComponentSimple>
+						</costList>
+						<graphicData>
+							<texPath>Things/Building/Production/ResearchBenchSimple</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(5,4)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<castEdgeShadows>true</castEdgeShadows>
+						<staticSunShadowHeight>0.20</staticSunShadowHeight>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<designationCategory>Science</designationCategory>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<WorkToBuild>5000</WorkToBuild>
+							<Flammability>1.0</Flammability>
+							<ResearchSpeedFactor>0.85</ResearchSpeedFactor>
+						</statBases>
+						<placeWorkers>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<fillPercent>0.5</fillPercent>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<hasInteractionCell>true</hasInteractionCell>
+						<surfaceType>Item</surfaceType>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>Research_ResourceBox</li>
+									<li>SmallLibrary</li>
+									<li>ResearchLibrary</li>
+									<li>Globe</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<researchPrerequisites>
+							<li>Alchemy</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="HiTechResearchBench"]</xpath>
+				<value>
+					<ThingDef ParentName="BenchBase">
+						<defName>HiTechResearchBench</defName>
+						<label>hi-tech research bench</label>
+						<description>A high-tech bench with computers and electronic measurement equipment. Allows more rapid research, and unlocks advanced research projects.</description>
+						<thingClass>Building_ResearchBench</thingClass>
+						<size>(5,2)</size>
+						<minifiedDef />
+						<thingCategories Inherit="false" />
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>150</costStuffCount>
+						<costList>
+							<Steel>100</Steel>
+							<ComponentIndustrial>10</ComponentIndustrial>
+						</costList>
+						<graphicData>
+							<texPath>Things/Building/Production/ResearchBenchHiTech</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(7,4)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<castEdgeShadows>true</castEdgeShadows>
+						<staticSunShadowHeight>0.20</staticSunShadowHeight>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<WorkToBuild>5000</WorkToBuild>
+							<Flammability>1.0</Flammability>
+							<ResearchSpeedFactor>1.0</ResearchSpeedFactor>
+						</statBases>
+						<fillPercent>0.5</fillPercent>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<hasInteractionCell>true</hasInteractionCell>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<designationCategory>Science</designationCategory>
+						<surfaceType>Item</surfaceType>
+						<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>MicroelectronicsBasics</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>250</basePowerConsumption>
+								<shortCircuitInRain>true</shortCircuitInRain>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>MultiAnalyzer</li>
+									<li>Research_ResourceBox</li>
+									<li>SmallLibrary</li>
+									<li>ResearchLibrary</li>
+									<li>Globe</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ButcherSpot"]</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>LessonsPast</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="HandTailoringBench"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>TribalClothing</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TableSculpting"]</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>SimpleStoneProcessing</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="TableStonecutter"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>AdvancedStoneProcessing</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="FueledSmithy"]</xpath>
+				<value>
+					<designatorDropdown>Smithy</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="FueledSmithy"]/researchPrerequisites</xpath>
+				<value>
+					<!-- временно -->
+					<researchPrerequisites>
+						<li>ProductionII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ElectricSmithy"]</xpath>
+				<value>
+					<designatorDropdown>Smithy</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ElectricSmithy"]/researchPrerequisites</xpath>
+				<value>
+					<!-- временно -->
+					<researchPrerequisites>
+						<li>ProductionII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ElectricSmelter"]</xpath>
+				<value>
+					<designatorDropdown>Smelters</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="FermentingBarrel"]</xpath>
+				<value>
+					<designatorDropdown>Cooking</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="NutrientPasteDispenser"]</xpath>
+				<value>
+					<designatorDropdown>Cooking</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Hopper"]</xpath>
+				<value>
+					<designatorDropdown>Cooking</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="FueledStove"]</xpath>
+				<value>
+					<designatorDropdown>Cooking</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="FueledStove"]</xpath>
+				<value>
+					<!-- временно -->
+					<researchPrerequisites>
+						<li>ProductionII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ElectricStove"]</xpath>
+				<value>
+					<designatorDropdown>Cooking</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TableStonecutter"]</xpath>
+				<value>
+					<designatorDropdown>StoneProcessing</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="PlantProcessingTable"]</xpath>
+				<value>
+					<designatorDropdown>Farming</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="HydroponicsBasin"]</xpath>
+				<value>
+					<designatorDropdown>Farming</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TableButcher"]</xpath>
+				<value>
+					<designatorDropdown>Cooking</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TableButcher"]</xpath>
+				<value>
+					<researchPrerequisites>
+					  <li>SimpleWoodProcessing</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="CraftingSpot"]</xpath>
+				<value>
+					<designatorDropdown>Workbenches</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ButcherSpot"]</xpath>
+				<value>
+					<designatorDropdown>Cooking</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="FabricationBench"]</xpath>
+				<value>
+					<designatorDropdown>Workbenches</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TableMachining"]</xpath>
+				<value>
+					<designatorDropdown>Workbenches</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TableSculpting"]</xpath>
+				<value>
+					<designatorDropdown>StoneProcessing</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="DrugLab"]</xpath>
+				<value>
+					<designatorDropdown>Chemistry</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="BiofuelRefinery"]</xpath>
+				<value>
+					<designatorDropdown>Chemistry</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="HandTailoringBench"]</xpath>
+				<value>
+					<designatorDropdown>Tailoring</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ElectricTailoringBench"]</xpath>
+				<value>
+					<designatorDropdown>Tailoring</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="DeepDrill"]</xpath>
+				<value>
+					<designatorDropdown>Mining</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ElectricCrematorium"]</xpath>
+				<value>
+					<designatorDropdown>Miscellaneous</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="SimpleResearchBench"]</xpath>
+				<value>
+					<designatorDropdown>ResearchBenches</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="HiTechResearchBench"]</xpath>
+				<value>
+					<designatorDropdown>ResearchBenches</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ElectricStove"]/recipes</xpath>
+				<value>
+					<recipes>
+						<li>CookMealSurvival</li>
+						<li>CookMealSurvivalBulk</li>
+					</recipes>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="FueledStove"]/recipes</xpath>
+				<value>
+					<recipes>
+						<li>CookMealSurvival</li>
+						<li>CookMealSurvivalBulk</li>
+					</recipes>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="HydroponicsBasin"]/building/defaultPlantToGrow</xpath>
+				<value>
+					<defaultPlantToGrow>Plant_Potato</defaultPlantToGrow>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Brewery"]</xpath>
+				<value>
+					<ThingDef ParentName="BenchBase">
+						<defName>Brewery</defName>
+						<label>drug bench</label>
+						<description>Bench for processing plants and synthesizing various primitive drugs.</description>
+						<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Production/TableBrewery</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3.5,1.5)</drawSize>
+							<shadowData>
+								<volume>(2.8, 0.3, 0.54)</volume>
+								<offset>(0, 0, -0.18)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.3,0,2.7,1)</rect>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Stony</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costStuffCount>120</costStuffCount>
+						<costList>
+							<WoodPlanks>50</WoodPlanks>
+							<ComponentPrimitive>8</ComponentPrimitive>
+						</costList>
+						<altitudeLayer>Building</altitudeLayer>
+						<fillPercent>0.5</fillPercent>
+						<useHitPoints>True</useHitPoints>
+						<statBases>
+							<WorkToBuild>2000</WorkToBuild>
+							<MaxHitPoints>180</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+						</statBases>
+						<size>(3,1)</size>
+						<designationCategory>Production</designationCategory>
+						<designatorDropdown>Chemistry</designatorDropdown>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<hasInteractionCell>True</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<surfaceType>Item</surfaceType>
+						<recipes>
+							<li>Make_Wort</li>
+						</recipes>
+						<inspectorTabs>
+							<li>ITab_Bills</li>
+						</inspectorTabs>
+						<building>
+							<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+						</building>
+						<placeWorkers>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>FirstAlcohol</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="DubsBadHygiene.CompProperties_Pipe">
+								<mode>Sewage</mode>
+							</li>
+							<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+								<WaterStorageCap>50</WaterStorageCap>
+							</li>
+							<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
+								<canManualFill>true</canManualFill>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="FermentingBarrel"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>FermentingBarrel</defName>
+						<label>fermenting barrel</label>
+						<description>A barrel for fermenting raw wort into beer.</description>
+						<thingClass>Building_FermentingBarrel</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Production/FermentingBarrel</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<damageData>
+								<rect>(0.05,0.1,0.9,0.9)</rect>
+							</damageData>
+							<shadowData>
+								<volume>(0.75, 0.35, 0.33)</volume>
+							</shadowData>
+						</graphicData>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.45</fillPercent>
+						<pathCost>42</pathCost>
+						<thingCategories>
+							<li>BuildingsProduction</li>
+						</thingCategories>
+						<statBases>
+							<WorkToBuild>3500</WorkToBuild>
+							<Mass>10</Mass>
+							<MaxHitPoints>100</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+						</statBases>
+						<costList>
+							<ComponentPrimitive>6</ComponentPrimitive>
+							<WoodPlanks>40</WoodPlanks>
+						</costList>
+						<comps>
+							<li Class="CompProperties_TemperatureRuinable">
+								<minSafeTemperature>-1</minSafeTemperature>
+								<maxSafeTemperature>32</maxSafeTemperature>
+								<progressPerDegreePerTick>0.00001</progressPerDegreePerTick>
+							</li>
+						</comps>
+						<tickerType>Rare</tickerType>
+						<rotatable>true</rotatable>
+						<constructEffect>ConstructWood</constructEffect>
+						<building>
+							<buildingTags>
+								<li>Production</li>
+							</buildingTags>
+							<destroySound>BuildingDestroyed_Wood_Small</destroySound>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

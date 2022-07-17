@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+  <!-- SadjuukHospitalBase : Base Hospital Beds -->
+  <ThingDef Abstract="True" ParentName="BedWithQualityBase" Name="SadjuukHospitalBase">
+    <designationCategory>SadjuukUN-Furniture</designationCategory>
+    <fillPercent>0.4</fillPercent>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <castEdgeShadows>True</castEdgeShadows>
+    <size>(1,2)</size>
+	<comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities> 
+          <li>SadjuukBedroomUpgradeAA</li>
+          <li>SadjuukBedroomUpgradeAB</li>
+          <li>SadjuukBedroomUpgradeAF</li>
+          <li>SadjuukBedroomUpgradeAC</li>
+          <li>SadjuukBedroomUpgradeBA</li>
+          <li>SadjuukBedroomUpgradeBB</li>
+          <li>SadjuukBedroomUpgradeBF</li>
+          <li>SadjuukBedroomUpgradeBC</li>
+          <li>SadjuukBedroomUpgradeCA</li>
+          <li>SadjuukBedroomUpgradeCB</li>
+          <li>SadjuukBedroomUpgradeCF</li>
+          <li>SadjuukBedroomUpgradeCC</li>
+          <li>SadjuukBedroomUpgradeCD</li>
+          <li>SadjuukHospitalUpgradeBA</li>
+          <li>SadjuukHospitalUpgradeBB</li>
+          <li>SadjuukHospitalUpgradeCA</li>
+          <li>SadjuukHospitalUpgradeCB</li>
+          <li>SadjuukHospitalUpgradeCD</li>
+          <li>SadjuukHospitalUpgradeCE</li>
+          <li>EndTable</li>
+          <li>Dresser</li>
+          <li>VitalsMonitor</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+
+	<!-- SadjuukHospitalUpgradeBase : Base Hospital Upgrade -->
+  <ThingDef Abstract="True" ParentName="FurnitureWithQualityBase" Name="SadjuukHospitalUpgradeBase">
+    <designationCategory>SadjuukUN-Furniture</designationCategory>
+    <thingClass>Building</thingClass>
+    <fillPercent>0.4</fillPercent>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <canOverlapZones>false</canOverlapZones>
+  </ThingDef>
+  
+  
+
+	<!-- Ancient Hospital Beds -->
+	<!-- SadjuukHospitalBB : Recovery Bed -->
+  <ThingDef ParentName="SadjuukHospitalBase">
+    <defName>SadjuukHospitalBB</defName>
+    <label>Recovery Bed</label>
+    <description>Beauty : 4
+Comfort : 85%
+Immunity : +10%
+Surgery : +0%
+Tending : +10%
+A good medical bed, very confortable for peaceful recovery and long bed rest.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalBB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalBB_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>4</Beauty>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>0.85</Comfort>
+      <ImmunityGainSpeedFactor>1.1</ImmunityGainSpeedFactor>
+      <MedicalTendQualityOffset>0.1</MedicalTendQualityOffset>
+      <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+      <Mass>40</Mass>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <costList>
+      <WoodLog>40</WoodLog>
+      <Cloth>80</Cloth>
+    </costList>
+    <building>
+      <bed_showSleeperBody>false</bed_showSleeperBody>
+      <bed_healPerDay>10</bed_healPerDay>
+      <bed_defaultMedical>true</bed_defaultMedical>
+    </building>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+  </ThingDef>
+	<!-- Ancient Hospital Upgrades -->
+	<!-- SadjuukHospitalUpgradeBA : Wooden Pharmacy -->
+  <ThingDef ParentName="SadjuukHospitalUpgradeBase">
+    <defName>SadjuukHospitalUpgradeBA</defName>
+    <label>Wooden Pharmacy</label>
+    <description>Beauty : 4
+Immunity : +2.5%
+Surgery : +0%
+Tending : +2.5%
+Hospital Upgrade : A Wooden Pharmacy containing many essential things.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalUpgradeBA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalUpgradeBA_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>4</Beauty>
+      <Mass>60</Mass>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <costList>
+      <WoodLog>60</WoodLog>
+      <MedicineHerbal>25</MedicineHerbal>
+      <Cloth>75</Cloth>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ImmunityGainSpeedFactor>0.025</ImmunityGainSpeedFactor>
+          <SurgerySuccessChanceFactor>0</SurgerySuccessChanceFactor>
+          <MedicalTendQualityOffset>0.025</MedicalTendQualityOffset>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+    <constructEffect>ConstructWood</constructEffect>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukHospitalUpgradeBB : Tending Tools -->
+	<ThingDef ParentName="SadjuukHospitalUpgradeBase">
+    <defName>SadjuukHospitalUpgradeBB</defName>
+    <label>Tending Tools</label>
+    <description>Beauty : 4
+Immunity : +0%
+Surgery : +0%
+Tending : +5%
+Hospital Upgrade : Tending tools increasing general medical tend quality. Essential in an infirmary.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalUpgradeBB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalUpgradeBB_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>4</Beauty>
+      <Mass>30</Mass>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Silver>150</Silver>
+      <Cloth>75</Cloth>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ImmunityGainSpeedFactor>0</ImmunityGainSpeedFactor>
+          <SurgerySuccessChanceFactor>0</SurgerySuccessChanceFactor>
+          <MedicalTendQualityOffset>0.05</MedicalTendQualityOffset>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+    <constructEffect>ConstructWood</constructEffect>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+  
+  
+  
+	<!-- Industrial Hospital Beds -->
+	<!-- SadjuukHospitalCA : Steel Medical Bed -->
+  <ThingDef ParentName="SadjuukHospitalBase">
+    <defName>SadjuukHospitalCA</defName>
+    <label>Steel Medical Bed</label>
+    <description>Beauty : 2
+Comfort : 75%
+Immunity : +10%
+Surgery : +10%
+Tending : +10%
+A Standard hospital bed, good for recovery medical care.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalCA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalCA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>2</Beauty>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>0.75</Comfort>
+      <ImmunityGainSpeedFactor>1.1</ImmunityGainSpeedFactor>
+      <MedicalTendQualityOffset>0.15</MedicalTendQualityOffset>
+      <SurgerySuccessChanceFactor>1.1</SurgerySuccessChanceFactor>
+      <Mass>60</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>40</Steel>
+      <Cloth>80</Cloth>
+    </costList>
+    <building>
+      <bed_showSleeperBody>false</bed_showSleeperBody>
+      <bed_healPerDay>10</bed_healPerDay>
+      <bed_defaultMedical>true</bed_defaultMedical>
+    </building>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukHospitalCC : Operating Table -->
+  <ThingDef ParentName="SadjuukHospitalBase">
+    <defName>SadjuukHospitalCC</defName>
+    <label>Operating Table</label>
+    <description>Beauty : 2
+Comfort : 70%
+Immunity : +20%
+Surgery : +20%
+Tending : +20%
+A Surgery bed made for serious emergency interventions or complex operations.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalCC</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalCC_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>2</Beauty>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>0.7</Comfort>
+      <ImmunityGainSpeedFactor>1.2</ImmunityGainSpeedFactor>
+      <MedicalTendQualityOffset>0.2</MedicalTendQualityOffset>
+      <SurgerySuccessChanceFactor>1.2</SurgerySuccessChanceFactor>
+      <Mass>40</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>40</Steel>
+      <Synthread>80</Synthread>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <building>
+      <bed_showSleeperBody>true</bed_showSleeperBody>
+      <bed_healPerDay>10</bed_healPerDay>
+      <bed_defaultMedical>true</bed_defaultMedical>
+    </building>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukHospitalCD : Emergency Stretcher -->
+  <ThingDef ParentName="SadjuukHospitalBase">
+    <defName>SadjuukHospitalCD</defName>
+    <label>Emergency Stretcher</label>
+    <description>Beauty : 2
+Comfort : 70%
+Immunity : +0%
+Surgery : +0%
+Tending : +20%
+A very light emergency stretcher of only 3kg, to take with you for long operations or emergency response in the field.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalCD</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalCD_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>75</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>2</Beauty>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>0.7</Comfort>
+      <ImmunityGainSpeedFactor>1</ImmunityGainSpeedFactor>
+      <MedicalTendQualityOffset>0.2</MedicalTendQualityOffset>
+      <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+      <Mass>3</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Synthread>40</Synthread>
+    </costList>
+    <building>
+      <bed_showSleeperBody>true</bed_showSleeperBody>
+      <bed_healPerDay>10</bed_healPerDay>
+      <bed_defaultMedical>true</bed_defaultMedical>
+    </building>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- Industrial Hospital Upgrades -->
+	<!-- SadjuukHospitalUpgradeCA : Modern Pharmacy -->
+  <ThingDef ParentName="SadjuukHospitalUpgradeBase">
+    <defName>SadjuukHospitalUpgradeCA</defName>
+    <label>Modern Pharmacy</label>
+    <description>Beauty : 2
+Immunity : +5%
+Surgery : +0%
+Tending : +2.5%
+Hospital Upgrade : A very complete Pharmacy containing essential drugs and equipment for years.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalUpgradeCA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalUpgradeCA_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>60</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>60</Steel>
+      <MedicineIndustrial>25</MedicineIndustrial>
+      <Synthread>40</Synthread>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ImmunityGainSpeedFactor>0.05</ImmunityGainSpeedFactor>
+          <SurgerySuccessChanceFactor>0</SurgerySuccessChanceFactor>
+          <MedicalTendQualityOffset>0.025</MedicalTendQualityOffset>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukHospitalUpgradeCB : Steel Surgery Tools -->
+  <ThingDef ParentName="SadjuukHospitalUpgradeBase">
+    <defName>SadjuukHospitalUpgradeCB</defName>
+    <label>Steel Surgery Tools</label>
+    <description>Beauty : 2
+Immunity : +2.5%
+Surgery : +5%
+Tending : +0%
+Hospital Upgrade : Standard medical tools for surgery.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalUpgradeCB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalUpgradeCB_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>40</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <MedicineIndustrial>15</MedicineIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ImmunityGainSpeedFactor>0.025</ImmunityGainSpeedFactor>
+          <SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>
+          <MedicalTendQualityOffset>0</MedicalTendQualityOffset>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukHospitalUpgradeCD : Surgery Lights -->
+  <ThingDef ParentName="SadjuukHospitalUpgradeBase">
+    <defName>SadjuukHospitalUpgradeCD</defName>
+    <label>Surgery Lights</label>
+    <description>Beauty : 2
+Power : 80W
+Immunity : +0%
+Surgery : +5%
+Tending : +0%
+Hospital Upgrade : A surgical lamp to help during delicate operations. Must be placed next to a medical bed.</description>
+    <graphicData>
+      <texPath>SadjuukHospital/SadjuukHospitalUpgradeCD</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <altitudeLayer>Blueprint</altitudeLayer>
+    <uiIconPath>SadjuukHospital/SadjuukHospitalUpgradeCD_Icon</uiIconPath>
+    <size>(2,1)</size>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>40</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>80</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ImmunityGainSpeedFactor>0</ImmunityGainSpeedFactor>
+          <SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>
+          <MedicalTendQualityOffset>0</MedicalTendQualityOffset>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+        <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(215,255,155,0)</glowColor>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukHospitalUpgradeCE : Wall Monitor -->
+	<ThingDef ParentName="SadjuukHospitalUpgradeBase">
+    <defName>SadjuukHospitalUpgradeCE</defName>
+    <label>Wall Monitor</label>
+    <description>Beauty : 2
+Power : 50W
+Immunity : +5%
+Surgery : +5%
+Tending : +5%
+Hospital Upgrade : A monitor showing the patient's vital functions. Must be placed next to a medical bed.</description>
+    <altitudeLayer>Building</altitudeLayer>
+    <graphicData>
+		<texPath>SadjuukHospital/SadjuukHospitalUpgradeCE</texPath>
+		<graphicClass>Graphic_Multi</graphicClass>
+		<drawSize>(3,3)</drawSize>
+    </graphicData>
+	<uiIconPath>SadjuukHospital/SadjuukHospitalUpgradeCE_Icon</uiIconPath>
+    <size>(1,1)</size>	
+    <pathCost>0</pathCost>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>20</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Plasteel>20</Plasteel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+          <compClass>CompPowerTrader</compClass>
+          <shortCircuitInRain>true</shortCircuitInRain>
+          <basePowerConsumption>50</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(25,110,150,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ImmunityGainSpeedFactor>0.05</ImmunityGainSpeedFactor>
+          <SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>
+          <MedicalTendQualityOffset>0.05</MedicalTendQualityOffset>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+        <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+      </li>
+    </comps>
+    <researchPrerequisites>
+		<li>SadjuukFurnitureB</li>
+    </researchPrerequisites>
+	<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	</ThingDef>
+
+
+
+</Defs>

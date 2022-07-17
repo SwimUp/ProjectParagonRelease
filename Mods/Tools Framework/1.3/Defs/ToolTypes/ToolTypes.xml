@@ -1,0 +1,322 @@
+<Defs>
+    <!-- Pre-defined tooltypes-->
+    
+    <!-- PlantWork tools -->
+    <ToolsFramework.ToolType>
+        <defName>SowingTool</defName>
+        <description>Tool affecting plant sowing speed.</description>
+        <label>sowing tool</label>
+        <workStatFactors>
+            <PlantWorkSpeed>1.0</PlantWorkSpeed>
+        </workStatFactors>
+        <efficiencyModifiers>
+            <Tool_Sharpness>0.3</Tool_Sharpness>
+            <Tool_Hardness>0.7</Tool_Hardness>
+        </efficiencyModifiers>
+        <jobDriverList>
+            <li>JobDriver_PlantSow</li>
+        </jobDriverList>
+        <defaultToolAssignmentTags>
+            <li>SowingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <ToolsFramework.ToolType>
+        <defName>HarvestingTool</defName>
+        <description>Tool affecting plant harvesting speed.</description>
+        <label>harvesting tool</label>
+        <workStatFactors>
+            <PlantWorkSpeed>1.0</PlantWorkSpeed>
+        </workStatFactors>
+        <workStatOffset>
+            <PlantHarvestYield>1.0</PlantHarvestYield>
+        </workStatOffset>
+        <efficiencyModifiers>
+            <Tool_Sharpness>0.7</Tool_Sharpness>
+            <Tool_Hardness>0.3</Tool_Hardness>
+        </efficiencyModifiers>
+        <jobDriverList>
+            <li>JobDriver_PlantWork</li>
+        </jobDriverList>
+        <defaultToolAssignmentTags>
+            <li>HarvestingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+    
+    <!-- AnimalGather tools -->
+    <ToolsFramework.ToolType>
+        <defName>ShearingTool</defName>
+        <description>Tool affecting animal shearing speed and yield.</description>
+        <label>shearing tool</label>
+        <workStatFactors>
+            <AnimalGatherSpeed>1.0</AnimalGatherSpeed>
+        </workStatFactors>
+        <workStatOffset>
+            <AnimalGatherYield>1.0</AnimalGatherYield>
+        </workStatOffset>
+        <efficiencyModifiers>
+            <Tool_Sharpness>1.0</Tool_Sharpness>
+        </efficiencyModifiers>
+        <jobDriverList>
+            <li>JobDriver_Shear</li>
+        </jobDriverList>
+        <defaultToolAssignmentTags>
+            <li>ShearingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <ToolsFramework.ToolType>
+        <defName>AnimalGatheringTool</defName>
+        <description>Tool affecting animal gathering speed and yield (e.g. milking).</description>
+        <label>animal gathering tool</label>
+        <workStatFactors>
+            <AnimalGatherSpeed>1.0</AnimalGatherSpeed>
+        </workStatFactors>
+        <workStatOffset>
+            <AnimalGatherYield>1.0</AnimalGatherYield>
+        </workStatOffset>
+        <jobDriverList>
+            <li>JobDriver_GatherAnimalBodyResources</li>
+        </jobDriverList>
+        <jobDriverException>
+            <li>JobDriver_Shear</li>
+        </jobDriverException>
+        <defaultToolAssignmentTags>
+            <li>AnimalGatheringTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+    
+    <!-- Construction tools -->
+    <ToolsFramework.ToolType>
+        <defName>ConstructionTool</defName>
+        <description>Tool affecting construction speed and success rate.</description>
+        <label>construction tool</label>
+        <workStatFactors>
+            <ConstructionSpeed>1.0</ConstructionSpeed>
+        </workStatFactors>
+        <workStatOffset>
+            <ConstructSuccessChance>1.0</ConstructSuccessChance>
+            <FixBrokenDownBuildingSuccessChance>1.0</FixBrokenDownBuildingSuccessChance>
+        </workStatOffset>
+        <efficiencyModifiers>
+            <Tool_Hardness>1.0</Tool_Hardness>
+        </efficiencyModifiers>
+        <jobDriverException>
+            <li>JobDriver_BuildSnowman</li>
+        </jobDriverException>
+        <defaultToolAssignmentTags>
+            <li>ConstructionTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <ToolsFramework.ToolType>
+        <defName>SmoothingTool</defName>
+        <description>Tool affecting smoothing speed.</description>
+        <label>smoothing tool</label>
+        <workStatFactors>
+            <SmoothingSpeed>1.0</SmoothingSpeed>
+        </workStatFactors>
+        <efficiencyModifiers>
+            <Tool_Hardness>1.0</Tool_Hardness>
+        </efficiencyModifiers>
+        <defaultToolAssignmentTags>
+            <li>SmoothingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+    
+    <!-- Mining tools -->
+    <ToolsFramework.ToolType>
+        <defName>MiningTool</defName>
+        <description>Tool affecting mining speed and yield.</description>
+        <label>mining tool</label>
+        <workStatFactors>
+            <MiningSpeed>1.0</MiningSpeed>
+        </workStatFactors>
+        <workStatOffset>
+            <MiningYield>1.0</MiningYield>
+        </workStatOffset>
+        <efficiencyModifiers>
+            <Tool_Sharpness>0.3</Tool_Sharpness>
+            <Tool_Hardness>0.7</Tool_Hardness>
+        </efficiencyModifiers>
+        <defaultToolAssignmentTags>
+            <li>MiningTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+    
+    <!-- Research tools -->
+    <ToolsFramework.ToolType>
+        <defName>ResearchTool</defName>
+        <description>Tool affecting research speed.</description>
+        <label>research tool</label>
+        <workStatFactors>
+            <ResearchSpeed>1.0</ResearchSpeed>
+        </workStatFactors>
+        <defaultToolAssignmentTags>
+            <li>ResearchTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <!-- Cooking tools -->
+    <ToolsFramework.ToolType>
+        <defName>CookingTool</defName>
+        <description>Tool affecting cooking speed.</description>
+        <label>cooking tool</label>
+        <workStatFactors>
+            <CookSpeed>1.0</CookSpeed>
+        </workStatFactors>
+        <billGivers>
+            <li>ElectricStove</li>
+            <li>FueledStove</li>
+        </billGivers>
+        <defaultToolAssignmentTags>
+            <li>CookingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <ToolsFramework.ToolType>
+        <defName>ButcheringTool</defName>
+        <description>Tool affecting butchering speed and yield.</description>
+        <label>butchering tool</label>
+        <workStatFactors>
+            <ButcheryFleshSpeed>1.0</ButcheryFleshSpeed>
+        </workStatFactors>
+        <workStatOffset>
+            <ButcheryFleshEfficiency>1.0</ButcheryFleshEfficiency>
+        </workStatOffset>
+        <billGivers>
+            <li>TableButcher</li>
+        </billGivers>
+        <defaultToolAssignmentTags>
+            <li>ButcheringTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <!-- Crafting tools -->
+    <ToolsFramework.ToolType>
+        <defName>TailoringTool</defName>
+        <description>Tool affecting tailoring speed.</description>
+        <label>tailoring tool</label>
+        <workStatFactors>
+            <GeneralLaborSpeed>1.0</GeneralLaborSpeed>
+        </workStatFactors>
+        <billGivers>
+            <li>HandTailoringBench</li>
+            <li>ElectricTailoringBench</li>
+        </billGivers>
+        <defaultToolAssignmentTags>
+            <li>TailoringTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <ToolsFramework.ToolType>
+        <defName>DisambleTool</defName>
+        <description>Tool affecting mechanoid disassemble speed.</description>
+        <label>disamble tool</label>
+        <workStatFactors>
+            <ButcheryMechanoidSpeed>1.0</ButcheryMechanoidSpeed>
+        </workStatFactors>
+        <workStatOffset>
+            <ButcheryMechanoidEfficiency>1.0</ButcheryMechanoidEfficiency>
+        </workStatOffset>
+        <billGivers>
+            <li>TableMachining</li>
+        </billGivers>
+        <defaultToolAssignmentTags>
+            <li>DisambleTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+    
+    <ToolsFramework.ToolType>
+        <defName>StoneCuttingTool</defName>
+        <description>Tool affecting stone cutting speed.</description>
+        <label>stone cutting tool</label>
+        <workStatFactors>
+            <GeneralLaborSpeed>1.0</GeneralLaborSpeed>
+        </workStatFactors>
+        <billGivers>
+            <li>TableStonecutter</li>
+        </billGivers>
+        <defaultToolAssignmentTags>
+            <li>StoneCuttingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+    
+    <ToolsFramework.ToolType>
+        <defName>SmeltingTool</defName>
+        <description>Tool affecting smelting speed.</description>
+        <label>smelting tool</label>
+        <workStatFactors>
+            <GeneralLaborSpeed>1.0</GeneralLaborSpeed>
+        </workStatFactors>
+        <billGivers>
+            <li>ElectricSmelter</li>
+        </billGivers>
+        <defaultToolAssignmentTags>
+            <li>SmeltingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+    
+    <ToolsFramework.ToolType>
+        <defName>SmithingTool</defName>
+        <description>Tool affecting smithing speed.</description>
+        <label>smithing tool</label>
+        <workStatFactors>
+            <GeneralLaborSpeed>1.0</GeneralLaborSpeed>
+        </workStatFactors>
+        <billGivers>
+            <li>FueledSmithy</li>
+            <li>ElectricSmithy</li>
+        </billGivers>
+        <defaultToolAssignmentTags>
+            <li>SmithingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <!-- AnimalTraining tools -->
+    <ToolsFramework.ToolType>
+        <defName>AnimalTrainingTool</defName>
+        <description>Tool affecting animal training success.</description>
+        <label>animal training tool</label>
+        <workStatOffset>
+            <TrainAnimalChance>1.0</TrainAnimalChance>
+        </workStatOffset>
+        <jobDriverList>
+            <li>JobDriver_Train</li>
+        </jobDriverList>
+        <defaultToolAssignmentTags>
+            <li>AnimalTrainingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+    
+    <ToolsFramework.ToolType>
+        <defName>AnimalTamingTool</defName>
+        <description>Tool affecting animal taming success.</description>
+        <label>animal taming tool</label>
+        <workStatOffset>
+            <TameAnimalChance>1.0</TameAnimalChance>
+        </workStatOffset>
+        <jobDriverList>
+            <li>JobDriver_Tame</li>
+        </jobDriverList>
+        <defaultToolAssignmentTags>
+            <li>AnimalTamingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+
+    <!-- Art tools -->
+    <ToolsFramework.ToolType>
+        <defName>SculptingTool</defName>
+        <description>Tool affecting sculpting speed.</description>
+        <label>sculpting tool</label>
+        <workStatFactors>
+            <GeneralLaborSpeed>1.0</GeneralLaborSpeed>
+        </workStatFactors>
+        <billGivers>
+            <li>TableSculpting</li>
+        </billGivers>
+        <defaultToolAssignmentTags>
+            <li>SculptingTools</li>
+        </defaultToolAssignmentTags>
+    </ToolsFramework.ToolType>
+</Defs>

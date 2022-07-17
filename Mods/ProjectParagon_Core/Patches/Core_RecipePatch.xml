@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>*/RecipeDef[defName="Make_Patchleather"]</xpath>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="ButcherCorpseFlesh"]/uiIconThing</xpath>
+				<value>
+					<uiIconThing>RegularMeat</uiIconThing>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/RecipeDef[@Name="MakeStoneBlocksBase"]/recipeUsers</xpath>
+				<value>
+					<li>PrimitiveTableStonecutter</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="Make_Wort"]</xpath>
+				<value>
+					<RecipeDef>
+						<defName>Make_Wort</defName>
+						<label>make wort</label>
+						<description>Make wort from hops.</description>
+						<jobString>Making wort.</jobString>
+						<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+						<workSkill>Cooking</workSkill>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_Brewing</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<workAmount>1000</workAmount>
+						<targetCountAdjustment>1</targetCountAdjustment>
+						<researchPrerequisite>Brewing</researchPrerequisite>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>RawHops</li>
+									</thingDefs>
+								</filter>
+								<count>25</count>
+							</li>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>WaterForBill</li>
+									</thingDefs>
+								</filter>
+								<count>5</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>RawHops</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Wort>5</Wort>
+						</products>
+					</RecipeDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="Make_Pemmican"]</xpath>
+				<value>
+					<RecipeDef>
+						<defName>Make_Pemmican</defName>
+						<label>make pemmican</label>
+						<description>Make pemmican, a preserved combination of meat and plant food. It doesn't taste amazing, but lasts a long time without refrigeration.</description>
+						<jobString>Making pemmican.</jobString>
+						<workAmount>700</workAmount>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+						<ingredients>
+							<li>
+								<filter>
+									<categories>
+										<li>MeatRaw</li>
+									</categories>
+								</filter>
+								<count>0.25</count>
+							</li>
+							<li>
+								<filter>
+									<categories>
+										<li>PlantFoodRaw</li>
+									</categories>
+									<disallowedCategories>
+										<li>MiscPlants</li>
+									</disallowedCategories>
+								</filter>
+								<count>0.25</count>
+							</li>
+						</ingredients>
+						<products>
+							<Pemmican>16</Pemmican>
+						</products>
+						<fixedIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>
+							</categories>
+							<disallowedCategories>
+								<li>AnimalProductRaw</li>
+								<li>MiscPlants</li>
+							</disallowedCategories>
+							<specialFiltersToDisallow>
+								<li>AllowPlantFood</li>
+							</specialFiltersToDisallow>
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>
+							</categories>
+							<disallowedThingDefs>
+								<li>Meat_Human</li>
+								<li>Meat_Megaspider</li>
+							</disallowedThingDefs>
+						</defaultIngredientFilter>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>Pemmican</researchPrerequisite>
+						<recipeUsers>
+							<li>ButcherSpot</li>
+							<li>TableButcher</li>
+							<li>CookingFurnace</li>
+						</recipeUsers>
+					</RecipeDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="Make_PemmicanBulk"]</xpath>
+				<value>
+					<RecipeDef>
+						<defName>Make_PemmicanBulk</defName>
+						<label>make pemmican x4</label>
+						<description>Make bulk pemmican, a preserved combination of meat and plant food. It doesn't taste amazing, but lasts a long time without refrigeration.</description>
+						<jobString>Making bulk pemmican.</jobString>
+						<workAmount>2800</workAmount>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+						<ingredients>
+							<li>
+								<filter>
+									<categories>
+										<li>MeatRaw</li>
+									</categories>
+								</filter>
+								<count>1.0</count>
+							</li>
+							<li>
+								<filter>
+									<categories>
+										<li>PlantFoodRaw</li>
+									</categories>
+									<disallowedCategories>
+										<li>MiscPlants</li>
+									</disallowedCategories>
+								</filter>
+								<count>1.0</count>
+							</li>
+						</ingredients>
+						<products>
+							<Pemmican>64</Pemmican>
+						</products>
+						<fixedIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>
+							</categories>
+							<disallowedCategories>
+								<li>AnimalProductRaw</li>
+								<li>MiscPlants</li>
+							</disallowedCategories>
+							<specialFiltersToDisallow>
+								<li>AllowPlantFood</li>
+							</specialFiltersToDisallow>
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>
+							</categories>
+							<disallowedThingDefs>
+								<li>Meat_Human</li>
+								<li>Meat_Megaspider</li>
+							</disallowedThingDefs>
+						</defaultIngredientFilter>
+						<workSkill>Cooking</workSkill>
+						<researchPrerequisite>Pemmican</researchPrerequisite>
+						<recipeUsers>
+							<li>ButcherSpot</li>
+							<li>TableButcher</li>
+							<li>CookingFurnace</li>
+						</recipeUsers>
+					</RecipeDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealSimpleBulk"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealFine"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealFine_Veg"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealFine_Meat"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealFineBulk"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealFineBulk_Meat"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealFineBulk_Veg"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealLavish"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealLavish_Meat"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealLavish_Veg"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealLavishBulk"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealLavishBulk_Veg"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealLavishBulk_Meat"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+
+	<!-- SadjuukResearchBase : Base Research Bench -->
+  <ThingDef Abstract="True" ParentName="BenchBase" Name="SadjuukResearchBase">
+    <designationCategory>SadjuukUN-Furniture</designationCategory>
+    <thingClass>Building_ResearchBench</thingClass>
+    <fillPercent>0.4</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <castEdgeShadows>True</castEdgeShadows>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+  </ThingDef>
+	<!-- SadjuukResearchUpgradeBase : Base Research Upgrade -->
+  <ThingDef Abstract="True" ParentName="FurnitureWithQualityBase" Name="SadjuukResearchUpgradeBase">
+    <designationCategory>SadjuukUN-Furniture</designationCategory>
+    <thingClass>Building</thingClass>
+    <fillPercent>0.4</fillPercent>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <canOverlapZones>false</canOverlapZones>
+  </ThingDef>
+  
+  
+  
+	<!-- Tribe Research -->
+	<!-- SadjuukResearchAA : Research Spot -->
+  <ThingDef ParentName="SadjuukResearchBase">
+    <defName>SadjuukResearchAA</defName>
+    <label>Research Spot</label>
+    <description>Beauty : 2
+A place where primitive experiences can be conducted.</description>
+    <graphicData>
+      <texPath>SadjuukResearch/SadjuukResearchAA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukResearch/SadjuukResearchAA_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>1</Flammability>
+      <ResearchSpeedFactor>0.5</ResearchSpeedFactor>
+      <Beauty>2</Beauty>
+      <Mass>25</Mass>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <costList>
+      <WoodLog>15</WoodLog>
+    </costList>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>SadjuukResearchUpgradeAA</li>
+          <li>ResearchLibrary</li>
+          <li>Globe</li>
+          <li>SmallLibrary</li>
+          <li>SadjuukResearchUpgradeCA</li>
+          <li>SadjuukResearchUpgradeCB</li>
+          <li>SadjuukResearchUpgradeCC</li>
+          <li>SadjuukResearchUpgradeCD</li>
+          <li>MultiAnalyzer</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <constructEffect>ConstructWood</constructEffect>
+    <constructionSkillPrerequisite>0</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukResearchUpgradeAA : Jade Calendar -->
+  <ThingDef ParentName="SadjuukResearchUpgradeBase">
+    <defName>SadjuukResearchUpgradeAA</defName>
+    <label>Jade Calendar</label>
+    <description>Beauty : 16
+Research Upgrade : A primitive calendar, giving the position of the stars and seasons.</description>
+    <graphicData>
+      <texPath>SadjuukResearch/SadjuukResearchUpgradeAA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukResearch/SadjuukResearchUpgradeAA_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>16</Beauty>
+      <Mass>25</Mass>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <costList>
+      <Jade>25</Jade>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.1</ResearchSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+    <constructEffect>ConstructWood</constructEffect>
+    <constructionSkillPrerequisite>0</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukResearchAC : Planting Calendar -->
+	<!-- SadjuukResearchAD : Planting Calendar -->
+  
+  
+  
+  
+  
+    
+	<!-- Ancient Research -->
+	<!-- SadjuukResearchBA : Research Desk -->
+  <ThingDef ParentName="SadjuukResearchBase">
+    <defName>SadjuukResearchBA</defName>
+    <label>Research Desk</label>
+    <description>Beauty : 12
+A wooden desk to comfortably focus on your research with serenity.</description>
+    <graphicData>
+      <texPath>SadjuukResearch/SadjuukResearchBA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukResearch/SadjuukResearchBA_Icon</uiIconPath>
+    <size>(3,1)</size>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <ResearchSpeedFactor>0.6</ResearchSpeedFactor>
+      <Beauty>12</Beauty>
+      <Mass>25</Mass>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <costList>
+      <WoodLog>30</WoodLog>
+      <Gold>45</Gold>
+      <Cloth>45</Cloth>
+    </costList>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>SadjuukResearchUpgradeAA</li>
+          <li>ResearchLibrary</li>
+          <li>Globe</li>
+          <li>SmallLibrary</li>
+          <li>SadjuukResearchUpgradeCA</li>
+          <li>SadjuukResearchUpgradeCB</li>
+          <li>SadjuukResearchUpgradeCC</li>
+          <li>SadjuukResearchUpgradeCD</li>
+          <li>MultiAnalyzer</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <constructEffect>ConstructWood</constructEffect>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- ResearchLibrary : Research Library -->
+ 
+  
+  
+  
+	<!-- Industrial Research -->
+	<!-- SadjuukResearchCA : Research Station -->
+  <ThingDef ParentName="SadjuukResearchBase">
+    <defName>SadjuukResearchCA</defName>
+    <label>Research Station</label>
+    <description>Beauty : 2
+Power : 150W
+A research Station equipped with IT and measurement tools.</description>
+    <graphicData>
+      <texPath>SadjuukResearch/SadjuukResearchCA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(4,4)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukResearch/SadjuukResearchCA_Icon</uiIconPath>
+    <size>(3,1)</size>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <ResearchSpeedFactor>0.7</ResearchSpeedFactor>
+      <Beauty>2</Beauty>
+      <Mass>25</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Plasteel>15</Plasteel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(25,110,150,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>SadjuukResearchUpgradeAA</li>
+          <li>ResearchLibrary</li>
+          <li>Globe</li>
+          <li>SmallLibrary</li>
+          <li>SadjuukResearchUpgradeCA</li>
+          <li>SadjuukResearchUpgradeCB</li>
+          <li>SadjuukResearchUpgradeCC</li>
+          <li>SadjuukResearchUpgradeCD</li>
+          <li>MultiAnalyzer</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukResearchUpgradeCA : Blueprint Table -->
+  <ThingDef ParentName="SadjuukResearchUpgradeBase">
+    <defName>SadjuukResearchUpgradeCA</defName>
+    <label>Blueprint Table</label>
+    <description>Beauty : 2
+Power : 50W
+Speed : +10%
+Research Upgrade : The Blueprint Table allows to design machines with great precision.</description>
+    <graphicData>
+      <texPath>SadjuukResearch/SadjuukResearchUpgradeCA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukResearch/SadjuukResearchUpgradeCA_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>25</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(200,230,230,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.1</ResearchSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukResearchUpgradeCB : Archival Cabinet -->
+  <ThingDef ParentName="SadjuukResearchUpgradeBase">
+    <defName>SadjuukResearchUpgradeCB</defName>
+    <label>Archival Cabinet</label>
+    <description>Beauty : 2
+Speed : +2%
+Research Upgrade : 2 of these archival cabinets can be used with a research space. An efficient way to store the files and plans resulting from the research carried out.</description>
+    <graphicData>
+      <texPath>SadjuukResearch/SadjuukResearchUpgradeCB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukResearch/SadjuukResearchUpgradeCB_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>25</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>75</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.02</ResearchSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>2</maxSimultaneous>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukResearchUpgradeCC : Computer Installation -->
+  <ThingDef ParentName="SadjuukResearchUpgradeBase">
+    <defName>SadjuukResearchUpgradeCC</defName>
+    <label>Computer Installation</label>
+    <description>Beauty : 2
+Power : 150W
+Speed : +10%
+Research Upgrade : 2 of these installations can be used with a research space. A complete IT installation dedicated to all types of research.</description>
+    <graphicData>
+      <texPath>SadjuukResearch/SadjuukResearchUpgradeCC</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukResearch/SadjuukResearchUpgradeCC_Icon</uiIconPath>
+    <size>(2,1)</size>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>50</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <Plasteel>80</Plasteel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(25,110,150,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.1</ResearchSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>2</maxSimultaneous>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukResearchUpgradeCD : Computer Server -->
+  <ThingDef ParentName="SadjuukResearchUpgradeBase">
+    <defName>SadjuukResearchUpgradeCD</defName>
+    <label>Computer Server</label>
+    <description>Beauty : 2
+Power : 150W
+Speed : +5%
+Research Upgrade : 4 of these archival cabinets can be used with a research space. An advanced computer server allowing billions of algorithms to be linked.</description>
+    <graphicData>
+      <texPath>SadjuukResearch/SadjuukResearchUpgradeCD</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukResearch/SadjuukResearchUpgradeCD_Icon</uiIconPath>
+    <size>(1,1)</size>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>25</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Plasteel>40</Plasteel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(25,110,150,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.05</ResearchSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>4</maxSimultaneous>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+  
+  
+  
+</Defs>

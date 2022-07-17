@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- алкоголь -->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Beer"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_DeliriumTremens</HediffDef>
+			<HediffDef>Diseases_HediffDef_Depression</HediffDef>
+			<HediffDef>Diseases_HediffDef_Hallucinosis</HediffDef>
+			<HediffDef>Diseases_HediffDef_Ravings</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ChemicalDef[defName="Alcohol"]/onGeneratedAddictedEvents</xpath>
+		<value>
+			<li>
+				<hediff>Diseases_HediffDef_Depression</hediff>
+				<chance>0.2</chance>
+				<partsToAffect>
+					<li>Brain</li>
+					<li>BrainWithoutBlood</li>
+				</partsToAffect>
+			</li>
+			<li>
+				<hediff>Diseases_HediffDef_Hallucinosis</hediff>
+				<chance>0.15</chance>
+				<partsToAffect>
+					<li>Brain</li>
+					<li>BrainWithoutBlood</li>
+				</partsToAffect>
+			</li>
+			<li>
+				<hediff>Diseases_HediffDef_Ravings</hediff>
+				<chance>0.1</chance>
+				<partsToAffect>
+					<li>Brain</li>
+					<li>BrainWithoutBlood</li>
+				</partsToAffect>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>*/HediffDef[defName="AlcoholTolerance"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="AlcoholTolerance"]</xpath>
+			<!-- comps нет -->
+			<value>
+				<hediffClass>HediffWithComps</hediffClass>
+				<comps>
+					<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+						<comps>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>120000~250000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_Hallucinosis</li>
+									<li>Diseases_HediffDef_Ravings</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Brain</li>
+									<li>BrainWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>false</letter>
+								<chance>0.3</chance>
+								<severityRange>0.4~1.0</severityRange>
+							</li>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>300000~600000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_Depression</li>
+									<li>Diseases_HediffDef_DeliriumTremens</li>
+								</hediffDefs>
+								<countToAffect>1</countToAffect>
+								<letter>true</letter>
+								<chance>0.5</chance>
+								<severityRange>0.8~1.0</severityRange>
+							</li>
+						</comps>
+					</li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="AlcoholTolerance"]/comps</xpath>
+			<!-- comps есть -->
+			<value>
+				<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+					<comps>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>120000~250000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_Hallucinosis</li>
+								<li>Diseases_HediffDef_Ravings</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Brain</li>
+								<li>BrainWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>false</letter>
+							<chance>0.3</chance>
+							<severityRange>0.4~1.0</severityRange>
+						</li>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>300000~600000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_Depression</li>
+								<li>Diseases_HediffDef_DeliriumTremens</li>
+							</hediffDefs>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.5</chance>
+							<severityRange>0.8~1.0</severityRange>
+						</li>
+					</comps>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Ambrosia"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_Hallucinosis</HediffDef>
+			<HediffDef>Diseases_HediffDef_Ravings</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ChemicalDef[defName="Ambrosia"]</xpath>
+		<value>
+			<onGeneratedAddictedEvents>
+				<li>
+					<hediff>Diseases_HediffDef_Hallucinosis</hediff>
+					<chance>0.15</chance>
+					<partsToAffect>
+						<li>Brain</li>
+						<li>BrainWithoutBlood</li>
+					</partsToAffect>
+				</li>
+				<li>
+					<hediff>Diseases_HediffDef_Ravings</hediff>
+					<chance>0.05</chance>
+					<partsToAffect>
+						<li>Brain</li>
+						<li>BrainWithoutBlood</li>
+					</partsToAffect>
+				</li>
+			</onGeneratedAddictedEvents>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>*/HediffDef[defName="AmbrosiaTolerance"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="AmbrosiaTolerance"]</xpath>
+			<!-- comps нет -->
+			<value>
+				<hediffClass>HediffWithComps</hediffClass>
+				<comps>
+					<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+						<comps>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>300000~600000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_Hallucinosis</li>
+									<li>Diseases_HediffDef_Ravings</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Brain</li>
+									<li>BrainWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>false</letter>
+								<chance>0.4</chance>
+								<severityRange>0.1~1.0</severityRange>
+							</li>
+						</comps>
+					</li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="AmbrosiaTolerance"]/comps</xpath>
+			<!-- comps есть -->
+			<value>
+				<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+					<comps>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>300000~600000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_Hallucinosis</li>
+								<li>Diseases_HediffDef_Ravings</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Brain</li>
+								<li>BrainWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>false</letter>
+							<chance>0.4</chance>
+							<severityRange>0.1~1.0</severityRange>
+						</li>
+					</comps>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="GoJuice"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_Depression</HediffDef>
+			<HediffDef>Diseases_HediffDef_Hallucinosis</HediffDef>
+			<HediffDef>Diseases_HediffDef_Schizophrenia</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>*/HediffDef[defName="GoJuiceTolerance"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="GoJuiceTolerance"]</xpath>
+			<!-- comps нет -->
+			<value>
+				<hediffClass>HediffWithComps</hediffClass>
+				<comps>
+					<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+						<comps>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>180000~220000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_Hallucinosis</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Brain</li>
+									<li>BrainWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>false</letter>
+								<chance>0.5</chance>
+								<severityRange>0.25~1.0</severityRange>
+							</li>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>300000~900000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_Depression</li>
+									<li>Diseases_HediffDef_Schizophrenia</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Brain</li>
+									<li>BrainWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>true</letter>
+								<chance>0.4</chance>
+								<severityRange>0.25~1.0</severityRange>
+							</li>
+						</comps>
+					</li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="GoJuiceTolerance"]/comps</xpath>
+			<!-- comps есть -->
+			<value>
+				<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+					<comps>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>180000~220000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_Hallucinosis</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Brain</li>
+								<li>BrainWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>false</letter>
+							<chance>0.5</chance>
+							<severityRange>0.25~1.0</severityRange>
+						</li>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>300000~900000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_Depression</li>
+								<li>Diseases_HediffDef_Schizophrenia</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Brain</li>
+								<li>BrainWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.4</chance>
+							<severityRange>0.25~1.0</severityRange>
+						</li>
+					</comps>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Luciferium"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_ManicSyndrome</HediffDef>
+			<HediffDef>Diseases_HediffDef_BipolarDisorder</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>*/HediffDef[defName="LuciferiumAddiction"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="LuciferiumAddiction"]</xpath>
+			<!-- comps нет -->
+			<value>
+				<comps>
+					<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+						<comps>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>3000000~6000000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_ManicSyndrome</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Brain</li>
+									<li>BrainWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>true</letter>
+								<chance>0.15</chance>
+							</li>
+						</comps>
+					</li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="LuciferiumAddiction"]/comps</xpath>
+			<!-- comps есть -->
+			<value>
+				<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+					<comps>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>3000000~6000000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_ManicSyndrome</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Brain</li>
+								<li>BrainWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.15</chance>
+						</li>
+					</comps>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Flake"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_Arrhythmia</HediffDef>
+			<HediffDef>Diseases_HediffDef_HeartDefect</HediffDef>
+			<HediffDef>Diseases_HediffDef_Epilepsy</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="PsychiteTea"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_Arrhythmia</HediffDef>
+			<HediffDef>Diseases_HediffDef_HeartDefect</HediffDef>
+			<HediffDef>Diseases_HediffDef_Epilepsy</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="Yayo"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_Arrhythmia</HediffDef>
+			<HediffDef>Diseases_HediffDef_HeartDefect</HediffDef>
+			<HediffDef>Diseases_HediffDef_Epilepsy</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>*/HediffDef[defName="PsychiteTolerance"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="PsychiteTolerance"]</xpath>
+			<!-- comps нет -->
+			<value>
+				<hediffClass>HediffWithComps</hediffClass>
+				<comps>
+					<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+						<comps>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>720000~1200000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_Arrhythmia</li>
+									<li>Diseases_HediffDef_HeartDefect</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Heart</li>
+									<li>HeartWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>true</letter>
+								<chance>0.2</chance>
+								<severityRange>0.15~1.0</severityRange>
+							</li>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>250000~300000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_Epilepsy</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Brain</li>
+									<li>BrainWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>true</letter>
+								<chance>0.2</chance>
+								<severityRange>0.5~1.0</severityRange>
+							</li>
+						</comps>
+					</li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="PsychiteTolerance"]/comps</xpath>
+			<!-- comps есть -->
+			<value>
+				<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+					<comps>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>720000~1200000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_Arrhythmia</li>
+								<li>Diseases_HediffDef_HeartDefect</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Heart</li>
+								<li>HeartWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.2</chance>
+							<severityRange>0.15~1.0</severityRange>
+						</li>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>250000~300000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_Epilepsy</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Brain</li>
+								<li>BrainWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.2</chance>
+							<severityRange>0.5~1.0</severityRange>
+						</li>
+					</comps>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="SmokeleafJoint"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_PulmonaryEdema</HediffDef>
+			<HediffDef>Diseases_HediffDef_Depression</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>*/HediffDef[defName="SmokeleafTolerance"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="SmokeleafTolerance"]</xpath>
+			<!-- comps нет -->
+			<value>
+				<hediffClass>HediffWithComps</hediffClass>
+				<comps>
+					<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+						<comps>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>25000~300000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_PulmonaryEdema</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Lung</li>
+									<li>LungWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>2</countToAffect>
+								<letter>true</letter>
+								<chance>0.25</chance>
+								<severityRange>0.1~1.0</severityRange>
+							</li>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>300000~600000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_Depression</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Brain</li>
+									<li>BrainWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>true</letter>
+								<chance>0.5</chance>
+								<severityRange>0.15~1.0</severityRange>
+							</li>
+						</comps>
+					</li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="SmokeleafTolerance"]/comps</xpath>
+			<!-- comps есть -->
+			<value>
+				<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+					<comps>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>25000~300000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_PulmonaryEdema</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Lung</li>
+								<li>LungWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>2</countToAffect>
+							<letter>true</letter>
+							<chance>0.25</chance>
+							<severityRange>0.1~1.0</severityRange>
+						</li>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>300000~600000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_Depression</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Brain</li>
+								<li>BrainWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.5</chance>
+							<severityRange>0.15~1.0</severityRange>
+						</li>
+					</comps>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName="WakeUp"]/descriptionHyperlinks</xpath>
+		<value>
+			<HediffDef>Diseases_HediffDef_HeartDefect</HediffDef>
+			<HediffDef>Diseases_HediffDef_ParanoidSyndrome</HediffDef>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>*/HediffDef[defName="WakeUpTolerance"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="WakeUpTolerance"]</xpath>
+			<!-- comps нет -->
+			<value>
+				<hediffClass>HediffWithComps</hediffClass>
+				<comps>
+					<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+						<comps>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>600000~800000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_HeartDefect</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Heart</li>
+									<li>HeartWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>true</letter>
+								<chance>0.25</chance>
+								<severityRange>0.1~1.0</severityRange>
+							</li>
+							<li>
+								<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+								<intervalTicks>300000~900000</intervalTicks>
+								<hediffDefs>
+									<li>Diseases_HediffDef_ParanoidSyndrome</li>
+								</hediffDefs>
+								<partsToAffect>
+									<li>Brain</li>
+									<li>BrainWithoutBlood</li>
+								</partsToAffect>
+								<countToAffect>1</countToAffect>
+								<letter>true</letter>
+								<chance>0.5</chance>
+								<severityRange>0.15~1.0</severityRange>
+							</li>
+						</comps>
+					</li>
+				</comps>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>*/HediffDef[defName="WakeUpTolerance"]/comps</xpath>
+			<!-- comps есть -->
+			<value>
+				<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+					<comps>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>600000~800000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_HeartDefect</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Heart</li>
+								<li>HeartWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.25</chance>
+							<severityRange>0.1~1.0</severityRange>
+						</li>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>300000~900000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_ParanoidSyndrome</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Brain</li>
+								<li>BrainWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.5</chance>
+							<severityRange>0.15~1.0</severityRange>
+						</li>
+					</comps>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

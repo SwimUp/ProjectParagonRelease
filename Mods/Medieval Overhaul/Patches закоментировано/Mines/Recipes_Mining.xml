@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Mines</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/RecipeDef[defName="Excavate_Gold"]/products</xpath>
+					<value>
+						<products>
+							<DankPyon_GoldOre>10</DankPyon_GoldOre>
+						</products>
+					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>Defs/RecipeDef[defName="Excavate_Steel"]</xpath>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>Defs/ThingeDef[defName="Mine"]/recipes/Excavate_Steel</xpath>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>Defs/ThingeDef[defName="Mine"]/recipes/Excavate_ComponentIndustrial</xpath>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

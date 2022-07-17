@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ProjectParagon.Dialogs.DialogDef>
+		<defName>Pocahontas</defName>
+		<label>Pocahontas</label>
+		<firstPageId>0</firstPageId>
+		<interactLabel>Discuss inter-faction exchange</interactLabel>
+		<pages>
+			<li>
+				<id>0</id>
+				<text>Settlement {0} from faction {1} offers you {2} to live together.
+If you accept their offer, {2} will live with you, and you will also improve the relationship between you.
+
+If you refuse, the relationship between you will deteriorate.
+
+{2} is described as:
+{3}
+{4}
+				</text>
+				<options>
+					<li>
+						<id>0</id>
+						<label>Accept exchange</label>
+						<resolveTree>true</resolveTree>
+						<resolveSignal>1</resolveSignal>
+						<actions>
+							<li Class="ProjectParagon.Dialogs.Actions.Action_DeteriorationRelations">
+								<amount>20</amount>
+							</li>
+						</actions>
+					</li>
+					<li>
+						<id>1</id>
+						<label>Refuse to exchange</label>
+						<resolveTree>true</resolveTree>
+						<resolveSignal>0</resolveSignal>
+						<actions>
+							<li Class="ProjectParagon.Dialogs.Actions.Action_DeteriorationRelations">
+								<amount>-20</amount>
+							</li>
+						</actions>
+					</li>
+					<li>
+						<id>2</id>
+						<label>I need to think more</label>
+						<resolveTree>true</resolveTree>
+						<resolveSignal>-1</resolveSignal>
+					</li>
+				</options>
+			</li>
+		</pages>
+	</ProjectParagon.Dialogs.DialogDef>
+	
+</Defs>

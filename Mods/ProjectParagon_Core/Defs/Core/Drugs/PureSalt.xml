@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DrugBase">
+		<defName>PureSalt</defName>
+		<label>Pure salt</label>
+		<description>The purest sea salt, aged according to a special technology. It would seem that there is something special?</description>
+		<descriptionHyperlinks>
+			<HediffDef>PureSaltHigh</HediffDef>
+			<HediffDef>PureSaltTolerance</HediffDef>
+			<HediffDef>PureSaltAddiction</HediffDef>
+			<HediffDef>Asthma</HediffDef>
+			<HediffDef>Diseases_HediffDef_KidneyFailure</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Drugs/PureSalt</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>450</WorkToMake>
+			<MarketValue>10</MarketValue>
+			<Mass>0.05</Mass>
+			<DeteriorationRate>4</DeteriorationRate>
+			<Flammability>1</Flammability>
+		</statBases>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.1</joy>
+			<baseIngestTicks>500</baseIngestTicks>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Drink</ingestSound>
+			<ingestEffectEat>EatVegetarian</ingestEffectEat>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Sniff {0}</ingestCommandString>
+			<ingestReportString>Sniffing {0}.</ingestReportString>
+			<ingestReportStringEat>Sniffing {0}.</ingestReportStringEat>
+			<useEatingSpeedStat>true</useEatingSpeedStat>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>PureSaltHigh</hediffDef>
+					<severity>0.75</severity>
+					<toleranceChemical>PureSalt</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_OffsetNeed">
+					<need>Need_Salt</need>
+					<offset>0.1</offset>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>PureSaltTolerance</hediffDef>
+					<severity>0.075</severity>
+					<divideByBodySize>true</divideByBodySize>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<techLevel>Neolithic</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>PureSalt</chemical>
+				<addictiveness>0.015</addictiveness>
+				<minToleranceToAddict>0.5</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.035</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<listOrder>20</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>PureSaltHigh</defName>
+		<label>high on Pure salt</label>
+		<labelNoun>a pure salt high</labelNoun>
+		<description>Exposure to salt causes a time dilation effect, which is felt only by the recipient in his imagination.</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>-0.05</painOffset>
+				<statFactors>
+					<WorkSpeedGlobal>1.10</WorkSpeedGlobal>
+					<Suppressability>0.75</Suppressability>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<ThoughtDef>
+		<defName>PureSaltHigh</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>PureSaltHigh</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>high on pure salt</label>
+				<description>I feel very strange, as if time has slowed down!</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ChemicalDef>
+		<defName>PureSalt</defName>
+		<label>Pure salt</label>
+		<addictionHediff>PureSaltAddiction</addictionHediff>
+		<toleranceHediff>PureSaltTolerance</toleranceHediff>
+		<onGeneratedAddictedToleranceChance>0.6</onGeneratedAddictedToleranceChance>
+	</ChemicalDef>
+	<NeedDef ParentName="DrugAddictionNeedBase">
+		<defName>Chemical_PureSalt</defName>
+		<needClass>Need_Chemical</needClass>
+		<label>Pure salt</label>
+		<description>Because of a pure salt dependence, this person needs to regularly consume the drug to avoid withdrawal symptoms.</description>
+		<listPriority>25</listPriority>
+	</NeedDef>
+	<HediffDef ParentName="DrugToleranceBase">
+		<defName>PureSaltTolerance</defName>
+		<label>Pure salt tolerance</label>
+		<description>A built-up tolerance to pure salt. The more severe this tolerance is, the more hemp it takes to get the same effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.010</severityPerDay>
+			</li>
+			<li Class="HediffCompProperties_DrugEffectFactor">
+				<chemical>PureSalt</chemical>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+					<comps>
+						<li>
+							<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+							<intervalTicks>600000~800000</intervalTicks>
+							<hediffDefs>
+								<li>Diseases_HediffDef_KidneyFailure</li>
+							</hediffDefs>
+							<partsToAffect>
+								<li>Kidney</li>
+								<li>KidneyWithoutBlood</li>
+							</partsToAffect>
+							<countToAffect>1</countToAffect>
+							<letter>true</letter>
+							<chance>0.35</chance>
+							<severityRange>0.25~1.0</severityRange>
+						</li>
+					</comps>
+				</li>
+		</comps>
+		<hediffGivers>
+			<li Class="HediffGiver_RandomDrugEffect">
+				<hediff>Asthma</hediff>
+				<severityToMtbDaysCurve>
+					<points>
+						<li>(0.45, 99999)</li>
+						<li>(0.5, 245)</li>
+						<li>(1, 190)</li>
+					</points>
+				</severityToMtbDaysCurve>
+				<partsToAffect>
+					<li>Lung</li>
+				</partsToAffect>
+				<countToAffect>2</countToAffect>
+			</li>
+		</hediffGivers>
+	</HediffDef>
+	<HediffDef ParentName="AddictionBase">
+		<defName>PureSaltAddiction</defName>
+		<label>Pure salt addiction</label>
+		<description>A chemical addiction to pure salt. Long-term use of pure salt has caused neurological adaptations at the cellular level, so the brain can no longer function properly without the drug.
+			\nWithout regular doses of pure salt, withdrawal symptoms will begin. However, extended abstinence will force the brain to adapt back to its normal state, resolving the addiction.</description>
+		<hediffClass>Hediff_Addiction</hediffClass>
+		<causesNeed>Chemical_PureSalt</causesNeed>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.032</severityPerDay>
+				<showDaysToRecover>true</showDaysToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+			</li>
+			<li>
+				<label>withdrawal</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.10</offset>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.25</offset>
+					</li>
+				</capMods>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Binging_Food</mentalState>
+						<mtbDays>30</mtbDays>
+					</li>
+					<li>
+						<mentalState>Binging_DrugMajor</mentalState>
+						<mtbDays>50</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+	<ThoughtDef>
+		<defName>PureSaltWithdrawal</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>PureSaltAddiction</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<visible>false</visible>
+			</li>
+			<li>
+				<label>pure salt withdrawal</label>
+				<description>For what?</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

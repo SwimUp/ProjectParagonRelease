@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef>
+		<defName>ShieldBlow</defName>
+		<label>Shield blow</label>
+		<description>A swift attack from behind a shield to inflict unexpected defeat on an enemy.</description>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<iconTexturePath>Core/UI/FightSystem/Icon_ShieldBlow</iconTexturePath>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Cut</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<nakedDamageMultiplier>1.3</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>1.0</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1</damageMult>
+				<armorPetentrationMult>1.0</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.0</damageMult>
+				<armorPetentrationMult>1.0</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<requirements>
+			<reqFightningStyle>AntiqueSchool</reqFightningStyle>
+			<reqSubSpec>ShortSwords</reqSubSpec>
+			<!--<reqHediffDef>Heatstroke</reqHediffDef>
+			<reqHediffDefSeverity>0.15</reqHediffDefSeverity>-->
+		</requirements>
+		<hitChanceMult>0.9</hitChanceMult>
+		<chanceFactor>0.3</chanceFactor>
+		<minRest>0.2</minRest>
+		<useRest>true</useRest>
+		<restUseMultiplier>2</restUseMultiplier>
+		<extraRequirements>
+			<li Class="ProjectParagon.Core.FightSystem.SpecialAttackExtraRequirement_ShieldEquipped" />
+		</extraRequirements>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef>
+		<defName>PiercingLunge</defName>
+		<label>Piercing Lunge</label>
+		<description>A quick lunge for stabbing to the stomach.</description>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<iconTexturePath>Core/UI/FightSystem/Icon_PiercingLunge</iconTexturePath>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_CustomMelee</verbClass>
+			<meleeDamageDef>Cut</meleeDamageDef>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+			<linkedBodyPartsGroup>Torso</linkedBodyPartsGroup>
+		</verbProperties>
+		<requirements>
+			<reqFightningStyle>AntiqueSchool</reqFightningStyle>
+			<reqSubSpec>ShortSwords</reqSubSpec>
+		</requirements>
+		<nakedDamageMultiplier>2.0</nakedDamageMultiplier>
+		<nakedArmorPenetrationMultiplier>1.0</nakedArmorPenetrationMultiplier>
+		<stuffMults>
+			<li>
+				<stuffCategory>Leathery</stuffCategory>
+				<damageMult>1.4</damageMult>
+				<armorPetentrationMult>1.0</armorPetentrationMult>
+			</li>
+			<li>
+				<stuffCategory>Metallic</stuffCategory>
+				<damageMult>1.15</damageMult>
+				<armorPetentrationMult>1.0</armorPetentrationMult>
+			</li>
+		</stuffMults>
+		<chanceFactor>0.25</chanceFactor>
+		<minRest>0.2</minRest>
+		<useRest>true</useRest>
+		<restUseMultiplier>4</restUseMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+</Defs>

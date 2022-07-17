@@ -1,0 +1,1062 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef Abstract="True" Name="DankPyon_HideBase" ParentName="ResourceBase">
+		<description>These raw hides and pelts were removed from a creature, and with the right skills and tools, could be processed into tanned leather.</description>
+		<graphicData>
+			<texPath>Resources/HideTiny</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>30</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<DeteriorationRate>2</DeteriorationRate>
+			<MarketValue>3</MarketValue>
+			<Mass>0.3</Mass>
+		</statBases>
+		<thingCategories>
+			<li>DankPyon_Hides</li>
+		</thingCategories>
+		<stuffProps>
+			<categories>
+			  <li>DankPyon_Hide</li>
+			</categories>
+			<color>(180,173,150)</color>
+		</stuffProps>
+		<comps>
+			<li Class="CompProperties_Rottable">
+			  <daysToRotStart>5</daysToRotStart>
+			  <rotDestroys>true</rotDestroys>
+			</li>
+		  </comps>
+		  <tickerType>Rare</tickerType>
+	</ThingDef>
+
+	<ThingDef Abstract="True" Name="DankPyon_HideBaseTiny" ParentName="DankPyon_HideBase">
+		<graphicData>
+			<texPath>Resources/HideTiny</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>30</MaxHitPoints>
+			<Mass>0.9</Mass>
+		</statBases>
+		<butcherProducts>
+			<Leather_Plain>15</Leather_Plain>
+		</butcherProducts>
+	</ThingDef>
+
+	<ThingDef Abstract="True" Name="DankPyon_HideBaseSmall" ParentName="DankPyon_HideBase">
+		<graphicData>
+			<texPath>Resources/HideSmall</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>40</MaxHitPoints>
+			<Mass>2.4</Mass>
+		</statBases>
+		<butcherProducts>
+			<Leather_Plain>20</Leather_Plain>
+		</butcherProducts>
+	</ThingDef>
+
+	<ThingDef Abstract="True" Name="DankPyon_HideBaseMedium" ParentName="DankPyon_HideBase">
+		<graphicData>
+			<texPath>Resources/HideMedium</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>4.5</Mass>
+		</statBases>
+		<butcherProducts>
+			<Leather_Plain>25</Leather_Plain>
+		</butcherProducts>
+	</ThingDef>
+
+	<ThingDef Abstract="True" Name="DankPyon_HideBaseLarge" ParentName="DankPyon_HideBase">
+		<graphicData>
+			<texPath>Resources/HideLarge</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<Mass>7.2</Mass>
+		</statBases>
+		<butcherProducts>
+			<Leather_Plain>30</Leather_Plain>
+		</butcherProducts>
+	</ThingDef>
+
+	<ThingDef Abstract="True" Name="DankPyon_HideBaseHuge" ParentName="DankPyon_HideBase">
+		<graphicData>
+			<texPath>Resources/HideHuge</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>70</MaxHitPoints>
+			<Mass>18</Mass>
+		</statBases>
+		<butcherProducts>
+			<Leather_Plain>60</Leather_Plain>
+		</butcherProducts>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>RatDankPyon_Hide_HideTiny</defName>
+		<label>tiny hide</label>
+		<graphicData>
+			<color>(162,106,57)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>27</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(162,106,57)</color>
+		</stuffProps>
+	</ThingDef>
+	
+	<!--===== Guide =====
+		Tiny		= 	15 leather
+		Small		=	20 leather
+		Medium		=	25 leather
+		Large		=	30 leather
+		Huge		=	60 leather
+
+		Anything 36-49, larger than 60, too much stat difference or is ruggable can have their own unique hide
+
+		===== Market Value =====
+		Hide		-	2
+		Thick Hide	-	3
+		Soft Pelt	-	2.75
+		Heavy Pelt	-	2.3
+		Scale Hide	-	2.5
+		Thick Scale Hide - 3
+		Birdskin	-	2
+
+		=====-->
+
+	<!--===== Hide =====-->
+	<!--===== Market Value = 2 =====-->
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_HideTiny</defName>
+		<label>tiny hide</label>
+		<graphicData>
+			<color>(162,106,57)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>27</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(162,106,57)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseSmall">
+		<defName>DankPyon_Hide_HideSmall</defName>
+		<label>small hide</label>
+		<graphicData>
+			<color>(162,106,57)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>36</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(162,106,57)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseMedium">
+		<defName>DankPyon_Hide_HideMedium</defName>
+		<label>medium hide</label>
+		<graphicData>
+			<color>(162,106,57)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>45</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(162,106,57)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_HideLarge</defName>
+		<label>large hide</label>
+		<graphicData>
+			<color>(162,106,57)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>54</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(162,106,57)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_HideHuge</defName>
+		<label>huge hide</label>
+		<graphicData>
+			<color>(162,106,57)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>108</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(162,106,57)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<!--===== Thick Hide =====-->
+	<!--===== Market Value = 3 =====-->
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_ThickHideTiny</defName>
+		<label>tiny thick hide</label>
+		<graphicData>
+			<color>(112,82,65)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>40.5</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>15</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(112,82,65)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_ThickHideSmall</defName>
+		<label>small thick hide</label>
+		<graphicData>
+			<color>(112,82,65)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>54</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>20</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(112,82,65)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_ThickHideMedium</defName>
+		<label>medium thick hide</label>
+		<graphicData>
+			<color>(112,82,65)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>67.5</MarketValue>
+		</statBases>
+		<butcherProducts>
+			<Leather_Bear>25</Leather_Bear>
+		</butcherProducts>
+		<stuffProps Inherit="False">
+			<color>(112,82,65)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_ThickHideLarge</defName>
+		<label>large thick hide</label>
+		<graphicData>
+			<color>(112,82,65)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>81</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>30</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(112,82,65)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_ThickHideHuge</defName>
+		<label>huge thick hide</label>
+		<graphicData>
+			<color>(112,82,65)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>162</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>60</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(112,82,65)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<!--===== Pelt =====-->
+	<!--===== Market Value = 2.75 =====-->
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_SoftPeltTiny</defName>
+		<label>tiny soft pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurTiny</texPath>
+			<color>(140,85,36)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>37.125</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Light>15</Leather_Light>
+		</butcherProducts>
+		<stuffProps>
+			<color>(140,85,36)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseSmall">
+		<defName>DankPyon_Hide_SoftPeltSmall</defName>
+		<label>small soft pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurSmall</texPath>
+			<color>(140,85,36)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>49.5</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Light>20</Leather_Light>
+		</butcherProducts>
+		<stuffProps>
+			<color>(140,85,36)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseMedium">
+		<defName>DankPyon_Hide_SoftPeltMedium</defName>
+		<label>medium soft pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurMedium</texPath>
+			<color>(140,85,36)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>61.87</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Light>25</Leather_Light>
+		</butcherProducts>
+		<stuffProps>
+			<color>(140,85,36)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_SoftPeltLarge</defName>
+		<label>large soft pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurLarge</texPath>
+			<color>(140,85,36)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>74.25</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Light>30</Leather_Light>
+		</butcherProducts>
+		<stuffProps>
+			<color>(140,85,36)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_SoftPeltHuge</defName>
+		<label>huge soft pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurHuge</texPath>
+			<color>(140,85,36)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>148.5</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Light>60</Leather_Light>
+		</butcherProducts>
+		<stuffProps>
+			<color>(140,85,36)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<!--===== Heavy Pelt =====-->
+	<!--===== Market Value = 2.3 =====-->
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_HeavyPeltTiny</defName>
+		<label>tiny heavy pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurTiny</texPath>
+			<color>(152,170,174)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>31.05</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bluefur>15</Leather_Bluefur>
+		</butcherProducts>
+		<stuffProps>
+			<color>(152,170,174)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseSmall">
+		<defName>DankPyon_Hide_HeavyPeltSmall</defName>
+		<label>small heavy pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurSmall</texPath>
+			<color>(152,170,174)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>41.4</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bluefur>20</Leather_Bluefur>
+		</butcherProducts>
+		<stuffProps>
+			<color>(152,170,174)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseMedium">
+		<defName>DankPyon_Hide_HeavyPeltMedium</defName>
+		<label>medium heavy pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurMedium</texPath>
+			<color>(152,170,174)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>51.75</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bluefur>25</Leather_Bluefur>
+		</butcherProducts>
+		<stuffProps>
+			<color>(152,170,174)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_HeavyPeltLarge</defName>
+		<label>large heavy pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurLarge</texPath>
+			<color>(152,170,174)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>62.1</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bluefur>30</Leather_Bluefur>
+		</butcherProducts>
+		<stuffProps>
+			<color>(152,170,174)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_HeavyPeltHuge</defName>
+		<label>huge heavy pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurHuge</texPath>
+			<color>(152,170,174)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>124.2</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False"> 
+			<Leather_Bluefur>60</Leather_Bluefur>
+		</butcherProducts>
+		<stuffProps>
+			<color>(152,170,174)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<!--===== Scale =====-->
+	<!--===== Market Value = 2.5 =====-->
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_ScaleTiny</defName>
+		<label>tiny scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleTiny</texPath>
+			<color>(101,116,58)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>33.75</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Lizard>15</Leather_Lizard>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseSmall">
+		<defName>DankPyon_Hide_ScaleSmall</defName>
+		<label>small scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleSmall</texPath>
+			<color>(101,116,58)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>45</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Lizard>20</Leather_Lizard>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseMedium">
+		<defName>DankPyon_Hide_ScaleMedium</defName>
+		<label>scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleMedium</texPath>
+			<color>(101,116,58)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>56.25</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Lizard>25</Leather_Lizard>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_ScaleLarge</defName>
+		<label>large scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleLarge</texPath>
+			<color>(101,116,58)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>67.5</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Lizard>30</Leather_Lizard>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_ScaleHuge</defName>
+		<label>huge scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleHuge</texPath>
+			<color>(101,116,58)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>135</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Lizard>60</Leather_Lizard>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<!--===== Thick Scale =====-->
+	<!--===== Market Value = 3 =====-->
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_ThickScaleTiny</defName>
+		<label>tiny thick scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleTiny</texPath>
+			<color>(84,89,61)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>40.5</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Rhinoceros>15</Leather_Rhinoceros>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseSmall">
+		<defName>DankPyon_Hide_ThickScaleSmall</defName>
+		<label>small thick scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleSmall</texPath>
+			<color>(84,89,61)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>54</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Rhinoceros>20</Leather_Rhinoceros>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseMedium">
+		<defName>DankPyon_Hide_ThickScaleMedium</defName>
+		<label>thick scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleMedium</texPath>
+			<color>(84,89,61)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>67.5</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Rhinoceros>25</Leather_Rhinoceros>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_ThickScaleLarge</defName>
+		<label>large thick scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleLarge</texPath>
+			<color>(84,89,61)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>81</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Rhinoceros>30</Leather_Rhinoceros>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_ThickScaleHuge</defName>
+		<label>huge thick scale hide</label>
+		<graphicData>
+			<texPath>Resources/ScaleLarge</texPath>
+			<color>(84,89,61)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>162</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Rhinoceros>60</Leather_Rhinoceros>
+		</butcherProducts>
+		<stuffProps>
+			<color>(101,116,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<!--===== Bird =====-->
+	<!--===== Market Value = 2 =====-->
+	<ThingDef ParentName="DankPyon_HideBaseTiny">
+		<defName>DankPyon_Hide_BirdTiny</defName>
+		<label>birdskin</label>
+		<graphicData>
+			<texPath>Resources/HideTiny</texPath>
+			<color>(76,83,99)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>27</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bird>15</Leather_Bird>
+		</butcherProducts>
+		<stuffProps>
+			<color>(76,83,99)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseSmall">
+		<defName>DankPyon_Hide_BirdSmall</defName>
+		<label>birdskin</label>
+		<graphicData>
+			<texPath>Resources/HideSmall</texPath>
+			<color>(76,83,99)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>36</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bird>20</Leather_Bird>
+		</butcherProducts>
+		<stuffProps>
+			<color>(76,83,99)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseMedium">
+		<defName>DankPyon_Hide_BirdMedium</defName>
+		<label>birdskin</label>
+		<graphicData>
+			<texPath>Resources/HideMedium</texPath>
+			<color>(76,83,99)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>45</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bird>25</Leather_Bird>
+		</butcherProducts>
+		<stuffProps>
+			<color>(76,83,99)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_BirdLarge</defName>
+		<label>birdskin</label>
+		<graphicData>
+			<texPath>Resources/HideLarge</texPath>
+			<color>(76,83,99)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>54</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bird>30</Leather_Bird>
+		</butcherProducts>
+		<stuffProps>
+			<color>(76,83,99)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_BirdHuge</defName>
+		<label>birdskin</label>
+		<graphicData>
+			<texPath>Resources/HideHuge</texPath>
+			<color>(76,83,99)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>108</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bird>60</Leather_Bird>
+		</butcherProducts>
+		<stuffProps>
+			<color>(76,83,99)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<!--===== Unique =====-->
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_Hyena</defName>
+		<label>large hyena pelt</label>
+		<graphicData>
+			<texPath>Resources/HideHyena</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>54</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(204,170,121)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_WolfDirewolf</defName>
+		<label>large direwolf pelt</label>
+		<graphicData>
+			<color>(69,63,58)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>54</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(69,63,58)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_WolfTimber</defName>
+		<label>large timber wolf pelt</label>
+		<graphicData>
+			<color>(115,110,100)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>54</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(115,110,100)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_WolfArctic</defName>
+		<label>large arctic wolf pelt</label>
+		<graphicData>
+			<color>(249,243,222)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>54</MarketValue>
+		</statBases>
+		<stuffProps>
+			<color>(249,243,222)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_Cougar</defName>
+		<label>large cougar pelt</label>
+		<graphicData>
+			<color>(177,136,112)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>75.6</MarketValue>
+			<Mass>10.8</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Plain>42</Leather_Plain>
+		</butcherProducts>
+		<stuffProps>
+			<color>(177,136,112)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseLarge">
+		<defName>DankPyon_Hide_Panther</defName>
+		<label>large panther pelt</label>
+		<graphicData>
+			<color>(60,60,60)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>75.6</MarketValue>
+			<Mass>10.8</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Plain>42</Leather_Plain>
+		</butcherProducts>
+		<stuffProps>
+			<color>(60,60,60)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_Muffalo</defName>
+		<label>huge muffalo pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurHuge</texPath>
+			<color>(152,170,174)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>130.41</MarketValue>
+			<Mass>10</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bluefur>63</Leather_Bluefur>
+		</butcherProducts>
+		<stuffProps>
+			<color>(152,170,174)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_Bison</defName>
+		<label>huge bison hide</label>
+		<graphicData>
+			<texPath>Resources/HideHuge</texPath>
+			<color>(177,136,112)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>130.41</MarketValue>
+			<Mass>10</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Plain>63</Leather_Plain>
+		</butcherProducts>
+		<stuffProps>
+			<color>(177,136,112)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_BearGrizzly</defName>
+		<label>huge grizzly bear hide</label>
+		<graphicData>
+			<color>(112,82,65)</color>
+		</graphicData>
+		<statBases>
+			<Mass>19.5</Mass>
+			<MarketValue>175.5</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>65</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(112,82,65)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_BearPolar</defName>
+		<label>huge polar bear hide</label>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(180,180,180)</color>
+		</graphicData>
+		<statBases>
+			<Mass>19.5</Mass>
+			<MarketValue>175.5</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>65</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(180,180,180)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_Rhinoceros</defName>
+		<label>huge rhinoceros hide</label>
+		<graphicData>
+			<color>(150,150,150)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>243</MarketValue>
+			<Mass>27</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>90</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(150,150,150)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_Megasloth</defName>
+		<label>huge megasloth pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurHuge</texPath>
+			<color>(204,170,121)</color>
+		</graphicData>
+		<statBases>
+			<Mass>36</Mass>
+			<MarketValue>248.4</MarketValue>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bluefur>120</Leather_Bluefur>
+		</butcherProducts>
+		<stuffProps>
+			<color>(204,170,121)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_Elephant</defName>
+		<label>huge elephant hide</label>
+		<graphicData>
+			<color>(130,126,119)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>324</MarketValue>
+			<Mass>36</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>120</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(130,126,119)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_Rox</defName>
+		<label>huge rox pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurHuge</texPath>
+			<color>(80,75,72)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>324</MarketValue>
+			<Mass>36</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Bear>120</Leather_Bear>
+		</butcherProducts>
+		<stuffProps>
+			<color>(80,75,72)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBaseHuge">
+		<defName>DankPyon_Hide_Thrumbo</defName>
+		<label>huge thrumbo pelt</label>
+		<graphicData>
+			<texPath>Resources/HeavyFurHuge</texPath>
+			<color>(233,233,233)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>1512</MarketValue>
+			<Mass>36</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Thrumbo>120</Leather_Thrumbo>
+		</butcherProducts>
+		<stuffProps>
+			<color>(233,233,233)</color>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="DankPyon_HideBase">
+		<defName>DankPyon_Hide_Human</defName>
+		<label>human skin</label>
+		<graphicData>
+			<texPath>Resources/HideHuge</texPath>
+			<color>(211,194,143)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>189</MarketValue>
+			<Mass>10</Mass>
+		</statBases>
+		<butcherProducts Inherit="False">
+			<Leather_Human>50</Leather_Human>
+		</butcherProducts>
+		<stuffProps>
+			<color>(211,194,143)</color>
+		</stuffProps>
+	</ThingDef>
+	
+	<ThingDef ParentName="LeatherBase">
+		<defName>DankPyon_Leather_Rawhide</defName>
+		<label>rawhide</label>
+		<description>A weak textile created by cutting up and sewing together various types of leathers. Regardless of what kind of leather is used to create it, patchleather's irregular seams make it less tough and less insulating than any intact leather.</description>
+		<graphicData>
+			<color>(207,179,137)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>1.1</MarketValue>
+			<StuffPower_Armor_Sharp>0.7</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.22</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>1.5</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>16</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>16</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(207,179,137)</color>
+			<commonality>0.075</commonality>
+			<statFactors>
+				<MaxHitPoints>0.33</MaxHitPoints>
+				<Beauty>0.66</Beauty>
+				<BedRestEffectiveness>0.75</BedRestEffectiveness>
+				<Comfort>0.75</Comfort>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+</Defs>

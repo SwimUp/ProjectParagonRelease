@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DrugBase">
+		<defName>LifeExtract</defName>
+		<label>Life extract</label>
+		<description>A mutagenic liquid obtained by special processing of plants. Consumption can lead to various consequences, from a cure for an ailment, to terrible mutations.</description>
+		<graphicData>
+			<texPath>Core/Drugs/LifeExtract</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>450</WorkToMake>
+			<MarketValue>55</MarketValue>
+			<Mass>0.05</Mass>
+			<DeteriorationRate>8</DeteriorationRate>
+			<Flammability>1.5</Flammability>
+			<Nutrition>0.5</Nutrition>
+			<Protein>0.001</Protein>
+			<Fat>0.001</Fat>
+			<Carbohydrates>0.15</Carbohydrates>
+			<Vitamins>0.005</Vitamins>
+			<Flavor>1</Flavor>
+		</statBases>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<baseIngestTicks>400</baseIngestTicks>
+			<chairSearchRadius>25</chairSearchRadius>
+			<ingestSound>Ingest_Pill</ingestSound>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Take {0}</ingestCommandString>
+			<ingestReportString>Taking {0}.</ingestReportString>
+			<outcomeDoers>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_TendBodyPartDiseases">
+					<removeHediffChance>0.05</removeHediffChance>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_AddHediffsRace">
+					<hediffDef>ToxicBuildup</hediffDef>
+					<severity>0.5</severity>
+					<chance>0.03</chance>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_AddHediffsRace">
+					<hediffDef>FoodPoisoning</hediffDef>
+					<severity>1</severity>
+					<chance>0.05</chance>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_AddHediffsRace">
+					<race>TreantRace</race>
+					<hediffDef>HediffDef_WitheredBranch</hediffDef>
+					<severity>1</severity>
+					<bodyParts>
+						<li>ShoulderWithoutBlood</li>
+						<li>LegWithoutBlood</li>
+					</bodyParts>
+					<chance>0.05</chance>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_AddHediffsRace">
+					<race>TreantRace</race>
+					<hediffDef>HediffDef_SharpBranch</hediffDef>
+					<severity>1</severity>
+					<bodyParts>
+						<li>ShoulderWithoutBlood</li>
+					</bodyParts>
+					<chance>0.05</chance>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_AddHediffsRace">
+					<race>TreantRace</race>
+					<hediffDef>HediffDef_PoisonGlands</hediffDef>
+					<severity>1</severity>
+					<bodyParts>
+						<li>JawWithoutBlood</li>
+					</bodyParts>
+					<chance>0.05</chance>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_AddHediffsRace">
+					<race>TreantRace</race>
+					<hediffDef>HediffDef_KeratinizedPlate</hediffDef>
+					<severity>1</severity>
+					<bodyParts>
+						<li>ShieldSegment</li>
+					</bodyParts>
+					<chance>0.05</chance>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_AddHediffsRace">
+					<race>TreantRace</race>
+					<hediffDef>HediffDef_FruitBranch</hediffDef>
+					<severity>1</severity>
+					<bodyParts>
+						<li>ShoulderWithoutBlood</li>
+					</bodyParts>
+					<chance>0.05</chance>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<techLevel>Medieval</techLevel>
+	</ThingDef>
+	<RecipeDef>
+		<defName>Make_LifeExtract</defName>
+		<label>Make life extract</label>
+		<description>Make life extract</description>
+		<jobString>Makes life extract</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workAmount>1200</workAmount>
+		<targetCountAdjustment>1</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Seed_Haygrass</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawAloe</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineHerbal</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Seed_Haygrass</li>
+				<li>Flora_RawAloe</li>
+				<li>MedicineHerbal</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Seed_Haygrass</li>
+				<li>Flora_RawAloe</li>
+				<li>MedicineHerbal</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<LifeExtract>5</LifeExtract>
+		</products>
+		<recipeUsers>
+			<li>Brewery</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>TreantRace</li>
+					<li>DryadRace</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+</Defs>

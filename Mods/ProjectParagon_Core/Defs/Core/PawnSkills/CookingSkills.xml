@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ProjectParagon.Core.FightSystem.PawnSkillDef>
+		<defName>SkillBasic_Cooking_StreamCooking</defName>
+		<label>Stream cooking</label>
+		<description>A set of skills for fast and efficient cooking.</description>
+		<workerClass>ProjectParagon.Core.FightSystem.PawnSkills.PawnSkillWorker_SkillBasic</workerClass>
+		<props Class="ProjectParagon.Core.FightSystem.PawnSkills.SkillProperties_SkillBasic">
+			<hediffDef>StreamCooking</hediffDef>
+		</props>
+		<tag>Cooking</tag>
+		<pawnPriceValueOffset>150</pawnPriceValueOffset>
+	</ProjectParagon.Core.FightSystem.PawnSkillDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>StreamCooking</defName>
+		<label>Stream cooking</label>
+		<description>A set of skills for fast and efficient cooking.</description>
+		<makesSickThought>false</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<statFactors>
+					<CookSpeed>1.3</CookSpeed>
+					<FoodPoisonChance>1.5</FoodPoisonChance>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

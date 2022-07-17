@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>FT_ReinforcedDitch</defName>
+		<label>reinforced ditch</label>
+		<description>A reinforced ditch that obstructs movement.which is deeper to make anyone or anything hard to crossover.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Things/Building/Linked/ReinforcedDitch/ReinforcedDitch</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom5</li>
+			</linkFlags>
+		</graphicData>
+		<damageMultipliers>
+			<li>
+				<damageDef>Bomb</damageDef>
+				<multiplier>0.25</multiplier>
+			</li>
+		</damageMultipliers>
+		<blockLight>false</blockLight>
+		<uiIconPath>Things/Building/Linked/ReinforcedDitch/ReinforcedDitch_icon</uiIconPath>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<pathCost>300</pathCost>
+		<passability>Standable</passability>
+		<fillPercent>0</fillPercent>
+		<coversFloor>false</coversFloor>
+		<holdsRoof>false</holdsRoof>
+		<castEdgeShadows>false</castEdgeShadows>  
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>800</MaxHitPoints>
+			<Beauty>-5</Beauty>
+			<WorkToBuild>1000</WorkToBuild>
+		</statBases>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>20</costStuffCount>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>	
+		<building>
+			<allowAutoroof>false</allowAutoroof>
+			<ai_chillDestination>false</ai_chillDestination>
+			<expandHomeArea>false</expandHomeArea>	
+			<isInert>true</isInert>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/ReinforcedDitch/ReinforcedDitch_blueprint</texPath>
+			</blueprintGraphicData>
+		</building>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<staticSunShadowHeight>0</staticSunShadowHeight>
+		<researchPrerequisites>
+			<li>AdvancedDefense</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>2</constructionSkillPrerequisite>
+		<designatorDropdown>Trenches</designatorDropdown>
+	</ThingDef>
+
+
+	<ThingDef ParentName="BuildingBase" Name="CastleWall">
+		<defName>FT_CastleWall</defName>
+		<label>castle wall</label>
+		<description>An impassable high wall. Sturdy and capable of holding up a roof, but beware that due to its height  it is weak under the explosion</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Things/Building/Linked/CastleWall/CastleWall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Things/Building/Linked/CastleWall/CastleWall_icon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>900</MaxHitPoints>
+			<WorkToBuild>1200</WorkToBuild>
+			<Flammability>0</Flammability>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<costStuffCount>25</costStuffCount>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<!-- Best affordance needed for stone -->
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<staticSunShadowHeight>1.5</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/CastleWall/CastleWall_blueprint</texPath>
+			</blueprintGraphicData>
+		</building>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>1.25</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>0.4</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>0.85</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>0.75</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>0.85</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>0.75</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>0.85</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>0.85</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>0.75</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.3</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>0.25</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>0.3</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>1.25</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>0.75</multiplier>
+			</li>
+		</damageMultipliers>
+		<researchPrerequisites>
+			<li>AdvancedDefense</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+	</ThingDef>
+
+	<ThingDef ParentName="CastleWall">
+		<defName>FT_CastleWallEmbrasures</defName>
+		<label>castle wall embrasures</label>
+		<graphicData>
+			<texPath>Things/Building/Linked/CastleWallEmbrasures/CastleWallEmbrasures</texPath>
+		</graphicData>
+		<uiIconPath>Things/Building/Linked/CastleWallEmbrasures/CastleWallEmbrasures_icon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>2000</WorkToBuild>
+		</statBases>
+		<fillPercent>0.85</fillPercent>
+		<building>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/CastleWallEmbrasures/CastleWallEmbrasures_blueprint</texPath>
+			</blueprintGraphicData>
+		</building>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+		<costStuffCount>50</costStuffCount>
+	</ThingDef>
+</Defs>	

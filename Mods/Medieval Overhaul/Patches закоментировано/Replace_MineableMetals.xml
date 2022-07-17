@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Replace mineableScatterCommonality of Steel, Component, and Steel  -->
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName = "MineablePlasteel" or defName = "MineableComponentsIndustrial"  or defName = "MineableSteel"]/building/mineableScatterCommonality</xpath>
+				<value>
+					<mineableScatterCommonality>0</mineableScatterCommonality>
+				</value>
+			</li>
+		</operations>	
+	</Operation>
+
+	<!-- Replace graphicData Steel-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName = "Steel"]/graphicData/texPath</xpath>
+		<value>
+			<texPath>Resources/SteelIngot</texPath>
+		</value>
+	</Operation>
+
+	<!-- Replace label Steel -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName = "Steel"]/label</xpath>
+		<value>
+			<label>steel ingot</label>
+		</value>
+	</Operation>
+
+	<!-- Replace stuffAdjective Steel -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName = "Steel"]/stuffProps</xpath>
+		<value>
+			<stuffAdjective>steel</stuffAdjective>
+		</value>
+	</Operation>
+
+	<!-- Replace mineableThing Silver-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName = "MineableSilver"]/building/mineableThing</xpath>
+		<value>
+			<mineableThing>DankPyon_SilverOre</mineableThing>
+		</value>
+	</Operation>
+
+	<!-- Replace graphicData Gold-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName = "Gold"]/graphicData/texPath</xpath>
+		<value>
+			<texPath>Resources/GoldIngot</texPath>
+		</value>
+	</Operation>
+
+	<!-- Replace mineableThing Gold -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName = "MineableGold"]/building/mineableThing</xpath>
+		<value>
+			<mineableThing>DankPyon_GoldOre</mineableThing>
+		</value>
+	</Operation>
+	
+	
+</Patch>

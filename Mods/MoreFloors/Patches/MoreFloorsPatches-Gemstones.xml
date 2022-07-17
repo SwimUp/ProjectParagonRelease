@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- If only Zylleon's Gemstones is found, add additional floor flavours   -->
+  <!--  for new gem types                                                    -->
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Gemstones</li>
+    </mods>
+
+    <match Class="PatchOperationAttributeRemove">
+      <xpath>/Defs/TerrainDef[defName="TFloorGemstoneZAmethyst" or
+        defName="TFloorGemstoneZChalcedony" or
+        defName="TFloorGemstoneZCitrine" or
+        defName="TFloorGemstoneZDiamond" or
+        defName="TFloorGemstoneZEmerald" or
+        defName="TFloorGemstoneZGarnet" or
+        defName="TFloorGemstoneZLapis" or
+        defName="TFloorGemstoneZQuartz" or
+        defName="TFloorGemstoneZRuby" or
+        defName="TFloorGemstoneZSapphire" or
+        defName="TFloorGemstoneZSerpentine" or
+        defName="TFloorGemstoneZTurquoise"]</xpath>
+      <attribute>Abstract</attribute>
+    </match>
+  </Operation>
+
+  <!-- If Jewelry is found, take into account that it removes some Gemstones -->
+  <!--  definitions, so we should also re-abstract the relevant MoreFloors   -->
+  <!--  (Specificially: Z_Diamond, Z_Ruby, Z_Sapphire)                       -->
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Jewelry</li>
+    </mods>
+
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+
+        <li Class="PatchOperationFindMod">
+          <mods>
+            <li>Gemstones</li>
+          </mods>
+        </li>
+
+        <li Class="PatchOperationAttributeAdd">
+          <xpath>/Defs/TerrainDef[defName="TFloorGemstoneZDiamond" or
+        defName="TFloorGemstoneZRuby" or
+        defName="TFloorGemstoneZSapphire"]</xpath>
+          <attribute>Abstract</attribute>
+          <value>true</value>
+        </li>
+
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>

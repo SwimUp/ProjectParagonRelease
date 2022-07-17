@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>MiningSettlement</defName>
+		<label>Mining settlement</label>
+		<description>The settlement is located on rich ore deposits.</description>
+		<generationPriority>100</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_MiningSettlement</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_StackCount</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 0)</li> <!-- Flat -->
+					<li>(2, 10)</li> <!-- SmallHills -->
+					<li>(3, 30)</li> <!-- LargeHills -->
+					<li>(4, 100)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.MiningSettlementProps">
+			<baseCountRange>150~300</baseCountRange>
+			<countMultiplierBySettlementWealth>
+				<points>
+					<li>(0, 1)</li>
+					<li>(500, 2)</li>
+					<li>(1500, 4)</li>
+					<li>(3000, 6)</li>
+					<li>(8000, 8)</li>
+					<li>(15000, 10)</li>
+				</points>
+			</countMultiplierBySettlementWealth>
+			<priceBuyMultiplierRange>0.7~0.95</priceBuyMultiplierRange>
+		</props>
+		<excludeSpecs>
+			<li>Growers</li>
+			<li>Breeders</li>
+			<li>FishingSettlement</li>
+			<li>ScientificComplex</li>
+			<li>Militarists</li>
+			<li>Beekeepers</li>
+			<li>Joiners</li>
+			<li>Biologists</li>
+		</excludeSpecs>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Growers</defName>
+		<label>Growers</label>
+		<description>Settlement on good land for crop production.</description>
+		<generationPriority>100</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Growers</workerClass>
+		<thingSetMakerDef>SettlementSpec_Growers</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-100, 0)</li> 
+					<li>(0, 0)</li>
+					<li>(10, 1)</li>
+					<li>(25, 1.5)</li>
+					<li>(40, 0)</li>
+				</points>
+			</commonalityMultByTemperature>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 80)</li> <!-- Flat -->
+					<li>(2, 30)</li> <!-- SmallHills -->
+					<li>(3, 0)</li> <!-- LargeHills -->
+					<li>(4, 0)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.GrowersProps">
+			<priceBuyMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.7)</li> <!-- Spring -->
+					<li>(2,0.5)</li> <!-- Summer -->
+					<li>(3,1)</li> <!-- Fall -->
+					<li>(4,1.5)</li> <!-- Winter -->
+					<li>(5,0.5)</li> <!-- PermanentSummer -->
+					<li>(6,1.5)</li> <!-- PermanentWinter -->
+				</points>
+			</priceBuyMultiplierBySeason>
+			<priceSellMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.4)</li> <!-- Spring -->
+					<li>(2,0.3)</li> <!-- Summer -->
+					<li>(3,0.7)</li> <!-- Fall -->
+					<li>(4,0.8)</li> <!-- Winter -->
+					<li>(5,0.4)</li> <!-- PermanentSummer -->
+					<li>(6,0.8)</li> <!-- PermanentWinter -->
+				</points>
+			</priceSellMultiplierBySeason>
+			<basePlantsCount>150~250</basePlantsCount>
+			<baseSeedsCount>30~50</baseSeedsCount>
+			<seedsCountMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.5)</li> <!-- Spring -->
+					<li>(2,2)</li> <!-- Summer -->
+					<li>(3,3)</li> <!-- Fall -->
+					<li>(4,3)</li> <!-- Winter -->
+					<li>(5,2)</li> <!-- PermanentSummer -->
+					<li>(6,1)</li> <!-- PermanentWinter -->
+				</points>
+			</seedsCountMultiplierBySeason>
+			<plantsCountMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,1)</li> <!-- Spring -->
+					<li>(2,1.25)</li> <!-- Summer -->
+					<li>(3,4)</li> <!-- Fall -->
+					<li>(4,0.5)</li> <!-- Winter -->
+					<li>(5,2)</li> <!-- PermanentSummer -->
+					<li>(6,0.5)</li> <!-- PermanentWinter -->
+				</points>
+			</plantsCountMultiplierBySeason>
+			<countMultiplierBySettlementWealth>
+				<points>
+					<li>(0, 1)</li>
+					<li>(500, 1.3)</li>
+					<li>(1500, 1.8)</li>
+					<li>(3000, 2.0)</li>
+					<li>(8000, 2.5)</li>
+					<li>(15000, 3)</li>
+				</points>
+			</countMultiplierBySettlementWealth>
+		</props>
+		<excludeSpecs>
+			<li>ScientificComplex</li>
+			<li>ArmoryWorkshop</li>
+			<li>Militarists</li>
+		</excludeSpecs>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Breeders</defName>
+		<label>Breeders</label>
+		<description>Settlement on a vast land, ideal for livestock.</description>
+		<generationPriority>100</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Breeders</workerClass>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-100, 0)</li> 
+					<li>(-30, 0.5)</li>
+					<li>(0, 1)</li>
+					<li>(25, 1.5)</li>
+					<li>(35, 0.5)</li>
+					<li>(60, 0)</li>
+				</points>
+			</commonalityMultByTemperature>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 80)</li> <!-- Flat -->
+					<li>(2, 45)</li> <!-- SmallHills -->
+					<li>(3, 10)</li> <!-- LargeHills -->
+					<li>(4, 0)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.BreedersProps">
+			<itemsThingSetMaker>SettlementSpec_Basic_StackCount</itemsThingSetMaker>
+			<animalsThingSetMaker>SettlementSpec_BreedersAnimals</animalsThingSetMaker>
+			<priceBuyMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.8)</li> <!-- Spring -->
+					<li>(2,0.7)</li> <!-- Summer -->
+					<li>(3,0.8)</li> <!-- Fall -->
+					<li>(4,1.5)</li> <!-- Winter -->
+					<li>(5,0.7)</li> <!-- PermanentSummer -->
+					<li>(6,1.5)</li> <!-- PermanentWinter -->
+				</points>
+			</priceBuyMultiplierBySeason>
+			<priceSellMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.7)</li> <!-- Spring -->
+					<li>(2,0.5)</li> <!-- Summer -->
+					<li>(3,0.7)</li> <!-- Fall -->
+					<li>(4,0.8)</li> <!-- Winter -->
+					<li>(5,0.5)</li> <!-- PermanentSummer -->
+					<li>(6,1)</li> <!-- PermanentWinter -->
+				</points>
+			</priceSellMultiplierBySeason>
+			<animalsCountRange>7~10</animalsCountRange>
+			<itemsCountRange>120~300</itemsCountRange>
+			<itemsCountRangeByWealth>
+				<points>
+					<li>(200, 1)</li>
+					<li>(500, 2)</li>
+					<li>(900, 3)</li>
+					<li>(2500, 4)</li>
+					<li>(5000, 5)</li>
+					<li>(20000, 6)</li>
+				</points>
+			</itemsCountRangeByWealth>
+			<thingFilter>
+				<thingDefs>
+					<li>RoastedMeat</li>
+					<li>BoiledMeat</li>
+					<li>Kibble</li>
+					<li>Hay</li>
+				</thingDefs>
+			</thingFilter>
+		</props>
+		<excludeSpecs>
+			<li>ScientificComplex</li>
+			<li>ArmoryWorkshop</li>
+			<li>Militarists</li>
+		</excludeSpecs>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>ScientificComplex</defName>
+		<label>Scientific complex</label>
+		<description>The settlement is focused on scientific research.</description>
+		<generationPriority>90</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_ScientificComplex</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<commonality>30</commonality>
+			<minFactionTechLevel>Medieval</minFactionTechLevel>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.ScientificComplexProps">
+			<makerMarketValueMultiplierByTechLevel>
+				<points>
+					<li>(0, 1)</li> <!-- Undefined -->
+					<li>(0, 0.6)</li> <!-- Animal -->
+					<li>(0, 0.6)</li> <!-- Neolithic -->
+					<li>(0, 0.8)</li> <!-- Medieval -->
+					<li>(0, 1)</li> <!-- Industrial -->
+					<li>(0, 1.15)</li> <!-- Spacer -->
+					<li>(0, 1.5)</li> <!-- Ultra -->
+					<li>(0, 2)</li> <!-- Archotech -->
+				</points>
+			</makerMarketValueMultiplierByTechLevel>
+			<thingFilter>
+				<thingDefs>
+					<li>Book</li>
+				</thingDefs>
+			</thingFilter>
+		</props>
+		<excludeSpecs>
+			<li>SlaveOwners</li>
+			<li>FishingSettlement</li>
+		</excludeSpecs>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Traders</defName>
+		<label>Traders</label>
+		<description>The settlement trades in all kinds of goods.</description>
+		<generationPriority>500</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Traders</workerClass>
+		<thingSetMakerDef>TraderStock</thingSetMakerDef>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>SlaveOwners</defName>
+		<label>Slave owners</label>
+		<description>The settlement trades people and other races.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_SlaveOwners</workerClass>
+		<thingSetMakerDef>SettlementSpec_SlaveOwners</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<commonality>60</commonality>
+			<maxFactionTechLevel>Medieval</maxFactionTechLevel>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.SlaveOwnersProps">
+			<raceVariantsRange>1~3</raceVariantsRange>
+			<baseSlavesCount>3~8</baseSlavesCount>
+			<biomeSlavesCountMultiplier>
+				<Biome_SaltDesert>0.25</Biome_SaltDesert> <!-- Соляная пустыня -->
+				<Biome_Oasis>1</Biome_Oasis> <!-- Пустынный оазис -->
+				<Biome_Savanna>1</Biome_Savanna> <!-- Саванна -->
+				<Biome_Wasteland>0.35</Biome_Wasteland> <!-- Пустошь -->
+				<Biome_Grassland>1.5</Biome_Grassland> <!-- Пастбища -->
+				<Biome_Steppes>0.9</Biome_Steppes> <!-- Степи -->
+				<Biome_Permafrost>0.7</Biome_Permafrost> <!-- Вечная мерзлот -->
+				<Biome_TemperateDesert>0.8</Biome_TemperateDesert> <!-- Умеренная пустыня -->
+				<Biome_SeaReefs>0.8</Biome_SeaReefs> <!-- Морские рифы -->
+				<Biome_RedForest>1</Biome_RedForest> <!-- Красный лес -->
+				<Biome_VolcanicFields>0.8</Biome_VolcanicFields> <!-- Вулканические поля -->
+				<Biome_IcePeaks>0.25</Biome_IcePeaks> <!-- Ледяные пики -->
+				<BorealForest>1.25</BorealForest> <!-- тайга -->
+				<ColdBog>0.4</ColdBog> <!-- холодная топь -->
+				<IceSheet>0.1</IceSheet> <!-- ледник -->
+				<SeaIce>0.1</SeaIce> <!-- морские льды -->
+				<Tundra>0.8</Tundra> <!-- тундра -->
+				<TemperateForest>2</TemperateForest> <!-- умеренный лес -->
+				<TemperateSwamp>1.15</TemperateSwamp> <!-- болото -->
+				<TropicalRainforest>2</TropicalRainforest> <!-- тропический лес -->
+				<TropicalSwamp>1.5</TropicalSwamp> <!-- тропическое болото -->
+				<AridShrubland>1.25</AridShrubland> <!-- кустарниковая степь -->
+				<Desert>0.5</Desert> <!-- полупустыня -->
+				<ExtremeDesert>0.3</ExtremeDesert> <!-- пустыня -->
+			</biomeSlavesCountMultiplier>
+			<regenerateVariantsDays>10</regenerateVariantsDays>
+			<priceBuyMultiplier>0.7~0.95</priceBuyMultiplier>
+			<priceSellMultiplier>0.3~0.7</priceSellMultiplier>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>FishingSettlement</defName>
+		<label>Fishing settlement</label>
+		<description>Settlement in an area rich in fish.</description>
+		<generationPriority>90</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_FishingSettlement</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_StackCount</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.FishingSettlement_Validator">
+			<commonality>100</commonality>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.FishingSettlementProps">
+			<priceBuyMultiplier>0.7~0.95</priceBuyMultiplier>
+			<priceSellMultiplier>0.5~0.7</priceSellMultiplier>
+			<countMultiplierByWaterSourceCount>
+				<points>
+					<li>(0, 0)</li>
+					<li>(1, 1)</li>
+					<li>(2, 1.5)</li>
+					<li>(3, 2)</li>
+					<li>(4, 2.5)</li>
+					<li>(5, 3)</li>
+					<li>(6, 3.5)</li>
+				</points>
+			</countMultiplierByWaterSourceCount>
+			<baseFishCount>150~450</baseFishCount>
+			<thingFilter>
+				<categories>
+					<li>FishRaw</li>
+				</categories>
+				<thingDefs>
+					<li>Bait</li>
+				</thingDefs>
+			</thingFilter>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Quarry</defName>
+		<label>Quarry</label>
+		<description>Engaged in the processing of rocks and by-products.</description>
+		<generationPriority>90</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Quarry</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_StackCount</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 0)</li> <!-- Flat -->
+					<li>(2, 10)</li> <!-- SmallHills -->
+					<li>(3, 25)</li> <!-- LargeHills -->
+					<li>(4, 50)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<requiredSpecs>
+			<li>MiningSettlement</li>
+		</requiredSpecs>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.QuarryProps">
+			<thingFilter>
+				<categories>
+					<li>StoneBlocks</li>
+				</categories>
+				<thingDefs>
+					<li>Sand</li>
+					<li>Clay</li>
+					<li>Slag</li>
+					<li>Dirt</li>
+				</thingDefs>
+			</thingFilter>
+			<baseCount>400~700</baseCount>
+			<multiplierByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 0)</li> <!-- Flat -->
+					<li>(2, 1.25)</li> <!-- SmallHills -->
+					<li>(3, 2.5)</li> <!-- LargeHills -->
+					<li>(4, 4)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</multiplierByHilliness>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Militarists</defName>
+		<label>Militarists</label>
+		<description>Sell more weapons and ammunition.</description>
+		<generationPriority>90</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Militarists</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 10)</li> <!-- Flat -->
+					<li>(2, 15)</li> <!-- SmallHills -->
+					<li>(3, 25)</li> <!-- LargeHills -->
+					<li>(4, 40)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<commonalityByFactionTechLevel>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(0, 0)</li> <!-- Animal -->
+					<li>(0, 0)</li> <!-- Neolithic -->
+					<li>(0, 10)</li> <!-- Medieval -->
+					<li>(0, 15)</li> <!-- Industrial -->
+					<li>(0, 30)</li> <!-- Spacer -->
+					<li>(0, 15)</li> <!-- Ultra -->
+					<li>(0, 10)</li> <!-- Archotech -->
+				</points>
+			</commonalityByFactionTechLevel>
+		</validator>
+		<excludeSpecs>
+			<li>Beekeepers</li>
+		</excludeSpecs>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.MilitaristsProps">
+			<priceBuyMultiplier>0.7~0.8</priceBuyMultiplier>
+			<priceSellMultiplier>0.3~0.5</priceSellMultiplier>
+			<discountChance>0.4</discountChance>
+			<baseMarketValue>1400~2000</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(300, 1)</li>
+					<li>(500, 1.5)</li>
+					<li>(1500, 2)</li>
+					<li>(3000, 3)</li>
+					<li>(8000, 4)</li>
+					<li>(15000, 5)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+			<filterRegenerateDays>40</filterRegenerateDays>
+			<stockGenerators>
+				<li>
+					<thingCategoryDef>ApparelArmor</thingCategoryDef>
+					<variantsRange>3~7</variantsRange>
+				</li>
+				<li>
+					<thingCategoryDef>Weapons</thingCategoryDef>
+					<variantsRange>2~5</variantsRange>
+				</li>
+				<li>
+					<thingCategoryDef>Ammo</thingCategoryDef>
+					<variantsRange>3~10</variantsRange>
+				</li>
+			</stockGenerators>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Beekeepers</defName>
+		<label>Beekeepers</label>
+		<description>They are engaged in breeding bees and selling honey.</description>
+		<generationPriority>90</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Beekeepers</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_StackCount</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 60)</li> <!-- Flat -->
+					<li>(2, 30)</li> <!-- SmallHills -->
+					<li>(3, 15)</li> <!-- LargeHills -->
+					<li>(4, 10)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<minPlantDensity>0.65</minPlantDensity>
+		</validator>
+		<excludeSpecs>
+			<li>ScientificComplex</li>
+		</excludeSpecs>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.BeekeepersProps">
+			<priceBuyMultiplier>0.7~0.95</priceBuyMultiplier>
+			<priceSellMultiplier>0.5~0.7</priceSellMultiplier>
+			<stockGenerators>
+				<li>
+					<thingFilter>
+						<thingDefs>
+							<li>Honeycombs_Common</li>
+							<li>Honeycombs_Radioactive</li>
+							<li>Honeycombs_Mutated</li>
+							<li>Honeycombs_Cave</li>
+							<li>Honey</li>
+							<li>CaveHoney</li>
+							<li>Propolis</li>
+						</thingDefs>
+					</thingFilter>
+					<baseCount>150~300</baseCount>
+					<countMultiplierByBiome>
+						<Biome_Grassland>3</Biome_Grassland>
+						<BorealForest>0.8</BorealForest>
+						<TemperateForest>1.25</TemperateForest>
+						<TropicalRainforest>1.25</TropicalRainforest>
+						<AridShrubland>1.5</AridShrubland>
+						<Biome_Oasis>1.5</Biome_Oasis>
+						<Biome_Savanna>1.5</Biome_Savanna>
+					</countMultiplierByBiome>
+					<countMultiplierByHilliness>
+						<points>
+							<li>(0, 0)</li> <!-- Undefined -->
+							<li>(1, 2.0)</li> <!-- Flat -->
+							<li>(2, 1.25)</li> <!-- SmallHills -->
+							<li>(3, 1)</li> <!-- LargeHills -->
+							<li>(4, 1)</li> <!-- Mountainous -->
+							<li>(5, 0)</li> <!-- Impassable -->
+						</points>
+					</countMultiplierByHilliness>
+				</li>
+				<li>
+					<thingFilter>
+						<thingDefs>
+							<li>BeeQueen_Common</li>
+							<li>BeeQueen_Radioactive</li>
+							<li>BeeQueen_Mutated</li>
+							<li>BeeQueen_Cave</li>
+						</thingDefs>
+					</thingFilter>
+					<baseCount>4~15</baseCount>
+					<countMultiplierByBiome>
+						<Biome_Grassland>3</Biome_Grassland>
+						<BorealForest>0.8</BorealForest>
+						<TemperateForest>1.25</TemperateForest>
+						<TropicalRainforest>1.25</TropicalRainforest>
+						<AridShrubland>1.5</AridShrubland>
+						<Biome_Oasis>1.5</Biome_Oasis>
+						<Biome_Savanna>1.5</Biome_Savanna>
+					</countMultiplierByBiome>
+					<countMultiplierByHilliness>
+						<points>
+							<li>(0, 0)</li> <!-- Undefined -->
+							<li>(1, 2.0)</li> <!-- Flat -->
+							<li>(2, 1.25)</li> <!-- SmallHills -->
+							<li>(3, 1)</li> <!-- LargeHills -->
+							<li>(4, 1)</li> <!-- Mountainous -->
+							<li>(5, 0)</li> <!-- Impassable -->
+						</points>
+					</countMultiplierByHilliness>
+				</li>
+			</stockGenerators>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Casters</defName>
+		<label>Casters</label>
+		<description>The settlement has a number of heavy smelters for the efficient production of basic industrial materials.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Casters</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Medieval</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 60)</li> <!-- Flat -->
+					<li>(2, 45)</li> <!-- SmallHills -->
+					<li>(3, 30)</li> <!-- LargeHills -->
+					<li>(4, 25)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.CastersProps">
+			<thingFilter>
+				<categories>
+					<li>MetallicPlates</li>
+					<li>Alloys</li>
+				</categories>
+			</thingFilter>
+			<baseMarketValue>1200~2000</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(200, 1)</li>
+					<li>(500, 1.3)</li>
+					<li>(900, 1.6)</li>
+					<li>(2500, 2.5)</li>
+					<li>(5000, 3.5)</li>
+					<li>(20000, 4)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Joiners</defName>
+		<label>Joiners</label>
+		<description>Possess the necessary tools and machines for the production of various machines and pieces of furniture.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Joiners</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Medieval</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 60)</li> <!-- Flat -->
+					<li>(2, 45)</li> <!-- SmallHills -->
+					<li>(3, 30)</li> <!-- LargeHills -->
+					<li>(4, 25)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.JoinersProps">
+			<thingFilter>
+				<categories>
+					<li>BuildingsFurniture</li>
+					<li>BuildingsJoy</li>
+				</categories>
+				<thingDefs>
+					<li>ComponentPrimitive</li>
+					<li>SimpleRepairKit</li>
+				</thingDefs>
+			</thingFilter>
+			<baseMarketValue>1200~2000</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(200, 1)</li>
+					<li>(500, 1.3)</li>
+					<li>(900, 1.6)</li>
+					<li>(2500, 2.5)</li>
+					<li>(5000, 3.5)</li>
+					<li>(20000, 4)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>SpinningWorkshop</defName>
+		<label>spinning workshop</label>
+		<description>Dedicated facilities for the processing of raw materials allow for a regular supply of fabrics.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_SpinningWorkshop</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Medieval</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 60)</li> <!-- Flat -->
+					<li>(2, 30)</li> <!-- SmallHills -->
+					<li>(3, 15)</li> <!-- LargeHills -->
+					<li>(4, 0)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-60, 0)</li> 
+					<li>(0, 1)</li>
+					<li>(10, 1.25)</li>
+					<li>(25, 1.5)</li>
+					<li>(45, 0.5)</li>
+					<li>(60, 0)</li>
+				</points>
+			</commonalityMultByTemperature>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.SpinningWorkshopProps">
+			<thingFilter>
+				<categories>
+					<li>Leathers</li>
+					<li>Textiles</li>
+				</categories>
+			</thingFilter>
+			<priceBuyMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.7)</li> <!-- Spring -->
+					<li>(2,0.6)</li> <!-- Summer -->
+					<li>(3,1.25)</li> <!-- Fall -->
+					<li>(4,2)</li> <!-- Winter -->
+					<li>(5,0.6)</li> <!-- PermanentSummer -->
+					<li>(6,2)</li> <!-- PermanentWinter -->
+				</points>
+			</priceBuyMultiplierBySeason>
+			<priceSellMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.6)</li> <!-- Spring -->
+					<li>(2,0.5)</li> <!-- Summer -->
+					<li>(3,1.1)</li> <!-- Fall -->
+					<li>(4,1.5)</li> <!-- Winter -->
+					<li>(5,0.5)</li> <!-- PermanentSummer -->
+					<li>(6,1.5)</li> <!-- PermanentWinter -->
+				</points>
+			</priceSellMultiplierBySeason>
+			<baseMarketValue>1200~1500</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(0, 1)</li>
+					<li>(500, 1.3)</li>
+					<li>(900, 1.6)</li>
+					<li>(2500, 2.5)</li>
+					<li>(5000, 3.5)</li>
+					<li>(20000, 4)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Biologists</defName>
+		<label>Biologists</label>
+		<description>Biological experiments are carried out in the settlement, which means the presence of organs and tissues of various creatures for sale.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Biologists</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Medieval</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 40)</li> <!-- Flat -->
+					<li>(2, 30)</li> <!-- SmallHills -->
+					<li>(3, 15)</li> <!-- LargeHills -->
+					<li>(4, 5)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-60, 0)</li>
+					<li>(-30, 2)</li>
+					<li>(0, 1)</li>
+					<li>(25, 0.5)</li>
+					<li>(60, 0)</li>
+				</points>
+			</commonalityMultByTemperature>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.BiologistsProps">
+			<thingFilter>
+				<categories>
+					<li>BodyPartsNatural</li>
+					<li>MeatRaw</li>
+					<li>Medicine</li>
+				</categories>
+			</thingFilter>
+			<baseMarketValue>1200~1600</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(0, 1)</li>
+					<li>(500, 1.25)</li>
+					<li>(900, 1.5)</li>
+					<li>(2500, 2)</li>
+					<li>(5000, 2.5)</li>
+					<li>(20000, 3)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Mechanics</defName>
+		<label>mechanics</label>
+		<description>The settlers are engaged in the development of mechanisms and prosthetics.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Mechanics</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Medieval</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 50)</li> <!-- Flat -->
+					<li>(2, 30)</li> <!-- SmallHills -->
+					<li>(3, 15)</li> <!-- LargeHills -->
+					<li>(4, 5)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.MechanicsProps">
+			<thingFilter>
+				<categories>
+					<li>BodyPartsSimple</li>
+					<li>BodyPartsProsthetic</li>
+					<li>BodyPartsBionic</li>
+					<li>BodyPartsUltra</li>
+					<li>BodyPartsArchotech</li>
+				</categories>
+			</thingFilter>
+			<baseMarketValue>1500~2000</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(0, 1)</li>
+					<li>(500, 1.25)</li>
+					<li>(900, 1.5)</li>
+					<li>(2500, 2)</li>
+					<li>(5000, 3)</li>
+					<li>(20000, 6)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>ArmoryWorkshop</defName>
+		<label>Armory workshop</label>
+		<description>Workshops for the production of siege weapons and artillery.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_ArmoryWorkshop</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_StackCount</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Medieval</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 60)</li> <!-- Flat -->
+					<li>(2, 45)</li> <!-- SmallHills -->
+					<li>(3, 30)</li> <!-- LargeHills -->
+					<li>(4, 25)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.ArmoryWorkshopProps">
+			<thingFilter>
+				<categories>
+					<li>BuildingsSecurity</li>
+				</categories>
+			</thingFilter>
+			<baseCountRange>3~5</baseCountRange>
+			<countMultiplierBySettlementWealth>
+				<points>
+					<li>(0, 1)</li>
+					<li>(500, 1.5)</li>
+					<li>(1500, 2)</li>
+					<li>(3000, 3)</li>
+					<li>(8000, 3)</li>
+					<li>(15000, 4)</li>
+				</points>
+			</countMultiplierBySettlementWealth>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Archaeologists</defName>
+		<label>Archaeologists</label>
+		<description>Residents are engaged in the study of ancient artifacts and skeletons, carry out reconstruction and scientific research.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Archaeologists</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Industrial</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 5)</li> <!-- Flat -->
+					<li>(2, 15)</li> <!-- SmallHills -->
+					<li>(3, 30)</li> <!-- LargeHills -->
+					<li>(4, 60)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.ArchaeologistsProps">
+			<thingFilter>
+				<categories>
+					<li>Archeology</li>
+					<li>Fossil</li>
+				</categories>
+			</thingFilter>
+			<baseMarketValue>2000~5000</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(0, 1)</li>
+					<li>(500, 1.25)</li>
+					<li>(900, 1.5)</li>
+					<li>(2500, 2)</li>
+					<li>(5000, 3)</li>
+					<li>(20000, 4)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Cooks</defName>
+		<label>Cooks</label>
+		<description>The settlement acts as an important trading point for caravans and travelers as a staging post for replenishing supplies.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Cooks</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Neolithic</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 80)</li> <!-- Flat -->
+					<li>(2, 60)</li> <!-- SmallHills -->
+					<li>(3, 30)</li> <!-- LargeHills -->
+					<li>(4, 25)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-60, 0)</li>
+					<li>(10, 1)</li>
+					<li>(25, 1.5)</li>
+					<li>(35, 0.5)</li>
+					<li>(60, 0)</li>
+				</points>
+			</commonalityMultByTemperature>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.CooksProps">
+			<thingFilter>
+				<categories>
+					<li>FoodMeals</li>
+				</categories>
+				<thingDefs>
+					<li>RockSalt</li>
+					<li>Sugar</li>
+					<li>RyeFlour</li>
+					<li>WheatFlour</li>
+				</thingDefs>
+			</thingFilter>
+			<priceBuyMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.9)</li> <!-- Spring -->
+					<li>(2,0.6)</li> <!-- Summer -->
+					<li>(3,0.8)</li> <!-- Fall -->
+					<li>(4,1.5)</li> <!-- Winter -->
+					<li>(5,0.5)</li> <!-- PermanentSummer -->
+					<li>(6,1.5)</li> <!-- PermanentWinter -->
+				</points>
+			</priceBuyMultiplierBySeason>
+			<priceSellMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.6)</li> <!-- Spring -->
+					<li>(2,0.3)</li> <!-- Summer -->
+					<li>(3,0.8)</li> <!-- Fall -->
+					<li>(4,1)</li> <!-- Winter -->
+					<li>(5,0.4)</li> <!-- PermanentSummer -->
+					<li>(6,1)</li> <!-- PermanentWinter -->
+				</points>
+			</priceSellMultiplierBySeason>
+			<baseMarketValue>1000~1500</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(200, 1)</li>
+					<li>(500, 1.25)</li>
+					<li>(900, 1.5)</li>
+					<li>(2500, 2)</li>
+					<li>(5000, 3)</li>
+					<li>(20000, 4)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+			<priceMultiplierWhenOnRoad>0.7</priceMultiplierWhenOnRoad> <!-- умножается на сезонный модификатор -->
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>SewingWorkshop</defName>
+		<label>Sewing workshop</label>
+		<description>Workshops with numerous staff for the continuous production of clothing for various purposes for every taste.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_SewingWorkshop</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_StackCount</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Neolithic</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 60)</li> <!-- Flat -->
+					<li>(2, 45)</li> <!-- SmallHills -->
+					<li>(3, 30)</li> <!-- LargeHills -->
+					<li>(4, 25)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-100, 0)</li> 
+					<li>(0, 0)</li>
+					<li>(10, 1.5)</li>
+					<li>(25, 1)</li>
+					<li>(40, 0)</li>
+				</points>
+			</commonalityMultByTemperature>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.SewingWorkshopProps">
+			<thingFilter>
+				<categories>
+					<li>Apparel</li>
+				</categories>
+				<thingDefs>
+					<li>SimpleRepairKit</li>
+					<li>RepairKit</li>
+				</thingDefs>
+			</thingFilter>
+			<priceBuyMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.8)</li> <!-- Spring -->
+					<li>(2,0.6)</li> <!-- Summer -->
+					<li>(3,1)</li> <!-- Fall -->
+					<li>(4,1.5)</li> <!-- Winter -->
+					<li>(5,0.6)</li> <!-- PermanentSummer -->
+					<li>(6,1.5)</li> <!-- PermanentWinter -->
+				</points>
+			</priceBuyMultiplierBySeason>
+			<priceSellMultiplierBySeason>
+				<points>
+					<li>(0,1)</li> <!-- Undefined -->
+					<li>(1,0.7)</li> <!-- Spring -->
+					<li>(2,0.5)</li> <!-- Summer -->
+					<li>(3,0.8)</li> <!-- Fall -->
+					<li>(4,1)</li> <!-- Winter -->
+					<li>(5,0.5)</li> <!-- PermanentSummer -->
+					<li>(6,0.8)</li> <!-- PermanentWinter -->
+				</points>
+			</priceSellMultiplierBySeason>
+			<baseCountRange>5~7</baseCountRange>
+			<countMultiplierBySettlementWealth>
+				<points>
+					<li>(0, 1)</li>
+					<li>(500, 2)</li>
+					<li>(1500, 3)</li>
+					<li>(3000, 3)</li>
+					<li>(8000, 4)</li>
+					<li>(15000, 5)</li>
+				</points>
+			</countMultiplierBySettlementWealth>
+		</props>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Jewelers</defName>
+		<label>Jewelers</label>
+		<description>The settlement is engaged in the production of handicrafts and jewelry.</description>
+		<generationPriority>50</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Jewelers</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Medieval</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li> <!-- Undefined -->
+					<li>(1, 60)</li> <!-- Flat -->
+					<li>(2, 30)</li> <!-- SmallHills -->
+					<li>(3, 10)</li> <!-- LargeHills -->
+					<li>(4, 5)</li> <!-- Mountainous -->
+					<li>(5, 0)</li> <!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.JewelersProps">
+			<thingFilter>
+				<categories>
+					<li>Alloys_Precious</li>
+					<li>Jewerly</li>
+				</categories>
+			</thingFilter>
+			<baseMarketValue>3000~5000</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(0, 0.5)</li>
+					<li>(500, 0.8)</li>
+					<li>(900, 1)</li>
+					<li>(2500, 2)</li>
+					<li>(5000, 3)</li>
+					<li>(20000, 4)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+		</props>
+		<excludeSpecs>
+			<li>MiningSettlement</li>
+			<li>Growers</li>
+			<li>Breeders</li>
+			<li>FishingSettlement</li>
+			<li>Beekeepers</li>
+			<li>SlaveOwners</li>
+			<li>Quarry</li>
+			<li>Joiners</li>
+			<li>Biologists</li>
+			<li>Cooks</li>
+		</excludeSpecs>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	
+</Defs>

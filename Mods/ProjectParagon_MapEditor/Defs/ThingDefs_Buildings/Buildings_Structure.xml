@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>PGE_UnbreakableWall</defName>
+		<label>Wall</label>
+		<description>An impassable wall. Capable of holding up a roof.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Things/Building/Linked/Wall</texPath>
+			<graphicClass>Graphic_Appearances</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<WorkToBuild>170</WorkToBuild>
+			<Flammability>1.5</Flammability>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<costStuffCount>5</costStuffCount>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<stuffCategories>
+		  <li>Metallic</li>
+		  <li>Woody</li>
+		  <li>Stony</li>
+		</stuffCategories>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+		</building>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Minimal</li>
+				</focusTypes>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>1.9</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>0.65</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>1.1</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>1.0</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>1.35</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>1.2</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>1.2</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.6</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>1.1</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>1.1</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>1.7</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>1.1</multiplier>
+			</li>
+		</damageMultipliers>
+		<modExtensions>
+			<li Class="ParagonMapEditor.Editor.Api.DefModExtension_PGE_ExtraProperties">
+				<editorDesignatorCategoryKey>PGE_EditorWalls</editorDesignatorCategoryKey>
+			</li>
+		</modExtensions>
+	</ThingDef>
+</Defs>

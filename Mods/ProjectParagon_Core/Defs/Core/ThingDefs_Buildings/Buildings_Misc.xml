@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>GroundHole</defName>
+		<label>Hole in the ground</label>
+		<description>A hole in the ground leading into the unknown. </description>
+		<graphicData>
+			<texPath>Core/Buildings/GroundHole</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>10</pathCost>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<Mass>100</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<size>(2,2)</size>
+		<tickerType>Normal</tickerType>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.MapGenerator.CompProperties_LevelGenerator">
+				<pawnCollectionRaius>3</pawnCollectionRaius>
+				<mapGeneratorDef>CaveWorld</mapGeneratorDef>
+				<floatMenuTitleKey>GroundHole.Enter</floatMenuTitleKey>
+				<dialogTitleKey>GroundHole.Dialog.Title</dialogTitleKey>
+				<appendPawnsList>true</appendPawnsList>
+				<dialogOKKey>GroundHole.Dialog.OK</dialogOKKey>
+				<dialogDeclineKey>GroundHole.Dialog.Decline</dialogDeclineKey>
+				<exitFloatMenuTitleKey>GroundHole.Exit</exitFloatMenuTitleKey>
+				<transferItems>true</transferItems>
+				<oneUse>true</oneUse>
+				<exitWhereSpawn>true</exitWhereSpawn>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<!-- Сигнальный огонь -->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SignalFire</defName>
+		<label>Signal fire</label>
+		<description>A large pile of firewood set on fire to summon allied caravans.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SignalFire</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SignalFire/SignalFire</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,3)</drawSize>
+		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<category>Building</category>
+		<pathCost>25</pathCost>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>9000</WorkToBuild>
+			<Mass>60</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<size>(2,2)</size>
+		<costList>
+			<WoodLog>600</WoodLog>
+			<Coal>60</Coal>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<researchPrerequisites>
+			<li>WorldAndYou</li>
+		</researchPrerequisites>
+		<designationCategory>Misc</designationCategory>
+	</ThingDef>
+	
+	<!-- Сигнальный огонь -->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SignalBell</defName>
+		<label>Signal bell</label>
+		<description>A bell on a high platform, the ringing of which is heard at a great distance. Depending on the type of signal, you can get both trade support and military support.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SignalBell</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SignalBell/SignalBell</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Cutout</shaderType>
+			<drawSize>(4.7,4.7)</drawSize>
+		</graphicData>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<category>Building</category>
+		<pathCost>25</pathCost>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>9000</WorkToBuild>
+			<Mass>60</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<size>(3,3)</size>
+		<costList>
+			<WoodLog>300</WoodLog>
+			<ComponentSimple>10</ComponentSimple>
+			<MechanismSimple>8</MechanismSimple>
+			<SimplePlates>200</SimplePlates>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<researchPrerequisites>
+			<li>Architecture</li>
+		</researchPrerequisites>
+		<designationCategory>Misc</designationCategory>
+	</ThingDef>
+</Defs>

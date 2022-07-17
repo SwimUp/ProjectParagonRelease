@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>TP_InsectPhotophobia</defName>
+		<label>photophobia</label>
+		<description>Eye irritation caused by infectious diseases. The patient reacts painfully to light.</description>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<hediffClass>ProjectParagon.Core.Hediffs.Hediff_Blindness</hediffClass>
+		<comps>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_SeverityByGlow">
+				<glowMin>0.35</glowMin>
+				<glowMax>1.00</glowMax>
+				<severityPerDay>1.25</severityPerDay>
+				<reduceIfElse>true</reduceIfElse>
+				<allowDowned>false</allowDowned>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>initial</label>
+				<painOffset>0.01</painOffset>
+				<partEfficiencyOffset>-0.3</partEfficiencyOffset>
+			</li>
+			<li>
+				<minSeverity>0.3</minSeverity>
+				<label>medium</label>
+				<painOffset>0.03</painOffset>
+				<partEfficiencyOffset>-0.55</partEfficiencyOffset>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.75</minSeverity>
+				<painOffset>0.05</painOffset>
+				<partEfficiencyOffset>-0.8</partEfficiencyOffset>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef ParentName="InfectionBase">
+		<defName>TP_InsectInterrupted_Hibernation</defName>
+		<label>interrupted hibernation</label>
+		<description>Body condition caused by the interruption of the hibernation process. Causes hallucinations and general malaise for several days.</description>
+		<initialSeverity>8.0</initialSeverity>
+		<maxSeverity>8.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1.0</severityPerDay>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>120000~180000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Hallucinosis</li>
+							<li>Diseases_HediffDef_PsychosisOfHypersensitivity</li>
+							<li>Diseases_HediffDef_Ravings</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Brain</li>
+							<li>BrainWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>false</letter>
+						<chance>0.25</chance>
+						<severityRange>2~8</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>returning to normal</label>
+				<minSeverity>0</minSeverity>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.9</setMax>
+					</li>
+					<li>
+						<capacity>Metabolism</capacity>
+						<postFactor>0.9</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>recovery</label>
+				<minSeverity>3</minSeverity>
+				<painOffset>0.1</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.75</setMax>
+					</li>
+					<li>
+						<capacity>Metabolism</capacity>
+						<postFactor>0.75</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>awakening</label>
+				<minSeverity>6</minSeverity>
+				<painOffset>0.15</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.5</setMax>
+					</li>
+					<li>
+						<capacity>Metabolism</capacity>
+						<postFactor>0.5</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef ParentName="InfectionBase">
+		<defName>TP_InsectHibernation</defName>
+		<label>hibernation</label>
+		<description>An artificially induced state of slowing down the body's functions. The creature shows no signs of conscious activity.</description>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>false</makesSickThought>
+		<comps>
+		</comps>
+		<stages>
+			<li>
+				<hungerRateFactor>0.5</hungerRateFactor>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.1</setMax>
+					</li>
+					<li>
+						<capacity>Metabolism</capacity>
+						<postFactor>0.5</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

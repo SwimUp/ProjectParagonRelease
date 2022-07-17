@@ -1,0 +1,1848 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/FactionDef[defName="Insect"]/permanentEnemy</xpath>
+				<value>
+					<permanentEnemyToEveryoneExcept>
+						<li>Arachnids</li>
+					</permanentEnemyToEveryoneExcept>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/FactionDef[defName="OutlanderCivil"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+							<factionCaravanAISettings>
+								<maxCaravanPower>4000</maxCaravanPower>
+								<minCaravanPower>401</minCaravanPower>
+								<totalPowerMultiplier>1.1</totalPowerMultiplier>
+								<powerMultiplierByCaravansCount>
+									<points>
+										<li>(0, 1)</li>
+										<li>(8, 1)</li>
+										<li>(15, 0.7)</li>
+										<li>(20, 0.3)</li>
+										<li>(50, 0)</li>
+									</points>
+								</powerMultiplierByCaravansCount>
+								<powerByTechLevel>
+									<Animal>200</Animal>
+									<Neolithic>200</Neolithic>
+									<Medieval>500</Medieval>
+									<Industrial>1000</Industrial>
+									<Spacer>1500</Spacer>
+									<Ultra>2000</Ultra>
+									<Archotech>3000</Archotech>
+								</powerByTechLevel>
+								<powerMultiplierByTechLevel>
+									<Animal>1</Animal>
+									<Neolithic>1.1</Neolithic>
+									<Medieval>1.25</Medieval>
+									<Industrial>1.5</Industrial>
+									<Spacer>2</Spacer>
+									<Ultra>2.5</Ultra>
+									<Archotech>3</Archotech>
+								</powerMultiplierByTechLevel>
+							</factionCaravanAISettings>
+							<raidGenerationSettings>
+								<minPlayerGameStage>Medieval</minPlayerGameStage>
+								<maxRaidDistance>120</maxRaidDistance>
+							</raidGenerationSettings>
+							<factionOrdersSettings>
+								<orders>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+										<checkIntervalDays>1.2~1.8</checkIntervalDays>
+										<buildiableWorldObjects>
+											<li>
+												<worldObjectDef>WatchTower</worldObjectDef>
+												<minThreat>1500</minThreat>
+												<priority>1</priority>
+												<maxCount>8</maxCount>
+												<maxCountForEachSettlement>1</maxCountForEachSettlement>
+												<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+											</li>
+										</buildiableWorldObjects>
+									</li>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+										<mtbDays>1</mtbDays>
+										<caravans>
+											<li>
+												<commonality>50</commonality>
+												<caravanPower>500~1000</caravanPower>
+												<maxTotalCaravans>5</maxTotalCaravans>
+												<wealthRequired>500</wealthRequired>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>30</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TravelingGroup</caravanTypeDef>
+												<wealthCost>80</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>120</commonality>
+												<caravanPower>1000~1500</caravanPower>
+												<maxTotalCaravans>4</maxTotalCaravans>
+												<wealthRequired>700</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 5.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 3)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>30</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>Trade</caravanTypeDef>
+												<wealthCost>150</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+												<minSettlementMoney>200</minSettlementMoney>
+												<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+												<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+											</li>
+											<li>
+												<commonality>80</commonality>
+												<caravanPower>1200~1500</caravanPower>
+												<maxTotalCaravans>2</maxTotalCaravans>
+												<wealthRequired>600</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 4.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<caravanThingSetMakerProps>
+													<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+													<thingSetMakerParams>
+														<countRange>300~800</countRange>
+													</thingSetMakerParams>
+													<countRangeMultiplierByWealthCurve>
+														<points>
+															<li>(200, 1)</li>
+															<li>(20000, 4.0)</li>
+														</points>
+													</countRangeMultiplierByWealthCurve>
+												</caravanThingSetMakerProps>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>30</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TransportCaravan</caravanTypeDef>
+												<wealthCost>120</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>60</commonality>
+												<caravanPower>1000~1800</caravanPower>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 3.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<maxTotalCaravans>8</maxTotalCaravans>
+												<wealthRequired>1000</wealthRequired>
+												<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+												<caravanTypeDef>Battle</caravanTypeDef>
+												<wealthCost>300</wealthCost>
+											</li>
+										</caravans>
+									</li>
+								</orders>
+							</factionOrdersSettings>
+							<settlementGlobalSettings>
+								<threatRadius>20</threatRadius>
+								<startedSilver>300~600</startedSilver>
+								<silverMultiplierByWealth>
+									<points>
+										<li>(200, 1)</li>
+										<li>(500, 1.25)</li>
+										<li>(1000, 2)</li>
+										<li>(2000, 3)</li>
+										<li>(5000, 5)</li>
+										<li>(10000, 10)</li>
+										<li>(20000, 15)</li>
+									</points>
+								</silverMultiplierByWealth>
+								<maxSilverPerSettlement>10000</maxSilverPerSettlement>
+								<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+								<cultureForDestroySettlementsByWealth>
+									<points>
+										<li>(0, 50)</li>
+										<li>(500, 75)</li>
+										<li>(1000, 100)</li>
+										<li>(2000, 125)</li>
+										<li>(5000, 150)</li>
+										<li>(8000, 200)</li>
+										<li>(12000, 250)</li>
+										<li>(15000, 300)</li>
+										<li>(20000, 400)</li>
+									</points>
+								</cultureForDestroySettlementsByWealth>
+							</settlementGlobalSettings>
+							<factionEconomySettings>
+								<economyList>
+									<li>
+										<thingCategoryDefs>
+											<li>Foods</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.8</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Manufactured</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.8</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>ResourcesRaw</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.25</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Weapons</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Apparel</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.9</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Animals</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1</priceSellMultiplier>
+									</li>
+								</economyList>
+								<successTradeMultiplierRange>1.1~1.35</successTradeMultiplierRange>
+							</factionEconomySettings>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/FactionDef[defName="OutlanderRough"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+							<factionCaravanAISettings>
+								<maxCaravanPower>4000</maxCaravanPower>
+								<minCaravanPower>401</minCaravanPower>
+								<totalPowerMultiplier>1.1</totalPowerMultiplier>
+								<powerMultiplierByCaravansCount>
+									<points>
+										<li>(0, 1)</li>
+										<li>(8, 1)</li>
+										<li>(15, 0.7)</li>
+										<li>(20, 0.3)</li>
+										<li>(50, 0)</li>
+									</points>
+								</powerMultiplierByCaravansCount>
+								<powerByTechLevel>
+									<Animal>200</Animal>
+									<Neolithic>200</Neolithic>
+									<Medieval>500</Medieval>
+									<Industrial>1000</Industrial>
+									<Spacer>1500</Spacer>
+									<Ultra>2000</Ultra>
+									<Archotech>3000</Archotech>
+								</powerByTechLevel>
+								<powerMultiplierByTechLevel>
+									<Animal>1</Animal>
+									<Neolithic>1.1</Neolithic>
+									<Medieval>1.25</Medieval>
+									<Industrial>1.5</Industrial>
+									<Spacer>2</Spacer>
+									<Ultra>2.5</Ultra>
+									<Archotech>3</Archotech>
+								</powerMultiplierByTechLevel>
+							</factionCaravanAISettings>
+							<raidGenerationSettings>
+								<minPlayerGameStage>Medieval</minPlayerGameStage>
+								<maxRaidDistance>120</maxRaidDistance>
+							</raidGenerationSettings>
+							<factionOrdersSettings>
+								<orders>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+										<checkIntervalDays>1.2~1.8</checkIntervalDays>
+										<buildiableWorldObjects>
+											<li>
+												<worldObjectDef>WatchTower</worldObjectDef>
+												<minThreat>1200</minThreat>
+												<priority>1</priority>
+												<maxCount>8</maxCount>
+												<maxCountForEachSettlement>1</maxCountForEachSettlement>
+												<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+											</li>
+										</buildiableWorldObjects>
+									</li>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+										<mtbDays>1</mtbDays>
+										<caravans>
+											<li>
+												<commonality>50</commonality>
+												<caravanPower>300~800</caravanPower>
+												<maxTotalCaravans>4</maxTotalCaravans>
+												<wealthRequired>500</wealthRequired>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>30</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TravelingGroup</caravanTypeDef>
+												<wealthCost>80</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>100</commonality>
+												<caravanPower>1200~1500</caravanPower>
+												<maxTotalCaravans>4</maxTotalCaravans>
+												<wealthRequired>700</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 5.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 3)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>30</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>Trade</caravanTypeDef>
+												<wealthCost>125</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+												<minSettlementMoney>200</minSettlementMoney>
+												<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+												<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+											</li>
+											<li>
+												<commonality>100</commonality>
+												<caravanPower>1400~1700</caravanPower>
+												<maxTotalCaravans>2</maxTotalCaravans>
+												<wealthRequired>600</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 4.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<caravanThingSetMakerProps>
+													<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+													<thingSetMakerParams>
+														<countRange>100~500</countRange>
+													</thingSetMakerParams>
+													<countRangeMultiplierByWealthCurve>
+														<points>
+															<li>(200, 1)</li>
+															<li>(20000, 4.0)</li>
+														</points>
+													</countRangeMultiplierByWealthCurve>
+												</caravanThingSetMakerProps>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>30</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TransportCaravan</caravanTypeDef>
+												<wealthCost>100</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>150</commonality>
+												<caravanPower>1200~2000</caravanPower>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 3.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<maxTotalCaravans>10</maxTotalCaravans>
+												<wealthRequired>1000</wealthRequired>
+												<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+												<caravanTypeDef>Battle</caravanTypeDef>
+												<wealthCost>300</wealthCost>
+											</li>
+										</caravans>
+									</li>
+								</orders>
+							</factionOrdersSettings>
+							<settlementGlobalSettings>
+								<threatRadius>20</threatRadius>
+								<startedSilver>300~500</startedSilver>
+								<silverMultiplierByWealth>
+									<points>
+										<li>(200, 1)</li>
+										<li>(500, 1.25)</li>
+										<li>(1000, 2)</li>
+										<li>(2000, 3)</li>
+										<li>(5000, 5)</li>
+										<li>(10000, 10)</li>
+										<li>(20000, 15)</li>
+									</points>
+								</silverMultiplierByWealth>
+								<maxSilverPerSettlement>10000</maxSilverPerSettlement>
+								<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+								<cultureForDestroySettlementsByWealth>
+									<points>
+										<li>(0, 50)</li>
+										<li>(500, 75)</li>
+										<li>(1000, 100)</li>
+										<li>(2000, 125)</li>
+										<li>(5000, 150)</li>
+										<li>(8000, 200)</li>
+										<li>(12000, 250)</li>
+										<li>(15000, 300)</li>
+										<li>(20000, 400)</li>
+									</points>
+								</cultureForDestroySettlementsByWealth>
+							</settlementGlobalSettings>
+							<factionEconomySettings>
+								<economyList>
+									<li>
+										<thingCategoryDefs>
+											<li>Foods</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.8</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Manufactured</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.8</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>ResourcesRaw</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.1</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Weapons</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>2</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>2</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Apparel</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.9</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Animals</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1</priceSellMultiplier>
+									</li>
+								</economyList>
+								<successTradeMultiplierRange>1.0~1.25</successTradeMultiplierRange>
+							</factionEconomySettings>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/FactionDef[defName="TribeCivil"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+							<factionCaravanAISettings>
+								<maxCaravanPower>3000</maxCaravanPower>
+								<minCaravanPower>601</minCaravanPower>
+								<totalPowerMultiplier>1.0</totalPowerMultiplier>
+								<powerMultiplierByCaravansCount>
+									<points>
+										<li>(0, 1)</li>
+										<li>(8, 1)</li>
+										<li>(15, 0.7)</li>
+										<li>(20, 0.3)</li>
+										<li>(50, 0)</li>
+									</points>
+								</powerMultiplierByCaravansCount>
+								<powerByTechLevel>
+									<Animal>200</Animal>
+									<Neolithic>200</Neolithic>
+									<Medieval>500</Medieval>
+									<Industrial>1000</Industrial>
+									<Spacer>1500</Spacer>
+									<Ultra>2000</Ultra>
+									<Archotech>3000</Archotech>
+								</powerByTechLevel>
+								<powerMultiplierByTechLevel>
+									<Animal>1</Animal>
+									<Neolithic>1.1</Neolithic>
+									<Medieval>1.25</Medieval>
+									<Industrial>1.5</Industrial>
+									<Spacer>2</Spacer>
+									<Ultra>2.5</Ultra>
+									<Archotech>3</Archotech>
+								</powerMultiplierByTechLevel>
+							</factionCaravanAISettings>
+							<raidGenerationSettings>
+								<minPlayerGameStage>None</minPlayerGameStage>
+								<maxRaidDistance>80</maxRaidDistance>
+							</raidGenerationSettings>
+							<battleBackstoryGenerationSettings>
+								<childhoodChance>0.05</childhoodChance>
+								<allowedChildhoodBackstoryTags>
+									<li>Human_Neolithic</li>
+								</allowedChildhoodBackstoryTags>
+								<adulthoodChance>0.05</adulthoodChance>
+								<allowedAdulthoodBackstoryTags>
+									<li>Human_Neolithic</li>
+								</allowedAdulthoodBackstoryTags>
+							</battleBackstoryGenerationSettings>
+							<factionOrdersSettings>
+								<orders>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+										<checkIntervalDays>1.2~1.8</checkIntervalDays>
+										<buildiableWorldObjects>
+											<li>
+												<worldObjectDef>WatchTower</worldObjectDef>
+												<minThreat>1200</minThreat>
+												<priority>1</priority>
+												<maxCount>4</maxCount>
+												<maxCountForEachSettlement>1</maxCountForEachSettlement>
+												<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+											</li>
+										</buildiableWorldObjects>
+									</li>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+										<mtbDays>1</mtbDays>
+										<caravans>
+											<li>
+												<commonality>50</commonality>
+												<caravanPower>120~400</caravanPower>
+												<maxTotalCaravans>8</maxTotalCaravans>
+												<wealthRequired>300</wealthRequired>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>20</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TravelingGroup</caravanTypeDef>
+												<wealthCost>50</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>70</commonality>
+												<caravanPower>300~500</caravanPower>
+												<maxTotalCaravans>2</maxTotalCaravans>
+												<wealthRequired>400</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 3)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>15</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>Trade</caravanTypeDef>
+												<wealthCost>100</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+												<minSettlementMoney>200</minSettlementMoney>
+												<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+												<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+											</li>
+											<li>
+												<commonality>30</commonality>
+												<caravanPower>200~500</caravanPower>
+												<maxTotalCaravans>3</maxTotalCaravans>
+												<wealthRequired>400</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 4.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<caravanThingSetMakerProps>
+													<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+													<thingSetMakerParams>
+														<countRange>100~500</countRange>
+													</thingSetMakerParams>
+													<countRangeMultiplierByWealthCurve>
+														<points>
+															<li>(200, 1)</li>
+															<li>(20000, 4)</li>
+														</points>
+													</countRangeMultiplierByWealthCurve>
+												</caravanThingSetMakerProps>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>20</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TransportCaravan</caravanTypeDef>
+												<wealthCost>100</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>30</commonality>
+												<caravanPower>150~400</caravanPower>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 3.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<maxTotalCaravans>10</maxTotalCaravans>
+												<wealthRequired>500</wealthRequired>
+												<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+												<caravanTypeDef>Battle</caravanTypeDef>
+												<wealthCost>120</wealthCost>
+											</li>
+										</caravans>
+									</li>
+								</orders>
+							</factionOrdersSettings>
+							<settlementGlobalSettings>
+								<threatRadius>20</threatRadius>
+								<startedSilver>100~300</startedSilver>
+								<silverMultiplierByWealth>
+									<points>
+										<li>(200, 1)</li>
+										<li>(500, 1.25)</li>
+										<li>(1000, 2)</li>
+										<li>(2000, 3)</li>
+										<li>(5000, 5)</li>
+										<li>(10000, 10)</li>
+										<li>(20000, 15)</li>
+									</points>
+								</silverMultiplierByWealth>
+								<maxSilverPerSettlement>4000</maxSilverPerSettlement>
+								<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+								<cultureForDestroySettlementsByWealth>
+									<points>
+										<li>(0, 25)</li>
+										<li>(500, 35)</li>
+										<li>(1000, 50)</li>
+										<li>(2000, 75)</li>
+										<li>(5000, 100)</li>
+										<li>(8000, 125)</li>
+										<li>(12000, 150)</li>
+										<li>(15000, 175)</li>
+										<li>(20000, 200)</li>
+									</points>
+								</cultureForDestroySettlementsByWealth>
+							</settlementGlobalSettings>
+							<factionEconomySettings>
+								<economyList>
+									<li>
+										<thingCategoryDefs>
+											<li>Foods</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.25</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Manufactured</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>2</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>2</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>ResourcesRaw</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.5</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Weapons</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Apparel</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.15</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Animals</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.75</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+								</economyList>
+								<successTradeMultiplierRange>0.9~1.25</successTradeMultiplierRange>
+							</factionEconomySettings>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/FactionDef[defName="TribeRough"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+							<factionCaravanAISettings>
+								<maxCaravanPower>3000</maxCaravanPower>
+								<minCaravanPower>601</minCaravanPower>
+								<totalPowerMultiplier>1.0</totalPowerMultiplier>
+								<powerMultiplierByCaravansCount>
+									<points>
+										<li>(0, 1)</li>
+										<li>(8, 1)</li>
+										<li>(15, 0.7)</li>
+										<li>(20, 0.3)</li>
+										<li>(50, 0)</li>
+									</points>
+								</powerMultiplierByCaravansCount>
+								<powerByTechLevel>
+									<Animal>200</Animal>
+									<Neolithic>200</Neolithic>
+									<Medieval>500</Medieval>
+									<Industrial>1000</Industrial>
+									<Spacer>1500</Spacer>
+									<Ultra>2000</Ultra>
+									<Archotech>3000</Archotech>
+								</powerByTechLevel>
+								<powerMultiplierByTechLevel>
+									<Animal>1</Animal>
+									<Neolithic>1.1</Neolithic>
+									<Medieval>1.25</Medieval>
+									<Industrial>1.5</Industrial>
+									<Spacer>2</Spacer>
+									<Ultra>2.5</Ultra>
+									<Archotech>3</Archotech>
+								</powerMultiplierByTechLevel>
+							</factionCaravanAISettings>
+							<raidGenerationSettings>
+								<minPlayerGameStage>None</minPlayerGameStage>
+								<maxRaidDistance>80</maxRaidDistance>
+							</raidGenerationSettings>
+							<battleBackstoryGenerationSettings>
+								<childhoodChance>0.08</childhoodChance>
+								<allowedChildhoodBackstoryTags>
+									<li>Human_Neolithic</li>
+								</allowedChildhoodBackstoryTags>
+							</battleBackstoryGenerationSettings>
+							<factionOrdersSettings>
+								<orders>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+										<checkIntervalDays>1.2~1.8</checkIntervalDays>
+										<buildiableWorldObjects>
+											<li>
+												<worldObjectDef>WatchTower</worldObjectDef>
+												<minThreat>1000</minThreat>
+												<priority>1</priority>
+												<maxCount>5</maxCount>
+												<maxCountForEachSettlement>1</maxCountForEachSettlement>
+												<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+											</li>
+										</buildiableWorldObjects>
+									</li>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+										<mtbDays>1.5</mtbDays>
+										<caravans>
+											<li>
+												<commonality>50</commonality>
+												<caravanPower>150~500</caravanPower>
+												<maxTotalCaravans>8</maxTotalCaravans>
+												<wealthRequired>300</wealthRequired>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>20</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TravelingGroup</caravanTypeDef>
+												<wealthCost>60</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>70</commonality>
+												<caravanPower>400~600</caravanPower>
+												<maxTotalCaravans>2</maxTotalCaravans>
+												<wealthRequired>400</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 3)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>15</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>Trade</caravanTypeDef>
+												<wealthCost>120</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+												<minSettlementMoney>200</minSettlementMoney>
+												<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+												<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+											</li>
+											<li>
+												<commonality>30</commonality>
+												<caravanPower>300~600</caravanPower>
+												<maxTotalCaravans>3</maxTotalCaravans>
+												<wealthRequired>400</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 4.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<caravanThingSetMakerProps>
+													<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+													<thingSetMakerParams>
+														<countRange>100~400</countRange>
+													</thingSetMakerParams>
+													<countRangeMultiplierByWealthCurve>
+														<points>
+															<li>(200, 1)</li>
+															<li>(20000, 4)</li>
+														</points>
+													</countRangeMultiplierByWealthCurve>
+												</caravanThingSetMakerProps>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>20</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TransportCaravan</caravanTypeDef>
+												<wealthCost>100</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>120</commonality>
+												<caravanPower>250~400</caravanPower>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 3.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<maxTotalCaravans>15</maxTotalCaravans>
+												<wealthRequired>400</wealthRequired>
+												<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+												<caravanTypeDef>Battle</caravanTypeDef>
+												<wealthCost>100</wealthCost>
+											</li>
+										</caravans>
+									</li>
+								</orders>
+							</factionOrdersSettings>
+							<settlementGlobalSettings>
+								<threatRadius>20</threatRadius>
+								<startedSilver>80~270</startedSilver>
+								<silverMultiplierByWealth>
+									<points>
+										<li>(200, 1)</li>
+										<li>(500, 1.25)</li>
+										<li>(1000, 2)</li>
+										<li>(2000, 3)</li>
+										<li>(5000, 5)</li>
+										<li>(10000, 10)</li>
+										<li>(20000, 15)</li>
+									</points>
+								</silverMultiplierByWealth>
+								<maxSilverPerSettlement>3500</maxSilverPerSettlement>
+								<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+								<cultureForDestroySettlementsByWealth>
+									<points>
+										<li>(0, 25)</li>
+										<li>(500, 35)</li>
+										<li>(1000, 50)</li>
+										<li>(2000, 75)</li>
+										<li>(5000, 100)</li>
+										<li>(8000, 125)</li>
+										<li>(12000, 150)</li>
+										<li>(15000, 175)</li>
+										<li>(20000, 200)</li>
+									</points>
+								</cultureForDestroySettlementsByWealth>
+							</settlementGlobalSettings>
+							<factionEconomySettings>
+								<economyList>
+									<li>
+										<thingCategoryDefs>
+											<li>Foods</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.5</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Manufactured</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>2</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>2</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>ResourcesRaw</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.8</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.8</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Weapons</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Apparel</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.15</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.15</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Animals</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.8</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.7</priceSellMultiplier>
+									</li>
+								</economyList>
+								<successTradeMultiplierRange>0.85~1.2</successTradeMultiplierRange>
+							</factionEconomySettings>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/FactionDef[defName="TribeSavage"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+							<factionCaravanAISettings>
+								<maxCaravanPower>3000</maxCaravanPower>
+								<minCaravanPower>601</minCaravanPower>
+								<totalPowerMultiplier>1.0</totalPowerMultiplier>
+								<powerMultiplierByCaravansCount>
+									<points>
+										<li>(0, 1)</li>
+										<li>(8, 1)</li>
+										<li>(15, 0.7)</li>
+										<li>(20, 0.3)</li>
+										<li>(50, 0)</li>
+									</points>
+								</powerMultiplierByCaravansCount>
+								<powerByTechLevel>
+									<Animal>200</Animal>
+									<Neolithic>200</Neolithic>
+									<Medieval>500</Medieval>
+									<Industrial>1000</Industrial>
+									<Spacer>1500</Spacer>
+									<Ultra>2000</Ultra>
+									<Archotech>3000</Archotech>
+								</powerByTechLevel>
+								<powerMultiplierByTechLevel>
+									<Animal>1</Animal>
+									<Neolithic>1.1</Neolithic>
+									<Medieval>1.25</Medieval>
+									<Industrial>1.5</Industrial>
+									<Spacer>2</Spacer>
+									<Ultra>2.5</Ultra>
+									<Archotech>3</Archotech>
+								</powerMultiplierByTechLevel>
+							</factionCaravanAISettings>
+							<raidGenerationSettings>
+								<minPlayerGameStage>None</minPlayerGameStage>
+								<maxRaidDistance>80</maxRaidDistance>
+							</raidGenerationSettings>
+							<battleBackstoryGenerationSettings>
+								<childhoodChance>0.1</childhoodChance>
+								<allowedChildhoodBackstoryTags>
+									<li>Human_Neolithic</li>
+								</allowedChildhoodBackstoryTags>
+							</battleBackstoryGenerationSettings>
+							<factionOrdersSettings>
+								<orders>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+										<checkIntervalDays>1.2~1.8</checkIntervalDays>
+										<buildiableWorldObjects>
+											<li>
+												<worldObjectDef>WatchTower</worldObjectDef>
+												<minThreat>800</minThreat>
+												<priority>1</priority>
+												<maxCount>6</maxCount>
+												<maxCountForEachSettlement>1</maxCountForEachSettlement>
+												<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+											</li>
+										</buildiableWorldObjects>
+									</li>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+										<mtbDays>1.5</mtbDays>
+										<caravans>
+											<li>
+												<commonality>50</commonality>
+												<caravanPower>200~500</caravanPower>
+												<maxTotalCaravans>8</maxTotalCaravans>
+												<wealthRequired>300</wealthRequired>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>20</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TravelingGroup</caravanTypeDef>
+												<wealthCost>70</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>60</commonality>
+												<caravanPower>500~700</caravanPower>
+												<maxTotalCaravans>2</maxTotalCaravans>
+												<wealthRequired>400</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 3)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>15</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>Trade</caravanTypeDef>
+												<wealthCost>150</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+												<minSettlementMoney>200</minSettlementMoney>
+												<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+												<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+											</li>
+											<li>
+												<commonality>20</commonality>
+												<caravanPower>500~700</caravanPower>
+												<maxTotalCaravans>3</maxTotalCaravans>
+												<wealthRequired>400</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 4.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<caravanThingSetMakerProps>
+													<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+													<thingSetMakerParams>
+														<countRange>50~400</countRange>
+													</thingSetMakerParams>
+													<countRangeMultiplierByWealthCurve>
+														<points>
+															<li>(200, 1)</li>
+															<li>(20000, 4)</li>
+														</points>
+													</countRangeMultiplierByWealthCurve>
+												</caravanThingSetMakerProps>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>20</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TransportCaravan</caravanTypeDef>
+												<wealthCost>120</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>150</commonality>
+												<caravanPower>400~800</caravanPower>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 4.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<maxTotalCaravans>15</maxTotalCaravans>
+												<wealthRequired>400</wealthRequired>
+												<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+												<caravanTypeDef>Battle</caravanTypeDef>
+												<wealthCost>90</wealthCost>
+											</li>
+										</caravans>
+									</li>
+								</orders>
+							</factionOrdersSettings>
+							<settlementGlobalSettings>
+								<threatRadius>20</threatRadius>
+								<startedSilver>100~250</startedSilver>
+								<silverMultiplierByWealth>
+									<points>
+										<li>(200, 1)</li>
+										<li>(500, 1.25)</li>
+										<li>(1000, 2)</li>
+										<li>(2000, 3)</li>
+										<li>(5000, 5)</li>
+										<li>(10000, 10)</li>
+										<li>(20000, 15)</li>
+									</points>
+								</silverMultiplierByWealth>
+								<maxSilverPerSettlement>3500</maxSilverPerSettlement>
+								<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+								<cultureForDestroySettlementsByWealth>
+									<points>
+										<li>(0, 25)</li>
+										<li>(500, 35)</li>
+										<li>(1000, 50)</li>
+										<li>(2000, 75)</li>
+										<li>(5000, 100)</li>
+										<li>(8000, 125)</li>
+										<li>(12000, 150)</li>
+										<li>(15000, 175)</li>
+										<li>(20000, 200)</li>
+									</points>
+								</cultureForDestroySettlementsByWealth>
+							</settlementGlobalSettings>
+							<factionEconomySettings>
+								<economyList>
+									<li>
+										<thingCategoryDefs>
+											<li>Foods</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.5</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Manufactured</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>2</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>2</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>ResourcesRaw</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.5</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Weapons</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.3</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Apparel</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.0</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.75</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Animals</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1</priceSellMultiplier>
+									</li>
+								</economyList>
+								<successTradeMultiplierRange>0.75~1.0</successTradeMultiplierRange>
+							</factionEconomySettings>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/FactionDef[defName="Pirate"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+							<factionCaravanAISettings>
+								<maxCaravanPower>3500</maxCaravanPower>
+								<minCaravanPower>501</minCaravanPower>
+								<totalPowerMultiplier>1.2</totalPowerMultiplier>
+								<powerMultiplierByCaravansCount>
+									<points>
+										<li>(0, 1)</li>
+										<li>(8, 1)</li>
+										<li>(15, 0.7)</li>
+										<li>(20, 0.3)</li>
+										<li>(50, 0)</li>
+									</points>
+								</powerMultiplierByCaravansCount>
+								<powerByTechLevel>
+									<Animal>200</Animal>
+									<Neolithic>200</Neolithic>
+									<Medieval>500</Medieval>
+									<Industrial>1000</Industrial>
+									<Spacer>1500</Spacer>
+									<Ultra>2000</Ultra>
+									<Archotech>3000</Archotech>
+								</powerByTechLevel>
+								<powerMultiplierByTechLevel>
+									<Animal>1</Animal>
+									<Neolithic>1.1</Neolithic>
+									<Medieval>1.25</Medieval>
+									<Industrial>1.5</Industrial>
+									<Spacer>2</Spacer>
+									<Ultra>2.5</Ultra>
+									<Archotech>3</Archotech>
+								</powerMultiplierByTechLevel>
+							</factionCaravanAISettings>
+							<raidGenerationSettings>
+								<minPlayerGameStage>Industrial</minPlayerGameStage>
+								<maxRaidDistance>150</maxRaidDistance>
+							</raidGenerationSettings>
+							<factionOrdersSettings>
+								<orders>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+										<checkIntervalDays>1.2~1.8</checkIntervalDays>
+										<buildiableWorldObjects>
+											<li>
+												<worldObjectDef>WatchTower</worldObjectDef>
+												<minThreat>1500</minThreat>
+												<priority>1</priority>
+												<maxCount>8</maxCount>
+												<maxCountForEachSettlement>1</maxCountForEachSettlement>
+												<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+											</li>
+										</buildiableWorldObjects>
+									</li>
+								</orders>
+							</factionOrdersSettings>
+							<settlementGlobalSettings>
+								<threatRadius>20</threatRadius>
+								<startedSilver>300~700</startedSilver>
+								<silverMultiplierByWealth>
+									<points>
+										<li>(200, 1)</li>
+										<li>(500, 1.25)</li>
+										<li>(1000, 2)</li>
+										<li>(2000, 3)</li>
+										<li>(5000, 5)</li>
+										<li>(10000, 10)</li>
+										<li>(20000, 15)</li>
+									</points>
+								</silverMultiplierByWealth>
+								<maxSilverPerSettlement>10000</maxSilverPerSettlement>
+								<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+								<cultureForDestroySettlementsByWealth>
+									<points>
+										<li>(0, 15)</li>
+										<li>(500, 25)</li>
+										<li>(1000, 50)</li>
+										<li>(2000, 75)</li>
+										<li>(5000, 100)</li>
+										<li>(8000, 200)</li>
+										<li>(12000, 300)</li>
+										<li>(15000, 400)</li>
+										<li>(20000, 500)</li>
+									</points>
+								</cultureForDestroySettlementsByWealth>
+							</settlementGlobalSettings>
+							<factionEconomySettings>
+								<economyList>
+									<li>
+										<thingCategoryDefs>
+											<li>Foods</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Manufactured</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>ResourcesRaw</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.5</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Weapons</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>2</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>2</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Apparel</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Animals</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.5</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.3</priceSellMultiplier>
+									</li>
+								</economyList>
+								<successTradeMultiplierRange>1.0~1.3</successTradeMultiplierRange>
+							</factionEconomySettings>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/FactionDef[defName="Empire"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+							<factionCaravanAISettings>
+								<maxCaravanPower>4000</maxCaravanPower>
+								<minCaravanPower>501</minCaravanPower>
+								<totalPowerMultiplier>1.25</totalPowerMultiplier>
+								<powerMultiplierByCaravansCount>
+									<points>
+										<li>(0, 1)</li>
+										<li>(10, 1)</li>
+										<li>(20, 0.7)</li>
+										<li>(30, 0.3)</li>
+										<li>(50, 0)</li>
+									</points>
+								</powerMultiplierByCaravansCount>
+								<powerByTechLevel>
+									<Animal>300</Animal>
+									<Neolithic>300</Neolithic>
+									<Medieval>700</Medieval>
+									<Industrial>1200</Industrial>
+									<Spacer>1700</Spacer>
+									<Ultra>2200</Ultra>
+									<Archotech>3300</Archotech>
+								</powerByTechLevel>
+								<powerMultiplierByTechLevel>
+									<Animal>1</Animal>
+									<Neolithic>1.1</Neolithic>
+									<Medieval>1.25</Medieval>
+									<Industrial>1.5</Industrial>
+									<Spacer>2</Spacer>
+									<Ultra>2.5</Ultra>
+									<Archotech>3</Archotech>
+								</powerMultiplierByTechLevel>
+							</factionCaravanAISettings>
+							<raidGenerationSettings>
+								<minPlayerGameStage>Industrial</minPlayerGameStage>
+								<maxRaidDistance>150</maxRaidDistance>
+							</raidGenerationSettings>
+							<factionOrdersSettings>
+								<orders>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+										<checkIntervalDays>2~3</checkIntervalDays>
+										<buildiableWorldObjects>
+											<li>
+												<worldObjectDef>WatchTower</worldObjectDef>
+												<minThreat>5000</minThreat>
+												<priority>1</priority>
+												<maxCount>8</maxCount>
+												<maxCountForEachSettlement>1</maxCountForEachSettlement>
+												<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+											</li>
+										</buildiableWorldObjects>
+									</li>
+									<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+										<mtbDays>5</mtbDays>
+										<caravans>
+											<li>
+												<commonality>50</commonality>
+												<caravanPower>800~1500</caravanPower>
+												<maxTotalCaravans>5</maxTotalCaravans>
+												<wealthRequired>800</wealthRequired>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>40</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TravelingGroup</caravanTypeDef>
+												<wealthCost>100</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>70</commonality>
+												<caravanPower>1200~2500</caravanPower>
+												<maxTotalCaravans>5</maxTotalCaravans>
+												<wealthRequired>1000</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 5.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 3)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>40</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>Trade</caravanTypeDef>
+												<wealthCost>250</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+												<minSettlementMoney>200</minSettlementMoney>
+												<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+												<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+											</li>
+											<li>
+												<commonality>150</commonality>
+												<caravanPower>1500~2500</caravanPower>
+												<maxTotalCaravans>5</maxTotalCaravans>
+												<wealthRequired>700</wealthRequired>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 4.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<caravanThingSetMakerProps>
+													<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+													<thingSetMakerParams>
+														<countRange>600~1000</countRange>
+													</thingSetMakerParams>
+													<countRangeMultiplierByWealthCurve>
+														<points>
+															<li>(200, 1)</li>
+															<li>(20000, 4.0)</li>
+														</points>
+													</countRangeMultiplierByWealthCurve>
+												</caravanThingSetMakerProps>
+												<wealthCostMultiplierByCaravanPowerCurve>
+													<points>
+														<li>(100, 1)</li>
+														<li>(1500, 4)</li>
+													</points>
+												</wealthCostMultiplierByCaravanPowerCurve>
+												<targetParams>
+													<allowedSelfFaction>true</allowedSelfFaction>
+													<allowedNeutral>true</allowedNeutral>
+													<maxDistance>40</maxDistance>
+												</targetParams>
+												<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+												<caravanTypeDef>TransportCaravan</caravanTypeDef>
+												<wealthCost>250</wealthCost>
+												<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+											</li>
+											<li>
+												<commonality>50</commonality>
+												<caravanPower>1500~2500</caravanPower>
+												<caravanPowerScaleByWealth>
+													<points>
+														<li>(100, 1)</li>
+														<li>(20000, 3.0)</li>
+													</points>
+												</caravanPowerScaleByWealth>
+												<maxTotalCaravans>8</maxTotalCaravans>
+												<wealthRequired>1000</wealthRequired>
+												<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+												<caravanTypeDef>Battle</caravanTypeDef>
+												<wealthCost>300</wealthCost>
+											</li>
+										</caravans>
+									</li>
+								</orders>
+							</factionOrdersSettings>
+							<settlementGlobalSettings>
+								<threatRadius>20</threatRadius>
+								<startedSilver>500~800</startedSilver>
+								<silverMultiplierByWealth>
+									<points>
+										<li>(200, 1)</li>
+										<li>(500, 1.25)</li>
+										<li>(1000, 2)</li>
+										<li>(2000, 3)</li>
+										<li>(5000, 5)</li>
+										<li>(10000, 10)</li>
+										<li>(20000, 15)</li>
+									</points>
+								</silverMultiplierByWealth>
+								<maxSilverPerSettlement>15000</maxSilverPerSettlement>
+								<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+								<cultureForDestroySettlementsByWealth>
+									<points>
+										<li>(0, 50)</li>
+										<li>(500, 100)</li>
+										<li>(1000, 150)</li>
+										<li>(2000, 200)</li>
+										<li>(5000, 250)</li>
+										<li>(8000, 300)</li>
+										<li>(12000, 450)</li>
+										<li>(15000, 600)</li>
+										<li>(20000, 750)</li>
+									</points>
+								</cultureForDestroySettlementsByWealth>
+							</settlementGlobalSettings>
+							<factionEconomySettings>
+								<economyList>
+									<li>
+										<thingCategoryDefs>
+											<li>Foods</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.85</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Manufactured</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>ResourcesRaw</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.5</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Weapons</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.3</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Apparel</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.5</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.0</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Animals</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Artifacts</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.75</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.25</priceSellMultiplier>
+									</li>
+								</economyList>
+								<successTradeMultiplierRange>1.1~1.5</successTradeMultiplierRange>
+							</factionEconomySettings>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/FactionDef[defName="Mechanoid"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+							<factionCaravanAISettings>
+								<maxCaravanPower>10000</maxCaravanPower>
+								<minCaravanPower>600</minCaravanPower>
+								<totalPowerMultiplier>2</totalPowerMultiplier>
+								<powerMultiplierByCaravansCount>
+									<points>
+										<li>(0, 1)</li>
+										<li>(10, 1)</li>
+										<li>(20, 0.8)</li>
+										<li>(40, 0.5)</li>
+										<li>(60, 0)</li>
+									</points>
+								</powerMultiplierByCaravansCount>
+								<powerByTechLevel>
+									<Animal>2000</Animal>
+									<Neolithic>3000</Neolithic>
+									<Medieval>4000</Medieval>
+									<Industrial>5000</Industrial>
+									<Spacer>6000</Spacer>
+									<Ultra>8000</Ultra>
+									<Archotech>10000</Archotech>
+								</powerByTechLevel>
+								<powerMultiplierByTechLevel>
+									<Animal>1</Animal>
+									<Neolithic>1.1</Neolithic>
+									<Medieval>1.25</Medieval>
+									<Industrial>1.5</Industrial>
+									<Spacer>2</Spacer>
+									<Ultra>2.5</Ultra>
+									<Archotech>3</Archotech>
+								</powerMultiplierByTechLevel>
+							</factionCaravanAISettings>
+							<raidGenerationSettings>
+								<minPlayerGameStage>Space</minPlayerGameStage>
+								<maxRaidDistance>999</maxRaidDistance>
+							</raidGenerationSettings>
+							<factionEconomySettings>
+								<economyList>
+									<li>
+										<thingCategoryDefs>
+											<li>Foods</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>2</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.25</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Manufactured</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>0.85</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.25</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>ResourcesRaw</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>2</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.5</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Weapons</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.25</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Apparel</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.1</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Animals</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>0.25</priceSellMultiplier>
+									</li>
+									<li>
+										<thingCategoryDefs>
+											<li>Artifacts</li>
+										</thingCategoryDefs>
+										<!-- модификатор когда игрок покупает  -->
+										<priceBuyMultiplier>1.25</priceBuyMultiplier>
+										<!-- модификатор когда игрок продает -->
+										<priceSellMultiplier>1.5</priceSellMultiplier>
+									</li>
+								</economyList>
+								<successTradeMultiplierRange>1~1</successTradeMultiplierRange>
+							</factionEconomySettings>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

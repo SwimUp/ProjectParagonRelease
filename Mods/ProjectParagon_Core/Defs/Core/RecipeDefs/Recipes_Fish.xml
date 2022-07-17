@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RecipeDef>
+		<defName>ToFishInFishingSpot</defName>
+		<label>To fish</label>
+		<description>To fish in this place</description>
+		<workerClass>ProjectParagon.Core.Recipes.RecipeWorker_ToFish</workerClass>
+		<jobString>fishing</jobString>
+		<workAmount>3000</workAmount>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Harvest_Plant</effectWorking>
+		<allowMixingIngredients>false</allowMixingIngredients>
+		<workSkill>Animals</workSkill>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_Bait</defName>
+		<label>make bait</label>
+		<description>Bait for fish traps.</description>
+		<jobString>Making bait.</jobString>
+		<workAmount>200</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>FishRaw</li>
+						<li>MeatRaw</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>Bait</li>
+					</disallowedThingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<products>
+			<Bait>5</Bait>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>FishRaw</li>
+				<li>MeatRaw</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Bait</li>
+			</disallowedThingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>FishRaw</li>
+				<li>MeatRaw</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Bait</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<researchPrerequisite>FishingI</researchPrerequisite>
+		<recipeUsers>
+			<li>CookingFurnace</li>
+			<li>ButcherSpot</li>
+			<li>TableButcher</li>
+			<li>FishingSpot</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_Bait_Bulk</defName>
+		<label>make bait x4</label>
+		<description>Bait for fish traps.</description>
+		<jobString>Making bulk bait.</jobString>
+		<workAmount>800</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>FishRaw</li>
+						<li>MeatRaw</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>Bait</li>
+					</disallowedThingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<products>
+			<Bait>20</Bait>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>FishRaw</li>
+				<li>MeatRaw</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Bait</li>
+			</disallowedThingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>FishRaw</li>
+				<li>MeatRaw</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Bait</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<researchPrerequisite>FishingI</researchPrerequisite>
+		<recipeUsers>
+			<li>CookingFurnace</li>
+			<li>ButcherSpot</li>
+			<li>TableButcher</li>
+			<li>FishingSpot</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingDef>SimpleCookingSet</thingDef>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+</Defs>

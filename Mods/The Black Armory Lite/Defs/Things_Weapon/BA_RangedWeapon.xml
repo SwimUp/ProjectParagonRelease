@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>BA_Bullet_BasicRound</defName>
+		<label>lead round</label>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>16</damageAmountBase>
+			<speed>55</speed>
+		</projectile>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_BasicRound</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>BA_Bullet_BasicRoundPlus</defName>
+		<label>lead round</label>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<speed>65</speed>
+		</projectile>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_BasicRound</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>BA_Bullet_SpreadRound</defName>
+		<label>Small lead round</label>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<speed>60</speed>
+		</projectile>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_SpreadRound</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>BA_Bullet_HeavyRound</defName>
+		<label>Heavy lead round</label>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>50</damageAmountBase>
+			<speed>60</speed>
+		</projectile>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_HeavyRound</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>BA_Gun_Jezail_P</defName>
+		<label>Primitive pistol</label>
+		<description>Light mechanical pistol of the Middle Ages. Has a slow reload speed and accuracy.</description>
+		<graphicData>
+			<texPath>Things/Weapon/Jezail_Pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Pistols</subWeaponSpecialization>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_SpecialAttacks">
+				<styleAttacks>
+					<li>GunKata</li>
+				</styleAttacks>
+			</li>
+		</comps>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<WorkToMake>12000</WorkToMake>
+			<Mass>1.5</Mass>
+			<AccuracyTouch>0.7</AccuracyTouch>
+			<AccuracyShort>0.45</AccuracyShort>
+			<AccuracyMedium>0.15</AccuracyMedium>
+			<AccuracyLong>0.1</AccuracyLong>
+			<RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>0</equippedAngleOffset>
+		<costList>
+			<WoodLog>25</WoodLog>
+			<Steel>12</Steel>
+		</costList>
+		<recipeMaker>
+			<recipeUsers>
+				<li>ForgeWithAnvil</li>	 
+			</recipeUsers>
+			<researchPrerequisite>WeaponsII</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>BA_Bullet_BasicRound</defaultProjectile>
+				<warmupTime>1.2</warmupTime>
+				<range>25.9</range>
+				<soundCast>BA_Musket</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>1.2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseHumanMakeableGun">
+		<defName>BA_Gun_Arquebus_R</defName>
+		<label>Short musket</label>
+		<description>A ranged weapon with a slow reload speed. Effective when shooting at a large number of targets.</description>
+		<graphicData>
+			<texPath>Things/Weapon/Arquebus_Rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.3</drawSize>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Rifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<WorkToMake>12000</WorkToMake>
+			<Mass>4</Mass>
+			<AccuracyTouch>0.75</AccuracyTouch>
+			<AccuracyShort>0.7</AccuracyShort>
+			<AccuracyMedium>0.55</AccuracyMedium>
+			<AccuracyLong>0.4</AccuracyLong>
+			<RangedWeapon_Cooldown>3.7</RangedWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<costList>
+			<WoodLog>60</WoodLog>
+			<Steel>14</Steel>
+		</costList>
+		<recipeMaker>
+			<recipeUsers>
+				<li>ForgeWithAnvil</li>
+			</recipeUsers>
+			<researchPrerequisite>WeaponsII</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>BA_Bullet_BasicRound</defaultProjectile>
+				<warmupTime>1.5</warmupTime>
+				<range>30.9</range>
+				<soundCast>BA_Musket</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+</Defs>

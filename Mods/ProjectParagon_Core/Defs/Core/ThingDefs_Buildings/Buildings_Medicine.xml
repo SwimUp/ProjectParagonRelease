@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingNaturalBase">
+		<defName>StasisCocoon</defName>
+		<label>Stasis cocoon</label>
+		<description>A biological cocoon of arachnids that is able to contain a creature inside and keep it alive, gradually healing wounds. It requires a constant supply of insect jelly to work.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_StasisCocoon</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Core/Buildings/StasisCocoon/StasisCocoonFull</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.8</drawSize>
+			<drawOffset>0,0,0.15</drawOffset>
+			<shadowData>
+				<volume>(1.5,3,1)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories inherit="false">
+		  <li>BuildingsSpecial</li>
+		</thingCategories>
+		<size>2,2</size>
+		<uiIconScale>0.85</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>10000</WorkToBuild>
+			<Mass>100</Mass>
+		</statBases>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<designationCategory>Medicine</designationCategory>
+		<!--<designatorDropdown>Farming</designatorDropdown>-->
+		<costList>
+			<Dirt>300</Dirt>
+			<Clay>300</Clay>
+			<Slag>100</Slag>
+			<InsectJelly>125</InsectJelly>
+			<YelloriumIngot>250</YelloriumIngot>
+		</costList>
+		<comps>
+			<li Class="CompProperties_SpawnerFilth">
+				<filthDef>Filth_Slime</filthDef>
+				<spawnCountOnSpawn>10</spawnCountOnSpawn>
+				<spawnMtbHours>4</spawnMtbHours>
+				<spawnRadius>5</spawnRadius>
+			</li>
+			<li Class="CompProperties_EmptyStateGraphic">
+				<graphicData>
+					<texPath>Core/Buildings/StasisCocoon/StasisCocoonEmpty</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawOffset>0,0,0.15</drawOffset>
+					<drawSize>2.8</drawSize>
+				</graphicData>
+			</li>
+			<li Class="CompProperties_Forbiddable">
+			</li>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_ContentsCasket</li>
+		</inspectorTabs>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+				</associatedRaces>
+			</li>
+		</modExtensions>
+	</ThingDef>
+</Defs>

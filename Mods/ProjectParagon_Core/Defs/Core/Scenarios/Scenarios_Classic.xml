@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ScenarioDef>
+		<defName>LostTribe_Paragon</defName>
+		<label>Lost paragon</label>
+		<description>You and a group of like-minded tribesmen decide to take a bold step. You are about to find the lost paragon, artifact and pride of your tribe. None of the living tribesmen have the slightest idea what it is or what it looks like, but you are determined.\n\nThis is a classic Project Paragon scenario. We recommend that you start your acquaintance with the project with it. You will go from the bottom to the top of civilization.</description>
+		<scenario>
+			<summary>Three members of the tribe are trying to establish an independent life and find the lost paragon.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerTribe</factionDef>
+			</playerFaction>
+			<parts>
+				<!-- Config pages -->
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>3</pawnCount>
+					<pawnChoiceCount>5</pawnChoiceCount>
+				</li>
+				<!-- Player starting stuff spawn method-->
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<!-- Player pawns modifiers -->
+				<li Class="ScenPart_ForcedHediff">
+					<def>ForcedHediff</def>
+					<visible>false</visible>
+					<context>PlayerStarter</context>
+					<chance>0.5</chance>
+					<hediff>Malnutrition</hediff>
+					<severityRange>0.2~0.4</severityRange>
+				</li>
+				<li Class="ScenPart_SetNeedLevel">
+					<def>SetNeedLevel</def>
+					<visible>false</visible>
+					<context>PlayerStarter</context>
+					<chance>1.0</chance>
+					<need>Food</need>
+					<levelRange>0~0.1</levelRange>
+				</li>
+				<!-- Player starting things -->
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Silver</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Pemmican</thingDef>
+					<count>300</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MedicineHerbal</thingDef>
+					<count>20</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MeleeWeapon_Ikwa</thingDef>
+					<stuff>CopperIngot</stuff>
+					<count>3</count>
+				</li>
+				<!-- Scatter some things near player start -->
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>ScatterThingsNearPlayerStart</def>
+					<thingDef>WoodLog</thingDef>
+					<count>500</count>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_LearnBlueprints">
+					<def>LearnBlueprints</def>
+					<scenRecords>
+						<li>
+							<thingDefBlueprint>NatureShrine_Small</thingDefBlueprint>
+							<chance>1</chance>
+						</li>
+						<li>
+							<thingDefBlueprint>NatureShrine_Large</thingDefBlueprint>
+							<chance>1</chance>
+						</li>
+					</scenRecords>
+				</li>
+				<!-- Game start dialog -->
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>You and a group of like-minded tribesmen decide to take a bold step. You are about to find the lost paragon, artifact and pride of your tribe. None of the living tribesmen have the slightest idea what it is or what it looks like, but you are determined.\n\nThis is a classic Project Paragon scenario. We recommend that you start your acquaintance with the project with it. You will go from the bottom to the top of civilization.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	<ScenarioDef>
+		<defName>LostSheks</defName>
+		<label>Lost sheks</label>
+		<description>Your group got lost during a long trip to the sea. You tried to catch up with your comrades, but it was all in vain. Few survived, but you are determined to survive.\n\nThis scenario is complicated by your colonists' need for salt.</description>
+		<scenario>
+			<summary>Leaving the past, three hungry shek decide to found their own tribe.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerShek</factionDef>
+			</playerFaction>
+			<parts>
+				<!-- Config pages -->
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>3</pawnCount>
+					<pawnChoiceCount>5</pawnChoiceCount>
+				</li>
+				<!-- Player starting stuff spawn method-->
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<!-- Player pawns modifiers -->
+				<li Class="ScenPart_ForcedHediff">
+					<def>ForcedHediff</def>
+					<visible>false</visible>
+					<context>PlayerStarter</context>
+					<chance>1</chance>
+					<hediff>Malnutrition</hediff>
+					<severityRange>0.5~0.7</severityRange>
+				</li>
+				<li Class="ScenPart_SetNeedLevel">
+					<def>SetNeedLevel</def>
+					<visible>false</visible>
+					<context>PlayerStarter</context>
+					<chance>1.0</chance>
+					<need>Food</need>
+					<levelRange>0~0.1</levelRange>
+				</li>
+				<!-- Player starting things -->
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>RoastedFish</thingDef>
+					<count>10</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MedicineHerbal</thingDef>
+					<count>10</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>RockSalt</thingDef>
+					<count>75</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>DankPyon_MeleeWeapon_BoarSpear</thingDef>
+					<stuff>CopperIngot</stuff>
+					<count>3</count>
+				</li>
+				<!-- Scatter some things near player start -->
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>ScatterThingsNearPlayerStart</def>
+					<thingDef>WoodLog</thingDef>
+					<count>250</count>
+				</li>
+				<!-- Game start dialog -->
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>Your group got lost during a long trip to the sea. You tried to catch up with your comrades, but it was all in vain. Few survived, but you are determined to survive.\n\nThis scenario is complicated by your colonists' need for salt.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	<ScenarioDef>
+		<defName>DefenderOfNature</defName>
+		<label>Defender of nature</label>
+		<description>You are one of the many treants who have been assigned to spread throughout the area to keep the forests healthy. Are you up to the task?</description>
+		<scenario>
+			<summary>An old experienced treant begins an ascetic life in isolation to maintain nature.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerTreant</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>1</pawnCount>
+					<pawnChoiceCount>3</pawnChoiceCount>
+				</li>
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Flora_RawApple</thingDef>
+					<count>125</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MedicineHerbal</thingDef>
+					<count>20</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>ScatterThingsNearPlayerStart</def>
+					<thingDef>WoodLog</thingDef>
+					<count>500</count>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_FactionRelations">
+					<def>FactionRelations</def>
+					<scenFactionRelationRecords>
+						<li>
+							<factionDef>TreantForestUnion</factionDef>
+							<relations>100</relations>
+						</li>
+					</scenFactionRelationRecords>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogFactionSettlements">
+					<def>UnfogFactionSettlements</def>
+					<scenFactionSettlementRecords>
+						<li>
+							<factionDef>TreantForestUnion</factionDef>
+						</li>
+					</scenFactionSettlementRecords>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>You are one of the many treants who have been assigned to spread throughout the area to keep the forests healthy. Are you up to the task?</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	<ScenarioDef>
+		<defName>KairosRebels</defName>
+		<label>Kairos rebels</label>
+		<description>Your small group of supporters staged an uprising in the kingdom, which resulted in a smoldering civil war. In the end, you were defeated and forced into eternal exile.</description>
+		<scenario>
+			<summary>A group of rebellious kairos flee the kingdom to create a new future.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerKairos</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>5</pawnCount>
+					<pawnChoiceCount>8</pawnChoiceCount>
+				</li>
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>RoastedMeat</thingDef>
+					<count>10</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Corned_Beef</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>HealerKit</thingDef>
+					<count>20</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>ScatterThingsNearPlayerStart</def>
+					<thingDef>WoodLog</thingDef>
+					<count>200</count>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_FactionRelations">
+					<def>FactionRelations</def>
+					<scenFactionRelationRecords>
+						<li>
+							<factionDef>KairosDesertUnion</factionDef>
+							<relations>-100</relations>
+						</li>
+					</scenFactionRelationRecords>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogFactionSettlements">
+					<def>UnfogFactionSettlements</def>
+					<scenFactionSettlementRecords>
+						<li>
+							<factionDef>KairosDesertUnion</factionDef>
+						</li>
+					</scenFactionSettlementRecords>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>Your small group of supporters staged an uprising in the kingdom, which resulted in a smoldering civil war. In the end, you were defeated and forced into eternal exile.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	<ScenarioDef>
+		<defName>HiveTraitors</defName>
+		<label>Hive traitors</label>
+		<description>You and a few members of the hive have exhibited an unorthodox intellectual capacity that has allowed you to become truly conscious. You escape the hive and begin a long journey of exile.\n\nYou are aware of the location of nearby arachnid hives.</description>
+		<scenario>
+			<summary>Several arachnids have broken away from the hive and are starting their fight for survival.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerArachnids</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>5</pawnCount>
+					<pawnChoiceCount>8</pawnChoiceCount>
+				</li>
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>InsectJelly</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MedicineHerbal</thingDef>
+					<count>10</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>YelloriumIngot</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_FactionRelations">
+					<def>FactionRelations</def>
+					<scenFactionRelationRecords>
+						<li>
+							<factionDef>Arachnids</factionDef>
+							<relations>-100</relations>
+						</li>
+					</scenFactionRelationRecords>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogFactionSettlements">
+					<def>UnfogFactionSettlements</def>
+					<scenFactionSettlementRecords>
+						<li>
+							<factionDef>Arachnids</factionDef>
+							<radius>50</radius>
+						</li>
+					</scenFactionSettlementRecords>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>You and a few members of the hive have exhibited an unorthodox intellectual capacity that has allowed you to become truly conscious. You escape the hive and begin a long journey of exile.\n\nYou are aware of the location of nearby arachnid hives.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	<ScenarioDef>
+		<defName>AeronRefugees</defName>
+		<label>Aeron refugees</label>
+		<description>You and several other subjects of the kingdom are unhappy with high taxes and poverty. In the end, you decide to leave your homeland and start a new life.\n\nYou are aware of the location of the nearby aeron settlements.</description>
+		<scenario>
+			<summary>A small group of aerons flee the oppression of their kingdom with the hope of a new future.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerAeron</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>3</pawnCount>
+					<pawnChoiceCount>5</pawnChoiceCount>
+				</li>
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>RoastedMeat</thingDef>
+					<count>10</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>HealerKit</thingDef>
+					<count>10</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>StartingThing_Defined</def>
+					<thingDef>WoodLog</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_FactionRelations">
+					<def>FactionRelations</def>
+					<scenFactionRelationRecords>
+						<li>
+							<factionDef>AeronKingdom</factionDef>
+							<relations>-100</relations>
+						</li>
+					</scenFactionRelationRecords>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogFactionSettlements">
+					<def>UnfogFactionSettlements</def>
+					<scenFactionSettlementRecords>
+						<li>
+							<factionDef>AeronKingdom</factionDef>
+							<radius>50</radius>
+						</li>
+					</scenFactionSettlementRecords>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>You and several other subjects of the kingdom are unhappy with high taxes and poverty. In the end, you decide to leave your homeland and start a new life.\n\nYou are aware of the location of the nearby aeron settlements.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+</Defs>

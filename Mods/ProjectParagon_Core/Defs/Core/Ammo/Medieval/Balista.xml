@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<CombatExtended.AmmoCategoryDef>
+		<defName>BallistaBolt</defName>
+		<label>ballista bolt</label>
+		<description>An explosive arrow filled with metal debris.</description>
+	</CombatExtended.AmmoCategoryDef>
+	<CombatExtended.AmmoCategoryDef>
+		<defName>BallistaBoltExplosive</defName>
+		<label>Explosive ballista bolt</label>
+		<description>An explosive arrow filled with metal debris.</description>
+	</CombatExtended.AmmoCategoryDef>
+	<CombatExtended.AmmoCategoryDef>
+		<defName>BallistaBoltExpansive</defName>
+		<label>Expansive ballista bolt</label>
+		<description>An explosive arrow filled with metal debris.</description>
+	</CombatExtended.AmmoCategoryDef>
+	
+	<ThingCategoryDef>
+		<defName>AmmoBallistaBolts</defName>
+		<label>ballista bolts</label>
+		<parent>AmmoNeolithic</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberArrow</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_BallistaBolt</defName>
+		<label>ballista bolts</label>
+		<ammoTypes>
+			<Ammo_BallistaBolt>Projectile_BallistaBolt</Ammo_BallistaBolt>
+			<Ammo_BallistaBoltExplosive>Projectile_BallistaBoltExplosive</Ammo_BallistaBoltExplosive>
+			<Ammo_BallistaBoltExpansive>Projectile_BallistaBoltExpansive</Ammo_BallistaBoltExpansive>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_BeeSwarmBallistaBolt</defName>
+		<label>ballista bolts</label>
+		<ammoTypes>
+			<Ammo_BallistaBolt>Projectile_BeeSwarmBallistaBolt</Ammo_BallistaBolt>
+			<Ammo_BallistaBoltExplosive>Projectile_BeeSwarmBallistaBoltExplosive</Ammo_BallistaBoltExplosive>
+			<Ammo_BallistaBoltExpansive>Projectile_BeeSwarmBallistaBoltExpansive</Ammo_BallistaBoltExpansive>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="AmmoBallistaBoltBase" ParentName="NeolithicAmmoBase" Abstract="True">
+		<description>A ballista bolt.</description>
+		<statBases>
+			<Mass>0.5</Mass>
+			<Bulk>0.5</Bulk>
+			<Flammability>1</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>AmmoBallistaBolts</li>
+		</thingCategories>
+		<stackLimit>50</stackLimit>
+		<tradeTags>
+			<li>CE_PreIndustrialAmmo</li>
+			<li>CE_AutoEnableTrade</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoBallistaBoltBase">
+		<defName>Ammo_BallistaBolt</defName>
+		<label>ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/BallistaBolts</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1</Mass>
+			<MarketValue>0.5</MarketValue>
+		</statBases>
+		<ammoClass>BallistaBolt</ammoClass>
+		<tradeTags>
+			<!--<li>CE_AutoEnableCrafting_CraftingSpot</li>-->
+		</tradeTags>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoBallistaBoltBase">
+		<defName>Ammo_BallistaBoltExplosive</defName>
+		<label>Explosive ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/ExplosiveBallistaBolts</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1</Mass>
+			<MarketValue>0.5</MarketValue>
+		</statBases>
+		<ammoClass>BallistaBoltExplosive</ammoClass>
+		<tradeTags>
+			<!--<li>CE_AutoEnableCrafting_CraftingSpot</li>-->
+		</tradeTags>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>50</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>2</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>1</Fragment_Large>
+					<Fragment_Small>5</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoBallistaBoltBase">
+		<defName>Ammo_BallistaBoltExpansive</defName>
+		<label>Expansive ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/ExpansiveBallistaBolts</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1</Mass>
+			<MarketValue>0.5</MarketValue>
+		</statBases>
+		<ammoClass>BallistaBoltExpansive</ammoClass>
+		<tradeTags>
+			<!--<li>CE_AutoEnableCrafting_CraftingSpot</li>-->
+		</tradeTags>
+	</ThingDef>
+
+
+	<!-- ================== Projectiles ================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="BaseBallistaBoltProjectile" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<texPath>Things/Projectile/Arrow_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Arrow</damageDef>
+			<speed>15</speed>
+		</projectile>
+	</ThingDef>
+	
+
+	<!-- The amount of arrows usable over the ammo lifetime for each resource cost is equal to
+		[r / (1 - x)];
+			x = preExplosionSpawnChance,
+			r = resource cost. -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseBallistaBoltProjectile">
+		<defName>Projectile_BallistaBolt</defName>
+		<label>ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/BallistaBolt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Scratch</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
+			<armorPenetrationBlunt>10</armorPenetrationBlunt>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseBallistaBoltProjectile">
+		<defName>Projectile_BallistaBoltExplosive</defName>
+		<label>Explosive ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/BallistaBoltExplosive</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>50</damageAmountBase>
+			<armorPenetrationSharp>8</armorPenetrationSharp>
+			<armorPenetrationBlunt>15</armorPenetrationBlunt>
+			<explosionRadius>2</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>1</Fragment_Large>
+					<Fragment_Small>5</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseBallistaBoltProjectile">
+		<defName>Projectile_BallistaBoltExpansive</defName>
+		<label>Expansive ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/BallistaBoltExpansive</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Scratch</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<armorPenetrationSharp>15</armorPenetrationSharp>
+			<armorPenetrationBlunt>30</armorPenetrationBlunt>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseBallistaBoltProjectile">
+		<defName>Projectile_BeeSwarmBallistaBolt</defName>
+		<label>ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/BallistaBolt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Scratch</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<armorPenetrationSharp>3</armorPenetrationSharp>
+			<armorPenetrationBlunt>7</armorPenetrationBlunt>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<gravityFactor>30</gravityFactor>
+			<speed>50</speed>
+		</projectile>
+		<statBases>
+			<Suppression>100</Suppression>
+		</statBases>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseBallistaBoltProjectile">
+		<defName>Projectile_BeeSwarmBallistaBoltExplosive</defName>
+		<label>Explosive ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/BallistaBoltExplosive</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>40</damageAmountBase>
+			<armorPenetrationSharp>6</armorPenetrationSharp>
+			<armorPenetrationBlunt>12</armorPenetrationBlunt>
+			<explosionRadius>2</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<gravityFactor>30</gravityFactor>
+			<speed>50</speed>
+		</projectile>
+		<statBases>
+			<Suppression>100</Suppression>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>1</Fragment_Large>
+					<Fragment_Small>7</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseBallistaBoltProjectile">
+		<defName>Projectile_BeeSwarmBallistaBoltExpansive</defName>
+		<label>Expansive ballista bolt</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/BallistaBolts/BallistaBoltExpansive</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Scratch</damageDef>
+			<damageAmountBase>25</damageAmountBase>
+			<armorPenetrationSharp>10</armorPenetrationSharp>
+			<armorPenetrationBlunt>20</armorPenetrationBlunt>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<gravityFactor>30</gravityFactor>
+			<speed>50</speed>
+		</projectile>
+		<statBases>
+			<Suppression>100</Suppression>
+		</statBases>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_BallistaBolt</defName>
+		<label>make ballista bolts x5</label>
+		<description>Craft 5 ballista  bolts.</description>
+		<jobString>Making ballista bolts.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+					</categories>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+			</categories>
+			<thingDefs>
+				<li>WoodLog</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_BallistaBolt>5</Ammo_BallistaBolt>
+		</products>
+		<workAmount>800</workAmount>	
+		<researchPrerequisite>AssaultWeapons</researchPrerequisite>
+	</RecipeDef>
+	
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_BallistaBoltExplosive</defName>
+		<label>make explosive ballista bolts x5</label>
+		<description>Craft 5 explosive ballista  bolts.</description>
+		<jobString>Making explosive ballista bolts.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+					</categories>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+			</categories>
+			<thingDefs>
+				<li>WoodLog</li>
+				<li>Gunpowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_BallistaBoltExplosive>5</Ammo_BallistaBoltExplosive>
+		</products>
+		<workAmount>1000</workAmount>	
+		<researchPrerequisite>AssaultWeapons</researchPrerequisite>
+	</RecipeDef>
+	
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_BallistaBoltExpansive</defName>
+		<label>make expansive ballista bolts x5</label>
+		<description>Craft 5 expansive ballista  bolts.</description>
+		<jobString>Making expansive ballista bolts.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+					</categories>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+			</categories>
+			<thingDefs>
+				<li>WoodLog</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_BallistaBoltExpansive>5</Ammo_BallistaBoltExpansive>
+		</products>
+		<workAmount>1000</workAmount>	
+		<researchPrerequisite>AssaultWeapons</researchPrerequisite>
+	</RecipeDef>
+
+</Defs>

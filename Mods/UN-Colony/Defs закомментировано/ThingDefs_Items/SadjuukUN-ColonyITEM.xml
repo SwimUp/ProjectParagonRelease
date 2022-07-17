@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+  <!-- SadjuukExtractorA : Silicon Extractor -->
+  <!-- CONCRETE (1 StoneChunks => 20 Concrete) -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>SadjuukConcrete</defName>
+    <label>Concrete</label>
+    <description>A composite material made of fine and coarse aggregate bonded together. Concrete makes a building fire-safe due to its noncombustible nature.</description>
+    <graphicData>
+      <texPath>SadjuukItem/SadjuukConcrete</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <uiIconPath>SadjuukItem/SadjuukConcrete/SadjuukConcrete_Icon</uiIconPath>
+    <stackLimit>75</stackLimit>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <MarketValue>1</MarketValue>
+      <Mass>2</Mass>
+      <Flammability>0</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+  <!-- SadjuukGlass : Bulletproof Glass (1 StoneChunks => 5 Glass Slabs) -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>SadjuukGlass</defName>
+    <label>Bulletproof Glass</label>
+    <description>Thin wafers of silicon interwoven.</description>
+    <graphicData>
+      <texPath>SadjuukItem/SadjuukGlass</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>75</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>5</MarketValue>
+      <Mass>3</Mass>
+      <Flammability>0</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+  
+  
+  
+  <!-- SadjuukRefineryA : Chemfuel Refinery -->
+  <!-- SadjuukChemfuelBarrel : Chemfuel Barrel (150 chemfuel) -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>SadjuukChemfuelBarrel</defName>
+    <label>Chemfuel Barrel</label>
+    <description>A barrel of Chemfuel, can be stored outside. Contains 450 units of Chemfuel.
+Highly explosive.</description>
+    <graphicData>
+      <texPath>SadjuukItem/SadjuukChemfuelBarrel</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <stackLimit>1</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>1035</MarketValue>
+      <Mass>22.5</Mass>
+      <Flammability>1</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>1</preExplosionSpawnChance>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukHydrogen : High Pressure Hydrogen (150 chemfuel + 1 component) -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>SadjuukHydrogen</defName>
+    <label>High Pressure Hydrogen</label>
+    <description>A shielded container of High Pressure Hydrogen. Used to produce energy in fuel cell or as propellant for advanced military ammunition.</description>
+    <graphicData>
+      <texPath>SadjuukItem/SadjuukHydrogen</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <uiIconPath>SadjuukItem/SadjuukHydrogen/SadjuukHydrogen_Icon</uiIconPath>
+    <stackLimit>25</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>600</MarketValue>
+      <Mass>5</Mass>
+      <Flammability>1</Flammability>
+      <DeteriorationRate>0.1</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tickerType>Normal</tickerType>
+      <!--<comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <startWickHitPointsPercent>0.1</startWickHitPointsPercent>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>-->
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.3</startWickHitPointsPercent>
+        <wickTicks>
+          <min>70</min>
+          <max>150</max>
+        </wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  
+</Defs>

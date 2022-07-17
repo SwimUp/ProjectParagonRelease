@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--ThingDef ParentName="AnimalThingBase">
+    <defName>DankPyon_Lindwurm</defName>
+    <label>Lindwurm</label>
+    <description>An enormous reptile, halfway between serpents and dragons. One of the few creatures truly incapable of feeling fear. Any daredevil who manages to get past the mighty yet nimble tail and pierce a hardy scale will be splashed with corrosive blood. Lindwurm blood is the most powerful acid known yet — dissolving even the thickest steel, eating through the flesh in seconds.</description>
+  <statBases>
+      <MoveSpeed>5</MoveSpeed>
+      <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+      <MarketValue>2700</MarketValue>
+    </statBases>
+    <tools>
+      <li>
+        <cooldownTime>3</cooldownTime>
+        <power>35</power>
+        <capacities><li>Bite</li></capacities>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+		  <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>45</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+    </tools>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>DankPyon_EggLindwurmFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>20</eggLayIntervalDays>
+		<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+    </comps>
+	<race>
+      <predator>true</predator>
+      <body>DankPyon_LindwurmBody</body>
+	  <herdMigrationAllowed>false</herdMigrationAllowed>
+      <baseHungerRate>1.25</baseHungerRate>
+      <baseBodySize>6</baseBodySize>
+      <baseHealthScale>5</baseHealthScale>
+      <foodType>CarnivoreAnimal</foodType>
+      <gestationPeriodDays>30</gestationPeriodDays>
+      <mateMtbHours>8</mateMtbHours>
+      <wildness>0.90</wildness>
+      <lifeExpectancy>100</lifeExpectancy>
+      <trainability>Intermediate</trainability>
+	  <maxPreyBodySize>6</maxPreyBodySize>
+      <manhunterOnTameFailChance>0.1</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>1</manhunterOnDamageChance>
+      <leatherDef>DankPyon_Leather_Lindwurm</leatherDef>
+      <meatLabel>snake meat</meatLabel>
+	  <wildBiomes>
+		<TropicalSwamp>0.008</TropicalSwamp> 
+		<TropicalRainforest>0.007</TropicalRainforest>
+    <BorealForest>0.007</BorealForest>
+		<TemperateForest>0.005</TemperateForest>
+	  </wildBiomes>
+	<nuzzleMtbHours>75</nuzzleMtbHours>
+      <litterSizeCurve>
+        <points>
+          <li>(0.99, 0)</li>
+          <li>(1, 1)</li>
+          <li>(1.01, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.7</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>1.3</minAge>
+          <soundCall>Pawn_Cobra_Call</soundCall>
+          <soundAngry>Pawn_Cobra_Angry</soundAngry>
+          <soundWounded>Pawn_Cobra_Wounded</soundWounded>
+          <soundDeath>Pawn_Cobra_Death</soundDeath>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+    <tradeTags>
+      <li>AnimalExotic</li>
+    </tradeTags>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>DankPyon_Lindwurm</defName>
+    <label>Lindwurm</label>
+    <race>DankPyon_Lindwurm</race>    
+	<combatPower>650</combatPower>
+	<canArriveManhunter>true</canArriveManhunter>
+	<wildGroupSize>
+      <min>1</min>
+      <max>3</max>
+    </wildGroupSize>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Animal/Lindwurm</texPath>
+          <drawSize>2.3</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.3, 0.3)</volume>
+            <offset>(0,0,-0.2)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Animal/Dessicated_Lindwurm</texPath>
+          <drawSize>2.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Animal/Lindwurm</texPath>
+          <drawSize>3.3</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.3, 0.3)</volume>
+            <offset>(0,0,-0.2)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Animal/Dessicated_Lindwurm</texPath>
+          <drawSize>3.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Animal/Lindwurm</texPath>
+          <drawSize>4.5</drawSize>
+          <shadowData>
+            <volume>(0.6, 0.45, 0.45)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Animal/Dessicated_Lindwurm</texPath>
+          <drawSize>4.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Animal/Lindwurm</texPath>
+          <drawSize>5.5</drawSize>
+          <shadowData>
+            <volume>(0.8, 0.6, 0.6)</volume>
+            <offset>(0,0,-0.3)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Animal/Dessicated_Lindwurm</texPath>
+          <drawSize>5.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef-->
+
+</Defs>

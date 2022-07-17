@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<AbilityDef>
+		<defName>ActiveDefenseCommand</defName>
+		<label>active defence command</label>
+		<description>Command your soldiers to start an active defense to conduct a profitable battle.</description>
+		<gizmoClass>ProjectParagon.Core.Things.Pawns.Command_AbilityKairos</gizmoClass>
+		<jobDef>CastAbilityOnThing</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<iconPath>Core/UI/Kairos/ActiveDefenseCommand</iconPath>
+		<warmupMoteSocialSymbol>UI/Abilities/CombatCommand</warmupMoteSocialSymbol>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<uiOrder>3</uiOrder>
+		<warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+		<groupDef>KairosPrinceGroup</groupDef>
+		<overrideGroupCooldown>True</overrideGroupCooldown>
+		<cooldownTicksRange>420000</cooldownTicksRange>
+		<statBases>
+			<Ability_Duration>500</Ability_Duration>
+			<Ability_EffectRadius>9.9</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>9.9</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetHumans>false</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>ActiveDefenseCommand</hediffDef>
+				<onlyBrain>True</onlyBrain>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ActiveDefenseCommand</defName>
+		<thingClass>MoteAttached</thingClass>
+		<altitudeLayer>LightingOverlay</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<mote>
+			<solidTime>9999999</solidTime>
+			<needsMaintenance>true</needsMaintenance>
+		</mote>
+		<graphicData>
+			<graphicClass>Graphic_Mote</graphicClass>
+			<texPath>Things/Mote/CombatCommandMask</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<color>(0,4,32)</color>
+			<drawSize>20</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_ActiveDefenseCommandLinkLine</defName>
+		<thingClass>MoteDualAttached</thingClass>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<mote>
+			<fadeInTime>0.1</fadeInTime>
+			<fadeOutTime>0.1</fadeOutTime>
+			<solidTime>999999</solidTime>
+			<needsMaintenance>True</needsMaintenance>
+			<rotateTowardsTarget>True</rotateTowardsTarget>
+			<scaleToConnectTargets>True</scaleToConnectTargets>
+		</mote>
+		<graphicData>
+			<shaderType>MoteGlow</shaderType>
+			<texPath>Core/Motes/Abilities/ActiveDefenseLinkLine</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<HediffDef ParentName="RoleStatBuff">
+		<defName>ActiveDefenseCommand</defName>
+		<label>active defence command</label>
+		<description>This Kairos commands the battle formations and helps the soldiers to fight effectively.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_GiveHediffsInRangeParagon">
+				<range>9.9</range>
+				<mote>Mote_ActiveDefenseCommand</mote>
+				<hideMoteWhenNotDrafted>true</hideMoteWhenNotDrafted>
+				<targetingParameters>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetAnimals>false</canTargetAnimals>
+					<canTargetMechs>false</canTargetMechs>
+					<onlyTargetColonists>true</onlyTargetColonists>
+				</targetingParameters>
+				<hediff>ActiveDefenseCommandBuff</hediff>
+				<racesWhiteList>
+					<li>Kairos_Soldier</li>
+				</racesWhiteList>
+				<onlyPawnsInSameRace>true</onlyPawnsInSameRace>
+			</li>
+		</comps>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<HediffDef ParentName="RoleStatBuff">
+		<defName>ActiveDefenseCommandBuff</defName>
+		<label>active defence command</label>
+		<description>Kairos Prince gave the command for active defense. Controlled soldiers hold defensive lines.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+			<li Class="HediffCompProperties_Link">
+				<requireLinkOnOtherPawn>false</requireLinkOnOtherPawn>
+				<maxDistance>10</maxDistance>
+				<customMote>Mote_ActiveDefenseCommandLinkLine</customMote>
+			</li>
+		</comps>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statFactors>
+					<MeleeCounterParryBonus>1.5</MeleeCounterParryBonus>
+					<MeleeDodgeChance>1.5</MeleeDodgeChance>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

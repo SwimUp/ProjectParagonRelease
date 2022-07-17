@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<CombatExtended.AmmoCategoryDef>
+		<defName>Cannonball_50mm</defName>
+		<label>50mm cannonball</label>
+		<description>Small cannonballs.</description>
+	</CombatExtended.AmmoCategoryDef>
+	
+	<CombatExtended.AmmoCategoryDef>
+		<defName>Cannonball_150mm</defName>
+		<label>150mm cannonball</label>
+		<description>Medium cannonballs.</description>
+	</CombatExtended.AmmoCategoryDef>
+	
+	<CombatExtended.AmmoCategoryDef>
+		<defName>Cannonball_250mm</defName>
+		<label>250mm cannonball</label>
+		<description>Big cannonballs.</description>
+	</CombatExtended.AmmoCategoryDef>
+	
+	<CombatExtended.AmmoCategoryDef>
+		<defName>Cannonball_500mm</defName>
+		<label>500mm cannonball</label>
+		<description>Large cannonballs.</description>
+	</CombatExtended.AmmoCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>AmmoCannonballs</defName>
+		<label>cannonballs</label>
+		<parent>AmmoMedieval</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberArrow</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_Cannonball_50mms</defName>
+		<label>50mm cannonballs</label>
+		<ammoTypes>
+			<Ammo_Cannonball_50mms>Projectile_Cannonball_50mms</Ammo_Cannonball_50mms>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_Cannonball_50mmSmallCannon</defName>
+		<label>50mm cannonballs</label>
+		<ammoTypes>
+			<Ammo_Cannonball_50mms>Projectile_Cannonball_50mmSmallCannon</Ammo_Cannonball_50mms>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_Cannonball_150mmMediumCannon</defName>
+		<label>150mm cannonballs</label>
+		<ammoTypes>
+			<Ammo_Cannonball_150mms>Projectile_Cannonball_150mmMediumCannon</Ammo_Cannonball_150mms>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_Cannonball_150mmLightMortar</defName>
+		<label>150mm cannonballs</label>
+		<ammoTypes>
+			<Ammo_Cannonball_150mms>Projectile_Cannonball_150mmLightMortar</Ammo_Cannonball_150mms>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_Cannonball_250mmBigCannon</defName>
+		<label>250mm cannonballs</label>
+		<ammoTypes>
+			<Ammo_Cannonball_250mms>Projectile_Cannonball_250mmBigCannon</Ammo_Cannonball_250mms>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_Cannonball_250mmHeavyMortar</defName>
+		<label>250mm cannonballs</label>
+		<ammoTypes>
+			<Ammo_Cannonball_250mms>Projectile_Cannonball_250mmHeavyMortar</Ammo_Cannonball_250mms>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_Cannonball_500mmTsarCannon</defName>
+		<label>500mm cannonballs</label>
+		<ammoTypes>
+			<Ammo_Cannonball_500mms>Projectile_Cannonball_500mmTsarCannon</Ammo_Cannonball_500mms>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="AmmoCannonball_50mmBase" ParentName="MedievalAmmoBase" Abstract="True">
+		<description>A 50mm cannonball.</description>
+		<statBases>
+			<Mass>1</Mass>
+			<Bulk>2</Bulk>
+			<Flammability>0</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>AmmoCannonballs</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<tradeTags>
+			<li>CE_PreIndustrialAmmo</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoCannonball_50mmBase">
+		<defName>Ammo_Cannonball_50mms</defName>
+		<label>50mm cannonball</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/Cannonballs/CannonBalls</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>1,1</drawSize>
+		</graphicData>
+		<statBases>
+			<Mass>1</Mass>
+			<MarketValue>0.5</MarketValue>
+		</statBases>
+		<ammoClass>Cannonball_50mm</ammoClass>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>30</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>1</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>1</Fragment_Large>
+					<Fragment_Small>3</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" Name="AmmoCannonball_150mmBase" ParentName="MedievalAmmoBase" Abstract="True">
+		<description>A 150mm cannonball.</description>
+		<statBases>
+			<Mass>2</Mass>
+			<Bulk>4</Bulk>
+			<Flammability>0</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>AmmoCannonballs</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<tradeTags>
+			<li>CE_PreIndustrialAmmo</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoCannonball_150mmBase">
+		<defName>Ammo_Cannonball_150mms</defName>
+		<label>150mm cannonball</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/Cannonballs/CannonBalls</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>1.25,1.25</drawSize>
+		</graphicData>
+		<statBases>
+			<Mass>2</Mass>
+			<MarketValue>0.65</MarketValue>
+		</statBases>
+		<ammoClass>Cannonball_150mm</ammoClass>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>35</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>2</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>4</Fragment_Large>
+					<Fragment_Small>8</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" Name="AmmoCannonball_250mmBase" ParentName="MedievalAmmoBase" Abstract="True">
+		<description>A 250mm cannonball.</description>
+		<statBases>
+			<Mass>3</Mass>
+			<Bulk>5</Bulk>
+			<Flammability>0</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>AmmoCannonballs</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<tradeTags>
+			<li>CE_PreIndustrialAmmo</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoCannonball_250mmBase">
+		<defName>Ammo_Cannonball_250mms</defName>
+		<label>250mm cannonball</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/Cannonballs/CannonBalls</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>1.5,1.5</drawSize>
+		</graphicData>
+		<statBases>
+			<Mass>3</Mass>
+			<MarketValue>0.75</MarketValue>
+		</statBases>
+		<ammoClass>Cannonball_250mm</ammoClass>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>40</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>3</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>5</Fragment_Large>
+					<Fragment_Small>12</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" Name="AmmoCannonball_500mmBase" ParentName="MedievalAmmoBase" Abstract="True">
+		<description>A 500mm cannonball.</description>
+		<statBases>
+			<Mass>8</Mass>
+			<Bulk>6</Bulk>
+			<Flammability>0</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>AmmoCannonballs</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<tradeTags>
+			<li>CE_PreIndustrialAmmo</li>
+		</tradeTags>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoCannonball_500mmBase">
+		<defName>Ammo_Cannonball_500mms</defName>
+		<label>500mm cannonball</label>
+		<graphicData>
+			<texPath>Core/Items/Projectile/Cannonballs/CannonBalls</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>2,2</drawSize>
+		</graphicData>
+		<statBases>
+			<Mass>8</Mass>
+			<MarketValue>1</MarketValue>
+		</statBases>
+		<ammoClass>Cannonball_500mm</ammoClass>
+		<comps>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>40</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>4</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>8</Fragment_Large>
+					<Fragment_Small>20</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+
+	<!-- ================== Projectiles ================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="BaseCannonball_50mmsProjectile" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<texPath>Core/Items/Projectile/Cannonballs/CannonBall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1,1</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<speed>30</speed>
+			<gravityFactor>10</gravityFactor>
+			<postExplosionSpawnChance>1</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" Name="BaseCannonball_150mmsProjectile" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<texPath>Core/Items/Projectile/Cannonballs/CannonBall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.25,1.25</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<speed>30</speed>
+			<gravityFactor>10</gravityFactor>
+			<postExplosionSpawnChance>1</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" Name="BaseCannonball_250mmsProjectile" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<texPath>Core/Items/Projectile/Cannonballs/CannonBall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5,1.5</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<speed>30</speed>
+			<gravityFactor>10</gravityFactor>
+			<postExplosionSpawnChance>1</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" Name="BaseCannonball_500mmsProjectile" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<texPath>Core/Items/Projectile/Cannonballs/CannonBall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2,2</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<speed>30</speed>
+			<gravityFactor>10</gravityFactor>
+			<postExplosionSpawnChance>1</postExplosionSpawnChance>
+			<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+		</projectile>
+	</ThingDef>
+	
+	<!-- The amount of arrows usable over the ammo lifetime for each resource cost is equal to
+		[r / (1 - x)];
+			x = preExplosionSpawnChance,
+			r = resource cost. -->
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseCannonball_50mmsProjectile">
+		<defName>Projectile_Cannonball_50mmSmallCannon</defName>
+		<label>50mm cannonball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<armorPenetrationSharp>6</armorPenetrationSharp>
+			<armorPenetrationBlunt>20</armorPenetrationBlunt>
+			<explosionRadius>1</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Small>5</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseCannonball_50mmsProjectile">
+		<defName>Projectile_Cannonball_50mms</defName>
+		<label>50mm cannonball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<armorPenetrationSharp>4</armorPenetrationSharp>
+			<armorPenetrationBlunt>12</armorPenetrationBlunt>
+			<explosionRadius>2</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>1</Fragment_Large>
+					<Fragment_Small>3</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseCannonball_150mmsProjectile">
+		<defName>Projectile_Cannonball_150mmMediumCannon</defName>
+		<label>150mm cannonball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>25</damageAmountBase>
+			<armorPenetrationSharp>10</armorPenetrationSharp>
+			<armorPenetrationBlunt>30</armorPenetrationBlunt>
+			<explosionRadius>2</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<speed>40</speed>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>4</Fragment_Large>
+					<Fragment_Small>8</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseCannonball_150mmsProjectile">
+		<defName>Projectile_Cannonball_150mmLightMortar</defName>
+		<label>150mm cannonball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<armorPenetrationSharp>6</armorPenetrationSharp>
+			<armorPenetrationBlunt>16</armorPenetrationBlunt>
+			<explosionRadius>3</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<speed>30</speed>
+			<gravityFactor>7</gravityFactor>
+			<flyOverhead>true</flyOverhead>
+		</projectile>
+		<statBases>
+			<Suppression>10</Suppression>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>2</Fragment_Large>
+					<Fragment_Small>16</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseCannonball_250mmsProjectile">
+		<defName>Projectile_Cannonball_250mmBigCannon</defName>
+		<label>250mm cannonball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>35</damageAmountBase>
+			<armorPenetrationSharp>20</armorPenetrationSharp>
+			<armorPenetrationBlunt>50</armorPenetrationBlunt>
+			<explosionRadius>3</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<speed>60</speed>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>6</Fragment_Large>
+					<Fragment_Small>12</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseCannonball_250mmsProjectile">
+		<defName>Projectile_Cannonball_250mmHeavyMortar</defName>
+		<label>250mm cannonball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<armorPenetrationSharp>10</armorPenetrationSharp>
+			<armorPenetrationBlunt>30</armorPenetrationBlunt>
+			<explosionRadius>4</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<speed>30</speed>
+			<gravityFactor>4</gravityFactor>
+			<flyOverhead>true</flyOverhead>
+		</projectile>
+		<statBases>
+			<Suppression>10</Suppression>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>8</Fragment_Large>
+					<Fragment_Small>10</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseCannonball_500mmsProjectile">
+		<defName>Projectile_Cannonball_500mmTsarCannon</defName>
+		<label>500mm cannonball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>50</damageAmountBase>
+			<armorPenetrationSharp>40</armorPenetrationSharp>
+			<armorPenetrationBlunt>70</armorPenetrationBlunt>
+			<explosionRadius>4</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<postExplosionSpawnThingDef>Filth_Ash</postExplosionSpawnThingDef>
+			<speed>70</speed>
+		</projectile>
+		<statBases>
+			<Suppression>100</Suppression>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>12</Fragment_Large>
+					<Fragment_Small>25</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_Cannonball_50mms</defName>
+		<label>make 50mm cannonballs x15</label>
+		<description>Craft 15 50mm cannonballs.</description>
+		<jobString>Making 50mm cannonballs.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>StoneChunks</li>
+					</categories>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>30</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>StoneChunks</li>
+			</categories>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_Cannonball_50mms>15</Ammo_Cannonball_50mms>
+		</products>
+		<workAmount>1200</workAmount>	
+		<researchPrerequisite>GunFire</researchPrerequisite>
+		<recipeUsers>
+			<li>ForgeWithAnvil</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_Cannonball_150mms</defName>
+		<label>make 150mm cannonballs x5</label>
+		<description>Craft 5 150mm cannonballs.</description>
+		<jobString>Making 150mm cannonballs.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+					</categories>
+				</filter>
+				<count>100</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+			</categories>
+			<thingDefs>
+				<li>Gunpowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_Cannonball_150mms>5</Ammo_Cannonball_150mms>
+		</products>
+		<workAmount>1500</workAmount>	
+		<researchPrerequisite>GunFire</researchPrerequisite>
+		<recipeUsers>
+			<li>ForgeWithAnvil</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_Cannonball_250mms</defName>
+		<label>make 250mm cannonballs x5</label>
+		<description>Craft 5 250mm cannonballs.</description>
+		<jobString>Making 250mm cannonballs.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+					</categories>
+				</filter>
+				<count>150</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+			</categories>
+			<thingDefs>
+				<li>Gunpowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_Cannonball_250mms>5</Ammo_Cannonball_250mms>
+		</products>
+		<workAmount>2000</workAmount>	
+		<researchPrerequisite>GunFire</researchPrerequisite>
+		<recipeUsers>
+			<li>ForgeWithAnvil</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef ParentName="AmmoRecipeNeolithicBase">
+		<defName>MakeAmmo_Cannonball_500mms</defName>
+		<label>make 500mm cannonballs x5</label>
+		<description>Craft 5 500mm cannonballs.</description>
+		<jobString>Making 500mm cannonballs.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+					</categories>
+				</filter>
+				<count>300</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+			</categories>
+			<thingDefs>
+				<li>Gunpowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_Cannonball_500mms>5</Ammo_Cannonball_500mms>
+		</products>
+		<workAmount>3000</workAmount>	
+		<researchPrerequisite>GunFire</researchPrerequisite>
+		<recipeUsers>
+			<li>ForgeWithAnvil</li>
+		</recipeUsers>
+	</RecipeDef>
+
+</Defs>

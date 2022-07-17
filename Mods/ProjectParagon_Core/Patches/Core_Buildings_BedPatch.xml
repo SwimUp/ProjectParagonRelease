@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SleepingSpot"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>SleepingSpot</defName>
+						<label>sleeping spot</label>
+						<description>Designates a spot on the ground where people should sleep. Not comfortable.</description>
+						<thingClass>Building_Bed</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/SleepSpot</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3,4)</drawSize>
+						</graphicData>
+						<altitudeLayer>FloorEmplacement</altitudeLayer>
+						<statBases>
+							<WorkToBuild>0</WorkToBuild>
+							<BedRestEffectiveness>0.5</BedRestEffectiveness>
+							<Comfort>0.25</Comfort>
+							<ImmunityGainSpeedFactor>0.8</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.3</SurgerySuccessChanceFactor>
+						</statBases>
+						<scatterableOnMapGen>false</scatterableOnMapGen>
+						<useHitPoints>False</useHitPoints>
+						<size>(1,2)</size>
+						<designationCategory>Furniture</designationCategory>
+						<passability>Standable</passability>
+						<drawGUIOverlay>True</drawGUIOverlay>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<building>
+							<bed_showSleeperBody>True</bed_showSleeperBody>
+							<sowTag>SupportPlantsOnly</sowTag>
+							<canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+							<ai_chillDestination>false</ai_chillDestination>
+							<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+							<buildingTags>
+								<li>Bed</li>
+							</buildingTags>
+						</building>
+						<designationHotKey>Misc1</designationHotKey>
+						<comps>
+							<li Class="CompProperties_AssignableToPawn">
+								<drawAssignmentOverlay>false</drawAssignmentOverlay>
+								<compClass>CompAssignableToPawn_Bed</compClass>
+							</li>
+						</comps>
+						<designatorDropdown>SingleBeds</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="DoubleSleepingSpot"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>DoubleSleepingSpot</defName>
+						<label>double sleeping spot</label>
+						<description>Designates a spot on the ground where two people should sleep together. Not comfortable.</description>
+						<thingClass>Building_Bed</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/DoubleSleepSpot</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(4,4)</drawSize>
+						</graphicData>
+						<altitudeLayer>FloorEmplacement</altitudeLayer>
+						<statBases>
+							<WorkToBuild>0</WorkToBuild>
+							<BedRestEffectiveness>0.5</BedRestEffectiveness>
+							<Comfort>0.25</Comfort>
+							<ImmunityGainSpeedFactor>0.8</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.3</SurgerySuccessChanceFactor>
+						</statBases>
+						<scatterableOnMapGen>false</scatterableOnMapGen>
+						<useHitPoints>False</useHitPoints>
+						<size>(2,2)</size>
+						<designationCategory>Furniture</designationCategory>
+						<passability>Standable</passability>
+						<drawGUIOverlay>True</drawGUIOverlay>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<building>
+							<bed_showSleeperBody>True</bed_showSleeperBody>
+							<sowTag>SupportPlantsOnly</sowTag>
+							<canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+							<ai_chillDestination>false</ai_chillDestination>
+							<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+							<buildingTags>
+								<li>Bed</li>
+							</buildingTags>
+						</building>
+						<comps>
+							<li Class="CompProperties_AssignableToPawn">
+								<drawAssignmentOverlay>false</drawAssignmentOverlay>
+								<compClass>CompAssignableToPawn_Bed</compClass>
+							</li>
+						</comps>
+						<designatorDropdown>DoubleBeds</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bedroll"]</xpath>
+				<value>
+					<ThingDef ParentName="BedWithQualityBase">
+						<defName>Bedroll</defName>
+						<label>bedroll</label>
+						<description>A simple bed that lays on the floor, usually made of cloth or leather, often lined with fur. It is lightweight and can be rolled up for easy transport, but it is not quite as comfortable as a typical bed. Caravans can use bedrolls while traveling for better sleep.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/Bedroll</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(1,2)</drawSize>
+						</graphicData>
+						<castEdgeShadows>True</castEdgeShadows>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Mass>5</Mass>
+							<BedRestEffectiveness>0.60</BedRestEffectiveness>
+							<ImmunityGainSpeedFactor>1.0</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.5</SurgerySuccessChanceFactor>
+							<Comfort>0.35</Comfort>
+							<WorkToBuild>600</WorkToBuild>
+						</statBases>
+						<size>(1,2)</size>
+						<stuffCategories>
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<costStuffCount>60</costStuffCount>
+						<costList>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<building>
+							<bed_showSleeperBody>false</bed_showSleeperBody>
+							<bed_healPerDay>4</bed_healPerDay>
+							<bed_caravansCanUse>true</bed_caravansCanUse>
+							<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+							<destroyShakeAmount>0</destroyShakeAmount>
+						</building>
+						<pathCost>14</pathCost>
+						<passability>Standable</passability>
+						<designationHotKey>Misc2</designationHotKey>
+						<designatorDropdown>SingleBeds</designatorDropdown>
+						<researchPrerequisites>
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BedrollDouble"]</xpath>
+				<value>
+					<ThingDef ParentName="BedWithQualityBase">
+						<defName>BedrollDouble</defName>
+						<label>double bedroll</label>
+						<description>A simple double-wide bed that lays on the floor, usually made of cloth or leather, often lined with fur. It is lightweight and can be rolled up for easy transport, but it is not quite as comfortable as a typical bed. Caravans can use bedrolls while traveling for better sleep.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/BedrollDouble</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2,2)</drawSize>
+						</graphicData>
+						<castEdgeShadows>True</castEdgeShadows>
+						<statBases>
+							<Flammability>1.0</Flammability>
+							<Mass>10</Mass>
+							<BedRestEffectiveness>0.60</BedRestEffectiveness>
+							<ImmunityGainSpeedFactor>1.0</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.5</SurgerySuccessChanceFactor>
+							<Comfort>0.35</Comfort>
+							<WorkToBuild>1100</WorkToBuild>
+							<MaxHitPoints>65</MaxHitPoints>
+						</statBases>
+						<size>(2,2)</size>
+						<stuffCategories>
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<costStuffCount>120</costStuffCount>
+						<costList>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<building>
+							<bed_showSleeperBody>false</bed_showSleeperBody>
+							<bed_healPerDay>4</bed_healPerDay>
+							<bed_caravansCanUse>true</bed_caravansCanUse>
+							<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+							<destroyShakeAmount>0</destroyShakeAmount>
+						</building>
+						<pathCost>14</pathCost>
+						<passability>Standable</passability>
+						<designationHotKey>Misc3</designationHotKey>
+						<designatorDropdown>DoubleBeds</designatorDropdown>
+						<researchPrerequisites>
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<!--<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bed"]</xpath>
+				<value>
+					<ThingDef ParentName="BedWithQualityBase">
+						<defName>Bed</defName>
+						<label>bed</label>
+						<description>A cozy mattress and sheets on a frame for resting.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/Bed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2,2)</drawSize>
+							<damageData>
+								<rect>(0,0.05,1,1.95)</rect>
+							</damageData>
+						</graphicData>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>EndTable</li>
+									<li>Dresser</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<statBases>
+							<MaxHitPoints>120</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Beauty>1</Beauty>
+							<WorkToBuild>1000</WorkToBuild>
+							<Mass>30</Mass>
+							<BedRestEffectiveness>1</BedRestEffectiveness>
+							<Comfort>0.75</Comfort>
+							<ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.9</SurgerySuccessChanceFactor>
+						</statBases>
+						<size>(1,2)</size>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>80</costStuffCount>
+						<costList>
+							<Cloth>60</Cloth>
+							<ComponentSimple>4</ComponentSimple>
+						</costList>
+						<building>
+							<bed_showSleeperBody>False</bed_showSleeperBody>
+							<bed_healPerDay>4</bed_healPerDay>
+						</building>
+						<fillPercent>0.4</fillPercent>
+						<pathCost>42</pathCost>
+						<staticSunShadowHeight>0.17</staticSunShadowHeight>
+						<castEdgeShadows>True</castEdgeShadows>
+						<designationHotKey>Misc2</designationHotKey>
+						<techLevel>Medieval</techLevel>
+						<researchPrerequisites>
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+						<uiIconScale>0.90</uiIconScale>
+					</ThingDef>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="DoubleBed"]</xpath>
+				<value>
+					<ThingDef ParentName="ArtableBedBase">
+						<defName>DoubleBed</defName>
+						<label>double bed</label>
+						<description>A simple double-wide bed that fits two people.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/DoubleBed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2.05,2.05)</drawSize>
+							<damageData>
+								<rect>(0,0.05,2,1.95)</rect>
+							</damageData>
+						</graphicData>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>EndTable</li>
+									<li>Dresser</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<thingSetMakerTags>
+							<li>RewardStandardQualitySuper</li>
+						</thingSetMakerTags>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<WorkToBuild>1900</WorkToBuild>
+							<Mass>50</Mass>
+							<Comfort>0.75</Comfort>
+							<Beauty>2</Beauty>
+							<BedRestEffectiveness>0.9</BedRestEffectiveness>
+							<ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.9</SurgerySuccessChanceFactor>
+						</statBases>
+						<size>(2,2)</size>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>150</costStuffCount>
+						<costList>
+							<Cloth>120</Cloth>
+							<ComponentSimple>6</ComponentSimple>
+						</costList>
+						<building>
+							<bed_showSleeperBody>False</bed_showSleeperBody>
+							<bed_healPerDay>4</bed_healPerDay>
+						</building>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<fillPercent>0.4</fillPercent>
+						<pathCost>42</pathCost>
+						<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+						<staticSunShadowHeight>0.17</staticSunShadowHeight>
+						<castEdgeShadows>True</castEdgeShadows>
+						<designationHotKey>Misc3</designationHotKey>
+						<techLevel>Medieval</techLevel>
+						<researchPrerequisites>
+							<li>FurnitureII</li>
+						</researchPrerequisites>
+						<uiIconScale>0.90</uiIconScale>
+					</ThingDef>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="RoyalBed"]</xpath>
+				<value>
+					<ThingDef ParentName="ArtableBedBase">
+						<defName>RoyalBed</defName>
+						<label>royal bed</label>
+						<description>A luxurious gold-inlaid bed fit for the highborn. Very comfy and beautiful, it is a work of art in itself. Fits two.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/RoyalBed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2.05,2.05)</drawSize>
+							<damageData>
+								<rect>(0,0.05,2,1.95)</rect>
+							</damageData>
+						</graphicData>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>EndTable</li>
+									<li>Dresser</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<thingSetMakerTags>
+							<li>RewardStandardQualitySuper</li>
+						</thingSetMakerTags>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<WorkToBuild>25000</WorkToBuild>
+							<Mass>60</Mass>
+							<Beauty>50</Beauty>
+							<BedRestEffectiveness>1.05</BedRestEffectiveness>
+							<Comfort>0.90</Comfort>
+							<ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>0.9</SurgerySuccessChanceFactor>
+						</statBases>
+						<size>(2,2)</size>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<costList>
+							<GoldIngot>10</GoldIngot>
+							<LinenCloth>80</LinenCloth>
+							<ComponentSimple>4</ComponentSimple>
+						</costList>
+						<building>
+							<bed_showSleeperBody>False</bed_showSleeperBody>
+							<bed_healPerDay>4</bed_healPerDay>
+						</building>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<fillPercent>0.4</fillPercent>
+						<pathCost>42</pathCost>
+						<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+						<staticSunShadowHeight>0.17</staticSunShadowHeight>
+						<castEdgeShadows>True</castEdgeShadows>
+						<designationHotKey>Misc4</designationHotKey>
+						<techLevel>Medieval</techLevel>
+						<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+						<researchPrerequisites>
+							<li>ExquisiteFurniture</li>
+						</researchPrerequisites>
+						<uiIconScale>0.90</uiIconScale>
+					</ThingDef>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="DoubleSleepingSpot"]</xpath>
+				<value>
+
+				</value>
+			</li>-->
+		</operations>
+	</Operation>
+</Patch>

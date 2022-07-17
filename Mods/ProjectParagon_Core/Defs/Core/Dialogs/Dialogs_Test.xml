@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ProjectParagon.Dialogs.DialogDef>
+		<defName>TestDialog</defName>
+		<label>Test dialog</label>
+		<firstPageId>0</firstPageId>
+		<pages>
+			<li>
+				<id>0</id>
+				<!-- <title>Just test dialog page 1 (title)</title> -->
+				<text>Just test dialog page 1 (text)</text>
+				<options>
+					<li>
+						<id>0</id>
+						<label>Go next page next</label>
+						<conditions>
+							<li Class="ProjectParagon.Dialogs.Conditions.Condition_SkillReq">
+								<skillDef>Shooting</skillDef>
+								<skillLevel>20</skillLevel>
+							</li>
+						</conditions>
+						<transitions> 
+							<li>
+								<key>1</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+					<li>
+						<id>1</id>
+						<label>Like 1 with custom message</label>
+						<transitions> 
+							<li>
+								<key>2</key>
+								<value>1</value>
+							</li>
+						</transitions>
+					</li>
+				</options>
+			</li>
+			
+			<li>
+				<id>1</id>
+			<!--	<title>Just test dialog page 2 (title)</title> -->
+				<text>Just test dialog page 2 (text)</text>
+				<options>
+					<li>
+						<id>0</id>
+						<label>Exit</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>end1</resolveSignal>
+					</li>
+				</options>
+			</li>
+			
+			<li>
+				<id>2</id>
+		<!--		<title>Just test dialog page 3 (title)</title> -->
+				<text>Just test dialog page 3 (text)</text>
+				<options>
+					<li>
+						<id>0</id>
+						<label>Exit</label>
+						<resolveTree>True</resolveTree>
+						<resolveSignal>end2</resolveSignal>
+					</li>
+				</options>
+			</li>
+			
+		</pages>
+	</ProjectParagon.Dialogs.DialogDef>
+	
+</Defs>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RecipeDef Abstract="true" Name="EngravingBase">
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workerClass>ProjectParagon.Core.Recipes.RecipeWorker_EngravingItem</workerClass>
+		<workAmount>100</workAmount>
+		<products>
+		</products>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+	<RecipeDef ParentName="EngravingBase">
+		<defName>EngravingWeapon</defName>
+		<label>Engraving weapon</label>
+		<description>Get a commemorative engraving on your weapon.</description>
+		<jobString>Engraving weapon.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>WeaponsMelee</li>
+						<li>WeaponsMeleeBladelink</li>
+						<li>WeaponsRanged</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SimpleRepairKit</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>WeaponsMelee</li>
+				<li>WeaponsMeleeBladelink</li>
+				<li>WeaponsRanged</li>
+			</categories>
+			<thingDefs>
+				<li>SimpleRepairKit</li>
+			</thingDefs>
+			<specialFiltersToDisallow>
+				<li>AllowEngraving</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>SimpleRepairTable</li>
+		</recipeUsers>
+		<researchPrerequisite>Smithing</researchPrerequisite>
+		<skillRequirements>
+			<Crafting>5</Crafting>
+		</skillRequirements>
+	</RecipeDef>
+</Defs>

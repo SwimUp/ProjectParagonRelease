@@ -1,0 +1,913 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef Abstract="True" Name="MedievalLampBase" ParentName="BuildingBase">
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<selectable>true</selectable>
+		<fillPercent>0.20</fillPercent>
+		<pathCost>14</pathCost>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<designationCategory>Furniture</designationCategory>
+		<uiIconOffset>(0, 0.03)</uiIconOffset>
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.6, 0.3)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<drawSize>(1.5,1.5)</drawSize>
+		</graphicData>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Styleable"/>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>8.0</fuelConsumptionRate>
+				<fuelCapacity>40.0</fuelCapacity>
+				<fuelFilter>
+					<thingDefs>
+						<li>Coal</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>0</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+		</comps>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Mass>4</Mass>
+			<Flammability>0</Flammability>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+		</statBases>
+		<researchPrerequisites>
+			<li>ExquisiteFurniture</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designatorDropdown>Lighting</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="MedievalLampBase">
+		<defName>MedievalLamp</defName>
+		<label>coal lamp</label>
+		<description>A simple lamp that consumes solid fuel for its work.</description>
+		<graphicData>
+			<texPath>Core/Buildings/MedievalLamp/MedievalLamp</texPath>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4, 4)</drawSize>
+		</graphicData>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>8</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+		</comps>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>40</costStuffCount>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+		</costList>
+		<rotatable>false</rotatable>
+	</ThingDef>
+	<ThingDef ParentName="MedievalLampBase">
+		<defName>MedievalLampLong</defName>
+		<label>high coal lamp</label>
+		<description>A simple lamp that consumes solid fuel for its work.</description>
+		<graphicData>
+			<drawSize>(4, 4)</drawSize>
+			<drawOffset>0, 0, 1.25</drawOffset>
+			<texPath>Core/Buildings/MedievalLampLong/MedievalLampLong</texPath>
+			<shaderType>CutoutComplex</shaderType>
+			<shadowData>
+				<offset>0,0,-1.25</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>10</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+		</comps>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>60</costStuffCount>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+		</costList>
+		<rotatable>false</rotatable>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>DankPyon_Candles</defName>
+		<label>candles</label>
+		<description>A candle to prevent darkness seeping in your room.</description>
+		<graphicData>
+			<texPath>Furniture/Candles</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+			<damageData>
+				<rect>(0.35,0.35,0.3,0.3)</rect>
+			</damageData>
+			<drawSize>(2,2)</drawSize>
+			<drawOffset>0,0,-0.5</drawOffset>
+		</graphicData>
+		<uiIconPath>Furniture/Candles_MenuIcon</uiIconPath>
+		<category>Building</category>
+		<rotatable>false</rotatable>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>4</pathCost>
+		<constructEffect>ConstructWood</constructEffect>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<Beauty>5</Beauty>
+			<MaxHitPoints>20</MaxHitPoints>
+			<WorkToBuild>250</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Mass>0.2</Mass>
+		</statBases>
+		<selectable>true</selectable>
+		<costList>
+			<WoodLog>10</WoodLog>
+		</costList>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<clearBuildingArea>false</clearBuildingArea>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>4</fuelConsumptionRate>
+				<fuelCapacity>20</fuelCapacity>
+				<initialFuelPercent>1</initialFuelPercent>
+				<fuelConsumptionPerTickInRain>0.05</fuelConsumptionPerTickInRain>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</fuelFilter>
+				<destroyOnNoFuel>false</destroyOnNoFuel>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>3.5</heatPerSecond>
+				<heatPushMaxTemperature>23</heatPushMaxTemperature>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>10</glowRadius>
+				<glowColor>(252,187,113,0)</glowColor>
+			</li>
+			<li Class="CompProperties_FireOverlay">
+				<fireSize>0.5</fireSize>
+				<offset>(0,0,0.2)</offset>
+			</li>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Flame</li>
+				</focusTypes>
+				<offsets>
+					<li Class="FocusStrengthOffset_Lit">
+						<offset>0.1</offset>
+					</li>
+					<li Class="FocusStrengthOffset_BuildingDefsLit">
+						<defs>
+							<li>Campfire</li>
+							<li>TorchLamp</li>
+							<li>DankPyon_Candles</li>
+							<li>DankPyon_CandleStand</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">Brazier</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology">Darktorch</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology">DarktorchFungus</li>
+						</defs>
+						<offsetPerBuilding>0.01</offsetPerBuilding>
+						<radius>6</radius>
+						<maxBuildings>8</maxBuildings>
+						<explanationKey>MeditationFocusPerFlame</explanationKey>
+						<explanationKeyAbstract>MeditationFocusPerFlameAbstract</explanationKeyAbstract>
+					</li>
+				</offsets>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>FurnitureII</li>
+		</researchPrerequisites>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Lighting</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>DankPyon_CandleStand</defName>
+		<label>candle stand</label>
+		<description>A candle stand to prevent darkness seeping in your room.</description>
+		<graphicData>
+			<texPath>Furniture/CandleStand</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+			<damageData>
+				<rect>(0.35,0.35,0.3,0.3)</rect>
+			</damageData>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<uiIconScale>0.5</uiIconScale>
+		<category>Building</category>
+		<rotatable>false</rotatable>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>4</pathCost>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<Beauty>10</Beauty>
+			<MaxHitPoints>60</MaxHitPoints>
+			<WorkToBuild>600</WorkToBuild>
+			<Mass>0.2</Mass>
+		</statBases>
+		<selectable>true</selectable>
+		<costList>
+			<WoodLog>10</WoodLog>
+		</costList>
+		<stuffCategories>
+			<li>Woody</li>
+			<li>Metallic</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>30</costStuffCount>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<clearBuildingArea>false</clearBuildingArea>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>4</fuelConsumptionRate>
+				<fuelCapacity>20</fuelCapacity>
+				<initialFuelPercent>1</initialFuelPercent>
+				<fuelConsumptionPerTickInRain>0.05</fuelConsumptionPerTickInRain>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</fuelFilter>
+				<destroyOnNoFuel>false</destroyOnNoFuel>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>3.5</heatPerSecond>
+				<heatPushMaxTemperature>23</heatPushMaxTemperature>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>10</glowRadius>
+				<glowColor>(252,187,113,0)</glowColor>
+			</li>
+			<li Class="CompProperties_FireOverlay">
+				<fireSize>0.5</fireSize>
+				<offset>(0,0,0.95)</offset>
+			</li>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Flame</li>
+				</focusTypes>
+				<offsets>
+					<li Class="FocusStrengthOffset_Lit">
+						<offset>0.1</offset>
+					</li>
+					<li Class="FocusStrengthOffset_BuildingDefsLit">
+						<defs>
+							<li>Campfire</li>
+							<li>TorchLamp</li>
+							<li>DankPyon_Candles</li>
+							<li>DankPyon_CandleStand</li>
+							<li MayRequire="Ludeon.RimWorld.Royalty">Brazier</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology">Darktorch</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology">DarktorchFungus</li>
+						</defs>
+						<offsetPerBuilding>0.01</offsetPerBuilding>
+						<radius>8</radius>
+						<maxBuildings>8</maxBuildings>
+						<explanationKey>MeditationFocusPerFlame</explanationKey>
+						<explanationKeyAbstract>MeditationFocusPerFlameAbstract</explanationKeyAbstract>
+					</li>
+				</offsets>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>FurnitureII</li>
+		</researchPrerequisites>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Lighting</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>DankPyon_BirdPost</defName>
+		<label>bird post</label>
+		<description>A small stuffed animal of a dead bird, made of leather and metal fittings.</description>
+		<thingClass>Building</thingClass>
+		<graphicData>
+			<texPath>Misc/BirdPost</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>30</pathCost>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>30</MaxHitPoints>
+			<WorkToBuild>750</WorkToBuild>
+			<Mass>5</Mass>
+			<Flammability>1.0</Flammability>
+			<Cleanliness>-5</Cleanliness>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(1,1)</size>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<costList>
+			<ComponentSimple>4</ComponentSimple>
+		</costList>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>60</costStuffCount>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Decorations</designatorDropdown>
+		<researchPrerequisites>
+			<li>ExquisiteFurniture</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+	</ThingDef>
+	<ThingDef ParentName="MedievalLampBase">
+		<defName>ShekLamp</defName>
+		<label>Sea lantern</label>
+		<description>A small lantern with a special reagent that allows you to use salt as fuel.</description>
+		<graphicData>
+			<texPath>Core/Buildings/ShekLamp/ShekLamp</texPath>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<placeWorkers>
+			<li>PlaceWorker_Heater</li>
+		</placeWorkers>
+		<comps Inherit="false">
+			<li Class="CompProperties_Glower">
+				<glowRadius>7</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>1.5</heatPerSecond>
+				<heatPushMaxTemperature>20</heatPushMaxTemperature>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Styleable"/>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>4.0</fuelConsumptionRate>
+				<fuelCapacity>40.0</fuelCapacity>
+				<fuelFilter>
+					<thingDefs>
+						<li>RockSalt</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>0</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+		</comps>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>40</costStuffCount>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+			<MechanismSimple>1</MechanismSimple>
+		</costList>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>ShekRace</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>Flag</defName>
+		<label>Flag</label>
+		<description>Cloth cloth with some symbol.</description>
+		<thingClass>Building</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Flag</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3,3)</drawSize>
+			<color>133,97,67</color>
+			<drawOffset>0,0,0.5</drawOffset>
+			<shadowData>
+				<volume>(0.3, 0.5, 0.3)</volume>
+				<offset>(0,0,-0.23)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconScale>0.3</uiIconScale>
+		<passability>PassThroughOnly</passability>
+		<pathCost>30</pathCost>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>30</MaxHitPoints>
+			<WorkToBuild>1200</WorkToBuild>
+			<Mass>10</Mass>
+			<Flammability>4.0</Flammability>
+			<Cleanliness>-2</Cleanliness>
+			<Beauty>12</Beauty>
+		</statBases>
+		<size>(1,1)</size>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+			<Cloth>45</Cloth>
+			<WoodLog>80</WoodLog>
+		</costList>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Flags</designatorDropdown>
+		<researchPrerequisites>
+			<li>ExquisiteFurniture</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+	</ThingDef>
+	<ThingDef ParentName="BedWithQualityBase">
+		<defName>BedCampingTent</defName>
+		<label>Bed camping tent</label>
+		<description>Tent for a comfortable stay on a hike. Designed for two people.</description>
+		<graphicData>
+			<texPath>Core/Buildings/BedCampingTent/BedCampingTent</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,4)</drawSize>
+			<damageData>
+				<rect>(0,0.05,1,1.95)</rect>
+			</damageData>
+		</graphicData>
+		<castEdgeShadows>True</castEdgeShadows>
+		<statBases>
+			<Flammability>2.0</Flammability>
+			<Mass>50</Mass>
+			<BedRestEffectiveness>0.75</BedRestEffectiveness>
+			<Comfort>0.7</Comfort>
+			<ImmunityGainSpeedFactor>1.00</ImmunityGainSpeedFactor>
+			<SurgerySuccessChanceFactor>0.75</SurgerySuccessChanceFactor>
+			<WorkToBuild>2500</WorkToBuild>
+			<MaxHitPoints>150</MaxHitPoints>
+		</statBases>
+		<size>(2,2)</size>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>250</costStuffCount>
+		<costList>
+			<ComponentPrimitive>8</ComponentPrimitive>
+			<ComponentSimple>2</ComponentSimple>
+		</costList>
+		<building>
+			<bed_showSleeperBody>false</bed_showSleeperBody>
+			<bed_healPerDay>4</bed_healPerDay>
+			<bed_caravansCanUse>true</bed_caravansCanUse>
+			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+			<destroyShakeAmount>0</destroyShakeAmount>
+		</building>
+		<pathCost>80</pathCost>
+		<passability>PassThroughOnly</passability>
+		<designatorDropdown>DoubleBeds</designatorDropdown>
+		<designationCategory>Furniture</designationCategory>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>TaurusRace</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities/>
+			</li>
+		</comps>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	</ThingDef>
+	<ThingDef ParentName="LWM_DeepStorage">
+		<defName>StorageCampingTent</defName>
+		<label>Storage camping tent</label>
+		<description>A tent to keep items dry while camping.</description>
+		<graphicData>
+			<texPath>Core/Buildings/StorageCampingTent/StorageCampingTent</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,4)</drawSize>
+			<damageData>
+				<rect>(0,0.05,1,1.95)</rect>
+			</damageData>
+		</graphicData>
+		<castEdgeShadows>false</castEdgeShadows>
+		<statBases>
+			<Flammability>2.0</Flammability>
+			<Mass>50</Mass>
+			<WorkToBuild>2500</WorkToBuild>
+			<MaxHitPoints>150</MaxHitPoints>
+		</statBases>
+		<size>(2,2)</size>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>200</costStuffCount>
+		<costList>
+			<ComponentPrimitive>6</ComponentPrimitive>
+			<ComponentSimple>2</ComponentSimple>
+		</costList>
+		<building>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>Root</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
+		</building>
+		<pathCost>80</pathCost>
+		<passability>PassThroughOnly</passability>
+		<comps>
+			<li Class="LWM.DeepStorage.Properties">
+				<maxNumberStacks>2</maxNumberStacks>
+				<minTimeStoringTakes>500</minTimeStoringTakes>
+				<additionalTimeEachStack>150</additionalTimeEachStack>
+				<additionalTimeEachDef>20</additionalTimeEachDef>
+				<overlayType>SumOfAllItems</overlayType>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>TaurusRace</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>JellyLamp</defName>
+		<label>jelly lamp</label>
+		<description>Dim cave light fixture powered by insect jelly.</description>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/JellyLamp/JellyLamp</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<drawOffset>0,0,0.1</drawOffset>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories inherit="false">
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>10</pathCost>
+		<constructEffect>ConstructWood</constructEffect>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<WorkToBuild>500</WorkToBuild>
+			<Flammability>2</Flammability>
+			<Mass>3</Mass>
+		</statBases>
+		<selectable>true</selectable>
+		<costList>
+			<InsectJelly>15</InsectJelly>
+			<YelloriumIngot>25</YelloriumIngot>
+		</costList>
+		<building>
+			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+		</building>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<comps>
+			<li Class="CompProperties_Styleable"/>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>1.0</fuelConsumptionRate>
+				<fuelCapacity>15.0</fuelCapacity>
+				<fuelFilter>
+					<thingDefs>
+						<li>InsectJelly</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>1</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(113,141,117,0)</glowColor>
+			</li>
+		</comps>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Lighting</designatorDropdown>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="FurnitureBase">
+		<defName>SleepingCocoon</defName>
+		<label>Sleeping cocoon</label>
+		<description>Cocoon of arachnids for a comfortable sleep.</description>
+		<graphicData>
+			<texPath>Core/Buildings/SleepingCocoon/SleepingCocoon</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>1,2</drawSize>
+			<shadowData>
+				<volume>(0.8,1,0.8)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<statBases>
+			<Flammability>2.0</Flammability>
+			<Mass>50</Mass>
+			<BedRestEffectiveness>1</BedRestEffectiveness>
+			<Comfort>1</Comfort>
+			<ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor>
+			<SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+			<WorkToBuild>3000</WorkToBuild>
+			<MaxHitPoints>150</MaxHitPoints>
+		</statBases>
+		<size>(1,2)</size>
+		<costList>
+			<InsectJelly>125</InsectJelly>
+			<YelloriumIngot>100</YelloriumIngot>
+			<Clay>150</Clay>
+		</costList>
+		<pathCost>80</pathCost>
+		<passability>PassThroughOnly</passability>
+		<designatorDropdown>SingleBeds</designatorDropdown>
+		<designationCategory>Furniture</designationCategory>
+		<thingClass>Building_Bed</thingClass>
+		<altitudeLayer>Building</altitudeLayer>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<canOverlapZones>false</canOverlapZones>
+		<rotatable>true</rotatable>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<building>
+			<buildingTags>
+				<li>Bed</li>
+			</buildingTags>
+			<bed_showSleeperBody>false</bed_showSleeperBody>
+			<bed_healPerDay>6</bed_healPerDay>
+			<bed_caravansCanUse>false</bed_caravansCanUse>
+			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+			<destroyShakeAmount>0</destroyShakeAmount>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_AssignableToPawnParagon">
+				<drawAssignmentOverlay>false</drawAssignmentOverlay>
+				<compClass>ProjectParagon.Core.Things.CompParagonAssignableToPawn_Bed</compClass>
+				<assignableRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+				</assignableRaces>
+			</li>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities/>
+			</li>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="FurnitureBase">
+		<defName>DoubleSleepingCocoon</defName>
+		<label>Double sleeping cocoon</label>
+		<description>Cocoon of arachnids for a comfortable sleep.</description>
+		<graphicData>
+			<texPath>Core/Buildings/DoubleSleepingCocoon/DoubleSleepingCocoon</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>2</drawSize>
+			<shadowData>
+				<volume>(1.75,2,1.75)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<statBases>
+			<Flammability>2.0</Flammability>
+			<Mass>150</Mass>
+			<BedRestEffectiveness>1</BedRestEffectiveness>
+			<Comfort>1</Comfort>
+			<ImmunityGainSpeedFactor>1.05</ImmunityGainSpeedFactor>
+			<SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+			<WorkToBuild>7000</WorkToBuild>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<size>(2,2)</size>
+		<costList>
+			<InsectJelly>250</InsectJelly>
+			<YelloriumIngot>200</YelloriumIngot>
+			<Clay>300</Clay>
+		</costList>
+		<pathCost>100</pathCost>
+		<passability>PassThroughOnly</passability>
+		<designationCategory>Furniture</designationCategory>
+		<thingClass>Building_Bed</thingClass>
+		<altitudeLayer>Building</altitudeLayer>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<canOverlapZones>false</canOverlapZones>
+		<rotatable>true</rotatable>
+		<designatorDropdown>DoubleBeds</designatorDropdown>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<building>
+			<buildingTags>
+				<li>Bed</li>
+			</buildingTags>
+			<bed_showSleeperBody>false</bed_showSleeperBody>
+			<bed_healPerDay>6</bed_healPerDay>
+			<bed_caravansCanUse>false</bed_caravansCanUse>
+			<destroySound>BuildingDestroyed_Soft_Medium</destroySound>
+			<destroyShakeAmount>0</destroyShakeAmount>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_AssignableToPawnParagon">
+				<drawAssignmentOverlay>false</drawAssignmentOverlay>
+				<compClass>ProjectParagon.Core.Things.CompParagonAssignableToPawn_Bed</compClass>
+				<assignableRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+				</assignableRaces>
+			</li>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities/>
+			</li>
+			<li>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="MusicalInstrumentBase">
+		<defName>SeaOrgan</defName>
+		<label>Sea organ</label>
+		<description>A musical instrument with a creative way of making sounds. Sounds weird and intriguing.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ParagonMusicalInstrument</thingClass>
+		<size>(2,3)</size>
+		<minTechLevelToBuild>Medieval</minTechLevelToBuild>
+		<interactionCellOffset>(0,0,2)</interactionCellOffset>
+		<soundPlayInstrument>Harpsichord_Play</soundPlayInstrument>
+		<defaultPlacingRot>West</defaultPlacingRot>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToMake>35000</WorkToMake>
+			<Mass>30</Mass>
+			<JoyGainFactor>1</JoyGainFactor>
+			<Beauty>14</Beauty>
+		</statBases>
+		<costList>
+			<ComponentSimple>10</ComponentSimple>
+			<MechanismSimple>10</MechanismSimple>
+			<WoodLog>120</WoodLog>
+		</costList>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<building>
+			<instrumentRange>12</instrumentRange>
+		</building>
+		<specialDisplayRadius>12</specialDisplayRadius>
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<texPath>Things/Building/Joy/Harpsichord</texPath>
+			<drawSize>(3.5,3.5)</drawSize>
+			<drawOffsetNorth>(0,0,0.08)</drawOffsetNorth>
+			<shaderType>CutoutComplex</shaderType>
+			<shadowData>
+				<volume>(0.8, 0.3, 1.1)</volume>
+				<offset>(0, 0, 0.1)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.6,0.2,1,1.7)</rect>
+			</damageData>
+		</graphicData>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Music</designatorDropdown>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ParagonMusicalInstrument">
+				<allowedThingDefs>
+					<li>MusicalComposition</li>
+				</allowedThingDefs>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>ShekRace</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</ThingDef>
+</Defs>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>HerbalTincture</defName>
+		<label>Herbal tincture</label>
+		<description>A complex of herbs that accelerate the elimination of infections from the body.</description>
+		<descriptionHyperlinks>
+			<HediffDef>HerbalHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Tincture/HerbalTincture</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>800</WorkToMake>
+			<MarketValue>10</MarketValue>
+			<Mass>0.009</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.001</Nutrition>
+			<Protein>0.0</Protein>
+			<Fat>0.0</Fat>
+			<Carbohydrates>0.005</Carbohydrates>
+			<Vitamins>0.008</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<techLevel>Medieval</techLevel>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>HerbalHigh</hediffDef>
+					<severity>1.0</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker>
+			<researchPrerequisite>Alchemy</researchPrerequisite>
+			<recipeUsers>
+				<li>AlchemyStance</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<MedicineHerbal>8</MedicineHerbal>
+			<WaterForBill>1</WaterForBill>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

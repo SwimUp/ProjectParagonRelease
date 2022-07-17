@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingSetMakerDef>
+		<defName>ArachnidsRaidLootMaker</defName>
+		<root Class="ThingSetMaker_MarketValue">
+			<fixedParams>
+				<filter>
+					<thingDefs>
+						<li>MedicineHerbal</li>
+						<li>Pemmican</li>
+					</thingDefs>
+				</filter>
+			</fixedParams>
+		</root>
+	</ThingSetMakerDef>
+	<FactionDef>
+		<defName>Arachnids</defName>
+		<pawnSingular>arachnid</pawnSingular>
+		<pawnsPlural>arachnids</pawnsPlural>
+		<categoryTag>Arachnid</categoryTag>
+		<permanentEnemyToEveryoneExcept>
+			<li>Insect</li>
+		</permanentEnemyToEveryoneExcept>
+		<leaderTitle>Chief</leaderTitle>
+		<listOrderPriority>50</listOrderPriority>
+		<canSiege>false</canSiege>
+		<canStageAttacks>true</canStageAttacks>
+		<geneticVariance>0.0</geneticVariance>
+		<techLevel>Neolithic</techLevel>
+		<factionNameMaker>NamerFactionTribal</factionNameMaker>
+		<settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+		<allowedArrivalTemperatureRange>-25~60</allowedArrivalTemperatureRange>
+		<raidLootMaker>ArachnidsRaidLootMaker</raidLootMaker>
+		<settlementGenerationWeight>0.4</settlementGenerationWeight>
+		<requiredCountAtGameStart>1</requiredCountAtGameStart>
+		<allowedCultures>
+			<li>Rustican</li>
+			<li>Corunan</li>
+		</allowedCultures>
+		<!--<disallowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Structure_Animist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
+		</disallowedMemes>-->
+		<structureMemeWeights>
+			<Structure_Animist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Animist>
+		</structureMemeWeights>
+		<allowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">MaleSupremacy</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Collectivist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">AnimalPersonhood</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">FleshPurity</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">PainIsVirtue</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Cannibal</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Proselytizer</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Rancher</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Darkness</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Tunneler</li>
+		</allowedMemes>
+		<requiredMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Tunneler</li>
+		</requiredMemes>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<settlementGenerationSettings>
+					<allowedBiomes>
+						<li>Biome_Wasteland</li>
+					</allowedBiomes>
+				</settlementGenerationSettings>
+				<raidGenerationSettings>
+					<raidAllowedTime>
+						<minHours>21</minHours>
+						<maxHours>5</maxHours>
+					</raidAllowedTime>
+					<minPlayerGameStage>None</minPlayerGameStage>
+					<maxRaidDistance>80</maxRaidDistance>
+				</raidGenerationSettings>
+				<factionCaravanAISettings>
+					<canMoveAtNight>true</canMoveAtNight>
+					<canMoveAtDay>false</canMoveAtDay>
+					<maxCaravanPower>3000</maxCaravanPower>
+					<minCaravanPower>601</minCaravanPower>
+					<totalPowerMultiplier>1</totalPowerMultiplier>
+					<powerMultiplierByCaravansCount>
+						<points>
+							<li>(0, 1)</li>
+							<li>(5, 1)</li>
+							<li>(8, 0.7)</li>
+							<li>(15, 0.3)</li>
+							<li>(50, 0)</li>
+						</points>
+					</powerMultiplierByCaravansCount>
+					<powerByTechLevel>
+						<Animal>200</Animal>
+						<Neolithic>300</Neolithic>
+						<Medieval>400</Medieval>
+						<Industrial>500</Industrial>
+						<Spacer>600</Spacer>
+						<Ultra>700</Ultra>
+						<Archotech>800</Archotech>
+					</powerByTechLevel>
+					<powerMultiplierByTechLevel>
+						<Animal>1</Animal>
+						<Neolithic>1</Neolithic>
+						<Medieval>1.25</Medieval>
+						<Industrial>1.5</Industrial>
+						<Spacer>2</Spacer>
+						<Ultra>2.5</Ultra>
+						<Archotech>3</Archotech>
+					</powerMultiplierByTechLevel>
+				</factionCaravanAISettings>
+				<battleBackstoryGenerationSettings>
+					<childhoodChance>1</childhoodChance>
+					<allowedChildhoodBackstoryTags>
+						<li>Human_Neolithic</li>
+					</allowedChildhoodBackstoryTags>
+				</battleBackstoryGenerationSettings>
+				<factionOrdersSettings>
+					<orders>
+						<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+							<checkIntervalDays>1.2~1.8</checkIntervalDays>
+							<buildiableWorldObjects>
+								<li>
+									<worldObjectDef>WatchTower</worldObjectDef>
+									<minThreat>1000</minThreat>
+									<priority>1</priority>
+									<maxCount>4</maxCount>
+									<maxCountForEachSettlement>1</maxCountForEachSettlement>
+									<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+									</worker>
+								</li>
+							</buildiableWorldObjects>
+						</li>
+						<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+							<mtbDays>2</mtbDays>
+							<caravans>
+								<li>
+									<commonality>100</commonality>
+									<caravanPower>100~450</caravanPower>
+									<maxTotalCaravans>5</maxTotalCaravans>
+									<wealthRequired>300</wealthRequired>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>30</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>TravelingGroup</caravanTypeDef>
+									<wealthCost>100</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+								</li>
+								<li>
+									<commonality>25</commonality>
+									<caravanPower>300~500</caravanPower>
+									<maxTotalCaravans>2</maxTotalCaravans>
+									<wealthRequired>500</wealthRequired>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(300, 1.5)</li>
+											<li>(600, 2)</li>
+											<li>(1000, 2.5)</li>
+											<li>(2000, 3)</li>
+											<li>(5000, 3.5)</li>
+											<li>(10000, 4.0)</li>
+											<li>(20000, 5.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<wealthCostMultiplierByCaravanPowerCurve>
+										<points>
+											<li>(100, 1)</li>
+											<li>(200, 1.5)</li>
+											<li>(400, 2)</li>
+											<li>(600, 2.5)</li>
+											<li>(800, 3)</li>
+											<li>(1000, 3.5)</li>
+											<li>(1500, 4)</li>
+										</points>
+									</wealthCostMultiplierByCaravanPowerCurve>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>20</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>Trade</caravanTypeDef>
+									<wealthCost>150</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+									<minSettlementMoney>200</minSettlementMoney>
+									<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+									<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+								</li>
+								<li>
+									<commonality>30</commonality>
+									<caravanPower>200~300</caravanPower>
+									<maxTotalCaravans>2</maxTotalCaravans>
+									<wealthRequired>500</wealthRequired>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(300, 1.15)</li>
+											<li>(600, 1.25)</li>
+											<li>(1000, 1.5)</li>
+											<li>(2000, 2.5)</li>
+											<li>(5000, 3)</li>
+											<li>(10000, 3.5)</li>
+											<li>(20000, 4.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<caravanThingSetMakerProps>
+										<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+										<thingSetMakerParams>
+											<countRange>200~450</countRange>
+										</thingSetMakerParams>
+										<countRangeMultiplierByWealthCurve>
+											<points>
+												<li>(200, 1)</li>
+												<li>(500, 1.25)</li>
+												<li>(800, 1.5)</li>
+												<li>(1000, 2)</li>
+												<li>(2000, 2.5)</li>
+												<li>(5000, 3.0)</li>
+												<li>(10000, 3.5)</li>
+												<li>(20000, 4)</li>
+											</points>
+										</countRangeMultiplierByWealthCurve>
+									</caravanThingSetMakerProps>
+									<wealthCostMultiplierByCaravanPowerCurve>
+										<points>
+											<li>(100, 1)</li>
+											<li>(200, 1.2)</li>
+											<li>(400, 1.5)</li>
+											<li>(600, 2)</li>
+											<li>(800, 2.5)</li>
+											<li>(1000, 3)</li>
+											<li>(1500, 4)</li>
+										</points>
+									</wealthCostMultiplierByCaravanPowerCurve>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>20</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>TransportCaravan</caravanTypeDef>
+									<wealthCost>100</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+								</li>
+								<li>
+									<commonality>35</commonality>
+									<caravanPower>250~600</caravanPower>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(300, 1.2)</li>
+											<li>(600, 1.5)</li>
+											<li>(1000, 1.7)</li>
+											<li>(2000, 1.8)</li>
+											<li>(5000, 2.0)</li>
+											<li>(10000, 2.5)</li>
+											<li>(20000, 3.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<maxTotalCaravans>12</maxTotalCaravans>
+									<wealthRequired>350</wealthRequired>
+									<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+									<caravanTypeDef>Battle</caravanTypeDef>
+									<wealthCost>250</wealthCost>
+								</li>
+							</caravans>
+						</li>
+					</orders>
+				</factionOrdersSettings>
+				<settlementGlobalSettings>
+					<threatRadius>20</threatRadius>
+					<startedSilver>100~300</startedSilver>
+					<silverMultiplierByWealth>
+						<points>
+							<li>(0, 1)</li>
+							<li>(20000, 10.0)</li>
+						</points>
+					</silverMultiplierByWealth>
+					<maxSilverPerSettlement>2000</maxSilverPerSettlement>
+					<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+					<cultureForDestroySettlementsByWealth>
+						<points>
+							<li>(0, 10)</li>
+							<li>(500, 15)</li>
+							<li>(1000, 20)</li>
+							<li>(2000, 30)</li>
+							<li>(5000, 50)</li>
+							<li>(8000, 75)</li>
+							<li>(12000, 100)</li>
+							<li>(15000, 125)</li>
+							<li>(20000, 150)</li>
+						</points>
+					</cultureForDestroySettlementsByWealth>
+				</settlementGlobalSettings>
+				<!-- настройки экономики -->
+				<factionEconomySettings>
+					<economyList>
+						<li>
+							<thingCategoryDefs>
+								<li>Foods</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.5</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.25</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Manufactured</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.5</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>ResourcesRaw</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.7</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.7</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Weapons</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Apparel</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.25</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.25</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Animals</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.5</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.5</priceSellMultiplier>
+						</li>
+					</economyList>
+					<successTradeMultiplierRange>0.75~1.0</successTradeMultiplierRange>
+				</factionEconomySettings>
+			</li>
+		</modExtensions>
+		<raidLootValueFromPointsCurve>
+			<points>
+				<li>(35,     15)</li>
+				<li>(100,   120)</li>
+				<li>(1000,  500)</li>
+				<li>(2000,  800)</li>
+				<li>(4000, 1000)</li>
+			</points>
+		</raidLootValueFromPointsCurve>
+		<canMakeRandomly>true</canMakeRandomly>
+		<factionIconPath>Core/World/Factions/Insect/InsectFaction</factionIconPath>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Outlander</li>
+				</categories>
+				<commonality>0.95</commonality>
+			</li>
+			<li>
+				<categories>
+					<li>Offworld</li>
+				</categories>
+				<commonality>0.05</commonality>
+			</li>
+		</backstoryFilters>
+		<caravanTraderKinds>
+			<li>ArachnidTrader</li>
+		</caravanTraderKinds>
+		<visitorTraderKinds>
+			<li>ArachnidVisitor</li>
+		</visitorTraderKinds>
+		<baseTraderKinds>
+			<li>ArachnidTrader</li>
+		</baseTraderKinds>
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,1000)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
+		<pawnGroupMakers>
+			<li>
+				<!-- Normal fights, standard mix -->
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<Arachnid_SoldierMelee>15</Arachnid_SoldierMelee>
+					<Arachnid_SoldierShooter>7</Arachnid_SoldierShooter>
+					<Arachnid_WarriorMelee>6</Arachnid_WarriorMelee>
+					<Arachnid_WarriorShooter>3</Arachnid_WarriorShooter>
+					<Arachnid_WarriorShaman>1</Arachnid_WarriorShaman>
+				</options>
+			</li>
+			<li>
+				<!-- Стрелки -->
+				<kindDef>Combat</kindDef>
+				<commonality>50</commonality>
+				<options>
+					<Arachnid_SoldierShooter>20</Arachnid_SoldierShooter>
+					<Arachnid_WarriorShooter>10</Arachnid_WarriorShooter>
+				</options>
+			</li>
+			<li>
+				<!-- Милишники -->
+				<kindDef>Combat</kindDef>
+				<commonality>70</commonality>
+				<options>
+					<Arachnid_SoldierMelee>20</Arachnid_SoldierMelee>
+					<Arachnid_WarriorMelee>10</Arachnid_WarriorMelee>
+				</options>
+			</li>
+			<li>
+				<!-- С животными -->
+				<kindDef>Combat</kindDef>
+				<commonality>60</commonality>
+				<options>
+					<Arachnid_SoldierMelee>10</Arachnid_SoldierMelee>
+					<Arachnid_WarriorMelee>5</Arachnid_WarriorMelee>
+					<HugeSpider>20</HugeSpider>
+				</options>
+			</li>
+			<li>
+				<kindDef>Peaceful</kindDef>
+				<options>
+					<Arachnid_WorkerCommon>20</Arachnid_WorkerCommon>
+					<Arachnid_SoldierMelee>8</Arachnid_SoldierMelee>
+					<Arachnid_SoldierShooter>8</Arachnid_SoldierShooter>
+					<Arachnid_WarriorMelee>5</Arachnid_WarriorMelee>
+					<Arachnid_WarriorShooter>5</Arachnid_WarriorShooter>
+					<Arachnid_WarriorShaman>1</Arachnid_WarriorShaman>
+				</options>
+			</li>
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<Arachnid_WorkerCommon>1</Arachnid_WorkerCommon>
+				</traders>
+				<guards>
+					<Arachnid_SoldierMelee>10</Arachnid_SoldierMelee>
+					<Arachnid_SoldierShooter>5</Arachnid_SoldierShooter>
+					<Arachnid_WarriorMelee>7</Arachnid_WarriorMelee>
+					<Arachnid_WarriorShooter>3</Arachnid_WarriorShooter>
+					<Arachnid_WarriorShaman>1</Arachnid_WarriorShaman>
+				</guards>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<Arachnid_WorkerCommon>30</Arachnid_WorkerCommon>
+					<Arachnid_SoldierMelee>10</Arachnid_SoldierMelee>
+					<Arachnid_SoldierShooter>10</Arachnid_SoldierShooter>
+					<Arachnid_WarriorMelee>5</Arachnid_WarriorMelee>
+					<Arachnid_WarriorShooter>5</Arachnid_WarriorShooter>
+					<Arachnid_WarriorShaman>1</Arachnid_WarriorShaman>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+	</FactionDef>
+	<TraderKindDef>
+		<defName>ArachnidTrader</defName>
+		<stockGenerators>
+			<!--<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>500~1600</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>5~15</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Pemmican</thingDef>
+				<countRange>100~300</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentPrimitive</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>CopperIngot</thingDef>
+				<countRange>500~800</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>WoodPlanks</thingDef>
+				<countRange>25~100</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Slag</thingDef>
+				<countRange>25~100</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Sand</thingDef>
+				<countRange>50~180</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Clay</thingDef>
+				<countRange>50~180</countRange>
+			</li>-->
+		</stockGenerators>
+	</TraderKindDef>
+	<TraderKindDef>
+		<defName>ArachnidVisitor</defName>
+		<label>trader</label>
+		<stockGenerators>
+			<!--<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>80~125</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>1~5</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Pemmican</thingDef>
+				<countRange>20~50</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentPrimitive</thingDef>
+				<countRange>1~6</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>CopperIngot</thingDef>
+				<countRange>10~75</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>WoodPlanks</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Slag</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Sand</thingDef>
+				<countRange>5~20</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Clay</thingDef>
+				<countRange>5~20</countRange>
+			</li>-->
+		</stockGenerators>
+	</TraderKindDef>
+</Defs>

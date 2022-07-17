@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="Flora_PlantBase" Name="Flora_FruitTreeBase" Abstract="True">
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.8</Flammability>
+			<Nutrition>1.5</Nutrition>
+			<Beauty>3</Beauty>
+		</statBases>
+		<altitudeLayer>Building</altitudeLayer>
+		<selectable>true</selectable>
+		<fillPercent>0.25</fillPercent>
+		<graphicData>
+			<shadowData>
+				<volume>(0.2, 0.35, 0.13)</volume>
+				<offset>(0,0,-0.42)</offset>
+			</shadowData>
+			<shaderParameters>
+				<_FallColorSource>(0.254, 0.286, 0.125)</_FallColorSource>
+				<_FallColorDestination>/Other/TreeFallGradient</_FallColorDestination>
+				<_FallTransitionRange>(0.02, 0.10)</_FallTransitionRange>
+				<_FallBehaviorEnabled>1</_FallBehaviorEnabled>
+			</shaderParameters>
+		</graphicData>
+		<passability>PassThroughOnly</passability>
+		<pathCost>130</pathCost>
+		<blockWind>true</blockWind>
+		<ingestible>
+			<foodType>Tree</foodType>
+			<preferability>RawBad</preferability>
+		</ingestible>
+		<plant>
+			<fertilityMin>0.85</fertilityMin>
+			<fertilitySensitivity>1.0</fertilitySensitivity>
+			<soundHarvesting>Harvest_Tree</soundHarvesting>
+			<soundHarvestFinish>Harvest_Tree_Finish</soundHarvestFinish>
+			<sowWork>4000</sowWork>
+			<sowMinSkill>6</sowMinSkill>
+			<mustBeWildToSow>false</mustBeWildToSow>
+			<harvestWork>600</harvestWork>
+			<harvestTag>Standard</harvestTag>
+			<harvestAfterGrowth>0.2</harvestAfterGrowth>
+			<harvestMinGrowth>0.8</harvestMinGrowth>
+			<harvestYield>30</harvestYield>
+			<harvestFailable>false</harvestFailable>
+			<blockAdjacentSow>true</blockAdjacentSow>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<visualSizeRange>1.3~2.0</visualSizeRange>
+			<topWindExposure>0.25</topWindExposure>
+			<wildClusterRadius>8</wildClusterRadius>
+			<wildClusterWeight>24</wildClusterWeight>
+			<wildOrder>3</wildOrder>
+			<interferesWithRoof>true</interferesWithRoof>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="Flora_FruitTreeBase">
+		<defName>Flora_AppleTree</defName>
+		<label>Apple tree</label>
+		<description>A widespread and unpretentious fruit tree. Often found in forests.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_AppleTree</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderParameters>
+				<_FallColorSource>(0.282, 0.325, 0.156)</_FallColorSource>
+				<_FallColorDestination>/Other/TreeFallGradient</_FallColorDestination>
+				<_FallTransitionRange>(0.02, 0.10)</_FallTransitionRange>
+				<_FallBehaviorEnabled>1</_FallBehaviorEnabled>
+			</shaderParameters>
+		</graphicData>
+		<plant>
+			<lifespanDaysPerGrowDays>10</lifespanDaysPerGrowDays>
+			<harvestYield>30</harvestYield>
+			<growDays>12</growDays>
+			<harvestedThingDef>Flora_RawApple</harvestedThingDef>
+			<immatureGraphicPath>Core/Plants/PlantsRipening/Flora_AppleTree</immatureGraphicPath>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<sowResearchPrerequisites>
+				<li>Agro_FruitTreesI</li>
+			</sowResearchPrerequisites>
+			<fertilityMin>0.85</fertilityMin>
+			<fertilitySensitivity>0.80</fertilitySensitivity>
+			<sowMinSkill>11</sowMinSkill>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="Flora_FruitTreeBase">
+		<defName>Flora_BananaTree</defName>
+		<label>Banana tree</label>
+		<description>An exotic fruit plant found in desert oases.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_BananaTree</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<plant>
+			<lifespanDaysPerGrowDays>10.7</lifespanDaysPerGrowDays>
+			<harvestYield>20</harvestYield>
+			<growDays>14</growDays>
+			<harvestedThingDef>Flora_RawBanana</harvestedThingDef>
+			<immatureGraphicPath>Core/Plants/PlantsRipening/Flora_BananaTree</immatureGraphicPath>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<sowResearchPrerequisites>
+				<li>Agro_FruitTreesII</li>
+			</sowResearchPrerequisites>
+			<fertilityMin>1</fertilityMin>
+			<fertilitySensitivity>1</fertilitySensitivity>
+			<sowMinSkill>12</sowMinSkill>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="Flora_FruitTreeBase">
+		<defName>Flora_OrangeTree</defName>
+		<label>Orange tree</label>
+		<description>An exotic fruit plant from the tropics.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_OrangeTree</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<plant>
+			<lifespanDaysPerGrowDays>8.2</lifespanDaysPerGrowDays>
+			<harvestYield>50</harvestYield>
+			<growDays>16</growDays>
+			<harvestedThingDef>Flora_RawOrange</harvestedThingDef>
+			<immatureGraphicPath>Core/Plants/PlantsRipening/Flora_OrangeTree</immatureGraphicPath>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<sowResearchPrerequisites>
+				<li>Agro_FruitTreesII</li>
+			</sowResearchPrerequisites>
+			<fertilityMin>1.1</fertilityMin>
+			<fertilitySensitivity>1.2</fertilitySensitivity>
+			<sowMinSkill>13</sowMinSkill>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="DeciduousTreeBase">
+		<defName>Flora_Hevea</defName>
+		<label>Hevea</label>
+		<description>The main source of natural rubber. Grows mainly in swamps.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_Hevea/Mature</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.2, 0.3, 0.13)</volume>
+				<offset>(0,0,-0.44)</offset>
+			</shadowData>
+			<shaderParameters>
+				<_FallColorSource>(0.373, 0.427, 0.313)</_FallColorSource>
+				<_FallTransitionRange>(0.02, 0.14)</_FallTransitionRange>
+			</shaderParameters>
+		</graphicData>
+		<statBases>
+			<Beauty>1</Beauty>
+		</statBases>
+		<plant>
+			<harvestedThingDef>Caoutchouc</harvestedThingDef>
+			<growDays>15</growDays>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_Hevea/Leafless</leaflessGraphicPath>
+			<immatureGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_Hevea/Immature</immatureGraphicPath>
+			<harvestWork>1500</harvestWork>
+			<harvestYield>15</harvestYield>
+			<sowMinSkill>10</sowMinSkill>
+			<wildClusterRadius>17</wildClusterRadius>
+			<wildClusterWeight>25</wildClusterWeight>
+			<visualSizeRange>1.4~2.0</visualSizeRange>
+			<sowResearchPrerequisites>
+				<li>Agro_TreesIII</li>
+			</sowResearchPrerequisites>
+			<fertilityMin>1.0</fertilityMin>
+			<fertilitySensitivity>1.0</fertilitySensitivity>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="Flora_FruitTreeBase">
+		<defName>Flora_OliveTree</defName>
+		<label>Olive tree</label>
+		<description>Protein-rich fruits. They are the main component of olive oil.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_OliveTree/Mature</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<plant>
+			<lifespanDaysPerGrowDays>12.5</lifespanDaysPerGrowDays>
+			<harvestYield>15</harvestYield>
+			<growDays>12</growDays>
+			<harvestedThingDef>Flora_RawOlive</harvestedThingDef>
+			<immatureGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_OliveTree/Immature</immatureGraphicPath>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_OliveTree/Leafless</leaflessGraphicPath>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<sowResearchPrerequisites>
+				<li>Agro_FruitTreesIII</li>
+			</sowResearchPrerequisites>
+			<fertilityMin>0.9</fertilityMin>
+			<fertilitySensitivity>1.0</fertilitySensitivity>
+			<sowMinSkill>12</sowMinSkill>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="Flora_FruitTreeBase">
+		<defName>Flora_PeachTree</defName>
+		<label>Peach tree</label>
+		<description>A large tree with delicate and tasty fruits.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_PeachTree</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<plant>
+			<lifespanDaysPerGrowDays>12</lifespanDaysPerGrowDays>
+			<harvestYield>25</harvestYield>
+			<growDays>15</growDays>
+			<harvestedThingDef>Flora_RawPeach</harvestedThingDef>
+			<immatureGraphicPath>Core/Plants/PlantsRipening/Flora_PeachTree</immatureGraphicPath>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<sowResearchPrerequisites>
+				<li>Agro_FruitTreesII</li>
+			</sowResearchPrerequisites>
+			<fertilityMin>1.05</fertilityMin>
+			<fertilitySensitivity>1.1</fertilitySensitivity>
+			<sowMinSkill>13</sowMinSkill>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="Flora_FruitTreeBase">
+		<defName>Flora_GrapesTree</defName>
+		<label>Grapes tree</label>
+		<description>Medium-sized tree with tasty fruits.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GrapesTree</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<plant>
+			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
+			<harvestYield>30</harvestYield>
+			<growDays>15</growDays>
+			<harvestedThingDef>Flora_RawGrapes</harvestedThingDef>
+			<immatureGraphicPath>Core/Plants/PlantsRipening/Flora_GrapesTree</immatureGraphicPath>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<sowResearchPrerequisites>
+				<li>Agro_FruitTreesIII</li>
+			</sowResearchPrerequisites>
+			<fertilityMin>1.1</fertilityMin>
+			<fertilitySensitivity>1.0</fertilitySensitivity>
+			<visualSizeRange>0.6~1.2</visualSizeRange>
+			<sowMinSkill>14</sowMinSkill>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="Flora_FruitTreeBase">
+		<defName>Flora_CoffeeTree</defName>
+		<label>Coffee tree</label>
+		<description>A small tree that bears the fruit of coffee.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_CoffeeTree/Mature</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<plant>
+			<lifespanDaysPerGrowDays>5.9</lifespanDaysPerGrowDays>
+			<harvestYield>35</harvestYield>
+			<growDays>17</growDays>
+			<harvestedThingDef>Flora_RawCoffee</harvestedThingDef>
+			<immatureGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_CoffeeTree/Immature</immatureGraphicPath>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_CoffeeTree/Leafless</leaflessGraphicPath>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<sowResearchPrerequisites>
+				<li>Agro_TropicalCropsIII</li>
+			</sowResearchPrerequisites>
+			<fertilityMin>1.0</fertilityMin>
+			<fertilitySensitivity>1.1</fertilitySensitivity>
+			<visualSizeRange>0.6~1.2</visualSizeRange>
+			<sowMinSkill>12</sowMinSkill>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="PlantBase">
+		<defName>Flora_WitherRoot</defName>
+		<label>Wither root</label>
+		<description>Root of a small bush destroyed by weather conditions. By some miracle, he continues to live.</description>
+		<neverMultiSelect>true</neverMultiSelect>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<Nutrition>0.05</Nutrition>
+		</statBases>
+		<pathCost>20</pathCost>
+		<fillPercent>0.05</fillPercent>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_WitherRoot</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<selectable>true</selectable>
+		<ingestible>
+			<foodType>Tree</foodType>
+			<preferability>RawBad</preferability>
+		</ingestible>
+		<plant>
+			<fertilitySensitivity>0</fertilitySensitivity>
+			<fertilityMin>0.1</fertilityMin>
+			<soundHarvesting>Harvest_Tree</soundHarvesting>
+			<growMinGlow>0.5</growMinGlow>
+			<growOptimalGlow>1</growOptimalGlow>
+			<dieIfLeafless>false</dieIfLeafless>
+			<harvestTag>Wood</harvestTag>
+			<harvestedThingDef>WoodLog</harvestedThingDef>
+			<harvestYield>5</harvestYield>
+			<harvestFailable>false</harvestFailable>
+			<sowMinSkill>1</sowMinSkill>
+			<topWindExposure>0.05</topWindExposure>
+			<neverBlightable>true</neverBlightable>
+			<growDays>15</growDays>
+			<harvestWork>150</harvestWork>
+			<maxMeshCount>4</maxMeshCount>
+			<visualSizeRange>0.7~1.5</visualSizeRange>
+			<wildOrder>2</wildOrder>
+			<wildClusterRadius>3</wildClusterRadius>
+			<wildClusterWeight>100</wildClusterWeight>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="PlantBase" Name="GreatTreeBase" Abstract="true">
+		 <altitudeLayer>Item</altitudeLayer>
+		<statBases>
+			<Beauty>4</Beauty>
+			<BeautyOutdoors>4</BeautyOutdoors>
+			<Nutrition>1</Nutrition>
+		</statBases>
+		<selectable>true</selectable>
+		<ingestible>
+			<foodType>Tree</foodType>
+			<preferability>RawBad</preferability>
+		</ingestible>
+		<plant>
+			<growDays>100</growDays>
+			<visualSizeRange>3.0~5.0</visualSizeRange>
+			<harvestWork>4000</harvestWork>
+			<harvestYield>200</harvestYield>
+			<harvestTag>Wood</harvestTag>
+			<harvestedThingDef>WoodLog</harvestedThingDef>
+			<sowTags></sowTags>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_GreatPine</defName>
+		<label>great pine tree</label>
+		<description>A large conifer covered with prickly pine cones. It grows in a distinctive conical shape.</description>
+		 <altitudeLayer>BuildingOnTop</altitudeLayer>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GreatPine</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.11, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<plant>
+			<visualSizeRange>4.0~6.5</visualSizeRange>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_GreatChestnut</defName>
+		<label>great chestnut tree</label>
+		<description>A very old chestnut that grows in special places on the planet. Its size allows many forest dwellers to live on it all their lives.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GreatChestnut</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.11, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<ingestible/>
+		<plant>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_GreatChestnut/Leafless</leaflessGraphicPath>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_GreatCypress</defName>
+		<label>great cypress tree</label>
+		<description>A huge cypress growing in wet swamps. Its huge roots are an interesting sight.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GreatCypress</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.11, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<plant>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_GreatChestnut/Leafless</leaflessGraphicPath>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_GreatAcacia</defName>
+		<label>great acacia tree</label>
+		<description>A huge desert tree with a powerful root system and thorns to protect against animals.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GreatAcacia</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawOffset>0,0,-0.4</drawOffset>
+			<shadowData>
+				<volume>(0.11, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<plant>
+			<visualSizeRange>2.5~4.0</visualSizeRange>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_GreatChestnut/Leafless</leaflessGraphicPath>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_GreatRedMaple</defName>
+		<label>great red maple</label>
+		<description>A giant red maple that has lost the brightness of its foliage with age. Nevertheless, it remains quite beautiful.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GreatRedMaple</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.11, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Beauty>10</Beauty>
+			<BeautyOutdoors>10</BeautyOutdoors>
+		</statBases>
+		<plant>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_GreatChestnut/Leafless</leaflessGraphicPath>
+			<visualSizeRange>2.5~4.0</visualSizeRange>
+			<fertilityMin>0.1</fertilityMin>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_GreatFanMaple</defName>
+		<label>great fan maple</label>
+		<description>Red maple, the branches of which are arranged in the form of a large fan.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GreatFanMaple</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.11, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Beauty>12</Beauty>
+			<BeautyOutdoors>12</BeautyOutdoors>
+		</statBases>
+		<plant>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_GreatChestnut/Leafless</leaflessGraphicPath>
+			<visualSizeRange>1~2</visualSizeRange>
+			<fertilityMin>0.1</fertilityMin>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_GreatMushroom</defName>
+		<label>great mushroom</label>
+		<description>A giant red maple that has lost the brightness of its foliage with age. Nevertheless, it remains quite beautiful.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GreatMushroom</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.3, 0.3)</volume>
+				<offset>(-0.2,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Beauty>-4</Beauty>
+			<BeautyOutdoors>-4</BeautyOutdoors>
+		</statBases>
+		<plant>
+			<visualSizeRange>1.0~4.0</visualSizeRange>
+			<immatureGraphicPath>Core/Plants/PlantsRipening/Flora_GreatMushroom</immatureGraphicPath>
+			<harvestYield>100</harvestYield>
+			<harvestTag>Standard</harvestTag>
+			<harvestedThingDef>RawFungus</harvestedThingDef>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_OldWillow</defName>
+		<label>old willow</label>
+		<description>A perennial tree that has survived many eras.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_OldWillow</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.11, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<ingestible/>
+		<plant>
+			<harvestWork>2500</harvestWork>
+			<harvestYield>120</harvestYield>
+			<visualSizeRange>3.0~4.0</visualSizeRange>
+			<leaflessGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_OldWillow/Leafless</leaflessGraphicPath>
+		</plant>
+	</ThingDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Flora_OldDragoTree</defName>
+		<label>old drago tree</label>
+		<description>A perennial tree that has survived many eras.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Flora_OldDragoTree</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.11, 0.3, 0.15)</volume>
+				<offset>(0,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<ingestible/>
+		<plant>
+			<harvestWork>2500</harvestWork>
+			<harvestYield>120</harvestYield>
+			<visualSizeRange>3.0~4.0</visualSizeRange>
+		</plant>
+	</ThingDef>
+</Defs>

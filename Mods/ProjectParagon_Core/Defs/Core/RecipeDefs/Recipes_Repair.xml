@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RecipeDef Abstract="true" Name="RepairBase">
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workerClass>ProjectParagon.Core.Recipes.RecipeWorker_Repair</workerClass>
+		<workAmount>800</workAmount>
+		<products>
+		</products>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+	<RecipeDef ParentName="RepairBase">
+		<defName>RepairApparel_Medieval</defName>
+		<label>repair apparel</label>
+		<description>Repair your clothing and armor to an acceptable level. It is possible to restore only up to 60% of durability.</description>
+		<jobString>Repairing apparel.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Apparel</li>
+					</categories>
+					<allowedHitPointsPercents>0~0.59</allowedHitPointsPercents>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SimpleRepairKit</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Apparel</li>
+			</categories>
+			<thingDefs>
+				<li>SimpleRepairKit</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>SimpleRepairTable</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef ParentName="RepairBase">
+		<defName>RepairWeapon_Medieval</defName>
+		<label>repair weapon</label>
+		<description>Repair your weapon to an acceptable level. It is possible to restore only up to 60% of durability.</description>
+		<jobString>Repairing weapon.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>WeaponsMelee</li>
+						<li>WeaponsMeleeBladelink</li>
+						<li>WeaponsRanged</li>
+					</categories>
+					<allowedHitPointsPercents>0~0.59</allowedHitPointsPercents>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SimpleRepairKit</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Weapons</li>
+			</categories>
+			<thingDefs>
+				<li>SimpleRepairKit</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>SimpleRepairTable</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>RecycleThings</defName>
+		<label>Recycle things</label>
+		<description>Recycle things.</description>
+		<jobString>Repairing.</jobString>
+		<workAmount>900</workAmount>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workerClass>ProjectParagon.Core.Recipes.RecipeWorker_Recycle</workerClass>
+		<products>
+		</products>
+		<workSkill>Crafting</workSkill>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Apparel</li>
+						<li>WeaponsMelee</li>
+						<li>WeaponsMeleeBladelink</li>
+						<li>WeaponsRanged</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Apparel</li>
+				<li>WeaponsMelee</li>
+				<li>WeaponsMeleeBladelink</li>
+				<li>WeaponsRanged</li>
+			</categories>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>SimpleRepairTable</li>
+		</recipeUsers>
+	</RecipeDef>
+</Defs>

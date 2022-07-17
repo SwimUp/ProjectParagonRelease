@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>MushroomTincture</defName>
+		<label>Mushroom tincture</label>
+		<description>Mushroom tincture. It works like a natural antibiotic, and it also makes you feel very good!</description>
+		<descriptionHyperlinks>
+			<HediffDef>MushroomTinctureHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Tincture/MushroomTincture</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>800</WorkToMake>
+			<MarketValue>10</MarketValue>
+			<Mass>0.009</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.05</Nutrition>
+			<Protein>0.005</Protein>
+			<Fat>0.001</Fat>
+			<Carbohydrates>0.020</Carbohydrates>
+			<Vitamins>0.008</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>MushroomTinctureHigh</hediffDef>
+					<severity>1.0</severity>
+					<toleranceChemical>NarcoticMushrooms</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>NarcoticMushroomsTolerance</hediffDef>
+					<severity>0.040</severity>
+					<divideByBodySize>true</divideByBodySize>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<techLevel>Medieval</techLevel>
+		<recipeMaker>
+			<researchPrerequisite>Alchemy</researchPrerequisite>
+			<recipeUsers>
+				<li>AlchemyStance</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<Raw_Glowstool>10</Raw_Glowstool>
+			<WaterForBill>1</WaterForBill>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>NarcoticMushrooms</chemical>
+				<addictiveness>0.01</addictiveness>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+				<listOrder>100</listOrder>
+				<overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+				<largeOverdoseChance>0.01</largeOverdoseChance>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>MushroomTinctureHigh</defName>
+		<label>high on mushroom tincture</label>
+		<labelNoun>a mushroom tincture high</labelNoun>
+		<description>Active mushroom tincture in the bloodstream. Generates a mild euphoric effect.</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-3.0</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painFactor>0.9</painFactor>
+				<restFallFactor>0.8</restFallFactor>
+				<statOffsets>
+					<ImmunityGainSpeed>0.25</ImmunityGainSpeed>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<ThoughtDef>
+		<defName>MushroomTinctureHigh</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>MushroomTinctureHigh</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>high on mushrooms</label>
+				<description>I feel like I'm in a light fog. It is so unusual.</description>
+				<baseMoodEffect>12</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>MushroomTinctureWithdrawal</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>NarcoticMushroomsAddiction</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<visible>false</visible>
+			</li>
+			<li>
+				<label>mushrooms withdrawal</label>
+				<description>God I'm tired. Everything's so slow and boring. Especially me.</description>
+				<baseMoodEffect>-15</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

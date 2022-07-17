@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Bow_Short"]/recipeMaker</xpath>
+				<value>
+					<researchPrerequisite>PrimitiveBows</researchPrerequisite>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Recurve" or defName="Bow_Great"]/recipeMaker/researchPrerequisite</xpath>
+				<value>
+					<researchPrerequisite>ImprovedBows</researchPrerequisite>
+				</value>
+			</li>
+			<!--<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[@Name="TileStoneBase"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>SimpleStoneProcessing</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[@Name="FineTileStoneBase"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>AdvancedStoneProcessing</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/TerrainDef[@Name="FlagstoneBase"]</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>AdvancedStoneProcessing</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/TerrainDef[defName="Concrete"]/researchPrerequisites</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/TerrainDef[defName="PavedTile"]/researchPrerequisites</xpath>
+			</li>-->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ElectricTailoringBench"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>Electricity</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="ChunkRockBase"]</xpath>
+				<value>
+					<resourceReadoutPriority>Last</resourceReadoutPriority>
+					<stuffProps>
+						<categories>
+							<li>UntreatedStony</li>
+						</categories>
+						<commonality>0.000001</commonality>
+						<appearance>Bricks</appearance>
+						<statOffsets>
+							<WorkToBuild>100</WorkToBuild>
+						</statOffsets>
+						<statFactors>
+							<MarketValue>0.3</MarketValue>
+							<MaxHitPoints>1.5</MaxHitPoints>
+							<Flammability>0</Flammability>
+							<WorkToBuild>5.0</WorkToBuild>
+							<WorkToMake>1.1</WorkToMake>
+							<DoorOpenSpeed>0.45</DoorOpenSpeed>
+						</statFactors>
+						<canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+					</stuffProps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkSandstone"]</xpath>
+				<value>
+					<stuffProps>
+						<color>(126,104,94)</color>
+					</stuffProps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkGranite"]</xpath>
+				<value>
+					<stuffProps>
+						<color>(105,95,97)</color>
+					</stuffProps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkLimestone"]</xpath>
+				<value>
+					<stuffProps>
+						<color>(158,153,135)</color>
+					</stuffProps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkSlate"]</xpath>
+				<value>
+					<stuffProps>
+						<color>(70,70,70)</color>
+					</stuffProps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="ChunkMarble"]</xpath>
+				<value>
+					<stuffProps>
+						<color>(132,135,132)</color>
+					</stuffProps>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[@Name="MedicineBase"]/thingClass</xpath>
+				<value>
+					<thingClass>ProjectParagon.Core.Things.MedicineParagon</thingClass>
+				</value>
+			</li> 
+		</operations>
+	</Operation>
+</Patch>

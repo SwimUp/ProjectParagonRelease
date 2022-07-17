@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+
+    <!-- Add Vanilla Recipes to Anvil -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[techLevel="Medieval" and (verbs/li or tools/li) and not(apparel) and recipeMaker]/recipeMaker/recipeUsers</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[techLevel="Medieval" and (verbs/li or tools/li) and not(apparel) and recipeMaker]/recipeMaker/recipeUsers</xpath>
+			<value>
+					<li>DankPyon_Anvil</li>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[techLevel="Medieval" and (verbs/li or tools/li) and not(apparel) and recipeMaker]/recipeMaker</xpath>
+			<value>
+				<recipeUsers>
+					<li>DankPyon_Anvil</li>
+				</recipeUsers>
+			</value>
+		</nomatch>
+	</Operation>
+    
+</Patch>

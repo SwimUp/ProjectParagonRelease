@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+  
+	<!-- SadjuukWallBase : Base All Walls and Embrassure -->  
+  <ThingDef ParentName="BuildingBase" Name="SadjuukWallBase" Abstract="True">
+    <category>Building</category>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <linkType>CornerFiller</linkType>
+      <linkFlags>
+        <li>Wall</li>
+        <li>Rock</li>
+      </linkFlags>
+    </graphicData>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <coversFloor>true</coversFloor>
+    <placingDraggableDimensions>1</placingDraggableDimensions>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <holdsRoof>true</holdsRoof>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <canOverlapZones>false</canOverlapZones>
+    <blockLight>true</blockLight>
+    <building>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <blueprintGraphicData>
+        <texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+      </blueprintGraphicData>
+    </building>
+    <designationCategory>SadjuukUN-Building</designationCategory>
+  </ThingDef>
+ 
+  <ThingDef ParentName="SadjuukWallBase" Name="ParagonSadjuukUnusableWall" Abstract="True">
+    <designationCategory/>
+  </ThingDef>
+
+	<!-- SadjuukWallAA (Log Wall) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall">
+    <defName>SadjuukWallAA</defName>
+    <designatorDropdown>SadjuukWallAA</designatorDropdown>
+    <label>Log Wall</label>
+    <description>HP : 200
+Flammability : 100%
+A very rustic wall made of logs, very easy to build.</description>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>1</Flammability>
+    </statBases>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>0</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+    <costList>
+      <WoodLog>5</WoodLog>
+    </costList>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallA/SadjuukWallAA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallA/SadjuukWallAA_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureAA (Log Embrasure) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall">
+    <defName>SadjuukEmbrasureAA</defName>
+    <designatorDropdown>SadjuukEmbrasureAA</designatorDropdown>
+    <label>Log Embrasure</label>
+    <description>HP : 200
+Flammability : 100%
+Cover : 60%
+A rustic wooden embrasure.</description>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>1</Flammability>
+    </statBases>
+    <blockWind>false</blockWind>
+    <fillPercent>0.6</fillPercent>
+    <constructionSkillPrerequisite>0</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+    <costList>
+      <WoodLog>5</WoodLog>
+    </costList>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureA/SadjuukEmbrasureAA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureA/SadjuukEmbrasureAA_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+	
+	<!-- SadjuukWallAB (Plank Wall) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall">
+    <defName>SadjuukWallAB</defName>
+    <designatorDropdown>SadjuukWallAB</designatorDropdown>
+    <label>Plank Wall</label>
+    <description>HP : 350
+Flammability : 70%
+A wooden wall made of planks, resistant and durable.</description>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <WorkToBuild>350</WorkToBuild>
+      <Flammability>0.6</Flammability>
+    </statBases>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+    <costList>
+      <WoodLog>5</WoodLog>
+      <Steel>2</Steel>
+    </costList>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallA/SadjuukWallAB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallA/SadjuukWallAB_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureAB (Plank Embrasure) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall">
+    <defName>SadjuukEmbrasureAB</defName>
+    <designatorDropdown>SadjuukEmbrasureAB</designatorDropdown>
+    <label>Plank Embrasure</label>
+    <description>HP : 350
+Flammability : 70%
+Cover : 60%
+A wooden wall with embrasure.</description>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <WorkToBuild>350</WorkToBuild>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <blockWind>false</blockWind>
+    <fillPercent>0.6</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+    <costList>
+      <WoodLog>5</WoodLog>
+      <Steel>2</Steel>
+    </costList>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureA/SadjuukEmbrasureAB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureA/SadjuukEmbrasureAB_Icon</uiIconPath>
+  </ThingDef>
+  
+  	
+
+	<!-- SadjuukWallBA (Tin Wall) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall">
+    <defName>SadjuukWallBA</defName>
+    <designatorDropdown>SadjuukWallBA</designatorDropdown>
+    <label>Tin Wall</label>
+    <description>HP : 450
+Flammability : 20%
+A rustic wall made of untreated steel and wood. Withstands the elements well.</description>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <WorkToBuild>450</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+    <costList>
+      <WoodLog>2</WoodLog>
+      <Steel>5</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallB/SadjuukWallBA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallB/SadjuukWallBA_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureBA (Tin Embrasure) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall">
+    <defName>SadjuukEmbrasureBA</defName>
+    <designatorDropdown>SadjuukEmbrasureBA</designatorDropdown>
+    <label>Tin Embrasure</label>
+    <description>HP : 450
+Flammability : 20%
+Cover : 70%
+A rustic wall with embrasure, made of untreated steel and wood.</description>
+    <statBases>
+      <MaxHitPoints>450</MaxHitPoints>
+      <WorkToBuild>450</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <blockWind>false</blockWind>
+    <fillPercent>0.7</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+    <costList>
+      <WoodLog>2</WoodLog>
+      <Steel>5</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureB/SadjuukEmbrasureBA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureB/SadjuukEmbrasureBA_Icon</uiIconPath>
+  </ThingDef>
+  
+
+
+	<!-- SadjuukWallBB (Steel Wall) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall">
+    <defName>SadjuukWallBB</defName>
+    <designatorDropdown>SadjuukWallBB</designatorDropdown>
+    <label>Steel Wall</label>
+    <description>HP : 600
+Flammability : 0%
+A very protective wall made of thick steel plates and wood.</description>
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <WorkToBuild>600</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <costList>
+      <WoodLog>2</WoodLog>
+      <Steel>10</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallB/SadjuukWallBB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallB/SadjuukWallBB_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureBB (Steel Embrasure) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall">
+    <defName>SadjuukEmbrasureBB</defName>
+    <designatorDropdown>SadjuukEmbrasureBB</designatorDropdown>
+    <label>Steel Embrasure</label>
+    <description>HP : 600
+Flammability : 0%
+Cover : 70%
+A very protective wall with embrasure made of thick steel plates and wood.</description>
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <WorkToBuild>600</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <blockWind>false</blockWind>
+    <fillPercent>0.7</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+    <costList>
+      <WoodLog>2</WoodLog>
+      <Steel>10</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureB/SadjuukEmbrasureBB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureB/SadjuukEmbrasureBB_Icon</uiIconPath>
+  </ThingDef>
+
+  
+	
+	<!-- SadjuukWallBaseC (Concrete Wall) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall" Name="SadjuukWallBaseC" Abstract="True">
+    <designatorDropdown>SadjuukWallBaseC</designatorDropdown>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <SadjuukConcrete>10</SadjuukConcrete>
+      <Steel>2</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <description>HP : 1000
+Flammability : 0%
+A thick concrete wall with steel reinforcements.</description>
+  </ThingDef>
+	<!-- SadjuukEmbrasureBaseC (Concrete Embrasure) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall" Name="SadjuukEmbrasureBaseC" Abstract="True">
+    <designatorDropdown>SadjuukEmbrasureBaseC</designatorDropdown>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <SadjuukConcrete>10</SadjuukConcrete>
+      <Steel>2</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <blockWind>false</blockWind>
+    <fillPercent>0.7</fillPercent>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <description>HP : 1000
+Flammability : 0%
+Cover : 70%
+A thick concrete wall with embrasure.</description>
+  </ThingDef>
+	<!-- SadjuukWallCA (Concrete wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseC">
+    <defName>SadjuukWallCA</defName>
+    <label>Concrete Wall A</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallC/SadjuukWallCA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallC/SadjuukWallCA_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureCA (Concrete Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseC">
+    <defName>SadjuukEmbrasureCA</defName>
+    <label>Concrete Embrasure A</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCA_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallCB (Concrete wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseC">
+    <defName>SadjuukWallCB</defName>
+    <label>Concrete Wall B</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallC/SadjuukWallCB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallC/SadjuukWallCB_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureCB (Concrete Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseC">
+    <defName>SadjuukEmbrasureCB</defName>
+    <label>Concrete Embrasure B</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCB_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallCC (Concrete wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseC">
+    <defName>SadjuukWallCC</defName>
+    <label>Concrete Wall C</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallC/SadjuukWallCC</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallC/SadjuukWallCC_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureCC (Concrete Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseC">
+    <defName>SadjuukEmbrasureCC</defName>
+    <label>Concrete Embrasure C</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCC</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCC_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallCD (Concrete wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseC">
+    <defName>SadjuukWallCD</defName>
+    <label>Concrete Wall D</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallC/SadjuukWallCD</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallC/SadjuukWallCD_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureCD (Concrete Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseC">
+    <defName>SadjuukEmbrasureCD</defName>
+    <label>Concrete Embrasure D</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCD</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCD_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallCE (Concrete wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseC">
+    <defName>SadjuukWallCE</defName>
+    <label>Concrete Wall E</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallC/SadjuukWallCE</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallC/SadjuukWallCE_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureCE (Concrete Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseC">
+    <defName>SadjuukEmbrasureCE</defName>
+    <label>Concrete Embrasure E</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCE</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureC/SadjuukEmbrasureCE_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+  
+	<!-- SadjuukWallBaseD (Armored Wall) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall" Name="SadjuukWallBaseD" Abstract="True">
+    <designatorDropdown>SadjuukWallBaseD</designatorDropdown>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <SadjuukConcrete>10</SadjuukConcrete>
+      <Steel>10</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukConstructionB</li>
+    </researchPrerequisites>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <description>HP : 2000
+Flammability : 0%
+A thick concrete wall Armored with heavy steel plates. Intended for military use, mainly for long-term entrenchments.</description>
+  </ThingDef>
+	<!-- SadjuukEmbrasureBaseD (Armored Embrasure) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall" Name="SadjuukEmbrasureBaseD" Abstract="True">
+    <designatorDropdown>SadjuukEmbrasureBaseD</designatorDropdown>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <SadjuukConcrete>10</SadjuukConcrete>
+      <Steel>10</Steel>
+    </costList>
+    <researchPrerequisites>
+      <li>SadjuukConstructionB</li>
+    </researchPrerequisites>
+    <blockWind>false</blockWind>
+    <fillPercent>0.75</fillPercent>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <description>HP : 2000
+Flammability : 0%
+Cover : 75%
+A thick concrete wall Armored with heavy steel plates with embrasure.</description>
+  </ThingDef>
+	<!-- SadjuukWallDB (Armored wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseD">
+    <defName>SadjuukWallDB</defName>
+    <label>Armored Wall</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallD/SadjuukWallDB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallD/SadjuukWallDB_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureDB (Armored Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseD">
+    <defName>SadjuukEmbrasureDB</defName>
+    <label>Armored Embrasure</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDB_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallDD (Flecktarn Armored wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseD">
+    <defName>SadjuukWallDD</defName>
+    <label>Flecktarn Camo Wall</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallD/SadjuukWallDD</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallD/SadjuukWallDD_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureDD (Flecktarn Armored Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseD">
+    <defName>SadjuukEmbrasureDD</defName>
+    <label>Flecktarn Embrasure</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDD</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDD_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallDE (Desert Armored wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseD">
+    <defName>SadjuukWallDE</defName>
+    <label>Desert Camo Wall</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallD/SadjuukWallDE</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallD/SadjuukWallDE_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureDE (Desert Armored Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseD">
+    <defName>SadjuukEmbrasureDE</defName>
+    <label>Desert Embrasure</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDE</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDE_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallDA (Steel Armored wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseD">
+    <defName>SadjuukWallDA</defName>
+    <label>Steel Armored Wall</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallD/SadjuukWallDA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallD/SadjuukWallDA_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureDA (Steel Armored Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseD">
+    <defName>SadjuukEmbrasureDA</defName>
+    <label>Steel Armored Embrasure</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDA_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallDC (Camo Armored wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseD">
+    <defName>SadjuukWallDC</defName>
+    <label>Forest Camo Wall</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallD/SadjuukWallDC</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallD/SadjuukWallDC_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureDC (Camo Armored Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseD">
+    <defName>SadjuukEmbrasureDC</defName>
+    <label>Forest Embrasure</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDC</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDC_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallDF (Ice Armored wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseD">
+    <defName>SadjuukWallDF</defName>
+    <label>Ice Camo Wall</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallD/SadjuukWallDF</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallD/SadjuukWallDF_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureDF (Ice Armored Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseD">
+    <defName>SadjuukEmbrasureDF</defName>
+    <label>Ice Embrasure</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDF</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureD/SadjuukEmbrasureDF_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+  	
+	<!-- SadjuukWallBaseE (Advanced Wall) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall" Name="SadjuukWallBaseE" Abstract="True">
+    <designatorDropdown>SadjuukWallBaseE</designatorDropdown>
+    <statBases>
+      <MaxHitPoints>4000</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>1</Beauty>
+    </statBases>
+    <researchPrerequisites>
+      <li>SadjuukConstructionC</li>
+    </researchPrerequisites>
+    <costList>
+      <SadjuukConcrete>10</SadjuukConcrete>
+      <Plasteel>10</Plasteel>
+    </costList>
+    <blockWind>true</blockWind>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    <description>HP : 4000
+Flammability : 0%
+A wall made from the best materials. Used both in the colonization of hostile worlds and for the construction of the most advanced buildings.</description>
+  </ThingDef>
+	<!-- SadjuukEmbrasureBaseE (Armored Embrasure) -->  
+  <ThingDef ParentName="ParagonSadjuukUnusableWall" Name="SadjuukEmbrasureBaseE" Abstract="True">
+    <designatorDropdown>SadjuukEmbrasureBaseE</designatorDropdown>
+    <statBases>
+      <MaxHitPoints>4000</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>1</Beauty>
+    </statBases>
+    <researchPrerequisites>
+      <li>SadjuukConstructionC</li>
+    </researchPrerequisites>
+    <costList>
+      <SadjuukConcrete>10</SadjuukConcrete>
+      <Plasteel>10</Plasteel>
+    </costList>
+    <blockWind>false</blockWind>
+    <fillPercent>0.8</fillPercent>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    <description>HP : 4000
+Flammability : 0%
+Cover : 80%
+A wall with embrasure, made from the best materials.</description>
+  </ThingDef>
+	<!-- SadjuukWallEA (Plasteel wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseE">
+    <defName>SadjuukWallEA</defName>
+    <label>Plasteel Wall A</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallE/SadjuukWallEA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallE/SadjuukWallEA_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureEA (Plasteel Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseE">
+    <defName>SadjuukEmbrasureEA</defName>
+    <label>Plasteel Embrasure A</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureE/SadjuukEmbrasureEA</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureE/SadjuukEmbrasureEA_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallEB (Plasteel wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseE">
+    <defName>SadjuukWallEB</defName>
+    <label>Plasteel Wall B</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallE/SadjuukWallEB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallE/SadjuukWallEB_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureEB (Plasteel Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseE">
+    <defName>SadjuukEmbrasureEB</defName>
+    <label>Plasteel Embrasure B</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureE/SadjuukEmbrasureEB</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureE/SadjuukEmbrasureEB_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallEC (Plasteel wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseE">
+    <defName>SadjuukWallEC</defName>
+    <label>Plasteel Wall C</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallE/SadjuukWallEC</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallE/SadjuukWallEC_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureEC (Plasteel Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseE">
+    <defName>SadjuukEmbrasureEC</defName>
+    <label>Plasteel Embrasure C</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureE/SadjuukEmbrasureEC</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureE/SadjuukEmbrasureEC_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukWallED (Plasteel wall) -->  
+  <ThingDef ParentName="SadjuukWallBaseE">
+    <defName>SadjuukWallED</defName>
+    <label>Plasteel Wall D</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukWallE/SadjuukWallED</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukWallE/SadjuukWallED_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukEmbrasureED (Plasteel Embrasure) -->  
+  <ThingDef ParentName="SadjuukEmbrasureBaseE">
+    <defName>SadjuukEmbrasureED</defName>
+    <label>Plasteel Embrasure D</label>
+    <graphicData>
+      <texPath>SadjuukWall/SadjuukEmbrasureE/SadjuukEmbrasureED</texPath>
+    </graphicData>
+    <uiIconPath>SadjuukWall/SadjuukEmbrasureE/SadjuukEmbrasureED_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+  
+</Defs>

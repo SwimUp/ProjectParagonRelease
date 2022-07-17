@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<!---->
+			<!---->
+			<!-- Basic -->
+			<!---->
+			<!---->
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "StageThenAttack"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.DefModExtension_RaidStrategy">
+							<requiredKnowledges>
+								<li>
+									<raidKnowledgeDef>General</raidKnowledgeDef>
+									<maxValue>0.3</maxValue>
+								</li>
+							</requiredKnowledges>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "ImmediateAttack"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.DefModExtension_RaidStrategy">
+							<requiredKnowledges>
+								<li>
+									<raidKnowledgeDef>General</raidKnowledgeDef>
+									<minValue>0.3</minValue>
+								</li>
+								<li>
+									<raidKnowledgeDef>Defense</raidKnowledgeDef>
+									<minValue>0.2</minValue>
+								</li>
+							</requiredKnowledges>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "ImmediateAttack"]/arriveModes</xpath>
+				<value>
+					<li>Digging</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "ImmediateAttackSmart"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.DefModExtension_RaidStrategy">
+							<requiredKnowledges>
+								<li>
+									<raidKnowledgeDef>General</raidKnowledgeDef>
+									<minValue>0.4</minValue>
+								</li>
+								<li>
+									<raidKnowledgeDef>Defense</raidKnowledgeDef>
+									<minValue>0.3</minValue>
+								</li>
+							</requiredKnowledges>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "ImmediateAttackSmart"]/arriveModes</xpath>
+				<value>
+					<li>Digging</li>
+				</value>
+			</li>
+			<!---->
+			<!---->
+			<!-- Sappers -->
+			<!---->
+			<!---->
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "ImmediateAttackSappers"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.DefModExtension_RaidStrategy">
+							<requiredKnowledges>
+								<li>
+									<raidKnowledgeDef>General</raidKnowledgeDef>
+									<minValue>0.4</minValue>
+								</li>
+								<li>
+									<raidKnowledgeDef>DegreeDefense</raidKnowledgeDef>
+									<minValue>0.2</minValue>
+								</li>
+							</requiredKnowledges>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "ImmediateAttackSappers"]/arriveModes</xpath>
+				<value>
+					<li>Digging</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "ImmediateAttackSappers"]</xpath>
+				<value>
+					<letterLabelFriendly>Friendlies</letterLabelFriendly>
+					<arrivalTextFriendly>They are moving in to help you immediately.</arrivalTextFriendly>
+				</value>
+			</li>
+			<!---->
+			<!---->
+			<!-- Siege -->
+			<!---->
+			<!---->
+			<li Class="PatchOperationAdd">
+				<xpath>*/RaidStrategyDef[defName = "Siege"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.FactionControl.DefModExtension_RaidStrategy">
+							<requiredKnowledges>
+								<li>
+									<raidKnowledgeDef>General</raidKnowledgeDef>
+									<minValue>0.5</minValue>
+								</li>
+								<li>
+									<raidKnowledgeDef>Defense</raidKnowledgeDef>
+									<minValue>0.3</minValue>
+								</li>
+								<li>
+									<raidKnowledgeDef>ProtectiveBuildings</raidKnowledgeDef>
+									<minValue>0.2</minValue>
+								</li>
+							</requiredKnowledges>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

@@ -1,0 +1,917 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffGiverSetDef>
+		<defName>OrganicInsect</defName>
+		<hediffGivers>
+			<li Class="HediffGiver_Bleeding">
+				<hediff>BloodLoss</hediff>
+			</li>
+			<li Class="HediffGiver_Hypothermia">
+				<hediff>Hypothermia</hediff>
+				<hediffInsectoid>HypothermicSlowdown</hediffInsectoid>
+			</li>
+			<li Class="HediffGiver_Heat">
+				<hediff>Heatstroke</hediff>
+			</li>
+			<li Class="HediffGiver_RandomAgeCurved">
+				<hediff>HeartAttack</hediff>
+				<partsToAffect>
+					<li>Heart</li>
+				</partsToAffect>
+				<allowOnLodgers>false</allowOnLodgers>
+				<allowOnQuestRewardPawns>false</allowOnQuestRewardPawns>
+				<minPlayerPopulation>2</minPlayerPopulation>
+				<ageFractionMtbDaysCurve>
+					<points>
+						<li>(0.6, 9999999)</li>
+						<li>(0.8, 2500)</li>
+						<li>(1, 300)</li>
+					</points>
+				</ageFractionMtbDaysCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Carcinoma</hediff>
+				<canAffectAnyLivePart>true</canAffectAnyLivePart>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.28, 0)</li>
+						<li>(1, 0.0011)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>BadBack</hediff>
+				<partsToAffect>
+					<li>Spine</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.002)</li>
+						<li>(0.5,  -0.0008)</li>
+						<li>(1, -0.00000001)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Frail</hediff>
+				<partsToAffect>
+					<li>Torso</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.002)</li>
+						<li>(0.5,  -0.0008)</li>
+						<li>(1, -0.00000001)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Cataract</hediff>
+				<partsToAffect>
+					<li>Eye</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>HearingLoss</hediff>
+				<partsToAffect>
+					<li>Ear</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Asthma</hediff>
+				<partsToAffect>
+					<li>Lung</li>
+				</partsToAffect>
+				<countToAffect>2</countToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>HeartArteryBlockage</hediff>
+				<partsToAffect>
+					<li>Heart</li>
+				</partsToAffect>
+				<allowOnLodgers>false</allowOnLodgers>
+				<allowOnQuestRewardPawns>false</allowOnQuestRewardPawns>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.00015</averageSeverityPerDayBeforeGeneration>
+			</li>
+
+
+			<li Class="HediffGiver_BrainInjury">
+				<hediff>Diseases_HediffDef_BipolarDisorder</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<chancePerDamagePct>0.01</chancePerDamagePct>
+				<letterLabel>Bipolar disorder</letterLabel>
+				<letter>[PAWN_nameDef]'s brain injury has caused [PAWN_objective] to develop strange symptoms.</letter>
+			</li>
+			<li Class="HediffGiver_BrainInjury">
+				<hediff>Diseases_HediffDef_Schizophrenia</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<chancePerDamagePct>0.01</chancePerDamagePct>
+				<letterLabel>Schizophrenia</letterLabel>
+				<letter>[PAWN_nameDef]'s brain injury has caused [PAWN_objective] to develop strange symptoms.</letter>
+			</li>
+			<li Class="HediffGiver_BrainInjury">
+				<hediff>Diseases_HediffDef_ManicSyndrome</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<chancePerDamagePct>0.01</chancePerDamagePct>
+				<letterLabel>Manic syndrome</letterLabel>
+				<letter>[PAWN_nameDef]'s brain injury has caused [PAWN_objective] to develop strange symptoms.</letter>
+			</li>
+			<li Class="HediffGiver_BrainInjury">
+				<hediff>Diseases_HediffDef_Epilepsy</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<chancePerDamagePct>0.01</chancePerDamagePct>
+				<letterLabel>Epilepsy</letterLabel>
+				<letter>[PAWN_nameDef]'s brain injury has caused [PAWN_objective] to develop strange symptoms.</letter>
+			</li>
+			<li Class="HediffGiver_BrainInjury">
+				<hediff>Diseases_HediffDef_ParanoidSyndrome</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<chancePerDamagePct>0.01</chancePerDamagePct>
+				<letterLabel>Paranoid_Syndrome</letterLabel>
+				<letter>[PAWN_nameDef]'s brain injury has caused [PAWN_objective] to develop strange symptoms.</letter>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Dementia</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Alzheimers</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.001</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_BipolarDisorder</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Schizophrenia</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_ManicSyndrome</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.0001)</li>
+						<li>(0.5,  0.00015)</li>
+						<li>(1, 0.00001)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_ParanoidSyndrome</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.0001)</li>
+						<li>(0.5,  0.00015)</li>
+						<li>(1, 0.00001)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Epilepsy</hediff>
+				<partsToAffect>
+					<li>Brain</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_StomachUlcer</hediff>
+				<partsToAffect>
+					<li>Stomach</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_ChronicGastritis</hediff>
+				<partsToAffect>
+					<li>Stomach</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Dysbacteriosis</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Immunodeficiency</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_PainNumbnessSyndrome</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_MotorParalysis</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_SoreJoints</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Deafness</hediff>
+				<partsToAffect>
+					<li>Ear</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Strabismus</hediff>
+				<partsToAffect>
+					<li>Eye</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.0001)</li>
+						<li>(0.5,  0.00015)</li>
+						<li>(1, 0.00001)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Glaucoma</hediff>
+				<partsToAffect>
+					<li>Eye</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_KidneyFailure</hediff>
+				<partsToAffect>
+					<li>Kidney</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_ChronicKidneyDisease</hediff>
+				<partsToAffect>
+					<li>Kidney</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Tuberculosis</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Arrhythmia</hediff>
+				<partsToAffect>
+					<li>Heart</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_HeartDefect</hediff>
+				<partsToAffect>
+					<li>Heart</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Scoliosis</hediff>
+				<partsToAffect>
+					<li>Spine</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.002)</li>
+						<li>(0.5,  -0.0008)</li>
+						<li>(1, -0.00000001)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_IntervertebralHernia</hediff>
+				<partsToAffect>
+					<li>Spine</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_SpinalInstability</hediff>
+				<partsToAffect>
+					<li>Spine</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+		</hediffGivers>
+	</HediffGiverSetDef>
+	
+	<HediffGiverSetDef>
+		<defName>OrganicArachnidGroup</defName>
+		<hediffGivers>
+
+			<li Class="ProjectParagon.Core.Hediffs.Givers.HediffGiver_ArachnidToxicity">
+				<hediff>TP_InsectToxicity</hediff>
+				<matchColor>(85, 118, 69, 255)</matchColor>
+			</li>
+
+			<li Class="ProjectParagon.Core.Hediffs.Givers.HediffGiver_Blindness">
+				<hediff>TP_InsectPhotophobia</hediff>
+				<glowMin>0.25</glowMin>
+				<partsToAffect>
+					<li>Eye</li>
+				</partsToAffect>
+			</li>
+
+			<li Class="ProjectParagon.Core.Hediffs.Givers.HediffGiver_ColorMatchHediffs">
+				<matchColors>
+					<li>
+						<key>(126,104,94)</key>
+						<value>
+							<hediffDef>TP_InsectHardSkin</hediffDef>
+							<forceStage>1</forceStage>
+						</value>
+					</li>
+					<li>
+						<key>(105,95,97)</key>
+						<value>
+							<hediffDef>TP_InsectHardSkin</hediffDef>
+							<forceStage>2</forceStage>
+						</value>
+					</li>
+					<li>
+						<key>(158,153,135)</key>
+						<value>
+							<hediffDef>TP_InsectHardSkin</hediffDef>
+							<forceStage>0</forceStage>
+						</value>
+					</li>
+					<li>
+						<key>(70,70,70)</key>
+						<value>
+							<hediffDef>TP_InsectHardSkin</hediffDef>
+							<forceStage>3</forceStage>
+						</value>
+					</li>
+					<li>
+						<key>(132,135,132)</key>
+						<value>
+							<hediffDef>TP_InsectHardSkin</hediffDef>
+							<forceStage>1</forceStage>
+						</value>
+					</li>
+					<li>
+						<key>(85,118,69)</key>
+						<value>
+							<hediffDef>TP_InsectHardSkin</hediffDef>
+							<forceStage>0</forceStage>
+						</value>
+					</li>
+				</matchColors>
+			</li>
+
+		</hediffGivers>
+	</HediffGiverSetDef>
+	
+	<HediffGiverSetDef>
+		<defName>OrganicArachnidWorker</defName>
+		<hediffGivers>
+
+			<li Class="ProjectParagon.Core.Hediffs.Givers.HediffGiver_JustAddHediffOnPawnGenerated">
+				<hediff>ArachnidWorker</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0, 1)</li>
+						<li>(1, 1)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+		</hediffGivers>
+	</HediffGiverSetDef>
+	
+	<HediffGiverSetDef>
+		<defName>OrganicTaurus</defName>
+		<hediffGivers>
+
+			<li Class="ProjectParagon.Core.Hediffs.Givers.HediffGiver_JustAddHediffOnPawnGenerated">
+				<hediff>HediffDef_AcceleratedMetabolism</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0, 1)</li>
+						<li>(1, 1)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+		</hediffGivers>
+	</HediffGiverSetDef>
+	
+	<HediffGiverSetDef>
+		<defName>OrganicAeronGroup</defName>
+		<hediffGivers>
+
+			<li Class="ProjectParagon.Core.Hediffs.Givers.HediffGiver_JustAddHediffOnPawnGenerated">
+				<hediff>HediffDef_AeronClaw</hediff>
+				<partsToAffect>
+					<li>Shoulder</li>
+				</partsToAffect>
+				<countToAffect>2</countToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0, 1)</li>
+						<li>(1, 1)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<severity>0.001~1</severity>
+			</li>
+
+		</hediffGivers>
+	</HediffGiverSetDef>
+
+	<HediffGiverSetDef>
+		<defName>OrganicTreant</defName>
+		<hediffGivers>
+			<li Class="HediffGiver_Hypothermia">
+				<hediff>Hypothermia</hediff>
+				<hediffInsectoid>HypothermicSlowdown</hediffInsectoid>
+			</li>
+			<li Class="HediffGiver_Heat">
+				<hediff>Heatstroke</hediff>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>BadBack</hediff>
+				<partsToAffect>
+					<li>SpineWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.002)</li>
+						<li>(0.5,  -0.0008)</li>
+						<li>(1, -0.00000001)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Frail</hediff>
+				<partsToAffect>
+					<li>TorsoWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.002)</li>
+						<li>(0.5,  -0.0008)</li>
+						<li>(1, -0.00000001)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>HearingLoss</hediff>
+				<partsToAffect>
+					<li>EarWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_PainNumbnessSyndrome</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_MotorParalysis</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Deafness</hediff>
+				<partsToAffect>
+					<li>EarWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_Scoliosis</hediff>
+				<partsToAffect>
+					<li>SpineWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0,  0.002)</li>
+						<li>(0.5,  -0.0008)</li>
+						<li>(1, -0.00000001)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.0005</averageSeverityPerDayBeforeGeneration>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_IntervertebralHernia</hediff>
+				<partsToAffect>
+					<li>SpineWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+			<li Class="HediffGiver_Birthday">
+				<hediff>Diseases_HediffDef_SpinalInstability</hediff>
+				<partsToAffect>
+					<li>SpineWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="ProjectParagon.Core.Hediffs.Givers.HediffGiver_JustAddHediffOnPawnGenerated">
+				<hediff>HediffDef_SentientPlant</hediff>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0, 1)</li>
+						<li>(1, 1)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>HediffDef_WitheredBranch</hediff>
+				<partsToAffect>
+					<li>ShoulderWithoutBlood</li>
+					<li>LegWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.00025</averageSeverityPerDayBeforeGeneration>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>HediffDef_SharpBranch</hediff>
+				<partsToAffect>
+					<li>ShoulderWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>HediffDef_PoisonGlands</hediff>
+				<partsToAffect>
+					<li>JawWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>HediffDef_KeratinizedPlate</hediff>
+				<partsToAffect>
+					<li>ShieldSegment</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+			</li>
+
+			<li Class="HediffGiver_Birthday">
+				<hediff>HediffDef_FruitBranch</hediff>
+				<partsToAffect>
+					<li>ShoulderWithoutBlood</li>
+				</partsToAffect>
+				<ageFractionChanceCurve>
+					<points>
+						<li>(0.42, 0)</li>
+						<li>(0.7, 0.00051)</li>
+						<li>(0.9, 0.0008)</li>
+						<li>(1, 0.001)</li>
+						<li>(1.5, 0.0015)</li>
+					</points>
+				</ageFractionChanceCurve>
+				<averageSeverityPerDayBeforeGeneration>0.00025</averageSeverityPerDayBeforeGeneration>
+			</li>
+
+		</hediffGivers>
+	</HediffGiverSetDef>
+	
+</Defs>

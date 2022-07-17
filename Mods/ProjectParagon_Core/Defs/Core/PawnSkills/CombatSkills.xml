@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ProjectParagon.Core.FightSystem.PawnSkillDef>
+		<defName>SkillBasic_Shooting_AimedFire</defName>
+		<label>Aimed fire</label>
+		<description>Rules for the correct conduct of aimed fire, aimed at increasing the productivity of a soldier.</description>
+		<workerClass>ProjectParagon.Core.FightSystem.PawnSkills.PawnSkillWorker_SkillBasic</workerClass>
+		<props Class="ProjectParagon.Core.FightSystem.PawnSkills.SkillProperties_SkillBasic">
+			<hediffDef>AimedFire</hediffDef>
+		</props>
+		<tag>Shooting</tag>
+		<pawnPriceValueOffset>150</pawnPriceValueOffset>
+	</ProjectParagon.Core.FightSystem.PawnSkillDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>AimedFire</defName>
+		<label>Aimed fire</label>
+		<description>Rules for the correct conduct of aimed fire, aimed at increasing the productivity of a soldier.</description>
+		<makesSickThought>false</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<statFactors>
+					<ShootingAccuracyPawn>1.05</ShootingAccuracyPawn>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<ProjectParagon.Core.FightSystem.PawnSkillDef>
+		<defName>SkillBasic_Shooting_SniperFire</defName>
+		<label>Sniper fire</label>
+		<description>Aimed shooting skills specific to a sniper.</description>
+		<workerClass>ProjectParagon.Core.FightSystem.PawnSkills.PawnSkillWorker_SkillBasic</workerClass>
+		<props Class="ProjectParagon.Core.FightSystem.PawnSkills.SkillProperties_SkillBasic">
+			<hediffDef>SniperFire</hediffDef>
+		</props>
+		<tag>Shooting</tag>
+		<pawnPriceValueOffset>250</pawnPriceValueOffset>
+	</ProjectParagon.Core.FightSystem.PawnSkillDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>SniperFire</defName>
+		<label>Sniper fire</label>
+		<description>Aimed shooting skills specific to a sniper.</description>
+		<makesSickThought>false</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<statFactors>
+					<ShootingAccuracyPawn>1.2</ShootingAccuracyPawn>
+					<AimingDelayFactor>1.1</AimingDelayFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<ProjectParagon.Core.FightSystem.PawnSkillDef>
+		<defName>SkillBasic_Melee_BasicsOfSelfDefense</defName>
+		<label>Basics of self defense</label>
+		<description>Hand-to-hand combat skills focused on dodging and disarming the enemy.</description>
+		<workerClass>ProjectParagon.Core.FightSystem.PawnSkills.PawnSkillWorker_SkillBasic</workerClass>
+		<props Class="ProjectParagon.Core.FightSystem.PawnSkills.SkillProperties_SkillBasic">
+			<hediffDef>BasicsOfSelfDefense</hediffDef>
+		</props>
+		<tag>Melee</tag>
+		<pawnPriceValueOffset>200</pawnPriceValueOffset>
+	</ProjectParagon.Core.FightSystem.PawnSkillDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>BasicsOfSelfDefense</defName>
+		<label>Basics of self defense</label>
+		<description>Hand-to-hand combat skills focused on dodging and disarming the enemy.</description>
+		<makesSickThought>false</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<statFactors>
+					<MeleeDodgeChance>1.05</MeleeDodgeChance>
+					<MeleeHitChance>1.05</MeleeHitChance>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<ProjectParagon.Core.FightSystem.PawnSkillDef>
+		<defName>SkillBasic_Melee_PowerAttacks</defName>
+		<label>Power attacks</label>
+		<description>A set of rules focused on delivering power strikes to daze an opponent.</description>
+		<workerClass>ProjectParagon.Core.FightSystem.PawnSkills.PawnSkillWorker_SkillBasic</workerClass>
+		<props Class="ProjectParagon.Core.FightSystem.PawnSkills.SkillProperties_SkillBasic">
+			<hediffDef>PowerAttacks</hediffDef>
+		</props>
+		<tag>Melee</tag>
+		<pawnPriceValueOffset>200</pawnPriceValueOffset>
+	</ProjectParagon.Core.FightSystem.PawnSkillDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>PowerAttacks</defName>
+		<label>Power attacks</label>
+		<description>A set of rules focused on delivering power strikes to daze an opponent.</description>
+		<makesSickThought>false</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<statFactors>
+					<MeleeDPS>1.1</MeleeDPS>
+					<MeleeArmorPenetration>1.1</MeleeArmorPenetration>
+					<MeleeDodgeChance>0.9</MeleeDodgeChance>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<ProjectParagon.Core.FightSystem.PawnSkillDef>
+		<defName>SkillBasic_MiscCombat_OvercomingTraps</defName>
+		<label>Overcoming traps</label>
+		<description>A set of rules for successfully predicting traps and how to overcome them without harming yourself.</description>
+		<workerClass>ProjectParagon.Core.FightSystem.PawnSkills.PawnSkillWorker_SkillBasic</workerClass>
+		<props Class="ProjectParagon.Core.FightSystem.PawnSkills.SkillProperties_SkillBasic">
+			<hediffDef>OvercomingTraps</hediffDef>
+		</props>
+		<tag>MiscCombat</tag>
+		<pawnPriceValueOffset>100</pawnPriceValueOffset>
+	</ProjectParagon.Core.FightSystem.PawnSkillDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>OvercomingTraps</defName>
+		<label>Overcoming traps</label>
+		<description>A set of rules for successfully predicting traps and how to overcome them without harming yourself.</description>
+		<makesSickThought>false</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<statFactors>
+					<PawnTrapSpringChance>0.5</PawnTrapSpringChance>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<ProjectParagon.Core.FightSystem.PawnSkillDef>
+		<defName>SkillBasic_Melee_HandToHandCombat</defName>
+		<label>Hand-to-hand combat</label>
+		<description>Hand-to-hand combat skills without weapons.</description>
+		<workerClass>ProjectParagon.Core.FightSystem.PawnSkills.PawnSkillWorker_SkillBasic</workerClass>
+		<props Class="ProjectParagon.Core.FightSystem.PawnSkills.SkillProperties_SkillBasic">
+			<hediffDef>HandToHandCombat</hediffDef>
+		</props>
+		<tag>Melee</tag>
+		<pawnPriceValueOffset>150</pawnPriceValueOffset>
+	</ProjectParagon.Core.FightSystem.PawnSkillDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>HandToHandCombat</defName>
+		<label>Hand-to-hand combat</label>
+		<description>Hand-to-hand combat skills without weapons.</description>
+		<makesSickThought>false</makesSickThought>
+		<tendable>false</tendable>
+		<minSeverity>0.001</minSeverity>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+				<statFactors>
+					<UnarmedDamage>1.5</UnarmedDamage>
+					<MeleeDodgeChance>1.1</MeleeDodgeChance>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<ProjectParagon.Core.FightSystem.PawnSkillDef>
+		<defName>Scouting</defName>
+		<label>Scouting</label>
+		<description>Stealth skills to obtain relatively reliable information about the positions of the enemy in his settlements.</description>
+		<tag>MiscCombat</tag>
+		<pawnPriceValueOffset>150</pawnPriceValueOffset>
+	</ProjectParagon.Core.FightSystem.PawnSkillDef>
+</Defs>

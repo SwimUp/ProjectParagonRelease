@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="PsychiteTea"]</xpath>
+				<value>
+					<ThingDef ParentName="MakeableDrugBase">
+						<defName>PsychiteTea</defName>
+						<label>psychite tea</label>
+						<description>A fragrant tea infused with leaves of the psychoid plant. Drinking it induces a subtle psychite euphoria. This tea is easy to produce at cooking facilities, but can produce psychite addiction if consumed too often.\n\nMany tribes use psychoid tea, both as a daily energizer and as part of social and religious rituals.</description>
+						<descriptionHyperlinks>
+							<HediffDef>PsychiteTeaHigh</HediffDef>
+							<HediffDef>PsychiteTolerance</HediffDef>
+							<HediffDef>PsychiteAddiction</HediffDef>
+							<HediffDef>ChemicalDamageSevere</HediffDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<texPath>Things/Item/Drug/Tea</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+							<drawSize>0.88</drawSize>
+						</graphicData>
+						<rotatable>false</rotatable>
+						<statBases>
+							<WorkToMake>400</WorkToMake>
+							<MarketValue>10</MarketValue>
+							<Mass>0.05</Mass>
+							<DeteriorationRate>6</DeteriorationRate>
+						</statBases>
+						<techLevel>Neolithic</techLevel>
+						<ingestible>
+							<foodType>Fluid, Processed</foodType>
+							<joyKind>Chemical</joyKind>
+							<joy>0.40</joy>
+							<baseIngestTicks>210</baseIngestTicks>
+							<nurseable>true</nurseable>
+							<drugCategory>Social</drugCategory>
+							<ingestSound>Ingest_Drink</ingestSound>
+							<ingestHoldOffsetStanding>
+								<northDefault>
+									<offset>(0.18,0,0)</offset>
+								</northDefault>
+							</ingestHoldOffsetStanding>
+							<ingestHoldUsesTable>false</ingestHoldUsesTable>
+							<ingestCommandString>Drink {0}</ingestCommandString>
+							<ingestReportString>Drinking {0}.</ingestReportString>
+							<outcomeDoers>
+								<li Class="IngestionOutcomeDoer_GiveHediff">
+									<hediffDef>PsychiteTeaHigh</hediffDef>
+									<severity>0.75</severity>
+									<toleranceChemical>Psychite</toleranceChemical>
+								</li>
+								<li Class="IngestionOutcomeDoer_OffsetNeed">
+									<need>Rest</need>
+									<offset>0.1</offset>
+									<toleranceChemical>Psychite</toleranceChemical>
+								</li>
+								<li Class="IngestionOutcomeDoer_GiveHediff">
+									<hediffDef>PsychiteTolerance</hediffDef>
+									<severity>0.03</severity>
+									<divideByBodySize>true</divideByBodySize>
+								</li>
+							</outcomeDoers>
+						</ingestible>
+						<recipeMaker>
+							<researchPrerequisite>Agro_AddictivePlantsII</researchPrerequisite>
+							<recipeUsers>
+								<li>Brewery</li>
+							</recipeUsers>
+							<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+							<workSkill>Cooking</workSkill>
+							<skillRequirements>
+								<Cooking>2</Cooking>
+							</skillRequirements>
+							<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+						</recipeMaker>
+						<costList>
+							<PsychoidLeaves>6</PsychoidLeaves>
+							<WaterForBill>2</WaterForBill>
+						</costList>
+						<comps>
+							<li Class="CompProperties_Drug">
+								<chemical>Psychite</chemical>
+								<addictiveness>0.02</addictiveness>
+								<minToleranceToAddict>0.10</minToleranceToAddict>
+								<existingAddictionSeverityOffset>0.15</existingAddictionSeverityOffset>
+								<needLevelOffset>0.9</needLevelOffset>
+								<listOrder>110</listOrder>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

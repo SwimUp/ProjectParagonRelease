@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThoughtDef>
+		<defName>NeedCarbohydrates</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_NeedCarbohydrates</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>slight lack of carbohydrates</label>
+				<description>I don't feel very well due to a lack of carbohydrates.</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+			<li>
+				<label>severe lack of carbohydrates</label>
+				<description>A serious deficiency affects my well-being.</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef Name="CustomFood_Base" Abstract="True">
+		<showBubble>true</showBubble>
+		<stackLimit>1</stackLimit>
+		<stackedEffectMultiplier>1</stackedEffectMultiplier>
+	</ThoughtDef>
+
+	<ThoughtDef ParentName="CustomFood_Base">
+		<defName>FoodSystem_Bad_Favour</defName>
+		<stages>
+			<li>
+				<label>bad food</label>
+				<description>Ate bad food.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_CustomFoodFavour</workerClass>
+		<hediff>Food_Bad</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+	</ThoughtDef>
+
+	<ThoughtDef ParentName="CustomFood_Base">
+		<defName>FoodSystem_Good_Favour</defName>
+		<stages>
+			<li>
+				<label>good food</label>
+				<description>Ate delicious food.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_CustomFoodFavour</workerClass>
+		<hediff>Food_Good</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+	</ThoughtDef>
+	
+	<HediffDef>
+		<defName>Food_Good</defName>
+		<label>ate delicious food</label>
+		<description>This dish was good.</description>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<hediffClass>ProjectParagon.Core.Hediffs.Hediff_CustomFoodFavour</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>60000~60000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>Food_Bad</defName>
+		<label>ate bad food</label>
+		<description>This dish was bad.</description>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<hediffClass>ProjectParagon.Core.Hediffs.Hediff_CustomFoodFavour</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>60000~60000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+	</HediffDef>
+
+</Defs>

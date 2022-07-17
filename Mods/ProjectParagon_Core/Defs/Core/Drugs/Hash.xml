@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DrugBase">
+		<defName>HashDrug</defName>
+		<label>Hash</label>
+		<description>Aeron's natural drug. A mixture of clay and meat that rots for a while in Aeron excrement. The output is a mixture that stimulates physical parameters. Very contagious.</description>
+		<descriptionHyperlinks>
+			<HediffDef>HashDrugHigh</HediffDef>
+			<HediffDef>HashDrugTolerance</HediffDef>
+			<HediffDef>HashDrugAddiction</HediffDef>
+			<HediffDef>Carcinoma</HediffDef>
+			<HediffDef>Asthma</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Drugs/Hash/Hash</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>450</WorkToMake>
+			<MarketValue>16</MarketValue>
+			<Mass>0.05</Mass>
+			<DeteriorationRate>6</DeteriorationRate>
+			<Flammability>1.3</Flammability>
+		</statBases>
+		<ingestible>
+			<foodType>Plant, Processed</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.2</joy>
+			<baseIngestTicks>700</baseIngestTicks>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Drink</ingestSound>
+			<ingestEffectEat>EatVegetarian</ingestEffectEat>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Eat {0}</ingestCommandString>
+			<ingestReportString>Eating {0}.</ingestReportString>
+			<ingestReportStringEat>Eating {0}.</ingestReportStringEat>
+			<useEatingSpeedStat>true</useEatingSpeedStat>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>HashDrugHigh</hediffDef>
+					<severity>0.5</severity>
+					<toleranceChemical>HashDrug</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_OffsetNeed">
+					<need>Rest</need>
+					<offset>-0.1</offset>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>HashDrugTolerance</hediffDef>
+					<severity>0.050</severity>
+					<divideByBodySize>true</divideByBodySize>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<techLevel>Neolithic</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>HashDrug</chemical>
+				<addictiveness>0.013</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.06</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<listOrder>20</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+	<RecipeDef>
+		<defName>Make_HashDrug</defName>
+		<label>Make hash</label>
+		<description>Make hash</description>
+		<jobString>Makes hash</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workAmount>900</workAmount>
+		<targetCountAdjustment>1</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawHemp</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Clay</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RegularMeat</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<products>
+			<HashDrug>5</HashDrug>
+		</products>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawHemp</li>
+				<li>Clay</li>
+				<li>RegularMeat</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawHemp</li>
+				<li>Clay</li>
+				<li>RegularMeat</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>Brewery</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint"/>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<HediffDef>
+		<defName>HashDrugHigh</defName>
+		<label>high on Hash</label>
+		<labelNoun>a Hash high</labelNoun>
+		<description>He gorged himself on dirt, meat and excrement. Fog in my head.</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.75</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>-0.1</painOffset>
+				<statFactors>
+					<MeleeCritChance>1.25</MeleeCritChance>
+					<MeleeDodgeChance>2</MeleeDodgeChance>
+					<Suppressability>0</Suppressability>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<ThoughtDef>
+		<defName>HashDrugHigh</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>HashDrugHigh</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>high on Hash</label>
+				<description>I feel so energetic!</description>
+				<baseMoodEffect>12</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ChemicalDef>
+		<defName>HashDrug</defName>
+		<label>Hash</label>
+		<addictionHediff>HashDrugAddiction</addictionHediff>
+		<toleranceHediff>HashDrugTolerance</toleranceHediff>
+		<onGeneratedAddictedToleranceChance>0.6</onGeneratedAddictedToleranceChance>
+	</ChemicalDef>
+	<NeedDef ParentName="DrugAddictionNeedBase">
+		<defName>Chemical_HashDrug</defName>
+		<needClass>Need_Chemical</needClass>
+		<label>Hash</label>
+		<description>Because of a Hash dependence, this person needs to regularly consume the drug to avoid withdrawal symptoms.</description>
+		<listPriority>25</listPriority>
+	</NeedDef>
+	<HediffDef ParentName="DrugToleranceBase">
+		<defName>HashDrugTolerance</defName>
+		<label>Hash tolerance</label>
+		<description>A built-up tolerance to Hash. The more severe this tolerance is, the more hemp it takes to get the same effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.012</severityPerDay>
+			</li>
+			<li Class="HediffCompProperties_DrugEffectFactor">
+				<chemical>HashDrug</chemical>
+			</li>
+		</comps>
+		<hediffGivers>
+			<li Class="HediffGiver_RandomDrugEffect">
+				<hediff>Asthma</hediff>
+				<severityToMtbDaysCurve>
+					<points>
+						<li>(0.45, 99999)</li>
+						<li>(0.5, 245)</li>
+						<li>(1, 190)</li>
+					</points>
+				</severityToMtbDaysCurve>
+				<partsToAffect>
+					<li>Lung</li>
+				</partsToAffect>
+				<countToAffect>2</countToAffect>
+			</li>
+			<li Class="HediffGiver_RandomDrugEffect">
+				<hediff>Carcinoma</hediff>
+				<severityToMtbDaysCurve>
+					<points>
+						<li>(0.36, 99999)</li>
+						<li>(0.4, 245)</li>
+						<li>(1, 190)</li>
+					</points>
+				</severityToMtbDaysCurve>
+				<partsToAffect>
+					<li>Lung</li>
+				</partsToAffect>
+				<countToAffect>1</countToAffect>
+			</li>
+		</hediffGivers>
+	</HediffDef>
+	<HediffDef ParentName="AddictionBase">
+		<defName>HashDrugAddiction</defName>
+		<label>Hash addiction</label>
+		<description>A chemical addiction to Hash. Long-term use of Hash has caused neurological adaptations at the cellular level, so the brain can no longer function properly without the drug.
+			\nWithout regular doses of Hash, withdrawal symptoms will begin. However, extended abstinence will force the brain to adapt back to its normal state, resolving the addiction.</description>
+		<hediffClass>Hediff_Addiction</hediffClass>
+		<causesNeed>Chemical_HashDrug</causesNeed>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.0255</severityPerDay>
+				<showDaysToRecover>true</showDaysToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+			</li>
+			<li>
+				<label>withdrawal</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.15</offset>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.12</offset>
+					</li>
+				</capMods>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Binging_Food</mentalState>
+						<mtbDays>30</mtbDays>
+					</li>
+					<li>
+						<mentalState>Binging_DrugMajor</mentalState>
+						<mtbDays>50</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+	<ThoughtDef>
+		<defName>HashDrugWithdrawal</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>HashDrugAddiction</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<visible>false</visible>
+			</li>
+			<li>
+				<label>Hash withdrawal</label>
+				<description>Bad taste in mouth, headache.</description>
+				<baseMoodEffect>-15</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>HediffDef_WitheredBranch</defName>
+		<label>Withered branch</label>
+		<description>The extremity of an ent, which has lost its functions partially or completely as a result of mutation.</description>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1</partEfficiency>
+		</addedPartProps>
+		<stages>
+			<li>
+				<label>minor</label>
+				<partEfficiencyOffset>-0.15</partEfficiencyOffset>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.3</minSeverity>
+				<partEfficiencyOffset>-0.5</partEfficiencyOffset>
+			</li>
+			<li>
+				<label>major</label>
+				<minSeverity>0.7</minSeverity>
+				<partEfficiencyOffset>-0.8</partEfficiencyOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>HediffDef_SharpBranch</defName>
+		<label>Sharp branch</label>
+		<description>The extremity of an ent, which has lost its functions partially or completely as a result of mutation.</description>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>0.85</partEfficiency>
+		</addedPartProps>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li Class="CombatExtended.ToolCE">
+						<capacities>
+							<li>Scratch</li>
+						</capacities>
+						<power>12</power>
+						<cooldownTime>4</cooldownTime>
+						<armorPenetrationBlunt>2</armorPenetrationBlunt>
+					</li>
+				</tools>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>HediffDef_FruitBranch</defName>
+		<label>Fruit branch</label>
+		<description>The treant's limb is capable of producing a small harvest of fruit as a result of mutation.</description>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1</partEfficiency>
+		</addedPartProps>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>0.067</severityPerDay>
+			</li>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_FruitBranch">
+				<fruits>
+					<li>
+						<thingDef>Flora_RawApple</thingDef>
+						<countRange>10~20</countRange>
+					</li>
+					<li>
+						<thingDef>Flora_RawBanana</thingDef>
+						<countRange>8~15</countRange>
+					</li>
+					<li>
+						<thingDef>Flora_RawOrange</thingDef>
+						<countRange>10~20</countRange>
+					</li>
+					<li>
+						<thingDef>Flora_RawOlive</thingDef>
+						<countRange>10~20</countRange>
+					</li>
+					<li>
+						<thingDef>Flora_RawPeach</thingDef>
+						<countRange>5~15</countRange>
+					</li>
+					<li>
+						<thingDef>Flora_RawGrapes</thingDef>
+						<countRange>25~40</countRange>
+					</li>
+					<li>
+						<thingDef>Flora_RawRosehip</thingDef>
+						<countRange>20~30</countRange>
+					</li>
+					<li>
+						<thingDef>Flora_RawPineapple</thingDef>
+						<countRange>3~5</countRange>
+					</li>
+					<li>
+						<thingDef>Flora_RawMelon</thingDef>
+						<countRange>3~5</countRange>
+					</li>
+					<li>
+						<thingDef>RawBerries</thingDef>
+						<countRange>25~40</countRange>
+					</li>
+				</fruits>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>growth</label>
+				<partEfficiencyOffset>-0.15</partEfficiencyOffset>
+			</li>
+			<li>
+				<label>almost mature</label>
+				<minSeverity>0.8</minSeverity>
+				<partEfficiencyOffset>-0.5</partEfficiencyOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

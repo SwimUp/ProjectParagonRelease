@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_StomachUlcer</defName>
+		<label>Stomach ulcer</label>
+		<makesSickThought>true</makesSickThought>
+		<tendable>true</tendable>
+		<description>A stomach disorder that causes bouts of pain.</description>
+		<descriptionHyperlinks>
+			<HediffDef>Diseases_HediffDef_UlcerativeColitis</HediffDef>
+		</descriptionHyperlinks>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>24</baseTendDurationHours>
+				<disappearsAtTotalTendQuality>2</disappearsAtTotalTendQuality>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>330000~400000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_UlcerativeColitis</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Stomach</li>
+							<li>StomachWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.5</chance>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.05</painOffset>
+				<partEfficiencyOffset>-0.1</partEfficiencyOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_UlcerativeColitis</defName>
+		<label>Ulcerative colitis</label>
+		<makesSickThought>true</makesSickThought>
+		<tendable>true</tendable>
+		<description>A chronic stomach condition that causes severe bouts of pain.</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>48</baseTendDurationHours>
+				<disappearsAtTotalTendQuality>3</disappearsAtTotalTendQuality>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.1</painOffset>
+				<partEfficiencyOffset>-0.2</partEfficiencyOffset>
+				<statOffsets>
+					<FoodPoisonChanceFixedHuman>0.1</FoodPoisonChanceFixedHuman>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Dysbacteriosis</defName>
+		<label>Dysbacteriosis</label>
+		<makesSickThought>true</makesSickThought>
+		<tendable>true</tendable>
+		<description>Lack of vitamins in the body.</description>
+		<descriptionHyperlinks>
+			<HediffDef>Diseases_HediffDef_ChronicGastritis</HediffDef>
+		</descriptionHyperlinks>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>24</baseTendDurationHours>
+				<disappearsAtTotalTendQuality>2</disappearsAtTotalTendQuality>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>360000~450000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_ChronicGastritis</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Stomach</li>
+							<li>StomachWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.15</chance>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<RestRateMultiplier>-0.15</RestRateMultiplier>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

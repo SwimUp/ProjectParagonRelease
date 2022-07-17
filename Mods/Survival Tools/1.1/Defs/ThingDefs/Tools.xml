@@ -1,0 +1,720 @@
+<Defs>
+    <!-- Primitive -->
+    <ThingDef Name="SurvivalToolPrimitive" ParentName="TF_BaseTool" Abstract="True">
+        <techLevel>Neolithic</techLevel>
+        <statBases>
+			<WorkToMake>1500</WorkToMake>
+        </statBases>
+		<stuffCategories>
+            <li>Stony</li>
+            <li>Woody</li>
+        </stuffCategories>
+        <smeltable>true</smeltable>
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>CraftingSpot</li>
+                <li>ElectricSmithy</li>
+                <li>FueledSmithy</li>
+            </recipeUsers>
+            <defaultIngredientFilter>
+                <categories>
+                    <li>Root</li>
+                </categories>
+                <disallowedThingDefs>
+                    <li>Silver</li>
+                    <li>Gold</li>
+                </disallowedThingDefs>
+            </defaultIngredientFilter>
+            <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+        </recipeMaker>
+        <comps>
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <!-- Tools -->
+
+    <ThingDef ParentName="SurvivalToolPrimitive">
+        <defName>SurvivalTools_Primitive_Axe</defName>
+        <label>primitive axe</label>
+        <description>Effective at chopping down trees thanks to the head that's attached to its handle. This can also be used as a melee weapon in a pinch.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/primal_axe</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>	 
+        </graphicData>
+		<costStuffCount>40</costStuffCount>
+        <statBases>
+            <Mass>2.5</Mass>
+        </statBases>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <FellingTool>0.7</FellingTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <!-- 83% of the club's DPS with the main tool -->
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>15.1</power>
+                <cooldownTime>2.6</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>FellingTools</li>
+        </thingCategories>
+    </ThingDef>
+
+    <ThingDef ParentName="SurvivalToolPrimitive">
+        <defName>SurvivalTools_Primitive_Hammer</defName>
+        <label>primitive hammer</label>
+        <description>A simple hammer that's a vital part of any constructor's arsenal of tools. This can also be used as a melee weapon in a pinch.</description>
+        <costStuffCount>30</costStuffCount>
+        <statBases>
+            <Mass>0.5</Mass>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/primal_hammer</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>	 
+        </graphicData>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <ConstructionTool>0.7</ConstructionTool>
+                    <MiningTool>0.7</MiningTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>11.6</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>ConstructionTools</li>
+            <li>MiningTools</li>
+        </thingCategories>
+    </ThingDef>
+
+    <ThingDef ParentName="SurvivalToolPrimitive">
+        <defName>SurvivalTools_Primitive_Sickle</defName>
+        <label>primitive sickle</label>
+        <description>A curved blade that's attached to a small handle which is typically used to cut plants. This can also be used as a melee weapon in a pinch.</description>
+        <costStuffCount>30</costStuffCount>
+        <statBases>
+            <Mass>0.5</Mass>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/primal_sickle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>	 
+        </graphicData>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <HarvestingTool>0.7</HarvestingTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>11.6</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>HarvestingTools</li>
+        </thingCategories>
+    </ThingDef>
+
+    <!-- Medieval -->
+    <ThingDef Name="SurvivalToolMedieval" ParentName="TF_BaseTool" Abstract="True">
+        <techLevel>Medieval</techLevel>
+        <statBases>
+			<WorkToMake>2000</WorkToMake>
+        </statBases>
+		<stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <smeltable>true</smeltable>
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>ElectricSmithy</li>
+                <li>FueledSmithy</li>
+            </recipeUsers>
+            <defaultIngredientFilter>
+                <categories>
+                    <li>Root</li>
+                </categories>
+                <disallowedThingDefs>
+                    <li>Silver</li>
+                    <li>Gold</li>
+                </disallowedThingDefs>
+            </defaultIngredientFilter>
+            <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+            <researchPrerequisite>MedievalToolsResearch</researchPrerequisite>
+        </recipeMaker>
+        <comps>
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <!-- Tools -->
+
+    <ThingDef ParentName="SurvivalToolMedieval">
+        <defName>SurvivalTools_Axe</defName>
+        <label>axe</label>
+        <description>Effective at chopping down trees thanks to the head that's attached to its handle. This can also be used as a melee weapon in a pinch.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/Axe</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+		<costStuffCount>40</costStuffCount>
+        <statBases>
+            <Mass>2.5</Mass>
+        </statBases>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <FellingTool>1.0</FellingTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <!-- 83% of the club's DPS with the main tool -->
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>15.1</power>
+                <cooldownTime>2.6</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>FellingTools</li>
+        </thingCategories>
+    </ThingDef>
+
+    <ThingDef ParentName="SurvivalToolMedieval">
+        <defName>SurvivalTools_Pickaxe</defName>
+        <label>pickaxe</label>
+        <description>Comprising of a weighted head that's attached to a handle, pickaxes are effective at breaking solid rocks. This can also be used as a melee weapon in a pinch.</description>
+        <costStuffCount>40</costStuffCount>
+        <statBases>
+            <Mass>2.5</Mass>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/Pickaxe</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <MiningTool>1.0</MiningTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>15.1</power>
+                <cooldownTime>2.6</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>MiningTools</li>
+        </thingCategories>
+    </ThingDef>
+
+    <ThingDef ParentName="SurvivalToolMedieval">
+        <defName>SurvivalTools_Hammer</defName>
+        <label>hammer</label>
+        <description>A simple hammer that's a vital part of any constructor's arsenal of tools. This can also be used as a melee weapon in a pinch.</description>
+        <costStuffCount>30</costStuffCount>
+        <statBases>
+            <Mass>0.5</Mass>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/Hammer</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <ConstructionTool>1.0</ConstructionTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>11.6</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>ConstructionTools</li>
+        </thingCategories>
+    </ThingDef>
+
+    <ThingDef ParentName="SurvivalToolMedieval">
+        <defName>SurvivalTools_Sickle</defName>
+        <label>sickle</label>
+        <description>A curved blade that's attached to a small handle which is typically used to cut plants. This can also be used as a melee weapon in a pinch.</description>
+        <costStuffCount>30</costStuffCount>
+        <statBases>
+            <Mass>0.5</Mass>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/Sickle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <HarvestingTool>1.0</HarvestingTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>11.6</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>HarvestingTools</li>
+        </thingCategories>
+    </ThingDef>
+    <!-- industrial tools -->
+	
+	<ThingDef Name="SurvivalToolIndustrial" ParentName="TF_BaseTool" Abstract="True">
+        <techLevel>Industrial</techLevel>
+        <statBases>
+            <WorkToMake>5000</WorkToMake>
+        </statBases>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <smeltable>true</smeltable>
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <defaultIngredientFilter>
+                <categories>
+                    <li>Root</li>
+                </categories>
+                <disallowedThingDefs>
+                    <li>Silver</li>
+                    <li>Gold</li>
+                </disallowedThingDefs>
+            </defaultIngredientFilter>
+            <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+        </recipeMaker>
+        <comps>
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+
+	<ThingDef ParentName="SurvivalToolIndustrial">
+        <defName>SurvivalTools_Chainsaw</defName>
+        <label>Chainsaw</label>
+        <description>Effective at chopping down trees with its spinning chain. This can also be used as a brutal melee weapon in a pinch.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/Chainsaw</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>	 
+        </graphicData>
+        <statBases>
+            <Mass>9</Mass>
+        </statBases>
+		<costStuffCount>20</costStuffCount>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+		<costList>
+		  <ComponentIndustrial>1</ComponentIndustrial>
+		  <Steel>10</Steel>
+		  <Chemfuel>55</Chemfuel>
+		</costList>
+        <equippedStatOffsets>
+            <MoveSpeed>-0.3</MoveSpeed>
+        </equippedStatOffsets>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <FellingTool>1.2</FellingTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>14</power>
+                <cooldownTime>2.5</cooldownTime>
+            </li>
+            <li>
+                <label>chain</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>10.1</power>
+                <cooldownTime>1.1</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>FellingTools</li>
+        </thingCategories>
+        <recipeMaker>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <researchPrerequisite>ChainsawResearch</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+	
+	<ThingDef ParentName="SurvivalToolIndustrial">
+        <defName>SurvivalTools_Jackhammer</defName>
+        <label>Jackhammer</label>
+        <description>Effective at mining stones. Not really useful as a melee weapon.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/JackHammer</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>	 
+        </graphicData>
+        <statBases>
+            <Mass>11</Mass>
+        </statBases>
+		<costStuffCount>16</costStuffCount>
+		<costList>
+		  <ComponentIndustrial>2</ComponentIndustrial>
+		  <Steel>40</Steel>
+		</costList>
+        <equippedStatOffsets>
+            <MoveSpeed>-0.32</MoveSpeed>
+        </equippedStatOffsets>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <MiningTool>1.2</MiningTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2.5</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>14.1</power>
+				<armorPenetration>0.3</armorPenetration>
+                <cooldownTime>2.9</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>MiningTools</li>
+        </thingCategories>
+        <recipeMaker>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <researchPrerequisite>GasCompressionResearch</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+	
+	<ThingDef ParentName="SurvivalToolIndustrial">
+        <defName>SurvivalTools_Shovel</defName>
+        <label>Shovel</label>
+        <description>Effective at digging out plants. Effective as melee weapon. Empreror approves.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/Shovel</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>	 
+        </graphicData>
+        <statBases>
+            <Mass>5</Mass>
+        </statBases>
+		<costStuffCount>15</costStuffCount>
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+		<costList>
+		  <WoodLog>20</WoodLog>
+		</costList>
+        <equippedStatOffsets>
+            <MoveSpeed>-0.1</MoveSpeed>
+        </equippedStatOffsets>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <HarvestingTool>1.2</HarvestingTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>2.1</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Cut</li>
+                </capacities>
+                <power>17.1</power>
+				<armorPenetration>0.3</armorPenetration>
+                <cooldownTime>1.78</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>HarvestingTools</li>
+        </thingCategories>
+        <recipeMaker>
+            <recipeUsers>
+                <li>FueledSmithy</li>
+                <li>ElectricSmithy</li>
+            </recipeUsers>
+            <researchPrerequisite>Smithing</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+	
+    <ThingDef ParentName="SurvivalToolIndustrial">
+        <defName>SurvivalTools_BuildingOmnitool</defName>
+        <label>Construction omnitool</label>
+        <description>This tool can be used to punch holes, punch nails, shape materials and weld. This can also be used as a melee weapon in a pinch.</description>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/ConstructionTool</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>	 
+        </graphicData>
+        <statBases>
+            <Mass>5</Mass>
+        </statBases>
+		<costStuffCount>20</costStuffCount>
+		<costList>
+		  <ComponentIndustrial>4</ComponentIndustrial>
+		  <Chemfuel>20</Chemfuel>
+		  <Steel>28</Steel>
+		</costList>
+        <equippedStatOffsets>
+            <MoveSpeed>-0.1</MoveSpeed>
+        </equippedStatOffsets>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <ConstructionTool>1.2</ConstructionTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2.5</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+				<armorPenetration>0.6</armorPenetration>
+                <power>20.1</power>
+                <cooldownTime>2.78</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>ConstructionTools</li>
+        </thingCategories>
+        <recipeMaker>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <researchPrerequisite>BuildingToolResearch</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+	
+    <!-- Glitterworld Multitool -->
+
+    <ThingDef ParentName="TF_BaseTool">
+        <defName>SurvivalTools_Multitool</defName>
+        <label>glitterworld multitool</label>
+        <description>A high-tech set of tools commonly used by domestic mechanoids in glitterworld societies, though also usable by humanoids due to their physiological similarities.</description>
+        <statBases>
+            <MarketValue>800</MarketValue>
+            <Flammability>0.7</Flammability>
+            <Mass>1.8</Mass>
+            <!-- Equivalent to excellent quality -->
+            <ToolEffectivenessFactor>1.2</ToolEffectivenessFactor>
+        </statBases>
+        <equippedAngleOffset>-20</equippedAngleOffset>
+        <techLevel>Ultra</techLevel>
+        <graphicData>
+            <texPath>Things/Item/Equipment/Tool/GlitterworldMultitool</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <modExtensions>
+            <li Class="ToolsFramework.ToolProperties">
+                <toolTypesValue>
+                    <FellingTool>1.4</FellingTool>
+                    <MiningTool>1.4</MiningTool>
+                    <ConstructionTool>1.4</ConstructionTool>
+                    <HarvestingTool>1.4</HarvestingTool>
+                </toolTypesValue>
+            </li>
+        </modExtensions>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>head</label>
+                <labelUsedInLogging>false</labelUsedInLogging>
+                <capacities>
+                    <li>Stab</li>
+                    <li>Cut</li>
+                    <li>Blunt</li>
+                </capacities>
+                <power>14</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <thingCategories>
+            <li>FellingTools</li>
+            <li>ConstructionTools</li>
+            <li>MiningTools</li>
+            <li>HarvestingTools</li>
+        </thingCategories>
+    </ThingDef>
+
+</Defs>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- 
+	<Operation Class="PatchOperationRemove">
+	  <xpath>Defs/ThingDef[defName = "FermentingBarrel"]/designationCategory</xpath>
+	</Operation>
+	-->
+
+	<!-- Instead of removing the WorkGiver class gets replaced so it doesn't scan the map anymore -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>Defs/WorkGiverDef[defName = "TakeBeerOutOfFermentingBarrel" or defName = "FillFermentingBarrel"]/giverClass</xpath>
+		<value>
+			<giverClass>WorkGiver_DoBill</giverClass>
+		</value>
+	</Operation>
+
+	<!-- checks for old namespace-->
+	<Operation Class="PatchOperationAttributeSet">
+		<success>Always</success>
+	  <xpath>Defs/ThingDef/comps/li[contains(@Class,'UniversalProcessors.CompProperties_UniversalFermenter')]</xpath>
+		<attribute>Class</attribute>
+		<value>UniversalFermenter.CompProperties_UniversalFermenter</value>
+	</Operation>
+
+</Patch>

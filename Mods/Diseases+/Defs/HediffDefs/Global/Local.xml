@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Numbness</defName>
+		<label>Numbness</label>
+		<description>Temporary loss of sensation in the limbs, characteristic of diabetes and brain diseases.</description>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>30000~50000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>-0.15</painOffset>
+				<partEfficiencyOffset>-0.3</partEfficiencyOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Coma</defName>
+		<label>Diseases_HediffDef_Coma</label>
+		<description>The state between life and death. It is characterized by a lack of consciousness, a sharp weakening and lack of response to external stimuli.</description>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>false</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_ChanceToRemove">
+				<intervalTicks>60000</intervalTicks>
+				<chance>0.01</chance>
+			</li>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>1200000~2400000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<hungerRateFactor>0.5</hungerRateFactor>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Sepsis</defName>
+		<label>Sepsis</label>
+		<description>Deadly blood poisoning. Can be obtained with excessive blood loss.</description>
+		<descriptionHyperlinks>
+			<HediffDef>BloodLoss</HediffDef>
+		</descriptionHyperlinks>
+		<makesSickThought>true</makesSickThought>
+		<lethalSeverity>1.0</lethalSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<tendable>true</tendable>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>12</baseTendDurationHours>
+				<severityPerDayTended>-0.35</severityPerDayTended>
+			</li>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.8</severityPerDayNotImmune>
+				<immunityPerDaySick>0.5</immunityPerDaySick>
+				<severityPerDayImmune>-0.2</severityPerDayImmune>
+				<immunityPerDayNotSick>-0.02</immunityPerDayNotSick>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>minor</label>
+				<painOffset>0.1</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.9</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<label>medium</label>
+				<vomitMtbDays>0.25</vomitMtbDays>
+				<painOffset>0.2</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.8</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.6</minSeverity>
+				<label>major</label>
+				<vomitMtbDays>0.75</vomitMtbDays>
+				<painOffset>0.3</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.65</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<label>severe</label>
+				<vomitMtbDays>1.75</vomitMtbDays>
+				<lifeThreatening>true</lifeThreatening>
+				<painOffset>0.5</painOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Fever</defName>
+		<label>Fever</label>
+		<description>Suppressed state of the body and thoughts, confusion, delirium and increased body temperature.</description>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>60000~140000</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.15</painOffset>
+				<vomitMtbDays>3.0</vomitMtbDays>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.5</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef ParentName="InfectionBase">
+		<defName>Diseases_HediffDef_Tuberculosis</defName>
+		<label>Tuberculosis</label>
+		<description>A deadly lung disease, slowly progressing until the patient's death. Enhanced and competent treatment can stop the disease.</description>
+		<descriptionHyperlinks>
+			<HediffDef>Diseases_HediffDef_PulmonaryEdema</HediffDef>
+			<HediffDef>Diseases_HediffDef_Pneumothorax</HediffDef>
+		</descriptionHyperlinks>
+		<makesSickThought>true</makesSickThought>
+		<lethalSeverity>1.0</lethalSeverity>
+		<initialSeverity>0.2</initialSeverity>
+		<tendable>true</tendable>
+		<comps>
+			<li Class="HediffCompProperties_Immunizable">
+				<severityPerDayNotImmune>0.02</severityPerDayNotImmune>
+			</li>
+			<li Class="HediffCompProperties_TendDuration">
+				<baseTendDurationHours>96</baseTendDurationHours>
+				<severityPerDayTended>-0.028</severityPerDayTended>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>420000~500000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_PulmonaryEdema</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Lung</li>
+							<li>LungWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>false</letter>
+						<chance>0.35</chance>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>720000~900000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Pneumothorax</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Lung</li>
+							<li>LungWithoutBlood</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>true</letter>
+						<chance>0.5</chance>
+						<severityRange>0.25~1.0</severityRange>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>500000~900000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Fever</li>
+						</hediffDefs>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.5</chance>
+						<severityRange>0.5~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>minor</label>
+				<painOffset>0.05</painOffset>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.05</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<label>medium</label>
+				<vomitMtbDays>0.25</vomitMtbDays>
+				<painOffset>0.15</painOffset>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.6</minSeverity>
+				<label>major</label>
+				<vomitMtbDays>0.75</vomitMtbDays>
+				<painOffset>0.3</painOffset>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.25</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<label>severe</label>
+				<vomitMtbDays>1.75</vomitMtbDays>
+				<lifeThreatening>true</lifeThreatening>
+				<painOffset>0.4</painOffset>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.5</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+</Defs>

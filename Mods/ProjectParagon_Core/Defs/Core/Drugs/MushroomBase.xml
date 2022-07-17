@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ChemicalDef>
+		<defName>NarcoticMushrooms</defName>
+		<label>Narcotic mushrooms</label>
+		<addictionHediff>NarcoticMushroomsAddiction</addictionHediff>
+		<toleranceHediff>NarcoticMushroomsTolerance</toleranceHediff>
+		<onGeneratedAddictedToleranceChance>0.4</onGeneratedAddictedToleranceChance>
+		<onGeneratedAddictedEvents>
+			<li>
+				<hediff>ChemicalDamageSevere</hediff>
+				<chance>0.15</chance>
+				<partsToAffect>
+					<li>Kidney</li>
+				</partsToAffect>
+			</li>
+		</onGeneratedAddictedEvents>
+	</ChemicalDef>
+	
+	<NeedDef ParentName="DrugAddictionNeedBase">
+		<defName>Chemical_NarcoticMushrooms</defName>
+		<needClass>Need_Chemical</needClass>
+		<label>Narcotic mushrooms</label>
+		<description>Because of a Narcotic mushrooms addiction, this person needs to regularly consume the drug to avoid withdrawal symptoms.</description>
+		<listPriority>45</listPriority>
+		<fallPerDay>0.15</fallPerDay>
+	</NeedDef>
+	
+	<HediffDef ParentName="DrugToleranceBase">
+		<defName>NarcoticMushroomsTolerance</defName>
+		<label>narcotic mushrooms tolerance</label>
+		<description>A built-up tolerance to narcotic mushrooms. The more severe this tolerance is, the more narcotic mushrooms-based drugs takes to get the same effect.</description>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.015</severityPerDay>
+			</li>
+			<li Class="HediffCompProperties_DrugEffectFactor">
+				<chemical>NarcoticMushrooms</chemical>
+			</li>
+		</comps>
+		<hediffGivers>
+			<li Class="HediffGiver_RandomDrugEffect">
+				<hediff>ChemicalDamageSevere</hediff>
+				<severityToMtbDaysCurve>
+					<points>
+						<li>(0.45, 99999)</li>
+						<li>(0.5, 180)</li>
+						<li>(1, 135)</li>
+					</points>
+				</severityToMtbDaysCurve>
+				<partsToAffect>
+					<li>Kidney</li>
+				</partsToAffect>
+			</li>
+		</hediffGivers>
+	</HediffDef>
+	<HediffDef ParentName="AddictionBase">
+		<defName>NarcoticMushroomsAddiction</defName>
+		<label>narcotic mushrooms need</label>
+		<description>Extremely serious addiction to narcotic mushrooms.</description>
+		<hediffClass>Hediff_Addiction</hediffClass>
+		<causesNeed>Chemical_NarcoticMushrooms</causesNeed>
+		<stages>
+			<li>
+			</li>
+			<li>
+				<label>withdrawal</label>
+				<restFallFactorOffset>0.2</restFallFactorOffset>
+				<socialFightChanceFactor>4.0</socialFightChanceFactor>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.25</offset>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.25</offset>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.25</offset>
+					</li>
+				</capMods>
+				<mentalStateGivers>
+					<li>
+						<mentalState>Binging_DrugExtreme</mentalState>
+						<mtbDays>30</mtbDays>
+					</li>
+					<li>
+						<mentalState>Wander_Psychotic</mentalState>
+						<mtbDays>10</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

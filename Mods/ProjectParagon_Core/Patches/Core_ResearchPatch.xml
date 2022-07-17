@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="SmokeleafJoint"]/recipeMaker</xpath>
+				<value>
+					<researchPrerequisite Inherit="false">
+						<li>Agro_AddictivePlantsI</li>
+					</researchPrerequisite>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ResearchProjectDef[defName="DrugProduction"]</xpath>
+				<value>
+					<prerequisites>
+						<li>ProductionII</li>
+					</prerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="PsychiteRefining"]/prerequisites</xpath>
+				<value>
+					<prerequisites>
+						<li>Alchemy</li>
+						<li>ProductionII</li>
+					</prerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="WakeUpProduction"]/prerequisites</xpath>
+				<value>
+					<prerequisites>
+						<li>Narko_SimpleStimulants</li>
+					</prerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="GoJuiceProduction"]/prerequisites</xpath>
+				<value>
+					<prerequisites>
+						<li>Narko_AdvancedStimulants</li>
+					</prerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[@Name="TreeBase"]/plant/sowResearchPrerequisites</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="PsychoidBrewing"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="Devilstrand"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="TreeSowing"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="Cocoa"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="RecurveBow"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="Stonecutting"]</xpath>
+			</li>
+			<!--
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="ComplexClothing"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>ComplexClothing</defName>
+						<label>complex clothing</label>
+						<description>Tailor complicated garments like pants, dusters, and cowboy hats.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Neolithic</techLevel>
+						<researchViewX>1.00</researchViewX>
+						<researchViewY>2.80</researchViewY>
+						<prerequisites>
+							<li>LessonsPast</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			-->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="PassiveCooler"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>PassiveCooler</defName>
+						<label>passive cooler</label>
+						<description>Make passive coolers, to cool indoor spaces without using electricity.</description>
+						<baseCost>400</baseCost>
+						<techLevel>Neolithic</techLevel>
+						<tags>
+							<li>ClassicStart</li>
+							<li>TribalStart</li>
+							<li>KairosRebels</li>
+							<li>AeronRefugees</li>
+						</tags>
+						<researchViewX>0.00</researchViewX>
+						<researchViewY>2.10</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Pemmican"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="PrimitiveResearchBench">
+						<defName>Pemmican</defName>
+						<label>pemmican</label>
+						<description>Make pemmican, a preserved mixture of meat and plant matter that doesn't go bad for a long time. Great for traveling.</description>
+						<baseCost>250</baseCost>
+						<techLevel>Neolithic</techLevel>
+						<tags>
+							<li>TribalStart</li>
+							<li>KairosRebels</li>
+							<li>AeronRefugees</li>
+						</tags>
+						<researchViewX>1.00</researchViewX>
+						<researchViewY>1.40</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Brewing"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="PrimitiveResearchBench">
+						<defName>Brewing</defName>
+						<label>beer brewing</label>
+						<description>Build a brewery and fermenting vats to transform hops into tasty, tasty beer.</description>
+						<baseCost>400</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>0.00</researchViewX>
+						<researchViewY>3.50</researchViewY>
+						<prerequisites>
+							<li>FirstAlcohol</li>
+							<li>ProductionI</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="CarpetMaking"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="PrimitiveResearchBench">
+						<defName>CarpetMaking</defName>
+						<label>carpet making</label>
+						<description>Weave beautiful carpets from cloth.</description>
+						<baseCost>500</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>1.00</researchViewX>
+						<researchViewY>2.10</researchViewY>
+						<prerequisites>
+							<li>WoodenFloorsII</li>
+						</prerequisites>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+								<canBeResearch>false</canBeResearch>
+							</li>
+						</modExtensions>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="NobleApparel"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="SimpleResearchBench">
+						<defName>NobleApparel</defName>
+						<label>noble apparel</label>
+						<description>Tailor noble-specific apparel like formal shirts and royal robes.</description>
+						<baseCost>450</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>2.00</researchViewX>
+						<researchViewY>1.80</researchViewY>
+						<prerequisites>
+							<li>SewingSimpleClothes</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="RoyalApparel"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
+						<defName>RoyalApparel</defName>
+						<label>royal apparel</label>
+						<description>Tailor royal apparel of the highest tier, like royal robes and crowns.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>3.00</researchViewX>
+						<researchViewY>1.80</researchViewY>
+						<prerequisites>
+							<li>LinenFabrics</li>
+							<li>NobleApparel</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Smithing"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="PrimitiveResearchBench">
+						<defName>Smithing</defName>
+						<label>smithing</label>
+						<description>Build smithies for crafting metal weapons like knives, gladii, and maces. Work metal into clean, beautiful floor tiles.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>0.00</researchViewX>
+						<researchViewY>20</researchViewY>
+						<prerequisites>
+							<li>ProductionI</li>
+						</prerequisites>
+						<tags>
+							<li>AeronRefugees</li>
+						</tags>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Harp"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="SimpleResearchBench">
+						<defName>Harp</defName>
+						<label>harp</label>
+						<description>Craft the harp, a simple stationary musical instrument popular among nobility in some cultures.</description>
+						<baseCost>400</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>2.00</researchViewX>
+						<researchViewY>4.90</researchViewY>
+						<prerequisites>
+							<li>FurnitureII</li>
+							<li>BasicsMechanic</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Harpsichord"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
+						<defName>Harpsichord</defName>
+						<label>harpsichord</label>
+						<description>Craft the harpsichord, a complex stationary musical instrument.</description>
+						<baseCost>500</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>3.00</researchViewX>
+						<researchViewY>4.90</researchViewY>
+						<prerequisites>
+							<li>Harp</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Piano"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
+						<defName>Piano</defName>
+						<label>piano</label>
+						<description>Craft the piano, an advanced stationary musical instrument.</description>
+						<baseCost>1750</baseCost>
+						<techLevel>Industrial</techLevel>
+						<researchViewX>4.00</researchViewX>
+						<researchViewY>4.90</researchViewY>
+						<prerequisites>
+							<li>Harpsichord</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="PlateArmor"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="SimpleResearchBench">
+						<defName>PlateArmor</defName>
+						<label>plate armor</label>
+						<description>Smith suits of plate armor from metal or wood. This heavy armor noticeably slows movement, but protects very effectively.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Medieval</techLevel>
+						<prerequisites>
+							<li>ChainArmor</li>
+						</prerequisites>
+						<researchViewX>2.00</researchViewX>
+						<researchViewY>2.50</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="LongBlades"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="PrimitiveResearchBench">
+						<defName>LongBlades</defName>
+						<label>long blades</label>
+						<description>Craft longswords and spears.</description>
+						<baseCost>400</baseCost>
+						<techLevel>Medieval</techLevel>
+						<prerequisites>
+							<li>SimpleWeapons</li>
+						</prerequisites>
+						<researchViewX>2.00</researchViewX>
+						<researchViewY>3.15</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="ComplexFurniture"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>ComplexFurniture</defName>
+						<label>complex furniture</label>
+						<description>Build complex furniture like beds, end tables, dining chairs, armchairs, dressers, tool cabinets, billiard tables, and poker tables, vents, sarcophagi, and more.</description>
+						<baseCost>300</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>1.00</researchViewX>
+						<researchViewY>4.25</researchViewY>
+						<prerequisites>
+							<li>ProductionII</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="ComplexClothing"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>ComplexClothing</defName>
+						<label>complex clothing</label>
+						<description>Tailor complicated garments like pants, dusters, and cowboy hats.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Medieval</techLevel>
+						<researchViewX>1.00</researchViewX>
+						<researchViewY>2.80</researchViewY>
+						<prerequisites>
+							<li>ProductionII</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Electricity"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>Electricity</defName>
+						<label>electricity</label>
+						<description>Harness the power of electricity for a hundred different tasks.</description>
+						<baseCost>1600</baseCost>
+						<techLevel>Industrial</techLevel>
+						<researchViewX>5.00</researchViewX>
+						<researchViewY>2.90</researchViewY>
+						<prerequisites>
+							<li>ProductionII</li>
+						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

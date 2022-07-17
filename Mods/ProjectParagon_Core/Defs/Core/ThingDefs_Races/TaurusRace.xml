@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<AlienRace.ThingDef_AlienRace ParentName="ParagonBasePawn">
+		<defName>TaurusRace</defName>
+		<label>Taurus</label>
+		<description>Large and strong representatives of the humanoid race of bulls. They have concomitant features such as horns and hooves, but the hands have a human-like structure that allows Taurus to use objects of labor and weapons. In general, the level of their development is at the medieval level. They prefer to raid nearby settlements of other factions instead of a sedentary lifestyle.</description>
+		<statBases>
+			<MarketValue>1500</MarketValue>
+			<MoveSpeed>4</MoveSpeed>
+			<ComfyTemperatureMin>-5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<LeatherAmount>50</LeatherAmount>
+			<RoyalFavorValue>0</RoyalFavorValue>
+			<ArmorRating_Blunt>4</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+			<MeleeDodgeChance>1.25</MeleeDodgeChance>
+			<MeleeCritChance>1.5</MeleeCritChance>
+			<MeleeParryChance>1.5</MeleeParryChance>
+			<BloodAmountPawn>6</BloodAmountPawn>
+			<BloodTransfusionIntolerance>0.0035</BloodTransfusionIntolerance>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>teeth</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>2.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+				<chanceFactor>0.15</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationBlunt>3</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<race>
+			<thinkTreeMain>Humanlike</thinkTreeMain>
+			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<intelligence>Humanlike</intelligence>
+			<makesFootprints>true</makesFootprints>
+			<lifeExpectancy>80</lifeExpectancy>
+			<leatherDef>Leather_Plain</leatherDef>
+			<nameCategory>HumanStandard</nameCategory>
+			<body>MinoBody</body>
+			<baseBodySize>2</baseBodySize>
+			<baseHealthScale>1.25</baseHealthScale>
+			<foodType>OmnivoreHuman</foodType>
+			<gestationPeriodDays>45</gestationPeriodDays>
+			<meatMarketValue>0.8</meatMarketValue>
+			<manhunterOnDamageChance>0.20</manhunterOnDamageChance>
+			<manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>HumanlikeToddler</def>
+					<minAge>1.2</minAge>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>4</minAge>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>13</minAge>
+				</li>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>18</minAge>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+			<soundMeleeDodge>Pawn_MeleeDodge</soundMeleeDodge>
+			<specialShadowData>
+				<volume>(0.3, 0.8, 0.4)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li>(14,0)</li>
+					<li>(16,100)</li>
+					<li>(50,100)</li>
+					<li>(60,30)</li>
+					<li>(70,18)</li>
+					<li>(80,10)</li>
+					<li>(90,3)</li>
+					<li>(100,0)</li>
+				</points>
+			</ageGenerationCurve>
+			<hediffGiverSets>
+				<li>OrganicStandard</li>
+				<li>Human</li>
+				<li>OrganicTaurus</li>
+			</hediffGiverSets>
+		</race>
+		<recipes>
+			<li>ExciseCarcinoma</li>
+			<li>AdministerMechSerumHealer</li>
+			<li>RemoveBodyPart</li>
+			<li>Euthanize</li>
+			<li>Anesthetize</li>
+			<li>CureScaria</li>
+			<li MayRequire="Ludeon.RimWorld.Royalty">CureBloodRot</li>
+			<li MayRequire="Ludeon.RimWorld.Royalty">CureAbasia</li>
+		</recipes>
+		<alienRace>
+			<generalSettings>
+				<allowHumanBios>true</allowHumanBios>
+				<humanRecipeImport>true</humanRecipeImport>
+				<alienPartGenerator>
+					<aliencrowntypes>
+						<li>Average_Normal</li>
+						<li>Average_Pointy</li>
+						<li>Average_Wide</li>
+						<li>Narrow_Normal</li>
+						<li>Narrow_Pointy</li>
+						<li>Narrow_Wide</li>
+					</aliencrowntypes>
+					<alienbodytypes>
+						<li>Hulk</li>
+						<li>Thin</li>
+						<li>Female</li>
+						<li>Male</li>
+					</alienbodytypes>
+					<anchorReplacements>
+						<li>
+							<originalTag>RightEye</originalTag>
+							<originalGroup>Torso</originalGroup>
+							<replacement>
+								<rotation>South</rotation>
+								<tag>RightEye</tag>
+								<canMirror>false</canMirror>
+								<crownType>Average</crownType>
+								<offset>(-0.112,0,0.268)</offset>
+								<range>0</range>
+								<layer>Head</layer>
+								<debugColor>(1,1,1,1)</debugColor>
+							</replacement>
+							<offsets>
+								<south>
+									<bodyTypes>
+										<Male>(-0.112,0.268)</Male>
+										<Female>(-0.112,0.268)</Female>
+										<Thin>(-0.112,0.268)</Thin>
+										<Hulk>(-0.112,0.268)</Hulk>
+									</bodyTypes>
+								</south>
+							</offsets>
+						</li>
+						<li>
+							<originalTag>LeftEye</originalTag>
+							<originalGroup>Torso</originalGroup>
+							<replacement>
+								<rotation>South</rotation>
+								<tag>LeftEye</tag>
+								<canMirror>false</canMirror>
+								<crownType>Average</crownType>
+								<offset>(0.112,0,0.268)</offset>
+								<range>0</range>
+								<layer>Head</layer>
+								<debugColor>(0,0,0,1)</debugColor>
+							</replacement>
+							<offsets>
+								<south>
+									<bodyTypes>
+										<Male>(0.112,0.268)</Male>
+										<Female>(0.110,0.268)</Female>
+										<Thin>(0.112,0.268)</Thin>
+										<Hulk>(0.112,0.268)</Hulk>
+									</bodyTypes>
+								</south>
+							</offsets>
+						</li>
+						<li>
+							<originalTag>RightEye</originalTag>
+							<originalGroup>Torso</originalGroup>
+							<replacement>
+								<rotation>East</rotation>
+								<tag>RightEye</tag>
+								<canMirror>false</canMirror>
+								<crownType>Average</crownType>
+								<offset>(0.2,0,0.268)</offset>
+								<range>0</range>
+								<layer>Head</layer>
+								<debugColor>(1,1,1,1)</debugColor>
+							</replacement>
+							<offsets>
+								<east>
+									<bodyTypes>
+										<Male>(0.160,0.320)</Male>
+										<Female>(0.215,0.320)</Female>
+										<Thin>(0.210,0.320)</Thin>
+										<Hulk>(0.210,0.320)</Hulk>
+									</bodyTypes>
+								</east>
+							</offsets>
+						</li>
+						<li>
+							<originalTag>LeftEye</originalTag>
+							<originalGroup>Torso</originalGroup>
+							<replacement>
+								<rotation>West</rotation>
+								<tag>LeftEye</tag>
+								<canMirror>false</canMirror>
+								<crownType>Average</crownType>
+								<offset>(-0.2,0,0.268)</offset>
+								<range>0</range>
+								<layer>Head</layer>
+								<debugColor>(0,0,0,1)</debugColor>
+							</replacement>
+							<offsets>
+								<west>
+									<bodyTypes>
+										<Male>(-0.160,0.320)</Male>
+										<Female>(-0.215,0.320)</Female>
+										<Thin>(-0.210,0.320)</Thin>
+										<Hulk>(-0.210,0.320)</Hulk>
+									</bodyTypes>
+								</west>
+							</offsets>
+						</li>
+					</anchorReplacements>
+					<useGenderedHeads>true</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies>
+					<customDrawSize>(1.1, 1.1)</customDrawSize>
+					<colorChannels>
+						<li>
+							<name>skin</name>
+							<!-- main skin color -->
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(215, 215, 215, 255)</only>
+									</li>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(66, 66, 66, 255)</only>
+									</li>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(245, 245, 245, 255)</only>
+									</li>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(213, 143, 96, 255)</only>
+									</li>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(121, 72, 38, 255)</only>
+									</li>
+								</options>
+							</first>
+							<!-- sploch color - Currently unused. -->
+							<second Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(0.500, 1.000, 0.000, 1.000)</only>
+									</li>
+								</options>
+							</second>
+						</li>
+						<li>
+							<name>hair</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<!-- black -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(0.2,0.2,0.2,1)</only>
+									</li>
+									<!-- brunette -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(0.25,0.2,0.15,1)</only>
+									</li>
+									<!-- brown -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(0.3,0.2,0.1,1)</only>
+									</li>
+									<!-- beige -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(0.35,0.23,0.13,1)</only>
+									</li>
+									<!-- blond -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(0.9,0.9,0.6,1)</only>
+									</li>
+									<!-- caramel -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(0.75,0.6,0.35,1)</only>
+									</li>
+									<!-- redhead -->
+									<li>
+										<weight>1</weight>
+										<only>RGBA(0.937,0.286,0.137,1)</only>
+									</li>
+								</options>
+							</first>
+						</li>
+					</colorChannels>
+					<bodyAddons>
+						<li>
+							<path>Core/Races/Taurus/Tails/Mino_Tail</path>
+							<bodyPart>Tail</bodyPart>
+							<shaderType>Transparent</shaderType>
+							<drawSize>1.1</drawSize>
+							<layerInvert>false</layerInvert>
+							<drawnInBed>false</drawnInBed>
+							<drawnDesiccated>false</drawnDesiccated>
+							<colorChannel>skin</colorChannel>
+							<defaultOffset>Tail</defaultOffset>
+							<offsets>
+								<south>
+									<bodyTypes>
+										<Male>(0.0,-0.0)</Male>
+										<Female>(0.0,-0.0)</Female>
+										<Hulk>(0.0,-0.0)</Hulk>
+										<Thin>(0.0,-0.0)</Thin>
+									</bodyTypes>
+								</south>
+								<north>
+									<layerOffset>-0.4</layerOffset>
+									<bodyTypes>
+										<Male>(0.0,0.6)</Male>
+										<Female>(0.0,0.6)</Female>
+										<Hulk>(0.0,0.3)</Hulk>
+										<Thin>(0.0,0.6)</Thin>
+									</bodyTypes>
+								</north>
+								<east>
+									<layerOffset>-0.13</layerOffset>
+									<bodyTypes>
+										<Male>(-0.5,0.25)</Male>
+										<Female>(-0.45,0.25)</Female>
+										<Hulk>(-0.35,0.15)</Hulk>
+										<Thin>(-0.5,0.25)</Thin>
+									</bodyTypes>
+								</east>
+							</offsets>
+						</li>
+						<li>
+							<path>Core/Races/Taurus/Horns/Horn_Right</path>
+							<bodyPart>right horn</bodyPart>
+							<inFrontOfBody>false</inFrontOfBody>
+							<alignWithHead>true</alignWithHead>
+							<drawSize>1.1</drawSize>
+							<drawnInBed>true</drawnInBed>
+							<colorChannel>base</colorChannel>
+							<drawnDesiccated>true</drawnDesiccated>
+							<hediffGraphics>
+								<MissingBodyPart>Core/Races/Taurus/Horns/BrokenOff/Horn_Right</MissingBodyPart>
+								<Crack>Core/Races/Taurus/Horns/Cracked/Horn_Right</Crack>
+							</hediffGraphics>
+							<offsets>
+								<south>
+									<layerOffset>-0.33</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.01, 0.0)</Average_Normal>
+										<Average_Pointy>(-0.01, 0.0)</Average_Pointy>
+										<Average_Wide>(-0.01, 0.0)</Average_Wide>
+										<Narrow_Normal>(0.03, 0.0)</Narrow_Normal>
+										<Narrow_Pointy>(0.03, 0.0)</Narrow_Pointy>
+										<Narrow_Wide>(0.03, 0.0)</Narrow_Wide>
+									</crownTypes>
+								</south>
+								<north>
+									<layerOffset>-0.33</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.01, 0.0)</Average_Normal>
+										<Average_Pointy>(-0.01, 0.0)</Average_Pointy>
+										<Average_Wide>(-0.01, 0.0)</Average_Wide>
+										<Narrow_Normal>(-0.03, 0.0)</Narrow_Normal>
+										<Narrow_Pointy>(-0.03, 0.0)</Narrow_Pointy>
+										<Narrow_Wide>(-0.03, 0.0)</Narrow_Wide>
+									</crownTypes>
+								</north>
+								<east>
+									<layerOffset>-0.34</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.0, 0.0)</Average_Normal>
+										<Average_Pointy>(-0.0, 0.0)</Average_Pointy>
+										<Average_Wide>(-0.0, 0.0)</Average_Wide>
+										<Narrow_Normal>(0.0, 0.0)</Narrow_Normal>
+										<Narrow_Pointy>(0.0, 0.0)</Narrow_Pointy>
+										<Narrow_Wide>(0.0, 0.0)</Narrow_Wide>
+									</crownTypes>
+								</east>
+							</offsets>
+						</li>
+						<li>
+							<path>Core/Races/Taurus/Horns/Horn_Left</path>
+							<bodyPart>left horn</bodyPart>
+							<inFrontOfBody>false</inFrontOfBody>
+							<alignWithHead>true</alignWithHead>
+							<linkVariantIndexWithPrevious>true</linkVariantIndexWithPrevious>
+							<drawSize>1.1</drawSize>
+							<drawnInBed>true</drawnInBed>
+							<colorChannel>base</colorChannel>
+							<drawnDesiccated>true</drawnDesiccated>
+							<hediffGraphics>
+								<MissingBodyPart>Core/Races/Taurus/Horns/BrokenOff/Horn_Left</MissingBodyPart>
+								<Crack>Core/Races/Taurus/Horns/Cracked/Horn_Left</Crack>
+							</hediffGraphics>
+							<offsets>
+								<south>
+									<layerOffset>-0.33</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.01, 0.0)</Average_Normal>
+										<Average_Pointy>(-0.01, 0.0)</Average_Pointy>
+										<Average_Wide>(-0.01, 0.0)</Average_Wide>
+										<Narrow_Normal>(-0.03, 0.0)</Narrow_Normal>
+										<Narrow_Pointy>(-0.03, 0.0)</Narrow_Pointy>
+										<Narrow_Wide>(-0.03, 0.0)</Narrow_Wide>
+									</crownTypes>
+								</south>
+								<north>
+									<layerOffset>-0.33</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.01, 0.0)</Average_Normal>
+										<Average_Pointy>(-0.01, 0.0)</Average_Pointy>
+										<Average_Wide>(-0.01, 0.0)</Average_Wide>
+										<Narrow_Normal>(0.03, 0.0)</Narrow_Normal>
+										<Narrow_Pointy>(0.03, 0.0)</Narrow_Pointy>
+										<Narrow_Wide>(0.03, 0.0)</Narrow_Wide>
+									</crownTypes>
+								</north>
+								<east>
+									<layerOffset>-0.34</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.0, 0.0)</Average_Normal>
+										<Average_Pointy>(-0.0, 0.0)</Average_Pointy>
+										<Average_Wide>(-0.0, 0.0)</Average_Wide>
+										<Narrow_Normal>(0.0, 0.0)</Narrow_Normal>
+										<Narrow_Pointy>(0.0, 0.0)</Narrow_Pointy>
+										<Narrow_Wide>(0.0, 0.0)</Narrow_Wide>
+									</crownTypes>
+								</east>
+							</offsets>
+						</li>
+						<li>
+							<path>Core/Races/Taurus/Ears/Mino_Ear_Right</path>
+							<bodyPart>right ear</bodyPart>
+							<inFrontOfBody>false</inFrontOfBody>
+							<alignWithHead>true</alignWithHead>
+							<drawSize>1.1</drawSize>
+							<drawnInBed>true</drawnInBed>
+							<drawnDesiccated>false</drawnDesiccated>
+							<hiddenUnderApparelFor>
+								<li>FullHead</li>
+							</hiddenUnderApparelFor>
+							<offsets>
+								<south>
+									<layerOffset>-0.34</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.0, -0.1)</Average_Normal>
+										<Average_Pointy>(-0.0, -0.1)</Average_Pointy>
+										<Average_Wide>(-0.0, -0.1)</Average_Wide>
+										<Narrow_Normal>(0.03, -0.1)</Narrow_Normal>
+										<Narrow_Pointy>(0.03, -0.1)</Narrow_Pointy>
+										<Narrow_Wide>(0.03, -0.1)</Narrow_Wide>
+									</crownTypes>
+								</south>
+								<north>
+									<layerOffset>-0.34</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.0, -0.1)</Average_Normal>
+										<Average_Pointy>(-0.0, -0.1)</Average_Pointy>
+										<Average_Wide>(-0.0, -0.1)</Average_Wide>
+										<Narrow_Normal>(0.03, -0.1)</Narrow_Normal>
+										<Narrow_Pointy>(0.03, -0.1)</Narrow_Pointy>
+										<Narrow_Wide>(0.03, -0.1)</Narrow_Wide>
+									</crownTypes>
+								</north>
+							</offsets>
+						</li>
+						<li>
+							<path>Core/Races/Taurus/Ears/Mino_Ear_Left</path>
+							<bodyPart>left ear</bodyPart>
+							<inFrontOfBody>false</inFrontOfBody>
+							<alignWithHead>true</alignWithHead>
+							<defaultOffset>Center</defaultOffset>
+							<drawSize>1.1</drawSize>
+							<drawnInBed>true</drawnInBed>
+							<drawnDesiccated>false</drawnDesiccated>
+							<hiddenUnderApparelFor>
+								<li>FullHead</li>
+							</hiddenUnderApparelFor>
+							<offsets>
+								<south>
+									<layerOffset>-0.34</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.0, -0.1)</Average_Normal>
+										<Average_Pointy>(-0.0, -0.1)</Average_Pointy>
+										<Average_Wide>(-0.0, -0.1)</Average_Wide>
+										<Narrow_Normal>(-0.03, -0.1)</Narrow_Normal>
+										<Narrow_Pointy>(-0.03, -0.1)</Narrow_Pointy>
+										<Narrow_Wide>(-0.03, -0.1)</Narrow_Wide>
+									</crownTypes>
+								</south>
+								<north>
+									<layerOffset>-0.34</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.0, -0.1)</Average_Normal>
+										<Average_Pointy>(-0.0, -0.1)</Average_Pointy>
+										<Average_Wide>(-0.0, -0.1)</Average_Wide>
+										<Narrow_Normal>(0.03, -0.1)</Narrow_Normal>
+										<Narrow_Pointy>(0.03, -0.1)</Narrow_Pointy>
+										<Narrow_Wide>(0.03, -0.1)</Narrow_Wide>
+									</crownTypes>
+								</north>
+								<east>
+									<layerOffset>-0.35</layerOffset>
+									<crownTypes>
+										<Average_Normal>(-0.0, -0.1)</Average_Normal>
+										<Average_Pointy>(-0.0, -0.1)</Average_Pointy>
+										<Average_Wide>(-0.0, -0.1)</Average_Wide>
+										<Narrow_Normal>(0.0, -0.1)</Narrow_Normal>
+										<Narrow_Pointy>(0.0, -0.1)</Narrow_Pointy>
+										<Narrow_Wide>(0.0, -0.1)</Narrow_Wide>
+									</crownTypes>
+								</east>
+							</offsets>
+						</li>
+					</bodyAddons>
+				</alienPartGenerator>
+			</generalSettings>
+			<graphicPaths>
+				<li>
+					<body>Core/Races/Taurus/Body/</body>
+					<head>Core/Races/Taurus/Heads/</head>
+					<skull>Core/Races/Taurus/Skull/Mino_skull</skull>
+				</li>
+			</graphicPaths>
+			<styleSettings>
+				<li>
+					<key>BeardDef</key>
+					<value>
+						<hasStyle>true</hasStyle>
+						<styleTags>
+							<li>NoBeard</li>
+						</styleTags>
+					</value>
+				</li>
+				<li>
+					<key>HairDef</key>
+					<value>
+						<hasStyle>true</hasStyle>
+						<styleTags>
+						</styleTags>
+					</value>
+				</li>
+				<li>
+					<key>TattooDef</key>
+					<value>
+						<hasStyle>true</hasStyle>
+						<styleTags>
+						</styleTags>
+					</value>
+				</li>
+			</styleSettings>
+		</alienRace>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<overrideMeatDef>Meat_Human</overrideMeatDef>
+				<bloodDef>TaurusBlood</bloodDef>
+				<defaultRaceLanguage>Atari</defaultRaceLanguage>
+				<fightSystemRestMultiplier>0.7</fightSystemRestMultiplier>
+				<allowedDiseases>
+					<li>Flu</li>
+					<li>Plague</li>
+					<li>Malaria</li>
+					<li>SleepingSickness</li>
+					<li>FibrousMechanites</li>
+					<li>SensoryMechanites</li>
+					<li>GutWorms</li>
+					<li>MuscleParasites</li>
+					<li>Diseases_HediffDef_Pneumonia</li>
+					<li>Diseases_HediffDef_CommonCold</li>
+					<li>Diseases_HediffDef_Tuberculosis</li>
+					<li>Diseases_HediffDef_Conjunctivitis</li>
+					<li>Diseases_HediffDef_Otitis</li>
+					<li>RapidAging</li>
+					<li>TemporaryBlindness</li>
+					<li>Diseases_HediffDef_Immunodeficiency</li>
+					<li>Diseases_HediffDef_MotorParalysis</li>
+					<li>Diseases_HediffDef_PainNumbnessSyndrome</li>
+				</allowedDiseases>
+			</li>
+		</modExtensions>
+		<comps>
+			<li>
+				<compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+			<li Class="CombatExtended.CompProperties_Suppressable"/>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnParagon"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Taurus">
+				<chance>0.03</chance>
+				<minDamage>10</minDamage>
+				<minBloodRate>0.85</minBloodRate>
+			</li>
+		</comps>
+	</AlienRace.ThingDef_AlienRace>
+	<!--
+	<AlienRace.RaceSettings>
+		<defName>MinotaurRaceSettings</defName>
+		<pawnKindSettings>
+			<alienslavekinds>
+				<li>
+					<kindDefs>
+						<li>Minotaur_Slave</li>
+					</kindDefs>
+					<chance>10.0</chance>
+				</li>
+			</alienslavekinds>
+			<alienrefugeekinds>
+				<li>
+					<kindDefs>
+						<li>Minotaur_Villager</li>
+					</kindDefs>
+					<chance>10.0</chance>
+				</li>
+			</alienrefugeekinds>
+		</pawnKindSettings>
+	</AlienRace.RaceSettings>
+-->
+</Defs>

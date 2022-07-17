@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BasedWaterTower" DBHLite="true">
+		<defName>FogCatcher</defName>
+		<label>Fog catcher</label>
+		<description>A net aimed at catching the water held within fog. This can also take advantage of rain though to a lesser extent than a dedicated tank.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_WaterCatcher</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/FogCatcher/FogCatcher</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,4)</drawSize>
+			<damageData>
+				<rect>(0.05,0.05,0.95,0.95)</rect>
+			</damageData>
+		</graphicData>
+		<size>(3,2)</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<blockWind>false</blockWind>
+		<rotatable>true</rotatable>
+		<comps>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>1</WaterStorageCap>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>80</costStuffCount>
+		<costList>
+			<Cloth>30</Cloth>
+			<ComponentSimple>4</ComponentSimple>
+			<MechanismSimple>2</MechanismSimple>
+		</costList>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>5000</WorkToBuild>
+			<Flammability>0.0</Flammability>
+		</statBases>
+		<designatorDropdown>Hygiene_WaterExtraction</designatorDropdown>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_WaterCatcher">
+				<weatherDefCounts>
+					<li>
+						<weatherDef>RainyThunderstorm</weatherDef>
+						<water>0.55</water>
+					</li>
+					<li>
+						<weatherDef>Rain</weatherDef>
+						<water>0.4</water>
+					</li>
+					<li>
+						<weatherDef>FoggyRain</weatherDef>
+						<water>0.4</water>
+					</li>
+					<li>
+						<weatherDef>Fog</weatherDef>
+						<water>0.166</water>
+					</li>
+				</weatherDefCounts>
+				<forbidRoof>true</forbidRoof>
+			</li>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint"/>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BasedWaterTower" DBHLite="true">
+		<defName>RainCatchment</defName>
+		<label>Rain catchment</label>
+		<description>Simple sheet metal angled over an open pipe. Will catch the rain to fill storage systems.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_WaterCatcher</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/RainCatchment/RainCatchment</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3.5,3.5)</drawSize>
+			<damageData>
+				<rect>(0.05,0.05,0.95,0.95)</rect>
+			</damageData>
+		</graphicData>
+		<size>(2,2)</size>
+		<blockWind>false</blockWind>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<rotatable>true</rotatable>
+		<comps>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>1</WaterStorageCap>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+			<MechanismSimple>2</MechanismSimple>
+		</costList>
+		<costStuffCount>120</costStuffCount>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>3000</WorkToBuild>
+			<Flammability>0.0</Flammability>
+		</statBases>
+		<designatorDropdown>Hygiene_WaterExtraction</designatorDropdown>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_WaterCatcher">
+				<weatherDefCounts>
+					<li>
+						<weatherDef>RainyThunderstorm</weatherDef>
+						<water>0.40</water>
+					</li>
+					<li>
+						<weatherDef>Rain</weatherDef>
+						<water>0.3</water>
+					</li>
+					<li>
+						<weatherDef>FoggyRain</weatherDef>
+						<water>0.3</water>
+					</li>
+				</weatherDefCounts>
+				<forbidRoof>true</forbidRoof>
+			</li>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint"/>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BasedWaterTower" DBHLite="true">
+		<defName>WoodenWaterBarrel</defName>
+		<label>wooden water barrel</label>
+		<thingClass>ProjectParagon.Core.Things.Building_WoodenWaterBarrel</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/WoodenWaterBarrel/Barrel</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<damageData>
+				<rect>(0.05,0.05,0.95,0.95)</rect>
+			</damageData>
+		</graphicData>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<size>(1,1)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<tradeNeverStack>true</tradeNeverStack>
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+			<MechanismSimple>1</MechanismSimple>
+			<WoodLog>150</WoodLog>
+		</costList>
+		<comps>
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>100</WaterStorageCap>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WorkAnimation">
+				<graphicData>
+					<texPath>Core/Buildings/WoodenWaterBarrel/Barrel_water</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>(1,1)</drawSize>
+					<damageData>
+						<rect>(0.05,0.05,0.95,0.95)</rect>
+					</damageData>
+				</graphicData>
+			</li>
+		</comps>
+		<blockWind>false</blockWind>
+		<canOverlapZones>true</canOverlapZones>
+		<tradeability>Sellable</tradeability>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<Mass>2</Mass>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>1000</WorkToBuild>
+		</statBases>
+		<researchPrerequisites>
+			<li>SimpleHygiene</li>
+		</researchPrerequisites>
+		<designatorDropdown>Hygiene_Reservoirs</designatorDropdown>
+		<drawerType>RealtimeOnly</drawerType>
+	</ThingDef>
+</Defs>

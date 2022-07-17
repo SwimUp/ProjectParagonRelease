@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DrugBase">
+		<defName>DesertOasis</defName>
+		<label>Desert oasis</label>
+		<description>An invigorating drink made from fruits and berries that grow near oases.</description>
+		<descriptionHyperlinks>
+			<HediffDef>DesertOasisHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Drugs/DesertOasis</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>450</WorkToMake>
+			<MarketValue>15</MarketValue>
+			<Mass>0.05</Mass>
+			<DeteriorationRate>5</DeteriorationRate>
+			<Flammability>1.25</Flammability>
+			<Nutrition>0.1</Nutrition>
+			<Protein>0.001</Protein>
+			<Fat>0.001</Fat>
+			<Carbohydrates>0.15</Carbohydrates>
+			<Vitamins>0.010</Vitamins>
+			<Flavor>1</Flavor>
+		</statBases>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<baseIngestTicks>400</baseIngestTicks>
+			<chairSearchRadius>25</chairSearchRadius>
+			<ingestSound>Ingest_Pill</ingestSound>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Take {0}</ingestCommandString>
+			<ingestReportString>Taking {0}.</ingestReportString>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>DesertOasisHigh</hediffDef>
+					<severity>0.8</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_OffsetNeed">
+					<need>Rest</need>
+					<offset>-0.1</offset>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<techLevel>Medieval</techLevel>
+	</ThingDef>
+	<RecipeDef>
+		<defName>Make_DesertOasis</defName>
+		<label>Make desert oasis</label>
+		<description>Make desert oasis</description>
+		<jobString>Makes desert oasis</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workAmount>1200</workAmount>
+		<targetCountAdjustment>1</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawGrapes</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawOlive</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Sugar</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawGrapes</li>
+				<li>Flora_RawOlive</li>
+				<li>Sugar</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawGrapes</li>
+				<li>Flora_RawOlive</li>
+				<li>Sugar</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<DesertOasis>5</DesertOasis>
+		</products>
+		<recipeUsers>
+			<li>Brewery</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+					<li>Kairos_Prince</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<HediffDef>
+		<defName>DesertOasisHigh</defName>
+		<label>high on desert oasis</label>
+		<labelNoun>a desert oasis high</labelNoun>
+		<description>Increased reaction and overall speed.</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<MoveSpeed>1.5</MoveSpeed>
+					<MeleeDodgeChance>1.25</MeleeDodgeChance>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

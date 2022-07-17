@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Leather_Plain"]</xpath>
+				<value>
+					<ThingDef ParentName="LeatherBase">
+						<defName>Leather_Plain</defName>
+						<label>Leather</label>
+						<description>Animal skin that can be used for sewing clothes or making furniture.</description>
+						<graphicData>
+							<color>(189,161,116)</color>
+							<texPath>Core/Items/Leathers/Leather_Plain</texPath>
+						</graphicData>
+						<statBases>
+							<MarketValue>4.5</MarketValue>
+							<StuffPower_Armor_Sharp>0.05</StuffPower_Armor_Sharp>
+							<StuffPower_Armor_Blunt>0.04</StuffPower_Armor_Blunt>
+							<StuffPower_Armor_Heat>0.012</StuffPower_Armor_Heat>
+							<StuffPower_Insulation_Cold>10</StuffPower_Insulation_Cold>
+							<StuffPower_Insulation_Heat>10</StuffPower_Insulation_Heat>
+						</statBases>
+						<stuffProps>
+							<color>(189,161,116)</color>
+							<commonality>0.3</commonality>
+							<statFactors>
+								<Flammability>1.5</Flammability>
+								<Beauty>1.25</Beauty>
+								<BedRestEffectiveness>1.0</BedRestEffectiveness>
+								<ImmunityGainSpeedFactor>1.0</ImmunityGainSpeedFactor>
+							</statFactors>
+						</stuffProps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Leather_Human"]</xpath>
+				<value>
+					<ThingDef ParentName="LeatherBase">
+						<defName>Leather_Human</defName>
+						<label>human leather</label>
+						<description>Tanned, dried, scraped human skin. Most people find this material horrifying. Some find it fascinating. While a decent leather, it neither protects nor insulates particularly well.</description>
+						<graphicData>
+							<color>(211,194,143)</color>
+							<texPath>Core/Items/Leathers/Leather_Plain</texPath>
+						</graphicData>
+						<statBases>
+							<MarketValue>1</MarketValue>
+							<StuffPower_Armor_Sharp>0.04</StuffPower_Armor_Sharp>
+							<StuffPower_Armor_Blunt>0.03</StuffPower_Armor_Blunt>
+							<StuffPower_Armor_Heat>0.010</StuffPower_Armor_Heat>
+							<StuffPower_Insulation_Cold>8</StuffPower_Insulation_Cold>
+							<StuffPower_Insulation_Heat>8</StuffPower_Insulation_Heat>
+						</statBases>
+						<stuffProps>
+							<color>(211,194,143)</color>
+							<commonality>0.005</commonality>
+							<statFactors>
+								<Flammability>1.0</Flammability>
+								<MaxHitPoints>0.8</MaxHitPoints>
+								<Beauty>0.0</Beauty>
+								<BedRestEffectiveness>0.8</BedRestEffectiveness>
+								<ImmunityGainSpeedFactor>1.0</ImmunityGainSpeedFactor>
+							</statFactors>
+						</stuffProps>
+					</ThingDef>
+				</value>
+			</li>
+			<!-- замена шерсти животных -->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Muffalo"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Muffalo"]/comps</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Shearable">
+							<woolDef>Warm_Fur</woolDef>
+							<shearIntervalDays>25</shearIntervalDays>
+							<woolAmount>100</woolAmount>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Gazelle"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Iguana"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Dromedary"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Bear_Grizzly"]/race</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Bear_Polar"]/race</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Cougar"]</xpath>
+				<value>
+					<race>
+						<leatherDef>Leather_Plain</leatherDef>
+					</race>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Panther"]</xpath>
+				<value>
+					<race>
+						<leatherDef>Leather_Plain</leatherDef>
+					</race>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Lynx"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Cassowary"]/race</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Emu"]/race</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Ostrich"]/race</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turkey"]/race</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Chicken"]/race</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Pig"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Cow"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Alpaca"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Duck"]/race</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bison"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Thick_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bison"]/comps</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Shearable">
+							<woolDef>Regular_Wool</woolDef>
+							<shearIntervalDays>25</shearIntervalDays>
+							<woolAmount>100</woolAmount>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Goat"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Goose"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Sheep"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Alpaca"]/comps</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Shearable">
+							<woolDef>Regular_Wool</woolDef>
+							<shearIntervalDays>15</shearIntervalDays>
+							<woolAmount>80</woolAmount>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Sheep"]/comps</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Shearable">
+							<woolDef>Regular_Wool</woolDef>
+							<shearIntervalDays>10</shearIntervalDays>
+							<woolAmount>45</woolAmount>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Horse"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Yak"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Thick_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GuineaPig"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Donkey"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Rhinoceros"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Thick_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Elephant"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Thick_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Megasloth"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Thick_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Megasloth"]/comps</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Shearable">
+							<woolDef>Warm_Fur</woolDef>
+							<shearIntervalDays>50</shearIntervalDays>
+							<woolAmount>250</woolAmount>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Thrumbo"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Thick_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Thrumbo"]</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Shearable">
+							<woolDef>Warm_Fur</woolDef>
+							<shearIntervalDays>30</shearIntervalDays>
+							<woolAmount>200</woolAmount>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Hare"]</xpath>
+				<value>
+					<race>
+						<leatherDef>Light_Leather</leatherDef>
+					</race>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Hare"]</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Shearable">
+							<woolDef>Regular_Fur</woolDef>
+							<shearIntervalDays>15</shearIntervalDays>
+							<woolAmount>10</woolAmount>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Snowhare"]/race</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Snowhare"]</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Shearable">
+							<woolDef>Regular_Fur</woolDef>
+							<shearIntervalDays>15</shearIntervalDays>
+							<woolAmount>10</woolAmount>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="YorkshireTerrier"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Husky"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="LabradorRetriever"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Cat"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Squirrel"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Alphabeaver"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Capybara"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Chinchilla"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Boomrat"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Raccoon"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Rat"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Deer"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Ibex"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Elk"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Caribou"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="WildBoar"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Tortoise"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Thick_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Cobra"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Light_Leather</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Monkey"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Boomalope"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Warg"]/race/leatherDef</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Wolf_Timber"]/race</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Wolf_Arctic"]/race</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Fox_Fennec"]/race</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Fox_Red"]/race</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Fox_Arctic"]/race</xpath>
+				<value>
+					<leatherDef>Leather_Plain</leatherDef>
+				</value>
+			</li>
+			<!-- замена шерсти животных -->
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<!-- <li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Plain" or "Leather_Elephant" or "Leather_Dog" or "Leather_Wolf" or "Leather_Panthera" or "Leather_Camel" or "Leather_Bluefur" or "Leather_Bear" or "Leather_GuineaPig" or "Leather_Pig" or "Leather_Light" or "Leather_Bird" or "Leather_Chinchilla" or "Leather_Fox" or "Leather_Lizard" or "Leather_Elephant" or "Leather_Heavy" or "Leather_Rhinoceros" or "Leather_Thrumbo" or "Leather_Patch"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="WoolMegasloth" or "WoolMuffalo" or "WoolAlpaca" or "WoolBison" or "WoolSheep"]</xpath>
+			</li>-->
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Elephant"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Dog"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Wolf"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Panthera"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Camel"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Bluefur"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Bear"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_GuineaPig"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Pig"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Light"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Bird"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Chinchilla"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Fox"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Lizard"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Heavy"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Rhinoceros"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Thrumbo"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Leather_Patch"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="WoolMegasloth"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="WoolMuffalo"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="WoolBison"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="WoolSheep"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="WoolAlpaca"]</xpath>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

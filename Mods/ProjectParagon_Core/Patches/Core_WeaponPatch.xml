@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+		
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="BaseGunWithQuality"]/comps</xpath>
+				<value>
+					<li Class="ProjectParagon.Core.Things.CompProperties_Engraving">
+						<nameMaker>NamerEngraving</nameMaker>
+						<descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="BaseMeleeWeapon_Sharp_Quality"]/comps</xpath>
+				<value>
+					<li Class="ProjectParagon.Core.Things.CompProperties_Engraving">
+						<nameMaker>NamerEngraving</nameMaker>
+						<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="BaseMeleeWeapon_Blunt_Quality"]/comps</xpath>
+				<value>
+					<li Class="ProjectParagon.Core.Things.CompProperties_Engraving">
+						<nameMaker>NamerEngraving</nameMaker>
+						<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="BaseGun"]/inspectorTabs</xpath>
+				<value>
+					<li>ProjectParagon.Core.Things.ITab_Engraving</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="BaseMeleeWeapon"]/inspectorTabs</xpath>
+				<value>
+					<li>ProjectParagon.Core.Things.ITab_Engraving</li>
+				</value>
+			</li>
+		
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Short"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<recipeUsers>
+							<li>CraftingSpot</li>
+							<li>CarpenterTable</li>
+							<li>PrimitiveCarpenterTable</li>
+						</recipeUsers>
+						<skillRequirements>
+							<Crafting>2</Crafting>
+						</skillRequirements>
+						<researchPrerequisite>PrimitiveBows</researchPrerequisite>
+					</recipeMaker>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Short"]/costList</xpath>
+				<value>
+					<costList>
+						<WoodLog>25</WoodLog>
+						<ComponentPrimitive>1</ComponentPrimitive>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Short"]/graphicData/texPath</xpath>
+				<value>
+					<texPath>Core/Items/Bows/Bow_Short</texPath>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Recurve"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<recipeUsers>
+							<li>CraftingSpot</li>
+							<li>CarpenterTable</li>
+							<li>PrimitiveCarpenterTable</li>
+						</recipeUsers>
+						<skillRequirements>
+							<Crafting>3</Crafting>
+						</skillRequirements>
+						<researchPrerequisite>ImprovedBows</researchPrerequisite>
+					</recipeMaker>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Recurve"]/costList</xpath>
+				<value>
+					<costList>
+						<WoodLog>35</WoodLog>
+						<ComponentPrimitive>2</ComponentPrimitive>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Recurve"]/graphicData/texPath</xpath>
+				<value>
+					<texPath>Core/Items/Bows/Bow_Recurve</texPath>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Great"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<recipeUsers>
+							<li>CraftingSpot</li>
+							<li>CarpenterTable</li>
+							<li>PrimitiveCarpenterTable</li>
+						</recipeUsers>
+						<skillRequirements>
+							<Crafting>4</Crafting>
+						</skillRequirements>
+						<researchPrerequisite>ImprovedBows</researchPrerequisite>
+					</recipeMaker>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Great"]/costList</xpath>
+				<value>
+					<costList>
+						<WoodLog>50</WoodLog>
+						<ComponentPrimitive>4</ComponentPrimitive>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bow_Great"]/graphicData/texPath</xpath>
+				<value>
+					<texPath>Core/Items/Bows/Bow_Great</texPath>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
+				<value>
+					<costList>
+						<WoodLog>20</WoodLog>
+						<ComponentSimple>2</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Axe"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>LongBlades</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>4</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
+				<value>
+					<costList>
+						<WoodLog>25</WoodLog>
+						<ComponentSimple>3</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Warhammer"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>BluntWeapon</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>5</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Mace"]</xpath>
+				<value>
+					<costList>
+						<WoodLog>25</WoodLog>
+						<ComponentSimple>1</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Mace"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>BluntWeapon</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>4</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Gladius"]</xpath>
+				<value>
+					<costList>
+						<WoodLog>25</WoodLog>
+						<ComponentSimple>2</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Gladius"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>LongBlades</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>4</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="MeleeWeapon_LongSword"]</xpath>
+				<value>
+					<costList>
+						<WoodLog>25</WoodLog>
+						<ComponentSimple>3</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_LongSword"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>LongBlades</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>5</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Ikwa"]</xpath>
+				<value>
+					<costList>
+						<WoodLog>25</WoodLog>
+						<ComponentSimple>1</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Ikwa"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>PrimitiveWeapons</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>3</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Spear"]</xpath>
+				<value>
+					<costList>
+						<WoodLog>30</WoodLog>
+						<ComponentSimple>2</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Spear"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>PrimitiveWeapons</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>4</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="MeleeWeapon_BreachAxe"]</xpath>
+				<value>
+					<costList>
+						<WoodLog>30</WoodLog>
+						<ComponentSimple>2</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_BreachAxe"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>LongBlades</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>4</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MeleeWeapon_Club"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>PrimitiveWeapons</researchPrerequisite>
+						<skillRequirements>
+							<Crafting>2</Crafting>
+						</skillRequirements>
+					</recipeMaker>
+				</value>
+			</li>
+			
+
+		</operations>
+	</Operation>
+
+</Patch>

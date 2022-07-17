@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<FactionDef Name="PlayerFactionParagonBase" Abstract="true">
+		<raidLootValueFromPointsCurve>
+			<points>
+				<li>(35,     15)</li>
+				<li>(100,   120)</li>
+				<li>(1000,  500)</li>
+				<li>(2000,  800)</li>
+				<li>(4000, 1000)</li>
+			</points>
+		</raidLootValueFromPointsCurve>
+		<isPlayer>true</isPlayer>
+		<pawnSingular>colonist</pawnSingular>
+		<pawnsPlural>colonists</pawnsPlural>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+		<playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
+		<colorSpectrum>
+			<li>(0, 0.737, 0.847)</li>
+		</colorSpectrum>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerTribe</defName>
+		<label>New Tribe</label>
+		<description>A small tribe.</description>
+		<techLevel>Neolithic</techLevel>
+		<factionNameMaker>NamerFactionTribal</factionNameMaker>
+		<settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Tribal</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<factionIconPath>World/WorldObjects/Expanding/Village</factionIconPath>
+		<settlementTexturePath>World/WorldObjects/TribalSettlement</settlementTexturePath>
+		<geneticVariance>1</geneticVariance>
+		<forageabilityFactor>1.7</forageabilityFactor>
+		<startingResearchTags>
+			<li>TribalStart</li>
+		</startingResearchTags>
+		<startingTechprintsResearchTags>
+			<li>TribalStart</li>
+			<li>TribalStartTechprints</li>
+		</startingTechprintsResearchTags>
+		<recipePrerequisiteTags>
+			<li>Tribal</li>
+		</recipePrerequisiteTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Tribal_Penitent>30</Tribal_Penitent>
+					<Tribal_Archer>30</Tribal_Archer>
+					<Tribal_Hunter>20</Tribal_Hunter>
+					<Tribal_Warrior>20</Tribal_Warrior>
+				</basicMemberKinds>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerAeron</defName>
+		<label>Aeron apostates</label>
+		<description>Kingdom of apostates and regime traitors.</description>
+		<techLevel>Medieval</techLevel>
+		<factionIconPath>Core/World/Factions/AeronKingdom/AeronKingdom</factionIconPath>
+		<factionNameMaker>NamerFactionAeron</factionNameMaker>
+		<settlementNameMaker>NamerSettlementEmpire</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Aeron</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<startingResearchTags>
+			<li>AeronRefugees</li>
+		</startingResearchTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Aeronix_Slave>30</Aeronix_Slave>
+					<Aerones_Defender>20</Aerones_Defender>
+					<Aeron_Peasant>50</Aeron_Peasant>
+				</basicMemberKinds>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerArachnids</defName>
+		<label>Arachnids rebels</label>
+		<description>A group of arachnids who decided to start their own path.</description>
+		<techLevel>Neolithic</techLevel>
+		<factionIconPath>Core/World/Factions/Insect/InsectFaction</factionIconPath>
+		<factionNameMaker>NamerFactionTribal</factionNameMaker>
+		<settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>InsectWorker</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<startingResearchTags>
+			<li>HiveTraitors</li>
+		</startingResearchTags>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Arachnid_WorkerCommon>50</Arachnid_WorkerCommon>
+					<Arachnid_SoldierMelee>30</Arachnid_SoldierMelee>
+					<Arachnid_WarriorMelee>20</Arachnid_WarriorMelee>
+				</basicMemberKinds>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerKairos</defName>
+		<label>Kairos rebels</label>
+		<description>A fragment of the kingdom of kairos, separated during the civil war.</description>
+		<techLevel>Medieval</techLevel>
+		<factionIconPath>Core/World/Factions/KairosDesertUnion/KairosDesertUnion</factionIconPath>
+		<factionNameMaker>NamerKairosDesertUnion</factionNameMaker>
+		<settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Aeron</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<startingResearchTags>
+			<li>KairosRebels</li>
+		</startingResearchTags>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<KairosPrince_Knight>10</KairosPrince_Knight>
+					<KairosPrince_Archer>20</KairosPrince_Archer>
+					<KairosWorker_Farmer>40</KairosWorker_Farmer>
+					<KairosSoldier_Soldier>15</KairosSoldier_Soldier>
+					<KairosSoldier_ArmoredSoldier>15</KairosSoldier_ArmoredSoldier>
+				</basicMemberKinds>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerShek</defName>
+		<label>Shek tribe</label>
+		<description>A group of lost sheks who founded their own settlement.</description>
+		<techLevel>Neolithic</techLevel>
+		<factionIconPath>Core/World/Factions/ShekTribalUnion/ShekTribalUnion</factionIconPath>
+		<factionNameMaker>NamerShekTribalUnion</factionNameMaker>
+		<settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Shek</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<startingResearchTags>
+			<li>LostSheks</li>
+		</startingResearchTags>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Shek_Fisherman>20</Shek_Fisherman>
+					<Shek_Hunter>30</Shek_Hunter>
+					<Shek_Warrior>20</Shek_Warrior>
+					<Shek_Farmer>30</Shek_Farmer>
+				</basicMemberKinds>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerTreant</defName>
+		<label>Treant group</label>
+		<description>Community of conservationists.</description>
+		<techLevel>Neolithic</techLevel>
+		<factionIconPath>Core/World/Factions/TreantForestUnion/TreantForestUnion</factionIconPath>
+		<factionNameMaker>NamerTreantForestUnion</factionNameMaker>
+		<settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Treant</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<startingResearchTags>
+			<li>DefenderOfNature</li>
+		</startingResearchTags>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Dryad>40</Dryad>
+					<Treant>60</Treant>
+				</basicMemberKinds>
+			</li>
+		</modExtensions>
+	</FactionDef>
+</Defs>

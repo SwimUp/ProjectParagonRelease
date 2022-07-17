@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef>
+		<defName>UnsightedShot</defName>
+		<label>Unsighted Shot</label>
+		<description>Shot offhand on a hinged trajectory. Has little chance of hitting the target, but can be completed almost instantly.</description>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<iconTexturePath>Core/UI/FightSystem/Icon_UnsightedShot</iconTexturePath>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_Ranged</verbClass>
+			<label>Unsighted Shot</label>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+			</targetParams>
+			<warmupTime>0.6</warmupTime>
+		</verbProperties>
+		<requirements>
+			<reqFightningStyle>SteppeSchool</reqFightningStyle>
+		</requirements>
+		<chanceFactor>0.35</chanceFactor>
+		<minRest>0.2</minRest>
+		<useRest>true</useRest>
+		<restUseMultiplier>3</restUseMultiplier>
+		<copyVerbProperties>
+			<copySounds>true</copySounds>
+			<copyRange>true</copyRange>
+		</copyVerbProperties>
+		<aimingAccuracyMultiplier>2</aimingAccuracyMultiplier>
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+	<ProjectParagon.Core.FightSystem.SpecialAttackDef>
+		<defName>HailOfArrows</defName>
+		<label>Hail of arrows</label>
+		<description>A volley of many arrows, though not very effective in accuracy, shows itself well against a whole system of opponents.</description>
+		<gizmoClass>ProjectParagon.Core.FightSystem.Command_SpecialAttack</gizmoClass>
+		<iconTexturePath>Core/UI/FightSystem/Icon_HailOfArrows</iconTexturePath>
+		<verbProperties>
+			<verbClass>ProjectParagon.Core.FightSystem.Verb_SpecialAttack_HailOfArrows</verbClass>
+			<label>Hail of arrows</label>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetHumans>true</canTargetHumans>
+				<canTargetMechs>true</canTargetMechs>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+			<burstShotCount>3</burstShotCount>
+			<warmupTime>2.6</warmupTime>
+		</verbProperties>
+		<requirements>
+			<reqFightningStyle>SteppeSchool</reqFightningStyle>
+		</requirements>
+		<chanceFactor>0.35</chanceFactor>
+		<minRest>0.2</minRest>
+		<useRest>true</useRest>
+		<restUseMultiplier>3</restUseMultiplier>
+		<copyVerbProperties>
+			<copySounds>true</copySounds>
+			<copyRange>true</copyRange>
+		</copyVerbProperties>
+		<aimingAccuracyMultiplier>0</aimingAccuracyMultiplier>
+		<orderJobDef>CastSpecialAttackRangedOnThing</orderJobDef>
+		<rangeMultiplier>1</rangeMultiplier>
+		<spreadDegrees>1</spreadDegrees> <!-- принудительный разброс. У лука по дефолту 0 -->
+		<spreadMultiplier>1</spreadMultiplier> <!-- тогда ненужно, по сути умножит spreadDegress на это -->
+	</ProjectParagon.Core.FightSystem.SpecialAttackDef>
+	
+</Defs>

@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientSmallCrate"]</xpath>
+				<value>
+					<ThingDef ParentName="AncientSmallWalkableBuildingBase">
+						<defName>AncientSmallCrate</defName>
+						<label>ancient small crate</label>
+						<description>A small, empty crate which was abandoned ages ago. It's too rusted to store anything.</description>
+						<graphicData>
+							<texPath>Things/Building/Ruins/CrateSmall</texPath>
+							<shadowData>
+								<volume>(0.65, 0.35, 0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>150</MaxHitPoints>
+							<WorkToBuild>35</WorkToBuild>
+						</statBases>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientSmallCrate</thingSetMakerDef>
+								<lootChance>0.15~0.25</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientLongCrate"]</xpath>
+				<value>
+					<ThingDef ParentName="AncientSmallWalkableBuildingBase">
+						<defName>AncientLongCrate</defName>
+						<label>ancient long crate</label>
+						<description>A long, empty crate which was abandoned ages ago. It's too rusted to store anything.</description>
+						<graphicData>
+							<texPath>Things/Building/Ruins/CrateLong</texPath>
+							<shadowData>
+								<volume>(0.9, 0.35, 0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>180</MaxHitPoints>
+							<WorkToBuild>40</WorkToBuild>
+						</statBases>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientLongCrate</thingSetMakerDef>
+								<lootChance>0.1~0.2</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientLargeCrate"]</xpath>
+				<value>
+					<ThingDef ParentName="AncientSmallWalkableBuildingBase">
+						<defName>AncientLargeCrate</defName>
+						<label>ancient large crate</label>
+						<description>A large crate which was abandoned ages ago. It's too rusted to store anything.</description>
+						<graphicData>
+							<texPath>Things/Building/Ruins/CrateLarge</texPath>
+							<shadowData>
+								<volume>(0.99, 0.35, 0.99)</volume>
+							</shadowData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>220</MaxHitPoints>
+							<WorkToBuild>60</WorkToBuild>
+						</statBases>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientLargeCrate</thingSetMakerDef>
+								<lootChance>0.2~0.3</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientContainer"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>AncientContainer</defName>
+						<label>ancient container</label>
+						<description>A large container from some ancient freight carrying vehicle. It has long since been looted and deteriorted into uselessness.</description>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientContainer</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3,5)</drawSize>
+						</graphicData>
+						<size>(3,5)</size>
+						<fillPercent>1</fillPercent>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>500</MaxHitPoints>
+							<WorkToBuild>200</WorkToBuild>
+						</statBases>
+						<passability>Impassable</passability>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientContainer</thingSetMakerDef>
+								<lootChance>0.15~0.25</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientHermeticCrate"]</xpath>
+				<value>
+					<ThingDef ParentName="CrateBase">
+						<defName>AncientHermeticCrate</defName>
+						<label>hermetic crate</label>
+						<description>A self-powered hermetically-sealed crate for preserving valuable items. These can preserve their contents for a long time.</description>
+						<size>(1, 2)</size>
+						<fillPercent>0.40</fillPercent>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientHermeticCrate</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(1, 2)</drawSize>
+							<shadowData>
+								<volume>(1, 0.45, 2)</volume>
+							</shadowData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<WorkToBuild>1000</WorkToBuild>
+						</statBases>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<building>
+							<openingEffect>HermeticCrateOpened</openingEffect>
+						</building>
+						<comps>
+							<li Class="CompProperties_EmptyStateGraphic">
+								<graphicData>
+									<texPath>Things/Building/Ruins/AncientHermeticCrateOpen</texPath>
+									<graphicClass>Graphic_Multi</graphicClass>
+									<drawSize>(1, 2)</drawSize>
+								</graphicData>
+							</li>
+							<li Class="CompProperties_ThrownFleckEmitter">
+								<fleck>TerminalScreenLensFlare</fleck>
+								<offsetMin>(-0.3,0,-0.7)</offsetMin>
+								<offsetMax>(0.3,0,-0.7)</offsetMax>
+								<emissionInterval>90</emissionInterval>
+								<scale>1~1.1</scale>
+								<colorA>(239,133,50,255)</colorA>
+								<colorB>(239,133,50,255)</colorB>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>3</glowRadius>
+								<glowColor>(239,133,50,0)</glowColor>
+							</li>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientHermeticCrate</thingSetMakerDef>
+								<lootChance>0.15~0.25</lootChance>
+							</li>
+						</comps>
+						<tickerType>Normal</tickerType>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientSecurityCrate"]</xpath>
+				<value>
+					<ThingDef ParentName="CrateBase">
+						<defName>AncientSecurityCrate</defName>
+						<label>security crate</label>
+						<description>A large self-powered hermetically-sealed crate with built-in security alarms. These can preserve their contents for a long time. If it is opened without the proper code, it will probably activate some nearby security system.</description>
+						<size>(2, 2)</size>
+						<fillPercent>0.50</fillPercent>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientSecurityCrate</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(2, 2)</drawSize>
+							<shadowData>
+								<volume>(2, 0.45, 2)</volume>
+							</shadowData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>400</MaxHitPoints>
+							<WorkToBuild>2000</WorkToBuild>
+							<Flammability>0</Flammability>
+						</statBases>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<building>
+							<openingEffect>SecurityCrateOpened</openingEffect>
+						</building>
+						<comps>
+							<li Class="CompProperties_EmptyStateGraphic">
+								<graphicData>
+									<texPath>Things/Building/Ruins/AncientSecurityCrateOpen</texPath>
+									<graphicClass>Graphic_Multi</graphicClass>
+									<drawSize>(2, 2)</drawSize>
+								</graphicData>
+							</li>
+							<li Class="CompProperties_ThrownFleckEmitter">
+								<fleck>TerminalScreenLensFlare</fleck>
+								<offsetMin>(-0.7,0,0.9)</offsetMin>
+								<offsetMax>(0,0,0.9)</offsetMax>
+								<emissionInterval>90</emissionInterval>
+								<scale>1~1.1</scale>
+								<colorA>(214,46,31,255)</colorA>
+								<colorB>(214,46,31,255)</colorB>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>4</glowRadius>
+								<glowColor>(214,46,31,0)</glowColor>
+							</li>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientSecurityCrate</thingSetMakerDef>
+								<lootChance>0.15~0.25</lootChance>
+							</li>
+						</comps>
+						<tickerType>Normal</tickerType>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientEquipmentBlocks"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>AncientEquipmentBlocks</defName>
+						<label>ancient equipment blocks</label>
+						<description>A collection of ancient equipment blocks of unknown function. Valuable parts are missing, and everything else is degraded to uselessness.</description>
+						<size>(4, 2)</size>
+						<fillPercent>0.50</fillPercent>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientEquipmentBlocks</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(4, 2)</drawSize>
+							<shadowData>
+								<volume>(4, 0.3, 2)</volume>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<WorkToBuild>2000</WorkToBuild>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientEquipmentBlocks</thingSetMakerDef>
+								<lootChance>0.1~0.15</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientStorageCylinder"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>AncientStorageCylinder</defName>
+						<label>ancient storage cylinder</label>
+						<description>An ancient device that looks like it once stored some kind of fluid. Valuable parts are missing, and everything else is degraded to uselessness.</description>
+						<size>(2, 1)</size>
+						<fillPercent>0.50</fillPercent>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientStorageCylinder</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(2, 1)</drawSize>
+							<shadowData>
+								<volume>(2, 0.35, 1)</volume>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<WorkToBuild>2000</WorkToBuild>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientStorageCylinder</thingSetMakerDef>
+								<lootChance>0.1~0.15</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientLockerBank"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>AncientLockerBank</defName>
+						<label>ancient locker bank</label>
+						<description>An ancient, rusted bank of lockers. All of the lockers have been forced open with nothing valuable left behind.</description>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientLockerBank</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3.5,1.5)</drawSize>
+							<shadowData>
+								<volume>(3, 0.85, 1)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(3, 1)</size>
+						<fillPercent>0.50</fillPercent>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<WorkToBuild>900</WorkToBuild>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientLockerBank</thingSetMakerDef>
+								<lootChance>0.1~0.2</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientCrate"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>AncientCrate</defName>
+						<label>ancient crate</label>
+						<description>An ancient, broken crate. Any valuables it once contained have degraded to uselessness.</description>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientCrate</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+							<drawSize>(1,1)</drawSize>
+							<shadowData>
+								<volume>(1, 0.5, 1)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(1, 1)</size>
+						<fillPercent>0.30</fillPercent>
+						<altitudeLayer>Building</altitudeLayer>
+						<rotatable>false</rotatable>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>300</WorkToBuild>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientSmallCrate</thingSetMakerDef>
+								<lootChance>0.15~0.25</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientMilitaryCrate"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>AncientMilitaryCrate</defName>
+						<label>ancient military crate</label>
+						<description>An ancient, military-looking crate. It was broken long ago and any valuables it once contained were looted.</description>
+						<rotatable>false</rotatable>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientMilitaryCrate</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+							<drawSize>(1,1)</drawSize>
+							<shadowData>
+								<volume>(1, 0.5, 1)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(1, 1)</size>
+						<fillPercent>0.30</fillPercent>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>300</WorkToBuild>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientMilitaryCrate</thingSetMakerDef>
+								<lootChance>0.15~0.25</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientSpacerCrate"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>AncientSpacerCrate</defName>
+						<label>ancient spacer crate</label>
+						<description>An ancient, broken crate. Any valuables it once contained were taken long ago.</description>
+						<rotatable>false</rotatable>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientSpacerCrate</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(1,1)</drawSize>
+							<shadowData>
+								<volume>(1, 0.5, 1)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(1, 1)</size>
+						<fillPercent>0.30</fillPercent>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>300</WorkToBuild>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>RaidLootMaker_AncientSpacerCrate</thingSetMakerDef>
+								<lootChance>0.15~0.25</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="AncientBarrel"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>AncientBarrel</defName>
+						<label>ancient barrel</label>
+						<description>An ancient, broken barrel that looks like it once contained waste of some sort. The only thing it contains now is a smear of dried sludge.</description>
+						<rotatable>false</rotatable>
+						<graphicData>
+							<texPath>Things/Building/Ruins/AncientBarrel</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+							<drawSize>(1,1)</drawSize>
+							<shadowData>
+								<volume>(0.7, 0.5, 0.7)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(1, 1)</size>
+						<fillPercent>0.30</fillPercent>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>200</WorkToBuild>
+							<Flammability>0.7</Flammability>
+						</statBases>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_Container">
+								<thingSetMakerDef>AncientBarrel</thingSetMakerDef>
+								<lootChance>0.15~0.25</lootChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

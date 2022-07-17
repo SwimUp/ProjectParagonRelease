@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+
+	<!-- SadjuukDoorBase : Door Base -->  
+<ThingDef ParentName="BuildingBase" Name="SadjuukDoorBase" Abstract="True">
+    <thingClass>Building_Door</thingClass>
+    <category>Building</category>
+    <altitudeLayer>DoorMoveable</altitudeLayer>
+    <designationCategory>SadjuukUN-Building</designationCategory>
+    <useHitPoints>true</useHitPoints>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <holdsRoof>true</holdsRoof>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <drawerType>RealtimeOnly</drawerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_DoorLearnOpeningSpeed</li>
+    </placeWorkers>
+    <building>
+      <isInert>true</isInert>
+      <canPlaceOverWall>true</canPlaceOverWall>
+      <soundDoorOpenPowered>Door_OpenPowered</soundDoorOpenPowered>
+      <soundDoorClosePowered>Door_ClosePowered</soundDoorClosePowered>
+      <soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+      <soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+      <blueprintClass>Blueprint_Door</blueprintClass>
+    </building>
+  </ThingDef>
+
+<ThingDef ParentName="BuildingBase" Name="ParagonUnusableDoors" Abstract="True">
+    <thingClass>Building_Door</thingClass>
+    <category>Building</category>
+    <altitudeLayer>DoorMoveable</altitudeLayer>
+    <designationCategory/>
+    <useHitPoints>true</useHitPoints>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <holdsRoof>true</holdsRoof>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <drawerType>RealtimeOnly</drawerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_DoorLearnOpeningSpeed</li>
+    </placeWorkers>
+    <building>
+      <isInert>true</isInert>
+      <canPlaceOverWall>true</canPlaceOverWall>
+      <soundDoorOpenPowered>Door_OpenPowered</soundDoorOpenPowered>
+      <soundDoorClosePowered>Door_ClosePowered</soundDoorClosePowered>
+      <soundDoorOpenManual>Door_OpenManual</soundDoorOpenManual>
+      <soundDoorCloseManual>Door_CloseManual</soundDoorCloseManual>
+      <blueprintClass>Blueprint_Door</blueprintClass>
+    </building>
+  </ThingDef>
+
+	<!-- SadjuukDoorBaseA : Tier 1 Log Door -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseA" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseA</designatorDropdown>
+    <description>HP : 100
+Flammability : 100%
+A very rustic door made of logs.</description>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>400</WorkToBuild>
+      <Flammability>1</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <costList>
+      <WoodLog>10</WoodLog>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>0</constructionSkillPrerequisite>
+    <constructEffect>ConstructWood</constructEffect>
+  </ThingDef>
+	<!-- SadjuukDoorAH (Log Door Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseA">
+    <defName>SadjuukDoorAH</defName>
+    <label>Log Door (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorA/SadjuukDoorAH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorA/SadjuukDoorAH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- 4- SadjuukDoorAV (Log Door Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseA">
+    <defName>SadjuukDoorAV</defName>
+    <label>Log Door (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorA/SadjuukDoorAV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorA/SadjuukDoorAV_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+  
+	<!-- SadjuukDoorBaseB : Tier 1 Plank Door -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseB" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseB</designatorDropdown>
+    <description>HP : 175
+Flammability : 60%
+A very resistant wooden door.</description>
+    <statBases>
+      <MaxHitPoints>175</MaxHitPoints>
+      <WorkToBuild>700</WorkToBuild>
+      <Flammability>0.6</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <costList>
+      <WoodLog>10</WoodLog>
+      <Steel>4</Steel>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+	<constructEffect>ConstructWood</constructEffect>
+  </ThingDef>
+	<!-- SadjuukDoorBH (Plank Door Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseB">
+    <defName>SadjuukDoorBH</defName>
+    <label>Plank Door (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorB/SadjuukDoorBH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorB/SadjuukDoorBH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- 7- SadjuukDoorBV (Plank Door Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseB">
+    <defName>SadjuukDoorBV</defName>
+    <label>Plank Door (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorB/SadjuukDoorBV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorB/SadjuukDoorBV_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+  
+	<!-- SadjuukDoorBaseC : Tier 1 Tin Door -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseC" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseC</designatorDropdown>
+    <description>HP : 225
+Flammability : 20%
+A rustic wooden door reinforced with steel.</description>
+    <statBases>
+      <MaxHitPoints>225</MaxHitPoints>
+      <WorkToBuild>900</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>-1</Beauty>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <WoodLog>4</WoodLog>
+    </costList>
+    <researchPrerequisites>
+      <li>Electricity</li>
+    </researchPrerequisites>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukDoorCH (Tin Door Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseC">
+    <defName>SadjuukDoorCH</defName>
+    <label>Tin Door (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorC/SadjuukDoorCH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorC/SadjuukDoorCH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- 10- SadjuukDoorCV (Tin Door Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseC">
+    <defName>SadjuukDoorCV</defName>
+    <label>Tin Door (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorC/SadjuukDoorCV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorC/SadjuukDoorCV_Icon</uiIconPath>
+  </ThingDef>
+
+
+
+	<!-- SadjuukDoorBaseD : Tier 2 Steel Door -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseD" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseD</designatorDropdown>
+    <description>HP : 500
+Flammability : 10%
+A standard steel door.</description>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.1</Flammability>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukDoorDH (Steel Door Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseD">
+    <defName>SadjuukDoorDH</defName>
+    <label>Steel Door (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorD/SadjuukDoorDH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorD/SadjuukDoorDH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- 13- SadjuukDoorDV (Steel Door Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseD">
+    <defName>SadjuukDoorDV</defName>
+    <label>Steel Door (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorD/SadjuukDoorDV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorD/SadjuukDoorDV_Icon</uiIconPath>
+  </ThingDef>
+
+
+
+	<!-- SadjuukDoorBaseG : Tier 2 Steel AutoDoor -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseG" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseG</designatorDropdown>
+    <description>HP : 500
+Flammability : 10%
+Power : 50W
+A standard steel autodoor.</description>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.1</Flammability>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+	<!-- SadjuukDoorGH (Steel AutoDoor Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseG">
+    <defName>SadjuukDoorGH</defName>
+    <label>Steel AutoDoor (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorG/SadjuukDoorGH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorG/SadjuukDoorGH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- 13- SadjuukDoorGV (Steel AutoDoor Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseG">
+    <defName>SadjuukDoorGV</defName>
+    <label>Steel AutoDoor (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorG/SadjuukDoorGV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorG/SadjuukDoorGV_Icon</uiIconPath>
+  </ThingDef>
+	
+	
+	
+	<!-- SadjuukDoorBaseF : Tier 2 Armored Door -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseF" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseF</designatorDropdown>
+    <description>HP : 1000
+Flammability : 0%
+A heavy Armored door, normally used to seal arsenals, armored positions or bunkers.</description>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <costList>
+      <Steel>40</Steel>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+	<!-- SadjuukDoorFH (Armored Door Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseF">
+    <defName>SadjuukDoorFH</defName>
+    <label>Armored Door (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorF/SadjuukDoorFH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorF/SadjuukDoorFH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukDoorFV (Armored Door Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseF">
+    <defName>SadjuukDoorFV</defName>
+    <label>Armored Door (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorF/SadjuukDoorFV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorF/SadjuukDoorFV_Icon</uiIconPath>
+  </ThingDef>
+
+
+
+	<!-- SadjuukDoorBaseE : Tier 2 Armored AutoDoor -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseE" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseE</designatorDropdown>
+    <description>HP : 1000
+Flammability : 0%
+Power : 50W
+A heavy Armored autodoor, normally used to seal arsenals, armored positions or bunkers.</description>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionB</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+	<!-- SadjuukDoorEH (Armored AutoDoor Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseE">
+    <defName>SadjuukDoorEH</defName>
+    <label>Armored AutoDoor (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorE/SadjuukDoorEH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorE/SadjuukDoorEH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukDoorEV (Armored AutoDoor Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseE">
+    <defName>SadjuukDoorEV</defName>
+    <label>Armored AutoDoor (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorE/SadjuukDoorEV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorE/SadjuukDoorEV_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+  
+	<!-- SadjuukDoorBaseJ : Tier 3 Plasteel AutoDoor -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseJ" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseJ</designatorDropdown>
+    <description>HP : 2000
+Flammability : 0%
+Power : 50W
+A heavy but flexible Plasteel AutoDoor made with advanced components.</description>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <costList>
+      <Plasteel>40</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionC</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+	<!-- SadjuukDoorJH (Plasteel AutoDoor Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseJ">
+    <defName>SadjuukDoorJH</defName>
+    <label>Plasteel AutoDoor (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorJ/SadjuukDoorJH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorJ/SadjuukDoorJH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukDoorJV (Plasteel AutoDoor Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseJ">
+    <defName>SadjuukDoorJV</defName>
+    <label>Plasteel AutoDoor (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorJ/SadjuukDoorJV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorJ/SadjuukDoorJV_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+  
+	<!-- SadjuukDoorBaseK : Tier 3 Plasteel AutoDoor -->  
+  <ThingDef ParentName="ParagonUnusableDoors" Name="SadjuukDoorBaseK" Abstract="True">
+    <designatorDropdown>SadjuukDoorBaseK</designatorDropdown>
+    <description>HP : 2000
+Flammability : 0%
+Power : 50W
+A heavy but flexible Plasteel AutoDoor made with advanced components.</description>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <costList>
+      <Plasteel>40</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <blockLight>true</blockLight>
+    <fillPercent>1</fillPercent>
+    <researchPrerequisites>
+      <li>SadjuukConstructionC</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+	<!-- SadjuukDoorKH (Plasteel AutoDoor Horizontal) -->  
+  <ThingDef ParentName="SadjuukDoorBaseK">
+    <defName>SadjuukDoorKH</defName>
+    <label>Plasteel AutoDoor (H)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorK/SadjuukDoorKH_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorK/SadjuukDoorKH_Icon</uiIconPath>
+  </ThingDef>
+	<!-- SadjuukDoorKV (Plasteel AutoDoor Vertical) -->  
+  <ThingDef ParentName="SadjuukDoorBaseK">
+    <defName>SadjuukDoorKV</defName>
+    <label>Plasteel AutoDoor (V)</label>
+    <graphicData>
+      <texPath>SadjuukDoor/SadjuukDoorK/SadjuukDoorKV_Mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>SadjuukDoor/SadjuukDoorK/SadjuukDoorKV_Icon</uiIconPath>
+  </ThingDef>
+  
+  
+  
+</Defs>

@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+
+  <!-- SadjuukBedroomBase : Base All Beds -->
+  <ThingDef Abstract="True" ParentName="BedWithQualityBase" Name="SadjuukBedroomBase">
+    <designationCategory>SadjuukUN-Furniture</designationCategory>
+    <fillPercent>0.4</fillPercent>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <castEdgeShadows>True</castEdgeShadows>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>SadjuukBedroomUpgradeAA</li>
+          <li>SadjuukBedroomUpgradeAB</li>
+          <li>SadjuukBedroomUpgradeAF</li>
+          <li>SadjuukBedroomUpgradeAC</li>
+          <li>SadjuukBedroomUpgradeBA</li>
+          <li>SadjuukBedroomUpgradeBB</li>
+          <li>SadjuukBedroomUpgradeBF</li>
+          <li>SadjuukBedroomUpgradeBC</li>
+          <li>SadjuukBedroomUpgradeCA</li>
+          <li>SadjuukBedroomUpgradeCB</li>
+          <li>SadjuukBedroomUpgradeCF</li>
+          <li>SadjuukBedroomUpgradeCC</li>
+          <li>SadjuukBedroomUpgradeCD</li>
+          <li>SadjuukHospitalUpgradeBA</li>
+          <li>SadjuukHospitalUpgradeBB</li>
+          <li>SadjuukHospitalUpgradeCA</li>
+          <li>SadjuukHospitalUpgradeCB</li>
+          <li>SadjuukHospitalUpgradeCD</li>
+          <li>SadjuukHospitalUpgradeCE</li>
+          <li>EndTable</li>
+          <li>Dresser</li>
+          <li>VitalsMonitor</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+  </ThingDef>
+  <!-- SadjuukBedroomUpgradeBase : Base All Bedroom Upgrade Chest, Nightstand, table -->
+  <ThingDef Abstract="True" ParentName="FurnitureWithQualityBase" Name="SadjuukBedroomUpgradeBase">
+    <designationCategory>SadjuukUN-Furniture</designationCategory>
+    <thingClass>Building</thingClass>
+    <fillPercent>0.4</fillPercent>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <canOverlapZones>false</canOverlapZones>
+  </ThingDef>
+  <!-- SadjuukBedroomUpgradeBaseF : Base All Bedroom Chairs -->
+  <ThingDef Abstract="True" ParentName="FurnitureWithQualityBase" Name="SadjuukBedroomUpgradeBaseF">
+    <designationCategory>SadjuukUN-Furniture</designationCategory>
+    <altitudeLayer>Building</altitudeLayer>
+    <thingClass>Building</thingClass>
+    <fillPercent>0.20</fillPercent>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <pathCost>30</pathCost>
+    <building>
+      <isSittable>true</isSittable>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+  </ThingDef>
+
+
+  <!-- Tribe Bedroom -->
+  <!-- SadjuukBedroomAA : Wood Logs bed 1 Pawn -->
+  
+  <!-- SadjuukBedroomUpgradeAA : Wooden Chest -->
+  
+  <!-- SadjuukBedroomUpgradeAB : Wooden Storage -->
+  
+  <!-- SadjuukBedroomUpgradeAF : Wood Logs Armchair -->
+ 
+  <!-- SadjuukBedroomUpgradeAC : Small Logs Table -->
+ 
+  
+  
+  
+  <!-- Ancient Bedroom -->
+  <!-- SadjuukBedroomBA : Wooden bed 1 Pawn -->
+  
+  <!-- SadjuukBedroomUpgradeBA : Wooden Nightstand -->
+  
+  
+  
+  
+  <!-- Industrial Bedroom -->
+  <!-- SadjuukBedroomCA : Steel bed 1 Pawn -->
+  <ThingDef ParentName="SadjuukBedroomBase">
+    <defName>SadjuukBedroomCA</defName>
+    <label>Steel Bed</label>
+    <description>Beauty : 2
+Comfort : 75%
+Immunity : +8%
+Surgery : +0%
+Tending : +0%
+A standard steel bed. Perfect for barracks, it also offers good hygiene properties.</description>
+    <graphicData>
+      <texPath>SadjuukBedroom/SadjuukBedroomCA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukBedroom/SadjuukBedroomCA_Icon</uiIconPath>
+    <size>(1,2)</size>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>0.75</Comfort>
+      <ImmunityGainSpeedFactor>1.08</ImmunityGainSpeedFactor>
+      <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+      <Beauty>2</Beauty>
+      <Mass>60</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>40</Steel>
+      <Cloth>40</Cloth>
+    </costList>
+    <building>
+      <bed_showSleeperBody>false</bed_showSleeperBody>
+      <bed_healPerDay>4</bed_healPerDay>
+    </building>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+  <!-- SadjuukBedroomCB : Steel bed 2 Pawns -->
+  <ThingDef ParentName="SadjuukBedroomBase">
+    <defName>SadjuukBedroomCB</defName>
+    <label>Double Steel Bed</label>
+    <description>Beauty : 2
+Comfort : 75%
+Immunity : +8%
+Surgery : +0%
+Tending : +0%
+A standard steel bed. Perfect for barracks, it also offers good hygiene properties.</description>
+    <graphicData>
+      <texPath>SadjuukBedroom/SadjuukBedroomCB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <uiIconPath>SadjuukBedroom/SadjuukBedroomCB_Icon</uiIconPath>
+    <size>(2,2)</size>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>0.75</Comfort>
+      <ImmunityGainSpeedFactor>1.08</ImmunityGainSpeedFactor>
+      <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+      <Beauty>2</Beauty>
+      <Mass>120</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>80</Steel>
+      <Cloth>80</Cloth>
+    </costList>
+    <building>
+      <bed_showSleeperBody>false</bed_showSleeperBody>
+      <bed_healPerDay>4</bed_healPerDay>
+    </building>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+  <!-- SadjuukBedroomUpgradeCA : Steel Chest -->
+  <ThingDef ParentName="SadjuukBedroomUpgradeBase">
+    <defName>SadjuukBedroomUpgradeCA</defName>
+    <label>Steel Chest</label>
+    <description>Beauty : 2
+Comfort : +2%
+Bedroom Upgrade : A personal steel chest, essential in the development of a civilian or military dormitory. Must be placed directly adjacent to the head of the bed.</description>
+    <graphicData>
+      <texPath>SadjuukBedroom/SadjuukBedroomUpgradeCA</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shadowData>
+        <volume>(0.3, 0.6, 0.3)</volume>
+      </shadowData>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+    <uiIconPath>SadjuukBedroom/SadjuukBedroomUpgradeCA_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Mass>30</Mass>
+      <Beauty>2</Beauty>
+    </statBases>
+    <techLevel>Medieval</techLevel>
+    <costList>
+      <Steel>60</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <Comfort>0.02</Comfort>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+        <mustBePlacedAdjacentCardinalToBedHead>true</mustBePlacedAdjacentCardinalToBedHead>
+      </li>
+    </comps>
+    <surfaceType>Item</surfaceType>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+  <!-- SadjuukBedroomUpgradeCB : Steel Lockers -->
+  <ThingDef ParentName="SadjuukBedroomUpgradeBase">
+    <defName>SadjuukBedroomUpgradeCB</defName>
+    <label>Steel Lockers</label>
+    <description>Beauty : 2
+Comfort : +2%
+Bedroom Upgrade : Steel Lockers allowing a certain privacy.</description>
+    <graphicData>
+      <texPath>SadjuukBedroom/SadjuukBedroomUpgradeCB</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <size>(2,1)</size>
+    <uiIconPath>SadjuukBedroom/SadjuukBedroomUpgradeCB_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Mass>60</Mass>
+      <Beauty>2</Beauty>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>120</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <Comfort>0.02</Comfort>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+    <surfaceType>Item</surfaceType>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+  <!-- SadjuukBedroomUpgradeCF : Office Chair -->
+  <ThingDef ParentName="SadjuukBedroomUpgradeBaseF">
+    <defName>SadjuukBedroomUpgradeCF</defName>
+    <label>Office Chair</label>
+    <description>Beauty : 2
+Comfort : +2%
+Comfort : 75%
+Bedroom Upgrade : A complex but comfortable manufacturing armchair.</description>
+    <graphicData>
+      <texPath>SadjuukBedroom/SadjuukBedroomUpgradeCF</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <shadowData>
+        <volume>(0.3, 0.33, 0.3)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(1,1)</size>
+    <uiIconPath>SadjuukBedroom/SadjuukBedroomUpgradeCF_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>75</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.8</Flammability>
+      <Beauty>2</Beauty>
+      <Comfort>0.75</Comfort>
+      <Mass>15</Mass>
+    </statBases>
+    <costList>
+      <Steel>30</Steel>
+      <Synthread>30</Synthread>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <Comfort>0.02</Comfort>
+        </statOffsets>
+        <maxSimultaneous>2</maxSimultaneous>
+      </li>
+      <li>
+        <compClass>CompGatherSpot</compClass>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+  <!-- SadjuukBedroomUpgradeCC : Small Steel Table -->
+  <ThingDef ParentName="SadjuukBedroomUpgradeBase">
+    <defName>SadjuukBedroomUpgradeCC</defName>
+    <label>Small Steel Table</label>
+    <description>Beauty : 2
+Comfort : +2%
+Bedroom Upgrade : A standard steel table.</description>
+    <graphicData>
+      <texPath>SadjuukBedroom/SadjuukBedroomUpgradeCC</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+    <uiIconPath>SadjuukBedroom/SadjuukBedroomUpgradeCC_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>2</Beauty>
+      <Mass>45</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>45</Steel>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <Comfort>0.02</Comfort>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+      <li>
+        <compClass>CompGatherSpot</compClass>
+      </li>
+    </comps>
+    <surfaceType>Eat</surfaceType>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+  </ThingDef>
+  <!-- SadjuukBedroomUpgradeCD : Small Glass Table -->
+  <ThingDef ParentName="SadjuukBedroomUpgradeBase">
+    <defName>SadjuukBedroomUpgradeCD</defName>
+    <label>Small Glass Table</label>
+    <description>Beauty : 6
+Comfort : +2%
+Bedroom Upgrade : A small glass table making nearby beds a little bit more comfortable.</description>
+    <graphicData>
+      <texPath>SadjuukBedroom/SadjuukBedroomUpgradeCD</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <size>(1,1)</size>
+    <uiIconPath>SadjuukBedroom/SadjuukBedroomUpgradeCD_Icon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>6</Beauty>
+      <Mass>45</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <Steel>45</Steel>
+      <SadjuukGlass>5</SadjuukGlass>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <Comfort>0.02</Comfort>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+      <li>
+        <compClass>CompGatherSpot</compClass>
+      </li>
+    </comps>
+    <surfaceType>Eat</surfaceType>
+    <researchPrerequisites>
+      <li>SadjuukFurnitureA</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+  
+  
+
+</Defs>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="SimpleResearchBench"]</xpath>
+		<value>
+			<researchPrerequisites>
+				<li>DankPyon_RusticFurniture</li>
+			</researchPrerequisites>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Plant_Cotton"]/plant</xpath>
+		<value>
+			<sowResearchPrerequisites>
+				<li>DankPyon_TextileSpinning</li>
+			</sowResearchPrerequisites>
+		</value>
+	</Operation>
+
+	<!-- Add research to vanilla production benches-->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="HandTailoringBench"]/researchPrerequisites</xpath>
+		<value>
+			<li>ComplexFurniture</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="TableSculpting" or defName="FueledStove" or defName="TableButcher"]</xpath>
+		<value>
+			<researchPrerequisites>
+				<li>ComplexFurniture</li>
+			</researchPrerequisites>
+		</value>
+	</Operation>
+
+	<!-- Add tags for pants-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName = "Apparel_Pants"]/apparel/tags</xpath>
+		<value>
+			<li>DankPyon_Peasant</li>
+			<li>DankPyon_Bandit</li>
+			<li>DankPyon_Mercenary</li>
+			<li>DankPyon_MercenaryHeavy</li>
+			<li>DankPyon_Archer</li>
+			<li>DankPyon_Footman</li>
+			<li>DankPyon_Billman</li>
+			<li>DankPyon_Knight</li>
+			<li>DankPyon_HedgeKnight</li>
+			<li>DankPyon_Lord</li>
+		</value>
+	</Operation>
+
+	<!-- Replace Long Blades research-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="LongBlades"]</xpath>
+		<value>
+			<ResearchProjectDef>
+				<defName>LongBlades</defName>
+				<label>noble swords</label>
+				<description>Learn how to craft stronger and better swords, fit for a noble.</description>
+				<baseCost>1000</baseCost>
+				<tab>DankPyon_MedievalResearchTab</tab>
+				<prerequisites>
+					<li>DankPyon_MilitarySwords</li>
+				</prerequisites>
+				<techLevel>Medieval</techLevel>
+				<researchViewX>7</researchViewX>
+				<researchViewY>5.6</researchViewY>  
+			</ResearchProjectDef>
+		</value>
+	</Operation>
+
+	<!-- Replace Plate Armor research-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="PlateArmor"]</xpath>
+		<value>
+			<ResearchProjectDef>
+				<defName>PlateArmor</defName>
+				<label>plate armor</label>
+				<description>Learn the techniques of properly smithing and tempering metal plates to craft expensive plate armors</description>
+				<baseCost>2000</baseCost>
+    			<tab>DankPyon_MedievalResearchTab</tab>
+    			<techLevel>Medieval</techLevel>
+				<researchViewX>8</researchViewX>
+				<researchViewY>0</researchViewY>
+    			<prerequisites>
+    			  <li>DankPyon_ChainArmor</li>
+    			</prerequisites>   
+			</ResearchProjectDef>
+		</value>
+	</Operation>
+
+	<!-- Replace Plate Armor research-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="Brewing"]</xpath>
+		<value>
+			<ResearchProjectDef>
+				<defName>Brewing</defName>
+    			<label>brewing</label>
+    			<description>Research the basics of brewing and learn how to make simple alcoholics or concoctions.</description>
+    			<baseCost>400</baseCost>
+				<tab>DankPyon_MedievalResearchTab</tab>
+    			<techLevel>Neolithic</techLevel>
+				<researchViewX>10</researchViewX>
+				<researchViewY>4.2</researchViewY>
+			</ResearchProjectDef>
+		</value>
+	</Operation>
+
+	<!-- Replace Spear research-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="MeleeWeapon_Spear"]/recipeMaker/researchPrerequisite</xpath>
+		<value>
+			<researchPrerequisite>DankPyon_BasicSpears</researchPrerequisite>
+		</value>
+	</Operation>
+
+	<!-- Replace Recurve Bow research-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="RecurveBow"]</xpath>
+		<value>
+			<ResearchProjectDef>
+				<defName>RecurveBow</defName>
+    			<label>recurve bow</label>
+    			<description>Build the recurve bow, an effective and inexpensive ranged weapon.</description>
+    			<baseCost>400</baseCost>
+    			<tab>DankPyon_MedievalResearchTab</tab>
+    			<techLevel>Medieval</techLevel>
+				<researchViewX>5</researchViewX>
+				<researchViewY>0.7</researchViewY>  
+			</ResearchProjectDef>
+		</value>
+	</Operation>
+
+	<!-- Replace Great Bow research-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ResearchProjectDef[defName="Greatbow"]</xpath>
+		<value>
+			<ResearchProjectDef>
+				<defName>Greatbow</defName>
+    			<label>greatbow</label>
+    			<description>Craft greatbows for killing enemies at great range.</description>
+    			<baseCost>600</baseCost>
+    			<tab>DankPyon_MedievalResearchTab</tab>
+    			<techLevel>Medieval</techLevel>
+				<researchViewX>7</researchViewX>
+				<researchViewY>0.7</researchViewY>  
+    			<prerequisites>
+    			  <li>DankPyon_HuntingBow</li>
+    			</prerequisites>
+			</ResearchProjectDef>
+		</value>
+	</Operation>
+
+	<!-- Replace Apparel_Pants researchPrerequisite -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName = "Apparel_Pants"]/recipeMaker</xpath>
+		<value>
+			<recipeMaker>
+				<researchPrerequisite>DankPyon_Tailoring</researchPrerequisite>
+			</recipeMaker>
+		</value>
+	</Operation>
+
+	<!-- Add engineering researchPrerequisite to electricity -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ResearchProjectDef[defName = "Electricity"]</xpath>
+		<value>
+			<prerequisites>
+				<li>DankPyon_Engineering</li>
+			</prerequisites>
+		</value>
+	</Operation>
+
+	
+</Patch>	

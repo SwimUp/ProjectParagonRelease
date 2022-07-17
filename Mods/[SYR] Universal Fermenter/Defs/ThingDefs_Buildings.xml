@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>UniversalFermenter</defName>
+		<label>fermenting barrel</label>
+		<description>A barrel for fermenting various things into other products.</description>
+		<thingClass>UniversalFermenter.Building_ColorCoded</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Production/UF_Barrel</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<damageData>
+				<rect>(0.05,0.1,0.9,0.9)</rect>
+			</damageData>
+			<shadowData>
+				<volume>(0.75, 0.35, 0.33)</volume>
+			</shadowData>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.45</fillPercent>
+		<pathCost>60</pathCost>
+		<thingCategories>
+			<li>BuildingsProduction</li>
+		</thingCategories>
+		<statBases>
+			<WorkToBuild>4000</WorkToBuild>
+			<Mass>15</Mass>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<costStuffCount>70</costStuffCount>
+		<costList>
+			<ComponentPrimitive>5</ComponentPrimitive>
+			<WoodPlanks>15</WoodPlanks>
+		</costList>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<researchPrerequisites>
+			<li>FirstAlcohol</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="UniversalFermenter.CompProperties_UniversalFermenter">
+				<showProductIcon>true</showProductIcon>
+				<barOffset>(0.0, 0.25)</barOffset>
+				<barScale>(1.0, 1.0)</barScale>
+				<processes>
+					<li>
+						<thingDef>Braga</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>BerryWort</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>-1.0~32.0</temperatureSafe>
+						<temperatureIdeal>7.0~32.0</temperatureIdeal>
+						<ruinedPerDegreePerHour>2.5</ruinedPerDegreePerHour>
+						<!-- percent per degree per hour -->
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>6</processDays>
+						<!-- in days, 60000 ticks is a day -->
+						<maxCapacity>15</maxCapacity>
+						<efficiency>1.0</efficiency>
+						<sunFactor>1.0~1.0</sunFactor>
+						<rainFactor>1.0~1.0</rainFactor>
+						<snowFactor>1.0~1.0</snowFactor>
+						<windFactor>1.0~1.0</windFactor>
+						<graphicSuffix/>
+						<usesQuality>false</usesQuality>
+						<qualityDays>(1, 2, 3, 4, 5, 6, 7)</qualityDays>
+						<customLabel/>
+					</li>
+					<li>
+						<thingDef>Beer</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>Wort</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>-1.0~32.0</temperatureSafe>
+						<temperatureIdeal>7.0~32.0</temperatureIdeal>
+						<ruinedPerDegreePerHour>2.5</ruinedPerDegreePerHour>
+						<!-- percent per degree per hour -->
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>8</processDays>
+						<!-- in days, 60000 ticks is a day -->
+						<maxCapacity>15</maxCapacity>
+						<efficiency>1.0</efficiency>
+						<sunFactor>1.0~1.0</sunFactor>
+						<rainFactor>1.0~1.0</rainFactor>
+						<snowFactor>1.0~1.0</snowFactor>
+						<windFactor>1.0~1.0</windFactor>
+						<graphicSuffix/>
+						<usesQuality>false</usesQuality>
+						<qualityDays>(1, 2, 3, 4, 5, 6, 7)</qualityDays>
+						<customLabel/>
+					</li>
+					<li>
+						<thingDef>Brandy</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>Braga</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>-1.0~32.0</temperatureSafe>
+						<temperatureIdeal>7.0~32.0</temperatureIdeal>
+						<ruinedPerDegreePerHour>2.5</ruinedPerDegreePerHour>
+						<!-- percent per degree per hour -->
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>8</processDays>
+						<!-- in days, 60000 ticks is a day -->
+						<maxCapacity>15</maxCapacity>
+						<efficiency>1.0</efficiency>
+						<sunFactor>1.0~1.0</sunFactor>
+						<rainFactor>1.0~1.0</rainFactor>
+						<snowFactor>1.0~1.0</snowFactor>
+						<windFactor>1.0~1.0</windFactor>
+						<graphicSuffix/>
+						<usesQuality>false</usesQuality>
+						<qualityDays>(1, 2, 3, 4, 5, 6, 7)</qualityDays>
+						<customLabel/>
+					</li>
+					<li>
+						<thingDef>Wine</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>WineWort</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>-1.0~32.0</temperatureSafe>
+						<temperatureIdeal>7.0~32.0</temperatureIdeal>
+						<ruinedPerDegreePerHour>2.5</ruinedPerDegreePerHour>
+						<!-- percent per degree per hour -->
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>15</processDays>
+						<!-- in days, 60000 ticks is a day -->
+						<maxCapacity>15</maxCapacity>
+						<efficiency>1.0</efficiency>
+						<sunFactor>1.0~1.0</sunFactor>
+						<rainFactor>1.0~1.0</rainFactor>
+						<snowFactor>1.0~1.0</snowFactor>
+						<windFactor>1.0~1.0</windFactor>
+						<graphicSuffix/>
+						<usesQuality>false</usesQuality>
+						<qualityDays>(1, 2, 3, 4, 5, 6, 7)</qualityDays>
+						<customLabel/>
+					</li>
+					<li>
+						<thingDef>PureSalt</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>RockSalt</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>15.0~70.0</temperatureSafe>
+						<temperatureIdeal>30.0~50.0</temperatureIdeal>
+						<ruinedPerDegreePerHour>3</ruinedPerDegreePerHour>
+						<!-- percent per degree per hour -->
+						<speedBelowSafe>0.25</speedBelowSafe>
+						<speedAboveSafe>0.25</speedAboveSafe>
+						<processDays>5</processDays>
+						<!-- in days, 60000 ticks is a day -->
+						<maxCapacity>15</maxCapacity>
+						<efficiency>1.0</efficiency>
+						<sunFactor>1.0~1.0</sunFactor>
+						<rainFactor>1.0~1.0</rainFactor>
+						<snowFactor>1.0~1.0</snowFactor>
+						<windFactor>1.0~1.0</windFactor>
+						<graphicSuffix/>
+						<usesQuality>false</usesQuality>
+						<qualityDays>(1, 2, 3, 4, 5, 6, 7)</qualityDays>
+						<customLabel/>
+					</li>
+					<li>
+						<thingDef>MushroomBeer</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>MushroomWort</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>-5.0~32.0</temperatureSafe>
+						<temperatureIdeal>3.0~32.0</temperatureIdeal>
+						<ruinedPerDegreePerHour>2.5</ruinedPerDegreePerHour>
+						<!-- percent per degree per hour -->
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>10</processDays>
+						<!-- in days, 60000 ticks is a day -->
+						<maxCapacity>15</maxCapacity>
+						<efficiency>1.0</efficiency>
+						<sunFactor>1.0~1.0</sunFactor>
+						<rainFactor>1.0~1.0</rainFactor>
+						<snowFactor>1.0~1.0</snowFactor>
+						<windFactor>1.0~1.0</windFactor>
+						<graphicSuffix/>
+						<usesQuality>false</usesQuality>
+						<qualityDays>(1, 2, 3, 4, 5, 6, 7)</qualityDays>
+						<customLabel/>
+					</li>
+					<li>
+						<thingDef>FuriousAle</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>FuriousAleWort</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>5.0~40.0</temperatureSafe>
+						<temperatureIdeal>15.0~40.0</temperatureIdeal>
+						<ruinedPerDegreePerHour>2.5</ruinedPerDegreePerHour>
+						<!-- percent per degree per hour -->
+						<speedBelowSafe>1</speedBelowSafe>
+						<speedAboveSafe>0.25</speedAboveSafe>
+						<processDays>7</processDays>
+						<!-- in days, 60000 ticks is a day -->
+						<maxCapacity>15</maxCapacity>
+						<efficiency>1.0</efficiency>
+						<sunFactor>1.0~1.0</sunFactor>
+						<rainFactor>1.0~1.0</rainFactor>
+						<snowFactor>1.0~1.0</snowFactor>
+						<windFactor>1.0~1.0</windFactor>
+						<graphicSuffix/>
+						<usesQuality>false</usesQuality>
+						<qualityDays>(1, 2, 3, 4, 5, 6, 7)</qualityDays>
+						<customLabel/>
+					</li>
+				</processes>
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<tickerType>Rare</tickerType>
+		<rotatable>true</rotatable>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Chemistry</designatorDropdown>
+	</ThingDef>
+	<SoundDef>
+		<defName>UF_Honk</defName>
+		<maxSimultaneous>5</maxSimultaneous>
+		<subSounds>
+			<li>
+				<onCamera>True</onCamera>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>UI/DebugGoose/Honk</clipPath>
+					</li>
+				</grains>
+				<volumeRange>30~40</volumeRange>
+				<pitchRange>0.9~1.1</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+</Defs>

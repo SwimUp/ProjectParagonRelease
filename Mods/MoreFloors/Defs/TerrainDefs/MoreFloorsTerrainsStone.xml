@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<TerrainDef Name="FloorBaseStone" Abstract="True">
+		<layerable>true</layerable>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<tags>
+			<li>Floor</li>
+		</tags>
+		<designationCategory>Floors</designationCategory>
+		<fertility>0</fertility>
+		<constructEffect>ConstructDirt</constructEffect>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneSlabs" Abstract="True">
+		<description>Stone flooring made with unremarkable square slabs. Easy to build and functional.</description>
+		<texturePath>Terrain/Surfaces/StoneSlabs</texturePath>
+		<designatorDropdown>TFloor_StoneSlabs</designatorDropdown>
+		<statBases>
+			<WorkToBuild>400</WorkToBuild>
+			<Beauty>2</Beauty>
+		</statBases>
+		<resourcesFractionWhenDeconstructed>0.66</resourcesFractionWhenDeconstructed>
+		<researchPrerequisites>
+			<li>StoneFloorsII</li>
+		</researchPrerequisites>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneStaggered" Abstract="True">
+		<description>Stone tiles with rounded corners laid in a staggered pattern.</description>
+		<texturePath>Terrain/Surfaces/StoneStaggered</texturePath>
+		<designatorDropdown>TFloor_StoneStaggered</designatorDropdown>
+		<statBases>
+			<WorkToBuild>450</WorkToBuild>
+			<Beauty>2</Beauty>
+		</statBases>
+		<resourcesFractionWhenDeconstructed>0.66</resourcesFractionWhenDeconstructed>
+		<researchPrerequisites>
+			<li>StoneFloorsII</li>
+		</researchPrerequisites>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneRough" Abstract="True">
+		<description>Rough paving that can be built with very little stone, but it's plain to look at and relatively time-consuming to lay. Cannot be salvaged.</description>
+		<texturePath>Terrain/Surfaces/StoneRough</texturePath>
+		<designatorDropdown>TFloor_StoneRough</designatorDropdown>
+		<statBases>
+			<WorkToBuild>650</WorkToBuild>
+			<Beauty>1</Beauty>
+		</statBases>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<researchPrerequisites>
+			<li>StoneFloorsI</li>
+		</researchPrerequisites>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneAlternating" Abstract="True">
+		<description>Stone flooring with rounded bricks laid in a simple but pleasant alternating pattern. Slightly easier to build than other stone floors of similar quality.</description>
+		<texturePath>Terrain/Surfaces/StoneAlternating</texturePath>
+		<designatorDropdown>TFloor_StoneAlternating</designatorDropdown>
+		<statBases>
+			<WorkToBuild>1000</WorkToBuild>
+			<Beauty>2</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsI</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.33</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneHerringbone" Abstract="True">
+		<description>Stone bricks laid in a stylish herringbone pattern.</description>
+		<texturePath>Terrain/Surfaces/StoneHerringbone</texturePath>
+		<designatorDropdown>TFloor_StoneHerringbone</designatorDropdown>
+		<statBases>
+			<WorkToBuild>1200</WorkToBuild>
+			<Beauty>2</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsII</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.33</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneHex" Abstract="True">
+		<description>Stone paving with eye-catching interlocking hexagonal tiles.</description>
+		<texturePath>Terrain/Surfaces/StoneHex</texturePath>
+		<designatorDropdown>TFloor_StoneHex</designatorDropdown>
+		<statBases>
+			<WorkToBuild>1200</WorkToBuild>
+			<Beauty>3</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsIII</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.33</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneDigital" Abstract="True">
+		<description>Paving that cleverly uses two shapes of stone to create a vaguely digital pattern.</description>
+		<texturePath>Terrain/Surfaces/StoneDigital</texturePath>
+		<designatorDropdown>TFloor_StoneDigital</designatorDropdown>
+		<statBases>
+			<WorkToBuild>1200</WorkToBuild>
+			<Beauty>3</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsIII</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.4</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneMosaic" Abstract="True">
+		<description>Paved stone flooring in an attractive mosaic pattern. Slightly easier to build than other stone floors of similar quality.</description>
+		<texturePath>Terrain/Surfaces/StoneMosaic</texturePath>
+		<designatorDropdown>TFloor_StoneMosaic</designatorDropdown>
+		<statBases>
+			<WorkToBuild>1400</WorkToBuild>
+			<Beauty>3</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsIII</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.4</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneRandom" Abstract="True">
+		<description>Carefully-laid stone flooring with a rustic, random pattern of slabs. Needs fewer materials than a mosaic but harder to build.</description>
+		<texturePath>Terrain/Surfaces/StoneRandom</texturePath>
+		<designatorDropdown>TFloor_StoneRandom</designatorDropdown>
+		<statBases>
+			<WorkToBuild>1600</WorkToBuild>
+			<Beauty>3</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsIII</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.25</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneDiamond" Abstract="True">
+		<description>Intricate stone flooring cut around precisely-measured diamond spacer tiles. Fit for royalty.</description>
+		<texturePath>Terrain/Surfaces/StoneDiamond</texturePath>
+		<designatorDropdown>TFloor_StoneDiamond</designatorDropdown>
+		<statBases>
+			<WorkToBuild>5000</WorkToBuild>
+			<Beauty>3</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsIII</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.15</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneArabesque" Abstract="True">
+		<description>Mastercrafted stone flooring with tiles painstakingly shaped into an arabesque pattern. Fit for royalty.</description>
+		<texturePath>Terrain/Surfaces/StoneArabesque</texturePath>
+		<designatorDropdown>TFloor_StoneArabesque</designatorDropdown>
+		<statBases>
+			<WorkToBuild>5000</WorkToBuild>
+			<Beauty>3</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsIII</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.15</resourcesFractionWhenDeconstructed>
+		<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStone" Name="FloorBaseStoneChequered" Abstract="True">
+		<description>Chequered stone slabs combining two types of stone together in a pleasing pattern. Slightly easier to build than other stone floors of similar quality.</description>
+		<designatorDropdown>TFloor_StoneChequered</designatorDropdown>
+		<statBases>
+			<WorkToBuild>400</WorkToBuild>
+			<Beauty>3</Beauty>
+		</statBases>
+		<researchPrerequisites>
+			<li>StoneFloorsIII</li>
+		</researchPrerequisites>
+		<resourcesFractionWhenDeconstructed>0.5</resourcesFractionWhenDeconstructed>
+	</TerrainDef>
+
+
+
+	<!-- Square slab flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneSlabs">
+		<defName>FloorStoneSlabsSandstone</defName>
+		<label>stone slabs (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneSlabs">
+		<defName>FloorStoneSlabsGranite</defName>
+		<label>stone slabs (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneSlabs">
+		<defName>FloorStoneSlabsLimestone</defName>
+		<label>stone slabs (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneSlabs">
+		<defName>FloorStoneSlabsSlate</defName>
+		<label>stone slabs (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneSlabs">
+		<defName>FloorStoneSlabsMarble</defName>
+		<label>stone slabs (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Staggered tile flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneStaggered">
+		<defName>FloorStoneStaggeredSandstone</defName>
+		<label>staggered stone tiles (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneStaggered">
+		<defName>FloorStoneStaggeredGranite</defName>
+		<label>staggered stone tiles (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneStaggered">
+		<defName>FloorStoneStaggeredLimestone</defName>
+		<label>staggered stone tiles (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneStaggered">
+		<defName>FloorStoneStaggeredSlate</defName>
+		<label>staggered stone tiles (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneStaggered">
+		<defName>FloorStoneStaggeredMarble</defName>
+		<label>staggered stone tiles (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Rough stone flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneRough">
+		<defName>FloorStoneRoughSandstone</defName>
+		<label>rough paving (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneRough">
+		<defName>FloorStoneRoughGranite</defName>
+		<label>rough paving (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneRough">
+		<defName>FloorStoneRoughLimestone</defName>
+		<label>rough paving (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneRough">
+		<defName>FloorStoneRoughSlate</defName>
+		<label>rough paving (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneRough">
+		<defName>FloorStoneRoughMarble</defName>
+		<label>rough paving (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Alternating stone flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneAlternating">
+		<defName>FloorStoneAlternatingSandstone</defName>
+		<label>alternating brick paving (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneAlternating">
+		<defName>FloorStoneAlternatingGranite</defName>
+		<label>alternating brick paving (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneAlternating">
+		<defName>FloorStoneAlternatingLimestone</defName>
+		<label>alternating brick paving (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneAlternating">
+		<defName>FloorStoneAlternatingSlate</defName>
+		<label>alternating brick paving (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneAlternating">
+		<defName>FloorStoneAlternatingMarble</defName>
+		<label>alternating brick paving (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Herringbone stone flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneHerringbone">
+		<defName>FloorStoneHerringboneSandstone</defName>
+		<label>herringbone paving (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneHerringbone">
+		<defName>FloorStoneHerringboneGranite</defName>
+		<label>herringbone paving (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneHerringbone">
+		<defName>FloorStoneHerringboneLimestone</defName>
+		<label>herringbone paving (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneHerringbone">
+		<defName>FloorStoneHerringboneSlate</defName>
+		<label>herringbone paving (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneHerringbone">
+		<defName>FloorStoneHerringboneMarble</defName>
+		<label>herringbone paving (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Hexagonal flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneHex">
+		<defName>FloorStoneHexSandstone</defName>
+		<label>hex paving (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneHex">
+		<defName>FloorStoneHexGranite</defName>
+		<label>hex paving (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneHex">
+		<defName>FloorStoneHexLimestone</defName>
+		<label>hex paving (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneHex">
+		<defName>FloorStoneHexSlate</defName>
+		<label>hex paving (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneHex">
+		<defName>FloorStoneHexMarble</defName>
+		<label>hex paving (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Digital flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneDigital">
+		<defName>FloorStoneDigitalSandstone</defName>
+		<label>digital paving (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneDigital">
+		<defName>FloorStoneDigitalGranite</defName>
+		<label>digital paving (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneDigital">
+		<defName>FloorStoneDigitalLimestone</defName>
+		<label>digital paving (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneDigital">
+		<defName>FloorStoneDigitalSlate</defName>
+		<label>digital paving (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneDigital">
+		<defName>FloorStoneDigitalMarble</defName>
+		<label>digital paving (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Mosaic flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneMosaic">
+		<defName>FloorStoneMosaicSandstone</defName>
+		<label>mosaic paving (sandstone)</label>
+		<color>(126,104,94)</color>
+		<renderPrecedence>268</renderPrecedence>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneMosaic">
+		<defName>FloorStoneMosaicGranite</defName>
+		<label>mosaic paving (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneMosaic">
+		<defName>FloorStoneMosaicLimestone</defName>
+		<label>mosaic paving (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneMosaic">
+		<defName>FloorStoneMosaicSlate</defName>
+		<label>mosaic paving (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneMosaic">
+		<defName>FloorStoneMosaicMarble</defName>
+		<label>mosaic paving (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Random stone flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneRandom">
+		<defName>FloorStoneRandomSandstone</defName>
+		<label>random paving (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneRandom">
+		<defName>FloorStoneRandomGranite</defName>
+		<label>random paving (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneRandom">
+		<defName>FloorStoneRandomLimestone</defName>
+		<label>random paving (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneRandom">
+		<defName>FloorStoneRandomSlate</defName>
+		<label>random paving (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneRandom">
+		<defName>FloorStoneRandomMarble</defName>
+		<label>random paving (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Diamond stone flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneDiamond">
+		<defName>FloorStoneDiamondSandstone</defName>
+		<label>diamond paving (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneDiamond">
+		<defName>FloorStoneDiamondGranite</defName>
+		<label>diamond paving (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneDiamond">
+		<defName>FloorStoneDiamondLimestone</defName>
+		<label>diamond paving (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneDiamond">
+		<defName>FloorStoneDiamondSlate</defName>
+		<label>diamond paving (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneDiamond">
+		<defName>FloorStoneDiamondMarble</defName>
+		<label>diamond paving (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Arabesque flooring -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneArabesque">
+		<defName>FloorStoneArabesqueSandstone</defName>
+		<label>arabesque flooring (sandstone)</label>
+		<color>(126,104,94)</color>
+		<costList>
+			<BlocksSandstone>4</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneArabesque">
+		<defName>FloorStoneArabesqueGranite</defName>
+		<label>arabesque flooring (granite)</label>
+		<color>(105,95,97)</color>
+		<costList>
+			<BlocksGranite>4</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneArabesque">
+		<defName>FloorStoneArabesqueLimestone</defName>
+		<label>arabesque flooring (limestone)</label>
+		<color>(158,153,135)</color>
+		<costList>
+			<BlocksLimestone>4</BlocksLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneArabesque">
+		<defName>FloorStoneArabesqueSlate</defName>
+		<label>arabesque flooring (slate)</label>
+		<color>(70,70,70)</color>
+		<costList>
+			<BlocksSlate>4</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneArabesque">
+		<defName>FloorStoneArabesqueMarble</defName>
+		<label>arabesque flooring (marble)</label>
+		<color>(132,135,132)</color>
+		<costList>
+			<BlocksMarble>4</BlocksMarble>
+		</costList>
+	</TerrainDef>
+
+
+
+	<!-- Chequered floors -->
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+	<TerrainDef ParentName="FloorBaseStoneChequered">
+		<defName>FloorStoneChequerMarbleSlate</defName>
+		<label>chequered slabs (marble / slate)</label>
+		<texturePath>Terrain/Surfaces/ChequerMarbleSlate</texturePath>
+		<costList>
+			<BlocksMarble>2</BlocksMarble>
+			<BlocksSlate>2</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneChequered">
+		<defName>FloorStoneChequerMarbleSandstone</defName>
+		<label>chequered slabs (marble / sandstone)</label>
+		<texturePath>Terrain/Surfaces/ChequerMarbleSandstone</texturePath>
+		<costList>
+			<BlocksMarble>2</BlocksMarble>
+			<BlocksSandstone>2</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneChequered">
+		<defName>FloorStoneChequerMarbleGranite</defName>
+		<label>chequered slabs (marble / granite)</label>
+		<texturePath>Terrain/Surfaces/ChequerMarbleGranite</texturePath>
+		<costList>
+			<BlocksMarble>2</BlocksMarble>
+			<BlocksGranite>2</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneChequered">
+		<defName>FloorStoneChequerLimestoneSlate</defName>
+		<label>chequered slabs (limestone / slate)</label>
+		<texturePath>Terrain/Surfaces/ChequerLimestoneSlate</texturePath>
+		<costList>
+			<BlocksLimestone>2</BlocksLimestone>
+			<BlocksSlate>2</BlocksSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneChequered">
+		<defName>FloorStoneChequerLimestoneSandstone</defName>
+		<label>chequered slabs (limestone / sandstone)</label>
+		<texturePath>Terrain/Surfaces/ChequerLimestoneSandstone</texturePath>
+		<costList>
+			<BlocksLimestone>2</BlocksLimestone>
+			<BlocksSandstone>2</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneChequered">
+		<defName>FloorStoneChequerLimestoneGranite</defName>
+		<label>chequered slabs (limestone / granite)</label>
+		<texturePath>Terrain/Surfaces/ChequerLimestoneGranite</texturePath>
+		<costList>
+			<BlocksLimestone>2</BlocksLimestone>
+			<BlocksGranite>2</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneChequered">
+		<defName>FloorStoneChequerSlateSandstone</defName>
+		<label>chequered slabs (slate / sandstone)</label>
+		<texturePath>Terrain/Surfaces/ChequerSlateSandstone</texturePath>
+		<costList>
+			<BlocksSlate>2</BlocksSlate>
+			<BlocksSandstone>2</BlocksSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="FloorBaseStoneChequered">
+		<defName>FloorStoneChequerSlateGranite</defName>
+		<label>chequered slabs (slate / granite)</label>
+		<texturePath>Terrain/Surfaces/ChequerSlateGranite</texturePath>
+		<costList>
+			<BlocksSlate>2</BlocksSlate>
+			<BlocksGranite>2</BlocksGranite>
+		</costList>
+	</TerrainDef>
+
+</Defs>

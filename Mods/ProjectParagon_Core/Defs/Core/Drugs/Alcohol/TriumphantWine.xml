@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DrugBase">
+		<defName>TriumphantWine</defName>
+		<label>Triumphant wine</label>
+		<description>Alcohol with a mysterious taste that increases psychic potential. Regular use significantly increases the possibilities of psi powers.</description>
+		<descriptionHyperlinks>
+			<HediffDef>AlcoholHigh</HediffDef>
+			<HediffDef>TriumphantWineHigh</HediffDef>
+			<HediffDef>AlcoholTolerance</HediffDef>
+			<HediffDef>Hangover</HediffDef>
+			<HediffDef>AlcoholAddiction</HediffDef>
+			<HediffDef>Cirrhosis</HediffDef>
+			<HediffDef>ChemicalDamageModerate</HediffDef>
+			<HediffDef>Diseases_HediffDef_DeliriumTremens</HediffDef>
+			<HediffDef>Diseases_HediffDef_Depression</HediffDef>
+			<HediffDef>Diseases_HediffDef_Hallucinosis</HediffDef>
+			<HediffDef>Diseases_HediffDef_Ravings</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Drugs/TriumphantWine</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<MarketValue>45</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.08</Nutrition>
+			<Protein>0.0</Protein>
+			<Fat>0.0</Fat>
+			<Carbohydrates>0.1</Carbohydrates>
+			<Vitamins>0.005</Vitamins>
+			<Flavor>0</Flavor>
+		</statBases>
+		<ingestible>
+			<drugCategory>Social</drugCategory>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.4</joy>
+			<nurseable>true</nurseable>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>
+			<chairSearchRadius>25</chairSearchRadius>
+			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+			<tableDesired>false</tableDesired>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholHigh</hediffDef>
+					<severity>0.1</severity>
+					<toleranceChemical>Alcohol</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>TriumphantWineHigh</hediffDef>
+					<severity>0.7</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholTolerance</hediffDef>
+					<severity>0.02</severity>
+					<divideByBodySize>true</divideByBodySize>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Alcohol</chemical>
+				<addictiveness>0.02</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+		</comps>
+		<allowedArchonexusCount>50</allowedArchonexusCount>
+	</ThingDef>
+	<HediffDef>
+		<defName>TriumphantWineHigh</defName>
+		<hediffClass>Hediff_High</hediffClass>
+		<label>high on triumphant wine</label>
+		<description>The impact of a special wine that allows you to increase concentration and psi potential.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.3</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.05</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<PsychicSensitivity>0.05</PsychicSensitivity>
+				</statOffsets>
+				<statFactors>
+					<PsychicEntropyMax>1.05</PsychicEntropyMax>
+					<PsychicEntropyRecoveryRate>1.05</PsychicEntropyRecoveryRate>
+				</statFactors>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.5</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.1</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<PsychicSensitivity>0.1</PsychicSensitivity>
+				</statOffsets>
+				<statFactors>
+					<PsychicEntropyMax>1.1</PsychicEntropyMax>
+					<PsychicEntropyRecoveryRate>1.1</PsychicEntropyRecoveryRate>
+				</statFactors>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.8</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.15</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<PsychicSensitivity>0.25</PsychicSensitivity>
+				</statOffsets>
+				<statFactors>
+					<PsychicEntropyMax>1.25</PsychicEntropyMax>
+					<PsychicEntropyRecoveryRate>1.25</PsychicEntropyRecoveryRate>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

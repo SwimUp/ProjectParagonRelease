@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/WorkGiverDef[defName="Mine"]/giverClass</xpath>
+				<value>
+					<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_Miner</giverClass>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/WorkGiverDef[defName="DoBillsBrew"]/giverClass</xpath>
+				<value>
+					<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillWithWater</giverClass>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>*/WorkGiverDef[defName="DoBillsStonecut"]/fixedBillGiverDefs</xpath>
+				<value>
+					<li>PrimitiveTableStonecutter</li>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>*/WorkGiverDef[defName="DoBillsSmelter"]/fixedBillGiverDefs</xpath>
+				<value>
+					<li>MechanicTable</li>
+					<li>JewelryTable</li>
+					<li>AdvancedArchitecturalTable</li>
+					<li>PrimitiveArchitecturalTable</li>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/WorkGiverDef[defName="DoctorTendToSelf"]</xpath>
+				<value>
+					<WorkGiverDef Name="DoctorTendToSelf">
+						<defName>DoctorTendToSelf</defName>
+						<label>tend to self</label>
+						<giverClass>WorkGiver_TendSelf</giverClass>
+						<workType>PatientBedRest</workType>
+						<verb>tend to</verb>
+						<gerund>tending to</gerund>
+						<priorityInType>90</priorityInType>
+						<requiredCapacities>
+							<li>Manipulation</li>
+						</requiredCapacities>
+						<prioritizeSustains>true</prioritizeSustains>
+					</WorkGiverDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

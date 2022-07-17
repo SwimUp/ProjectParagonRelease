@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="ApparelBase">
+		<defName>SuicideBelt</defName>
+		<label>Suicide belt</label>
+		<description>A belt filled with explosives, activated by a fuse. Extremely dangerous to others, and its use leads to massive losses.</description>
+		<thingClass>ProjectParagon.Core.Things.Apparel_SuicideBelt</thingClass>
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="CompProperties_Reloadable">
+				<maxCharges>1</maxCharges>
+				<chargeNoun>charge</chargeNoun>
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<destroyOnEmpty>true</destroyOnEmpty>
+			</li>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>250</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>4</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CompProperties_Explosive">
+				<wickTicks>240</wickTicks>
+				<explosiveRadius>4</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<chanceNeverExplodeFromDamage>0.05</chanceNeverExplodeFromDamage>
+			</li>
+		</comps>
+		<verbs>
+			<li>
+				<verbClass>ProjectParagon.Core.Things.Verb_SuicideBeltPop</verbClass>
+				<label>boom</label>
+				<violent>true</violent>
+				<hasStandardCommand>true</hasStandardCommand>
+				<targetable>false</targetable>
+				<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+				<onlyManualCast>True</onlyManualCast>
+			</li>
+		</verbs>
+		<graphicData>
+			<texPath>Core/Items/Apparel/SuicideBelt/SuicideBelt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<WorkToMake>7000</WorkToMake>
+			<Mass>4</Mass>
+			<Flammability>0.5</Flammability>
+			<EquipDelay>2</EquipDelay>
+			<MaxHitPoints>10</MaxHitPoints>
+		</statBases>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<generateAllowChance>0</generateAllowChance>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+			<researchPrerequisite>CombustibleMixtures</researchPrerequisite>
+			<recipeUsers>
+				<li>HandTailoringBench</li>
+			</recipeUsers>
+			<useIngredientsForColor>false</useIngredientsForColor>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<costList>
+			<Cloth>50</Cloth>
+			<CombustibleMixture>20</CombustibleMixture>
+		</costList>
+		<costStuffCount>85</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Belt</li>
+			</layers>
+			<tags>
+				<li>SuicideBelt</li>
+			</tags>
+		</apparel>
+	</ThingDef>
+</Defs>
