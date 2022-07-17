@@ -10,4 +10,5 @@ ProjectParagon задумывалась как сборка с расширен�
 
 # Ссылки:
 Дискорд: https://discord.gg/CxUrhCxXgF
+
 VK: https://vk.com/rimprojectparagon
