@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<MentalBreakDef>
+		<defName>Suicide</defName>
+		<mentalState>Suicide</mentalState>
+		<workerClass>ProjectParagon.Core.AI.MentalBreakWorkers.MentalBreakWorker_Suicide</workerClass>
+		<baseCommonality>0.25</baseCommonality>
+		<commonalityFactorPerPopulationCurve>
+			<points>
+				<li>(1, 0.1)</li>
+				<li>(5, 1)</li>
+			</points>
+		</commonalityFactorPerPopulationCurve>
+		<intensity>Extreme</intensity>
+	</MentalBreakDef>
+	<MentalStateDef ParentName="BaseMentalState">
+		<defName>Suicide</defName>
+		<!--<stateClass>ProjectParagon.Core.AI.MentalStates.MentalState_Suicide</stateClass>-->
+		<label>Suicide</label>
+		<category>Misc</category>
+		<blockInteractionInitiationExcept>
+			<li>Insult</li>
+		</blockInteractionInitiationExcept>
+		<blockInteractionRecipientExcept>
+			<li>Insult</li>
+		</blockInteractionRecipientExcept>
+		<blockRandomInteraction>true</blockRandomInteraction>
+		<moodRecoveryThought>Catharsis</moodRecoveryThought>
+		<blockNormalThoughts>true</blockNormalThoughts>
+		<nameColor>(0.9,0.2,0.5)</nameColor>
+		<beginLetter>{0} attempts suicide.</beginLetter>
+		<beginLetterDef>ThreatSmall</beginLetterDef>
+		<minTicksBeforeRecovery>40000</minTicksBeforeRecovery>
+		<maxTicksBeforeRecovery>60000</maxTicksBeforeRecovery>
+		<recoveryMtbDays>0.166</recoveryMtbDays>
+		<recoveryMessage>{0}'s no longer tries to kill himself.</recoveryMessage>
+		<baseInspectLine>Mental state: Suicide</baseInspectLine>
+		<recoverFromSleep>true</recoverFromSleep>
+	</MentalStateDef>
+</Defs>

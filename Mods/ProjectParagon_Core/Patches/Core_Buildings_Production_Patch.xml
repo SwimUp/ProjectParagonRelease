@@ -60,6 +60,7 @@
 									<li>SmallLibrary</li>
 									<li>ResearchLibrary</li>
 									<li>Globe</li>
+									<li>SimpleScienceSet</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -69,7 +70,6 @@
 					</ThingDef>
 				</value>
 			</li>
-
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="HiTechResearchBench"]</xpath>
 				<value>
@@ -79,8 +79,8 @@
 						<description>A high-tech bench with computers and electronic measurement equipment. Allows more rapid research, and unlocks advanced research projects.</description>
 						<thingClass>Building_ResearchBench</thingClass>
 						<size>(5,2)</size>
-						<minifiedDef />
-						<thingCategories Inherit="false" />
+						<minifiedDef/>
+						<thingCategories Inherit="false"/>
 						<stuffCategories>
 							<li>Metallic</li>
 						</stuffCategories>
@@ -140,9 +140,224 @@
 									<li>SmallLibrary</li>
 									<li>ResearchLibrary</li>
 									<li>Globe</li>
+									<li>SimpleScienceSet</li>
 								</linkableFacilities>
 							</li>
 						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="TableSculpting"]</xpath>
+				<value>
+					<ThingDef ParentName="BenchBase">
+						<defName>TableSculpting</defName>
+						<label>art bench</label>
+						<description>A workbench equipped for creating art.</description>
+						<thingClass>Building_WorkTable</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Production/TableSculpting</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(3.5,1.5)</drawSize>
+							<shadowData>
+								<volume>(2.9, 0.3, 0.5)</volume>
+								<offset>(0, 0, 0)</offset>
+							</shadowData>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costStuffCount>120</costStuffCount>
+						<costList>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<altitudeLayer>Building</altitudeLayer>
+						<fillPercent>0.5</fillPercent>
+						<useHitPoints>True</useHitPoints>
+						<statBases>
+							<WorkToBuild>2500</WorkToBuild>
+							<MaxHitPoints>180</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Cleanliness>-5</Cleanliness>
+						</statBases>
+						<size>(3,1)</size>
+						<designationCategory>Production</designationCategory>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<hasInteractionCell>True</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<surfaceType>Item</surfaceType>
+						<inspectorTabs>
+							<li>ITab_Bills</li>
+						</inspectorTabs>
+						<building>
+							<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+						</building>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>SimpleStonecutterSet</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<designationHotKey>Misc2</designationHotKey>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>SimpleStoneProcessing</li>
+						</researchPrerequisites>
+						<designatorDropdown>StoneProcessing</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="TableStonecutter"]</xpath>
+				<value>
+					<ThingDef ParentName="BenchBase">
+						<defName>TableStonecutter</defName>
+						<label>stonecutter's table</label>
+						<description>A work table with saws and chisels for cutting stone chunks into usable blocks.</description>
+						<thingClass>Building_WorkTable_HeatPush</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Production/TableStonecutter</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3.5,1.5)</drawSize>
+							<shaderType>CutoutComplex</shaderType>
+							<shadowData>
+								<volume>(2.85, 0.3, 0.62)</volume>
+								<offset>(0, 0, 0.20)</offset>
+							</shadowData>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<costStuffCount>150</costStuffCount>
+						<costList>
+							<ComponentPrimitive>4</ComponentPrimitive>
+						</costList>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<altitudeLayer>Building</altitudeLayer>
+						<fillPercent>0.5</fillPercent>
+						<useHitPoints>True</useHitPoints>
+						<statBases>
+							<WorkToBuild>2000</WorkToBuild>
+							<MaxHitPoints>180</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Cleanliness>-5</Cleanliness>
+						</statBases>
+						<size>(3,1)</size>
+						<designationCategory>Production</designationCategory>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<hasInteractionCell>True</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<surfaceType>Item</surfaceType>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<inspectorTabs>
+							<li>ITab_Bills</li>
+						</inspectorTabs>
+						<building>
+							<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+						</building>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>SimpleStonecutterSet</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<researchPrerequisites>
+							<li>AdvancedStoneProcessing</li>
+						</researchPrerequisites>
+						<designatorDropdown>StoneProcessing</designatorDropdown>
+						<designationHotKey>Misc9</designationHotKey>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="HandTailoringBench"]</xpath>
+				<value>
+					<ThingDef ParentName="BenchBase">
+						<defName>HandTailoringBench</defName>
+						<label>hand tailor bench</label>
+						<description>A workbench for tailoring clothes by hand. Works at 50% of the speed of an electric tailoring bench.</description>
+						<thingClass>Building_WorkTable</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Production/TableTailorHand</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3.5,1.5)</drawSize>
+							<shaderType>CutoutComplex</shaderType>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<castEdgeShadows>true</castEdgeShadows>
+						<staticSunShadowHeight>0.20</staticSunShadowHeight>
+						<costStuffCount>100</costStuffCount>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<altitudeLayer>Building</altitudeLayer>
+						<fillPercent>0.5</fillPercent>
+						<useHitPoints>True</useHitPoints>
+						<statBases>
+							<WorkToBuild>2000</WorkToBuild>
+							<MaxHitPoints>180</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
+						</statBases>
+						<size>(3,1)</size>
+						<designationCategory>Production</designationCategory>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<hasInteractionCell>True</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<surfaceType>Item</surfaceType>
+						<inspectorTabs>
+							<li>ITab_Bills</li>
+						</inspectorTabs>
+						<building>
+							<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+						</building>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>SimpleSewingSet</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>TribalClothing</li>
+						</researchPrerequisites>
+						<designatorDropdown>Tailoring</designatorDropdown>
 					</ThingDef>
 				</value>
 			</li>
@@ -151,30 +366,6 @@
 				<value>
 					<researchPrerequisites>
 						<li>LessonsPast</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="HandTailoringBench"]/researchPrerequisites</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>TribalClothing</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="TableSculpting"]</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>SimpleStoneProcessing</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="TableStonecutter"]/researchPrerequisites</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>AdvancedStoneProcessing</li>
 					</researchPrerequisites>
 				</value>
 			</li>
@@ -254,12 +445,6 @@
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="TableStonecutter"]</xpath>
-				<value>
-					<designatorDropdown>StoneProcessing</designatorDropdown>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="PlantProcessingTable"]</xpath>
 				<value>
 					<designatorDropdown>Farming</designatorDropdown>
@@ -281,11 +466,10 @@
 				<xpath>*/ThingDef[defName="TableButcher"]</xpath>
 				<value>
 					<researchPrerequisites>
-					  <li>SimpleWoodProcessing</li>
+						<li>SimpleWoodProcessing</li>
 					</researchPrerequisites>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="CraftingSpot"]</xpath>
 				<value>
@@ -311,12 +495,6 @@
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="TableSculpting"]</xpath>
-				<value>
-					<designatorDropdown>StoneProcessing</designatorDropdown>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="DrugLab"]</xpath>
 				<value>
 					<designatorDropdown>Chemistry</designatorDropdown>
@@ -326,12 +504,6 @@
 				<xpath>*/ThingDef[defName="BiofuelRefinery"]</xpath>
 				<value>
 					<designatorDropdown>Chemistry</designatorDropdown>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="HandTailoringBench"]</xpath>
-				<value>
-					<designatorDropdown>Tailoring</designatorDropdown>
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
@@ -460,6 +632,11 @@
 							</li>
 							<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 								<canManualFill>true</canManualFill>
+							</li>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>SimpleScienceSet</li>
+								</linkableFacilities>
 							</li>
 						</comps>
 					</ThingDef>

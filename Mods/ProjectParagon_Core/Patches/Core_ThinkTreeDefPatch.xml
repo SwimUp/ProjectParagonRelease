@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-
 	<Operation Class="PatchOperationInsert">
 		<xpath>*/ThinkTreeDef[defName = "MainColonistBehaviorCore"]/thinkRoot[@Class="ThinkNode_Tagger"]/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes//li[2]</xpath>
 		<value>
 			<li Class="ProjectParagon.Core.AI.JobGivers.JobGiver_GetSalt"/>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationInsert">
 		<xpath>*/ThinkTreeDef[defName = "SatisfyBasicNeeds"]/thinkRoot[@Class="ThinkNode_Tagger"]/subNodes/li[@Class="ThinkNode_PrioritySorter"]/subNodes//li[2]</xpath>
 		<value>
 			<li Class="ProjectParagon.Core.AI.JobGivers.JobGiver_GetSalt"/>
 		</value>
 	</Operation>
-
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThinkTreeDef[defName = "MentalStateCritical"]/thinkRoot[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+		<value>
+			<li Class="ThinkNode_ConditionalMentalState">
+				<state>Suicide</state>
+				<subNodes>
+					<li Class="ThinkNode_Priority">
+						<subNodes>
+							<li Class="ProjectParagon.Core.AI.JobGivers.JobGiver_Suicide"/>
+							<li Class="JobGiver_WanderAnywhere">
+								<maxDanger>Deadly</maxDanger>
+							</li>
+						</subNodes>
+					</li>
+				</subNodes>
+			</li>
+		</value>
+	</Operation>
 </Patch>
