@@ -92,9 +92,12 @@
 
 	<!-- ========== Patch beer ========== -->
 
+
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="Beer"]/tools</xpath>
 		<value>
+			<tools IsNull="true"/>
+			<!--
 			<tools>
 				<li Class="CombatExtended.ToolCE">
 					<capacities>
@@ -117,9 +120,18 @@
 					<linkedBodyPartsGroup>Neck</linkedBodyPartsGroup>
 				</li>
 			</tools>
+			-->
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Beer"]/equipmentType</xpath>
+		<value>
+			<equipmentType>None</equipmentType>
 		</value>
 	</Operation>
 
+<!--
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="Beer"]/statBases</xpath>
 		<value>
@@ -160,5 +172,5 @@
 			<li>CE_OneHandedWeapon</li>
 		</value>
 	</Operation>
-
+-->
 </Patch>

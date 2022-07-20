@@ -90,6 +90,63 @@
 		</scenario>
 	</ScenarioDef>
 	<ScenarioDef>
+		<defName>YoungTribe</defName>
+		<label>Young tribe</label>
+		<description>A group of aborigines are expelled from the tribe by decision of the council of elders, starting their new life.\n\nYou are aware of the nearby faction settlements.\nYou have access to the basic technologies of the tribe.</description>
+		<scenario>
+			<summary>A group of aborigines people is expelled by the decision of the council of elders. Surpass council and prove them wrong!</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerYoungTribe</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>5</pawnCount>
+					<pawnChoiceCount>8</pawnChoiceCount>
+				</li>
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Silver</thingDef>
+					<count>300</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Pemmican</thingDef>
+					<count>300</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MedicineHerbal</thingDef>
+					<count>20</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>CopperIngot</thingDef>
+					<count>200</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>ScatterThingsNearPlayerStart</def>
+					<thingDef>WoodLog</thingDef>
+					<count>500</count>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogAllFactionsSettlementsInRange">
+					<def>UnfogAllFactionsSettlementsInRange</def>
+					<radius>30</radius>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>A group of aborigines are expelled from the tribe by decision of the council of elders, starting their new life.\n\nYou are aware of the nearby faction settlements.\nYou have access to the basic technologies of the tribe.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	<ScenarioDef>
 		<defName>LostSheks</defName>
 		<label>Lost sheks</label>
 		<description>Your group got lost during a long trip to the sea. You tried to catch up with your comrades, but it was all in vain. Few survived, but you are determined to survive.\n\nThis scenario is complicated by your colonists' need for salt.</description>
@@ -100,18 +157,15 @@
 				<factionDef>PlayerShek</factionDef>
 			</playerFaction>
 			<parts>
-				<!-- Config pages -->
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
 					<def>ConfigPage_ConfigureStartingPawns</def>
 					<pawnCount>3</pawnCount>
 					<pawnChoiceCount>5</pawnChoiceCount>
 				</li>
-				<!-- Player starting stuff spawn method-->
 				<li Class="ScenPart_PlayerPawnsArriveMethod">
 					<def>PlayerPawnsArriveMethod</def>
 					<method>Standing</method>
 				</li>
-				<!-- Player pawns modifiers -->
 				<li Class="ScenPart_ForcedHediff">
 					<def>ForcedHediff</def>
 					<visible>false</visible>
@@ -128,7 +182,6 @@
 					<need>Food</need>
 					<levelRange>0~0.1</levelRange>
 				</li>
-				<!-- Player starting things -->
 				<li Class="ScenPart_StartingThing_Defined">
 					<def>StartingThing_Defined</def>
 					<thingDef>RoastedFish</thingDef>
@@ -150,13 +203,20 @@
 					<stuff>CopperIngot</stuff>
 					<count>3</count>
 				</li>
-				<!-- Scatter some things near player start -->
 				<li Class="ScenPart_ScatterThingsNearPlayerStart">
 					<def>ScatterThingsNearPlayerStart</def>
 					<thingDef>WoodLog</thingDef>
 					<count>250</count>
 				</li>
-				<!-- Game start dialog -->
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_FactionRelations">
+					<def>FactionRelations</def>
+					<scenFactionRelationRecords>
+						<li>
+							<factionDef>ShekTribalUnion</factionDef>
+							<relations>0</relations>
+						</li>
+					</scenFactionRelationRecords>
+				</li>
 				<li Class="ScenPart_GameStartDialog">
 					<def>GameStartDialog</def>
 					<text>Your group got lost during a long trip to the sea. You tried to catch up with your comrades, but it was all in vain. Few survived, but you are determined to survive.\n\nThis scenario is complicated by your colonists' need for salt.</text>
@@ -205,7 +265,7 @@
 					<scenFactionRelationRecords>
 						<li>
 							<factionDef>TreantForestUnion</factionDef>
-							<relations>100</relations>
+							<relationsOffSet>100</relationsOffSet>
 						</li>
 					</scenFactionRelationRecords>
 				</li>
@@ -270,7 +330,7 @@
 					<scenFactionRelationRecords>
 						<li>
 							<factionDef>KairosDesertUnion</factionDef>
-							<relations>-100</relations>
+							<relationsOffSet>-100</relationsOffSet>
 						</li>
 					</scenFactionRelationRecords>
 				</li>
@@ -281,6 +341,10 @@
 							<factionDef>KairosDesertUnion</factionDef>
 						</li>
 					</scenFactionSettlementRecords>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogAllFactionsSettlementsInRange">
+					<def>UnfogAllFactionsSettlementsInRange</def>
+					<radius>30</radius>
 				</li>
 				<li Class="ScenPart_GameStartDialog">
 					<def>GameStartDialog</def>
@@ -330,7 +394,7 @@
 					<scenFactionRelationRecords>
 						<li>
 							<factionDef>Arachnids</factionDef>
-							<relations>-100</relations>
+							<relationsOffSet>-100</relationsOffSet>
 						</li>
 					</scenFactionRelationRecords>
 				</li>
@@ -342,6 +406,10 @@
 							<radius>50</radius>
 						</li>
 					</scenFactionSettlementRecords>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogAllFactionsSettlementsInRange">
+					<def>UnfogAllFactionsSettlementsInRange</def>
+					<radius>30</radius>
 				</li>
 				<li Class="ScenPart_GameStartDialog">
 					<def>GameStartDialog</def>
@@ -391,7 +459,7 @@
 					<scenFactionRelationRecords>
 						<li>
 							<factionDef>AeronKingdom</factionDef>
-							<relations>-100</relations>
+							<relationsOffSet>-100</relationsOffSet>
 						</li>
 					</scenFactionRelationRecords>
 				</li>
@@ -404,9 +472,69 @@
 						</li>
 					</scenFactionSettlementRecords>
 				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogAllFactionsSettlementsInRange">
+					<def>UnfogAllFactionsSettlementsInRange</def>
+					<radius>30</radius>
+				</li>
 				<li Class="ScenPart_GameStartDialog">
 					<def>GameStartDialog</def>
 					<text>You and several other subjects of the kingdom are unhappy with high taxes and poverty. In the end, you decide to leave your homeland and start a new life.\n\nYou are aware of the location of the nearby aeron settlements.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	<ScenarioDef>
+		<defName>ShardOfTheHorde</defName>
+		<label>Shard of the Horde</label>
+		<description>A small group of tauruses challenge their Khan, which leads to a bloody civil strife. In the end, the rebellion was crushed, many of the organizers were executed, but the horde received significant damage. Can you take revenge?</description>
+		<scenario>
+			<summary>A group of surviving rebels are preparing revenge and eager to take over the world.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerTaurus</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>5</pawnCount>
+					<pawnChoiceCount>8</pawnChoiceCount>
+				</li>
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>RoastedMeat</thingDef>
+					<count>20</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>HealerKit</thingDef>
+					<count>15</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>StartingThing_Defined</def>
+					<thingDef>WoodLog</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_FactionRelations">
+					<def>FactionRelations</def>
+					<scenFactionRelationRecords>
+						<li>
+							<factionDef>TaurusHorde</factionDef>
+							<relationsOffSet>-100</relationsOffSet>
+						</li>
+					</scenFactionRelationRecords>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_UnfogAllFactionsSettlementsInRange">
+					<def>UnfogAllFactionsSettlementsInRange</def>
+					<radius>40</radius>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>A small group of tauruses challenge their Khan, which leads to a bloody civil strife. In the end, the rebellion was crushed, many of the organizers were executed, but the horde received significant damage. Can you take revenge?</text>
 					<closeSound>GameStartSting</closeSound>
 				</li>
 			</parts>
