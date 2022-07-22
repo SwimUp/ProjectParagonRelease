@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Patch>
-
 	<!-- ========== Patch item bulk ========== -->
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="Ambrosia"]/statBases</xpath>
 		<value>
 			<Bulk>0.25</Bulk>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[@Name="DrugPillBase" or @Name="MakeableDrugPillBase"]</xpath>
 		<value>
@@ -18,60 +15,50 @@
 			</statBases>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="Flake"]/statBases</xpath>
 		<value>
 			<Bulk>0.05</Bulk>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="PsychiteTea"]/statBases</xpath>
 		<value>
 			<Bulk>0.5</Bulk>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="SmokeleafJoint"]/statBases</xpath>
 		<value>
 			<Bulk>0.05</Bulk>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="GoJuice"]/statBases</xpath>
 		<value>
 			<Bulk>0.2</Bulk>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="Yayo"]/statBases</xpath>
 		<value>
 			<Bulk>0.05</Bulk>
 		</value>
 	</Operation>
-
 	<!-- ========== Patch addictiveness ========== -->
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="GoJuice"]/comps/li[@Class="CompProperties_Drug"]</xpath>
 		<value>
 			<minToleranceToAddict>0.05</minToleranceToAddict>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/HediffDef[defName="GoJuiceHigh"]/comps/li[@Class="HediffCompProperties_SeverityPerDay"]/severityPerDay</xpath>
 		<value>
 			<severityPerDay>-0.8</severityPerDay>
 		</value>
 	</Operation>
-
 	<!-- ========== Patch statOffsets ========== -->
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/HediffDef[defName="GoJuiceHigh"]/stages/li[1]</xpath>
 		<value>
@@ -80,7 +67,6 @@
 			</statOffsets>
 		</value>
 	</Operation>
-
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/HediffDef[defName="YayoHigh"]/stages/li[1]</xpath>
 		<value>
@@ -89,10 +75,7 @@
 			</statOffsets>
 		</value>
 	</Operation>
-
 	<!-- ========== Patch beer ========== -->
-
-
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="Beer"]/tools</xpath>
 		<value>
@@ -123,15 +106,28 @@
 			-->
 		</value>
 	</Operation>
-	
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/ThingDef[defName="Beer"]/equipmentType</xpath>
 		<value>
 			<equipmentType>None</equipmentType>
 		</value>
 	</Operation>
-
-<!--
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Beer"]/comps</xpath>
+		<value>
+			<comps>
+				<li Class="CompProperties_Drug">
+					<chemical>Alcohol</chemical>
+					<addictiveness>0.010</addictiveness>
+					<minToleranceToAddict>0.25</minToleranceToAddict>
+					<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+					<needLevelOffset>0.9</needLevelOffset>
+					<listOrder>10</listOrder>
+				</li>
+			</comps>
+		</value>
+	</Operation>
+	<!--
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName="Beer"]/statBases</xpath>
 		<value>
