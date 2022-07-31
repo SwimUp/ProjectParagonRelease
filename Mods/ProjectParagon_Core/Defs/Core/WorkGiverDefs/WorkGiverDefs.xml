@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<WorkGiverDef>
+		<defName>DoBills_AlchemyStance</defName>
+		<label>Synthesize</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillWithWater</giverClass>
+		<workType>Crafting</workType>
+		<priorityInType>130</priorityInType>
+		<fixedBillGiverDefs>
+			<li>AlchemyStance</li>
+		</fixedBillGiverDefs>
+		<verb>synthesize</verb>
+		<gerund>Synthesizing on</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+	
+	<WorkGiverDef>
+		<defName>DoBillsCookCookingPot</defName>
+		<label>cook meals at cooking pot</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillWithWater</giverClass>
+		<workType>Cooking</workType>
+		<priorityInType>97</priorityInType>
+		<fixedBillGiverDefs>
+			<li>BigCoookingFurnace</li>
+			<li>CookingPot</li>
+			<li>ManualFlourMill</li>
+			<li>CookingFurnace</li>
+			<li>Juicer</li>
+		</fixedBillGiverDefs>
+		<verb>cook</verb>
+		<gerund>cooking at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+
+	<!--<WorkGiverDef>
 		<defName>DoBills_BlacksmithFurnace</defName>
 		<label>Make</label>
 		<giverClass>WorkGiver_DoBill</giverClass>
@@ -31,9 +68,9 @@
 		<requiredCapacities>
 			<li>Manipulation</li>
 		</requiredCapacities>
-	</WorkGiverDef>
+	</WorkGiverDef>-->
 
-	<WorkGiverDef>
+	<!--<WorkGiverDef>
 		<defName>DoBills_CarpenterTable</defName>
 		<label>Create</label>
 		<giverClass>WorkGiver_DoBill</giverClass>
@@ -48,23 +85,8 @@
 		<requiredCapacities>
 			<li>Manipulation</li>
 		</requiredCapacities>
-	</WorkGiverDef>
-	<WorkGiverDef>
-		<defName>DoBills_AlchemyStance</defName>
-		<label>Synthesize</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillWithWater</giverClass>
-		<workType>Crafting</workType>
-		<priorityInType>130</priorityInType>
-		<fixedBillGiverDefs>
-			<li>AlchemyStance</li>
-		</fixedBillGiverDefs>
-		<verb>synthesize</verb>
-		<gerund>Synthesizing on</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>
-	<WorkGiverDef>
+	</WorkGiverDef>-->
+	<!--<WorkGiverDef>
 		<defName>DoBills_Loom</defName>
 		<label>Make</label>
 		<giverClass>WorkGiver_DoBill</giverClass>
@@ -78,28 +100,7 @@
 		<requiredCapacities>
 			<li>Manipulation</li>
 		</requiredCapacities>
-	</WorkGiverDef>
-
-	<WorkGiverDef>
-		<defName>DoBillsCookCookingPot</defName>
-		<label>cook meals at cooking pot</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillWithWater</giverClass>
-		<workType>Cooking</workType>
-		<priorityInType>97</priorityInType>
-		<fixedBillGiverDefs>
-			<li>BigCoookingFurnace</li>
-			<li>CookingPot</li>
-			<li>ManualFlourMill</li>
-			<li>CookingFurnace</li>
-			<li>Juicer</li>
-		</fixedBillGiverDefs>
-		<verb>cook</verb>
-		<gerund>cooking at</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-		<prioritizeSustains>true</prioritizeSustains>
-	</WorkGiverDef>
+	</WorkGiverDef>-->
 
 	<WorkGiverDef>
 		<defName>DoFillResearchResourcesBox</defName>
@@ -275,6 +276,22 @@
 		<priorityInType>80</priorityInType>
 		<verb>construct</verb>
 		<gerund>constructing</gerund>
+		<requiredCapacities>
+		  <li>Manipulation</li>
+		</requiredCapacities>
+		<nonColonistsCanDo>true</nonColonistsCanDo>
+		<prioritizeSustains>true</prioritizeSustains>
+		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
+	  </WorkGiverDef>
+	  
+	  <WorkGiverDef>
+		<defName>ConstructDeliverResourcesToTerraformFrames</defName>
+		<label>deliver resources to frames</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_ConstructDeliverResourcesToTerraformFrames</giverClass>
+		<workType>Construction</workType>
+		<priorityInType>70</priorityInType>
+		<verb>work on</verb>
+		<gerund>working on</gerund>
 		<requiredCapacities>
 		  <li>Manipulation</li>
 		</requiredCapacities>

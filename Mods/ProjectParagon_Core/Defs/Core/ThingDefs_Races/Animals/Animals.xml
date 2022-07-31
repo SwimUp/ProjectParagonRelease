@@ -3767,6 +3767,7 @@
 			<leatherDef>Thick_Leather</leatherDef>
 			<herdAnimal>true</herdAnimal>
 			<wildness>0.85</wildness>
+			<useMeatFrom>Megaspider</useMeatFrom>
 			<trainability>Intermediate</trainability>
 			<lifeExpectancy>10</lifeExpectancy>
 			<manhunterOnTameFailChance>0.25</manhunterOnTameFailChance>
@@ -4020,7 +4021,7 @@
 			<baseHealthScale>1.75</baseHealthScale>
 			<baseHungerRate>0.425</baseHungerRate>
 			<foodType>VegetarianRoughAnimal</foodType>
-			<leatherDef>Light_Leather</leatherDef>
+			<leatherDef>Thick_Leather</leatherDef>
 			<gestationPeriodDays>6.66</gestationPeriodDays>
 			<wildness>0.35</wildness>
 			<roamMtbDays>2</roamMtbDays>
@@ -6201,8 +6202,8 @@
 		<statBases>
 			<MoveSpeed>3.25</MoveSpeed>
 			<MarketValue>700</MarketValue>
-			<ArmorRating_Blunt>4</ArmorRating_Blunt>
-			<ArmorRating_Sharp>2.5</ArmorRating_Sharp>
+			<ArmorRating_Blunt>5</ArmorRating_Blunt>
+			<ArmorRating_Sharp>3</ArmorRating_Sharp>
 			<ComfyTemperatureMin>-5</ComfyTemperatureMin>
 			<ComfyTemperatureMax>50</ComfyTemperatureMax>
 			<FilthRate>1</FilthRate>
@@ -7302,5 +7303,188 @@
 				<texPath>Core/Races/Animals/GrassSnake/DarkGrassSnake</texPath>
 			</li>
 		</alternateGraphics>
+	</PawnKindDef>
+	
+	
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Sectum</defName>
+		<label>Sectum</label>
+		<description>Large and relatively non-aggressive insectoid found in the wastelands.</description>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>4</MoveSpeed>
+			<MarketValue>600</MarketValue>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+			<ComfyTemperatureMin>-5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>40</ComfyTemperatureMax>
+			<FilthRate>1</FilthRate>
+			<MeleeDodgeChance>0.1</MeleeDodgeChance>
+			<MeleeCritChance>0.2</MeleeCritChance>
+			<MeleeParryChance>0.1</MeleeParryChance>
+			<ToxicSensitivity>0</ToxicSensitivity>
+			<MeatAmount>200</MeatAmount>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.7</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>mandibles</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.1</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.25</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<predator>true</predator>
+			<maxPreyBodySize>1.2</maxPreyBodySize>
+			<body>BeetleLike</body>
+			<baseBodySize>0.2</baseBodySize>
+			<baseHungerRate>0.5</baseHungerRate>
+			<baseHealthScale>1.25</baseHealthScale>
+			<foodType>OmnivoreAnimal, AnimalProduct</foodType>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<leatherDef>Thick_Leather</leatherDef>
+			<herdAnimal>true</herdAnimal>
+			<wildness>0.85</wildness>
+			<trainability>Advanced</trainability>
+			<packAnimal>true</packAnimal>
+			<lifeExpectancy>8</lifeExpectancy>
+			<manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.05</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+					<soundDeath>Pawn_Megascarab_Death</soundDeath>
+					<soundCall>Pawn_Megascarab_Call</soundCall>
+					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalExotic</li>
+		</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Sectum</defName>
+		<label>Sectum</label>
+		<race>Sectum</race>
+		<combatPower>80</combatPower>
+		<ecoSystemWeight>0.75</ecoSystemWeight>
+		<wildGroupSize>3</wildGroupSize>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumMale</texPath>
+					<drawSize>1.8</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<femaleGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumFemale</texPath>
+					<drawSize>1.7</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</femaleGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumMaleDessicated</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+				<femaleDessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumFemaleDessicated</texPath>
+					<drawSize>1.7</drawSize>
+				</femaleDessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumMale</texPath>
+					<drawSize>2.2</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<femaleGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumFemale</texPath>
+					<drawSize>2.1</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</femaleGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumMaleDessicated</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+				<femaleDessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumFemaleDessicated</texPath>
+					<drawSize>2.1</drawSize>
+				</femaleDessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumMale</texPath>
+					<drawSize>2.5</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<femaleGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumFemale</texPath>
+					<drawSize>2.4</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</femaleGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumMaleDessicated</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+				<femaleDessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Sectum/SectumFemaleDessicated</texPath>
+					<drawSize>2.4</drawSize>
+				</femaleDessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
 	</PawnKindDef>
 </Defs>

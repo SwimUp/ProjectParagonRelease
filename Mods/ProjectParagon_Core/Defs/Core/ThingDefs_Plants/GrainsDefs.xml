@@ -5018,7 +5018,7 @@
 	<ThingDef ParentName="Flora_RawFruitBase">
 		<defName>Flora_RawMint</defName>
 		<label>Mint</label>
-		<description>All species are highly aromatic, most of them contain a lot of menthol.</description>
+		<description>All species are highly aromatic, most of them contain a lot of menthol. Can be used in alchemy as a psychic stimulant.</description>
 		<graphicData>
 			<texPath>Core/Plants/PlantsThings/Flora_RawMint</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -5060,6 +5060,13 @@
 								<minPoison>0</minPoison>
 								<minJoy>0</minJoy>
 							</li>
+							<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoer_Potion_GiveNeed">
+								<needDef>Joy</needDef>
+								<baseValue>0.25</baseValue>
+								<joyIsMultiplier>true</joyIsMultiplier>
+								<minPoison>0</minPoison>
+								<minJoy>0</minJoy>
+							</li>
 						</ingestionOutcomeDoers>
 					</li>
 					<li>
@@ -5073,6 +5080,13 @@
 								<hediffDef>MintHigh</hediffDef>
 								<severity>0.75</severity>
 								<divideByBodySize>true</divideByBodySize>
+								<minPoison>0</minPoison>
+								<minJoy>0</minJoy>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoer_Potion_GiveNeed">
+								<needDef>Joy</needDef>
+								<baseValue>0.3</baseValue>
+								<joyIsMultiplier>true</joyIsMultiplier>
 								<minPoison>0</minPoison>
 								<minJoy>0</minJoy>
 							</li>
@@ -5537,7 +5551,7 @@
 		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-1.5</severityPerDay>
+				<severityPerDay>-1.2</severityPerDay>
 				<showHoursToRecover>true</showHoursToRecover>
 			</li>
 		</comps>
@@ -5545,7 +5559,7 @@
 			<li>
 				<label>easy</label>
 				<statOffsets>
-					<MentalBreakThreshold>-0.05</MentalBreakThreshold>
+					<MentalBreakThreshold>-0.1</MentalBreakThreshold>
 					<HungerRateMultiplier>0.1</HungerRateMultiplier>
 				</statOffsets>
 			</li>
@@ -5553,7 +5567,7 @@
 				<label>medium</label>
 				<minSeverity>0.5</minSeverity>
 				<statOffsets>
-					<MentalBreakThreshold>-0.1</MentalBreakThreshold>
+					<MentalBreakThreshold>-0.15</MentalBreakThreshold>
 					<HungerRateMultiplier>0.2</HungerRateMultiplier>
 				</statOffsets>
 			</li>
@@ -5561,7 +5575,7 @@
 				<label>severe</label>
 				<minSeverity>0.8</minSeverity>
 				<statOffsets>
-					<MentalBreakThreshold>-0.15</MentalBreakThreshold>
+					<MentalBreakThreshold>-0.20</MentalBreakThreshold>
 					<HungerRateMultiplier>0.3</HungerRateMultiplier>
 				</statOffsets>
 			</li>
@@ -5632,7 +5646,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>Flora_RawPoppy</defName>
 		<label>Poppy</label>
-		<description>Unprocessed poppy flowers.</description>
+		<description>Unprocessed poppy flowers. Can be used in alchemy as an amplifier. Care must be taken.</description>
 		<graphicData>
 			<texPath>Core/Plants/PlantsThings/Flora_RawPoppy</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -5659,13 +5673,27 @@
 					<li>
 						<minCount>0</minCount>
 						<poison>0.0</poison>
-						<joy>0.03</joy>
+						<joy>0.2</joy>
 						<poisonCatalyst>1.5</poisonCatalyst>
 						<joyCatalyst>1.15</joyCatalyst>
 						<ingestionOutcomeDoers>
 							<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoer_Potion_GiveHediff">
 								<hediffDef>PoppyHigh</hediffDef>
 								<severity>0.25</severity>
+								<divideByBodySize>true</divideByBodySize>
+								<minPoison>0</minPoison>
+								<minJoy>0</minJoy>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoer_Potion_GiveNeed">
+								<needDef>Joy</needDef>
+								<baseValue>0.75</baseValue>
+								<joyIsMultiplier>true</joyIsMultiplier>
+								<minPoison>0</minPoison>
+								<minJoy>0</minJoy>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoer_Potion_GiveHediff">
+								<hediffDef>ToxicBuildup</hediffDef>
+								<severity>0.15</severity>
 								<divideByBodySize>true</divideByBodySize>
 								<minPoison>0</minPoison>
 								<minJoy>0</minJoy>
@@ -5682,6 +5710,20 @@
 							<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoer_Potion_GiveHediff">
 								<hediffDef>PoppyHigh</hediffDef>
 								<severity>0.75</severity>
+								<divideByBodySize>true</divideByBodySize>
+								<minPoison>0</minPoison>
+								<minJoy>0</minJoy>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoer_Potion_GiveNeed">
+								<needDef>Joy</needDef>
+								<baseValue>1</baseValue>
+								<joyIsMultiplier>true</joyIsMultiplier>
+								<minPoison>0</minPoison>
+								<minJoy>0</minJoy>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoer_Potion_GiveHediff">
+								<hediffDef>ToxicBuildup</hediffDef>
+								<severity>0.3</severity>
 								<divideByBodySize>true</divideByBodySize>
 								<minPoison>0</minPoison>
 								<minJoy>0</minJoy>
@@ -5984,7 +6026,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>Flora_RawAloe</defName>
 		<label>Aloe</label>
-		<description>Medicinal plant with bactericidal properties.</description>
+		<description>Medicinal plant with bactericidal properties. Can be used in alchemy as a poison blocker.</description>
 		<graphicData>
 			<texPath>Core/Plants/PlantsThings/Flora_RawAloe</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -6190,8 +6232,8 @@
 		<stages>
 			<li>
 				<label>easy</label>
-				<totalBleedFactor>0.95</totalBleedFactor>
-				<naturalHealingFactor>1.02</naturalHealingFactor>
+				<totalBleedFactor>0.90</totalBleedFactor>
+				<naturalHealingFactor>1.1</naturalHealingFactor>
 				<capMods>
 					<li>
 						<capacity>Consciousness</capacity>
@@ -6202,8 +6244,8 @@
 			<li>
 				<label>medium</label>
 				<minSeverity>0.5</minSeverity>
-				<totalBleedFactor>0.9</totalBleedFactor>
-				<naturalHealingFactor>1.05</naturalHealingFactor>
+				<totalBleedFactor>0.85</totalBleedFactor>
+				<naturalHealingFactor>1.15</naturalHealingFactor>
 				<capMods>
 					<li>
 						<capacity>Consciousness</capacity>
@@ -6214,8 +6256,8 @@
 			<li>
 				<label>severe</label>
 				<minSeverity>0.8</minSeverity>
-				<totalBleedFactor>0.85</totalBleedFactor>
-				<naturalHealingFactor>1.1</naturalHealingFactor>
+				<totalBleedFactor>0.80</totalBleedFactor>
+				<naturalHealingFactor>1.2</naturalHealingFactor>
 				<capMods>
 					<li>
 						<capacity>Consciousness</capacity>
@@ -6237,7 +6279,7 @@
 		<isBad>false</isBad>
 		<comps>
 			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>-1.5</severityPerDay>
+				<severityPerDay>-1.2</severityPerDay>
 				<showHoursToRecover>true</showHoursToRecover>
 			</li>
 		</comps>

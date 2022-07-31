@@ -2596,6 +2596,9 @@
 			<Crafting>4</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
 		<defName>Make_Bulk_I_SimplePlates</defName>
@@ -2640,6 +2643,9 @@
 			<Crafting>4</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+		</recipeUsers>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
@@ -2705,6 +2711,9 @@
 			<Crafting>4</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
 		<defName>Make_Bulk_I_StrongPlates</defName>
@@ -2770,6 +2779,9 @@
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
 			</li>
 		</modExtensions>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
 		<defName>Make_I_SuperStrongPlates</defName>
@@ -2823,6 +2835,9 @@
 			<Crafting>5</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
 		<defName>Make_Bulk_I_SuperStrongPlates</defName>
@@ -2888,6 +2903,9 @@
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
 			</li>
 		</modExtensions>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
 		<defName>Make_I_SimpleRepairKit</defName>
@@ -3577,6 +3595,9 @@
 					<categories>
 						<li>CorpsesHumanlike</li>
 					</categories>
+					<disallowedCategories>
+						<li>CorpsesMechanoid</li>
+					</disallowedCategories>
 				</filter>
 				<count>1</count>
 			</li>
@@ -3585,6 +3606,9 @@
 			<categories>
 				<li>CorpsesHumanlike</li>
 			</categories>
+			<disallowedCategories>
+				<li>CorpsesMechanoid</li>
+			</disallowedCategories>
 		</fixedIngredientFilter>
 		<products>
 		</products>
@@ -3632,4 +3656,138 @@
 			</li>
 		</modExtensions>
 	</RecipeDef>
+	<RecipeDef ParentName="MakePawnCocconBase">
+		<defName>Make_Arachnids_Scholary</defName>
+		<label>Make arachnid scholary</label>
+		<description>Make arachnid scholary.</description>
+		<jobString>Making arachnid scholary.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workAmount>3000</workAmount>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipePawnMaker">
+				<pawnKindDef>Newborn_Arachnid_Scholary</pawnKindDef>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef ParentName="MakePawnCocconBase">
+		<defName>Make_Arachnids_Bombardier</defName>
+		<label>Make arachnid bombardier</label>
+		<description>Make arachnid bombardier.</description>
+		<jobString>Making arachnid bombardier.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workAmount>2500</workAmount>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipePawnMaker">
+				<pawnKindDef>Newborn_Arachnid_Bombardier</pawnKindDef>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef Name="ProcessChunkSlagSteelBase" Abstract="true">
+		<label>Process metal chunk</label>
+		<description>Process metal chunk.</description>
+		<jobString>Processing metal chunk</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workAmount>300</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ChunkSlagSteel</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<products>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ChunkSlagSteel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+	<RecipeDef ParentName="ProcessChunkSlagSteelBase">
+		<defName>Make_I_ProcessChunkSlagSteel</defName>
+		<recipeUsers>
+			<li>Crucible</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef ParentName="ProcessChunkSlagSteelBase">
+		<defName>Make_II_ProcessChunkSlagSteel</defName>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>BurnSeeds</defName>
+		<label>burn seeds</label>
+		<description>Burn seeds.</description>
+		<jobString>burning seeds.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workAmount>50</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>SeedsCategory</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<products>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>SeedsCategory</li>
+			</categories>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+			<li>Crucible</li>
+			<li>Campfire</li>
+			<li>CookingFurnace</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>BurnSeedsBulk</defName>
+		<label>burn seeds x10</label>
+		<description>Burn seeds.</description>
+		<jobString>burning seeds.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workAmount>500</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>SeedsCategory</li>
+					</categories>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>SeedsCategory</li>
+			</categories>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>MeltingFurnace</li>
+			<li>Crucible</li>
+			<li>Campfire</li>
+			<li>CookingFurnace</li>
+		</recipeUsers>
+	</RecipeDef>
+
 </Defs>

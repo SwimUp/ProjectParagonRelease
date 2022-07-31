@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AbilityDef>
+		<defName>AcidBombing</defName>
+		<label>acid bombing</label>
+		<description>A deadly acid shot from modified arachnid gastric juices.</description>
+		<!--<gizmoClass>ProjectParagon.Core.Things.Pawns.Command_AcidBombing</gizmoClass>-->
+		<abilityClass>ProjectParagon.Core.Things.Pawns.Ability_AcidBombing</abilityClass>
+		<targetRequired>true</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<iconPath>Core/UI/Special/AcidBombing</iconPath>
+		<stunTargetWhileCasting>false</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+		<uiOrder>0.00001</uiOrder>
+		<warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+		<statBases>
+			<Ability_EffectRadius>3</Ability_EffectRadius>
+		</statBases>
+		<jobDef>UseVerbOnThingStatic</jobDef>
+		<verbProperties Class="CombatExtended.VerbPropertiesCE">
+			<verbClass>ProjectParagon.Core.Abilities.Verb_Ability_LaunchProjectileStaticCE</verbClass>
+			<defaultProjectile>Projectile_AcidBombing</defaultProjectile>
+			<warmupTime>1.5</warmupTime>
+			<range>25</range>
+			<drawAimPie>true</drawAimPie>
+			<requireLineOfSight>true</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+</Defs>

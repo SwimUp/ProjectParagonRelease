@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<PawnKindDef Name="ZorgBase" Abstract="True">
+		<race>ZorgRace</race>
+		<defaultFactionType>ZorgBloodyHost</defaultFactionType>
+		<chemicalAddictionChance>0.05</chemicalAddictionChance>
+		<backstoryCryptosleepCommonality>0.0</backstoryCryptosleepCommonality>
+		<invNutrition>0.0</invNutrition>
+		<biocodeWeaponChance>0.0</biocodeWeaponChance>
+		<initialWillRange>0~1</initialWillRange>
+		<initialResistanceRange>25~40</initialResistanceRange>
+		<apparelMoney>9999~9999</apparelMoney>
+		<techHediffsChance>0</techHediffsChance>
+	</PawnKindDef>
+	<PawnKindDef ParentName="ZorgBase">
+		<defName>Zorg_Chief</defName>
+		<label>Chief</label>
+		<combatPower>150</combatPower>
+		<gearHealthRange>0.85~1.0</gearHealthRange>
+		<itemQuality>Good</itemQuality>
+		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
+		<factionLeader>true</factionLeader>
+		<apparelTags>
+			<li>MedievalMilitaryLight</li>
+			<li>Neolithic</li>
+			<li>Backpack</li>
+		</apparelTags>
+		<weaponMoney>300~800</weaponMoney>
+		<weaponTags>
+			<li>MedievalMeleeShortSwords</li>
+		</weaponTags>
+		<techHediffsMoney>300~400</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.1</techHediffsChance>
+		<inventoryOptions>
+			<skipChance>0.0</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>RoastedMeat</thingDef>
+					<countRange>1~4</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.5</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+						<li>MiscCombat</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~3</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~20000</basicXpForSubSpec>
+						<randomSpecGenCount>3~5</randomSpecGenCount>
+						<maxPassions>
+							<Minor>5~10</Minor>
+							<Major>2~5</Major>
+						</maxPassions>
+						<specs>
+							<li>
+								<specDef>Swords</specDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</specs>
+						<subSpecs>
+							<li>
+								<subSpecDef>ShortSwords</subSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</subSpecs>
+						<weaponSpecs>
+							<li>
+								<weaponSubSpecDef>ShortSwords</weaponSubSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</weaponSpecs>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="ZorgBase">
+		<defName>Zorg_HeavyWarrior</defName>
+		<label>Heavy warrior</label>
+		<combatPower>150</combatPower>
+		<gearHealthRange>0.85~1.0</gearHealthRange>
+		<itemQuality>Good</itemQuality>
+		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
+		<factionLeader>false</factionLeader>
+		<apparelTags>
+			<li>MedievalMilitaryLight</li>
+			<li>Neolithic</li>
+			<li>Backpack</li>
+		</apparelTags>
+		<weaponMoney>300~800</weaponMoney>
+		<weaponTags>
+			<li>MedievalMeleeShortSwords</li>
+		</weaponTags>
+		<techHediffsMoney>300~400</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.1</techHediffsChance>
+		<inventoryOptions>
+			<skipChance>0.0</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>RoastedMeat</thingDef>
+					<countRange>1~4</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.4</skillChance>
+					<skillsCount>0~1</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+						<li>MiscCombat</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~3</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~22000</basicXpForSubSpec>
+						<randomSpecGenCount>3~5</randomSpecGenCount>
+						<maxPassions>
+							<Minor>3~8</Minor>
+							<Major>2~3</Major>
+						</maxPassions>
+						<specs>
+							<li>
+								<specDef>Swords</specDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</specs>
+						<subSpecs>
+							<li>
+								<subSpecDef>ShortSwords</subSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</subSpecs>
+						<weaponSpecs>
+							<li>
+								<weaponSubSpecDef>ShortSwords</weaponSubSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</weaponSpecs>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="ZorgBase">
+		<defName>Zorg_Warrior</defName>
+		<label>Warrior</label>
+		<combatPower>130</combatPower>
+		<gearHealthRange>0.85~1.0</gearHealthRange>
+		<itemQuality>Good</itemQuality>
+		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
+		<factionLeader>false</factionLeader>
+		<apparelTags>
+			<li>Neolithic</li>
+			<li>Backpack</li>
+		</apparelTags>
+		<weaponMoney>300~800</weaponMoney>
+		<weaponTags>
+			<li>MedievalMeleeShortSwords</li>
+		</weaponTags>
+		<techHediffsMoney>300~400</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.1</techHediffsChance>
+		<inventoryOptions>
+			<skipChance>0.0</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>RoastedMeat</thingDef>
+					<countRange>1~4</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.4</skillChance>
+					<skillsCount>0~1</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+						<li>MiscCombat</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~3</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~18000</basicXpForSubSpec>
+						<randomSpecGenCount>3~5</randomSpecGenCount>
+						<maxPassions>
+							<Minor>2~7</Minor>
+							<Major>1~3</Major>
+						</maxPassions>
+						<specs>
+							<li>
+								<specDef>Swords</specDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</specs>
+						<subSpecs>
+							<li>
+								<subSpecDef>ShortSwords</subSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</subSpecs>
+						<weaponSpecs>
+							<li>
+								<weaponSubSpecDef>ShortSwords</weaponSubSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</weaponSpecs>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="ZorgBase">
+		<defName>Zorg_Captive</defName>
+		<label>Captive</label>
+		<combatPower>70</combatPower>
+		<gearHealthRange>0.85~1.0</gearHealthRange>
+		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
+		<factionLeader>false</factionLeader>
+		<apparelTags>
+			<li>Neolithic</li>
+			<li>Backpack</li>
+		</apparelTags>
+		<weaponMoney>300~500</weaponMoney>
+		<weaponTags>
+			<li>MedievalMeleeShortSwords</li>
+		</weaponTags>
+		<techHediffsMoney>300~400</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.1</techHediffsChance>
+		<inventoryOptions>
+			<skipChance>0.0</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>RoastedMeat</thingDef>
+					<countRange>1~2</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~10000</basicXpForSubSpec>
+						<randomSpecGenCount>1~2</randomSpecGenCount>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="ZorgBase">
+		<defName>Zorg_Hunter</defName>
+		<label>Hunter</label>
+		<combatPower>100</combatPower>
+		<gearHealthRange>0.85~1.0</gearHealthRange>
+		<itemQuality>Good</itemQuality>
+		<apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
+		<factionLeader>false</factionLeader>
+		<apparelTags>
+			<li>Neolithic</li>
+			<li>Backpack</li>
+		</apparelTags>
+		<weaponMoney>300~800</weaponMoney>
+		<weaponTags>
+			<li>MedievalShootingShortBows</li>
+			<li>MedievalShootingLongBows</li>
+		</weaponTags>
+		<techHediffsMoney>300~400</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.1</techHediffsChance>
+		<inventoryOptions>
+			<skipChance>0.0</skipChance>
+			<subOptionsChooseOne>
+				<li>
+					<thingDef>RoastedMeat</thingDef>
+					<countRange>1~4</countRange>
+				</li>
+			</subOptionsChooseOne>
+		</inventoryOptions>
+		<requiredWorkTags>
+			<li>Violent</li>
+		</requiredWorkTags>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>20</min>
+					<max>40</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<generateChance>0.5</generateChance>
+						<sidearmMoney>
+							<min>50</min>
+							<max>120</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>CE_Sidearm_Melee</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~1</skillsCount>
+					<allowedTags>
+						<li>Shooting</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~15000</basicXpForSubSpec>
+						<randomSpecGenCount>1~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~8</Minor>
+							<Major>0~3</Major>
+						</maxPassions>
+						<specs>
+							<li>
+								<specDef>Bows</specDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</specs>
+						<subSpecs>
+							<li>
+								<subSpecDef>ShortBows</subSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+							<li>
+								<subSpecDef>LongBows</subSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</subSpecs>
+						<weaponSpecs>
+							<li>
+								<weaponSubSpecDef>ShortBows</weaponSubSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+							<li>
+								<weaponSubSpecDef>LongBows</weaponSubSpecDef>
+								<passions>
+									<li>
+										<specPassion>None</specPassion>
+										<commonality>70</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 0.7)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Minor</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+									<li>
+										<specPassion>Major</specPassion>
+										<commonality>15</commonality>
+										<curveBySkillDef>
+											<points>
+												<li>(0, 1)</li>
+												<li>(20, 2)</li>
+											</points>
+										</curveBySkillDef>
+									</li>
+								</passions>
+							</li>
+						</weaponSpecs>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+</Defs>

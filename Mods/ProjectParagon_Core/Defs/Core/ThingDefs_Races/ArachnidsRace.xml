@@ -8,6 +8,7 @@
 			<PsychicSensitivity>0.5</PsychicSensitivity>
 			<ComfyTemperatureMin>-30</ComfyTemperatureMin>
 			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+			<ToxicSensitivity>0.25</ToxicSensitivity>
 			<MarketValue>1250</MarketValue>
 			<Mass>70</Mass>
 			<MoveSpeed>4.5</MoveSpeed>
@@ -110,7 +111,7 @@
 				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>-->
 			</raceRestriction>
 			<generalSettings>
-				<humanRecipeImport>false</humanRecipeImport>
+				<humanRecipeImport>true</humanRecipeImport>
 				<alienPartGenerator>
 					<customDrawSize>(1.25, 1.2)</customDrawSize>
 					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
@@ -212,6 +213,8 @@
 				<notXenophobistTowards>
 					<li>Alien_Arachnids_Soldier</li>
 					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
 				</notXenophobistTowards>
 			</generalSettings>
 			<graphicPaths>
@@ -364,6 +367,7 @@
 			<PsychicSensitivity>0.5</PsychicSensitivity>
 			<ComfyTemperatureMin>-30</ComfyTemperatureMin>
 			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+			<ToxicSensitivity>0.25</ToxicSensitivity>
 			<MarketValue>1500</MarketValue>
 			<Mass>90</Mass>
 			<MoveSpeed>3.7</MoveSpeed>
@@ -476,7 +480,7 @@
 				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
 			</raceRestriction>
 			<generalSettings>
-				<humanRecipeImport>false</humanRecipeImport>
+				<humanRecipeImport>true</humanRecipeImport>
 				<alienPartGenerator>
 					<customDrawSize>(1.25, 1.2)</customDrawSize>
 					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
@@ -578,6 +582,8 @@
 				<notXenophobistTowards>
 					<li>Alien_Arachnids_Worker</li>
 					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
 				</notXenophobistTowards>
 			</generalSettings>
 			<graphicPaths>
@@ -744,6 +750,7 @@
 			<PsychicSensitivity>0.5</PsychicSensitivity>
 			<ComfyTemperatureMin>-30</ComfyTemperatureMin>
 			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+			<ToxicSensitivity>0.25</ToxicSensitivity>
 			<MarketValue>2000</MarketValue>
 			<Mass>150</Mass>
 			<MoveSpeed>3.8</MoveSpeed>
@@ -873,7 +880,7 @@
 				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
 			</raceRestriction>
 			<generalSettings>
-				<humanRecipeImport>false</humanRecipeImport>
+				<humanRecipeImport>true</humanRecipeImport>
 				<alienPartGenerator>
 					<customDrawSize>(1.25, 1.2)</customDrawSize>
 					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
@@ -981,6 +988,8 @@
 				<notXenophobistTowards>
 					<li>Alien_Arachnids_Soldier</li>
 					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
 				</notXenophobistTowards>
 			</generalSettings>
 			<graphicPaths>
@@ -1132,6 +1141,632 @@
 					<li>Diseases_HediffDef_MotorParalysis</li>
 					<li>Diseases_HediffDef_PainNumbnessSyndrome</li>
 				</allowedDiseases>
+			</li>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+		</modExtensions>
+	</AlienRace.ThingDef_AlienRace>
+	<AlienRace.ThingDef_AlienRace ParentName="ParagonBasePawn">
+		<defName>Alien_Arachnids_Scholary</defName>
+		<label>Arachnid scholary</label>
+		<description>A one of a kind arachnid with a semblance of scientific thinking. He is able to collate data and facts while doing research. A rather demanding and frail representative of the species, which, however, is often the core of the hive.</description>
+		<statBases>
+			<PsychicSensitivity>0.5</PsychicSensitivity>
+			<ComfyTemperatureMin>-30</ComfyTemperatureMin>
+			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+			<ToxicSensitivity>0.25</ToxicSensitivity>
+			<MarketValue>1500</MarketValue>
+			<Mass>70</Mass>
+			<MoveSpeed>3</MoveSpeed>
+			<Flammability>2</Flammability>
+			<MeatAmount>30</MeatAmount>
+			<LeatherAmount>10</LeatherAmount>
+			<CarryingCapacity>40</CarryingCapacity>
+			<MiningSpeed>0.25</MiningSpeed>
+			<ArmorRating_Blunt>0</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0</ArmorRating_Sharp>
+			<MeleeDodgeChance>0.05</MeleeDodgeChance>
+			<MeleeCritChance>0.05</MeleeCritChance>
+			<NightVisionEfficiency>1</NightVisionEfficiency>
+			<BloodAmountPawn>3.25</BloodAmountPawn>
+			<BloodTransfusionIntolerance>0.0015</BloodTransfusionIntolerance>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left paw</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right paw</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>jaw</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.07</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<alienRace>
+			<raceRestriction>
+				<apparelList>
+					<li>Apparel_Loincloth</li>
+					<li>Apparel_Backpack</li>
+					<li>Apparel_TribalBackpack</li>
+				</apparelList>
+				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+			</raceRestriction>
+			<generalSettings>
+				<humanRecipeImport>true</humanRecipeImport>
+				<alienPartGenerator>
+					<customDrawSize>(1.25, 1.2)</customDrawSize>
+					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+					<alienbodytypes>
+						<li>Thin</li>
+					</alienbodytypes>
+					<useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies>
+					<aliencrowntypes>
+						<li>Average_Normal</li>
+					</aliencrowntypes>
+					<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>15</weight>
+										<only>(126,104,94)</only>
+									</li>
+									<li>
+										<weight>15</weight>
+										<only>(158,153,135)</only>
+									</li>
+									<li>
+										<weight>15</weight>
+										<only>(132,135,132)</only>
+									</li>
+									<li>
+										<weight>1</weight>
+										<only>(85,118,69)</only>
+									</li>
+								</options>
+							</first>
+						</li>
+					</colorChannels>
+				</alienPartGenerator>
+				<maleGenderProbability>1</maleGenderProbability>
+				<forcedRaceTraitEntries>
+					<li>
+						<defName>Undergrounder</defName>
+						<chance>100</chance>
+					</li>
+					<li>
+						<defName>CreepyBreathing</defName>
+						<chance>50</chance>
+					</li>
+				</forcedRaceTraitEntries>
+				<disallowedTraits>
+					<li>
+						<defName>Kind</defName>
+					</li>
+					<li>
+						<defName>Ascetic</defName>
+					</li>
+					<li>
+						<defName>Wimp</defName>
+					</li>
+					<li>
+						<defName>TorturedArtist</defName>
+					</li>
+					<li>
+						<defName>Beauty</defName>
+						<degree>1</degree>
+					</li>
+					<li>
+						<defName>Beauty</defName>
+						<degree>2</degree>
+					</li>
+					<li>
+						<defName>TP_Elegance</defName>
+					</li>
+				</disallowedTraits>
+				<notXenophobistTowards>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Bombardier</li>
+				</notXenophobistTowards>
+			</generalSettings>
+			<graphicPaths>
+				<li>
+					<headOffset>(0,	-0.3)</headOffset>
+					<body>Core/Races/Arachnids/Scholary/Body/</body>
+					<head>Core/Races/Arachnids/Scholary/Head/</head>
+					<skeleton>Core/Races/Arachnids/Scholary/Body/Naked_Thin_east</skeleton>
+					<skull>Core/Races/Arachnids/Scholary/Head/Average_Normal_south</skull>
+				</li>
+			</graphicPaths>
+			<styleSettings>
+				<li>
+					<key>HairDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>TattooDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>BeardDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+			</styleSettings>
+		</alienRace>
+		<race>
+			<thinkTreeMain>Humanlike</thinkTreeMain>
+			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<intelligence>Humanlike</intelligence>
+			<makesFootprints>true</makesFootprints>
+			<lifeExpectancy>30</lifeExpectancy>
+			<bloodDef>Filth_Blood</bloodDef>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<leatherDef>Thick_Leather</leatherDef>
+			<nameCategory>HumanStandard</nameCategory>
+			<body>ArachnidScholary</body>
+			<baseBodySize>1.0</baseBodySize>
+			<baseHealthScale>0.5</baseHealthScale>
+			<baseHungerRate>2.5</baseHungerRate>
+			<foodType>OmnivoreHuman</foodType>
+			<gestationPeriodDays>100</gestationPeriodDays>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<specialShadowData>
+				<volume>(0.3, 0.8, 0.4)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li>(16,0)</li>
+					<li>(20,100)</li>
+					<li>(30,10)</li>
+					<li>(40,0)</li>
+				</points>
+			</ageGenerationCurve>
+			<hediffGiverSets>
+				<li>OrganicInsect</li>
+				<li>OrganicArachnidGroup</li>
+			</hediffGiverSets>
+		</race>
+		<recipes>
+			<li>ExciseCarcinoma</li>
+			<li>AdministerMechSerumHealer</li>
+			<li>RemoveBodyPart</li>
+			<li>Euthanize</li>
+			<li>Anesthetize</li>
+			<li>CureScaria</li>
+			<li MayRequire="Ludeon.RimWorld.Royalty">CureBloodRot</li>
+			<li MayRequire="Ludeon.RimWorld.Royalty">CureAbasia</li>
+		</recipes>
+		<butcherProducts>
+		</butcherProducts>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnGizmos">
+				<drawCommands>
+					<li Class="ProjectParagon.Core.Things.Pawns.Command_DoKeratinization">
+						<safeTemperatureRange>10~20</safeTemperatureRange>
+					</li>
+				</drawCommands>
+			</li>
+			<li>
+				<compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+			<li Class="CombatExtended.CompProperties_Suppressable"/>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnParagon"/>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<overrideMeatDef>Meat_Human</overrideMeatDef>
+				<bloodDef>ArachnidBlood</bloodDef>
+				<allowedDiseases>
+					<li>Flu</li>
+					<li>Plague</li>
+					<li>SleepingSickness</li>
+					<li>FibrousMechanites</li>
+					<li>SensoryMechanites</li>
+					<li>MuscleParasites</li>
+					<li>Diseases_HediffDef_Pneumonia</li>
+					<li>Diseases_HediffDef_CommonCold</li>
+					<li>Diseases_HediffDef_Tuberculosis</li>
+					<li>Diseases_HediffDef_Conjunctivitis</li>
+					<li>Diseases_HediffDef_Otitis</li>
+					<li>Carapace_Parasites</li>
+					<li>RapidAging</li>
+					<li>TemporaryBlindness</li>
+					<li>Diseases_HediffDef_Immunodeficiency</li>
+					<li>Diseases_HediffDef_MotorParalysis</li>
+					<li>Diseases_HediffDef_PainNumbnessSyndrome</li>
+				</allowedDiseases>
+				<defaultRaceLanguage>Xana</defaultRaceLanguage>
+			</li>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+		</modExtensions>
+	</AlienRace.ThingDef_AlienRace>
+	<AlienRace.ThingDef_AlienRace ParentName="ParagonBasePawn">
+		<defName>Alien_Arachnids_Bombardier</defName>
+		<label>Arachnid bombardier</label>
+		<description>A one of a kind arachnid with a semblance of scientific thinking. He is able to collate data and facts while doing research. A rather demanding and frail representative of the species, which, however, is often the core of the hive.</description>
+		<statBases>
+			<PsychicSensitivity>0.5</PsychicSensitivity>
+			<ComfyTemperatureMin>-30</ComfyTemperatureMin>
+			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+			<ToxicSensitivity>0</ToxicSensitivity>
+			<MarketValue>1350</MarketValue>
+			<Mass>100</Mass>
+			<MoveSpeed>3.5</MoveSpeed>
+			<Flammability>2</Flammability>
+			<MeatAmount>45</MeatAmount>
+			<LeatherAmount>25</LeatherAmount>
+			<CarryingCapacity>50</CarryingCapacity>
+			<MiningSpeed>0.25</MiningSpeed>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1</ArmorRating_Sharp>
+			<MeleeDodgeChance>0.05</MeleeDodgeChance>
+			<MeleeCritChance>0.05</MeleeCritChance>
+			<NightVisionEfficiency>1</NightVisionEfficiency>
+			<BloodAmountPawn>5</BloodAmountPawn>
+			<BloodTransfusionIntolerance>0.0015</BloodTransfusionIntolerance>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left paw</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right paw</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>jaw</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.07</chanceFactor>
+				<armorPenetrationBlunt>3</armorPenetrationBlunt>
+				<armorPenetrationSharp>1.5</armorPenetrationSharp>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<alienRace>
+			<raceRestriction>
+				<apparelList>
+					<li>Apparel_Loincloth</li>
+					<li>Apparel_Backpack</li>
+					<li>Apparel_TribalBackpack</li>
+				</apparelList>
+				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+			</raceRestriction>
+			<generalSettings>
+				<humanRecipeImport>true</humanRecipeImport>
+				<alienPartGenerator>
+					<customDrawSize>(1.25, 1.2)</customDrawSize>
+					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+					<alienbodytypes>
+						<li>Thin</li>
+					</alienbodytypes>
+					<useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies>
+					<aliencrowntypes>
+						<li>Average_Normal</li>
+					</aliencrowntypes>
+					<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>10</weight>
+										<only>(126,104,94)</only>
+									</li>
+									<li>
+										<weight>10</weight>
+										<only>(105,95,97)</only>
+									</li>
+									<li>
+										<weight>10</weight>
+										<only>(158,153,135)</only>
+									</li>
+									<li>
+										<weight>10</weight>
+										<only>(70,70,70)</only>
+									</li>
+									<li>
+										<weight>10</weight>
+										<only>(132,135,132)</only>
+									</li>
+									<li>
+										<weight>1</weight>
+										<only>(85,118,69)</only>
+									</li>
+								</options>
+							</first>
+						</li>
+					</colorChannels>
+				</alienPartGenerator>
+				<maleGenderProbability>1</maleGenderProbability>
+				<forcedRaceTraitEntries>
+					<li>
+						<defName>Undergrounder</defName>
+						<chance>100</chance>
+					</li>
+					<li>
+						<defName>CreepyBreathing</defName>
+						<chance>50</chance>
+					</li>
+				</forcedRaceTraitEntries>
+				<disallowedTraits>
+					<li>
+						<defName>Kind</defName>
+					</li>
+					<li>
+						<defName>Ascetic</defName>
+					</li>
+					<li>
+						<defName>Wimp</defName>
+					</li>
+					<li>
+						<defName>TorturedArtist</defName>
+					</li>
+					<li>
+						<defName>Beauty</defName>
+						<degree>1</degree>
+					</li>
+					<li>
+						<defName>Beauty</defName>
+						<degree>2</degree>
+					</li>
+					<li>
+						<defName>TP_Elegance</defName>
+					</li>
+				</disallowedTraits>
+				<notXenophobistTowards>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Scholary</li>
+				</notXenophobistTowards>
+			</generalSettings>
+			<graphicPaths>
+				<li>
+					<customDrawSize>1.8</customDrawSize>
+					<customHeadDrawSize>1.8</customHeadDrawSize>
+					<headOffset>(0,	-0.2)</headOffset>
+					<body>Core/Races/Arachnids/Bombardier/Body/</body>
+					<head>Core/Races/Arachnids/Bombardier/Head/</head>
+					<skeleton>Core/Races/Arachnids/Bombardier/Body/Naked_Thin_east</skeleton>
+					<skull>Core/Races/Arachnids/Bombardier/Head/Average_Normal_south</skull>
+				</li>
+			</graphicPaths>
+			<styleSettings>
+				<li>
+					<key>HairDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>TattooDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>BeardDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+			</styleSettings>
+		</alienRace>
+		<race>
+			<thinkTreeMain>Humanlike</thinkTreeMain>
+			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<intelligence>Humanlike</intelligence>
+			<makesFootprints>true</makesFootprints>
+			<lifeExpectancy>30</lifeExpectancy>
+			<bloodDef>Filth_Blood</bloodDef>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<leatherDef>Thick_Leather</leatherDef>
+			<nameCategory>HumanStandard</nameCategory>
+			<body>ArachnidBombardier</body>
+			<baseBodySize>1.0</baseBodySize>
+			<baseHealthScale>1.3</baseHealthScale>
+			<baseHungerRate>2</baseHungerRate>
+			<foodType>OmnivoreHuman</foodType>
+			<gestationPeriodDays>100</gestationPeriodDays>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<specialShadowData>
+				<volume>(0.3, 0.8, 0.4)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li>(16,0)</li>
+					<li>(20,100)</li>
+					<li>(30,10)</li>
+					<li>(40,0)</li>
+				</points>
+			</ageGenerationCurve>
+			<hediffGiverSets>
+				<li>OrganicInsect</li>
+				<li>OrganicArachnidGroup</li>
+			</hediffGiverSets>
+		</race>
+		<recipes>
+			<li>ExciseCarcinoma</li>
+			<li>AdministerMechSerumHealer</li>
+			<li>RemoveBodyPart</li>
+			<li>Euthanize</li>
+			<li>Anesthetize</li>
+			<li>CureScaria</li>
+			<li MayRequire="Ludeon.RimWorld.Royalty">CureBloodRot</li>
+			<li MayRequire="Ludeon.RimWorld.Royalty">CureAbasia</li>
+		</recipes>
+		<butcherProducts>
+		</butcherProducts>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnGizmos">
+				<drawCommands>
+					<li Class="ProjectParagon.Core.Things.Pawns.Command_DoKeratinization">
+						<safeTemperatureRange>10~20</safeTemperatureRange>
+					</li>
+				</drawCommands>
+			</li>
+			<li>
+				<compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+			<li Class="CombatExtended.CompProperties_Suppressable"/>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnParagon"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ArachnidBombardier">
+				<acidPerSecond>0.0005</acidPerSecond>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_GiveAbility">
+				<abilitiesCount>1</abilitiesCount>
+				<abilityDefs>
+					<li>AcidBombing</li>
+				</abilityDefs>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<overrideMeatDef>Meat_Human</overrideMeatDef>
+				<bloodDef>ArachnidBlood</bloodDef>
+				<allowedDiseases>
+					<li>Flu</li>
+					<li>Plague</li>
+					<li>SleepingSickness</li>
+					<li>FibrousMechanites</li>
+					<li>SensoryMechanites</li>
+					<li>MuscleParasites</li>
+					<li>Diseases_HediffDef_Pneumonia</li>
+					<li>Diseases_HediffDef_CommonCold</li>
+					<li>Diseases_HediffDef_Tuberculosis</li>
+					<li>Diseases_HediffDef_Conjunctivitis</li>
+					<li>Diseases_HediffDef_Otitis</li>
+					<li>Carapace_Parasites</li>
+					<li>RapidAging</li>
+					<li>TemporaryBlindness</li>
+					<li>Diseases_HediffDef_Immunodeficiency</li>
+					<li>Diseases_HediffDef_MotorParalysis</li>
+					<li>Diseases_HediffDef_PainNumbnessSyndrome</li>
+				</allowedDiseases>
+				<defaultRaceLanguage>Xana</defaultRaceLanguage>
 			</li>
 			<li Class="CombatExtended.RacePropertiesExtensionCE">
 				<bodyShape>Humanoid</bodyShape>
