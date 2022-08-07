@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>PainImpulse</defName>
+		<label>Pain impulse</label>
+		<description>A wave of mental irritation and pain envelops the target's mind, suppressing the will and motor functions for a short period of time.</description>
+		<level>1</level>
+		<iconPath>Core/UI/Abilities/PainImpulse</iconPath>
+		<statBases>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.04</Ability_PsyfocusCost>
+			<Ability_Duration>120</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>1.0</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PainWave</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>PainWave</defName>
+		<label>Pain wave</label>
+		<description>Psychically-induced pain.</description>
+		<isBad>true</isBad>
+		<stages>
+			<li>
+				<painOffset>0.3</painOffset>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>Dash</defName>
+		<label>Dash</label>
+		<description>You give the target momentum, making it move much faster.</description>
+		<level>1</level>
+		<iconPath>Core/UI/Abilities/Dash</iconPath>
+		<statBases>
+			<Ability_EntropyGain>20</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+			<Ability_Duration>60</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.25</warmupTime>
+			<range>25.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Dash</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>Dash</defName>
+		<label>Dash</label>
+		<description>Instant acceleration created by psionic waves.</description>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statFactors>
+					<MoveSpeed>2.0</MoveSpeed>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<AbilityDef ParentName="WordOfBase">
+		<defName>WordOfConfidence</defName>
+		<label>Word of confidence</label>
+		<description>You are embedded in the trust of the target, acting on her thoughts and making her believe in yourself. The productivity of the target increases.</description>
+		<level>2</level>
+		<iconPath>Core/UI/Abilities/WordOfConfidence</iconPath>
+		<statBases>
+			<Ability_PsyfocusCost>0.4</Ability_PsyfocusCost>
+			<Ability_Duration>5000</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>2</warmupTime>
+			<targetParams>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>WordOfConfidence</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<onlyBrain>True</onlyBrain>
+				<psychic>True</psychic>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilitySocialInteraction">
+				<interactionDef>WordOfJoy</interactionDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>WordOfConfidence</defName>
+		<label>Confidence</label>
+		<description>Artificially induced self-confidence.</description>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statFactors>
+					<WorkSpeedGlobal>1.3</WorkSpeedGlobal>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<AbilityDef ParentName="WordOfBase">
+		<defName>BreathOfLife</defName>
+		<label>Breath of life</label>
+		<description>You force the target's body to fight for its life by disabling motor functions and accelerating tissue regeneration.</description>
+		<level>2</level>
+		<iconPath>Core/UI/Abilities/BreathOfLife</iconPath>
+		<statBases>
+			<Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+			<Ability_EntropyGain>40</Ability_EntropyGain>
+			<Ability_Duration>1000</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>3</warmupTime>
+			<targetParams>
+				<onlyTargetColonists>True</onlyTargetColonists>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>BreathOfLife</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<onlyBrain>True</onlyBrain>
+				<psychic>True</psychic>
+				<applicableToMechs>False</applicableToMechs>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>TreantRace</li>
+					<li>DryadRace</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>BreathOfLife</defName>
+		<label>Breath of life</label>
+		<description>Suppression of motor centers and acceleration of regeneration.</description>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+				<totalBleedFactor>0.5</totalBleedFactor>
+				<naturalHealingFactor>2.0</naturalHealingFactor>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>MindControl</defName>
+		<label>Mind control</label>
+		<description>You can make the target move in a random direction.</description>
+		<level>2</level>
+		<iconPath>Core/UI/Abilities/MindControl</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<statBases>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+			<Ability_Duration>20</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.5</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetAnimals>True</canTargetAnimals>
+				<neverTargetIncapacitated>True</neverTargetIncapacitated>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityForceJob">
+				<compClass>CompAbilityEffect_ForceJob</compClass>
+				<jobDef>Goto</jobDef>
+				<destination>RandomInRange</destination>
+				<randomRange>40.0~56.0</randomRange>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>Concentration</defName>
+		<label>Concentration</label>
+		<description>Activation of neurons in the brain, temporarily increasing the concentration of the psionicist.</description>
+		<level>3</level>
+		<iconPath>Core/UI/Abilities/Concentration</iconPath>
+		<statBases>
+			<Ability_EntropyGain>20</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+			<Ability_Duration>180</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.5</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>false</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Concentration</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>Concentration</defName>
+		<label>Concentration</label>
+		<description>Artificially neuron activation.</description>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statFactors>
+					<PsychicEntropyMax>1.25</PsychicEntropyMax>
+					<PsychicEntropyRecoveryRate>1.25</PsychicEntropyRecoveryRate>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<!--<AbilityDef ParentName="PsycastBase">
+		<defName>Bastion</defName>
+		<label>Bastion</label>
+		<description>You endow the target with illusory protection while slowing it down.</description>
+		<level>3</level>
+		<iconPath>Core/UI/Abilities/Bastion</iconPath>
+		<statBases>
+			<Ability_EntropyGain>20</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.04</Ability_PsyfocusCost>
+			<Ability_Duration>180</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>1.0</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Bastion</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<AbilityDef ParentName="PsycastBase">
+		<defName>BreakingDefenses</defName>
+		<label>Breaking defenses</label>
+		<description>You act on the target's skin, exposing its vulnerable spots.</description>
+		<level>3</level>
+		<iconPath>Core/UI/Abilities/BreakingDefenses</iconPath>
+		<statBases>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.04</Ability_PsyfocusCost>
+			<Ability_Duration>180</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>1.0</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>BreakingDefenses</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>-->
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>PainWave</defName>
+		<label>Pain wave</label>
+		<description>A wave of mental irritation and pain envelops the target's mind, suppressing the will and motor functions for a short period of time. Can affect multiple targets simultaneously.</description>
+		<level>4</level>
+		<iconPath>Core/UI/Abilities/PainWave</iconPath>
+		<statBases>
+			<Ability_EntropyGain>50</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+			<Ability_Duration>180</Ability_Duration>
+			<Ability_EffectRadius>3</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<warmupTime>1.0</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+				<canTargetLocations>True</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PainWave</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>PanicScream</defName>
+		<label>Panic scream</label>
+		<description>You let out a terrible, soul-piercing scream that causes the target to flee.</description>
+		<level>5</level>
+		<iconPath>Core/UI/Abilities/PanicScream</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<statBases>
+			<Ability_EntropyGain>40</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.07</Ability_PsyfocusCost>
+			<Ability_Duration>30</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.25</warmupTime>
+			<range>20</range>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetAnimals>False</canTargetAnimals>
+				<neverTargetIncapacitated>True</neverTargetIncapacitated>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveMentalState">
+				<compClass>CompAbilityEffect_GiveMentalState</compClass>
+				<stateDef>PanicFlee</stateDef>
+				<psychic>True</psychic>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<goodwillImpact>-50</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBaseSkip">
+		<defName>Shelter</defName>
+		<label>Shelter</label>
+		<description>Create a short-term shelter from stone walls.</description>
+		<level>5</level>
+		<iconPath>Core/UI/Abilities/Shelter</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<statBases>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.2</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>2</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetPawns>False</canTargetPawns>
+				<canTargetLocations>True</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityWallraise">
+				<compClass>CompAbilityEffect_Wallraise</compClass>
+				<pattern>
+					<li>(0, 3)</li>
+					<li>(1, 3)</li>
+					<li>(-1, 3)</li>
+					<li>(2, 3)</li>
+					<li>(-2, 3)</li>
+					<li>(0, -3)</li>
+					<li>(1, -3)</li>
+					<li>(-1, -3)</li>
+					<li>(2, -3)</li>
+					<li>(-2, -3)</li>
+					<li>(3, 0)</li>
+					<li>(3, -1)</li>
+					<li>(3, 1)</li>
+					<li>(3, -2)</li>
+					<li>(3, 2)</li>
+					<li>(-3, 0)</li>
+					<li>(-3, -1)</li>
+					<li>(-3, 1)</li>
+					<li>(-3, -2)</li>
+					<li>(-3, 2)</li>
+					<li>(-3, 2)</li>
+					<li>(-3, 2)</li>
+				</pattern>
+				<screenShakeIntensity>1.0</screenShakeIntensity>
+				<clamorType>Ability</clamorType>
+				<clamorRadius>25</clamorRadius>
+				<sound>PsycastWallraise</sound>
+			</li>
+			<li Class="CompProperties_AbilityEffecterOnTarget">
+				<effecterDef>Skip_Exit</effecterDef>
+				<maintainForTicks>60</maintainForTicks>
+				<scale>1.55</scale>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDefs>
+					<li>PsycastSkipInnerExit</li>
+					<li>PsycastSkipOuterRingExit</li>
+				</fleckDefs>
+				<scale>1.55</scale>
+				<sound>Psycast_Skip_Exit</sound>
+				<preCastTicks>5</preCastTicks>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>EchoOfPanic</defName>
+		<label>Echo of panic</label>
+		<description>You create frightening vibrations in the air, causing targets in that radius to flee.</description>
+		<level>6</level>
+		<iconPath>Core/UI/Abilities/EchoOfPanic</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<statBases>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+			<Ability_Duration>30</Ability_Duration>
+			<Ability_EffectRadius>3</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<warmupTime>2</warmupTime>
+			<range>15.0</range>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetLocations>True</canTargetLocations>
+				<canTargetAnimals>false</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveMentalState">
+				<compClass>CompAbilityEffect_GiveMentalState</compClass>
+				<stateDef>PanicFlee</stateDef>
+				<psychic>True</psychic>
+				<goodwillImpact>-50</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>EnergyBlast</defName>
+		<label>Energy blast</label>
+		<description>The psionic is able to provoke an explosion of internal energy, which incapacitates all targets in a certain radius. This does not pass without consequences for the psionicist, plunging him into a long mental coma.</description>
+		<level>6</level>
+		<iconPath>Core/UI/Abilities/EnergyBlast</iconPath>
+		<jobDef>CastAbilityOnThingUninterruptible</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>True</canUseAoeToGetTargets>
+		<showPsycastEffects>False</showPsycastEffects>
+		<showCastingProgressBar>True</showCastingProgressBar>
+		<warmupMote>Mote_WarmupNeuroquake</warmupMote>
+		<warmupStartSound>Psycast_Neuroquake_CastStart</warmupStartSound>
+		<warmupSound>Psycast_Neuroquake_CastLoop</warmupSound>
+		<warmupPreEndSound>Psycast_Neuroquake_CastEnd</warmupPreEndSound>
+		<warmupPreEndSoundSeconds>2</warmupPreEndSoundSeconds>
+		<statBases>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.7</Ability_PsyfocusCost>
+			<Ability_EffectRadius>10</Ability_EffectRadius>
+			<Ability_Duration>5600</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>8</warmupTime>
+			<range>10</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PsychicComa</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<goodwillImpact>-30</goodwillImpact>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsychicApplyNeuroquake</fleckDef>
+				<sound>Psycast_Neuroquake_Effect</sound>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>EnergyCharge</defName>
+		<label>Energy charge</label>
+		<description>The psionicist summons a directed blast of energy that strikes targets within a small radius of itself. In this way, the psionicist avoids overload.</description>
+		<level>6</level>
+		<iconPath>Core/UI/Abilities/EnergyCharge</iconPath>
+		<warmupMote>Mote_WarmupNeuroquake</warmupMote>
+		<warmupStartSound>Psycast_Neuroquake_CastStart</warmupStartSound>
+		<warmupSound>Psycast_Neuroquake_CastLoop</warmupSound>
+		<warmupPreEndSound>Psycast_Neuroquake_CastEnd</warmupPreEndSound>
+		<statBases>
+			<Ability_EntropyGain>50</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.5</Ability_PsyfocusCost>
+			<Ability_EffectRadius>3.0</Ability_EffectRadius>
+			<Ability_Duration>4000</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>3</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetLocations>True</canTargetLocations>
+				<canTargetAnimals>false</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PsychicComa</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<goodwillImpact>-30</goodwillImpact>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsychicApplyNeuroquake</fleckDef>
+				<sound>Psycast_Neuroquake_Effect</sound>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+</Defs>

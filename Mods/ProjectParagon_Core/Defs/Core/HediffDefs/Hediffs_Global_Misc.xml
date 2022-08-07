@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
 	<HediffDef>
 		<defName>Leader</defName>
 		<label>Leader</label>
@@ -8,7 +7,6 @@
 		<initialSeverity>1</initialSeverity>
 		<defaultLabelColor>(0.3, 0.5, 1.0)</defaultLabelColor>
 	</HediffDef>
-	
 	<HediffDef>
 		<defName>LeaderAura</defName>
 		<label>Leader aura</label>
@@ -24,5 +22,52 @@
 			</li>
 		</stages>
 	</HediffDef>
-
+	<HediffDef>
+		<defName>Musculature</defName>
+		<label>Musculature</label>
+		<description>Reflects the development of the muscles of the whole body. Muscle training increases endurance, although it requires more nutrients for life.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.005</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>minor</label>
+			</li>
+			<li>
+				<minSeverity>0.25</minSeverity>
+				<label>normal</label>
+				<hungerRateFactor>1.05</hungerRateFactor>
+				<restFallFactor>0.95</restFallFactor>
+				<painFactor>0.95</painFactor>
+				<statOffsets>
+					<WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+				</statOffsets>
+			</li>
+			<li>
+				<minSeverity>0.5</minSeverity>
+				<label>good</label>
+				<hungerRateFactor>1.1</hungerRateFactor>
+				<restFallFactor>0.9</restFallFactor>
+				<painFactor>0.9</painFactor>
+				<statOffsets>
+					<WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+					<SocialImpact>0.1</SocialImpact>
+				</statOffsets>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<label>perfect</label>
+				<hungerRateFactor>1.15</hungerRateFactor>
+				<restFallFactor>0.85</restFallFactor>
+				<painFactor>0.85</painFactor>
+				<statOffsets>
+					<WorkSpeedGlobal>0.15</WorkSpeedGlobal>
+					<SocialImpact>0.25</SocialImpact>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
 </Defs>

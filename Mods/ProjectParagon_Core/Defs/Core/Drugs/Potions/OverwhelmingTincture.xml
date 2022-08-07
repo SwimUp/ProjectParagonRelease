@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>OverwhelmingTincture</defName>
+		<label>Prionic tincture</label>
+		<description>Mushrooms provide a calming effect by suppressing psionic activity.</description>
+		<descriptionHyperlinks>
+			<HediffDef>OverwhelmingTinctureHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Tincture/OverwhelmingTincture</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>800</WorkToMake>
+			<MarketValue>20</MarketValue>
+			<Mass>0.009</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.001</Nutrition>
+			<Protein>0.0</Protein>
+			<Fat>0.0</Fat>
+			<Carbohydrates>0.005</Carbohydrates>
+			<Vitamins>0.008</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<techLevel>Medieval</techLevel>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>OverwhelmingTinctureHigh</hediffDef>
+					<severity>1.0</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker>
+			<researchPrerequisite>Alchemy</researchPrerequisite>
+			<recipeUsers>
+				<li>AlchemyStance</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<Raw_GrandfatherBeard>4</Raw_GrandfatherBeard>
+			<Raw_Millechnik>4</Raw_Millechnik>
+			<WaterForBill>1</WaterForBill>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>OverwhelmingTinctureHigh</defName>
+		<label>high on overwhelming tincture</label>
+		<labelNoun>a overwhelming tincture high</labelNoun>
+		<description>Exposure to the elements of the tincture reduces psionic potential and causes drowsiness.</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1.0</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<restFallFactor>1.1</restFallFactor>
+				<statOffsets>
+					<PsychicSensitivity>0.9</PsychicSensitivity>
+				</statOffsets>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.4</minSeverity>
+				<restFallFactor>1.2</restFallFactor>
+				<statOffsets>
+					<PsychicSensitivity>0.7</PsychicSensitivity>
+				</statOffsets>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.7</minSeverity>
+				<restFallFactor>1.5</restFallFactor>
+				<statOffsets>
+					<PsychicSensitivity>0.5</PsychicSensitivity>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

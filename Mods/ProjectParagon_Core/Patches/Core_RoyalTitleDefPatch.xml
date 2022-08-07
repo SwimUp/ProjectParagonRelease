@@ -1,0 +1,1407 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RoyalTitleDef[defName="Acolyte"]</xpath>
+				<value>
+					<RoyalTitleDef ParentName="BaseEmpireTitle">
+						<defName>Acolyte</defName>
+						<label>acolyte</label>
+						<description>The title of acolyte is the first title of noble duty, and encompasses a wide range of practical positions. Some acolytes are purely students, learning to lead troops, manage societies, or use psycasts in specialized schools. Others come from wealthy families and might own city buildings or farm complexes.\n\nDuring wartime, an acolyte might lead a platoon of troops, captain a small frigate, or serve their lord as an advisor.\n\nTheir low rank within the nobility makes them paradoxically less useful as diplomats than yeomen. Sending a low-ranked acolyte to a negotiation can itself be seen as an insult, whereas a non-noble yeoman negotiator is seen only as the mouthpiece of his lord.</description>
+						<seniority>200</seniority>
+						<favorCost>6</favorCost>
+						<minExpectation>Moderate</minExpectation>
+						<changeHeirQuestPoints>1200</changeHeirQuestPoints>
+						<recruitmentResistanceOffset>10</recruitmentResistanceOffset>
+						<commonality>1</commonality>
+						<canBeInherited>True</canBeInherited>
+						<permitPointsAwarded>1</permitPointsAwarded>
+						<disabledWorkTags>
+							<li>Cleaning</li>
+						</disabledWorkTags>
+						<requiredApparel>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>Cape</li>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>UpperHead</li>
+									<li>FullHead</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+						</requiredApparel>
+						<throneRoomRequirements>
+							<li Class="RoomRequirement_HasAssignedThroneAnyOf">
+								<things>
+									<li>Throne</li>
+									<li>GrandThrone</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_Area">
+								<area>24</area>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFloored</labelKey>
+								<tags>
+									<li>Floor</li>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к малым пьедисталам -->
+								<things>
+									<li>SmallPedestal</li>
+									<li>SmallRoyalPedestal</li>
+									<!-- малый пьедистал -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+								<labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoBeds</labelKey>
+								<buildingTags>
+									<li>Bed</li>
+								</buildingTags>
+							</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+								<labelKey>RoomRequirementNoAltars</labelKey>
+							</li>
+						</throneRoomRequirements>
+						<bedroomRequirements>
+							<li Class="RoomRequirement_Area">
+								<area>16</area>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFloored</labelKey>
+								<tags>
+									<li>Floor</li>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к стульям -->
+								<things>
+									<li>SadjuukBedroomUpgradeBF</li>
+									<!-- декоративное кресло -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к тумбочкам -->
+								<things>
+									<li>SadjuukBedroomUpgradeBA</li>
+									<!-- деревянная тумбочка -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к гардеробу -->
+								<things>
+									<li>SadjuukBedroomUpgradeBB</li>
+									<!-- деревянный гардероб -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<disablingPrecepts>
+									<li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+								</disablingPrecepts>
+								<things>
+									<li>SadjuukBedroomBB</li>
+									<li>DoubleBed</li>
+									<li>RoyalBed</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+						</bedroomRequirements>
+						<foodRequirement>
+							<minQuality>MealSimple</minQuality>
+							<allowedTypes>Processed, Liquor</allowedTypes>
+							<allowedDefs>
+								<li>Ambrosia</li>
+								<li>Milk</li>
+								<li>RawBerries</li>
+							</allowedDefs>
+						</foodRequirement>
+						<maxPsylinkLevel>2</maxPsylinkLevel>
+					</RoyalTitleDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RoyalTitleDef[defName="Knight"]</xpath>
+				<value>
+					<RoyalTitleDef ParentName="BaseEmpireTitle">
+						<defName>Knight</defName>
+						<label>knight</label>
+						<labelFemale>dame</labelFemale>
+						<description>The title of knight is held by nobles who have largely passed their training, but who have not ascended to higher leadership roles. Many knights never advance further, and spend their lives as respected managers, advisors, or warriors.\n\nMost knights have some wealth, but a few remain quite poor while others may be very rich.\n\nIn peacetime, a knight may manage a factory complex, commercial district, or small farming region. In war, some knights lead troop companies and assault squadrons, while psychic-focused knights engage in espionage, sabotage, and battlefield psychic combat.</description>
+						<seniority>300</seniority>
+						<favorCost>8</favorCost>
+						<minExpectation>High</minExpectation>
+						<changeHeirQuestPoints>1600</changeHeirQuestPoints>
+						<recruitmentResistanceOffset>25</recruitmentResistanceOffset>
+						<commonality>1</commonality>
+						<canBeInherited>True</canBeInherited>
+						<decreeMtbDays>-1</decreeMtbDays>
+						<!-- disabled -->
+						<decreeMentalBreakCommonality>2</decreeMentalBreakCommonality>
+						<permitPointsAwarded>1</permitPointsAwarded>
+						<decreeTags>
+							<li>All</li>
+						</decreeTags>
+						<disabledWorkTags>
+							<li>ManualDumb</li>
+						</disabledWorkTags>
+						<permits>
+							<li>TradeSettlement</li>
+							<li>TradeCaravan</li>
+						</permits>
+						<requiredApparel>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>Cape</li>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>UpperHead</li>
+									<li>FullHead</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+						</requiredApparel>
+						<throneRoomRequirements>
+							<li Class="RoomRequirement_HasAssignedThroneAnyOf">
+								<things>
+									<li>Throne</li>
+									<li>GrandThrone</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_Area">
+								<area>30</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>60</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFloored</labelKey>
+								<tags>
+									<li>Floor</li>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к малым пьедисталам -->
+								<things>
+									<li>SmallPedestal</li>
+									<li>SmallRoyalPedestal</li>
+									<!-- малый пьедистал -->
+								</things>
+								<count>4</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к большим пьедисталам -->
+								<things>
+									<li>LargePedestal</li>
+									<li>LargeRoyalPedestal</li>
+									<!-- большой пьедистал -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к флагам -->
+								<things>
+									<li>Flag</li>
+									<!-- флаг -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<things>
+									<li>Harp</li>
+									<li>Harpsichord</li>
+									<li>Piano</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+								<labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoBeds</labelKey>
+								<buildingTags>
+									<li>Bed</li>
+								</buildingTags>
+							</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+								<labelKey>RoomRequirementNoAltars</labelKey>
+							</li>
+						</throneRoomRequirements>
+						<bedroomRequirements>
+							<li Class="RoomRequirement_Area">
+								<area>24</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>40</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFloored</labelKey>
+								<tags>
+									<li>Floor</li>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к стульям -->
+								<things>
+									<li>SadjuukBedroomUpgradeBF</li>
+									<!-- декоративное кресло -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к столам+ -->
+								<things>
+									<li>SadjuukBedroomUpgradeAC</li>
+									<!-- маленький деревянный столик -->
+									<li>SadjuukBedroomUpgradeBC</li>
+									<!-- маленький столик -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к тумбочкам -->
+								<things>
+									<li>SadjuukBedroomUpgradeBA</li>
+									<!-- деревянная тумбочка -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к гардеробу -->
+								<things>
+									<li>SadjuukBedroomUpgradeBB</li>
+									<!-- деревянный гардероб -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<disablingPrecepts>
+									<li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+								</disablingPrecepts>
+								<things>
+									<li>SadjuukBedroomBB</li>
+									<li>DoubleBed</li>
+									<li>RoyalBed</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+						</bedroomRequirements>
+						<foodRequirement>
+							<minQuality>MealFine</minQuality>
+							<allowedTypes>Processed, Liquor</allowedTypes>
+							<allowedDefs>
+								<li>Ambrosia</li>
+								<li>Milk</li>
+								<li>RawBerries</li>
+							</allowedDefs>
+						</foodRequirement>
+						<maxPsylinkLevel>3</maxPsylinkLevel>
+					</RoyalTitleDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RoyalTitleDef[defName="Praetor"]</xpath>
+				<value>
+					<RoyalTitleDef ParentName="BaseEmpireTitle">
+						<defName>Praetor</defName>
+						<label>praetor</label>
+						<description>The title of praetor is a bridge between the service-oriented lower titles below and the power-holding nobility above.\n\nDuring peacetime, a prateor will usually manage a city district, asteroid sector, or agricultural region. During war, they take authority over the smallest combat units that fight independently - terrestrial troop cohorts, or space-borne destroyers or combat groups.</description>
+						<seniority>400</seniority>
+						<favorCost>10</favorCost>
+						<minExpectation>SkyHigh</minExpectation>
+						<requiredMinimumApparelQuality>Normal</requiredMinimumApparelQuality>
+						<changeHeirQuestPoints>2200</changeHeirQuestPoints>
+						<recruitmentResistanceOffset>40</recruitmentResistanceOffset>
+						<commonality>1</commonality>
+						<canBeInherited>True</canBeInherited>
+						<decreeMtbDays>-1</decreeMtbDays>
+						<!-- disabled -->
+						<decreeMentalBreakCommonality>4</decreeMentalBreakCommonality>
+						<permitPointsAwarded>1</permitPointsAwarded>
+						<decreeTags>
+							<li>All</li>
+						</decreeTags>
+						<disabledJoyKinds>
+							<li>Gaming_Dexterity</li>
+						</disabledJoyKinds>
+						<disabledWorkTags>
+							<li>ManualDumb</li>
+							<li>PlantWork</li>
+							<li>Mining</li>
+						</disabledWorkTags>
+						<permits>
+							<li>TradeSettlement</li>
+							<li>TradeCaravan</li>
+						</permits>
+						<requiredApparel>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>Cape</li>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>UpperHead</li>
+									<li>FullHead</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+						</requiredApparel>
+						<throneRoomRequirements>
+							<li Class="RoomRequirement_HasAssignedThroneAnyOf">
+								<things>
+									<li>Throne</li>
+									<li>GrandThrone</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_Area">
+								<area>40</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>90</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFloored</labelKey>
+								<tags>
+									<li>Floor</li>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к малым пьедисталам -->
+								<things>
+									<li>SmallRoyalPedestal</li>
+									<!-- малый пьедистал -->
+								</things>
+								<count>6</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к большим пьедисталам -->
+								<things>
+									<li>LargeRoyalPedestal</li>
+									<!-- большой пьедистал -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к флагам -->
+								<things>
+									<li>Flag</li>
+									<!-- флаг -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<things>
+									<li>Harp</li>
+									<li>Harpsichord</li>
+									<li>Piano</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+								<labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoBeds</labelKey>
+								<buildingTags>
+									<li>Bed</li>
+								</buildingTags>
+							</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+								<labelKey>RoomRequirementNoAltars</labelKey>
+							</li>
+						</throneRoomRequirements>
+						<bedroomRequirements>
+							<li Class="RoomRequirement_Area">
+								<area>24</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>50</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFloored</labelKey>
+								<tags>
+									<li>Floor</li>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к стульям -->
+								<things>
+									<li>SadjuukBedroomUpgradeBF</li>
+									<!-- декоративное кресло -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к столам -->
+								<things>
+									<li>SadjuukBedroomUpgradeAC</li>
+									<!-- маленький деревянный столик -->
+									<li>SadjuukBedroomUpgradeBC</li>
+									<!-- маленький столик -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к тумбочкам -->
+								<things>
+									<li>SadjuukBedroomUpgradeBA</li>
+									<!-- деревянная тумбочка -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к гардеробу -->
+								<things>
+									<li>SadjuukBedroomUpgradeBB</li>
+									<!-- деревянный гардероб -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к чучелу -->
+								<things>
+									<li>DankPyon_BirdPost</li>
+									<!-- чучело птицы -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<disablingPrecepts>
+									<li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+								</disablingPrecepts>
+								<things>
+									<li>SadjuukBedroomBB</li>
+									<li>DoubleBed</li>
+									<li>RoyalBed</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+						</bedroomRequirements>
+						<foodRequirement>
+							<minQuality>MealFine</minQuality>
+							<allowedTypes>Processed, Liquor</allowedTypes>
+							<allowedDefs>
+								<li>Ambrosia</li>
+								<li>Milk</li>
+								<li>RawBerries</li>
+							</allowedDefs>
+						</foodRequirement>
+						<grantedAbilities>
+							<li>Speech</li>
+						</grantedAbilities>
+						<speechCooldown>1200000</speechCooldown>
+						<maxPsylinkLevel>4</maxPsylinkLevel>
+					</RoyalTitleDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RoyalTitleDef[defName="Baron"]</xpath>
+				<value>
+					<RoyalTitleDef ParentName="BaseEmpireTitle">
+						<defName>Baron</defName>
+						<label>baron</label>
+						<labelFemale>baroness</labelFemale>
+						<description>The title of baron is the lowest of the middle nobility. While lower titles focus on personal service at war or commerce under a lord, barons hold title as semi-independent rulers. Each baron is subordinate to his liege lord, but his obligations are mostly in supplying wealth and troops, and not in personal service.\n\nIn the Empire, a baron will typically own a city sector, mining colony, or similar outfit. At wartime, a baron may captain a capital ship in name, or control a regiment of troops.</description>
+						<seniority>500</seniority>
+						<favorCost>14</favorCost>
+						<minExpectation>Noble</minExpectation>
+						<requiredMinimumApparelQuality>Normal</requiredMinimumApparelQuality>
+						<changeHeirQuestPoints>2800</changeHeirQuestPoints>
+						<recruitmentResistanceOffset>60</recruitmentResistanceOffset>
+						<commonality>1</commonality>
+						<canBeInherited>True</canBeInherited>
+						<suppressIdleAlert>true</suppressIdleAlert>
+						<decreeMtbDays>-1</decreeMtbDays>
+						<!-- disabled -->
+						<decreeMentalBreakCommonality>8</decreeMentalBreakCommonality>
+						<permitPointsAwarded>1</permitPointsAwarded>
+						<decreeTags>
+							<li>All</li>
+						</decreeTags>
+						<disabledJoyKinds>
+							<li>Gaming_Dexterity</li>
+						</disabledJoyKinds>
+						<disabledWorkTags>
+							<li>ManualDumb</li>
+							<li>ManualSkilled</li>
+							<li>PlantWork</li>
+							<li>Mining</li>
+						</disabledWorkTags>
+						<permits>
+							<li>TradeSettlement</li>
+							<li>TradeCaravan</li>
+							<li>TradeOrbital</li>
+						</permits>
+						<requiredApparel>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>Cape</li>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier5</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>UpperHead</li>
+									<li>FullHead</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier5</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+						</requiredApparel>
+						<throneRoomRequirements>
+							<li Class="RoomRequirement_HasAssignedThroneAnyOf">
+								<things>
+									<li>GrandThrone</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_Area">
+								<area>60</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>120</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFineFloored</labelKey>
+								<tags>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к малым пьедисталам -->
+								<things>
+									<li>SmallRoyalPedestal</li>
+									<!-- малый пьедистал -->
+								</things>
+								<count>8</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к большим пьедисталам -->
+								<things>
+									<li>LargeRoyalPedestal</li>
+									<!-- большой пьедистал -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к большим пьедисталам -->
+								<things>
+									<li>SteleLarge</li>
+									<!-- большая стелла -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к флагам -->
+								<things>
+									<li>Flag</li>
+									<!-- флаг -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingCount">
+								<thingDef>Drape</thingDef>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<things>
+									<li>Harpsichord</li>
+									<li>Piano</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+								<labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoBeds</labelKey>
+								<buildingTags>
+									<li>Bed</li>
+								</buildingTags>
+							</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+								<labelKey>RoomRequirementNoAltars</labelKey>
+							</li>
+						</throneRoomRequirements>
+						<bedroomRequirements>
+							<li Class="RoomRequirement_Area">
+								<area>30</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>70</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFloored</labelKey>
+								<tags>
+									<li>Floor</li>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к стульям -->
+								<things>
+									<li>SadjuukBedroomUpgradeBF</li>
+									<!-- декоративное кресло -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к столам -->
+								<things>
+									<li>SadjuukBedroomUpgradeAC</li>
+									<!-- маленький деревянный столик -->
+									<li>SadjuukBedroomUpgradeBC</li>
+									<!-- маленький столик -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к тумбочкам -->
+								<things>
+									<li>SadjuukBedroomUpgradeBA</li>
+									<!-- деревянная тумбочка -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к гардеробу -->
+								<things>
+									<li>SadjuukBedroomUpgradeBB</li>
+									<!-- деревянный гардероб -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к чучелу -->
+								<things>
+									<li>DankPyon_BirdPost</li>
+									<!-- чучело птицы -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<disablingPrecepts>
+									<li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+								</disablingPrecepts>
+								<things>
+									<li>RoyalBed</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ThingCount">
+								<thingDef>Drape</thingDef>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+						</bedroomRequirements>
+						<foodRequirement>
+							<minQuality>MealLavish</minQuality>
+							<allowedTypes>Processed, Liquor</allowedTypes>
+							<allowedDefs>
+								<li>Ambrosia</li>
+								<li>Milk</li>
+								<li>RawBerries</li>
+								<li>InsectJelly</li>
+							</allowedDefs>
+						</foodRequirement>
+						<grantedAbilities>
+							<li>Speech</li>
+						</grantedAbilities>
+						<speechCooldown>900000</speechCooldown>
+						<maxPsylinkLevel>5</maxPsylinkLevel>
+					</RoyalTitleDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RoyalTitleDef[defName="Count"]</xpath>
+				<value>
+					<RoyalTitleDef ParentName="BaseEmpireTitle">
+						<defName>Count</defName>
+						<label>count</label>
+						<labelFemale>countess</labelFemale>
+						<description>The title of count is the middle rank of middle nobility.\n\nIn peacetime, counts hold title to a city or colony, and might have a small personal fleet, possibly including capital ships.</description>
+						<seniority>600</seniority>
+						<favorCost>20</favorCost>
+						<minExpectation>Royal</minExpectation>
+						<requiredMinimumApparelQuality>Normal</requiredMinimumApparelQuality>
+						<changeHeirQuestPoints>3500</changeHeirQuestPoints>
+						<recruitmentResistanceOffset>75</recruitmentResistanceOffset>
+						<commonality>1</commonality>
+						<canBeInherited>True</canBeInherited>
+						<suppressIdleAlert>true</suppressIdleAlert>
+						<decreeMtbDays>-1</decreeMtbDays>
+						<!-- disabled -->
+						<decreeMentalBreakCommonality>12</decreeMentalBreakCommonality>
+						<permitPointsAwarded>1</permitPointsAwarded>
+						<decreeTags>
+							<li>All</li>
+						</decreeTags>
+						<disabledJoyKinds>
+							<li>Gaming_Dexterity</li>
+						</disabledJoyKinds>
+						<disabledWorkTags>
+							<li>ManualDumb</li>
+							<li>ManualSkilled</li>
+							<li>PlantWork</li>
+							<li>Mining</li>
+							<li>Animals</li>
+						</disabledWorkTags>
+						<permits>
+							<li>TradeSettlement</li>
+							<li>TradeCaravan</li>
+							<li>TradeOrbital</li>
+						</permits>
+						<requiredApparel>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>Cape</li>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier5</li>
+								</requiredTags>
+								<allowedTags>
+									<li>Cape</li>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier6</li>
+								</requiredTags>
+								<allowedTags>
+									<li>Cape</li>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>UpperHead</li>
+									<li>FullHead</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier5</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+						</requiredApparel>
+						<throneRoomRequirements>
+							<li Class="RoomRequirement_HasAssignedThroneAnyOf">
+								<things>
+									<li>GrandThrone</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_Area">
+								<area>80</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>160</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFineFloored</labelKey>
+								<tags>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingCount">
+								<thingDef>Drape</thingDef>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к малым пьедисталам -->
+								<things>
+									<li>SmallRoyalPedestal</li>
+									<!-- малый пьедистал -->
+								</things>
+								<count>8</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к большим пьедисталам -->
+								<things>
+									<li>LargeRoyalPedestal</li>
+									<!-- большой пьедистал -->
+								</things>
+								<count>4</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к большим пьедисталам -->
+								<things>
+									<li>SteleGrand</li>
+									<!-- большая стелла -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к флагам -->
+								<things>
+									<li>Flag</li>
+									<!-- флаг -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_Thing">
+								<thingDef>Piano</thingDef>
+							</li>
+							<li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+								<labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoBeds</labelKey>
+								<buildingTags>
+									<li>Bed</li>
+								</buildingTags>
+							</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+								<labelKey>RoomRequirementNoAltars</labelKey>
+							</li>
+						</throneRoomRequirements>
+						<bedroomRequirements>
+							<li Class="RoomRequirement_Area">
+								<area>30</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>80</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFineFloored</labelKey>
+								<tags>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к стульям -->
+								<things>
+									<li>SadjuukBedroomUpgradeBF</li>
+									<!-- декоративное кресло -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к столам -->
+								<things>
+									<li>SadjuukBedroomUpgradeAC</li>
+									<!-- маленький деревянный столик -->
+									<li>SadjuukBedroomUpgradeBC</li>
+									<!-- маленький столик -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к тумбочкам -->
+								<things>
+									<li>SadjuukBedroomUpgradeBA</li>
+									<!-- деревянная тумбочка -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к гардеробу -->
+								<things>
+									<li>SadjuukBedroomUpgradeBB</li>
+									<!-- деревянный гардероб -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к чучелу -->
+								<things>
+									<li>DankPyon_BirdPost</li>
+									<!-- чучело птицы -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<disablingPrecepts>
+									<li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+								</disablingPrecepts>
+								<things>
+									<li>RoyalBed</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ThingCount">
+								<thingDef>Drape</thingDef>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+						</bedroomRequirements>
+						<foodRequirement>
+							<minQuality>MealLavish</minQuality>
+							<allowedTypes>Processed, Liquor</allowedTypes>
+							<allowedDefs>
+								<li>Ambrosia</li>
+								<li>Milk</li>
+								<li>RawBerries</li>
+								<li>InsectJelly</li>
+							</allowedDefs>
+						</foodRequirement>
+						<grantedAbilities>
+							<li>Speech</li>
+						</grantedAbilities>
+						<speechCooldown>600000</speechCooldown>
+						<maxPsylinkLevel>6</maxPsylinkLevel>
+					</RoyalTitleDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RoyalTitleDef[@Name="BaseEmpireTitleNPC"]</xpath>
+				<value>
+					<RoyalTitleDef Abstract="True" Name="BaseEmpireTitleNPC" ParentName="BaseEmpireTitle">
+						<minExpectation>Royal</minExpectation>
+						<requiredMinimumApparelQuality>Normal</requiredMinimumApparelQuality>
+						<suppressIdleAlert>true</suppressIdleAlert>
+						<disabledJoyKinds>
+							<li>Gaming_Dexterity</li>
+						</disabledJoyKinds>
+						<disabledWorkTags>
+							<li>Commoner</li>
+						</disabledWorkTags>
+						<permits>
+							<li>TradeSettlement</li>
+							<li>TradeCaravan</li>
+							<li>TradeOrbital</li>
+						</permits>
+						<requiredApparel>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier2</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier5</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>Torso</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier6</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+							<li>
+								<bodyPartGroupsMatchAny>
+									<li>UpperHead</li>
+									<li>FullHead</li>
+								</bodyPartGroupsMatchAny>
+								<requiredTags>
+									<li>RoyalTier7</li>
+								</requiredTags>
+								<allowedTags>
+									<li>PrestigeCombatGear</li>
+									<li>Psychic</li>
+								</allowedTags>
+							</li>
+						</requiredApparel>
+						<throneRoomRequirements>
+							<li Class="RoomRequirement_HasAssignedThroneAnyOf">
+								<things>
+									<li>GrandThrone</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_Area">
+								<area>80</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>160</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFineFloored</labelKey>
+								<tags>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_Thing">
+								<thingDef>Piano</thingDef>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к малым пьедисталам -->
+								<things>
+									<li>SmallRoyalPedestal</li>
+									<!-- малый пьедистал -->
+								</things>
+								<count>8</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к большим пьедисталам -->
+								<things>
+									<li>LargeRoyalPedestal</li>
+									<!-- большой пьедистал -->
+								</things>
+								<count>4</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к большим пьедисталам -->
+								<things>
+									<li>SteleGrand</li>
+									<!-- большая стелла -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к флагам -->
+								<things>
+									<li>Flag</li>
+									<!-- флаг -->
+								</things>
+								<count>4</count>
+							</li>
+							<li Class="RoomRequirement_ThingCount">
+								<thingDef>Drape</thingDef>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_AllThingsAnyOfAreGlowing">
+								<labelKey>RoomRequirementAllBraziersMustBeLit</labelKey>
+								<things>
+									<li>Brazier</li>
+									<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoBeds</labelKey>
+								<buildingTags>
+									<li>Bed</li>
+								</buildingTags>
+							</li>
+							<li MayRequire="Ludeon.RimWorld.Ideology" Class="RoomRequirement_ForbidAltars">
+								<labelKey>RoomRequirementNoAltars</labelKey>
+							</li>
+						</throneRoomRequirements>
+						<bedroomRequirements>
+							<li Class="RoomRequirement_Area">
+								<area>30</area>
+							</li>
+							<li Class="RoomRequirement_Impressiveness">
+								<impressiveness>80</impressiveness>
+							</li>
+							<li Class="RoomRequirement_TerrainWithTags">
+								<labelKey>RoomRequirementAllFineFloored</labelKey>
+								<tags>
+									<li>FineFloor</li>
+								</tags>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOf">
+								<disablingPrecepts>
+									<li MayRequire="Ludeon.RimWorld.Ideology">SlabBed_Preferred</li>
+								</disablingPrecepts>
+								<things>
+									<li>RoyalBed</li>
+								</things>
+							</li>
+							<li Class="RoomRequirement_ThingCount">
+								<thingDef>Drape</thingDef>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к стульям -->
+								<things>
+									<li>SadjuukBedroomUpgradeBF</li>
+									<!-- декоративное кресло -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к столам -->
+								<things>
+									<li>SadjuukBedroomUpgradeAC</li>
+									<!-- маленький деревянный столик -->
+									<li>SadjuukBedroomUpgradeBC</li>
+									<!-- маленький столик -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к тумбочкам -->
+								<things>
+									<li>SadjuukBedroomUpgradeBA</li>
+									<!-- деревянная тумбочка -->
+								</things>
+								<count>1</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к гардеробу -->
+								<things>
+									<li>SadjuukBedroomUpgradeBB</li>
+									<!-- деревянный гардероб -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ThingAnyOfCount">
+								<!-- требование к чучелу -->
+								<things>
+									<li>DankPyon_BirdPost</li>
+									<!-- чучело птицы -->
+								</things>
+								<count>2</count>
+							</li>
+							<li Class="RoomRequirement_ForbiddenBuildings">
+								<labelKey>RoomRequirementNoProductionFacilities</labelKey>
+								<buildingTags>
+									<li>Production</li>
+								</buildingTags>
+							</li>
+						</bedroomRequirements>
+						<foodRequirement>
+							<minQuality>MealLavish</minQuality>
+							<allowedTypes>Processed, Liquor</allowedTypes>
+							<allowedDefs>
+								<li>Ambrosia</li>
+								<li>Milk</li>
+								<li>RawBerries</li>
+								<li>InsectJelly</li>
+							</allowedDefs>
+						</foodRequirement>
+						<grantedAbilities>
+							<li>Speech</li>
+						</grantedAbilities>
+						<speechCooldown>600000</speechCooldown>
+						<maxPsylinkLevel>6</maxPsylinkLevel>
+					</RoyalTitleDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>PrionicTincture</defName>
+		<label>Prionic tincture</label>
+		<description>Exotic mushrooms and herbs that kindle psionic fire.</description>
+		<descriptionHyperlinks>
+			<HediffDef>PrionicTinctureHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Tincture/PrionicTincture</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>800</WorkToMake>
+			<MarketValue>25</MarketValue>
+			<Mass>0.009</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.001</Nutrition>
+			<Protein>0.0</Protein>
+			<Fat>0.0</Fat>
+			<Carbohydrates>0.005</Carbohydrates>
+			<Vitamins>0.008</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<techLevel>Medieval</techLevel>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>PrionicTinctureHigh</hediffDef>
+					<severity>1.0</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker>
+			<researchPrerequisite>Alchemy</researchPrerequisite>
+			<recipeUsers>
+				<li>AlchemyStance</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<Flora_RawFirewort>4</Flora_RawFirewort>
+			<Raw_Glowstool>4</Raw_Glowstool>
+			<WaterForBill>1</WaterForBill>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>PrionicTinctureHigh</defName>
+		<label>high on prionic tincture</label>
+		<labelNoun>a prionic tincture high</labelNoun>
+		<description>Exposure to the elements of the tincture increases psionic potential and bestows powers.</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.0</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>easy</label>
+				<statOffsets>
+					<PsychicSensitivity>1.05</PsychicSensitivity>
+				</statOffsets>
+			</li>
+			<li>
+				<label>medium</label>
+				<minSeverity>0.4</minSeverity>
+				<statOffsets>
+					<PsychicSensitivity>1.15</PsychicSensitivity>
+				</statOffsets>
+			</li>
+			<li>
+				<label>severe</label>
+				<minSeverity>0.7</minSeverity>
+				<statOffsets>
+					<PsychicSensitivity>1.3</PsychicSensitivity>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

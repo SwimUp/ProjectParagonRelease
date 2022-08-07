@@ -290,6 +290,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Neolithic</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -554,6 +555,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Neolithic</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -686,6 +688,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Industrial</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -818,6 +821,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Spacer</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -950,6 +954,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Medieval</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -1082,6 +1087,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Medieval</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -1216,6 +1222,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Medieval</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -1349,6 +1356,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Medieval</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -1481,6 +1489,7 @@
 		</thingCategories>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
+		<techLevel>Neolithic</techLevel>
 		<stuffProps>
 			<categories>
 				<li>Metallic</li>
@@ -2292,6 +2301,8 @@
 			<ingestEffect>EatVegetarian</ingestEffect>
 			<ingestSound>Meal_Eat</ingestSound>
 			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+			<optimalityOffsetHumanlikes>-30</optimalityOffsetHumanlikes>
+			<optimalityOffsetFeedingAnimals>-30</optimalityOffsetFeedingAnimals>
 		</ingestible>
 		<useHitPoints>false</useHitPoints>
 		<healthAffectsPrice>false</healthAffectsPrice>
@@ -2410,6 +2421,85 @@
 					</li>
 				</comps>
 			</li>-->
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>Silkworm</defName>
+		<label>Silkworm</label>
+		<description>An unusual insect used to produce the finest silk.</description>
+		<graphicData>
+			<texPath>Core/Items/Silkworm</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.85</MarketValue>
+			<Mass>0.02</Mass>
+			<Bulk>0.02</Bulk>
+			<Nutrition>0.1</Nutrition>
+			<Flavor>0</Flavor>
+			<FoodPoisonChanceFixedHuman>0.01</FoodPoisonChanceFixedHuman>
+		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<foodType>AnimalProduct</foodType>
+			<preferability>DesperateOnlyForHumanlikes</preferability>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<ingestSound>Meal_Eat</ingestSound>
+			<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+		</ingestible>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<thingCategories>
+			<li>ResourcesOther</li>
+		</thingCategories>
+		<burnableByRecipe>false</burnableByRecipe>
+		<smeltable>false</smeltable>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>Silk</defName>
+		<label>silk</label>
+		<description>Soft and gentle to the body fabric, clothes from which all the rich and nobles want to get.</description>
+		<graphicData>
+			<texPath>Core/Items/Fabrics</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<color>(153,201,214)</color>
+		</graphicData>
+		<statBases>
+			<StuffPower_Armor_Sharp>0.005</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.007</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>0.02</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>2</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>8</StuffPower_Insulation_Heat>
+			<MaxHitPoints>50</MaxHitPoints>
+			<MarketValue>12</MarketValue>
+			<Mass>0.010</Mass>
+			<Flammability>2</Flammability>
+			<DeteriorationRate>8</DeteriorationRate>
+		</statBases>
+		<burnableByRecipe>true</burnableByRecipe>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<minRewardCount>30</minRewardCount>
+		<stuffProps>
+			<statFactors>
+				<Flammability>2</Flammability>
+				<Beauty>6</Beauty>
+				<BedRestEffectiveness>1.15</BedRestEffectiveness>
+				<ImmunityGainSpeedFactor>1.0</ImmunityGainSpeedFactor>
+			</statFactors>
+			<categories>
+				<li>Fabric</li>
+			</categories>
+			<color>(153,201,214)</color>
+			<commonality>0.025</commonality>
+			<allowColorGenerators>true</allowColorGenerators>
+		</stuffProps>
+		<thingCategories>
+			<li>Fabrics</li>
+		</thingCategories>
+		<comps>
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
 		</comps>
 	</ThingDef>
 </Defs>

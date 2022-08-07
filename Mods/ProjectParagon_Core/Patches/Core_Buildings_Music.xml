@@ -4,6 +4,52 @@
 		<success>Normal</success>
 		<operations>
 			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[@Name="MusicalInstrumentBase"]</xpath>
+				<value>
+					<ThingDef Name="MusicalInstrumentBase" ParentName="BuildingBase" Abstract="True">
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<altitudeLayer>Building</altitudeLayer>
+						<rotatable>true</rotatable>
+						<thingClass>Building_MusicalInstrument</thingClass>
+						<tickerType>Normal</tickerType>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<hasInteractionCell>true</hasInteractionCell>
+						<thingCategories>
+							<li>BuildingsJoy</li>
+						</thingCategories>
+						<tradeTags>
+							<li>MusicalInstrument</li>
+						</tradeTags>
+						<building>
+							<joyKind>HighCulture</joyKind>
+						</building>
+						<comps>
+							<li>
+								<compClass>CompQuality</compClass>
+							</li>
+							<li>
+								<compClass>CompGatherSpot</compClass>
+							</li>
+							<li Class="CompProperties_ThrownFleckEmitter">
+								<fleck>Music</fleck>
+								<offsetMin>(-0.6,0,0.3)</offsetMin>
+								<offsetMax>(0.6,0,0.5)</offsetMax>
+								<emissionInterval>100</emissionInterval>
+								<scale>0.6~0.9</scale>
+								<rotationRate>-15~15</rotationRate>
+								<velocityX>0.3~0.7</velocityX>
+								<velocityY>0.7~1.0</velocityY>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_ShowInstrumentAoE</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Harp"]</xpath>
 				<value>
 					<ThingDef ParentName="MusicalInstrumentBase">
@@ -17,7 +63,6 @@
 						</descriptionHyperlinks>
 						<size>(1,1)</size>
 						<pathCost>30</pathCost>
-						<minTechLevelToBuild>Medieval</minTechLevelToBuild>
 						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 						<soundPlayInstrument>Harp_Play</soundPlayInstrument>
 						<researchPrerequisites>
@@ -88,7 +133,6 @@
 							<ThingDef>Piano</ThingDef>
 						</descriptionHyperlinks>
 						<size>(2,3)</size>
-						<minTechLevelToBuild>Medieval</minTechLevelToBuild>
 						<interactionCellOffset>(0,0,2)</interactionCellOffset>
 						<soundPlayInstrument>Harpsichord_Play</soundPlayInstrument>
 						<defaultPlacingRot>West</defaultPlacingRot>
@@ -157,7 +201,6 @@
 							<ThingDef>Harpsichord</ThingDef>
 						</descriptionHyperlinks>
 						<size>(3,3)</size>
-						<minTechLevelToBuild>Industrial</minTechLevelToBuild>
 						<interactionCellOffset>(0,0,2)</interactionCellOffset>
 						<soundPlayInstrument>Piano_Play</soundPlayInstrument>
 						<defaultPlacingRot>West</defaultPlacingRot>

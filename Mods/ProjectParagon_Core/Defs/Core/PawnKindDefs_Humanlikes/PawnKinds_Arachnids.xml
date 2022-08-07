@@ -182,6 +182,24 @@
 		<initialResistanceRange>0</initialResistanceRange>
 	</PawnKindDef>
 	
+	<PawnKindDef>
+		<defName>Newborn_Arachnid_Ram</defName>
+		<label>Arachnid ram</label>
+		<race>Alien_Arachnids_Ram</race>
+		<combatPower>150</combatPower>
+		<chemicalAddictionChance>0.0</chemicalAddictionChance>
+		<gearHealthRange>0</gearHealthRange>
+		<techHediffsMoney>0</techHediffsMoney>
+		<techHediffsChance>0.0</techHediffsChance>
+		<defaultFactionType>Arachnids</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+		<invNutrition>0</invNutrition>
+		<invFoodDef>InsectJelly</invFoodDef>
+		<apparelMoney>0~0</apparelMoney>
+		<initialWillRange>0</initialWillRange>
+		<initialResistanceRange>0</initialResistanceRange>
+	</PawnKindDef>
+	
 	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Soldier" Abstract="True">
 		<race>Alien_Arachnids_Soldier</race>
 		<combatPower>125</combatPower>
@@ -424,6 +442,50 @@
 		<defName>Arachnid_Bombardier</defName>
 		<label>Arachnid bombardier</label>
 		<combatPower>120</combatPower>
+		<chemicalAddictionChance>0.05</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.3~1.1</gearHealthRange>
+		<apparelRequired>
+			<li>Apparel_Loincloth</li>
+		</apparelRequired>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.05</techHediffsChance>
+	</PawnKindDef>
+	
+	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Ram" Abstract="True">
+		<race>Alien_Arachnids_Ram</race>
+		<combatPower>150</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>InsectWarrior</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~3000</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~4</Minor>
+							<Major>0~2</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	
+	<PawnKindDef ParentName="Arachnid_Ram">
+		<defName>Arachnid_Ram</defName>
+		<label>Arachnid ram</label>
+		<combatPower>150</combatPower>
 		<chemicalAddictionChance>0.05</chemicalAddictionChance>
 		<itemQuality>Poor</itemQuality>
 		<gearHealthRange>0.3~1.1</gearHealthRange>

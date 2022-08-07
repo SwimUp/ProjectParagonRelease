@@ -41,6 +41,7 @@
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>3000</WorkToBuild>
 			<Flammability>1.0</Flammability>
+			<WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
 		</statBases>
 		<placeWorkers>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -105,6 +106,7 @@
 			<MaxHitPoints>250</MaxHitPoints>
 			<WorkToBuild>4000</WorkToBuild>
 			<Flammability>1.0</Flammability>
+			<WorkTableWorkSpeedFactor>1.0</WorkTableWorkSpeedFactor>
 		</statBases>
 		<placeWorkers>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
@@ -220,7 +222,7 @@
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<useHitPoints>True</useHitPoints>
-		<drawerType>RealtimeOnly</drawerType>
+		<drawerType>MapMeshAndRealTime</drawerType>
 		<statBases>
 			<WorkToBuild>4500</WorkToBuild>
 			<MaxHitPoints>300</MaxHitPoints>
@@ -333,7 +335,7 @@
 		</costList>
 		<altitudeLayer>BuildingOnTop</altitudeLayer>
 		<useHitPoints>True</useHitPoints>
-		<drawerType>RealtimeOnly</drawerType>
+		<drawerType>MapMeshAndRealTime</drawerType>
 		<statBases>
 			<WorkToBuild>7000</WorkToBuild>
 			<MaxHitPoints>400</MaxHitPoints>
@@ -639,6 +641,7 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(2,2)</drawSize>
 			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
 			<shadowData>
 				<volume>(0.7,0.5,0.4)</volume>
 				<offset>(0,0,-0.1)</offset>
@@ -656,7 +659,7 @@
 		<pathCost>42</pathCost>
 		<fillPercent>0.20</fillPercent>
 		<tickerType>Normal</tickerType>
-		<rotatable>false</rotatable>
+		<rotatable>true</rotatable>
 		<statBases>
 			<MaxHitPoints>150</MaxHitPoints>
 			<WorkToBuild>3500</WorkToBuild>
@@ -666,7 +669,7 @@
 		<selectable>true</selectable>
 		<costStuffCount>120</costStuffCount>
 		<costList>
-			<ComponentSimple>3</ComponentSimple>
+			<ComponentSimple>2</ComponentSimple>
 			<WoodLog>20</WoodLog>
 		</costList>
 		<stuffCategories>
@@ -1168,7 +1171,7 @@
 		</graphicData>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<altitudeLayer>Building</altitudeLayer>
-		<passability>PassThroughOnly</passability>
+		<passability>Impassable</passability>
 		<castEdgeShadows>false</castEdgeShadows>
 		<fillPercent>0.5</fillPercent>
 		<canOverlapZones>false</canOverlapZones>
@@ -1467,7 +1470,6 @@
 		<tickerType>Normal</tickerType>
 		<inspectorTabs>
 			<li>ProjectParagon.Core.ITabs.ITab_Architect</li>
-			<li>ITab_Bills</li>
 		</inspectorTabs>
 		<building>
 			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
@@ -1489,8 +1491,14 @@
 					<li>Woodcutter_Hut</li>
 					<li>Mason_Hut</li>
 					<li>GreenGardens</li>
+					<li>Museum</li>
+					<li>Mine</li>
+					<li>SignalBell</li>
+					<li>WoodenDam</li>
+					<li>StoneDam</li>
+					<li>Bridge</li>
 				</makeableObjects>
-				<blueprintSourceDef>ChunkGranite</blueprintSourceDef>
+				<blueprintSourceDef>Book</blueprintSourceDef>
 				<blueprintSourceCount>1</blueprintSourceCount>
 			</li>
 		</comps>
@@ -1765,7 +1773,7 @@
 		<placeWorkers>
 			<li>ProjectParagon.Core.Things.PlaceWorker_Quarry</li>
 		</placeWorkers>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
 		<researchPrerequisites>
 			<li>ImprovedOreMining</li>
@@ -1780,7 +1788,7 @@
 				<maxHeight>50</maxHeight>
 				<expandQuarryRadius>1.4</expandQuarryRadius>
 				<terrainAfterDestroy>Terrain_QuarrySoil</terrainAfterDestroy>
-				<analyzeTicks>16000</analyzeTicks>
+				<analyzeTicks>2000</analyzeTicks>
 			</li>
 		</comps>
 	</ThingDef>
@@ -1876,7 +1884,7 @@
 		<placeWorkers>
 			<li>ProjectParagon.Core.Things.PlaceWorker_Quarry</li>
 		</placeWorkers>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
 		<researchPrerequisites>
 			<li>ImprovedOreMining</li>
@@ -1891,7 +1899,7 @@
 				<maxHeight>250</maxHeight>
 				<expandQuarryRadius>1.4</expandQuarryRadius>
 				<terrainAfterDestroy>Terrain_QuarrySoil</terrainAfterDestroy>
-				<analyzeTicks>25000</analyzeTicks>
+				<analyzeTicks>3000</analyzeTicks>
 				<heightLevelReqs>
 					<li>
 						<reqHeight>50</reqHeight>
@@ -2460,6 +2468,7 @@
 					<li>Alien_Arachnids_Warrior</li>
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -2544,7 +2553,7 @@
 		<comps>
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="LWM.DeepStorage.Properties">
-				<maxNumberStacks>2</maxNumberStacks>
+				<maxNumberStacks>1</maxNumberStacks>
 				<minTimeStoringTakes>35</minTimeStoringTakes>
 				<additionalTimeEachStack>5</additionalTimeEachStack>
 				<additionalTimeEachDef>2</additionalTimeEachDef>
@@ -2570,6 +2579,7 @@
 					<li>Alien_Arachnids_Warrior</li>
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -2674,6 +2684,15 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 						<yelloriumConsumePerSecond>0.04</yelloriumConsumePerSecond>
 						<!-- 40 в день, всего 400 -->
 					</li>
+					<li>
+						<pawnKindDef>Newborn_Arachnid_Ram</pawnKindDef>
+						<childhood>Backstories_Childhood_NewbornHiverRam</childhood>
+						<secondsForGrow>13000</secondsForGrow>
+						<jellyConsumePerSecond>0.06</jellyConsumePerSecond>
+						<!-- 60 в день, всего 780 -->
+						<yelloriumConsumePerSecond>0.07</yelloriumConsumePerSecond>
+						<!-- 70 в день, всего 910 -->
+					</li>
 				</arachnidSpawnRecords>
 				<allowedBrainDiseases>
 					<li>Diseases_HediffDef_BipolarDisorder</li>
@@ -2717,6 +2736,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 					<li>Alien_Arachnids_Warrior</li>
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -2996,5 +3016,76 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<designationCategory>Production</designationCategory>
 		<designatorDropdown>Farming</designatorDropdown>
 		<staticSunShadowHeight>0.25</staticSunShadowHeight>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>SilkPress</defName>
+		<label>Silk press</label>
+		<description>A mechanism for processing silkworms into the finest silk to create beautiful clothes and furniture.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SilkPress</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SilkPress/SilkPress</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2.55,2.5)</drawSize>
+			<drawOffset>0,0,0.2</drawOffset>
+		</graphicData>
+		<staticSunShadowHeight>0.25</staticSunShadowHeight>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>42</pathCost>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Mass>150</Mass>
+			<Flammability>2</Flammability>
+		</statBases>
+		<size>(2,2)</size>
+		<costList>
+			<WoodLog>200</WoodLog>
+			<WoodPlanks>50</WoodPlanks>
+			<MechanismSimple>6</MechanismSimple>
+			<ComponentSimple>8</ComponentSimple>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SilkPress">
+				<storageDef>LWM_ProductionPallet</storageDef>
+				<pressProduction>
+					<li>
+						<sourceDef>Silkworm</sourceDef>
+						<outputDef>Silk</outputDef>
+						<countPerPortion>30</countPerPortion>
+						<outputCount>15</outputCount>
+						<produceTicks>45000</produceTicks>
+					</li>
+				</pressProduction>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WorkAnimation">
+				<graphicData>
+					<texPath>Core/Buildings/SilkPress/SilkPressFull</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(2.55,2.5)</drawSize>
+					<drawOffset>0,0,0.2</drawOffset>
+				</graphicData>
+			</li>
+		</comps>
+		<terrainAffordanceNeeded/>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_ItemRecycler</li>
+		</inspectorTabs>
+		<researchPrerequisites>
+			<li>Silk</li>
+		</researchPrerequisites>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Mechanisms</designatorDropdown>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<hasInteractionCell>false</hasInteractionCell>
 	</ThingDef>
 </Defs>
