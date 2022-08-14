@@ -7,17 +7,17 @@
 				<xpath>*/ThingDef[defName="Plant_Grass"]/plant</xpath>
 				<value>
 					<plant>
-					  <fertilityMin>0.05</fertilityMin>
-					  <fertilitySensitivity>0.3</fertilitySensitivity>
-					  <growDays>2.5</growDays>
-					  <leaflessGraphicPath>Things/Plant/Grass_Leafless</leaflessGraphicPath>
-					  <harvestWork>40</harvestWork>
-					  <maxMeshCount>9</maxMeshCount>
-					  <visualSizeRange>0.4~0.6</visualSizeRange>
-					  <topWindExposure>0.4</topWindExposure>
-					  <wildOrder>1</wildOrder>
-					  <harvestedThingDef>Hay</harvestedThingDef>
-					  <harvestYield>6</harvestYield>
+						<fertilityMin>0.05</fertilityMin>
+						<fertilitySensitivity>0.3</fertilitySensitivity>
+						<growDays>2.5</growDays>
+						<leaflessGraphicPath>Things/Plant/Grass_Leafless</leaflessGraphicPath>
+						<harvestWork>40</harvestWork>
+						<maxMeshCount>9</maxMeshCount>
+						<visualSizeRange>0.4~0.6</visualSizeRange>
+						<topWindExposure>0.4</topWindExposure>
+						<wildOrder>1</wildOrder>
+						<harvestedThingDef>Hay</harvestedThingDef>
+						<harvestYield>6</harvestYield>
 					</plant>
 				</value>
 			</li>
@@ -73,6 +73,13 @@
 								<li>Agro_TextileCropsI</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -102,16 +109,18 @@
 							<fertilityMin>0.25</fertilityMin>
 							<fertilitySensitivity>0.5</fertilitySensitivity>
 							<purpose>Health</purpose>
+							<sowResearchPrerequisites>
+								<li>Agro_MedicinalPlantsI</li>
+							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="Plant_Healroot"]/plant</xpath>
-				<value>
-					<sowResearchPrerequisites>
-						<li>Agro_MedicinalPlantsI</li>
-					</sowResearchPrerequisites>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -145,6 +154,13 @@
 							<visualSizeRange>0.8~2.0</visualSizeRange>
 							<sowMinSkill>12</sowMinSkill>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -188,6 +204,13 @@
 								<li>Agro_CerealsIII</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -230,6 +253,13 @@
 								<li>Agro_VegetablesI</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -274,6 +304,13 @@
 								<li>Agro_CerealsII</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -318,6 +355,13 @@
 								<li>Agro_FruitII</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -361,15 +405,61 @@
 								<li>Agro_TextileCropsIII</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="Plant_Hops"]/plant</xpath>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Hops"]</xpath>
 				<value>
-					<sowResearchPrerequisites>
-						<li>Agro_Hop</li>
-					</sowResearchPrerequisites>
+					<ThingDef ParentName="PlantBase">
+						<defName>Plant_Hops</defName>
+						<label>hop plant</label>
+						<description>A flowering crop that yields hops, an essential ingredient in beer.</description>
+						<statBases>
+							<MaxHitPoints>85</MaxHitPoints>
+							<Nutrition>0.2</Nutrition>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Plant/HopsPlant</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+						</graphicData>
+						<selectable>true</selectable>
+						<pathCost>14</pathCost>
+						<ingestible/>
+						<plant>
+							<fertilitySensitivity>0.7</fertilitySensitivity>
+							<growDays>5</growDays>
+							<dieIfLeafless>true</dieIfLeafless>
+							<harvestTag>Standard</harvestTag>
+							<harvestedThingDef>RawHops</harvestedThingDef>
+							<harvestYield>8</harvestYield>
+							<sowMinSkill>3</sowMinSkill>
+							<sowTags>
+								<li>Ground</li>
+								<li>Hydroponic</li>
+							</sowTags>
+							<topWindExposure>0.1</topWindExposure>
+							<visualSizeRange>0.3~1.05</visualSizeRange>
+							<wildOrder>2</wildOrder>
+							<sowResearchPrerequisites>
+								<li>Agro_Hop</li>
+							</sowResearchPrerequisites>
+						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
+					</ThingDef>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -411,6 +501,13 @@
 								<li>Agro_AddictivePlantsI</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -453,6 +550,13 @@
 								<li>Agro_AddictivePlantsII</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -569,11 +673,35 @@
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Daylily"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+							<beeQueenDefs>
+								<li>BeeQueen_Common</li>
+							</beeQueenDefs>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="Plant_Rose"]/plant</xpath>
 				<value>
 					<sowResearchPrerequisites>
 						<li>Agro_FlowersII</li>
 					</sowResearchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Rose"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+							<beeQueenDefs>
+								<li>BeeQueen_Common</li>
+							</beeQueenDefs>
+						</li>
+					</comps>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -623,6 +751,13 @@
 								<li>Ground</li>
 							</sowTags>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Common</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -661,6 +796,16 @@
 					</graphicData>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Agarilux"]/comps</xpath>
+				<value>
+					<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+						<beeQueenDefs>
+							<li>BeeQueen_Cave</li>
+						</beeQueenDefs>
+					</li>
+				</value>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Bryolux"]/plant</xpath>
 				<value>
@@ -683,6 +828,16 @@
 							<li>Ground</li>
 						</sowTags>
 					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Bryolux"]/comps</xpath>
+				<value>
+					<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+						<beeQueenDefs>
+							<li>BeeQueen_Cave</li>
+						</beeQueenDefs>
+					</li>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -718,6 +873,16 @@
 					</plant>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Glowstool"]/comps</xpath>
+				<value>
+					<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+						<beeQueenDefs>
+							<li>BeeQueen_Cave</li>
+						</beeQueenDefs>
+					</li>
+				</value>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Plant_Nutrifungus"]/plant</xpath>
 				<value>
@@ -744,6 +909,18 @@
 					</plant>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Nutrifungus"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+							<beeQueenDefs>
+								<li>BeeQueen_Cave</li>
+							</beeQueenDefs>
+						</li>
+					</comps>
+				</value>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Plant_Tinctoria"]/plant</xpath>
 				<value>
@@ -768,6 +945,18 @@
 							<li>Agro_MutatedPlantsI</li>
 						</sowResearchPrerequisites>
 					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Tinctoria"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+							<beeQueenDefs>
+								<li>BeeQueen_Cave</li>
+							</beeQueenDefs>
+						</li>
+					</comps>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -830,6 +1019,13 @@
 								<li>Agro_TreesII</li>
 							</sowResearchPrerequisites>
 						</plant>
+						<comps>
+							<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+								<beeQueenDefs>
+									<li>BeeQueen_Mutated</li>
+								</beeQueenDefs>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -847,10 +1043,22 @@
 						<growOptimalGlow>0</growOptimalGlow>
 						<cavePlant>true</cavePlant>
 						<wildOrder>1</wildOrder>
-						<sowResearchPrerequisites Inherit="false"></sowResearchPrerequisites>
+						<sowResearchPrerequisites Inherit="false"/>
 						<treeLoversCareIfChopped>false</treeLoversCareIfChopped>
-						<sowTags Inherit="false"></sowTags>
+						<sowTags Inherit="false"/>
 					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Timbershroom"]</xpath>
+				<value>
+					<comps>
+						<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+							<beeQueenDefs>
+								<li>BeeQueen_Cave</li>
+							</beeQueenDefs>
+						</li>
+					</comps>
 				</value>
 			</li>
 		</operations>

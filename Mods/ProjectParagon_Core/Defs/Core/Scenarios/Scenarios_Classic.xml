@@ -665,4 +665,54 @@
 			</parts>
 		</scenario>
 	</ScenarioDef>
+	
+	<ScenarioDef>
+		<defName>Battlefield</defName>
+		<label>Battlefield</label>
+		<description>The assault on the ruined fortress breaks down after a treacherous betrayal by a group of heretics. Can you lead them and lead them to victory?</description>
+		<scenario>
+			<summary>A group of heretics find themselves in the middle of a fight.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerHeretics</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+					<def>ConfigPage_ConfigureStartingPawns</def>
+					<pawnCount>10</pawnCount>
+					<pawnChoiceCount>0</pawnChoiceCount>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_FactionRelations">
+					<def>FactionRelations</def>
+					<scenFactionRelationRecords>
+						<li>
+							<factionDef>Knightly_Order</factionDef>
+							<relationsOffSet>-100</relationsOffSet>
+						</li>
+						<li>
+							<factionDef>TribeRough</factionDef>
+							<relationsOffSet>100</relationsOffSet>
+						</li>
+						<li>
+							<factionDef>TribeCivil</factionDef>
+							<relationsOffSet>-100</relationsOffSet>
+						</li>
+					</scenFactionRelationRecords>
+				</li>
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_LoadMapBlueprintDef">
+					<def>LoadMapBlueprintDef</def>
+					<mapBlueprintDef>Scenario_Heretics_I</mapBlueprintDef>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>The assault on the ruined fortress breaks down after a treacherous betrayal by a group of heretics. Can you lead them and lead them to victory?</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
 </Defs>

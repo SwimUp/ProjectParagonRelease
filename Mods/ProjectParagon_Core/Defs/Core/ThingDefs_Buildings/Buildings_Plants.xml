@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>LifeTree</defName>
+		<label>life tree</label>
+		<description>A large majestic tree that gives life to everything around. Possesses a mysterious psionic halo. The central plant in the ideology of the treants, who will be extremely unhappy if the tree dies.</description>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/LifeTree</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.21, 0.6, 0.21)</volume>
+			</shadowData>
+			<drawSize>3</drawSize>
+			<drawOffset>0,0,1</drawOffset>
+		</graphicData>
+		<drawGUIOverlay>True</drawGUIOverlay>
+		<minifiedDef IsNull="True"/>
+		<uiIconScale>0.3</uiIconScale>
+		<statBases>
+			<Beauty>30</Beauty>
+			<MeditationFocusStrength>0.3</MeditationFocusStrength>
+			<Flammability>2</Flammability>
+			<MaxHitPoints>400</MaxHitPoints>
+			<MeditationPlantGrowthOffset>0</MeditationPlantGrowthOffset>
+		</statBases>
+		<designationCategory>Ideology</designationCategory>
+		<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+		<costList>
+			<WoodLog>500</WoodLog>
+		</costList>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Natural</li>
+				</focusTypes>
+				<offsets>
+					<li Class="FocusStrengthOffset_ArtificialBuildings">
+						<radius>34.9</radius>
+						<curve>
+							<points>
+								<li>(0,   0.0)</li>
+								<li>(5,  -0.08)</li>
+								<li>(10, -0.15)</li>
+								<li>(50, -0.3)</li>
+							</points>
+						</curve>
+					</li>
+					<li Class="FocusStrengthOffset_BuildingDefs">
+						<defs>
+							<AnimusStone>0.05</AnimusStone>
+							<NatureShrine_Small>0.015</NatureShrine_Small>
+							<NatureShrine_Large>0.03</NatureShrine_Large>
+						</defs>
+						<radius>9.9</radius>
+						<maxBuildings>6</maxBuildings>
+						<explanationKey>MeditationFocusPerAnimusStoneAndShrine</explanationKey>
+						<explanationKeyAbstract>MeditationFocusPerAnimusStoneAndShrineAbstract</explanationKeyAbstract>
+					</li>
+				</offsets>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>3.75</glowRadius>
+				<glowColor>(110,116,125,0)</glowColor>
+			</li>
+			<li Class="CompProperties_SpawnSubplant">
+				<compClass>CompSpawnSubplant</compClass>
+				<subplant>LifeFlower</subplant>
+				<spawnSound>AnimaTreeProgress</spawnSound>
+			</li>
+			<li Class="CompProperties_Psylinkable">
+				<requiredSubplantCountPerPsylinkLevel>
+					<li>20</li>
+					<li>20</li>
+					<li>20</li>
+					<li>20</li>
+					<li>20</li>
+					<li>20</li>
+				</requiredSubplantCountPerPsylinkLevel>
+				<requiredFocus>Natural</requiredFocus>
+				<linkSound>AnimaTreeLink</linkSound>
+				<enoughPlantsLetterLabel>About: Life tree linking</enoughPlantsLetterLabel>
+				<enoughPlantsLetterText>Enough flowers of life ({0}) have grown around the tree of life. Now, any native of the tribe can begin their first binding ritual!\n\nCompleting a binding ritual grants one level of psi-link and the ability to apply psi-influences. To level up, each time you will need 20 units. flowers of life.\n\nThe requirements for lifeblooms for repeated binding rituals are as follows:\n\n{1}\n\nPlease note that only settlers with the "nature ". To find out the types of meditation available to a settler, select it and press the "i" button.</enoughPlantsLetterText>
+			</li>
+			<li Class="CompProperties_GiveThoughtToAllMapPawnsOnDestroy">
+				<thought>AnimaScream</thought>
+				<message>The life tree has died and emitted a disturbing psychic scream.</message>
+				<compClass>ProjectParagon.Core.Things.CompGiveThoughtToAllMapPawnsOnDestroyLifeTree</compClass>
+			</li>
+			<li Class="CompProperties_PlaySoundOnDestroy">
+				<sound>AnimaTreeScream</sound>
+			</li>
+			<li Class="CompProperties_ToggleDrawAffectedMeditationFoci"/>
+			<li Class="ProjectParagon.Core.Rituals.CompProperties_TreeGifts">
+				<treeGiftRecords>
+					<li>
+						<quality>Awful</quality>
+						<treeGifts>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainMemory">
+								<memoryDef>LifeTreeBadGifts</memoryDef>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainHediff">
+								<hediffDef>LifeTreeCurse</hediffDef>
+								<severity>1</severity>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainHediff">
+								<hediffDef>HediffDef_Anthracnose</hediffDef>
+								<severity>0.001</severity>
+								<chance>0.5</chance>
+							</li>
+						</treeGifts>
+					</li>
+					<li>
+						<quality>Poor</quality>
+						<treeGifts>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainMemory">
+								<memoryDef>LifeTreeBadGifts</memoryDef>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainHediff">
+								<hediffDef>LifeTreeCurse</hediffDef>
+								<severity>1</severity>
+							</li>
+						</treeGifts>
+					</li>
+					<li>
+						<quality>Normal</quality>
+						<treeGifts>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainMemory">
+								<memoryDef>LifeTreeModestGifts</memoryDef>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainThings">
+								<thingSetMakerDef>LifeTreeNormalThingsGift</thingSetMakerDef>
+								<chance>1</chance>
+							</li>
+						</treeGifts>
+					</li>
+					<li>
+						<quality>Good</quality>
+						<treeGifts>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainMemory">
+								<memoryDef>LifeTreeGoodGifts</memoryDef>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainThings">
+								<thingSetMakerDef>LifeTreeGoodThingsGift</thingSetMakerDef>
+								<chance>1</chance>
+							</li>
+						</treeGifts>
+					</li>
+					<li>
+						<quality>Excellent</quality>
+						<treeGifts>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainMemory">
+								<memoryDef>LifeTreeExcellentGifts</memoryDef>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainHediff">
+								<hediffDef>LifeTreeBlessing</hediffDef>
+								<severity>0.5</severity>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainThings">
+								<thingSetMakerDef>LifeTreeExcellentThingsGift</thingSetMakerDef>
+								<chance>1</chance>
+							</li>
+						</treeGifts>
+					</li>
+					<li>
+						<quality>Masterwork</quality>
+						<treeGifts>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainMemory">
+								<memoryDef>LifeTreeExcellentGifts</memoryDef>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainHediff">
+								<hediffDef>LifeTreeBlessing</hediffDef>
+								<severity>0.75</severity>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainThings">
+								<thingSetMakerDef>LifeTreeMasterworkThingsGift</thingSetMakerDef>
+								<chance>1</chance>
+							</li>
+						</treeGifts>
+					</li>
+					<li>
+						<quality>Legendary</quality>
+						<treeGifts>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainMemory">
+								<memoryDef>LifeTreeLegendaryGifts</memoryDef>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainHediff">
+								<hediffDef>LifeTreeBlessing</hediffDef>
+								<severity>1</severity>
+							</li>
+							<li Class="ProjectParagon.Core.Rituals.TreeGift_GainThings">
+								<thingSetMakerDef>LifeTreeLegendaryThingsGift</thingSetMakerDef>
+								<chance>1</chance>
+							</li>
+						</treeGifts>
+					</li>
+				</treeGiftRecords>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>TreantRace</li>
+					<li>DryadRace</li>
+					<li>PsionicDryadRace</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingSetMakerDef>
+		<defName>LifeTreeNormalThingsGift</defName>
+		<root Class="ThingSetMaker_RandomOption">
+			<options>
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>MedicineHerbal</li>
+								</thingDefs>
+							</filter>
+							<countRange>5~10</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>WoodLog</li>
+								</thingDefs>
+							</filter>
+							<countRange>25~75</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</options>
+		</root>
+	</ThingSetMakerDef>
+	<ThingSetMakerDef>
+		<defName>LifeTreeGoodThingsGift</defName>
+		<root Class="ThingSetMaker_RandomOption">
+			<options>
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>AloeTincture</li>
+									<li>HerbalTincture</li>
+									<li>MintTincture</li>
+									<li>RosehipTincture</li>
+								</thingDefs>
+							</filter>
+							<countRange>5~15</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>WoodLog</li>
+								</thingDefs>
+							</filter>
+							<countRange>50~150</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>MedicineHerbal</li>
+								</thingDefs>
+							</filter>
+							<countRange>10~20</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</options>
+		</root>
+	</ThingSetMakerDef>
+	<ThingSetMakerDef>
+		<defName>LifeTreeExcellentThingsGift</defName>
+		<root Class="ThingSetMaker_RandomOption">
+			<options>
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>AloeTincture</li>
+									<li>HerbalTincture</li>
+									<li>MintTincture</li>
+									<li>RosehipTincture</li>
+									<li>PropolisTincture</li>
+									<li>PrionicTincture</li>
+								</thingDefs>
+							</filter>
+							<countRange>10~20</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<weight>1</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>WoodLog</li>
+								</thingDefs>
+							</filter>
+							<countRange>75~200</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<weight>0.25</weight>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>MedicineHerbal</li>
+								</thingDefs>
+							</filter>
+							<countRange>15~25</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+			</options>
+		</root>
+	</ThingSetMakerDef>
+	<ThingSetMakerDef>
+		<defName>LifeTreeMasterworkThingsGift</defName>
+		<root Class="ThingSetMaker_Sum">
+			<options>
+				<li>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>MedicineHerbal</li>
+								</thingDefs>
+							</filter>
+							<countRange>15~25</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<thingSetMaker Class="ThingSetMaker_RandomOption">
+						<options>
+							<li>
+								<weight>1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>AloeTincture</li>
+												<li>HerbalTincture</li>
+												<li>MintTincture</li>
+												<li>RosehipTincture</li>
+												<li>PropolisTincture</li>
+												<li>PrionicTincture</li>
+											</thingDefs>
+										</filter>
+										<countRange>10~20</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+							<li>
+								<weight>1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>BeeQueen_Common</li>
+												<li>BeeQueen_Radioactive</li>
+												<li>BeeQueen_Mutated</li>
+												<li>BeeQueen_Cave</li>
+											</thingDefs>
+										</filter>
+										<countRange>1~3</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+							<li>
+								<weight>1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>WoodLog</li>
+											</thingDefs>
+										</filter>
+										<countRange>75~200</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</options>
+					</thingSetMaker>
+				</li>
+			</options>
+		</root>
+	</ThingSetMakerDef>
+	<ThingSetMakerDef>
+		<defName>LifeTreeLegendaryThingsGift</defName>
+		<root Class="ThingSetMaker_Sum">
+			<options>
+				<li>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>MedicineHerbal</li>
+								</thingDefs>
+							</filter>
+							<countRange>15~25</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<thingSetMaker Class="ThingSetMaker_StackCount">
+						<fixedParams>
+							<filter>
+								<thingDefs>
+									<li>AloeTincture</li>
+									<li>HerbalTincture</li>
+									<li>MintTincture</li>
+									<li>RosehipTincture</li>
+									<li>PropolisTincture</li>
+									<li>PrionicTincture</li>
+								</thingDefs>
+							</filter>
+							<countRange>10~20</countRange>
+						</fixedParams>
+					</thingSetMaker>
+				</li>
+				<li>
+					<thingSetMaker Class="ThingSetMaker_RandomOption">
+						<options>
+							<li>
+								<weight>0.5</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>AnimusStone</li>
+											</thingDefs>
+										</filter>
+										<countRange>1</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+							<li>
+								<weight>1</weight>
+								<thingSetMaker Class="ThingSetMaker_StackCount">
+									<fixedParams>
+										<filter>
+											<thingDefs>
+												<li>WoodLog</li>
+											</thingDefs>
+										</filter>
+										<countRange>150~250</countRange>
+									</fixedParams>
+								</thingSetMaker>
+							</li>
+						</options>
+					</thingSetMaker>
+				</li>
+			</options>
+		</root>
+	</ThingSetMakerDef>
+	<ThingDef ParentName="PlantBaseNonEdible">
+		<defName>LifeFlower</defName>
+		<label>life flower</label>
+		<description>A fragile and beautiful flower nourished by the roots of the tree of life.</description>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>2</Flammability>
+			<Beauty>4</Beauty>
+		</statBases>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/LifeFlower</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<plant>
+			<fertilityMin>0.02</fertilityMin>
+			<fertilitySensitivity>0</fertilitySensitivity>
+			<sowMinSkill>0</sowMinSkill>
+			<growDays>1</growDays>
+			<lifespanDaysPerGrowDays>60</lifespanDaysPerGrowDays>
+			<harvestWork>50</harvestWork>
+			<visualSizeRange>0.9~1.15</visualSizeRange>
+			<topWindExposure>0.4</topWindExposure>
+			<wildOrder>1</wildOrder>
+			<dieFromToxicFallout>False</dieFromToxicFallout>
+			<allowAutoCut>false</allowAutoCut>
+		</plant>
+	</ThingDef>
+</Defs>

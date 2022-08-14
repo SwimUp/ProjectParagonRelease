@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<PreceptDef>
+		<defName>DryadAwakening</defName>
+		<label>dryad awakening</label>
+		<description>Dryad will begin the awakening ritual. Spectators will stand and watch.
+
+The end of the ritual will result in the death of the previous personality and the birth of a new psionic dryad.</description>
+		<issue>Ritual</issue>
+		<preceptClass>Precept_Ritual</preceptClass>
+		<visible>false</visible>
+		<classic>true</classic>
+		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+		<selectionWeight>1.0</selectionWeight>
+		<ritualPatternBase>DryadAwakening</ritualPatternBase>
+		<iconPath>UI/Icons/Rituals/RitualPrisonerSacrifice</iconPath>
+		<usesIdeoVisualEffects>false</usesIdeoVisualEffects>
+		<mergeRitualGizmosFromAllIdeos>true</mergeRitualGizmosFromAllIdeos>
+		<useRepeatPenalty>false</useRepeatPenalty>
+		<showRitualFloatMenuOption>true</showRitualFloatMenuOption>
+	</PreceptDef>
+	<DutyDef>
+		<defName>DryadAwakening</defName>
+		<socialModeMax>Off</socialModeMax>
+		<thinkNode Class="ThinkNode_Priority">
+			<subNodes>
+				<li Class="ProjectParagon.Core.AI.JobGivers.JobGiver_DryadAwakening">
+				</li>
+			</subNodes>
+		</thinkNode>
+	</DutyDef>
+	<DutyDef>
+		<defName>DryadAwakeningSecondary</defName>
+		<hook>MediumPriority</hook>
+		<socialModeMax>Off</socialModeMax>
+		<thinkNode Class="ThinkNode_Priority">
+			<subNodes>
+				<!-- Spectate -->
+				<li Class="JobGiver_SpectateInCircleDuty"/>
+			</subNodes>
+		</thinkNode>
+	</DutyDef>
+	<!---->
+	<PreceptDef>
+		<defName>TreeGifts</defName>
+		<label>tree gifts</label>
+		<description>The psionic dryad will begin the ritual of infusing the tree of life. Spectators will stand and watch, enhancing the effect.
+
+The success of the ritual is affected by the overall psychosensitivity of all participants and their number. At the end of the ritual, you can receive various rewards.</description>
+		<issue>Ritual</issue>
+		<preceptClass>Precept_Ritual</preceptClass>
+		<visible>false</visible>
+		<classic>true</classic>
+		<countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+		<selectionWeight>1.0</selectionWeight>
+		<ritualPatternBase>TreeGifts</ritualPatternBase>
+		<iconPath>UI/Icons/Rituals/RitualPrisonerSacrifice</iconPath>
+		<usesIdeoVisualEffects>false</usesIdeoVisualEffects>
+		<mergeRitualGizmosFromAllIdeos>true</mergeRitualGizmosFromAllIdeos>
+		<useRepeatPenalty>false</useRepeatPenalty>
+		<showRitualFloatMenuOption>true</showRitualFloatMenuOption>
+	</PreceptDef>
+	<DutyDef>
+		<defName>TreeGifts</defName>
+		<socialModeMax>Off</socialModeMax>
+		<thinkNode Class="ThinkNode_Priority">
+			<subNodes>
+				<li Class="ProjectParagon.Core.AI.JobGivers.JobGiver_TreeGifts">
+				</li>
+			</subNodes>
+		</thinkNode>
+	</DutyDef>
+	<DutyDef>
+		<defName>TreeGiftsSecondary</defName>
+		<hook>MediumPriority</hook>
+		<socialModeMax>Off</socialModeMax>
+		<thinkNode Class="ThinkNode_Priority">
+			<subNodes>
+				<!-- Spectate -->
+				<li Class="JobGiver_SpectateInCircleDuty"/>
+			</subNodes>
+		</thinkNode>
+	</DutyDef>
+</Defs>

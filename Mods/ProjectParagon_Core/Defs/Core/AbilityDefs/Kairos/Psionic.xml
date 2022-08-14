@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AbilityDef ParentName="PsycastBase">
+		<defName>Dash</defName>
+		<label>Dash</label>
+		<description>You give the target momentum, making it move much faster.</description>
+		<level>1</level>
+		<iconPath>Core/UI/Abilities/Dash</iconPath>
+		<statBases>
+			<Ability_EntropyGain>20</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+			<Ability_Duration>60</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.25</warmupTime>
+			<range>25.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>Dash</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Soldier</li>
+					<li>Kairos_Worker</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>Dash</defName>
+		<label>Dash</label>
+		<description>Instant acceleration created by psionic waves.</description>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statFactors>
+					<MoveSpeed>2.0</MoveSpeed>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+</Defs>

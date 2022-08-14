@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<RitualBehaviorDef>
+		<defName>DryadAwakening</defName>
+		<durationTicks>20000</durationTicks>
+		<workerClass>ProjectParagon.Core.Rituals.RitualBehaviorWorker_DryadAwakening</workerClass>
+		<roles>
+			<li Class="ProjectParagon.Core.Rituals.RitualRoleDryadAwaker">
+				<label>awaker</label>
+				<id>organizer</id>
+				<required>true</required>
+				<maxCount>1</maxCount>
+				<defaultForSelectedColonist>true</defaultForSelectedColonist>
+				<noCandidatesGizmoDesc>Need a dryad to be awakened.</noCandidatesGizmoDesc>
+			</li>
+		</roles>
+		<spectatorFilter Class="RitualSpectatorFilter_NatureFocus">
+			<description>Must have natural focus type.</description>
+		</spectatorFilter>
+		<spectatorsLabel>Participants</spectatorsLabel>
+		<spectatorGerund>participate</spectatorGerund>
+		<stages>
+			<li Class="ProjectParagon.Core.Rituals.RitualStage_DryadAwakening">
+				<defaultDuty>DryadAwakeningSecondary</defaultDuty>
+				<endTriggers>
+					<li Class="StageEndTrigger_DurationPercentage">
+						<percentage>1</percentage>
+					</li>
+				</endTriggers>
+				<spectateDistanceOverride>3~4</spectateDistanceOverride>
+				<roleBehaviors>
+					<li>
+						<roleId>organizer</roleId>
+						<dutyDef>DryadAwakening</dutyDef>
+						<customPositions>
+							<li Class="RitualPosition_AnimaLinkingSpot"/>
+						</customPositions>
+					</li>
+				</roleBehaviors>
+			</li>
+		</stages>
+	</RitualBehaviorDef>
+	
+	<RitualBehaviorDef>
+		<defName>TreeGifts</defName>
+		<durationTicks>20000</durationTicks>
+		<workerClass>ProjectParagon.Core.Rituals.RitualBehaviorWorker_TreeGifts</workerClass>
+		<roles>
+			<li Class="ProjectParagon.Core.Rituals.RitualRoleTreeGifter">
+				<label>gifter</label>
+				<id>organizer</id>
+				<required>true</required>
+				<maxCount>1</maxCount>
+				<defaultForSelectedColonist>true</defaultForSelectedColonist>
+				<noCandidatesGizmoDesc>Need a psionic dryad to be awakened.</noCandidatesGizmoDesc>
+			</li>
+		</roles>
+		<spectatorFilter Class="RitualSpectatorFilter_NatureFocus">
+			<description>Must have natural focus type.</description>
+		</spectatorFilter>
+		<spectatorsLabel>Participants</spectatorsLabel>
+		<spectatorGerund>participate</spectatorGerund>
+		<stages>
+			<li Class="ProjectParagon.Core.Rituals.RitualStage_TreeGifts">
+				<defaultDuty>TreeGiftsSecondary</defaultDuty>
+				<endTriggers>
+					<li Class="StageEndTrigger_DurationPercentage">
+						<percentage>1</percentage>
+					</li>
+				</endTriggers>
+				<spectateDistanceOverride>3~4</spectateDistanceOverride>
+				<roleBehaviors>
+					<li>
+						<roleId>organizer</roleId>
+						<dutyDef>TreeGifts</dutyDef>
+						<customPositions>
+							<li Class="RitualPosition_AnimaLinkingSpot"/>
+						</customPositions>
+					</li>
+				</roleBehaviors>
+			</li>
+		</stages>
+	</RitualBehaviorDef>
+</Defs>

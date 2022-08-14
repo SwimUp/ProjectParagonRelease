@@ -115,4 +115,65 @@
 		</researchPrerequisites>
 		<designationCategory>Misc</designationCategory>
 	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>Building_AeronRadiationAccumulator</defName>
+		<label>Radiation accumulator</label>
+		<description>A metal accumulator of radioactive particles, suitable for storing and directing radiation.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_AeronRadiationAccumulator</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Building_AeronRadiationAccumulator/Building_AeronRadiationAccumulator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3.5,3.5)</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<staticSunShadowHeight>0.25</staticSunShadowHeight>
+		<uiIconScale>0.8</uiIconScale>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<category>Building</category>
+		<pathCost>25</pathCost>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>8000</WorkToBuild>
+			<Mass>30</Mass>
+			<Flammability>0.25</Flammability>
+		</statBases>
+		<size>(2,2)</size>
+		<costList>
+			<Steel>150</Steel>
+			<UraniumOre>30</UraniumOre>
+			<ComponentSimple>4</ComponentSimple>
+		</costList>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<tickerType>Normal</tickerType>
+		<designationCategory>Misc</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WorkAnimation">
+				<graphicData>
+					<texPath>Core/Buildings/Building_AeronRadiationAccumulator/Building_AeronRadiationAccumulatorActive</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>(3.5,3.5)</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+				</graphicData>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>AeronRace</li>
+					<li>AeronixRace</li>
+					<li>AeronesRace</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
 </Defs>

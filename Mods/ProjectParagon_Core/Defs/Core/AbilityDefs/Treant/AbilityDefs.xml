@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<AbilityDef ParentName="WordOfBase">
+		<defName>BreathOfLife</defName>
+		<label>Breath of life</label>
+		<description>You force the target's body to fight for its life by disabling motor functions and accelerating tissue regeneration.</description>
+		<level>2</level>
+		<iconPath>Core/UI/Abilities/BreathOfLife</iconPath>
+		<statBases>
+			<Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+			<Ability_EntropyGain>40</Ability_EntropyGain>
+			<Ability_Duration>1000</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>3</warmupTime>
+			<targetParams>
+				<onlyTargetColonists>True</onlyTargetColonists>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>BreathOfLife</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<onlyBrain>True</onlyBrain>
+				<psychic>True</psychic>
+				<applicableToMechs>False</applicableToMechs>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>TreantRace</li>
+					<li>DryadRace</li>
+					<li>PsionicDryadRace</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>BreathOfLife</defName>
+		<label>Breath of life</label>
+		<description>Suppression of motor centers and acceleration of regeneration.</description>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+				<totalBleedFactor>0.5</totalBleedFactor>
+				<naturalHealingFactor>2.0</naturalHealingFactor>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>Paralysis</defName>
+		<label>Paralysis</label>
+		<description>Complete paralysis of the body caused by psionic toxic energy. Roots the target.</description>
+		<level>1</level>
+		<iconPath>Core/UI/Abilities/BreathOfLife</iconPath>
+		<statBases>
+			<Ability_EntropyGain>20</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+			<Ability_Duration>5</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.25</warmupTime>
+			<range>24.9</range>
+			<targetParams>
+				<canTargetAnimals>True</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffectWithDuration">
+				<compClass>CompAbilityEffect_Stun</compClass>
+				<durationMultiplier>ToxicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+			<li Class="ProjectParagon.Core.Abilities.CompProperties_AbilitySpawnThingPattern">
+				<pattern>
+					<li>(0, 0)</li>
+					<li>(1, 0)</li>
+					<li>(-1, 0)</li>
+					<li>(0, 1)</li>
+					<li>(0, -1)</li>
+				</pattern>
+				<screenShakeIntensity>1.0</screenShakeIntensity>
+				<sound>PsycastWallraise</sound>
+				<thingDef>Flora_Weed</thingDef>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>TreantRace</li>
+					<li>DryadRace</li>
+					<li>PsionicDryadRace</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<!---->
+	<AbilityDef>
+		<defName>Seedling</defName>
+		<label>Seedling</label>
+		<description>A sentient plant separates one of its arms from itself, creating a seedling for vegetative propagation.</description>
+		<abilityClass>ProjectParagon.Core.Abilities.Ability_Seedling</abilityClass>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<iconPath>Core/UI/Special/Seedling</iconPath>
+		<comps>
+			<li Class="ProjectParagon.Core.Abilities.CompProperties_AbilitySpawnSeedling">
+				<thingDef>Seedling</thingDef>
+			</li>
+		</comps>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<drawAimPie>true</drawAimPie>
+			<range>-1</range>
+			<warmupTime>5</warmupTime>
+			<targetParams>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+	<ThingDef ParentName="GreatTreeBase">
+		<defName>Seedling</defName>
+		<label>Seedling</label>
+		<description>A sapling of a sentient plant that will become a full-fledged creature once it has completed its growth.</description>
+		<thingClass>ProjectParagon.Core.Things.Plant_Seedling</thingClass>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<graphicData>
+			<texPath>Core/Plants/PlantsReadyHarvest/Seedling</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+		</statBases>
+		<plant>
+			<growDays>20</growDays>
+			<immatureGraphicPath>Core/Plants/PlantsRipening/Seedling</immatureGraphicPath>
+			<visualSizeRange>1.0~1.5</visualSizeRange>
+			<harvestWork>1000</harvestWork>
+			<harvestYield>75</harvestYield>
+			<harvestTag>Wood</harvestTag>
+			<harvestedThingDef>WoodLog</harvestedThingDef>
+			<sowTags></sowTags>
+			<interferesWithRoof>false</interferesWithRoof>
+			<harvestAfterGrowth>1</harvestAfterGrowth>
+		</plant>
+		<comps>
+			<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+				<beeQueenDefs>
+					<li>BeeQueen_Common</li>
+				</beeQueenDefs>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

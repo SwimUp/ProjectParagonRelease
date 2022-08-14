@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>PainImpulse</defName>
+		<label>Pain impulse</label>
+		<description>A wave of mental irritation and pain envelops the target's mind, suppressing the will and motor functions for a short period of time.</description>
+		<level>1</level>
+		<iconPath>Core/UI/Abilities/PainImpulse</iconPath>
+		<statBases>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.04</Ability_PsyfocusCost>
+			<Ability_Duration>120</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>1.0</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PainWave</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>ZorgRace</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<HediffDef ParentName="PsycastHediffBase">
+		<defName>PainWave</defName>
+		<label>Pain wave</label>
+		<description>Psychically-induced pain.</description>
+		<isBad>true</isBad>
+		<stages>
+			<li>
+				<painOffset>0.3</painOffset>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>PainWave</defName>
+		<label>Pain wave</label>
+		<description>A wave of mental irritation and pain envelops the target's mind, suppressing the will and motor functions for a short period of time. Can affect multiple targets simultaneously.</description>
+		<level>4</level>
+		<iconPath>Core/UI/Abilities/PainWave</iconPath>
+		<statBases>
+			<Ability_EntropyGain>50</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.15</Ability_PsyfocusCost>
+			<Ability_Duration>180</Ability_Duration>
+			<Ability_EffectRadius>3</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<warmupTime>1.0</warmupTime>
+			<range>20.0</range>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+				<canTargetAnimals>True</canTargetAnimals>
+				<canTargetLocations>True</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PainWave</hediffDef>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+				<applicableToMechs>False</applicableToMechs>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>ZorgRace</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<!---->
+</Defs>

@@ -18,6 +18,11 @@
 				<baseTendDurationHours>48</baseTendDurationHours>
 				<disappearsAtTotalTendQuality>3</disappearsAtTotalTendQuality>
 			</li>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_XenosHediff">
+				<tags>
+					<li>SilentPlantDisease</li>
+				</tags>
+			</li>
 		</comps>
 	</HediffDef>
 
@@ -39,6 +44,11 @@
 				<immunityPerDaySick>0.03</immunityPerDaySick>
 				<severityPerDayImmune>-0.03</severityPerDayImmune>
 				<immunityPerDayNotSick>-0.06</immunityPerDayNotSick>
+			</li>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_XenosHediff">
+				<tags>
+					<li>SilentPlantDisease</li>
+				</tags>
 			</li>
 		</comps>
 		<stages>
@@ -119,6 +129,11 @@
 				<severityPerDayImmune>-0.5</severityPerDayImmune>
 				<immunityPerDayNotSick>-0.06</immunityPerDayNotSick>
 			</li>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_XenosHediff">
+				<tags>
+					<li>SilentPlantDisease</li>
+				</tags>
+			</li>
 		</comps>
 		<stages>
 			<li>
@@ -174,7 +189,6 @@
 		<label>Bark beetles</label>
 		<description>A colony of bark beetles has settled on the skin. Without treatment, they will completely gnaw out everything they can get their paws on.</description>
 		<scenarioCanAdd>true</scenarioCanAdd>
-		<hediffClass>Diseases.Hediffs.Hediff_DestroyBodyPart</hediffClass>
 		<tendable>true</tendable>
 		<stages>
 			<li>
@@ -186,7 +200,54 @@
 				<baseTendDurationHours>24</baseTendDurationHours>
 				<disappearsAtTotalTendQuality>3</disappearsAtTotalTendQuality>
 			</li>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_XenosHediff">
+				<tags>
+					<li>SilentPlantDisease</li>
+				</tags>
+			</li>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_DestroyPart">
+				<ticksRange>300000~450000</ticksRange>
+			</li>
 		</comps>
+	</HediffDef>
+	
+	<HediffDef>
+		<defName>LifeTreeCurse</defName>
+		<label>Life tree curse</label>
+		<description>The tree of life has given off an impulse of anger, which has a negative effect on its worshipers.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.2</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painOffset>0.2</painOffset>
+				<statFactors>
+					<PsychicSensitivity>0</PsychicSensitivity>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef>
+		<defName>LifeTreeBlessing</defName>
+		<label>Life tree blessing</label>
+		<description>The tree of life emitted many psionic waves, positively affecting psychic sensitivity.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.2</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<PsychicSensitivity>1.5</PsychicSensitivity>
+				</statFactors>
+				<naturalHealingFactor>2</naturalHealingFactor>
+			</li>
+		</stages>
 	</HediffDef>
 
 </Defs>

@@ -7505,7 +7505,7 @@
 			<MeleeDodgeChance>0.1</MeleeDodgeChance>
 			<MeleeCritChance>0.1</MeleeCritChance>
 			<MeleeParryChance>0.1</MeleeParryChance>
-			<ToxicSensitivity>0</ToxicSensitivity>
+			<ToxicSensitivity>1</ToxicSensitivity>
 			<MeatAmount>150</MeatAmount>
 		</statBases>
 		<tools>
@@ -7636,5 +7636,382 @@
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>
+	</PawnKindDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Arix</defName>
+		<label>Arix</label>
+		<description>A massive winged mammal with a massive horn. It has an extremely thick coat and an aggressive disposition.</description>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>4.5</MoveSpeed>
+			<MarketValue>5000</MarketValue>
+			<ArmorRating_Blunt>18</ArmorRating_Blunt>
+			<ArmorRating_Sharp>12</ArmorRating_Sharp>
+			<ComfyTemperatureMin>-60</ComfyTemperatureMin>
+			<ComfyTemperatureMax>20</ComfyTemperatureMax>
+			<MeleeDodgeChance>0.1</MeleeDodgeChance>
+			<MeleeCritChance>0.75</MeleeCritChance>
+			<MeleeParryChance>0.5</MeleeParryChance>
+			<FilthRate>5</FilthRate>
+			<MeatAmount>200</MeatAmount>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>horn</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>37</power>
+				<cooldownTime>2.52</cooldownTime>
+				<linkedBodyPartsGroup>HornAttackTool</linkedBodyPartsGroup>
+				<armorPenetrationSharp>3</armorPenetrationSharp>
+				<armorPenetrationBlunt>16</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>horn</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>35</power>
+				<cooldownTime>2.52</cooldownTime>
+				<chanceFactor>0.65</chanceFactor>
+				<linkedBodyPartsGroup>HornAttackTool_2</linkedBodyPartsGroup>
+				<armorPenetrationSharp>10</armorPenetrationSharp>
+				<armorPenetrationBlunt>8</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>left foot</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2.13</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftLeg</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>14.640</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right foot</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2.13</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightLeg</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>14.640</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1.62</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.09</armorPenetrationSharp>
+				<armorPenetrationBlunt>2.016</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2.52</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<predator>true</predator>
+			<maxPreyBodySize>4</maxPreyBodySize>
+			<body>QuadrupedWingedWithTailAndHorn</body>
+			<baseBodySize>4</baseBodySize>
+			<baseHungerRate>2</baseHungerRate>
+			<baseHealthScale>5</baseHealthScale>
+			<foodType>CarnivoreAnimal, AnimalProduct</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<herdAnimal>false</herdAnimal>
+			<trainability>Advanced</trainability>
+			<gestationPeriodDays>20</gestationPeriodDays>
+			<manhunterOnTameFailChance>0.5</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<wildness>0.985</wildness>
+			<lifeExpectancy>220</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+					<soundDeath>Pawn_Megascarab_Death</soundDeath>
+					<soundCall>Pawn_Megascarab_Call</soundCall>
+					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalExotic</li>
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Milkable">
+				<milkDef>Milk</milkDef>
+				<milkIntervalDays>1</milkIntervalDays>
+				<milkAmount>15</milkAmount>
+			</li>
+			<li Class="CompProperties_Shearable">
+				<woolDef>ThrumboFur</woolDef>
+				<shearIntervalDays>30</shearIntervalDays>
+				<woolAmount>45</woolAmount>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Arix</defName>
+		<label>Arix</label>
+		<race>Arix</race>
+		<combatPower>500</combatPower>
+		<ecoSystemWeight>3</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Arix/Arix</texPath>
+					<drawSize>2.5</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Arix/Dessicated_Arix</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Arix/Arix</texPath>
+					<drawSize>2.7</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Arix/Dessicated_Arix</texPath>
+					<drawSize>2.7</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Arix/Arix</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Arix/Dessicated_Arix</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+	
+	
+	
+	
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Hamster</defName>
+		<label>Hamster</label>
+		<description>A small mammal that lives in fields and grassy pastures. Harmless and useless.</description>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>QuadrupedLow</bodyShape>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>35</MarketValue>
+			<ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0</ArmorRating_Sharp>
+			<ComfyTemperatureMin>0</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>2</FilthRate>
+			<MeleeDodgeChance>0.0</MeleeDodgeChance>
+			<MeleeCritChance>0.0</MeleeCritChance>
+			<MeleeParryChance>0.1</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1.35</uiIconScale>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+					<label>left claw</label>
+					<capacities>
+						<li>Scratch</li>
+					</capacities>
+					<power>2</power>
+					<cooldownTime>1.67</cooldownTime>
+					<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+					<armorPenetrationBlunt>0.036</armorPenetrationBlunt>
+					<armorPenetrationSharp>0.01</armorPenetrationSharp>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>right claw</label>
+					<capacities>
+						<li>Scratch</li>
+					</capacities>
+					<power>2</power>
+					<cooldownTime>1.67</cooldownTime>
+					<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+					<armorPenetrationBlunt>0.036</armorPenetrationBlunt>
+					<armorPenetrationSharp>0.01</armorPenetrationSharp>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<capacities>
+						<li>Bite</li>
+					</capacities>
+					<power>4</power>
+					<cooldownTime>0.88</cooldownTime>
+					<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+					<armorPenetrationBlunt>0.675</armorPenetrationBlunt>
+					<armorPenetrationSharp>0.07</armorPenetrationSharp>
+				</li>
+				<li Class="CombatExtended.ToolCE">
+					<label>head</label>
+					<capacities>
+						<li>Blunt</li>
+					</capacities>
+					<power>1</power>
+					<cooldownTime>3.00</cooldownTime>
+					<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+					<chanceFactor>0.2</chanceFactor>
+					<armorPenetrationBlunt>0.125</armorPenetrationBlunt>
+					<armorPenetrationSharp>0</armorPenetrationSharp>
+				</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<predator>false</predator>
+			<maxPreyBodySize>0.2</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>0.2</baseBodySize>
+			<baseHungerRate>0.2</baseHungerRate>
+			<baseHealthScale>0.1</baseHealthScale>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<herdAnimal>true</herdAnimal>
+			<wildness>0.15</wildness>
+			<trainability>None</trainability>
+			<lifeExpectancy>4</lifeExpectancy>
+			<manhunterOnTameFailChance>0.0</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.0</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.2</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.5</minAge>
+					<soundWounded>Pawn_Muffalo_Wounded</soundWounded>
+					<soundDeath>Pawn_Muffalo_Death</soundDeath>
+					<soundCall>Pawn_Muffalo_Call</soundCall>
+					<soundAngry>Pawn_Muffalo_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalCommon</li>
+		</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Hamster</defName>
+		<label>Hamster</label>
+		<race>Hamster</race>
+		<combatPower>10</combatPower>
+		<ecoSystemWeight>0.15</ecoSystemWeight>
+		<wildGroupSize>5</wildGroupSize>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Hamster/HamsterA</texPath>
+					<drawSize>1.5</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Squirrel/Dessicated_Squirrel</texPath>
+					<drawSize>1.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Hamster/HamsterA</texPath>
+					<drawSize>1.8</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Squirrel/Dessicated_Squirrel</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Hamster/HamsterA</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Squirrel/Dessicated_Squirrel</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<alternateGraphicChance>1</alternateGraphicChance>
+		<alternateGraphics>
+			<li>
+				<texPath>Core/Races/Animals/Hamster/HamsterA</texPath>
+			</li>
+			<li>
+				<texPath>Core/Races/Animals/Hamster/HamsterB</texPath>
+			</li>
+			<li>
+				<texPath>Core/Races/Animals/Hamster/HamsterC</texPath>
+			</li>
+			<li>
+				<texPath>Core/Races/Animals/Hamster/HamsterD</texPath>
+			</li>
+		</alternateGraphics>
 	</PawnKindDef>
 </Defs>

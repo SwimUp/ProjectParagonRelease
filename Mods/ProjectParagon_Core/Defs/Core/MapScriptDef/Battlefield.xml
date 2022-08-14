@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ProjectParagon.MapGenerator.MapScriptDef>
+		<defName>Battlefield</defName>
+		<label>Battlefield</label>
+		<startPartId>2</startPartId>
+		<parts>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GetPawns">
+				<nextPartId>3</nextPartId>
+				<debugData>
+					<x>2.192212</x>
+					<y>0.1699998</y>
+				</debugData>
+				<id>2</id>
+				<factionDef>player</factionDef>
+				<storeAs>playerPawns</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_FindMapObjects">
+				<nextPartId>4</nextPartId>
+				<debugData>
+					<x>3.981688</x>
+					<y>0.27</y>
+				</debugData>
+				<id>3</id>
+				<tags>playerSpawnPoint</tags>
+				<storeAs>playerSpots</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_ConvertThingsCacheToPositions">
+				<nextPartId>5</nextPartId>
+				<debugData>
+					<x>5.876421</x>
+					<y>0.4200002</y>
+				</debugData>
+				<id>4</id>
+				<variableName>playerSpots</variableName>
+				<storeAs>playerSpotsPositions</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SetThingsRandomPosition">
+				<nextPartId>6</nextPartId>
+				<debugData>
+					<x>0.281684</x>
+					<y>1.86</y>
+				</debugData>
+				<id>5</id>
+				<thingsListVariableName>playerPawns</thingsListVariableName>
+				<positionsListVarialbeName>playerSpotsPositions</positionsListVarialbeName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GeneratePawns">
+				<nextPartId>7</nextPartId>
+				<debugData>
+					<x>2.471158</x>
+					<y>1.770001</y>
+				</debugData>
+				<id>6</id>
+				<factionDef>Knightly_Order</factionDef>
+				<groupKind>Combat</groupKind>
+				<points>700</points>
+				<storeAs>enemy1</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GeneratePawns">
+				<nextPartId>8</nextPartId>
+				<debugData>
+					<x>4.034319</x>
+					<y>1.83</y>
+				</debugData>
+				<id>7</id>
+				<factionDef>TribeCivil</factionDef>
+				<groupKind>Combat</groupKind>
+				<points>700</points>
+				<storeAs>enemy2</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GeneratePawns">
+				<nextPartId>9</nextPartId>
+				<debugData>
+					<x>5.718523</x>
+					<y>1.82</y>
+				</debugData>
+				<id>8</id>
+				<factionDef>TribeRough</factionDef>
+				<groupKind>Combat</groupKind>
+				<points>1400</points>
+				<storeAs>enemy3</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_FindMapObjects">
+				<nextPartId>10</nextPartId>
+				<debugData>
+					<x>0.3395789</x>
+					<y>3.96</y>
+				</debugData>
+				<id>9</id>
+				<tags>enemySpawnPoint</tags>
+				<storeAs>enemySpots</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_ConvertThingsCacheToPositions">
+				<nextPartId>11</nextPartId>
+				<debugData>
+					<x>2.302735</x>
+					<y>3.83</y>
+				</debugData>
+				<id>10</id>
+				<variableName>enemySpots</variableName>
+				<storeAs>enemySpotsPositions</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SpawnThingsRandomPosition">
+				<nextPartId>12</nextPartId>
+				<debugData>
+					<x>4.486945</x>
+					<y>3.789998</y>
+				</debugData>
+				<id>11</id>
+				<thingsListVariableName>enemy1</thingsListVariableName>
+				<positionsListVarialbeName>enemySpotsPositions</positionsListVarialbeName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SpawnThingsRandomPosition">
+				<nextPartId>13</nextPartId>
+				<debugData>
+					<x>0.2922105</x>
+					<y>5.809999</y>
+				</debugData>
+				<id>12</id>
+				<thingsListVariableName>enemy2</thingsListVariableName>
+				<positionsListVarialbeName>enemySpotsPositions</positionsListVarialbeName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SpawnThingsRandomPosition">
+				<nextPartId>14</nextPartId>
+				<debugData>
+					<x>2.329055</x>
+					<y>5.939998</y>
+				</debugData>
+				<id>13</id>
+				<thingsListVariableName>enemy3</thingsListVariableName>
+				<positionsListVarialbeName>enemySpotsPositions</positionsListVarialbeName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GiveLord_AssaultColony">
+				<nextPartId>15</nextPartId>
+				<debugData>
+					<x>4.21853</x>
+					<y>5.49</y>
+				</debugData>
+				<id>14</id>
+				<pawnsListVariable>enemy1</pawnsListVariable>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GiveLord_AssaultColony">
+				<nextPartId>16</nextPartId>
+				<debugData>
+					<x>5.765893</x>
+					<y>6.08</y>
+				</debugData>
+				<id>15</id>
+				<pawnsListVariable>enemy2</pawnsListVariable>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GiveLord_AssaultColony">
+				<nextPartId>17</nextPartId>
+				<debugData>
+					<x>4.644841</x>
+					<y>7.129999</y>
+				</debugData>
+				<id>16</id>
+				<pawnsListVariable>enemy3</pawnsListVariable>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_RemoveMapObjects">
+				<debugData>
+					<x>4.644841</x>
+					<y>7.129999</y>
+				</debugData>
+				<id>17</id>
+				<tags>playerSpawnPoint,enemySpawnPoint</tags>
+			</li>
+			
+		</parts>
+	</ProjectParagon.MapGenerator.MapScriptDef>
+</Defs>

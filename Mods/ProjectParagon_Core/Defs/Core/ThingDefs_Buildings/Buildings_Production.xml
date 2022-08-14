@@ -222,7 +222,7 @@
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<useHitPoints>True</useHitPoints>
-		<drawerType>MapMeshAndRealTime</drawerType>
+		<drawerType>RealtimeOnly</drawerType>
 		<statBases>
 			<WorkToBuild>4500</WorkToBuild>
 			<MaxHitPoints>300</MaxHitPoints>
@@ -2673,7 +2673,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 						<jellyConsumePerSecond>0.08</jellyConsumePerSecond>
 						<!-- 80 в день, всего 1200 -->
 						<yelloriumConsumePerSecond>0.01</yelloriumConsumePerSecond>
-						<!-- 10 в день, всего 600 -->
+						<!-- 10 в день, всего 150 -->
 					</li>
 					<li>
 						<pawnKindDef>Newborn_Arachnid_Bombardier</pawnKindDef>
@@ -3087,5 +3087,122 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		<hasInteractionCell>false</hasInteractionCell>
+	</ThingDef>
+	
+	<!-- Песчаная коптильня -->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SandSmokehouse</defName>
+		<label>sand smokehouse</label>
+		<description>A large stone oven covered with sand. In rooms with high temperatures, it can happen with an autonomous stove.</description>
+		<thingClass>UniversalFermenter.Building_ColorCoded</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SandSmokehouse/SandSmokehouse</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.45</fillPercent>
+		<pathCost>60</pathCost>
+		<statBases>
+			<WorkToBuild>10000</WorkToBuild>
+			<Mass>80</Mass>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Flammability>0.0</Flammability>
+		</statBases>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<Sand>350</Sand>
+		</costList>
+		<size>(2,2)</size>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<comps>
+			<li Class="UniversalFermenter.CompProperties_UniversalFermenter">
+				<showProductIcon>true</showProductIcon>
+				<barOffset>(1.0, 2.25)</barOffset>
+				<barScale>(2.0, 2.0)</barScale>
+				<processes>
+					<li Class="ProjectParagon.Core.Things.UF_ProcessParagon">
+						<thingDef>RoastedMeat</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>RegularMeat</li>
+								<li>Meat_Human</li>
+								<li>Meat_Megaspider</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>45.0~80.0</temperatureSafe>
+						<temperatureIdeal>55.0~70.0</temperatureIdeal>
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>0.3</processDays>
+						<maxCapacity>100</maxCapacity>
+						<efficiency>0.1</efficiency>
+						<portionCount>10</portionCount>
+					</li>
+					<li Class="ProjectParagon.Core.Things.UF_ProcessParagon">
+						<thingDef>RoastedFish</thingDef>
+						<ingredientFilter>
+							<categories>
+								<li>FishRaw</li>
+							</categories>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>45.0~80.0</temperatureSafe>
+						<temperatureIdeal>55.0~70.0</temperatureIdeal>
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>0.3</processDays>
+						<maxCapacity>100</maxCapacity>
+						<efficiency>0.1</efficiency>
+						<portionCount>10</portionCount>
+					</li>
+					<li Class="ProjectParagon.Core.Things.UF_ProcessParagon">
+						<thingDef>RoastedEggs</thingDef>
+						<ingredientFilter>
+							<categories>
+								<li>EggsUnfertilized</li>
+								<li>EggsFertilized</li>
+							</categories>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>45.0~80.0</temperatureSafe>
+						<temperatureIdeal>55.0~70.0</temperatureIdeal>
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>0.15</processDays>
+						<maxCapacity>21</maxCapacity>
+						<efficiency>0.4</efficiency>
+						<portionCount>3</portionCount>
+					</li>
+					<li Class="ProjectParagon.Core.Things.UF_ProcessParagon">
+						<thingDef>RoastedCactus</thingDef>
+						<ingredientFilter>
+							<thingDefs>
+								<li>Flora_RawCactusFruit</li>
+							</thingDefs>
+						</ingredientFilter>
+						<usesTemperature>true</usesTemperature>
+						<temperatureSafe>45.0~80.0</temperatureSafe>
+						<temperatureIdeal>55.0~70.0</temperatureIdeal>
+						<speedBelowSafe>0.1</speedBelowSafe>
+						<speedAboveSafe>1.0</speedAboveSafe>
+						<processDays>0.15</processDays>
+						<maxCapacity>10</maxCapacity>
+						<efficiency>0.1</efficiency>
+						<portionCount>10</portionCount>
+					</li>
+				</processes>
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<tickerType>Rare</tickerType>
+		<rotatable>false</rotatable>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Cooking</designatorDropdown>
 	</ThingDef>
 </Defs>
