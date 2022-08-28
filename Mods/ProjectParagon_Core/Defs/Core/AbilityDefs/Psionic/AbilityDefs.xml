@@ -296,6 +296,38 @@
 			</li>
 		</comps>
 	</AbilityDef>
+	<AbilityDef ParentName="PsycastBase">
+		<defName>PsyfocusDump</defName>
+		<label>Psyfocus dump</label>
+		<description>You gains another psionic's focus through psionic transmission. The sender must agree to the transfer. The transfer of concentration leads to a prolonged coma.</description>
+		<level>5</level>
+		<iconPath>Core/UI/Abilities/PsyfocusDump</iconPath>
+		<statBases>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_Duration>1000</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>3</warmupTime>
+			<range>24.9</range>
+			<targetParams>
+				<onlyTargetColonists>True</onlyTargetColonists>
+				<neverTargetIncapacitated>True</neverTargetIncapacitated>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>PsychicComa</hediffDef>
+			</li>
+			<li Class="ProjectParagon.Core.Abilities.CompProperties_AbilityTransferPsyfocus">
+				<psychic>True</psychic>
+				<goodwillImpact>-75</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+	</AbilityDef>
 	<!---->
 	<AbilityDef ParentName="PsycastBase">
 		<defName>EchoOfPanic</defName>

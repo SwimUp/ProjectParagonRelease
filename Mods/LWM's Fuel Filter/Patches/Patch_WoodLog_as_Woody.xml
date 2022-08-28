@@ -1,0 +1,140 @@
+<Patch>
+  <!-- Patch ("WoodLog")->(all "Woody")(the stuff category) in all CompProperties_Refuelable comps
+       Note: I only check '/comps/li/fuelFilter' because someone may use a derived CompProperties,
+             but anything derived from CompProperties_Refuelable will have fuelFilter (and nothing
+             else is likely to have <fuelFilter> as a child node) -->
+  <!-- Add "Woody" to stuffCategoriesToAllow in fuel filters that already have a stuffCategoriesToAllow node -->
+  <Operation Class="PatchOperationAdd">
+    <success>Always</success><!-- this is probably an unlikely match anyway -->
+    <xpath>/Defs/ThingDef/comps/li/fuelFilter[thingDefs/li="WoodLog"]/stuffCategoriesToAllow[not(li="Woody")]</xpath>
+    <value><li>Woody</li></value>
+  </Operation>
+  <!-- Add stuffCategoriesToAllow/Woody in fuel filters that do not already have a stuffCategoriesToAllow node -->
+  <Operation Class="PatchOperationAdd">
+    <success>Always</success><!-- this will certainly match against vanilla (torches if nothing else), but ..who knows -->
+    <xpath>/Defs/ThingDef/comps/li/fuelFilter[thingDefs/li="WoodLog" and not(stuffCategoriesToAllow)]</xpath>
+    <value><stuffCategoriesToAllow><li>Woody</li></stuffCategoriesToAllow></value>
+  </Operation>
+
+<!--For the record, I used this gibberish XML to test the xpaths above:
+    (http://www.xpathtester.com/xpath is weird to use, but works)
+<Defs>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="0">
+          <thingDefs><li>Flah</li><li>flsh</li></thingDefs>
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="1">
+          <thingDefs><li>WoodLog</li></thingDefs>
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="1.0">
+          <thingDefs><li>WoodLog</li><li>flsh</li></thingDefs>
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="0.1">
+          <thingDefs><li>Flah</li><li>WoodLog</li></thingDefs>
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="0b">
+          <thingDefs><li>Flah</li><li>flsh</li></thingDefs>
+          <stuffCategoriesToAllow m="sdj"><li>bhd</li></stuffCategoriesToAllow>
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="1b">
+          <thingDefs><li>WoodLog</li></thingDefs>
+          <stuffCategoriesToAllow a="dljk"><li>bhd</li></stuffCategoriesToAllow>
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="1.0b">
+          <thingDefs><li>WoodLog</li><li>flsh</li></thingDefs>
+          <stuffCategoriesToAllow a="xxxx"><li>bhd</li></stuffCategoriesToAllow>
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="0.1b">
+          <thingDefs><li>Flah</li><li>WoodLog</li></thingDefs>
+          <stuffCategoriesToAllow a="1"><li>bhd</li></stuffCategoriesToAllow>         
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+    <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="0.1b-1">
+          <thingDefs><li>Flah</li><li>WoodLog</li></thingDefs>
+          <stuffCategoriesToAllow c="1"><li>bhd</li><li>Woody</li></stuffCategoriesToAllow>         
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="0.1b-2">
+          <thingDefs><li>Flah</li><li>WoodLog</li></thingDefs>
+          <stuffCategoriesToAllow c="2"><li>Woody</li><li>bhd</li></stuffCategoriesToAllow>         
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef>
+    <defName></defName>
+    <comps>
+      <li>
+        <fuelFilter a="0.1b-ugh">
+          <thingDefs><li>Flah</li><li>WoodLog</li></thingDefs>
+          <stuffCategoriesToAllow x="x"><li>bhd</li></stuffCategoriesToAllow>         
+        </fuelFilter>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs> -->
+</Patch>

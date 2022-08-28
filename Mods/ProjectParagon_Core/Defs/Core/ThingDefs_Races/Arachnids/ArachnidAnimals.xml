@@ -68,6 +68,7 @@
 			<leatherDef>Thick_Leather</leatherDef>
 			<herdAnimal>false</herdAnimal>
 			<wildness>0.5</wildness>
+			<useMeatFrom>Megaspider</useMeatFrom>
 			<trainability>Advanced</trainability>
 			<lifeExpectancy>8</lifeExpectancy>
 			<manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
@@ -159,6 +160,170 @@
 				<dessicatedBodyGraphicData>
 					<texPath>Core/Races/Animals/Slakt/Dessicated_Slakt</texPath>
 					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+	
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Tropo</defName>
+		<label>Tropo</label>
+		<description>A small, ungainly beetle that lives in a variety of biomes, adapting to both rainforest and wasteland. It feeds on vegetation and secretes some jelly.</description>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>QuadrupedLow</bodyShape>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>300</MarketValue>
+			<ArmorRating_Blunt>1</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>10</FilthRate>
+			<MeleeDodgeChance>0.1</MeleeDodgeChance>
+			<MeleeCritChance>0.0</MeleeCritChance>
+			<MeleeParryChance>0.0</MeleeParryChance>
+			<ToxicSensitivity>0.25</ToxicSensitivity>
+			<MeatAmount>20</MeatAmount>
+		</statBases>
+		<uiIconScale>1.35</uiIconScale>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>0.88</cooldownTime>
+				<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+				<armorPenetrationSharp>0.15</armorPenetrationSharp>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>3.00</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<predator>false</predator>
+			<maxPreyBodySize>0.7</maxPreyBodySize>
+			<body>BeetleLike</body>
+			<baseBodySize>0.5</baseBodySize>
+			<baseHungerRate>0.25</baseHungerRate>
+			<baseHealthScale>0.75</baseHealthScale>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<herdAnimal>true</herdAnimal>
+			<wildness>0.85</wildness>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>6</lifeExpectancy>
+			<manhunterOnTameFailChance>0.0</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.02</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundWounded>Pawn_Megascarab_Wounded</soundWounded>
+					<soundDeath>Pawn_Megascarab_Death</soundDeath>
+					<soundCall>Pawn_Megascarab_Call</soundCall>
+					<soundAngry>Pawn_Megascarab_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalExotic</li>
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Milkable">
+				<milkDef>InsectJelly</milkDef>
+				<milkIntervalDays>1</milkIntervalDays>
+				<milkAmount>10</milkAmount>
+				<milkFemaleOnly>false</milkFemaleOnly>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Tropo</defName>
+		<label>Tropo</label>
+		<race>Tropo</race>
+		<combatPower>30</combatPower>
+		<ecoSystemWeight>0.25</ecoSystemWeight>
+		<wildGroupSize>3</wildGroupSize>
+		<aiAvoidCover>true</aiAvoidCover>
+		<alternateGraphicChance>1</alternateGraphicChance>
+		<alternateGraphics>
+			<li>
+				<texPath>Core/Races/Animals/Tropo/Tropo</texPath>
+				<color>(158,153,135)</color>
+			</li>
+			<li>
+				<texPath>Core/Races/Animals/Tropo/Tropo</texPath>
+				<color>(132,135,132)</color>
+			</li>
+		</alternateGraphics>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Tropo/Tropo</texPath>
+					<drawSize>1.2</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Tropo/Tropo_east</texPath>
+					<drawSize>1.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Tropo/Tropo</texPath>
+					<drawSize>1.3</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Tropo/Tropo_east</texPath>
+					<drawSize>1.3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Tropo/Tropo</texPath>
+					<drawSize>1.5</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Tropo/Tropo_east</texPath>
+					<drawSize>1.5</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
 		</lifeStages>

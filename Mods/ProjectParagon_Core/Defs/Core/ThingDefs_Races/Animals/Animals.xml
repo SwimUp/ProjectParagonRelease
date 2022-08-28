@@ -461,6 +461,10 @@
 			<li Class="CombatExtended.RacePropertiesExtensionCE">
 				<bodyShape>Quadruped</bodyShape>
 			</li>
+			<li Class="GiddyUpCore.CustomStatsPatch">
+				<speedModifier>1.3</speedModifier>
+				<armorModifier>1.1</armorModifier>
+			</li>
 		</modExtensions>
 		<description>Large carnivorous reptile that lives in desert lands. It has a strange appearance, which hints at susceptibility to mutations in the past.</description>
 		<statBases>
@@ -2324,7 +2328,7 @@
 			<predator>false</predator>
 			<maxPreyBodySize>2.4</maxPreyBodySize>
 			<body>QuadrupedAnimalWithClawsTailAndJowl</body>
-			<baseBodySize>0.85</baseBodySize>
+			<baseBodySize>0.6</baseBodySize>
 			<baseHealthScale>0.25</baseHealthScale>
 			<baseHungerRate>0.25</baseHungerRate>
 			<foodType>VegetarianAnimal</foodType>
@@ -2497,7 +2501,7 @@
 			<predator>false</predator>
 			<maxPreyBodySize>2.4</maxPreyBodySize>
 			<body>QuadrupedAnimalWithClawsTailAndJowl</body>
-			<baseBodySize>0.85</baseBodySize>
+			<baseBodySize>0.6</baseBodySize>
 			<baseHealthScale>0.25</baseHealthScale>
 			<baseHungerRate>0.25</baseHungerRate>
 			<foodType>VegetarianAnimal</foodType>
@@ -2965,7 +2969,7 @@
 			<predator>true</predator>
 			<maxPreyBodySize>2.4</maxPreyBodySize>
 			<body>QuadrupedAnimalWithPawsAndTail</body>
-			<baseBodySize>0.85</baseBodySize>
+			<baseBodySize>0.6</baseBodySize>
 			<baseHealthScale>1</baseHealthScale>
 			<baseHungerRate>1</baseHungerRate>
 			<foodType>CarnivoreAnimal</foodType>
@@ -7357,7 +7361,7 @@
 			<predator>true</predator>
 			<maxPreyBodySize>1.2</maxPreyBodySize>
 			<body>BeetleLike</body>
-			<baseBodySize>0.2</baseBodySize>
+			<baseBodySize>2.8</baseBodySize>
 			<baseHungerRate>0.5</baseHungerRate>
 			<baseHealthScale>1.25</baseHealthScale>
 			<foodType>OmnivoreAnimal, AnimalProduct</foodType>
@@ -7395,6 +7399,11 @@
 		<tradeTags>
 			<li>AnimalExotic</li>
 		</tradeTags>
+		<comps>
+			<li Class="GiddyUpCore.CompProperties_Mount">
+				<isException>true</isException>
+			</li>
+		</comps>
 	</ThingDef>
 	<PawnKindDef ParentName="AnimalKindBase">
 		<defName>Sectum</defName>
@@ -7832,10 +7841,6 @@
 			</li>
 		</lifeStages>
 	</PawnKindDef>
-	
-	
-	
-	
 	<ThingDef ParentName="AnimalThingBase">
 		<defName>Hamster</defName>
 		<label>Hamster</label>
@@ -7860,49 +7865,49 @@
 		<uiIconScale>1.35</uiIconScale>
 		<tools>
 			<li Class="CombatExtended.ToolCE">
-					<label>left claw</label>
-					<capacities>
-						<li>Scratch</li>
-					</capacities>
-					<power>2</power>
-					<cooldownTime>1.67</cooldownTime>
-					<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
-					<armorPenetrationBlunt>0.036</armorPenetrationBlunt>
-					<armorPenetrationSharp>0.01</armorPenetrationSharp>
-				</li>
-				<li Class="CombatExtended.ToolCE">
-					<label>right claw</label>
-					<capacities>
-						<li>Scratch</li>
-					</capacities>
-					<power>2</power>
-					<cooldownTime>1.67</cooldownTime>
-					<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
-					<armorPenetrationBlunt>0.036</armorPenetrationBlunt>
-					<armorPenetrationSharp>0.01</armorPenetrationSharp>
-				</li>
-				<li Class="CombatExtended.ToolCE">
-					<capacities>
-						<li>Bite</li>
-					</capacities>
-					<power>4</power>
-					<cooldownTime>0.88</cooldownTime>
-					<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
-					<armorPenetrationBlunt>0.675</armorPenetrationBlunt>
-					<armorPenetrationSharp>0.07</armorPenetrationSharp>
-				</li>
-				<li Class="CombatExtended.ToolCE">
-					<label>head</label>
-					<capacities>
-						<li>Blunt</li>
-					</capacities>
-					<power>1</power>
-					<cooldownTime>3.00</cooldownTime>
-					<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
-					<chanceFactor>0.2</chanceFactor>
-					<armorPenetrationBlunt>0.125</armorPenetrationBlunt>
-					<armorPenetrationSharp>0</armorPenetrationSharp>
-				</li>
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.67</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>0.036</armorPenetrationBlunt>
+				<armorPenetrationSharp>0.01</armorPenetrationSharp>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.67</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>0.036</armorPenetrationBlunt>
+				<armorPenetrationSharp>0.01</armorPenetrationSharp>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>0.88</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>0.675</armorPenetrationBlunt>
+				<armorPenetrationSharp>0.07</armorPenetrationSharp>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>3.00</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.125</armorPenetrationBlunt>
+				<armorPenetrationSharp>0</armorPenetrationSharp>
+			</li>
 		</tools>
 		<race>
 			<herdMigrationAllowed>false</herdMigrationAllowed>

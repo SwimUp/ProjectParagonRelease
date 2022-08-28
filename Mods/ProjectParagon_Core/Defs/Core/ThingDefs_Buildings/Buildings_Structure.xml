@@ -902,4 +902,164 @@
 			<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
 		</li>
 	</modExtensions>
+	<ThingDef ParentName="BuildingBase">
+		<defName>SpikedWall</defName>
+		<label>Spiked wall</label>
+		<description>Wood wall with prickly thorns. The attacker will receive minor damage.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SpikedWall</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/Linked/SpikedWall/SpikedWall_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Core/Buildings/Linked/SpikedWall/SpikedWall_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>150</WorkToBuild>
+			<Flammability>0</Flammability>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>false</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<costList>
+			<WoodLog>10</WoodLog>
+		</costList>
+		<building>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+			<isPlaceOverableWall>true</isPlaceOverableWall>
+			<relatedBuildCommands>
+				<li>Door</li>
+				<li>Autodoor</li>
+			</relatedBuildCommands>
+		</building>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Minimal</li>
+				</focusTypes>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>4</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>1.5</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>1.2</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>1.25</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+		</damageMultipliers>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+	</ThingDef>
+	<modExtensions>
+		<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+			<associatedRaces>
+				<li>TreantRace</li>
+				<li>DryadRace</li>
+				<li>PsionicDryadRace</li>
+			</associatedRaces>
+		</li>
+		<li Class="ParagonWiki.Other.DefExtension_Wiki">
+			<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+		</li>
+	</modExtensions>
 </Defs>
