@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Combat Command -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Mote_CombatCommand"]/graphicData/drawSize</xpath>
+		<value>
+			<drawSize>30</drawSize>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="CombatCommand"]/comps/li[@Class="HediffCompProperties_GiveHediffsInRange"]/range</xpath>
+		<value>
+			<range>14.9</range>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="CombatCommandBuff"]/comps/li[@Class="HediffCompProperties_Link"]/maxDistance</xpath>
+		<value>
+			<maxDistance>15</maxDistance>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="CombatCommandBuff"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
+				<MeleeHitChance>1.5</MeleeHitChance>
+				<Suppressability>-0.25</Suppressability>
+			</statOffsets>
+		</value>
+	</Operation>
+
+	<!-- Marksman Command -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="MarksmanCommand"]/comps/li[@Class="HediffCompProperties_GiveHediffsInRange"]/range</xpath>
+		<value>
+			<range>14.9</range>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="MarksmanCommandBuff"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<ShootingAccuracyPawn>2.0</ShootingAccuracyPawn>
+				<AimingAccuracy>0.2</AimingAccuracy>
+			</statOffsets>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/HediffDef[defName="MarksmanCommandBuff"]/stages/li</xpath>
+		<value>
+			<statFactors>
+				<ReloadSpeed>1.20</ReloadSpeed>
+			</statFactors>
+		</value>
+	</Operation>
+
+	<!-- Beserker Trance -->
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/HediffDef[defName="BerserkTrance"]/stages/li/statOffsets</xpath>
+		<value>
+			<statOffsets>
+				<MeleeHitChance>2.0</MeleeHitChance>
+				<MeleeDodgeChance>0.1</MeleeDodgeChance>
+				<MeleeCritChance>0.25</MeleeCritChance>
+				<MeleeParryChance>0.1</MeleeParryChance>
+				<Suppressability>-10</Suppressability>
+			</statOffsets>
+		</value>
+	</Operation>
+
+</Patch>
+

@@ -13,6 +13,26 @@
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 	
+	<ResearchProjectDef Abstract="true" Name="IndustrialResearchBench">
+		<requiredResearchBuilding>ResearchBench</requiredResearchBuilding>
+	</ResearchProjectDef>
+	<ResearchProjectDef Abstract="true" Name="IndustrialResearchBenchAndResearchLibrary">
+		<requiredResearchBuilding>ResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>ResearchLibrary</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef Abstract="true" Name="SpacerResearchBench">
+		<requiredResearchBuilding>SimpleResearchBench</requiredResearchBuilding>
+	</ResearchProjectDef>
+	<ResearchProjectDef Abstract="true" Name="SpacerResearchBenchAndResearchLibrary">
+		<requiredResearchBuilding>SimpleResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>ResearchLibrary</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+	
 
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>GlassMaking</defName>
@@ -260,6 +280,7 @@
 			</prerequisites>
 			<requiredResearchBuilding>SimpleResearchBench</requiredResearchBuilding>
 		</ResearchProjectDef>
+		
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>GamesI</defName>
 		<label>Games I</label>
@@ -693,17 +714,17 @@
 					<li>StoneFloorsII</li>
 				</prerequisites>
 			</ResearchProjectDef>
-			<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
+			<ResearchProjectDef ParentName="IndustrialResearchBench">
 				<defName>StoneFloorsIII</defName>
 				<label>Stone floors III</label>
 				<description>Learn to lay more stone floors.</description>
-				<baseCost>600</baseCost>
+				<baseCost>300</baseCost>
 				<techLevel>Industrial</techLevel>
 				<researchViewX>0.00</researchViewX>
 				<researchViewY>20</researchViewY>
 				<prerequisites>
-					<li>StoneFloorsII</li>
 					<li>ProductionII</li>
+					<li>StoneFloorsII</li>
 				</prerequisites>
 			</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -787,6 +808,23 @@
 					</li>
 				</modExtensions>
 			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+					<defName>Pharmacology</defName>
+					<label>Pharmacology</label>
+					<description>Immerse yourself in the world of drugs! Start creating cures for all sorts of diseases, new stimulants and of course drugs!</description>
+					<baseCost>650</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>0.00</researchViewX>
+					<researchViewY>20</researchViewY>
+					<prerequisites>
+						<li>Medicine</li>
+					</prerequisites>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+							<researchFinishThoughtDef>Medicine</researchFinishThoughtDef>
+						</li>
+					</modExtensions>
+				</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>FurnitureII</defName>
 		<label>Furniture II</label>
@@ -865,8 +903,7 @@
 							<researchViewX>0.00</researchViewX>
 							<researchViewY>20</researchViewY>
 							<prerequisites>
-								<li>StoragesIII</li>
-								<li>ProductionII</li>
+								<li>Machining</li>
 							</prerequisites>
 						</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
@@ -920,13 +957,8 @@
 						<researchViewX>0.00</researchViewX>
 						<researchViewY>20</researchViewY>
 						<prerequisites>
-							<li>MonumentsII</li>
+							<li>ArchitecturalEngineering</li>
 						</prerequisites>
-						<modExtensions>
-							<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
-								<canBeResearch>false</canBeResearch>
-							</li>
-						</modExtensions>
 					</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>GamesII</defName>
@@ -1278,23 +1310,18 @@
 							<li>MediumGuns</li>
 						</prerequisites>
 					</ResearchProjectDef>
-				<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
-					<defName>ModifiedGuns</defName>
-					<label>Modified guns</label>
-					<description>Specific heavy gunpowder guns.</description>
-					<baseCost>1000</baseCost>
-					<techLevel>Medieval</techLevel>
-					<researchViewX>0.00</researchViewX>
-					<researchViewY>20</researchViewY>
-					<prerequisites>
-						<li>MediumGuns</li>
-					</prerequisites>
-					<modExtensions>
-						<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
-							<canBeResearch>false</canBeResearch>
-						</li>
-					</modExtensions>
-				</ResearchProjectDef>
+						<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
+							<defName>ModifiedGuns</defName>
+							<label>Modified guns</label>
+							<description>Specific heavy gunpowder guns.</description>
+							<baseCost>1000</baseCost>
+							<techLevel>Medieval</techLevel>
+							<researchViewX>0.00</researchViewX>
+							<researchViewY>20</researchViewY>
+							<prerequisites>
+								<li>HeavyGuns</li>
+							</prerequisites>
+						</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 		<defName>ProductionII</defName>
@@ -1309,6 +1336,8 @@
 			<li>StoragesIII</li>
 			<li>BasicsMechanic</li>
 			<li>Plumbing</li>
+			<li>MonumentsII</li>
+			<li>SimpleHealthCare</li>
 		</prerequisites>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -1402,21 +1431,7 @@
 			</prerequisites>
 		</ResearchProjectDef>
 	
-	<ResearchProjectDef ParentName="PrimitiveResearchBench">
-		<defName>FertilizerProduction</defName>
-		<label>Fertilizer production</label>
-		<description>Learn to create powerful biological fertilizers to significantly increase soil fertility.</description>
-		<baseCost>600</baseCost>
-		<techLevel>Industrial</techLevel>
-		<researchViewX>0.00</researchViewX>
-		<researchViewY>20</researchViewY>
-		<prerequisites>
-			<li>SewageSludgeComposting</li>
-			<li>ProductionII</li>
-		</prerequisites>
-	</ResearchProjectDef>
-	
-	<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
+	<ResearchProjectDef ParentName="IndustrialResearchBench">
 		<defName>Archeology</defName>
 		<label>Archeology</label>
 		<description>While wandering around the world, you might stumble upon bizarre bones or remains of ancient civilizations. It is worth exploring this in more detail and getting the maximum benefit.</description>
@@ -1429,7 +1444,7 @@
 		</prerequisites>
 	</ResearchProjectDef>
 	
-	<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
+	<ResearchProjectDef ParentName="IndustrialResearchBench">
 		<defName>ArchitecturalEngineering</defName>
 		<label>Architectural engineering</label>
 		<description>Start designing and building more complex and complex structures.</description>
@@ -1438,8 +1453,261 @@
 		<researchViewX>0.00</researchViewX>
 		<researchViewY>20</researchViewY>
 		<prerequisites>
+			<li>Machining</li>
+			<li>MaterialsScience</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBench">
+		<defName>Chemistry</defName>
+		<label>Chemistry</label>
+		<description>A deep study of the interactions of different substances with each other opens up new perspectives.</description>
+		<baseCost>700</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
 			<li>ProductionII</li>
 		</prerequisites>
+	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+			<defName>Petrochemistry</defName>
+			<label>Petrochemistry</label>
+			<description>Dive into petrochemistry to learn how to process oil and natural gas to produce materials.</description>
+			<baseCost>1500</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>Chemistry</li>
+				<li>Electronics</li>
+			</prerequisites>
+		</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBench">
+		<defName>Medicine</defName>
+		<label>Medicine</label>
+		<description>Deeper knowledge in the field of medicine will increase the chances of survival for your colonists.</description>
+		<baseCost>700</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>ComplexFurniture</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>Electronics</defName>
+		<label>Electronics</label>
+		<description>Learn how to build simple electronic devices and low-power computing devices.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Electricity</li>
+		</prerequisites>
+	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+			<defName>DecorationsI</defName>
+			<label>Decorations</label>
+			<description>Try to diversify your interior with something interesting.</description>
+			<baseCost>1000</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>ComplexFurniture</li>
+			</prerequisites>
+		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>DecorationsII</defName>
+				<label>Decorations</label>
+				<description>Try to diversify your interior with something interesting.</description>
+				<baseCost>1000</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>Electronics</li>
+					<li>DecorationsI</li>
+				</prerequisites>
+			</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>MaterialsScience</defName>
+		<label>MaterialsScience</label>
+		<description>Immerse yourself in the fascinating world of materials and start exploring for even more complex materials.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Chemistry</li>
+		</prerequisites>
+	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+			<defName>PracticalChemistry</defName>
+			<label>Practical chemistry</label>
+			<description>Explore the preparation and production of more complex chemical compounds to create advanced materials.</description>
+			<baseCost>1000</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>MaterialsScience</li>
+				<li>Chemistry</li>
+				<li>Electricity</li>
+			</prerequisites>
+		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>Electrolysis</defName>
+				<label>Electrolysis</label>
+				<description>Discover electrolysis for new types of materials.</description>
+				<baseCost>1000</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>PracticalChemistry</li>
+				</prerequisites>
+			</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+			<defName>DefenseStructures</defName>
+			<label>Defense structures</label>
+			<description>New horizons promise not only discoveries. Start creating new defensive structures to protect yourself.</description>
+			<baseCost>1000</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>MaterialsScience</li>
+			</prerequisites>
+		</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBench">
+			<defName>Ballistics</defName>
+			<label>Ballistics</label>
+			<description>For the production of more complex and deadly weapons, it will be necessary to study the behavior of projectiles in more detail.</description>
+			<baseCost>1000</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>MaterialsScience</li>
+			</prerequisites>
+		</ResearchProjectDef>
+		
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>ImprovedAutomation</defName>
+		<label>Improved automation</label>
+		<description>Take the first steps in manufacturing automation to produce various mechanisms at a higher speed.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Electricity</li>
+		</prerequisites>
+	</ResearchProjectDef>
+		
+	<ResearchProjectDef ParentName="IndustrialResearchBench">
+		<defName>Agronomy</defName>
+		<label>Agronomy</label>
+		<description>Discover new ways to increase the volume and quality of crop production.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Machining</li>
+		</prerequisites>
+	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBench">
+			<defName>FertilizerProduction</defName>
+			<label>Fertilizer production</label>
+			<description>Learn to create powerful biological fertilizers to significantly increase soil fertility.</description>
+			<baseCost>600</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>Chemistry</li>
+				<li>Agronomy</li>
+			</prerequisites>
+		</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBench">
+			<defName>Pesticides</defName>
+			<label>Pesticides</label>
+			<description>Start treating your crops with pesticides. This will protect them from pests and increase productivity.</description>
+			<baseCost>600</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>Chemistry</li>
+				<li>Agronomy</li>
+			</prerequisites>
+		</ResearchProjectDef>
+		
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>CookingIV</defName>
+		<label>Cooking IV</label>
+		<description>A large number of mouths makes a friend look at the process of food production.</description>
+		<baseCost>450</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Machining</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>ErgonomicsII</defName>
+		<label>Ergonomics II</label>
+		<description>New era - new tools. Learn to create even more and multi-tasking craft kits.</description>
+		<baseCost>450</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Machining</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>Ventilation</defName>
+		<label>Ventilation</label>
+		<description>Discover various simple indoor temperature distribution and control devices.</description>
+		<baseCost>450</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Machining</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>ProductionIII</defName>
+		<label>Production III</label>
+		<description>This planet is too small for you and it's time to expand your knowledge beyond it.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<gameStage>Space</gameStage>
+			</li>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>Production</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
 	</ResearchProjectDef>
 
 </Defs>

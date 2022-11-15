@@ -43,6 +43,7 @@
 						<statBases>
 							<MaxHitPoints>85</MaxHitPoints>
 							<Nutrition>0.2</Nutrition>
+							<FertilityDepletion>20</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/CottonPlant</texPath>
@@ -96,6 +97,9 @@
 						<defName>Plant_Healroot</defName>
 						<label>healroot</label>
 						<description>A slow-growing plant which yields herbal medicine when harvested. Sowing and harvesting healroot are both very labor-intensive tasks because of its delicate shoots.\n\nHealroot was selectively bred for centuries by settlers. It is sometimes also called &quot;healer's hand&quot; by tribespeople - a nickname it owes to its five major medicinal virtues.</description>
+						<statBases>
+							<FertilityDepletion>35</FertilityDepletion>
+						</statBases>
 						<plant>
 							<growDays>8</growDays>
 							<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
@@ -138,6 +142,9 @@
 								<offset>(0,0,-0.38)</offset>
 							</shadowData>
 						</graphicData>
+						<statBases>
+							<FertilityDepletion>30</FertilityDepletion>
+						</statBases>
 						<plant>
 							<lifespanDaysPerGrowDays>8.3</lifespanDaysPerGrowDays>
 							<harvestYield>20</harvestYield>
@@ -217,13 +224,14 @@
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Plant_Potato"]</xpath>
 				<value>
-					<ThingDef ParentName="PlantBase">
+					<ThingDef Name="PotatoPlant" ParentName="PlantBase">
 						<defName>Plant_Potato</defName>
 						<label>potato plant</label>
 						<description>A highly nutritious tuber. Potatoes grow well even in somewhat poor soil, and form a delicious crispy outer coating when fried in oil.</description>
 						<statBases>
 							<MaxHitPoints>85</MaxHitPoints>
 							<Nutrition>0.2</Nutrition>
+							<FertilityDepletion>30</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/PotatoPlant</texPath>
@@ -241,6 +249,7 @@
 							<fertilityMin>0.6</fertilityMin>
 							<sowTags>
 								<li>Ground</li>
+								<li>Hydroponic</li>
 							</sowTags>
 							<topWindExposure>0.1</topWindExposure>
 							<sowMinSkill>2</sowMinSkill>
@@ -273,6 +282,7 @@
 						<statBases>
 							<MaxHitPoints>150</MaxHitPoints>
 							<Nutrition>0.3</Nutrition>
+							<FertilityDepletion>35</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/CornPlant</texPath>
@@ -324,6 +334,7 @@
 						<statBases>
 							<MaxHitPoints>85</MaxHitPoints>
 							<Nutrition>0.2</Nutrition>
+							<FertilityDepletion>7</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/StrawberryPlant</texPath>
@@ -375,6 +386,7 @@
 						<statBases>
 							<MaxHitPoints>85</MaxHitPoints>
 							<Nutrition>0.15</Nutrition>
+							<FertilityDepletion>50</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/Devilstrand</texPath>
@@ -425,6 +437,7 @@
 						<statBases>
 							<MaxHitPoints>85</MaxHitPoints>
 							<Nutrition>0.2</Nutrition>
+							<FertilityDepletion>30</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/HopsPlant</texPath>
@@ -472,6 +485,7 @@
 						<statBases>
 							<MaxHitPoints>85</MaxHitPoints>
 							<Nutrition>0.15</Nutrition>
+							<FertilityDepletion>30</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/SmokeleafPlant</texPath>
@@ -521,6 +535,7 @@
 						<statBases>
 							<MaxHitPoints>85</MaxHitPoints>
 							<Nutrition>0.15</Nutrition>
+							<FertilityDepletion>35</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/PsychoidPlant</texPath>
@@ -714,6 +729,7 @@
 						<statBases>
 							<MaxHitPoints>120</MaxHitPoints>
 							<Nutrition>0.2</Nutrition>
+							<FertilityDepletion>10</FertilityDepletion>
 						</statBases>
 						<graphicData>
 							<texPath>Things/Plant/Agave</texPath>
@@ -806,6 +822,20 @@
 					</li>
 				</value>
 			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Haygrass"]/statBases</xpath>
+				<value>
+					<FertilityDepletion>-15</FertilityDepletion>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Bryolux"]/statBases</xpath>
+				<value>
+					<FertilityDepletion>5</FertilityDepletion>
+				</value>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Bryolux"]/plant</xpath>
 				<value>
@@ -883,6 +913,13 @@
 					</li>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Glowstool"]/statBases</xpath>
+				<value>
+					<FertilityDepletion>5</FertilityDepletion>
+				</value>
+			</li>
+			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Plant_Nutrifungus"]/plant</xpath>
 				<value>
@@ -921,6 +958,13 @@
 					</comps>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Nutrifungus"]/statBases</xpath>
+				<value>
+					<FertilityDepletion>5</FertilityDepletion>
+				</value>
+			</li>
+			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Plant_Tinctoria"]/plant</xpath>
 				<value>
@@ -959,6 +1003,13 @@
 					</comps>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Tinctoria"]/statBases</xpath>
+				<value>
+					<FertilityDepletion>5</FertilityDepletion>
+				</value>
+			</li>
+			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Plant_TreeBonsai"]/plant</xpath>
 				<value>
@@ -995,6 +1046,7 @@
 						<minifiedDef IsNull="True"/>
 						<statBases>
 							<MaxHitPoints>85</MaxHitPoints>
+							<FertilityDepletion>-5</FertilityDepletion>
 						</statBases>
 						<selectable>true</selectable>
 						<pathCost>14</pathCost>

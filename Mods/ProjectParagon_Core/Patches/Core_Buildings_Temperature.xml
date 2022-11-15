@@ -152,6 +152,67 @@
 					<designatorDropdown>Temperature_Cooling</designatorDropdown>
 				</value>
 			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Vent"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>Vent</defName>
+						<label>vent</label>
+						<description>A vent for equalizing the temperature between two rooms without allowing people to walk between them.</description>
+						<thingClass>Building_Vent</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Misc/TempControl/Vent</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>Impassable</passability>
+						<blockWind>true</blockWind>
+						<fillPercent>1</fillPercent>
+						<coversFloor>true</coversFloor>
+						<blockLight>true</blockLight>
+						<castEdgeShadows>true</castEdgeShadows>
+						<canOverlapZones>false</canOverlapZones>
+						<staticSunShadowHeight>1.0</staticSunShadowHeight>
+						<statBases>
+							<WorkToBuild>400</WorkToBuild>
+							<MaxHitPoints>100</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+						</statBases>
+						<tickerType>Rare</tickerType>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<placeWorkers>
+							<li>PlaceWorker_Vent</li>
+						</placeWorkers>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+						<building>
+							<canPlaceOverWall>true</canPlaceOverWall>
+						</building>
+						<researchPrerequisites>
+							<li>Ventilation</li>
+						</researchPrerequisites>
+						<designationCategory>Temperature</designationCategory>
+						<designationHotKey>Misc8</designationHotKey>
+						<comps>
+							<li Class="CompProperties_Flickable">
+								<commandTexture>UI/Commands/Vent</commandTexture>
+								<commandLabelKey>CommandDesignateOpenCloseVentLabel</commandLabelKey>
+								<commandDescKey>CommandDesignateOpenCloseVentDesc</commandDescKey>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 </Patch>

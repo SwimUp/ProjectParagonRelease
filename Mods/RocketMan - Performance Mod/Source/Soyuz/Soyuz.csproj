@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<RootNamespace>Soyuz</RootNamespace>
+		<AssemblyName>Soyuz</AssemblyName>
+		<TargetFramework>net472</TargetFramework>
+		<LangVersion>8.0</LangVersion>
+		<PlatformTarget>x64</PlatformTarget>
+		<OutputPath>..\..\..\1.4\Plugins</OutputPath>
+		<Optimize>true</Optimize>
+		<DebugType>pdbonly</DebugType>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<ReleaseVersion>0.6.3</ReleaseVersion>
+		<Configurations>Release;Debug</Configurations>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>
+		</DebugType>
+		<OutputPath>..\..\1.4\Plugins\Stable</OutputPath>
+		<DefineConstants>TRACE;NDEBUG</DefineConstants>
+		<WarningLevel>4</WarningLevel>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<NoStdLib>true</NoStdLib>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>full</DebugType>
+		<OutputPath>..\..\1.4\Plugins\Stable</OutputPath>
+		<DefineConstants>TRACE;DEBUG;NETFRAMEWORK;NET472;</DefineConstants>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<NoStdLib>true</NoStdLib>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.3.3389" GeneratePathProperty="true" />
+		<PackageReference Include="Lib.Harmony" Version="2.2.2" ExcludeAssets="runtime" />
+		<PackageReference Include="Microsoft.NETCore.Platforms" Version="5.0.3" />
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.2">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="TaskPubliciser" Version="1.0.3" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Core\" />
+		<Folder Include="Core\GUI\Tabs\Deprecated\" />
+		<Folder Include="Core\Profiling\Models\" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Cosmodrome\Cosmodrome.csproj" ExcludeAssets="runtime">
+			<Private>False</Private>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Core\GUI\Tabs\Deprecated\" />
+		<None Remove="Core\Profiling\Models\" />
+		<None Remove="Core\SoyuzSettingsUtility.Presets.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Core\GUI\Tabs\Deprecated\TabContent_Soyuz.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Core\GUI\Tabs\Deprecated\TabContent_Soyuz.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="Assembly-CSharp">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\Assembly-CSharp.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Unity.TextMeshPro">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\Unity.TextMeshPro.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.AccessibilityModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.AccessibilityModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.AIModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.AIModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.AndroidJNIModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.AndroidJNIModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.AnimationModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.AnimationModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.ARModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.ARModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.AssetBundleModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.AssetBundleModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.AudioModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.AudioModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.ClothModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.ClothModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.ClusterInputModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.ClusterInputModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.ClusterRendererModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.ClusterRendererModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.CrashReportingModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.CrashReportingModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.DirectorModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.DirectorModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.DSPGraphModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.DSPGraphModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.FileSystemHttpModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.FileSystemHttpModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.GameCenterModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.GameCenterModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.GridModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.GridModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.HotReloadModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.HotReloadModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.ImageConversionModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.ImageConversionModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.IMGUIModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.IMGUIModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.InputLegacyModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.InputLegacyModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.InputModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.InputModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.JSONSerializeModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.JSONSerializeModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.LocalizationModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.LocalizationModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.ParticleSystemModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.ParticleSystemModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.PerformanceReportingModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.PerformanceReportingModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.Physics2DModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.Physics2DModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.PhysicsModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.PhysicsModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.ProfilerModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.ProfilerModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.ScreenCaptureModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.ScreenCaptureModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.SharedInternalsModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.SharedInternalsModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.SpriteMaskModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.SpriteMaskModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.SpriteShapeModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.SpriteShapeModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.StreamingModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.StreamingModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.SubstanceModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.SubstanceModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.SubsystemsModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.SubsystemsModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TerrainModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.TerrainModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TerrainPhysicsModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TextCoreModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.TextCoreModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TextRenderingModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.TextRenderingModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TilemapModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.TilemapModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TLSModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.TLSModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UI">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UI.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UIElementsModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UIElementsModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UIModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UIModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UmbraModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UmbraModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UNETModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UNETModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UnityAnalyticsModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UnityConnectModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UnityConnectModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UnityTestProtocolModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UnityWebRequestModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UnityWebRequestModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.VehiclesModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.VehiclesModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.VFXModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.VFXModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.VideoModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.VideoModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.VRModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.VRModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.WindModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.WindModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.XRModule">
+	    <HintPath>..\..\..\..\..\..\..\..\Visual Studio projects\ProjectParagon\ProjectParagon\GameLibs\UnityEngine.XRModule.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+	<Target Name="UpdateReferences" AfterTargets="ResolveLockFileReferences">
+		<Message Importance="High" Text="1. Update References at ($(PkgKrafs_Rimworld_Ref))" />
+		<PropertyGroup>
+			<PubliciseOutputPath>$(PkgKrafs_Rimworld_Ref)\ref\net472\</PubliciseOutputPath>
+			<AssemblyCSharp_Publicised>$(PubliciseOutputPath)Assembly-CSharp_publicised.dll</AssemblyCSharp_Publicised>
+			<Unity_CoreModule_Publicised>$(PubliciseOutputPath)UnityEngine.CoreModule_publicised.dll</Unity_CoreModule_Publicised>
+		</PropertyGroup>
+		<ItemGroup>
+			<Reference Remove="$(PkgKrafs_Rimworld_Ref)\ref\net472\Assembly-CSharp.dll" />
+			<Reference Remove="$(PkgKrafs_Rimworld_Ref)\ref\net472\UnityEngine.CoreModule.dll" />
+			<Reference Include="$(AssemblyCSharp_Publicised)">
+				<SpecificVersion>false</SpecificVersion>
+				<HintPath>$(AssemblyCSharp_Publicised)</HintPath>
+				<Implicit>true</Implicit>
+				<Private>false</Private>
+			</Reference>
+			<Reference Include="$(Unity_CoreModule_Publicised)">
+				<SpecificVersion>false</SpecificVersion>
+				<HintPath>$(Unity_CoreModule_Publicised)</HintPath>
+				<Implicit>true</Implicit>
+				<Private>false</Private>
+			</Reference>
+		</ItemGroup>
+	</Target>
+	<ProjectExtensions>
+	  <MonoDevelop>
+	    <Properties>
+	      <Policies>
+	        <StandardHeader Text="&#xA;${FileName}&#xA; &#xA;Author:&#xA;      ${AuthorName} &lt;${AuthorEmail}&gt;&#xA;&#xA;Copyright (c) ${Year} ${CopyrightHolder}&#xA;&#xA;Permission is hereby granted, free of charge, to any person obtaining a copy&#xA;of this software and associated documentation files (the &quot;Software&quot;), to deal&#xA;in the Software without restriction, including without limitation the rights&#xA;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell&#xA;copies of the Software, and to permit persons to whom the Software is&#xA;furnished to do so, subject to the following conditions:&#xA;&#xA;The above copyright notice and this permission notice shall be included in&#xA;all copies or substantial portions of the Software.&#xA;&#xA;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR&#xA;IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,&#xA;FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE&#xA;AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER&#xA;LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,&#xA;OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN&#xA;THE SOFTWARE." IncludeInNewFiles="False" />
+	      </Policies>
+	    </Properties>
+	  </MonoDevelop>
+	</ProjectExtensions>
+</Project>

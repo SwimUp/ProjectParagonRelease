@@ -124,4 +124,71 @@
 		<costStuffCount>100</costStuffCount>
 	</ThingDef>
 	
+	<ThingDef ParentName="BenchBase">
+		<defName>ResearchBench</defName>
+		<label>Research bench</label>
+		<description>A set of all kinds of items to explore the world around.</description>
+		<thingClass>Building_ResearchBench</thingClass>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>250</costStuffCount>
+		<costList>
+			<Glass>100</Glass>
+			<Book>20</Book>
+			<ComponentSimple>10</ComponentSimple>
+		</costList>
+		<graphicData>
+			<texPath>Core/Buildings/ResearchBench/ResearchBench</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(5,4)</drawSize>
+			<shadowData>
+				<volume>(3,0.5,0.6)</volume>
+				<offset>(0,0,-0.2)</offset>
+			</shadowData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<size>(3, 2)</size>
+		<castEdgeShadows>false</castEdgeShadows>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<researchPrerequisites>
+			<li>ProductionII</li>
+		</researchPrerequisites>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>2800</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<ResearchSpeedFactor>0.85</ResearchSpeedFactor>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>Research_ResourceBox</li>
+					<li>SmallLibrary</li>
+					<li>ResearchLibrary</li>
+					<li>Globe</li>
+					<li>SimpleScienceSet</li>
+					<li>AdvacedScienceSet</li>
+				</linkableFacilities>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<fillPercent>0.5</fillPercent>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<hasInteractionCell>true</hasInteractionCell>
+		<designationCategory>Science</designationCategory>
+		<designatorDropdown>ResearchBenches</designatorDropdown>
+		<surfaceType>Item</surfaceType>
+	</ThingDef>
+	
 </Defs>

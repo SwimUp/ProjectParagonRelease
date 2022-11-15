@@ -16,6 +16,14 @@
 									</costList>
 									<workAmount>2500</workAmount>
 								</li>
+								<li>
+									<terrainDef>Chernozem</terrainDef>
+									<costList>
+										<Dirt>50</Dirt>
+										<IndustrialBiosolids>25</IndustrialBiosolids>
+									</costList>
+									<workAmount>7000</workAmount>
+								</li>
 							</childs>
 						</li>
 						<li Class="ProjectParagon.Core.Other.DefExtension_TerrainDef">
@@ -33,6 +41,15 @@
 									<chance>0.01</chance>
 								</li>
 							</extraDrop>
+							<terrainFertility>
+								<fertilityCount>80</fertilityCount>
+								<downGradeFertilityTerrainDef>Soil</downGradeFertilityTerrainDef>
+								<fertilityThingDef>Biosolids</fertilityThingDef>
+								<fertilityRepairCostPerUnit>0.2</fertilityRepairCostPerUnit>
+							</terrainFertility>
+						</li>
+						<li Class="ParagonWiki.Other.DefExtension_Wiki">
+							<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiTerrainDef"/>
 						</li>
 					</modExtensions>
 				</value>
@@ -41,6 +58,12 @@
 				<xpath>*/TerrainDef[defName="SoilRich"]</xpath>
 				<value>
 					<designationCategory>Terraform</designationCategory>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName="SoilRich"]/fertility</xpath>
+				<value>
+					<fertility>1.2</fertility>
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
@@ -52,8 +75,8 @@
 								<li>
 									<terrainDef>SoilRich</terrainDef>
 									<costList>
-										<Dirt>100</Dirt>
-										<IndustrialBiosolids>50</IndustrialBiosolids>
+										<Dirt>20</Dirt>
+										<Biosolids>50</Biosolids>
 									</costList>
 									<workAmount>10000</workAmount>
 								</li>
@@ -955,14 +978,14 @@
 						<renderPrecedence>70</renderPrecedence>
 						<statBases>
 							<Beauty>-1</Beauty>
-							<WorkToBuild>100</WorkToBuild>
+							<WorkToBuild>300</WorkToBuild>
 						</statBases>
 						<costList>
-							<Steel>1</Steel>
+							<Concrete>2</Concrete>
 						</costList>
 						<designationHotKey>Misc6</designationHotKey>
 						<researchPrerequisites>
-							<li>ProductionII</li>
+							<li>MaterialsScience</li>
 						</researchPrerequisites>
 					</TerrainDef>
 				</value>
@@ -977,14 +1000,14 @@
 						<description>Concrete tiles. Cheap, but neutral in terms of looks and slow to build.</description>
 						<texturePath>Terrain/Surfaces/PavedTile</texturePath>
 						<statBases>
-							<WorkToBuild>300</WorkToBuild>
+							<WorkToBuild>550</WorkToBuild>
 						</statBases>
 						<costList>
-							<Steel>2</Steel>
+							<Concrete>4</Concrete>
 						</costList>
 						<designationHotKey>Misc8</designationHotKey>
 						<researchPrerequisites>
-							<li>ProductionII</li>
+							<li>MaterialsScience</li>
 						</researchPrerequisites>
 					</TerrainDef>
 				</value>

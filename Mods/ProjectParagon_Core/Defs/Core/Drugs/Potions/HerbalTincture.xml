@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingDef ParentName="MakeableDrugPillBase">
+	<ThingDef ParentName="DrugPillBase">
 		<defName>HerbalTincture</defName>
 		<label>Herbal tincture</label>
 		<description>A complex of herbs that accelerate the elimination of infections from the body.</description>
@@ -39,17 +39,6 @@
 			</outcomeDoers>
 		</ingestible>
 		<techLevel>Neolithic</techLevel>
-		<recipeMaker>
-			<researchPrerequisite>CookingI</researchPrerequisite>
-			<recipeUsers>
-				<li>AlchemyStance</li>
-				<li>CookingPot</li>
-			</recipeUsers>
-		</recipeMaker>
-		<costList>
-			<MedicineHerbal>8</MedicineHerbal>
-			<WaterForBill>1</WaterForBill>
-		</costList>
 		<comps>
 			<li Class="CompProperties_Drug">
 				<listOrder>1000</listOrder>
@@ -57,4 +46,104 @@
 			</li>
 		</comps>
 	</ThingDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_HerbalTincture</defName>
+		<label>Make herbal tincture</label>
+		<description>Make herbal tincture</description>
+		<jobString>Making herbal tincture</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>800</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineHerbal</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<HerbalTincture>1</HerbalTincture>
+		</products>
+		<researchPrerequisite>CookingI</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MedicineHerbal</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>MedicineHerbal</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+			<li>CookingPot</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_Bulk_I_HerbalTincture</defName>
+		<label>Make herbal tincture x4</label>
+		<description>Make herbal tincture x4</description>
+		<jobString>Making herbal tincture</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>3200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MedicineHerbal</li>
+					</thingDefs>
+				</filter>
+				<count>32</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<HerbalTincture>4</HerbalTincture>
+		</products>
+		<researchPrerequisite>CookingI</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MedicineHerbal</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>MedicineHerbal</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+			<li>CookingPot</li>
+		</recipeUsers>
+	</RecipeDef>
 </Defs>

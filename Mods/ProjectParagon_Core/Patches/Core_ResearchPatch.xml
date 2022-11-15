@@ -3,6 +3,18 @@
 	<Operation Class="PatchOperationSequence">
 		<success>Normal</success>
 		<operations>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="GoJuiceProduction"]</xpath>
+			</li>
+		
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="MedicineProduction"]/prerequisites</xpath>
+				<value>
+					<prerequisites>
+					  <li>DrugProduction</li>
+					</prerequisites>
+				</value>
+			</li>
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="SmokeleafJoint"]/recipeMaker</xpath>
 				<value>
@@ -15,7 +27,8 @@
 				<xpath>*/ResearchProjectDef[defName="DrugProduction"]</xpath>
 				<value>
 					<prerequisites>
-						<li>ProductionII</li>
+						<li>Pharmacology</li>
+						<li>Chemistry</li>
 					</prerequisites>
 				</value>
 			</li>
@@ -33,14 +46,6 @@
 				<value>
 					<prerequisites>
 						<li>Narko_SimpleStimulants</li>
-					</prerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ResearchProjectDef[defName="GoJuiceProduction"]/prerequisites</xpath>
-				<value>
-					<prerequisites>
-						<li>Narko_AdvancedStimulants</li>
 					</prerequisites>
 				</value>
 			</li>
@@ -287,6 +292,7 @@
 						<researchViewX>4.00</researchViewX>
 						<researchViewY>4.90</researchViewY>
 						<prerequisites>
+							<li>Machining</li>
 							<li>Harpsichord</li>
 						</prerequisites>
 						<modExtensions>
@@ -347,11 +353,11 @@
 						<label>complex furniture</label>
 						<description>Build complex furniture like beds, end tables, dining chairs, armchairs, dressers, tool cabinets, billiard tables, and poker tables, vents, sarcophagi, and more.</description>
 						<baseCost>300</baseCost>
-						<techLevel>Medieval</techLevel>
+						<techLevel>Industrial</techLevel>
 						<researchViewX>1.00</researchViewX>
 						<researchViewY>4.25</researchViewY>
 						<prerequisites>
-							<li>ProductionII</li>
+							<li>Machining</li>
 						</prerequisites>
 					</ResearchProjectDef>
 				</value>
@@ -364,11 +370,11 @@
 						<label>complex clothing</label>
 						<description>Tailor complicated garments like pants, dusters, and cowboy hats.</description>
 						<baseCost>600</baseCost>
-						<techLevel>Medieval</techLevel>
+						<techLevel>Industrial</techLevel>
 						<researchViewX>1.00</researchViewX>
 						<researchViewY>2.80</researchViewY>
 						<prerequisites>
-							<li>ProductionII</li>
+							<li>Machining</li>
 						</prerequisites>
 					</ResearchProjectDef>
 				</value>
@@ -387,6 +393,737 @@
 						<prerequisites>
 							<li>ProductionII</li>
 						</prerequisites>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="ShieldBelt"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+						<defName>ShieldBelt</defName>
+						<label>shields</label>
+						<description>Build wearable shield gear. Shields use momentum-repulsion technology to prevent projectiles from traversing the field boundary.</description>
+						<baseCost>1000</baseCost>
+						<techLevel>Spacer</techLevel>
+						<prerequisites>
+						  <li>MultiAnalyzer</li>
+						</prerequisites>
+						<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+						<researchViewX>11.00</researchViewX>
+						<researchViewY>1.50</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="MultiAnalyzer"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>MultiAnalyzer</defName>
+						<label>multi-analyzer</label>
+						<description>Build multi-analyzers which increase research speed and allow higher-level research projects.</description>
+						<baseCost>4000</baseCost>
+						<techLevel>Spacer</techLevel>
+						<prerequisites>
+						  <li>ProductionIII</li>
+						</prerequisites>
+						<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+						<researchViewX>13.00</researchViewX>
+						<researchViewY>2.90</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Machining"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>Machining</defName>
+						<label>machining</label>
+						<description>Build machining tables to craft guns, grenades, flak armor, and to shred dead mechanoids for resources.</description>
+						<baseCost>1000</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>ProductionII</li>
+						</prerequisites>
+						<researchViewX>6.00</researchViewX>
+						<researchViewY>3.50</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Electricity"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>Electricity</defName>
+						<label>electricity</label>
+						<description>Harness the power of electricity for a hundred different tasks.</description>
+						<baseCost>1600</baseCost>
+						<techLevel>Industrial</techLevel>
+						<tags>
+							<li>ClassicStart</li>
+						</tags>
+						<prerequisites>
+							<li>Machining</li>
+						</prerequisites>
+						<researchViewX>5.00</researchViewX>
+						<researchViewY>2.90</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="MicroelectronicsBasics"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+					<defName>MicroelectronicsBasics</defName>
+					<label>microelectronics</label>
+					<description>Work with complex microelectronics. This unlocks the hi-tech research bench and comms console.</description>
+					<baseCost>3000</baseCost>
+					<techLevel>Industrial</techLevel>
+					<prerequisites>
+					  <li>Electronics</li>
+					</prerequisites>
+					<researchViewX>10.00</researchViewX>
+					<researchViewY>2.90</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="PsychiteRefining"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="WakeUpProduction"]</xpath>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Gunsmithing"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>Gunsmithing</defName>
+						<label>gunsmithing</label>
+						<description>Craft simple manually-operated guns like revolvers, pump shotguns, bolt-action rifles, and incendiary launchers.</description>
+						<baseCost>800</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>Ballistics</li>
+						</prerequisites>
+						<researchViewX>7.00</researchViewX>
+						<researchViewY>3.40</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="ChargedShot"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>ChargedShot</defName>
+						<label>pulse-charged munitions</label>
+						<description>Build weapons which fire pulse-charged munitions for extra damage. Note that these also require advanced components.</description>
+						<baseCost>3000</baseCost>
+						<techLevel>Spacer</techLevel>
+						<prerequisites>
+						  <li>MultiAnalyzer</li>
+						</prerequisites>
+						<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+						<requiredResearchFacilities>
+						  <li>MultiAnalyzer</li>
+						</requiredResearchFacilities>
+						<researchViewX>15.00</researchViewX>
+						<researchViewY>3.8</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="SterileMaterials"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>SterileMaterials</defName>
+						<label>sterile materials</label>
+						<description>Construct sterile tiles to make cleanrooms for safer and more effective medical treatment, research, and cooking.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>MaterialsScience</li>
+						</prerequisites>
+						<researchViewX>8.00</researchViewX>
+						<researchViewY>0.50</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Prosthetics"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>Prosthetics</defName>
+						<label>prosthetics</label>
+						<description>Build inexpensive prosthetic body parts to replace lost limbs. Requires a skilled doctor to attach.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>Medicine</li>
+						</prerequisites>
+						<researchViewX>8.00</researchViewX>
+						<researchViewY>4.80</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Bionics"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+					<defName>Bionics</defName>
+					<label>bionic replacements</label>
+					<description>Build high-tech bionic body parts to replace lost limbs and eyes. Requires a skilled doctor to attach.</description>
+					<baseCost>2000</baseCost>
+					<techLevel>Spacer</techLevel>
+					<prerequisites>
+					  <li>Fabrication</li>
+					</prerequisites>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+					<requiredResearchFacilities>
+					  <li>MultiAnalyzer</li>
+					</requiredResearchFacilities>
+					<researchViewX>16.00</researchViewX>
+					<researchViewY>3.80</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="ArtificialMetabolism"]</xpath>
+				<value>
+				  <ResearchProjectDef ParentName="BaseBodyPartEmpire_TierB">
+					<defName>ArtificialMetabolism</defName>
+					<label>artificial metabolism</label>
+					<description>Craft bionics that process food more safely or efficiently than a biological stomach.</description>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>16.00</researchViewX>
+					<researchViewY>4.30</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="NeuralComputation"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="BaseBodyPartEmpire_TierB">
+						<defName>NeuralComputation</defName>
+						<label>neural computation</label>
+						<description>Craft brain implants that assist thought and learning by use of a direct, shallow brain-computer interface.</description>
+						<prerequisites>
+						  <li>MultiAnalyzer</li>
+						</prerequisites>
+						<researchViewX>16.00</researchViewX>
+						<researchViewY>4.80</researchViewY>
+					 </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="SkinHardening"]</xpath>
+				<value>
+				  <ResearchProjectDef ParentName="BaseBodyPartEmpire_TierB">
+					<defName>SkinHardening</defName>
+					<label>skin hardening</label>
+					<description>Craft bionic implants which induce the toughening of natural skin, producing an armor-like effect.</description>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>17.00</researchViewX>
+					<researchViewY>3.80</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="HealingFactors"]</xpath>
+				<value>
+				  <ResearchProjectDef ParentName="BaseBodyPartEmpire_TierB">
+					<defName>HealingFactors</defName>
+					<label>healing factors</label>
+					<description>Craft bionics that enhance natural healing processes.</description>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>17.00</researchViewX>
+					<researchViewY>4.30</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="FleshShaping"]</xpath>
+				<value>
+				  <ResearchProjectDef ParentName="BaseBodyPartEmpire_TierB">
+					<defName>FleshShaping</defName>
+					<label>flesh shaping</label>
+					<description>Craft bionics which induce the reshaping of natural flesh, usually for the purposes of aesthetic enhancement or personal pleasure.</description>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>17.00</researchViewX>
+					<researchViewY>4.80</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="MolecularAnalysis"]</xpath>
+				<value>
+				  <ResearchProjectDef ParentName="BaseBodyPartEmpire_TierB">
+					<defName>MolecularAnalysis</defName>
+					<label>molecular analysis</label>
+					<description>Craft bionics with molecular analyzers for assisting the immune system or analyzing food.</description>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>18.00</researchViewX>
+					<researchViewY>3.80</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="CircadianInfluence"]</xpath>
+				<value>
+				  <ResearchProjectDef ParentName="BaseBodyPartEmpire_TierB">
+					<defName>CircadianInfluence</defName>
+					<label>circadian influence</label>
+					<description>Craft brain implants that chemically manipulate the circadian rhythm, reducing or altering the need to sleep.</description>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>18.00</researchViewX>
+					<researchViewY>4.30</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="BrainWiring"]</xpath>
+				<value>
+					<ResearchProjectDef ParentName="BaseBodyPartEmpire_TierA">
+						<defName>BrainWiring</defName>
+						<label>brain wiring</label>
+						<description>Craft brain implants that induce or prevent blunt sensations like joy or pain.</description>
+						<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+						<prerequisites>
+						  <li>MultiAnalyzer</li>
+						</prerequisites>
+						<researchViewX>12.00</researchViewX>
+						<researchViewY>4.30</researchViewY>
+					  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="SpecializedLimbs"]</xpath>
+				<value>
+				  <ResearchProjectDef ParentName="BaseBodyPartEmpire_TierA">
+					<defName>SpecializedLimbs</defName>
+					<label>specialized limbs</label>
+					<description>Craft specialized bionic limbs built for specific purposes - both combat and labor.</description>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>13.00</researchViewX>
+					<researchViewY>4.30</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="CompactWeaponry"]</xpath>
+				<value>
+					  <ResearchProjectDef ParentName="BaseBodyPartEmpire_TierA">
+						<defName>CompactWeaponry</defName>
+						<label>compact weaponry</label>
+						<description>Craft compact, concealable bionic weapons which can be embedded in various body parts.</description>
+						<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+						<prerequisites>
+						  <li>MultiAnalyzer</li>
+						</prerequisites>
+						<researchViewX>12.00</researchViewX>
+						<researchViewY>4.80</researchViewY>
+					  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="HospitalBed"]</xpath>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="VitalsMonitor"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+					<defName>VitalsMonitor</defName>
+					<label>vitals monitor</label>
+					<description>Build vitals monitors which improve medical outcomes when placed next to hospital beds.</description>
+					<baseCost>2500</baseCost>
+					<techLevel>Industrial</techLevel>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+					<requiredResearchFacilities>
+					  <li>MultiAnalyzer</li>
+					</requiredResearchFacilities>
+					<researchViewX>14.00</researchViewX>
+					<researchViewY>1.50</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="PrecisionRifling"]</xpath>
+				<value>
+				 <ResearchProjectDef>
+					<defName>PrecisionRifling</defName>
+					<label>precision rifling</label>
+					<description>Craft precisely-machined guns like assault rifles and sniper rifles.</description>
+					<baseCost>1400</baseCost>
+					<techLevel>Industrial</techLevel>
+					<prerequisites>
+					  <li>GasOperation</li>
+					</prerequisites>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+				   <researchViewX>11.00</researchViewX>
+				   <researchViewY>3.90</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="NutrientPaste"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>NutrientPaste</defName>
+						<label>nutrient paste</label>
+						<description>Build nutrient paste dispensers which efficiently produce edible meals from raw nutritive feedstocks, while requiring no labor at all.</description>
+						<baseCost>400</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>ProductionII</li>
+							<li>CookingIII</li>
+						</prerequisites>
+						<researchViewX>8.00</researchViewX>
+						<researchViewY>1.20</researchViewY>
+						<tags>
+							<li>ClassicStart</li>
+						</tags>
+					</ResearchProjectDef>
+				</value>
+			</li>
+	
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="PackagedSurvivalMeal"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>PackagedSurvivalMeal</defName>
+						<label>packaged survival meal</label>
+						<description>Produce packaged survival meals which never go bad. Great for traveling.</description>
+						<baseCost>500</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>ProductionII</li>
+							<li>CookingIII</li>
+						</prerequisites>
+						<researchViewX>9.00</researchViewX>
+						<researchViewY>1.20</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="BiofuelRefining"]</xpath>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="TransportPod"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+					<defName>TransportPod</defName>
+					<label>transport pod</label>
+					<description>Construct launchable transport pods that you can use to send people and supplies long distances across the planet's surface. Can be used for raiding, travel, sending gifts, and more.</description>
+					<baseCost>1000</baseCost>
+					<techLevel>Industrial</techLevel>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+					<researchViewX>11.00</researchViewX>
+					<researchViewY>2.20</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Biosculpting"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+					<defName>Biosculpting</defName>
+					<label>biosculpting</label>
+					<description>Construct biosculpter pods which can perform various biological alterations to colonists. These are especially important to believers in transhumanism.</description>
+					<baseCost>1500</baseCost>
+					<techLevel>Industrial</techLevel>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>13.00</researchViewX>
+					<researchViewY>0.80</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="NeuralSupercharger"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+					<defName>NeuralSupercharger</defName>
+					<label>neural supercharger</label>
+					<description>Construct neural supercharger devices. Neural superchargers improve consciousness and learning rate, but they also increase hunger and the effect must be refreshed daily. Transhumanists often hold neural supercharging as an important practice.</description>
+					<baseCost>1500</baseCost>
+					<techLevel>Industrial</techLevel>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<researchViewX>13.00</researchViewX>
+					<researchViewY>3.8</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="JumpPack"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+					<defName>JumpPack</defName>
+					<label>jump packs</label>
+					<description>Build jump packs to perform aerial assaults during combat.</description>
+					<baseCost>2000</baseCost>
+					<techLevel>Industrial</techLevel>
+					<prerequisites>
+					  <li>MultiAnalyzer</li>
+					</prerequisites>
+					<techprintCount>1</techprintCount>
+					<techprintCommonality>2</techprintCommonality>
+					<techprintMarketValue>2000</techprintMarketValue>
+					<heldByFactionCategoryTags>
+					  <li>Empire</li>
+					  <li>Outlander</li>
+					</heldByFactionCategoryTags>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+					<researchViewX>12.00</researchViewX>
+					<researchViewY>3.80</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationRemove">
+				<xpath>*/ResearchProjectDef[defName="TubeTelevision"]</xpath>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Autodoors"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>Autodoors</defName>
+						<label>autodoor</label>
+						<description>Build autodoors which automatically open when someone approaches, without slowing anyone down.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>MicroelectronicsBasics</li>
+						</prerequisites>
+						<researchViewX>6.00</researchViewX>
+						<researchViewY>1.90</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Firefoam"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>Firefoam</defName>
+						<label>firefoam</label>
+						<description>Construct firefoam poppers, automatic fire-safety devices which spread fire-retardant foam in response to encroaching flames.</description>
+						<baseCost>600</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>DefenseStructures</li>
+						</prerequisites>
+						<researchViewX>8.00</researchViewX>
+						<researchViewY>1.90</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="AirConditioning"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>AirConditioning</defName>
+						<label>air conditioning</label>
+						<description>Build coolers to make people comfortable in hot weather, or to construct freezers for storing perishable goods.</description>
+						<baseCost>500</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>Electronics</li>
+							<li>Ventilation</li>
+						</prerequisites>
+						<tags>
+							<li>ClassicStart</li>
+						</tags>
+						<researchViewX>6.00</researchViewX>
+						<researchViewY>2.60</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="FlatscreenTelevision"]</xpath>
+				<value>
+				  <ResearchProjectDef>
+					<defName>FlatscreenTelevision</defName>
+					<label>flatscreen television</label>
+					<description>Produce high-resolution flatscreen televisions for greater enjoyment.</description>
+					<baseCost>2000</baseCost>
+					<techLevel>Industrial</techLevel>
+					<prerequisites>
+					  <li>DecorationsII</li>
+					  <li>MicroelectronicsBasics</li>
+					</prerequisites>
+					<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+					<researchViewX>11.00</researchViewX>
+					<researchViewY>0.80</researchViewY>
+				  </ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="IEDs"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>IEDs</defName>
+						<label>IEDs</label>
+						<description>Build improvised traps from any kind of mortar shell.</description>
+						<baseCost>500</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>DefenseStructures</li>
+						</prerequisites>
+						<hideWhen>
+							<trapsDisabled>true</trapsDisabled>
+						</hideWhen>
+						<researchViewX>7.00</researchViewX>
+						<researchViewY>0.50</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="Hydroponics"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>Hydroponics</defName>
+						<label>hydroponics</label>
+						<description>Build hydroponics basins to rapidly grow crops indoors regardless of the terrain or weather outside.</description>
+						<baseCost>700</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>Electricity</li>
+							<li>Agronomy</li>
+						</prerequisites>
+						<researchViewX>6.00</researchViewX>
+						<researchViewY>0.50</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="FlakArmor"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>FlakArmor</defName>
+						<label>flak armor</label>
+						<description>Craft clothing with metal armor sewn in to resist bullets and explosions. This weighty armor slows movement slightly.</description>
+						<baseCost>1200</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>Ballistics</li>
+							<li>ComplexClothing</li>
+						</prerequisites>
+						<researchViewX>7.00</researchViewX>
+						<researchViewY>4.10</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="SmokepopBelt"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>SmokepopBelt</defName>
+						<label>smokepop packs</label>
+						<description>Build smokepop packs which allow the wearer to deploy a defensive smokescreen.</description>
+						<baseCost>300</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>FlakArmor</li>
+						</prerequisites>
+						<researchViewX>7.00</researchViewX>
+						<researchViewY>4.80</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="PackagedSurvivalMeal"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>PackagedSurvivalMeal</defName>
+						<label>packaged survival meal</label>
+						<description>Produce packaged survival meals which never go bad. Great for traveling.</description>
+						<baseCost>500</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>CookingIV</li>
+						</prerequisites>
+						<researchViewX>9.00</researchViewX>
+						<researchViewY>1.20</researchViewY>
+					</ResearchProjectDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ResearchProjectDef[defName="NutrientPaste"]</xpath>
+				<value>
+					<ResearchProjectDef>
+						<defName>NutrientPaste</defName>
+						<label>nutrient paste</label>
+						<description>Build nutrient paste dispensers which efficiently produce edible meals from raw nutritive feedstocks, while requiring no labor at all.</description>
+						<baseCost>400</baseCost>
+						<techLevel>Industrial</techLevel>
+						<prerequisites>
+							<li>CookingIV</li>
+							<li>Electricity</li>
+						</prerequisites>
+						<researchViewX>8.00</researchViewX>
+						<researchViewY>1.20</researchViewY>
+						<tags>
+							<li>ClassicStart</li>
+						</tags>
 					</ResearchProjectDef>
 				</value>
 			</li>

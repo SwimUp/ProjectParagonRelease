@@ -6,7 +6,7 @@
 		<description>Sentient humanoid xenos that prefer to inhabit the vicinity of coral reefs. For the normal functioning of the body, they are forced to constantly consume salt. They are not distinguished by intelligence.</description>
 		<statBases>
 			<PsychicSensitivity>0.8</PsychicSensitivity>
-			<ToxicSensitivity>1.0</ToxicSensitivity>
+			<ToxicResistance>0</ToxicResistance>
 			<ComfyTemperatureMin>19</ComfyTemperatureMin>
 			<ComfyTemperatureMax>28</ComfyTemperatureMax>
 			<LeatherAmount>30</LeatherAmount>
@@ -131,19 +131,23 @@
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
 				<alienPartGenerator>
-					<alienbodytypes>
+					<bodyTypes>
 						<li>Hulk</li>
 						<li>Thin</li>
 						<li>Male</li>
 						<li>Female</li>
-					</alienbodytypes>
-					<aliencrowntypes>
-						<li>Normal</li>
-						<li>Long</li>
-						<li>Wide</li>
-						<li>Horned</li>
-					</aliencrowntypes>
-					<useGenderedHeads>true</useGenderedHeads>
+					</bodyTypes>
+					<headTypes>
+						<li>Male_AverageNormal</li>
+						<li>Male_AverageWide</li>
+						<li>Male_AveragePointy</li>
+						<li>Male_NarrowNormal</li>
+						<li>Female_AverageNormal</li>
+						<li>Female_AverageWide</li>
+						<li>Female_AveragePointy</li>
+						<li>Female_NarrowNormal</li>
+					</headTypes>
+					<!-- <useGenderedHeads>true</useGenderedHeads> -->
 					<colorChannels>
 						<li>
 							<name>skin</name>
@@ -174,10 +178,20 @@
 				</disallowedTraits>
 			</generalSettings>
 			<graphicPaths>
-				<li>
-					<body>Core/Races/Shek/Body/</body>
-					<head>Core/Races/Shek/Head/</head>
-				</li>
+				<body>Core/Races/Shek/Body/</body>
+				<head>
+					<path>Core/Races/Shek/Head/</path>
+					<headtypeGraphics>
+						<Male_AverageNormal>Core/Races/Shek/Head/Male_Normal</Male_AverageNormal>
+						<Male_AverageWide>Core/Races/Shek/Head/Male_Wide</Male_AverageWide>
+						<Male_AveragePointy>Core/Races/Shek/Head/Male_Horned</Male_AveragePointy>
+						<Male_NarrowNormal>Core/Races/Shek/Head/Male_Long</Male_NarrowNormal>
+						<Female_AverageNormal>Core/Races/Shek/Head/Female_Normal</Female_AverageNormal>
+						<Female_AverageWide>Core/Races/Shek/Head/Female_Wide</Female_AverageWide>
+						<Female_AveragePointy>Core/Races/Shek/Head/Female_Horned</Female_AveragePointy>
+						<Female_NarrowNormal>Core/Races/Shek/Head/Female_Long</Female_NarrowNormal>
+					</headtypeGraphics>
+				</head>
 			</graphicPaths>
 			<styleSettings>
 				<li>
@@ -263,10 +277,6 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
-				</li>
-				<li>
-					<def>HumanlikeToddler</def>
-					<minAge>1.2</minAge>
 				</li>
 				<li>
 					<def>HumanlikeChild</def>

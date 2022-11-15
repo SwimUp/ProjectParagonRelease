@@ -46,6 +46,94 @@
 		</graphicData>
 	</ThingDef>
 	
+	<ThingDef ParentName="BuildingBase" Abstract = "true" Name="AdvancedSetBase">
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0.35</staticSunShadowHeight>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>42</pathCost>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>5000</WorkToBuild>
+			<Mass>15</Mass>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<researchPrerequisites>
+			<li>ErgonomicsII</li>
+		</researchPrerequisites>
+		<designationCategory>Outbuildings</designationCategory>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<WorkTableWorkSpeedFactor>0.05</WorkTableWorkSpeedFactor>
+				</statOffsets>
+				<maxSimultaneous>2</maxSimultaneous>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<graphicData>
+			<texPath>Things/Building/Misc/ToolCabinet</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1.9,1.9)</drawSize>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase" Abstract = "true" Name="HeatingElement">
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0.35</staticSunShadowHeight>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>42</pathCost>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>3500</WorkToBuild>
+			<Mass>20</Mass>
+			<Flammability>0.2</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designationCategory>Outbuildings</designationCategory>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<WorkTableWorkSpeedFactor>0.05</WorkTableWorkSpeedFactor>
+				</statOffsets>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<graphicData>
+			<texPath>Things/Building/Misc/ToolCabinet</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1.9,1.9)</drawSize>
+		</graphicData>
+	</ThingDef>
+	
 	<ThingDef ParentName="SimpleSetBase">
 		<defName>SimpleCarpentrySet</defName>
 		<label>Simple carpentry set</label>
@@ -178,6 +266,208 @@
 			</li>
 		</comps>
 		<designatorDropdown>Extensions_Medicine</designatorDropdown>
+	</ThingDef>
+	
+	
+	<ThingDef ParentName="AdvancedSetBase">
+		<defName>AdvacedScienceSet</defName>
+		<label>Scientific instruments</label>
+		<description>Scientific instruments designed to facilitate scientific research. Can unlock new recipes if connected to themed workbenches.</description>
+		<graphicData>
+			<texPath>Core/Buildings/SimpleScienceSet/SimpleScienceSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<designatorDropdown>Extensions_Science</designatorDropdown>
+	</ThingDef>
+	
+	<ThingDef ParentName="AdvancedSetBase">
+		<defName>AdvancedCookingSet</defName>
+		<label>Cooking set</label>
+		<description>A set of tools and utensils for cooking for the entire colony. Can unlock new recipes if connected to themed workbenches.</description>
+		<graphicData>
+			<texPath>Core/Buildings/SimpleCookingSet/SimpleCookingSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<designatorDropdown>Extensions_Cooking</designatorDropdown>
+	</ThingDef>
+	
+	<ThingDef ParentName="AdvancedSetBase">
+		<defName>AdvancedSurgicalSet</defName>
+		<label>Surgical supplies</label>
+		<description>Various surgical accessories for precise operations. Can unlock new recipes if connected to themed workbenches.</description>
+		<graphicData>
+			<texPath>Core/Buildings/SimpleSurgicalSet/SimpleSurgicalSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<SurgerySuccessChanceFactor>0.10</SurgerySuccessChanceFactor>
+				</statOffsets>
+				<maxSimultaneous>2</maxSimultaneous>
+			</li>
+		</comps>
+		<designatorDropdown>Extensions_Medicine</designatorDropdown>
+	</ThingDef>
+	
+	<ThingDef ParentName="AdvancedSetBase">
+		<defName>AdvancedBlacksmithSet</defName>
+		<label>Tools</label>
+		<description>A set of tools and fixtures to facilitate the production of various mechanical parts. Can unlock new recipes if connected to themed workbenches.</description>
+		<graphicData>
+			<texPath>Core/Buildings/SimpleBlacksmithSet/SimpleBlacksmithSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+		<designatorDropdown>Extensions_Blacksmithing</designatorDropdown>
+	</ThingDef>
+	
+	<ThingDef ParentName="HeatingElement">
+		<defName>HeatingElement_Solid</defName>
+		<label>Solid state heating element</label>
+		<description>A separate solid fuel heating element that needs to be connected to the desired building.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SolidFuelSource</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SimpleScienceSet/SimpleScienceSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<StrongPlates>40</StrongPlates>
+			<ComponentSimple>10</ComponentSimple>
+		</costList>
+		<designatorDropdown>Extensions_General</designatorDropdown>
+		<researchPrerequisites>
+			<li>Chemistry</li>
+		</researchPrerequisites>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Refuelable">
+				<fuelConsumptionRate>100.0</fuelConsumptionRate>
+				<fuelCapacity>50.0</fuelCapacity>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+						<li>Coal</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>1</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="HeatingElement">
+		<defName>HeatingElement_Electric</defName>
+		<label>Electric heating element</label>
+		<description>A separate electrical heating element that needs to be connected to the desired building.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ElectricFuelSource</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SimpleScienceSet/SimpleScienceSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<StrongPlates>40</StrongPlates>
+			<ComponentSimple>10</ComponentSimple>
+		</costList>
+		<designatorDropdown>Extensions_General</designatorDropdown>
+		<researchPrerequisites>
+			<li>Electricity</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>100</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="HeatingElement">
+		<defName>HeatingElement_Gas</defName>
+		<label>Gas heating element</label>
+		<description>A separate gas heating element that needs to be connected to the desired building.</description>
+		<graphicData>
+			<texPath>Core/Buildings/SimpleScienceSet/SimpleScienceSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<StrongPlates>40</StrongPlates>
+			<ComponentSimple>10</ComponentSimple>
+		</costList>
+		<designatorDropdown>Extensions_General</designatorDropdown>
+		<researchPrerequisites>
+			<li>Electricity</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="HeatingElement">
+		<defName>ElectricCompressor</defName>
+		<label>Electric compressor</label>
+		<description>Compressor for pressure change.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ElectricFuelSource</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SimpleScienceSet/SimpleScienceSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<StrongPlates>40</StrongPlates>
+			<ComponentSimple>10</ComponentSimple>
+		</costList>
+		<designatorDropdown>Extensions_General</designatorDropdown>
+		<researchPrerequisites>
+			<li>Electricity</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>250</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
 	</ThingDef>
 
 </Defs>

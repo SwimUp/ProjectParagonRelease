@@ -56,6 +56,8 @@
 			<li>ButcherSpot</li>
 			<li>TableButcher</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -114,7 +116,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -126,6 +134,80 @@
 			<li>ButcherSpot</li>
 			<li>TableButcher</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_Corned_Beef_x8Bulk</defName>
+		<label>make corned beef x8</label>
+		<description>Salting meat to extend shelf life.</description>
+		<jobString>Making bulk corned beef.</jobString>
+		<workAmount>1600</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RegularMeat</li>
+						<li>Meat_Human</li>
+						<li>Meat_Megaspider</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RockSalt</li>
+					</thingDefs>
+				</filter>
+				<count>160</count>
+			</li>
+		</ingredients>
+		<products>
+			<Corned_Beef>80</Corned_Beef>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RegularMeat</li>
+				<li>Meat_Human</li>
+				<li>Meat_Megaspider</li>
+				<li>RockSalt</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>RegularMeat</li>
+				<li>Meat_Human</li>
+				<li>Meat_Megaspider</li>
+				<li>RockSalt</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -172,6 +254,8 @@
 		<recipeUsers>
 			<li>Campfire</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -219,7 +303,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -230,9 +320,74 @@
 		<recipeUsers>
 			<li>Campfire</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
+		<defName>Make_Roasted_Meat_x8Bulk</defName>
+		<label>make roasted meat x8</label>
+		<description>Roast meat.</description>
+		<jobString>Making roasted meat.</jobString>
+		<workAmount>2400</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RegularMeat</li>
+						<li>Meat_Human</li>
+						<li>Meat_Megaspider</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<products>
+			<RoastedMeat>8</RoastedMeat>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RegularMeat</li>
+				<li>Meat_Human</li>
+				<li>Meat_Megaspider</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>RegularMeat</li>
+				<li>Meat_Human</li>
+				<li>Meat_Megaspider</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_Boiled_Meat</defName>
 		<label>make boiled meat</label>
 		<description>Boil meat.</description>
@@ -254,6 +409,8 @@
 				</filter>
 				<count>10</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -262,7 +419,7 @@
 				</filter>
 				<count>2</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledMeat>1</BoiledMeat>
 		</products>
@@ -287,9 +444,11 @@
 			<li>CookingPot</li>
 			<li>CookingFurnace</li>
 			<li>BigCoookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
-	<RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_Boiled_Meat_Bulk</defName>
 		<label>make boiled meat x4</label>
 		<description>Boil meat.</description>
@@ -311,6 +470,8 @@
 				</filter>
 				<count>40</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -319,7 +480,7 @@
 				</filter>
 				<count>8</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledMeat>4</BoiledMeat>
 		</products>
@@ -344,7 +505,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -356,9 +523,11 @@
 			<li>CookingPot</li>
 			<li>CookingFurnace</li>
 			<li>BigCoookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
-	<RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_Boiled_Meat_x8Bulk</defName>
 		<label>make boiled meat x8</label>
 		<description>Boil meat.</description>
@@ -380,6 +549,8 @@
 				</filter>
 				<count>80</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -388,7 +559,7 @@
 				</filter>
 				<count>16</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledMeat>8</BoiledMeat>
 		</products>
@@ -418,6 +589,81 @@
 			<li>BigCoookingFurnace</li>
 		</recipeUsers>
 	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_Boiled_Meat_x8NormalBulk</defName>
+		<label>make boiled meat x8</label>
+		<description>Boil meat.</description>
+		<jobString>Making boiled meat.</jobString>
+		<workAmount>2400</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RegularMeat</li>
+						<li>Meat_Human</li>
+						<li>Meat_Megaspider</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>16</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<BoiledMeat>8</BoiledMeat>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RegularMeat</li>
+				<li>Meat_Human</li>
+				<li>Meat_Megaspider</li>
+				<li>WaterForBill</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>RegularMeat</li>
+				<li>Meat_Human</li>
+				<li>Meat_Megaspider</li>
+				<li>WaterForBill</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+	</RecipeDef>
+	
 	<RecipeDef>
 		<defName>Make_WhiteBread</defName>
 		<label>make white bread</label>
@@ -456,6 +702,8 @@
 		<researchPrerequisite>CookingIII</researchPrerequisite>
 		<recipeUsers>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -497,7 +745,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -508,6 +762,64 @@
 		<researchPrerequisite>CookingIII</researchPrerequisite>
 		<recipeUsers>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_WhiteBread_x8Bulk</defName>
+		<label>make white bread x8</label>
+		<description>Make white bread.</description>
+		<jobString>Making white bread.</jobString>
+		<workAmount>4000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WheatFlour</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<products>
+			<WhiteBread>8</WhiteBread>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>WheatFlour</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>WheatFlour</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -548,6 +860,8 @@
 		<researchPrerequisite>CookingIII</researchPrerequisite>
 		<recipeUsers>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -589,7 +903,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -600,8 +920,68 @@
 		<researchPrerequisite>CookingIII</researchPrerequisite>
 		<recipeUsers>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_BlackBread_x8Bulk</defName>
+		<label>make black bread x8</label>
+		<description>Make black bread.</description>
+		<jobString>Making black bread.</jobString>
+		<workAmount>4000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RyeFlour</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RyeFlour</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>RyeFlour</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<products>
+			<BlackBread>8</BlackBread>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<researchPrerequisite>CookingIV</researchPrerequisite>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+	</RecipeDef>
+	
 	<RecipeDef>
 		<defName>Make_JellyButter</defName>
 		<label>make jelly butter</label>
@@ -646,6 +1026,8 @@
 		<recipeUsers>
 			<li>TableButcher</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 		<products>
 			<JellyButter>1</JellyButter>
@@ -667,6 +1049,159 @@
 			</li>
 		</modExtensions>
 	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_JellyButter_Bulk</defName>
+		<label>make jelly butter x4</label>
+		<description>Make jelly butter.</description>
+		<jobString>Making jelly butter.</jobString>
+		<workAmount>2000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WhiteBread</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>InsectJelly</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>WhiteBread</li>
+				<li>InsectJelly</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>WhiteBread</li>
+				<li>InsectJelly</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<products>
+			<JellyButter>4</JellyButter>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_JellyButter_x8Bulk</defName>
+		<label>make jelly butter x8</label>
+		<description>Make jelly butter.</description>
+		<jobString>Making jelly butter.</jobString>
+		<workAmount>4000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WhiteBread</li>
+					</thingDefs>
+				</filter>
+				<count>16</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>InsectJelly</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>WhiteBread</li>
+				<li>InsectJelly</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>WhiteBread</li>
+				<li>InsectJelly</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<products>
+			<JellyButter>8</JellyButter>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	
 	<RecipeDef>
 		<defName>Make_I_ProcessHoneycombs</defName>
 		<label>Process honeycombs</label>
@@ -704,6 +1239,8 @@
 		<recipeUsers>
 			<li>TableButcher</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 		<researchPrerequisite>BeekeepingBasics</researchPrerequisite>
 		<modExtensions>
@@ -712,6 +1249,119 @@
 			</li>
 		</modExtensions>
 	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_I_ProcessHoneycombs_Bulk</defName>
+		<label>Process honeycombs x4</label>
+		<description>Process honeycombs.</description>
+		<jobString>Processing honeycombs</jobString>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>false</allowMixingIngredients>
+		<workAmount>1000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Honeycombs</li>
+					</categories>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<products>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Honeycombs</li>
+			</categories>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>Honeycombs</li>
+			</categories>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<researchPrerequisite>BeekeepingBasics</researchPrerequisite>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_I_ProcessHoneycombs_x8Bulk</defName>
+		<label>Process honeycombs x8</label>
+		<description>Process honeycombs.</description>
+		<jobString>Processing honeycombs</jobString>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>false</allowMixingIngredients>
+		<workAmount>2000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Honeycombs</li>
+					</categories>
+				</filter>
+				<count>8</count>
+			</li>
+		</ingredients>
+		<products>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Honeycombs</li>
+			</categories>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>Honeycombs</li>
+			</categories>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<researchPrerequisite>BeekeepingBasics</researchPrerequisite>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	
 	<RecipeDef>
 		<defName>Make_Roasted_Fish</defName>
 		<label>make roasted fish</label>
@@ -759,6 +1409,8 @@
 		<recipeUsers>
 			<li>CookingFurnace</li>
 			<li>Campfire</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -809,7 +1461,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -819,10 +1477,77 @@
 		</modExtensions>
 		<recipeUsers>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
 			<li>Campfire</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
+		<defName>Make_Roasted_Fish_x8Bulk</defName>
+		<label>make roasted fish x8</label>
+		<description>Roast fish.</description>
+		<jobString>Making roasted fish.</jobString>
+		<workAmount>2400</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>FishRaw</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>Bait</li>
+					</disallowedThingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<products>
+			<RoastedFish>8</RoastedFish>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>FishRaw</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Bait</li>
+			</disallowedThingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>FishRaw</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Bait</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_Boiled_Fish</defName>
 		<label>make boiled fish</label>
 		<description>Boil fish.</description>
@@ -845,6 +1570,8 @@
 				</filter>
 				<count>10</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -853,7 +1580,7 @@
 				</filter>
 				<count>1</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledFish>1</BoiledFish>
 		</products>
@@ -884,9 +1611,11 @@
 			<li>CookingFurnace</li>
 			<li>BigCoookingFurnace</li>
 			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
-	<RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_Boiled_Fish_Bulk</defName>
 		<label>make boiled fish x4</label>
 		<description>Boil fish.</description>
@@ -909,6 +1638,8 @@
 				</filter>
 				<count>40</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -917,7 +1648,7 @@
 				</filter>
 				<count>4</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledFish>4</BoiledFish>
 		</products>
@@ -948,7 +1679,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -960,9 +1697,11 @@
 			<li>CookingFurnace</li>
 			<li>BigCoookingFurnace</li>
 			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
-	<RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_Boiled_Fish_x8Bulk</defName>
 		<label>make boiled fish x8</label>
 		<description>Boil fish.</description>
@@ -985,6 +1724,8 @@
 				</filter>
 				<count>80</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -993,7 +1734,7 @@
 				</filter>
 				<count>8</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledFish>8</BoiledFish>
 		</products>
@@ -1027,6 +1768,87 @@
 		</modExtensions>
 		<recipeUsers>
 			<li>BigCoookingFurnace</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_Boiled_Fish_x8NormalBulk</defName>
+		<label>make boiled fish x8</label>
+		<description>Boil fish.</description>
+		<jobString>Making boiled fish.</jobString>
+		<workAmount>1400</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>FishRaw</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>Bait</li>
+					</disallowedThingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<BoiledFish>8</BoiledFish>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>FishRaw</li>
+			</categories>
+			<thingDefs>
+				<li>WaterForBill</li>
+			</thingDefs>
+			<disallowedThingDefs>
+				<li>Bait</li>
+			</disallowedThingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>FishRaw</li>
+			</categories>
+			<thingDefs>
+				<li>WaterForBill</li>
+			</thingDefs>
+			<disallowedThingDefs>
+				<li>Bait</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -1070,6 +1892,8 @@
 		<recipeUsers>
 			<li>CookingFurnace</li>
 			<li>Campfire</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -1114,7 +1938,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -1125,9 +1955,70 @@
 		<recipeUsers>
 			<li>CookingFurnace</li>
 			<li>Campfire</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
+		<defName>Make_RoastedEggs_x8Bulk</defName>
+		<label>make roasted eggs x8</label>
+		<description>Make roasted eggs.</description>
+		<jobString>Making roasted eggs.</jobString>
+		<workAmount>2000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>EggsUnfertilized</li>
+						<li>EggsFertilized</li>
+					</categories>
+				</filter>
+				<count>24</count>
+			</li>
+		</ingredients>
+		<products>
+			<RoastedEggs>8</RoastedEggs>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>EggsUnfertilized</li>
+				<li>EggsFertilized</li>
+			</categories>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>EggsUnfertilized</li>
+				<li>EggsFertilized</li>
+			</categories>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_BoiledEggs</defName>
 		<label>make boiled fish</label>
 		<description>Make boiled fish.</description>
@@ -1148,6 +2039,8 @@
 				</filter>
 				<count>3</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -1156,7 +2049,7 @@
 				</filter>
 				<count>1</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledEggs>1</BoiledEggs>
 		</products>
@@ -1183,9 +2076,11 @@
 			<li>CookingFurnace</li>
 			<li>BigCoookingFurnace</li>
 			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
-	<RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_BoiledEggs_Bulk</defName>
 		<label>make boiled fish x4</label>
 		<description>Make boiled fish.</description>
@@ -1206,6 +2101,8 @@
 				</filter>
 				<count>12</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -1214,7 +2111,7 @@
 				</filter>
 				<count>4</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledEggs>4</BoiledEggs>
 		</products>
@@ -1241,7 +2138,13 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
-						<thingDef>SimpleCookingSet</thingDef>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
 					</li>
 				</requiredFacilities>
 			</li>
@@ -1253,9 +2156,86 @@
 			<li>CookingFurnace</li>
 			<li>BigCoookingFurnace</li>
 			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 	</RecipeDef>
-	<RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_BoiledEggs_x8NormalBulk</defName>
+		<label>make boiled fish x8</label>
+		<description>Make boiled fish.</description>
+		<jobString>Making boiled fish.</jobString>
+		<workAmount>2400</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>EggsUnfertilized</li>
+						<li>EggsFertilized</li>
+					</categories>
+				</filter>
+				<count>24</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<BoiledEggs>8</BoiledEggs>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>EggsUnfertilized</li>
+				<li>EggsFertilized</li>
+			</categories>
+			<thingDefs>
+				<li>WaterForBill</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>EggsUnfertilized</li>
+				<li>EggsFertilized</li>
+			</categories>
+			<thingDefs>
+				<li>WaterForBill</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_BoiledEggs_x8Bulk</defName>
 		<label>make boiled fish x8</label>
 		<description>Make boiled fish.</description>
@@ -1276,6 +2256,8 @@
 				</filter>
 				<count>24</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -1284,7 +2266,7 @@
 				</filter>
 				<count>8</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<BoiledEggs>8</BoiledEggs>
 		</products>
@@ -1316,7 +2298,7 @@
 			<li>BigCoookingFurnace</li>
 		</recipeUsers>
 	</RecipeDef>
-	<RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_TeaFungusWort</defName>
 		<label>make tea fungus wort</label>
 		<description>Make tea fungus wort.</description>
@@ -1344,6 +2326,8 @@
 				</filter>
 				<count>5</count>
 			</li>
+		</ingredients>
+		<abstractIngredients>
 			<li>
 				<filter>
 					<thingDefs>
@@ -1352,7 +2336,7 @@
 				</filter>
 				<count>1</count>
 			</li>
-		</ingredients>
+		</abstractIngredients>
 		<products>
 			<TeaFungusWort>5</TeaFungusWort>
 		</products>
@@ -1375,8 +2359,172 @@
 			<li>CookingFurnace</li>
 			<li>BigCoookingFurnace</li>
 			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
 	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_TeaFungusWort_Bulk</defName>
+		<label>make tea fungus wort x4</label>
+		<description>Make tea fungus wort.</description>
+		<jobString>Making tea fungus wort.</jobString>
+		<workAmount>1000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawTea</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Sugar</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<TeaFungusWort>20</TeaFungusWort>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawTea</li>
+				<li>Sugar</li>
+				<li>WaterForBill</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawTea</li>
+				<li>Sugar</li>
+				<li>WaterForBill</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_TeaFungusWort_x8Bulk</defName>
+		<label>make tea fungus wort x8</label>
+		<description>Make tea fungus wort.</description>
+		<jobString>Making tea fungus wort.</jobString>
+		<workAmount>2000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawTea</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Sugar</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<TeaFungusWort>40</TeaFungusWort>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawTea</li>
+				<li>Sugar</li>
+				<li>WaterForBill</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawTea</li>
+				<li>Sugar</li>
+				<li>WaterForBill</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	
 	<RecipeDef>
 		<defName>Make_CheeseMass</defName>
 		<label>make cheese mass</label>
@@ -1426,9 +2574,149 @@
 			<li>CookingFurnace</li>
 			<li>BigCoookingFurnace</li>
 			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 		<researchPrerequisite>CookingIII</researchPrerequisite>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
 	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_CheeseMass_Bulk</defName>
+		<label>make cheese mass x4</label>
+		<description>Make cheese mass.</description>
+		<jobString>Making cheese mass.</jobString>
+		<workAmount>2000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Milk</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RockSalt</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<products>
+			<CheeseMass>20</CheeseMass>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Milk</li>
+				<li>RockSalt</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Milk</li>
+				<li>RockSalt</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_CheeseMass_x8Bulk</defName>
+		<label>make cheese mass x8</label>
+		<description>Make cheese mass.</description>
+		<jobString>Making cheese mass.</jobString>
+		<workAmount>4000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Milk</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RockSalt</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+		</ingredients>
+		<products>
+			<CheeseMass>40</CheeseMass>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Milk</li>
+				<li>RockSalt</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Milk</li>
+				<li>RockSalt</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	
 	<RecipeDef>
 		<defName>Make_SandCactus</defName>
 		<label>make sand cactus</label>
@@ -1474,6 +2762,8 @@
 			<li>TableButcher</li>
 			<li>ButcherSpot</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
 		</recipeUsers>
 		<products>
 			<SandCactus>1</SandCactus>
@@ -1491,5 +2781,225 @@
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
 			</li>
 		</modExtensions>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_SandCactus_Bulk</defName>
+		<label>make sand cactus x4</label>
+		<description>Make sand cactus.</description>
+		<jobString>Making sand cactus.</jobString>
+		<workAmount>1200</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawCactusFruit</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Sand</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawCactusFruit</li>
+				<li>Sand</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawCactusFruit</li>
+				<li>Sand</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>TableButcher</li>
+			<li>ButcherSpot</li>
+			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<products>
+			<SandCactus>4</SandCactus>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Soldier</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_SandCactus_x8Bulk</defName>
+		<label>make sand cactus x8</label>
+		<description>Make sand cactus.</description>
+		<jobString>Making sand cactus.</jobString>
+		<workAmount>2400</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawCactusFruit</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Sand</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawCactusFruit</li>
+				<li>Sand</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawCactusFruit</li>
+				<li>Sand</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>TableButcher</li>
+			<li>ButcherSpot</li>
+			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<products>
+			<SandCactus>8</SandCactus>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Soldier</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	
+	<RecipeDef>
+		<defName>Make_Pemmican_x8Bulk</defName>
+		<label>make pemmican x8</label>
+		<description>Make bulk pemmican, a preserved combination of meat and plant food. It doesn't taste amazing, but lasts a long time without refrigeration.</description>
+		<jobString>Making bulk pemmican.</jobString>
+		<workAmount>5600</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>MeatRaw</li>
+					</categories>
+				</filter>
+				<count>2.0</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>PlantFoodRaw</li>
+					</categories>
+					<disallowedCategories>
+						<li>MiscPlants</li>
+					</disallowedCategories>
+				</filter>
+				<count>2.0</count>
+			</li>
+		</ingredients>
+		<products>
+			<Pemmican>128</Pemmican>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+			<disallowedCategories>
+				<li>AnimalProductRaw</li>
+				<li>MiscPlants</li>
+			</disallowedCategories>
+			<specialFiltersToDisallow>
+				<li>AllowPlantFood</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Meat_Human</li>
+				<li>Meat_Megaspider</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<researchPrerequisite>Pemmican</researchPrerequisite>
+		<recipeUsers>
+			<li>ButcherSpot</li>
+			<li>TableButcher</li>
+			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
 	</RecipeDef>
 </Defs>

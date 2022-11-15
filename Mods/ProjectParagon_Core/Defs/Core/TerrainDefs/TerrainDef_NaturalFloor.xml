@@ -482,4 +482,80 @@
 			</li>
 		</modExtensions>
 	</TerrainDef>
+	
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>Chernozem</defName>
+		<label>Chernozem</label>
+		<texturePath>Core/Surfaces/Chernozem</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>335</renderPrecedence>
+		<pathCost>2</pathCost>
+		<statBases>
+			<Beauty>-3</Beauty>
+			<BeautyOutdoors>0</BeautyOutdoors>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>GrowSoil</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Dirt</generatedFilth>
+		<fertility>1.5</fertility>
+		<takeFootprints>True</takeFootprints>
+		<designationCategory>Terraform</designationCategory>
+		<tools>
+			<li>
+				<label>dirt</label>
+				<capacities>
+					<li>KickMaterialInEyes</li>
+				</capacities>
+				<hediff>DirtInEyes</hediff>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+		<tags>
+			<li>Soil</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_TerraformTerrainDef">
+				<childs>
+					<li>
+						<terrainDef>SoilRich</terrainDef>
+						<costList>
+							<Clay>30</Clay>
+						</costList>
+						<workAmount>8000</workAmount>
+					</li>
+				</childs>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefExtension_TerrainDef">
+				<collectedThingDef>Dirt</collectedThingDef>
+				<regenRange>50~80</regenRange>
+				<extraDrop>
+					<li>
+						<thingDef>ShardAlexandrite</thingDef>
+						<countRange>1~2</countRange>
+						<chance>0.02</chance>
+					</li>
+					<li>
+						<thingDef>ShardTopaz</thingDef>
+						<countRange>1~2</countRange>
+						<chance>0.01</chance>
+					</li>
+				</extraDrop>
+				<terrainFertility>
+					<fertilityCount>150</fertilityCount>
+					<downGradeFertilityTerrainDef>SoilRich</downGradeFertilityTerrainDef>
+					<fertilityThingDef>IndustrialBiosolids</fertilityThingDef>
+					<fertilityRepairCostPerUnit>0.07</fertilityRepairCostPerUnit>
+				</terrainFertility>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiTerrainDef"/>
+			</li>
+		</modExtensions>
+	</TerrainDef>
 </Defs>

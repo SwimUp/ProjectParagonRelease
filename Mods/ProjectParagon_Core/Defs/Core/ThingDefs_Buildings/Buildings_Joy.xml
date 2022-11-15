@@ -294,4 +294,58 @@
 			</li>
 		</damageMultipliers>
 	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>MedievalTelescope</defName>
+		<label>Medieval telescope</label>
+		<description>An early version of the telescope allowing for the introduction of stargazing. Can only be used outdoors.</description>
+		<graphicData>
+			<texPath>Core/Buildings/MedievalTelescope/MedievalTelescope</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<shadowData>
+				<volume>(0.3, 0.7, 0.3)</volume>
+				<offset>(-0.03,0,-0.35)</offset>
+			</shadowData>
+		</graphicData>
+		<canBeUsedUnderRoof>false</canBeUsedUnderRoof>
+		<fillPercent>0.15</fillPercent>
+		<altitudeLayer>Building</altitudeLayer>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,1)</interactionCellOffset>
+		<passability>PassThroughOnly</passability>
+		<pathCost>30</pathCost>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<thingCategories>
+			<li>BuildingsJoy</li>
+		</thingCategories>
+		<building>
+			<joyKind>Telescope</joyKind>
+		</building>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<ComponentSimple>5</ComponentSimple>
+		</costList>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<MarketValue>150</MarketValue>
+			<Mass>5.5</Mass>
+			<JoyGainFactor>0.6</JoyGainFactor>
+		</statBases>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>GamesII</li>
+		</researchPrerequisites>
+		<designationCategory>Joy</designationCategory>
+		<designatorDropdown>MindGames</designatorDropdown>
+	</ThingDef>
+
 </Defs>

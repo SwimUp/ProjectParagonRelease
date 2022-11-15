@@ -30,16 +30,9 @@
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 		</placeWorkers>
 	</ThingDef>
-	<ThingDef Abstract="True" ParentName="BedWithQualityBase" Name="ParagonFurnitureI">
+	
+	<ThingDef Abstract="True" ParentName="ArtableBedBase" Name="ParagonFurnitureBase"> <!-- ParentName="BedWithQualityBase" -->
 		<designationCategory>Furniture</designationCategory>
-		<researchPrerequisites>
-			<li>FurnitureI</li>
-		</researchPrerequisites>
-		<fillPercent>0.4</fillPercent>
-		<passability>PassThroughOnly</passability>
-		<pathCost>60</pathCost>
-		<castEdgeShadows>True</castEdgeShadows>
-		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<comps>
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
@@ -52,6 +45,10 @@
 					<li>EndTable</li>
 					<li>Dresser</li>
 					<li>VitalsMonitor</li>
+					<li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
+					<li>DiningChair</li>
+					<li>Stool</li>
+					<li>Armchair</li>
 				</linkableFacilities>
 			</li>
 			<!--<li Class="CompProperties_AffectedByFacilities">
@@ -81,6 +78,18 @@
 				</linkableFacilities>
 			</li>-->
 		</comps>
+	</ThingDef>
+	
+	<ThingDef Abstract="True" ParentName="ParagonFurnitureBase" Name="ParagonFurnitureI">
+		<designationCategory>Furniture</designationCategory>
+		<researchPrerequisites>
+			<li>FurnitureI</li>
+		</researchPrerequisites>
+		<fillPercent>0.4</fillPercent>
+		<passability>PassThroughOnly</passability>
+		<pathCost>60</pathCost>
+		<castEdgeShadows>True</castEdgeShadows>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 	</ThingDef>
 	<ThingDef ParentName="ParagonFurnitureI">
 		<defName>SadjuukBedAA</defName>
@@ -971,9 +980,6 @@
 		<designatorDropdown>Decorations</designatorDropdown>
 		<altitudeLayer>BuildingOnTop</altitudeLayer>
 		<comps>
-			<li>
-				<compClass>CompQuality</compClass>
-			</li>
 			<li Class="CompProperties_Facility">
 				<statOffsets>
 					<Comfort>0.02</Comfort>

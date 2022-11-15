@@ -3,6 +3,19 @@
 	<Operation Class="PatchOperationSequence">
 		<success>Normal</success>
 		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[@Name="StandingLampBase"]/comps</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Power">
+							<compClass>CompPowerTrader</compClass>
+							<basePowerConsumption>30</basePowerConsumption>
+						</li>
+						<li Class="CompProperties_Styleable"/>
+					</comps>
+				</value>
+			</li>
+		
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MegascreenTelevision"]</xpath>
 				<value>
@@ -10,110 +23,597 @@
 				</value>
 			</li>
 			
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Bed"]</xpath>
 				<value>
-					<designatorDropdown>SingleBeds</designatorDropdown>
+					<ThingDef ParentName="ParagonFurnitureBase" Name="Bed">
+						<defName>Bed</defName>
+						<label>bed</label>
+						<description>A cozy mattress and sheets on a frame for resting.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/Bed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2,2)</drawSize>
+							<damageData>
+								<rect>(0,0.05,1,1.95)</rect>
+							</damageData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>140</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Beauty>4</Beauty>
+							<WorkToBuild>1900</WorkToBuild>
+							<Mass>30</Mass>
+							<BedRestEffectiveness>1</BedRestEffectiveness>
+							<Comfort>1</Comfort>
+							<ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+						</statBases>
+						<size>(1,2)</size>
+						<stuffCategories>
+							<li>Fabric</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<building>
+							<bed_showSleeperBody>False</bed_showSleeperBody>
+							<bed_healPerDay>4</bed_healPerDay>
+						</building>
+						<costList>
+							<WoodPlanks>80</WoodPlanks>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+						<fillPercent>0.4</fillPercent>
+						<pathCost>42</pathCost>
+						<staticSunShadowHeight>0.17</staticSunShadowHeight>
+						<castEdgeShadows>True</castEdgeShadows>
+						<designationHotKey>Misc2</designationHotKey>
+						<designatorDropdown>SingleBeds</designatorDropdown>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<uiIconScale>0.90</uiIconScale>
+						<techLevel>Industrial</techLevel>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			
+			
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="DoubleBed"]</xpath>
 				<value>
-					<designatorDropdown>DoubleBeds</designatorDropdown>
+					<ThingDef ParentName="ParagonFurnitureBase" Name="DoubleBed">
+						<defName>DoubleBed</defName>
+						<label>double bed</label>
+						<description>A simple double-wide bed that fits two people.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/DoubleBed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2.05,2.05)</drawSize>
+							<damageData>
+								<rect>(0,0.05,2,1.95)</rect>
+							</damageData>
+						</graphicData>
+						<thingSetMakerTags>
+							<li>RewardStandardQualitySuper</li>
+						</thingSetMakerTags>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Beauty>6</Beauty>
+							<WorkToBuild>3500</WorkToBuild>
+							<Mass>50</Mass>
+							<BedRestEffectiveness>1</BedRestEffectiveness>
+							<Comfort>1</Comfort>
+							<ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+						</statBases>
+						<size>(2,2)</size>
+						<stuffCategories>
+							<li>Fabric</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<costList>
+							<WoodPlanks>160</WoodPlanks>
+							<ComponentIndustrial>4</ComponentIndustrial>
+						</costList>
+						<building>
+							<bed_showSleeperBody>False</bed_showSleeperBody>
+							<bed_healPerDay>4</bed_healPerDay>
+						</building>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<fillPercent>0.4</fillPercent>
+						<pathCost>42</pathCost>
+						<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+						<staticSunShadowHeight>0.17</staticSunShadowHeight>
+						<castEdgeShadows>True</castEdgeShadows>
+						<designationHotKey>Misc3</designationHotKey>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<uiIconScale>0.90</uiIconScale>
+						<designatorDropdown>DoubleBeds</designatorDropdown>
+						<techLevel>Industrial</techLevel>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="RoyalBed"]</xpath>
 				<value>
-					<designatorDropdown>DoubleBeds</designatorDropdown>
+					<ThingDef ParentName="ParagonFurnitureBase">
+						<defName>RoyalBed</defName>
+						<label>royal bed</label>
+						<description>A luxurious gold-inlaid bed fit for the highborn. Very comfy and beautiful, it is a work of art in itself. Fits two.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bed/RoyalBed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2.05,2.05)</drawSize>
+							<damageData>
+								<rect>(0,0.05,2,1.95)</rect>
+							</damageData>
+						</graphicData>
+						<thingSetMakerTags>
+							<li>RewardStandardQualitySuper</li>
+						</thingSetMakerTags>
+						<statBases>
+							<MaxHitPoints>300</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Beauty>8</Beauty>
+							<WorkToBuild>4000</WorkToBuild>
+							<Mass>50</Mass>
+							<BedRestEffectiveness>1.1</BedRestEffectiveness>
+							<Comfort>2</Comfort>
+							<ImmunityGainSpeedFactor>1.3</ImmunityGainSpeedFactor>
+							<SurgerySuccessChanceFactor>1.1</SurgerySuccessChanceFactor>
+						</statBases>
+						<size>(2,2)</size>
+						<stuffCategories>
+							<li>Fabric</li>
+						</stuffCategories>
+						<costStuffCount>200</costStuffCount>
+						<costList>
+							<WoodPlanks>250</WoodPlanks>
+							<ComponentIndustrial>10</ComponentIndustrial>
+							<MechanismComplex>4</MechanismComplex>
+						</costList>
+						<building>
+							<bed_showSleeperBody>False</bed_showSleeperBody>
+							<bed_healPerDay>4</bed_healPerDay>
+						</building>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<fillPercent>0.4</fillPercent>
+						<pathCost>42</pathCost>
+						<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+						<staticSunShadowHeight>0.17</staticSunShadowHeight>
+						<castEdgeShadows>True</castEdgeShadows>
+						<designationHotKey>Misc4</designationHotKey>
+						<techLevel>Medieval</techLevel>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<uiIconScale>0.90</uiIconScale>
+						<designatorDropdown>DoubleBeds</designatorDropdown>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Stool"]</xpath>
 				<value>
-					<designatorDropdown>Seating</designatorDropdown>
+					<ThingDef ParentName="FurnitureWithQualityBase">
+						<defName>Stool</defName>
+						<label>stool</label>
+						<description>A simple platform on which to sit. Not very comfortable, but much better than nothing. Can be used at tables, work stations, and elsewhere.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Stool</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<damageData>
+								<rectN>(0.125,0.296875,0.734375,0.421875)</rectN>
+								<rectS>(0.125,0.296875,0.734375,0.421875)</rectS>
+								<rectE>(0.234375,0.296875,0.5,0.546875)</rectE>
+								<rectW>(0.234375,0.296875,0.5,0.546875)</rectW>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+							<shadowData>
+								<volume>(0.18, 0.23, 0.18)</volume>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>75</MaxHitPoints>
+							<WorkToBuild>450</WorkToBuild>
+							<Mass>3</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>0</Beauty>
+							<Comfort>0.5</Comfort>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+						</statBases>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<designatorDropdown>Seating</designatorDropdown>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>25</costStuffCount>
+						<pathCost>30</pathCost>
+						<designationHotKey>Misc6</designationHotKey>
+						<fillPercent>0.20</fillPercent>
+						<building>
+							<isSittable>true</isSittable>
+						</building>
+						<uiIconOffset>(0, -0.05)</uiIconOffset>
+						<comps>
+							<li Class="CompProperties_Styleable"/>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<Comfort>0.02</Comfort>
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+							</li>
+						</comps>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="Stool"]</xpath>
-				<value>
-					<researchPrerequisites>
-					  <li>ComplexFurniture</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
+			
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="DiningChair"]</xpath>
 				<value>
-					<designatorDropdown>Seating</designatorDropdown>
+					<ThingDef ParentName="ArtableFurnitureBase">
+						<defName>DiningChair</defName>
+						<label>dining chair</label>
+						<description>A comfortable and attractive chair. Can be used at tables, work stations, and elsewhere.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/DiningChair</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(1,1)</drawSize>
+							<damageData>
+								<rectN>(0.25,0.234375,0.5,0.28125)</rectN>
+								<rectS>(0.25,0.234375,0.5,0.28125)</rectS>
+								<rectE>(0.28125,0.25,0.453125,0.25)</rectE>
+								<rectW>(0.28125,0.25,0.453125,0.25)</rectW>
+							</damageData>
+							<shadowData>
+								<volume>(0.23, 0.26, 0.23)</volume>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>8000</WorkToBuild>
+							<Mass>5</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>8</Beauty>
+							<Comfort>0.70</Comfort>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+						</statBases>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costStuffCount>45</costStuffCount>
+						<pathCost>30</pathCost>
+						<designationHotKey>Misc7</designationHotKey>
+						<fillPercent>0.35</fillPercent>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<building>
+							<isSittable>true</isSittable>
+						</building>
+						<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_Styleable"/>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<Comfort>0.02</Comfort>
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+							</li>
+						</comps>
+						<designatorDropdown>Seating</designatorDropdown>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Armchair"]</xpath>
 				<value>
-					<designatorDropdown>Seating</designatorDropdown>
+					<ThingDef ParentName="FurnitureWithQualityBase">
+						<defName>Armchair</defName>
+						<label>armchair</label>
+						<description>A large, soft, comfy seat. Great for relaxation. Can be used at tables, work stations, and elsewhere.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Armchair</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3,3)</drawSize>
+							<damageData>
+								<rectN>(0,0,1,0.703125)</rectN>
+								<rectS>(0.09375,0,0.84375,1)</rectS>
+								<rectE>(0,0,0.84375,0.625)</rectE>
+								<rectW>(0.15625,0,0.84375,0.625)</rectW>
+							</damageData>
+							<shadowData>
+								<volume>(0.3, 0.33, 0.3)</volume>
+							</shadowData>
+						</graphicData>
+						<uiIconScale>0.9</uiIconScale>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>120</MaxHitPoints>
+							<WorkToBuild>14000</WorkToBuild>
+							<Mass>18</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>4</Beauty>
+							<Comfort>0.8</Comfort>
+						</statBases>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<stuffCategories>
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<costStuffCount>110</costStuffCount>
+						<pathCost>30</pathCost>
+						<fillPercent>0.40</fillPercent>
+						<designationHotKey>Misc8</designationHotKey>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+						<building>
+							<isSittable>true</isSittable>
+							<destroySound>BuildingDestroyed_Soft_Small</destroySound>
+						</building>
+						<designatorDropdown>Seating</designatorDropdown>
+						<comps>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<Comfort>0.03</Comfort>
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+							</li>
+						</comps>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="EndTable"]</xpath>
 				<value>
-					<designatorDropdown>Decorations</designatorDropdown>
+					<ThingDef ParentName="TableBase">
+						<defName>EndTable</defName>
+						<label>end table</label>
+						<description>A small bedside table which makes nearby beds a little bit more comfortable. Must be placed directly adjacent to the head of the bed. Placing more than one end table near the same bed has no effect.</description>
+						<surfaceType>Item</surfaceType>
+						<graphicData>
+							<texPath>Things/Building/Furniture/EndTable</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shadowData>
+								<volume>(0.3, 0.6, 0.3)</volume>
+							</shadowData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>75</MaxHitPoints>
+							<WorkToBuild>1000</WorkToBuild>
+							<Mass>5</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>3</Beauty>
+						</statBases>
+						<pathCost>30</pathCost>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<costStuffCount>30</costStuffCount>
+						<costList>
+							<ComponentSimple>2</ComponentSimple>
+						</costList>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<Comfort>0.05</Comfort>
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+								<mustBePlacedAdjacentCardinalToBedHead>true</mustBePlacedAdjacentCardinalToBedHead>
+							</li>
+						</comps>
+						<staticSunShadowHeight>0</staticSunShadowHeight>
+						<castEdgeShadows>false</castEdgeShadows>
+						<designatorDropdown>Decorations</designatorDropdown>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Table1x2c"]</xpath>
 				<value>
-					<designatorDropdown>Tables</designatorDropdown>
+					<ThingDef ParentName="TableGatherSpotBase">
+						<defName>Table1x2c</defName>
+						<label>table (1x2)</label>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Table1x2</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3,4)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<uiIconScale>0.8</uiIconScale>
+						<statBases>
+							<MaxHitPoints>75</MaxHitPoints>
+							<WorkToBuild>750</WorkToBuild>
+							<Mass>5</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>0.5</Beauty>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+						</statBases>
+						<size>(1,2)</size>
+						<costList>
+							<ComponentSimple>2</ComponentSimple>
+						</costList>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>30</costStuffCount>
+						<designatorDropdown>Tables</designatorDropdown>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="Table1x2c"]</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>ComplexFurniture</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Table2x2c"]</xpath>
 				<value>
-					<designatorDropdown>Tables</designatorDropdown>
+					<ThingDef ParentName="TableGatherSpotBase">
+						<defName>Table2x2c</defName>
+						<label>table (2x2)</label>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Table2x2</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(4,4)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<uiIconScale>0.8</uiIconScale>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>1500</WorkToBuild>
+							<Mass>10</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>1</Beauty>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+						</statBases>
+						<size>(2,2)</size>
+						<costList>
+							<ComponentSimple>3</ComponentSimple>
+						</costList>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<rotatable>false</rotatable>
+						<designatorDropdown>Tables</designatorDropdown>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+					</ThingDef>
+					
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="Table2x2c"]</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>ComplexFurniture</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Table2x4c"]</xpath>
 				<value>
-					<designatorDropdown>Tables</designatorDropdown>
+					<ThingDef ParentName="TableGatherSpotBase">
+						<defName>Table2x4c</defName>
+						<label>table (2x4)</label>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Table2x4</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(4,6)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>150</MaxHitPoints>
+							<WorkToBuild>3000</WorkToBuild>
+							<Mass>20</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>2</Beauty>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">20</StyleDominance>
+						</statBases>
+						<size>(2,4)</size>
+						<costList>
+							<ComponentSimple>6</ComponentSimple>
+						</costList>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<building>
+							<buildingSizeCategory>Medium</buildingSizeCategory>
+						</building>
+						<designatorDropdown>Tables</designatorDropdown>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="Table2x4c"]</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>ComplexFurniture</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Table3x3c"]</xpath>
 				<value>
-					<designatorDropdown>Tables</designatorDropdown>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="Table3x3c"]</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>ComplexFurniture</li>
-					</researchPrerequisites>
+					<ThingDef ParentName="TableGatherSpotBase">
+						<defName>Table3x3c</defName>
+						<label>table (3x3)</label>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Table3x3</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(5, 5)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<uiIconScale>0.9</uiIconScale>
+						<statBases>
+							<MaxHitPoints>175</MaxHitPoints>
+							<WorkToBuild>3300</WorkToBuild>
+							<Mass>22</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>2</Beauty>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">20</StyleDominance>
+						</statBases>
+						<size>(3,3)</size>
+						<costList>
+							<ComponentSimple>6</ComponentSimple>
+						</costList>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<rotatable>false</rotatable>
+						<building>
+							<buildingSizeCategory>Medium</buildingSizeCategory>
+						</building>
+						<designatorDropdown>Tables</designatorDropdown>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+					</ThingDef>
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
@@ -128,12 +628,13 @@
 					<designatorDropdown>Lighting</designatorDropdown>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			<!-- <li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="Darklamp"]</xpath>
 				<value>
 					<designatorDropdown>Lighting</designatorDropdown>
 				</value>
 			</li>
+			-->
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="TorchLamp"]</xpath>
 				<value>
@@ -146,6 +647,7 @@
 					<designatorDropdown>Lighting</designatorDropdown>
 				</value>
 			</li>
+			<!--
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="StandingLamp_Red"]/designatorDropdown</xpath>
 				<value>
@@ -164,6 +666,31 @@
 					<designatorDropdown>Lighting</designatorDropdown>
 				</value>
 			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="StandingLamp_Red"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites Inherit="False">
+					  <li>DecorationsII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="StandingLamp_Green"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites Inherit="False">
+					  <li>DecorationsII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="StandingLamp_Blue"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites Inherit="False">
+					  <li>DecorationsII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			-->
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="SunLamp"]</xpath>
 				<value>
@@ -200,10 +727,68 @@
 			</li>
 			
 			
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Dresser"]</xpath>
 				<value>
-					<designatorDropdown>Decorations</designatorDropdown>
+					<ThingDef ParentName="ArtableFurnitureBase">
+						<defName>Dresser</defName>
+						<label>dresser</label>
+						<description>A dresser. Gives a small comfort bonus to all nearby beds. Placing more than one dresser near the same bed has no effect.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Dresser</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(2,1)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.4</fillPercent>
+						<castEdgeShadows>true</castEdgeShadows>
+						<pathCost>42</pathCost>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<costList>
+							<MechanismComplex>4</MechanismComplex>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>80</costStuffCount>
+						<statBases>
+							<MaxHitPoints>120</MaxHitPoints>
+							<Mass>15</Mass>
+							<WorkToBuild>2000</WorkToBuild>
+							<Flammability>1.0</Flammability>
+							<Beauty>5</Beauty>
+						</statBases>
+						<size>(2,1)</size>
+						<designationHotKey>Misc12</designationHotKey>
+						<staticSunShadowHeight>0.5</staticSunShadowHeight>
+						<surfaceType>Item</surfaceType>
+						<canOverlapZones>false</canOverlapZones>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<Comfort>0.05</Comfort>
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+								<maxDistance>6</maxDistance>
+							</li>
+						</comps>
+						<designatorDropdown>Decorations</designatorDropdown>
+					</ThingDef>
 				</value>
 			</li>
 			
@@ -247,7 +832,7 @@
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="HospitalBed"]</xpath>
 				<value>
-					<ThingDef ParentName="BedWithQualityBase">
+					<ThingDef ParentName="ParagonFurnitureBase">
 						<defName>HospitalBed</defName>
 						<label>hospital bed</label>
 						<description>A bed specially designed for use in hospitals. Adjustable for a patient and festooned with built-in equipment, it improves medical outcomes over normal beds.</description>
@@ -269,16 +854,6 @@
 						  <MedicalTendQualityOffset>0.10</MedicalTendQualityOffset>
 						  <SurgerySuccessChanceFactor>1.1</SurgerySuccessChanceFactor>
 						</statBases>
-						<comps>
-						  <li Class="CompProperties_AffectedByFacilities">
-							<linkableFacilities>
-							  <li>VitalsMonitor</li>
-							  <li>EndTable</li>
-							  <li>Dresser</li>
-							  <li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
-							</linkableFacilities>
-						  </li>
-						</comps>
 						<size>(1,2)</size>
 						<stuffCategories>
 						  <li>Metallic</li>
@@ -300,7 +875,7 @@
 						<staticSunShadowHeight>0.17</staticSunShadowHeight>
 						<designationHotKey>Misc5</designationHotKey>
 						<researchPrerequisites>
-						  <li>HospitalBed</li>
+						  <li>Medicine</li>
 						</researchPrerequisites>
 						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 						<techLevel>Industrial</techLevel>
@@ -309,6 +884,10 @@
 					    <designationCategory>Medicine</designationCategory>
 					  </ThingDef>
 				</value>
+			</li>
+			
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Shelf"]</xpath>
 			</li>
 			
 		</operations>

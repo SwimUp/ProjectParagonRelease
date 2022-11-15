@@ -176,4 +176,214 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
+	
+	<ThingDef Name="MassGraveBase" ParentName="BuildingBase" Abstract="True">
+		<label>mass grave</label>
+		<thingClass>ProjectParagon.Core.Things.Building_MassGrave</thingClass>
+		<constructEffect>ConstructDirt</constructEffect>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<description>A large hole for dumping bodies. It's not pretty but sometimes you have to make do.</description>
+		<tickerType>Rare</tickerType>
+		<canOverlapZones>false</canOverlapZones>
+		<passability>Standable</passability>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<expandHomeArea>false</expandHomeArea>
+			<isInert>true</isInert>
+			<preventDeteriorationInside>true</preventDeteriorationInside>
+			<haulToContainerDuration>500</haulToContainerDuration>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>Corpses</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+				<filter>
+					<categories>
+						<li>CorpsesHumanlike</li>
+					</categories>
+					<specialFiltersToDisallow>
+						<li>AllowCorpsesColonist</li>
+					</specialFiltersToDisallow>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<inspectorTabs>
+			<li>ITab_Storage</li>
+		</inspectorTabs>
+		<terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+		<designationCategory>Misc</designationCategory>
+		<comps>
+			<li Class="CompProperties_AssignableToPawn">
+				<drawAssignmentOverlay>false</drawAssignmentOverlay>
+				<compClass>CompAssignableToPawn_Grave</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MassGraveBase">
+		<defName>SmallMassGrave</defName>
+		<graphicData>
+			<texPath>Core/Buildings/SmallMassGrave/SmallMassGraveEmpty</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+		<size>(3,3)</size>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToBuild>1500</WorkToBuild>
+		</statBases>
+		<building>
+			<fullGraveGraphicData>
+				<texPath>Core/Buildings/SmallMassGrave/SmallMassGraveFull</texPath>
+				<graphicClass>Graphic_Single</graphicClass>
+				<drawSize>(3,3)</drawSize>
+			</fullGraveGraphicData>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_MassGrave">
+				<maxCapacity>4</maxCapacity>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MassGraveBase">
+		<defName>BigMassGrave</defName>
+		<graphicData>
+			<texPath>Core/Buildings/BigMassGrave/BigMassGraveEmpty</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(6,3)</drawSize>
+		</graphicData>
+		<statBases>
+			<WorkToBuild>2500</WorkToBuild>
+		</statBases>
+		<size>(5,2)</size>
+		<building>
+			<fullGraveGraphicData>
+				<texPath>Core/Buildings/BigMassGrave/BigMassGraveFull</texPath>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>(6,3)</drawSize>
+			</fullGraveGraphicData>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_MassGrave">
+				<maxCapacity>8</maxCapacity>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="LWM_DeepStorage">
+		<defName>PesticideBox</defName>
+		<label>Pesticide box</label>
+		<description>Box with pesticides for plants. For work it is required to place pesticides inside. Sprays pesticides on nearby plants every 15 days.</description>
+		<pathCost>100</pathCost>
+		<thingClass>ProjectParagon.Core.Things.Building_PesticideBox</thingClass>
+		<graphicData>
+			<texPath>skullywag/Basket/Basket</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,1)</drawSize>
+		</graphicData>
+		<size>(2,1)</size>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<SimplePlates>30</SimplePlates>
+			<ComponentSimple>10</ComponentSimple>
+		</costList>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>10</Mass>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<tickerType>Long</tickerType>
+		<holdsRoof>false</holdsRoof>
+		<building>
+			<fixedStorageSettings>
+				<filter>
+					<thingDefs>
+						<li>Pesticides</li>
+					</thingDefs>
+				</filter>
+			</fixedStorageSettings>
+		</building>
+		<comps>
+			<li Class="LWM.DeepStorage.Properties">
+				<maxNumberStacks>4</maxNumberStacks>
+				<timeStoringTakes>300</timeStoringTakes>
+				<overlayType>SumOfItemsPerCell</overlayType>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_PesticideBox">
+				<effectRadius>4</effectRadius>
+				<pollinationDays>15</pollinationDays>
+				<pesticideToPollination>20</pesticideToPollination>
+				<harvestMultiplier>1.2</harvestMultiplier>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Pesticides</li>
+		</researchPrerequisites>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Farming</designatorDropdown>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Rooms.DefModExtension_IgnoreGreenhouse"></li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+		
+	<ThingDef ParentName="BuildingBase">
+		<defName>Scarecrow</defName>
+		<label>Scarecrow</label>
+		<description>An ordinary scarecrow that protects plants from the invasion of crows.</description>
+		<graphicData>
+			<texPath>Core/Buildings/Building_AeronRadiationAccumulator/Building_AeronRadiationAccumulator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<category>Building</category>
+		<pathCost>25</pathCost>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>3500</WorkToBuild>
+			<Mass>5</Mass>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<costList>
+			<Hay>150</Hay>
+		</costList>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<holdsRoof>false</holdsRoof>
+		<costStuffCount>50</costStuffCount>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Farming</designatorDropdown>
+		<researchPrerequisites>
+			<li>Agronomy</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Scarecrow">
+				<effectRadius>5</effectRadius>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Rooms.DefModExtension_IgnoreGreenhouse"></li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
 </Defs>

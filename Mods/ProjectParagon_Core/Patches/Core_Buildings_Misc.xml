@@ -1776,6 +1776,79 @@
 					</ThingDef>
 				</value>
 			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ToolCabinet"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>ToolCabinet</defName>
+						<label>tool cabinet</label>
+						<description>Increases work speed when placed near a workbench. One workbench can use up to two tool cabinets.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/ToolCabinet</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(2,1)</drawSize>
+							<color>(96,114,95)</color>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<castEdgeShadows>true</castEdgeShadows>
+						<staticSunShadowHeight>0.35</staticSunShadowHeight>
+						<fillPercent>0.5</fillPercent>
+						<canOverlapZones>false</canOverlapZones>
+						<pathCost>42</pathCost>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>1800</WorkToBuild>
+							<Mass>20</Mass>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<size>(2,1)</size>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costStuffCount>200</costStuffCount>
+						<costList>
+							<MechanismComplex>5</MechanismComplex>
+							<ComponentIndustrial>10</ComponentIndustrial>
+							<RepairKit>2</RepairKit>
+						</costList>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+						</building>
+						<researchPrerequisites>
+							<li>ErgonomicsII</li>
+						</researchPrerequisites>
+						<designatorDropdown>Extensions_General</designatorDropdown>
+						<designationCategory>Misc</designationCategory>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<comps>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<WorkTableWorkSpeedFactor>0.1</WorkTableWorkSpeedFactor>
+								</statOffsets>
+								<maxSimultaneous>2</maxSimultaneous>
+							</li>
+						</comps>
+						<designationHotKey>Misc6</designationHotKey>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			
 		</operations>
 	</Operation>
 </Patch>

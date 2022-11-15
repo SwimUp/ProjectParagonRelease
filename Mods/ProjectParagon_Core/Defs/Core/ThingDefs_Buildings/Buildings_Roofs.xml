@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef Abstract="True" Name="BuildableRoofBase" ParentName="BuildingBase">
+		<thingClass>ProjectParagon.Core.Things.Building_RoofBuilding</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Core/Roofs/Transparent</texPath>
+			<damageData>
+				<enabled>false</enabled>
+			</damageData>
+		</graphicData>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<blockWind>true</blockWind>
+		<fillPercent>0</fillPercent>
+		<coversFloor>false</coversFloor>
+		<rotatable>false</rotatable>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<blockLight>false</blockLight>
+		<canOverlapZones>true</canOverlapZones>
+		<clearBuildingArea>false</clearBuildingArea>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<passability>Standable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<building>
+			<isInert>true</isInert>
+			<canPlaceOverWall>true</canPlaceOverWall>
+			<isEdifice>false</isEdifice>
+			<blueprintGraphicData>
+				<texPath>Things/Special/TerrainBlueprint</texPath>
+			</blueprintGraphicData>
+		</building>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<designationCategory>Roof</designationCategory>
+		<canGenerateDefaultDesignator>true</canGenerateDefaultDesignator>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildableRoofBase">
+		<defName>TransparentRoof</defName>
+		<label>Transparent roof</label>
+		<description>Transparent roof that allows light to pass through. Virtually no effect on the weather inside the room.</description>
+		<costList>
+			<Glass>10</Glass>
+			<ComponentSimple>1</ComponentSimple>
+		</costList>
+		<statBases>
+			<WorkToBuild>400</WorkToBuild>
+		</statBases>
+		<researchPrerequisites>
+			<li>GlassMaking</li>
+		</researchPrerequisites>
+		<uiIconPath>Core/Roofs/TransparentRoof</uiIconPath>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RoofBuilding">
+				<roofDef>TransparentRoof</roofDef>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildableRoofBase">
+		<defName>StoneRoof</defName>
+		<label>Stone roof</label>
+		<description>A dense stone roof capable of withstanding multiple hits from non-serious ammunition.</description>
+		<costList>
+			<Clay>5</Clay>
+		</costList>
+		<costStuffCount>30</costStuffCount>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<statBases>
+			<WorkToBuild>1000</WorkToBuild>
+		</statBases>
+		<researchPrerequisites>
+			<li>AdvancedStoneProcessing</li>
+		</researchPrerequisites>
+		<uiIconPath>Core/Roofs/StoneRoof</uiIconPath>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RoofBuilding">
+				<roofDef>StoneRoof</roofDef>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildableRoofBase">
+		<defName>MetalRoof</defName>
+		<label>Metal roof</label>
+		<description>Solid metal roof. It has moderate durability and well protects against a variety of ammunition.</description>
+		<costList>
+			<Steel>10</Steel>
+			<ComponentSimple>2</ComponentSimple>
+		</costList>
+		<statBases>
+			<WorkToBuild>1500</WorkToBuild>
+		</statBases>
+		<researchPrerequisites>
+			<li>BasicsMechanic</li>
+		</researchPrerequisites>
+		<uiIconPath>Core/Roofs/MetalRoof</uiIconPath>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RoofBuilding">
+				<roofDef>MetalRoof</roofDef>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildableRoofBase">
+		<defName>ReinforcedConcreteRoof</defName>
+		<label>Reinforced concrete roof</label>
+		<description>A very dense roof made of concrete and metal, able to withstand powerful projectiles.</description>
+		<costList>
+			<Steel>20</Steel>
+			<Concrete>15</Concrete>
+		</costList>
+		<statBases>
+			<WorkToBuild>4000</WorkToBuild>
+		</statBases>
+		<researchPrerequisites>
+			<li>MaterialsScience</li>
+		</researchPrerequisites>
+		<uiIconPath>Core/Roofs/ReinforcedConcreteRoof</uiIconPath>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RoofBuilding">
+				<roofDef>ReinforcedConcreteRoof</roofDef>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildableRoofBase">
+		<defName>GreenhouseRoof</defName>
+		<label>Greenhouse roof</label>
+		<description>A transparent roof of a certain thickness that protects the plants from direct sunlight and bad weather and allows you to save more heat.</description>
+		<costList>
+			<Glass>30</Glass>
+			<ComponentSimple>2</ComponentSimple>
+		</costList>
+		<statBases>
+			<WorkToBuild>2000</WorkToBuild>
+		</statBases>
+		<researchPrerequisites>
+			<li>Agronomy</li>
+		</researchPrerequisites>
+		<uiIconPath>Core/Roofs/GreenhouseRoof</uiIconPath>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RoofBuilding">
+				<roofDef>GreenhouseRoof</roofDef>
+			</li>
+		</comps>
+	</ThingDef>
+	
+</Defs>

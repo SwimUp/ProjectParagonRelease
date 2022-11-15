@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingDef ParentName="MakeableDrugPillBase">
+	<ThingDef ParentName="DrugPillBase">
 		<defName>PrionicTincture</defName>
 		<label>Prionic tincture</label>
 		<description>Exotic mushrooms and herbs that kindle psionic fire.</description>
@@ -39,17 +39,6 @@
 				</li>
 			</outcomeDoers>
 		</ingestible>
-		<recipeMaker>
-			<researchPrerequisite>Alchemy</researchPrerequisite>
-			<recipeUsers>
-				<li>AlchemyStance</li>
-			</recipeUsers>
-		</recipeMaker>
-		<costList>
-			<Flora_RawFirewort>4</Flora_RawFirewort>
-			<Raw_Glowstool>4</Raw_Glowstool>
-			<WaterForBill>1</WaterForBill>
-		</costList>
 		<comps>
 			<li Class="CompProperties_Drug">
 				<listOrder>1000</listOrder>
@@ -96,4 +85,122 @@
 			</li>
 		</stages>
 	</HediffDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_PrionicTincture</defName>
+		<label>Make Prionic Tincture</label>
+		<description>Make Prionic Tincture.</description>
+		<jobString>Making Prionic Tincture.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>800</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawFirewort</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Raw_Glowstool</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<PrionicTincture>1</PrionicTincture>
+		</products>
+		<researchPrerequisite>Alchemy</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawFirewort</li>
+				<li>Raw_Glowstool</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawFirewort</li>
+				<li>Raw_Glowstool</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_Bulk_I_PrionicTincture</defName>
+		<label>Make Prionic Tincture x4</label>
+		<description>Make Prionic Tincture x4.</description>
+		<jobString>Making Prionic Tincture.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>3200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawFirewort</li>
+					</thingDefs>
+				</filter>
+				<count>16</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Raw_Glowstool</li>
+					</thingDefs>
+				</filter>
+				<count>16</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<PrionicTincture>4</PrionicTincture>
+		</products>
+		<researchPrerequisite>Alchemy</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawFirewort</li>
+				<li>Raw_Glowstool</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawFirewort</li>
+				<li>Raw_Glowstool</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+		</recipeUsers>
+	</RecipeDef>
 </Defs>

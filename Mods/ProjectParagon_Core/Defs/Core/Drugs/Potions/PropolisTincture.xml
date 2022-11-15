@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingDef ParentName="MakeableDrugPillBase">
+	<ThingDef ParentName="DrugPillBase">
 		<defName>PropolisTincture</defName>
 		<label>Propolis tincture</label>
 		<description>Tincture of bee propolis, which has toxin-removing properties. Helps to slow down infection and alleviate poisoning.</description>
@@ -50,18 +50,6 @@
 			</outcomeDoers>
 		</ingestible>
 		<techLevel>Neolithic</techLevel>
-		<recipeMaker>
-			<researchPrerequisite>CookingI</researchPrerequisite>
-			<recipeUsers>
-				<li>AlchemyStance</li>
-				<li>CookingPot</li>
-			</recipeUsers>
-		</recipeMaker>
-		<costList>
-			<Propolis>5</Propolis>
-			<Honey>5</Honey>
-			<WaterForBill>2</WaterForBill>
-		</costList>
 		<comps>
 			<li Class="CompProperties_Drug">
 				<listOrder>1000</listOrder>
@@ -87,27 +75,145 @@
 		<stages>
 			<li>
 				<label>easy</label>
+				<hungerRateFactor>1.2</hungerRateFactor>
 				<statOffsets>
 					<ImmunityGainSpeed>0.10</ImmunityGainSpeed>
-					<HungerRateMultiplier>0.2</HungerRateMultiplier>
 				</statOffsets>
 			</li>
 			<li>
 				<label>medium</label>
 				<minSeverity>0.5</minSeverity>
+				<hungerRateFactor>1.5</hungerRateFactor>
 				<statOffsets>
-					<ImmunityGainSpeed>0.20</ImmunityGainSpeed>
-					<HungerRateMultiplier>0.5</HungerRateMultiplier>
+					<ImmunityGainSpeed>0.25</ImmunityGainSpeed>
 				</statOffsets>
 			</li>
 			<li>
 				<label>severe</label>
 				<minSeverity>0.8</minSeverity>
+				<hungerRateFactor>1.8</hungerRateFactor>
 				<statOffsets>
-					<ImmunityGainSpeed>0.30</ImmunityGainSpeed>
-					<HungerRateMultiplier>0.8</HungerRateMultiplier>
+					<ImmunityGainSpeed>0.40</ImmunityGainSpeed>
 				</statOffsets>
 			</li>
 		</stages>
 	</HediffDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_PropolisTincture</defName>
+		<label>Make Propolis tincture</label>
+		<description>Make Propolis tincture.</description>
+		<jobString>Making Propolis tincture.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>800</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Propolis</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Honey</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<PropolisTincture>1</PropolisTincture>
+		</products>
+		<researchPrerequisite>CookingI</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Propolis</li>
+				<li>Honey</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Propolis</li>
+				<li>Honey</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_Bulk_I_PropolisTincture</defName>
+		<label>Make Propolis tincture x4</label>
+		<description>Make Propolis tincture x4.</description>
+		<jobString>Making Propolis tincture.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>3200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Propolis</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Honey</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<PropolisTincture>4</PropolisTincture>
+		</products>
+		<researchPrerequisite>CookingI</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Propolis</li>
+				<li>Honey</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Propolis</li>
+				<li>Honey</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+		</recipeUsers>
+	</RecipeDef>
 </Defs>

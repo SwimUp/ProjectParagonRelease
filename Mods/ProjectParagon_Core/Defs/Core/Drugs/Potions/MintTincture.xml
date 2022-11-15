@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingDef ParentName="MakeableDrugPillBase">
+	<ThingDef ParentName="DrugPillBase">
 		<defName>MintTincture</defName>
 		<label>Mint tincture</label>
 		<description>Soothing mint tincture.</description>
@@ -39,17 +39,6 @@
 				</li>
 			</outcomeDoers>
 		</ingestible>
-		<recipeMaker>
-			<researchPrerequisite>CookingI</researchPrerequisite>
-			<recipeUsers>
-				<li>AlchemyStance</li>
-				<li>CookingPot</li>
-			</recipeUsers>
-		</recipeMaker>
-		<costList>
-			<Flora_RawMint>10</Flora_RawMint>
-			<WaterForBill>1</WaterForBill>
-		</costList>
 		<comps>
 			<li Class="CompProperties_Drug">
 				<listOrder>1000</listOrder>
@@ -57,4 +46,104 @@
 			</li>
 		</comps>
 	</ThingDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_MintTincture</defName>
+		<label>Make mint tincture</label>
+		<description>Make mint tincture.</description>
+		<jobString>Making mint tincture.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>800</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawMint</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<MintTincture>1</MintTincture>
+		</products>
+		<researchPrerequisite>CookingI</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawMint</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawMint</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+			<li>CookingPot</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_Bulk_I_MintTincture</defName>
+		<label>Make mint tincture x4</label>
+		<description>Make mint tincture x4.</description>
+		<jobString>Making mint tincture.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>3200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawMint</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<MintTincture>4</MintTincture>
+		</products>
+		<researchPrerequisite>CookingI</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawMint</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawMint</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+			<li>CookingPot</li>
+		</recipeUsers>
+	</RecipeDef>
 </Defs>

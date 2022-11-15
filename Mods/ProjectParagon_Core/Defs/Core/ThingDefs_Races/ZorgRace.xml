@@ -6,7 +6,7 @@
 		<description>Bloodthirsty humanoids of strong physique. They differ in aggressiveness and thirst for war. They hate xenos and regularly engage in cannibalism. They are quite stupid and naive. The zorg diet consists mainly of meat-containing products.</description>
 		<statBases>
 			<PsychicSensitivity>1</PsychicSensitivity>
-			<ToxicSensitivity>0.5</ToxicSensitivity>
+			<ToxicResistance>0.5</ToxicResistance>
 			<ComfyTemperatureMin>0</ComfyTemperatureMin>
 			<ComfyTemperatureMax>30</ComfyTemperatureMax>
 			<LeatherAmount>30</LeatherAmount>
@@ -101,14 +101,25 @@
 				<alienPartGenerator>
 					<customHeadDrawSize>(1.2, 1.2)</customHeadDrawSize>
 					<headOffset>(0.0, 0.09)</headOffset>
-					<aliencrowntypes>
-						<li>Average_Plain</li>
-					</aliencrowntypes>
+					<headTypes>
+						<li>Male_AverageNormal</li>
+						<li>Male_AveragePointy</li>
+						<li>Male_AverageWide</li>
+						<li>Male_NarrowNormal</li>
+						<li>Male_NarrowPointy</li>
+						<li>Male_NarrowWide</li>
+						<li>Female_AverageNormal</li>
+						<li>Female_AveragePointy</li>
+						<li>Female_AverageWide</li>
+						<li>Female_NarrowNormal</li>
+						<li>Female_NarrowPointy</li>
+						<li>Female_NarrowWide</li>
+					</headTypes>
 					<customDrawSize>(1.4, 1.4)</customDrawSize>
-					<alienbodytypes>
+					<bodyTypes>
 						<li>Male</li>
-					</alienbodytypes>
-					<useGenderedHeads>false</useGenderedHeads>
+					</bodyTypes>
+					<!-- <useGenderedHeads>false</useGenderedHeads> -->
 					<customPortraitDrawSize>(1.2, 1.2)</customPortraitDrawSize>
 					<customPortraitHeadDrawSize>(1.2, 1.2)</customPortraitHeadDrawSize>
 					<colorChannels>
@@ -187,10 +198,10 @@
 				</disallowedTraits>
 			</generalSettings>
 			<graphicPaths>
-				<li>
-					<body>Core/Races/Zorg/Body/</body>
-					<head>Core/Races/Zorg/Head/</head>
-				</li>
+				<body>Core/Races/Zorg/Body/</body>
+				<head>
+					<path>Core/Races/Zorg/Head/Average_Plain</path>
+				</head>
 			</graphicPaths>
 			<styleSettings>
 				<li>
@@ -282,10 +293,6 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
-				</li>
-				<li>
-					<def>HumanlikeToddler</def>
-					<minAge>1.2</minAge>
 				</li>
 				<li>
 					<def>HumanlikeChild</def>

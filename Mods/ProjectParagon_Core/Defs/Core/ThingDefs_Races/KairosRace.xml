@@ -6,7 +6,7 @@
 		<description>A representative of the desert xenos species, which, apparently, is the pinnacle in the local hierarchy of the species. Has a rather fragile physique and increased intelligence. The main task on the battlefield is to lead subordinates or directly participate in the battle if necessary.</description>
 		<statBases>
 			<PsychicSensitivity>1.25</PsychicSensitivity>
-			<ToxicSensitivity>1</ToxicSensitivity>
+			<ToxicResistance>0</ToxicResistance>
 			<ComfyTemperatureMin>20</ComfyTemperatureMin>
 			<ComfyTemperatureMax>50</ComfyTemperatureMax>
 			<LeatherAmount>30</LeatherAmount>
@@ -98,15 +98,15 @@
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
 				<alienPartGenerator>
-					<alienbodytypes>
+					<bodyTypes>
 						<li>Male</li>
 						<li>Thin</li>
-					</alienbodytypes>
-					<aliencrowntypes>
-						<li>Average_Normal</li>
-					</aliencrowntypes>
-					<useGenderedHeads>false</useGenderedHeads>
-					<useGenderedBodies>false</useGenderedBodies>
+					</bodyTypes>
+					<headTypes>
+						<li>Male_AverageNormal</li>
+					</headTypes>
+					<!-- <useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies> -->
 					<colorChannels>
 						<li>
 							<name>skin</name>
@@ -133,10 +133,8 @@
 				</notXenophobistTowards>
 			</generalSettings>
 			<graphicPaths>
-				<li>
-					<body>Core/Races/Kairos/Body/</body>
-					<head>Core/Races/Kairos/Prince/</head>
-				</li>
+				<body>Core/Races/Kairos/Body/</body>
+				<head>Core/Races/Kairos/Prince/</head>
 			</graphicPaths>
 			<styleSettings>
 				<li>
@@ -281,7 +279,7 @@
 		<description>A representative of the species of desert xenos, located at the lowest level of the hierarchy. His tasks include hard work, mainly in mines. Has the most fragile constitution of all members of the species.</description>
 		<statBases>
 			<PsychicSensitivity>1</PsychicSensitivity>
-			<ToxicSensitivity>1</ToxicSensitivity>
+			<ToxicResistance>0</ToxicResistance>
 			<ComfyTemperatureMin>20</ComfyTemperatureMin>
 			<ComfyTemperatureMax>50</ComfyTemperatureMax>
 			<LeatherAmount>30</LeatherAmount>
@@ -371,15 +369,15 @@
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
 				<alienPartGenerator>
-					<alienbodytypes>
+					<bodyTypes>
 						<li>Male</li>
 						<li>Thin</li>
-					</alienbodytypes>
-					<aliencrowntypes>
-						<li>Average_Normal</li>
-					</aliencrowntypes>
-					<useGenderedHeads>false</useGenderedHeads>
-					<useGenderedBodies>false</useGenderedBodies>
+					</bodyTypes>
+					<headTypes>
+						<li>Male_AverageNormal</li>
+					</headTypes>
+					<!-- <useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies> -->
 					<colorChannels>
 						<li>
 							<name>skin</name>
@@ -406,10 +404,8 @@
 				</notXenophobistTowards>
 			</generalSettings>
 			<graphicPaths>
-				<li>
-					<body>Core/Races/Kairos/Body/</body>
-					<head>Core/Races/Kairos/Worker/</head>
-				</li>
+				<body>Core/Races/Kairos/Body/</body>
+				<head>Core/Races/Kairos/Worker/</head>
 			</graphicPaths>
 			<styleSettings>
 				<li>
@@ -545,7 +541,7 @@
 		<description>A representative of the species of desert xenos, whose life purpose is to protect higher individuals. Its horny cover is strong enough to withstand many blows, and its body is the most durable.</description>
 		<statBases>
 			<PsychicSensitivity>0.8</PsychicSensitivity>
-			<ToxicSensitivity>1</ToxicSensitivity>
+			<ToxicResistance>0</ToxicResistance>
 			<ComfyTemperatureMin>20</ComfyTemperatureMin>
 			<ComfyTemperatureMax>50</ComfyTemperatureMax>
 			<LeatherAmount>30</LeatherAmount>
@@ -637,18 +633,18 @@
 				<humanRecipeImport>true</humanRecipeImport>
 				<alienPartGenerator>
 					<headBodyPartDef>Head</headBodyPartDef>
-					<alienbodytypes>
+					<bodyTypes>
 						<li>Male</li>
-					</alienbodytypes>
-					<aliencrowntypes>
-						<li>Average_Normal</li>
-						<li>Painted1</li>
-						<li>Painted2</li>
-						<li>Painted3</li>
-						<li>Painted4</li>
-					</aliencrowntypes>
-					<useGenderedHeads>false</useGenderedHeads>
-					<useGenderedBodies>false</useGenderedBodies>
+					</bodyTypes>
+					<headTypes>
+						<li>Male_AverageNormal</li>
+						<li>Male_AverageWide</li>
+						<li>Male_AveragePointy</li>
+						<li>Male_NarrowNormal</li>
+						<li>Male_NarrowPointy</li>
+					</headTypes>
+					<!-- <useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies> -->
 					<colorChannels>
 						<li>
 							<name>skin</name>
@@ -675,10 +671,17 @@
 				</notXenophobistTowards>
 			</generalSettings>
 			<graphicPaths>
-				<li>
-					<body>Core/Races/Kairos/Body/</body>
-					<head>Core/Races/Kairos/Soldier/</head>
-				</li>
+				<body>Core/Races/Kairos/Body/</body>
+				<head>
+					<path>Core/Races/Kairos/Soldier/</path>
+					<headtypeGraphics>
+						<Male_AverageNormal>Core/Races/Kairos/Soldier/Average_Normal</Male_AverageNormal>
+						<Male_AverageWide>Core/Races/Kairos/Soldier/Painted1</Male_AverageWide>
+						<Male_AveragePointy>Core/Races/Kairos/Soldier/Painted2</Male_AveragePointy>
+						<Male_NarrowNormal>Core/Races/Kairos/Soldier/Painted3</Male_NarrowNormal>
+						<Male_NarrowPointy>Core/Races/Kairos/Soldier/Painted4</Male_NarrowPointy>
+					</headtypeGraphics>
+				</head>
 			</graphicPaths>
 			<styleSettings>
 				<li>

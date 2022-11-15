@@ -3,11 +3,12 @@
 	<WorkGiverDef>
 		<defName>DoBills_AlchemyStance</defName>
 		<label>Synthesize</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillWithWater</giverClass>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillExtended</giverClass>
 		<workType>Crafting</workType>
 		<priorityInType>130</priorityInType>
 		<fixedBillGiverDefs>
 			<li>AlchemyStance</li>
+			<li>ChemicalStation</li>
 		</fixedBillGiverDefs>
 		<verb>synthesize</verb>
 		<gerund>Synthesizing on</gerund>
@@ -19,7 +20,7 @@
 	<WorkGiverDef>
 		<defName>DoBillsCookCookingPot</defName>
 		<label>cook meals at cooking pot</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillWithWater</giverClass>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillExtended</giverClass>
 		<workType>Cooking</workType>
 		<priorityInType>97</priorityInType>
 		<fixedBillGiverDefs>
@@ -28,6 +29,8 @@
 			<li>ManualFlourMill</li>
 			<li>CookingFurnace</li>
 			<li>Juicer</li>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
 		</fixedBillGiverDefs>
 		<verb>cook</verb>
 		<gerund>cooking at</gerund>
@@ -37,76 +40,11 @@
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
 
-	<!--<WorkGiverDef>
-		<defName>DoBills_BlacksmithFurnace</defName>
-		<label>Make</label>
-		<giverClass>WorkGiver_DoBill</giverClass>
-		<workType>Crafting</workType>
-		<priorityInType>130</priorityInType>
-		<fixedBillGiverDefs>
-			<li>BlacksmithFurnace</li>
-			<li>ForgeWithAnvil</li>
-		</fixedBillGiverDefs>
-		<verb>make</verb>
-		<gerund>Making on</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>
-	<WorkGiverDef>
-		<defName>DoBills_Crucible</defName>
-		<label>Smelt metal</label>
-		<giverClass>WorkGiver_DoBill</giverClass>
-		<workType>Crafting</workType>
-		<priorityInType>130</priorityInType>
-		<fixedBillGiverDefs>
-			<li>Crucible</li>
-			<li>MeltingFurnace</li>
-		</fixedBillGiverDefs>
-		<verb>smelt</verb>
-		<gerund>Smelting metal on</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>-->
-
-	<!--<WorkGiverDef>
-		<defName>DoBills_CarpenterTable</defName>
-		<label>Create</label>
-		<giverClass>WorkGiver_DoBill</giverClass>
-		<workType>Crafting</workType>
-		<priorityInType>130</priorityInType>
-		<fixedBillGiverDefs>
-			<li>PrimitiveCarpenterTable</li>
-			<li>CarpenterTable</li>
-		</fixedBillGiverDefs>
-		<verb>create</verb>
-		<gerund>Creating on</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>-->
-	<!--<WorkGiverDef>
-		<defName>DoBills_Loom</defName>
-		<label>Make</label>
-		<giverClass>WorkGiver_DoBill</giverClass>
-		<workType>Crafting</workType>
-		<priorityInType>130</priorityInType>
-		<fixedBillGiverDefs>
-			<li>Loom</li>
-		</fixedBillGiverDefs>
-		<verb>make</verb>
-		<gerund>Making on</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>-->
-
 	<WorkGiverDef>
 		<defName>DoFillResearchResourcesBox</defName>
 		<label>haul resources for research</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_ResearchResourceBox</giverClass>
-		<workType>Research</workType>
+		<workType>Hauling</workType>
 		<priorityInType>50</priorityInType>
 		<fixedBillGiverDefs>
 			<li>Research_ResourceBox</li>
@@ -229,6 +167,13 @@
 		<label>Explore the soily</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_ExploreTheSoily</giverClass>
 	</WorkGiverDef>
+	<WorkGiverDef ParentName="CollectBase">
+		<defName>Fertilize</defName>
+		<label>Fertilize</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_Fertilize</giverClass>
+		<workType>Growing</workType>
+		<priorityInType>50</priorityInType>
+	</WorkGiverDef>
 
 	<WorkGiverDef>
 		<defName>DoBills_RepairTable</defName>
@@ -316,7 +261,7 @@
 	  <WorkGiverDef>
 		<defName>DoWorkWithWaterBill</defName>
 		<label>works behind a</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillWithWater</giverClass>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillExtended</giverClass>
 		<workType>Smithing</workType>
 		<priorityInType>70</priorityInType>
 		<fixedBillGiverDefs>
@@ -453,6 +398,65 @@
 		</requiredCapacities>
 	</WorkGiverDef>
 	
-
+	<WorkGiverDef>
+		<defName>RepairRoof</defName>
+		<label>repair damaged roofs</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_RepairRoof</giverClass>
+		<workType>Construction</workType>
+		<priorityInType>90</priorityInType>
+		<verb>repair</verb>
+		<gerund>repairing</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<nonColonistsCanDo>true</nonColonistsCanDo>
+		<scanThings>false</scanThings>
+		<scanCells>true</scanCells>
+	</WorkGiverDef>
+	
+	<WorkGiverDef>
+		<defName>ConstructDeliverResourcesToRoofBlueprints</defName>
+		<label>deliver resources to blueprints</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_ConstructDeliverResourcesToRoofBlueprints</giverClass>
+		<workType>Construction</workType>
+		<priorityInType>60</priorityInType>
+		<verb>work on</verb>
+		<gerund>working on</gerund>
+		<requiredCapacities>
+		  <li>Manipulation</li>
+		</requiredCapacities>
+		<nonColonistsCanDo>true</nonColonistsCanDo>
+		<prioritizeSustains>true</prioritizeSustains>
+		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
+	</WorkGiverDef>
+	
+    <WorkGiverDef>
+        <defName>ConstructDeliverResourcesToRoofFrames</defName>
+		<label>deliver resources to frames</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_ConstructDeliverResourcesToRoofFrames</giverClass>
+		<workType>Construction</workType>
+		<priorityInType>70</priorityInType>
+		<verb>work on</verb>
+		<gerund>working on</gerund>
+		<requiredCapacities>
+		  <li>Manipulation</li>
+		</requiredCapacities>
+		<nonColonistsCanDo>true</nonColonistsCanDo>
+		<prioritizeSustains>true</prioritizeSustains>
+		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
+    </WorkGiverDef>
+	
+	<WorkGiverDef>
+		<defName>DoBreeding</defName>
+		<label>breed</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_Breed</giverClass>
+		<workType>Research</workType>
+		<priorityInType>80</priorityInType>
+		<verb>breed</verb>
+		<gerund>breeding</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
 	
 </Defs>

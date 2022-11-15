@@ -712,6 +712,7 @@
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
 					<li>SimpleCookingSet</li>
+					<li>AdvancedCookingSet</li>
 				</linkableFacilities>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
@@ -1065,6 +1066,7 @@
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
 					<li>SimpleCookingSet</li>
+					<li>AdvancedCookingSet</li>
 				</linkableFacilities>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
@@ -1380,6 +1382,9 @@
 		<castEdgeShadows>false</castEdgeShadows>
 		<canOverlapZones>false</canOverlapZones>
 		<pathCost>10</pathCost>
+		<thingCategories inherit="false">
+			<li>BuildingsProduction</li>
+		</thingCategories>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>700</WorkToBuild>
@@ -1411,6 +1416,7 @@
 		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
 		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		<hasInteractionCell>true</hasInteractionCell>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_ArchitecturalTable">
 				<blueprintSourceDef>ChunkGranite</blueprintSourceDef>
@@ -1446,6 +1452,9 @@
 		<castEdgeShadows>false</castEdgeShadows>
 		<canOverlapZones>false</canOverlapZones>
 		<pathCost>10</pathCost>
+		<thingCategories inherit="false">
+			<li>BuildingsProduction</li>
+		</thingCategories>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>700</WorkToBuild>
@@ -1473,6 +1482,7 @@
 		<researchPrerequisites>
 			<li>Architecture</li>
 		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<designationCategory>Production</designationCategory>
 		<designatorDropdown>Architecture</designatorDropdown>
 		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
@@ -1774,6 +1784,7 @@
 			</li>
 		</comps>
 	</ThingDef>
+	
 	<ThingDef ParentName="BuildingBase">
 		<defName>ArcheologyPlace</defName>
 		<label>Archeology place</label>
@@ -2055,6 +2066,7 @@
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
 					<li>SimpleCookingSet</li>
+					<li>AdvancedCookingSet</li>
 				</linkableFacilities>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
@@ -2362,6 +2374,7 @@
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
 					<li>SimpleCookingSet</li>
+					<li>AdvancedCookingSet</li>
 				</linkableFacilities>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
@@ -3182,9 +3195,339 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			</li>
 			<li Class="CompProperties_Forbiddable"/>
 		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+					<li>Kairos_Prince</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
 		<tickerType>Rare</tickerType>
 		<rotatable>false</rotatable>
 		<designationCategory>Production</designationCategory>
 		<designatorDropdown>Cooking</designatorDropdown>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>ManualConcreteMixer</defName>
+		<label>Manual concrete mixer</label>
+		<description>Manual concrete mixer for the production of concrete and mixing other materials. Not the most practical solution.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/BigCookingFurnace/FT_StewPot</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+			<shadowData>
+				<volume>(0.7,0.5,0.4)</volume>
+				<offset>(0,0,-0.1)</offset>
+			</shadowData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Core/Buildings/BigCookingFurnace/FT_StewPot_east</uiIconPath>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>42</pathCost>
+		<fillPercent>0.20</fillPercent>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>4000</WorkToBuild>
+			<Flammability>0</Flammability>
+			<WorkTableWorkSpeedFactor>1.0</WorkTableWorkSpeedFactor>
+		</statBases>
+		<selectable>true</selectable>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<StrongPlates>10</StrongPlates>
+			<ComponentSimple>5</ComponentSimple>
+			<MechanismSimple>20</MechanismSimple>
+		</costList>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<size>(2,2)</size>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<researchPrerequisites>
+			<li>MaterialsScience</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+			<li>PlaceWorker_Heater</li>
+		</placeWorkers>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<comps>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Water</mode>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>50</WaterStorageCap>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
+				<canManualFill>true</canManualFill>
+			</li>
+		</comps>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Mechanisms</designatorDropdown>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<building>
+			<isMealSource>true</isMealSource>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+			<destroySound>BuildingDestroyed_Wood_Small</destroySound>
+		</building>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>MechanicalWorkbench</defName>
+		<label>Mechanical workbench</label>
+		<description>A workbench that allows you to make more complex mechanisms. Despite the fact that it meets all modern requirements, all work is done manually and requires a lot of attention from the master, which slows down the overall speed of work.</description>
+		<thingClass>Building_WorkTable</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/MechanicTable/MechanicTable</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4,2)</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+			<shadowData>
+				<volume>(2,0.5,0.6)</volume>
+				<offset>(0,0,-0.2)</offset>
+			</shadowData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<StrongPlates>30</StrongPlates>
+			<SimplePlates>60</SimplePlates>
+			<ComponentSimple>10</ComponentSimple>
+			<MechanismSimple>20</MechanismSimple>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>7000</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<Cleanliness>-3</Cleanliness>
+			<WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
+		</statBases>
+		<size>(2,1)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Workbenches</designatorDropdown>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>SimpleBlacksmithSet</li>
+				</linkableFacilities>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>Machining</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>BreedersTable</defName>
+		<label>Breeder's table</label>
+		<description>Table, with everything necessary for plant breeding. With the help of breeding, you can develop new types of plants.</description>
+		<thingClass>ProjectParagon.Core.Breeding.Building_BreedersTable</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/MechanicTable/MechanicTable</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4,2)</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+			<shadowData>
+				<volume>(2,0.5,0.6)</volume>
+				<offset>(0,0,-0.2)</offset>
+			</shadowData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<StrongPlates>30</StrongPlates>
+			<SimplePlates>60</SimplePlates>
+			<ComponentSimple>5</ComponentSimple>
+			<MechanismSimple>10</MechanismSimple>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>7000</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<Cleanliness>-3</Cleanliness>
+			<WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
+		</statBases>
+		<size>(2,1)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Farming</designatorDropdown>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.Breeding.ITab_Breeding</li>
+		</inspectorTabs>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>Agronomy</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="ProjectParagon.Core.Breeding.CompProperties_BreedersTable">
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>ChemicalStation</defName>
+		<label>Chemical station</label>
+		<description>Station for mixing and converting various liquids, ingredients to obtain various chemicals and substances.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ChemicalStation</thingClass>
+		<drawerType>RealtimeOnly</drawerType>
+		<graphicData>
+			<texPath>Core/Buildings/AlchemyStance/AlchemyStance</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,4)</drawSize>
+			<shadowData>
+				<volume>(2,0.7,1.2)</volume>
+				<offset>(0,0,-0.4)</offset>
+			</shadowData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<castEdgeShadows>false</castEdgeShadows>
+		<costStuffCount>175</costStuffCount>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<ComponentSimple>10</ComponentSimple>
+			<StrongPlates>100</StrongPlates>
+			<MechanismSimple>10</MechanismSimple>
+			<Glass>250</Glass>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>12000</WorkToBuild>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Flammability>0.2</Flammability>
+			<Cleanliness>-5</Cleanliness>
+			<WorkTableWorkSpeedFactor>1</WorkTableWorkSpeedFactor>
+		</statBases>
+		<size>(4,4)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Chemistry</designatorDropdown>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>HeatingElement_Solid</li>
+					<li>HeatingElement_Electric</li>
+					<li>HeatingElement_Gas</li>
+				</linkableFacilities>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>150</WaterStorageCap>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
+				<canManualFill>true</canManualFill>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>ChemicalStation</scheme>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>Chemistry</li>
+		</researchPrerequisites>
 	</ThingDef>
 </Defs>

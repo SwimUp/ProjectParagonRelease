@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ThingDef ParentName="MakeableDrugPillBase">
+	<ThingDef ParentName="DrugPillBase">
 		<defName>OverwhelmingTincture</defName>
-		<label>Prionic tincture</label>
+		<label>Overwhelming Tincture</label>
 		<description>Mushrooms provide a calming effect by suppressing psionic activity.</description>
 		<descriptionHyperlinks>
 			<HediffDef>OverwhelmingTinctureHigh</HediffDef>
@@ -39,17 +39,6 @@
 				</li>
 			</outcomeDoers>
 		</ingestible>
-		<recipeMaker>
-			<researchPrerequisite>Alchemy</researchPrerequisite>
-			<recipeUsers>
-				<li>AlchemyStance</li>
-			</recipeUsers>
-		</recipeMaker>
-		<costList>
-			<Raw_GrandfatherBeard>4</Raw_GrandfatherBeard>
-			<Raw_Millechnik>4</Raw_Millechnik>
-			<WaterForBill>1</WaterForBill>
-		</costList>
 		<comps>
 			<li Class="CompProperties_Drug">
 				<listOrder>1000</listOrder>
@@ -99,4 +88,122 @@
 			</li>
 		</stages>
 	</HediffDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_OverwhelmingTincture</defName>
+		<label>Make Overwhelming Tincture</label>
+		<description>Make Overwhelming Tincture.</description>
+		<jobString>Making Overwhelming Tincture.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>800</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Raw_GrandfatherBeard</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Raw_Millechnik</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<OverwhelmingTincture>1</OverwhelmingTincture>
+		</products>
+		<researchPrerequisite>Alchemy</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Raw_GrandfatherBeard</li>
+				<li>Raw_Millechnik</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Raw_GrandfatherBeard</li>
+				<li>Raw_Millechnik</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_Bulk_I_OverwhelmingTincture</defName>
+		<label>Make Overwhelming Tincture x4</label>
+		<description>Make Overwhelming Tincture x4.</description>
+		<jobString>Making Overwhelming Tincture.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<workAmount>3200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Raw_GrandfatherBeard</li>
+					</thingDefs>
+				</filter>
+				<count>16</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Raw_Millechnik</li>
+					</thingDefs>
+				</filter>
+				<count>16</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WaterForBill</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</abstractIngredients>
+		<products>
+			<OverwhelmingTincture>4</OverwhelmingTincture>
+		</products>
+		<researchPrerequisite>Alchemy</researchPrerequisite>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Raw_GrandfatherBeard</li>
+				<li>Raw_Millechnik</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Raw_GrandfatherBeard</li>
+				<li>Raw_Millechnik</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<recipeUsers>
+			<li>AlchemyStance</li>
+		</recipeUsers>
+	</RecipeDef>
 </Defs>
