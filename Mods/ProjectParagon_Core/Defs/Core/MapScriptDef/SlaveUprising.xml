@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ProjectParagon.MapGenerator.MapScriptDef>
+		<defName>SlaveUprising</defName>
+		<label>SlaveUprising</label>
+		<startPartId>1</startPartId>
+		<parts>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GetPawns">
+				<nextPartId>2</nextPartId>
+				<debugData>
+					<x>0.7080001</x>
+					<y>0.5000005</y>
+				</debugData>
+				<id>1</id>
+				<factionDef>player</factionDef>
+				<storeAs>playerPawns</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_FindMapObjects">
+				<nextPartId>3</nextPartId>
+				<debugData>
+					<x>2.976426</x>
+					<y>0.7000017</y>
+				</debugData>
+				<id>2</id>
+				<tags>playerSpawn</tags>
+				<storeAs>playerSpots</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_ConvertThingsCacheToPositions">
+				<nextPartId>4</nextPartId>
+				<debugData>
+					<x>4.939578</x>
+					<y>0.6600009</y>
+				</debugData>
+				<id>3</id>
+				<variableName>playerSpots</variableName>
+				<storeAs>playerSpotsPositions</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SetThingsRandomPosition">
+				<nextPartId>5</nextPartId>
+				<debugData>
+					<x>0.871158</x>
+					<y>2.350001</y>
+				</debugData>
+				<id>4</id>
+				<thingsListVariableName>playerPawns</thingsListVariableName>
+				<positionsListVarialbeName>playerSpotsPositions</positionsListVarialbeName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GeneratePawns">
+				<nextPartId>6</nextPartId>
+				<debugData>
+					<x>3.418522</x>
+					<y>2.320001</y>
+				</debugData>
+				<id>5</id>
+				<factionDef>Knightly_Order</factionDef>
+				<groupKind>Settlement</groupKind>
+				<points>1500</points>
+				<storeAs>enemyPawns</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_FindMapObjects">
+				<nextPartId>7</nextPartId>
+				<debugData>
+					<x>5.707996</x>
+					<y>2.769999</y>
+				</debugData>
+				<id>6</id>
+				<tags>enemySpawn</tags>
+				<storeAs>enemySpots</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_ConvertThingsCacheToPositions">
+				<nextPartId>8</nextPartId>
+				<debugData>
+					<x>0.713264</x>
+					<y>5</y>
+				</debugData>
+				<id>7</id>
+				<variableName>enemySpots</variableName>
+				<storeAs>enemySpotsPositions</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SpawnThingsRandomPosition">
+				<nextPartId>9</nextPartId>
+				<debugData>
+					<x>2.834316</x>
+					<y>5.06</y>
+				</debugData>
+				<id>8</id>
+				<thingsListVariableName>enemyPawns</thingsListVariableName>
+				<positionsListVarialbeName>enemySpotsPositions</positionsListVarialbeName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GiveLord_AssaultColony">
+				<nextPartId>10</nextPartId>
+				<debugData>
+					<x>5.102738</x>
+					<y>5.2</y>
+				</debugData>
+				<id>9</id>
+				<pawnsListVariable>enemyPawns</pawnsListVariable>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_RemoveMapObjects">
+				<nextPartId>11</nextPartId>
+				<debugData>
+					<x>0.5974743</x>
+					<y>7.25</y>
+				</debugData>
+				<id>10</id>
+				<tags>enemySpawn,playerSpawn</tags>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_DestroyObjectsByDef">
+				<nextPartId>12</nextPartId>
+				<debugData>
+					<x>0.5974743</x>
+					<y>7.25</y>
+				</debugData>
+				<id>11</id>
+				<defName>PGE_SettlementPawnSpawnPoint</defName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_DestroyObjectsByDef">
+				<debugData>
+					<x>0.5974743</x>
+					<y>7.25</y>
+				</debugData>
+				<id>12</id>
+				<defName>PGE_SettlementStashSpawnPoint</defName>
+			</li>
+		</parts>
+	</ProjectParagon.MapGenerator.MapScriptDef>
+</Defs>

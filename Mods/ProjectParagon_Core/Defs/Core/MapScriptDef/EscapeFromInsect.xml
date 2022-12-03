@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ProjectParagon.MapGenerator.MapScriptDef>
+		<defName>EscapeFromInsect</defName>
+		<label>EscapeFromInsect</label>
+		<startPartId>1</startPartId>
+		<parts>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GetPawns">
+				<nextPartId>2</nextPartId>
+				<debugData>
+					<x>0.4343162</x>
+					<y>0.3200004</y>
+				</debugData>
+				<id>1</id>
+				<factionDef>player</factionDef>
+				<storeAs>playerPawns</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_FindMapObjects">
+				<nextPartId>3</nextPartId>
+				<debugData>
+					<x>2.118527</x>
+					<y>0.3600002</y>
+				</debugData>
+				<id>2</id>
+				<tags>playerSpawn</tags>
+				<storeAs>playerSpots</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_ConvertThingsCacheToPositions">
+				<nextPartId>4</nextPartId>
+				<debugData>
+					<x>4.113264</x>
+					<y>0.3800002</y>
+				</debugData>
+				<id>3</id>
+				<variableName>playerSpots</variableName>
+				<storeAs>playerSpotsPositions</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SetThingsRandomPosition">
+				<nextPartId>5</nextPartId>
+				<debugData>
+					<x>0.5290526</x>
+					<y>2.600001</y>
+				</debugData>
+				<id>4</id>
+				<thingsListVariableName>playerPawns</thingsListVariableName>
+				<positionsListVarialbeName>playerSpotsPositions</positionsListVarialbeName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GeneratePawns">
+				<nextPartId>6</nextPartId>
+				<debugData>
+					<x>3.181687</x>
+					<y>2.620002</y>
+				</debugData>
+				<id>5</id>
+				<factionDef>Arachnids</factionDef>
+				<groupKind>Combat</groupKind>
+				<points>800</points>
+				<storeAs>enemyPawns</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_FindMapObjects">
+				<nextPartId>7</nextPartId>
+				<debugData>
+					<x>5.281685</x>
+					<y>3.030001</y>
+				</debugData>
+				<id>6</id>
+				<tags>enemySpawn</tags>
+				<storeAs>enemySpots</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_ConvertThingsCacheToPositions">
+				<nextPartId>8</nextPartId>
+				<debugData>
+					<x>0.3395784</x>
+					<y>5.219999</y>
+				</debugData>
+				<id>7</id>
+				<variableName>enemySpots</variableName>
+				<storeAs>enemySpotsPositions</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SpawnThingsRandomPosition">
+				<nextPartId>9</nextPartId>
+				<debugData>
+					<x>3.239578</x>
+					<y>5.349997</y>
+				</debugData>
+				<id>8</id>
+				<thingsListVariableName>enemyPawns</thingsListVariableName>
+				<positionsListVarialbeName>enemySpotsPositions</positionsListVarialbeName>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_GiveLord_AssaultColony">
+				<nextPartId>10</nextPartId>
+				<debugData>
+					<x>5.323792</x>
+					<y>5.58</y>
+				</debugData>
+				<id>9</id>
+				<pawnsListVariable>enemyPawns</pawnsListVariable>
+			</li>
+			
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_ThingSetMaker">
+				<nextPartId>11</nextPartId>
+				<debugData>
+					<x>5.323792</x>
+					<y>5.58</y>
+				</debugData>
+				<id>10</id>
+				<thingSetMakerDef>EscapeFromInsect</thingSetMakerDef>
+				<storeAs>traderStock</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_FindMapObjects">
+				<nextPartId>12</nextPartId>
+				<debugData>
+					<x>5.281685</x>
+					<y>3.030001</y>
+				</debugData>
+				<id>11</id>
+				<tags>caravanLoot</tags>
+				<storeAs>caravanLootSpots</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_ConvertThingsCacheToPositions">
+				<nextPartId>13</nextPartId>
+				<debugData>
+					<x>0.3395784</x>
+					<y>5.219999</y>
+				</debugData>
+				<id>12</id>
+				<variableName>caravanLootSpots</variableName>
+				<storeAs>caravanLootSpotsPositions</storeAs>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_SpawnThingsRandomPosition">
+				<nextPartId>14</nextPartId>
+				<debugData>
+					<x>3.239578</x>
+					<y>5.349997</y>
+				</debugData>
+				<id>13</id>
+				<thingsListVariableName>traderStock</thingsListVariableName>
+				<positionsListVarialbeName>caravanLootSpotsPositions</positionsListVarialbeName>
+				<placeMode>true</placeMode>
+			</li>
+			<li Class="ProjectParagon.MapGenerator.Scripts.MapScriptPartProperties_RemoveMapObjects">
+				<debugData>
+					<x>4.644841</x>
+					<y>7.129999</y>
+				</debugData>
+				<id>14</id>
+				<tags>playerSpawn,enemySpawn,caravanLoot</tags>
+			</li>
+		</parts>
+	</ProjectParagon.MapGenerator.MapScriptDef>
+</Defs>

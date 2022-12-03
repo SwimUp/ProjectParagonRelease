@@ -2507,9 +2507,12 @@
 		<label>Concrete</label>
 		<description>Building material obtained by mixing cement and water. It is used for the construction of very durable structures.</description>
 		<graphicData>
-			<texPath>Core/Resources/Misc/Concrete/Concrete</texPath>
+			<texPath>Core/Resources/Misc/Concrete</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>1.5</drawSize>
 		</graphicData>
+		<tradeability>None</tradeability>
+		<tickerType>Normal</tickerType>
 		<statBases>
 			<MaxHitPoints>30</MaxHitPoints>
 			<MarketValue>6</MarketValue>
@@ -2535,6 +2538,16 @@
 		<thingCategories>
 			<li>Concrete</li>
 		</thingCategories>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RottableAlways">
+				<daysToDestroy>1</daysToDestroy>
+				<labelKey>Concrete.RottableAlways</labelKey>
+				<ignoreWhenStoredIn>
+					<li>SmallConcreteTank</li>
+					<li>LargeConcreteTank</li>
+				</ignoreWhenStoredIn>
+			</li>
+		</comps>
 	</ThingDef>
 	
 	<ThingDef ParentName="ResourceBase">

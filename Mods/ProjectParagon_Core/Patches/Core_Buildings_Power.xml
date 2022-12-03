@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="WoodFiredGenerator"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>WoodFiredGenerator</defName>
+						<label>wood-fired generator</label>
+						<description>Produces power by consuming wood. Must be periodically loaded with wood fuel by hand.</description>
+						<thingClass>Building</thingClass>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<graphicData>
+							<texPath>Things/Building/Power/WoodFiredGenerator</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(2,2)</drawSize>
+							<shadowData>
+								<volume>(1.93,1,1.69)</volume>
+								<offset>(-0.03,0,-0.1)</offset>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<blockWind>true</blockWind>
+						<fillPercent>1.0</fillPercent>
+						<castEdgeShadows>false</castEdgeShadows>
+						<rotatable>false</rotatable>
+						<statBases>
+							<MaxHitPoints>300</MaxHitPoints>
+							<WorkToBuild>2500</WorkToBuild>
+							<Flammability>1.0</Flammability>
+							<Beauty>-20</Beauty>
+						</statBases>
+						<tickerType>Normal</tickerType>
+						<canOverlapZones>false</canOverlapZones>
+						<size>(2,2)</size>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+						</building>
+						<costList>
+							<Steel>100</Steel>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerPlant</compClass>
+								<basePowerConsumption>-1000</basePowerConsumption>
+								<transmitsPower>true</transmitsPower>
+								<soundAmbientProducingPower>WoodFiredGenerator_Ambience</soundAmbientProducingPower>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Refuelable">
+								<fuelConsumptionRate>22.0</fuelConsumptionRate>
+								<fuelCapacity>75.0</fuelCapacity>
+								<fuelFilter>
+									<thingDefs>
+										<li>WoodLog</li>
+									</thingDefs>
+								</fuelFilter>
+								<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>6</glowRadius>
+								<glowColor>(217,112,33,0)</glowColor>
+							</li>
+							<li Class="CompProperties_HeatPusher">
+								<compClass>CompHeatPusherPowered</compClass>
+								<heatPerSecond>6</heatPerSecond>
+							</li>
+							<li Class="CompProperties_Breakdownable"/>
+						</comps>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<designationCategory>Power</designationCategory>
+						<uiOrder>2100</uiOrder>
+						<designationHotKey>Misc3</designationHotKey>
+						<constructEffect>ConstructMetal</constructEffect>
+						<researchPrerequisites>
+							<li>Electricity</li>
+						</researchPrerequisites>
+						<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="ChemfuelPoweredGenerator"]</xpath>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="WindTurbine"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>SolarPanels</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="PowerSwitch"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>Electronics</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			
+		</operations>
+	</Operation>
+</Patch>
