@@ -274,6 +274,7 @@ This template demonstrates that whitespace is obeyed in the description.\n\nSo a
 		<defName>LWM_Food_Basket</defName>
 		<label>Food Basket</label>
 		<description>A mini-granary for storing raw food and plant matter.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_StorageParagon</thingClass>
 		<pathCost>100</pathCost>
 		<graphicData>
 			<texPath>skullywag/Basket/Basket</texPath>
@@ -311,6 +312,9 @@ This template demonstrates that whitespace is obeyed in the description.\n\nSo a
 				<maxNumberStacks>4</maxNumberStacks>
 				<timeStoringTakes>300</timeStoringTakes>
 				<overlayType>SumOfItemsPerCell</overlayType>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StorageParagon">
+				<thingsRotMultiplier>0.9</thingsRotMultiplier>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -552,6 +556,7 @@ Note that you can only fit so many giant corpses into one space, even if you sta
 		<defName>LWM_NeolithicChest</defName>
 		<label>Meal chest</label>
 		<description>Wooden chest for storing food in a relatively dry and cool place.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_StorageParagon</thingClass>
 		<graphicData>
 			<texPath>ParagonActive/Neolithic/LWM_NeolithicChest/LWM_NeolithicChest</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -594,6 +599,9 @@ Note that you can only fit so many giant corpses into one space, even if you sta
 				<overlayType>SumOfItemsPerCell</overlayType>
 				<showContents>false</showContents>
 			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StorageParagon">
+				<thingsRotMultiplier>0.9</thingsRotMultiplier>
+			</li>
 		</comps>
 		<researchPrerequisites>
 			<li>StoragesI</li>
@@ -603,6 +611,7 @@ Note that you can only fit so many giant corpses into one space, even if you sta
 		<defName>SadjuukBedroomUpgradeAB</defName>
 		<label>Wooden Storage</label>
 		<description>Personal storage made of wood. Can be placed by the bed.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_StorageParagon</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/RandomPlaces/Building_WoodenCrateIIA/Building_WoodenCrateIIA</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -649,6 +658,9 @@ Note that you can only fit so many giant corpses into one space, even if you sta
 				<overlayType>SumOfItemsPerCell</overlayType>
 				<showContents>false</showContents>
 			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StorageParagon">
+				<thingsRotMultiplier>0.8</thingsRotMultiplier>
+			</li>
 		</comps>
 		<researchPrerequisites>
 			<li>StoragesI</li>
@@ -658,6 +670,7 @@ Note that you can only fit so many giant corpses into one space, even if you sta
 		<defName>SadjuukBedroomUpgradeAA</defName>
 		<label>Wooden chest</label>
 		<description>A personal wooden chest.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_StorageParagon</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/RandomPlaces/Building_WoodenCrateIA/Building_WoodenCrateI_b</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -703,6 +716,9 @@ Note that you can only fit so many giant corpses into one space, even if you sta
 				<additionalTimeEachDef>20</additionalTimeEachDef>
 				<overlayType>SumOfItemsPerCell</overlayType>
 				<showContents>false</showContents>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StorageParagon">
+				<thingsRotMultiplier>0.8</thingsRotMultiplier>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -1473,6 +1489,69 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 		</comps>
 		<researchPrerequisites>
 			<li>StoragesIV</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="LWM_DeepStorage">
+		<defName>Cellar</defName>
+		<label>Cellar</label>
+		<description>A specially equipped pit in the ground for longer storage of products due to the constantly low temperature. Reduces the rate of corruption by {0}%.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_StorageParagon</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/LargeChemicalStorage/LargeChemicalStorage</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<castEdgeShadows>false</castEdgeShadows>
+		<defaultPlacingRot>North</defaultPlacingRot>
+		<statBases>
+			<MaxHitPoints>800</MaxHitPoints>
+			<WorkToBuild>3400</WorkToBuild>
+			<Flammability>0.0</Flammability>
+			<Beauty>-10</Beauty>
+			<Mass>70</Mass>
+		</statBases>
+		<rotatable>false</rotatable>
+		<size>2,2</size>
+		<uiIconScale>0.9</uiIconScale>
+		<staticSunShadowHeight>0.4</staticSunShadowHeight>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
+		<costList>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<MechanismComplex>8</MechanismComplex>
+			<StrongPlates>60</StrongPlates>
+		</costList>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>350</costStuffCount>
+		<building>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>Foods</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
+		</building>
+		<comps>
+			<li Class="LWM.DeepStorage.Properties">
+				<maxNumberStacks>4</maxNumberStacks>
+				<minNumberStacks>2</minNumberStacks>
+				<minTimeStoringTakes>35</minTimeStoringTakes>
+				<additionalTimeEachStack>5</additionalTimeEachStack>
+				<additionalTimeEachDef>2</additionalTimeEachDef>
+				<overlayType>SumOfAllItems</overlayType>
+				<showContents>false</showContents>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StorageParagon">
+				<thingsRotMultiplier>0.6</thingsRotMultiplier>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>StoragesII</li>
 		</researchPrerequisites>
 	</ThingDef>
 </Defs>

@@ -182,4 +182,47 @@
 		<designatorDropdown>Hygiene_Reservoirs</designatorDropdown>
 		<drawerType>RealtimeOnly</drawerType>
 	</ThingDef>
+	
+	<ThingDef ParentName="BasedWaterPump" DBHLite="true">
+		<defName>LowPowerElectricPump</defName>
+		<label>Low power electric pump</label>
+		<description>Pumps water from wells to water towers. Pumping capacity: 1500 L/day.</description>
+		<graphicData>
+			<texPath>DBH/Things/Building/Water/MiniPump</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsHygiene</li>
+		</thingCategories>
+		<tickerType>Never</tickerType>
+		<costList>
+			<Steel>80</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Mass>25</Mass>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>200</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="DubsBadHygiene.CompProperties_WaterPumpingStation">
+				<Capacity>1500</Capacity>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li MayRequire="dbhlitemode">ElectricPumps</li>
+		</researchPrerequisites>
+		<designatorDropdown>Hygiene_WaterExtraction</designatorDropdown>
+	</ThingDef>
 </Defs>

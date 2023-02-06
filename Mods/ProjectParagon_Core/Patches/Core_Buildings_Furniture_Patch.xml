@@ -623,9 +623,136 @@
 				</value>
 			</li>
 			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Darktorch"]</xpath>
+				<value>
+					<statBases>
+						<HeatingEfficiency>0.01</HeatingEfficiency>
+					</statBases>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Darktorch"]/comps</xpath>
+				<value>
+					<comps Inherit="False">
+						<li Class="CompProperties_Glower">
+							<glowRadius>7</glowRadius>
+							<glowColor>(78, 226, 229, 0)</glowColor>
+							<!-- This is a specific darklight color, make sure it matches DarklightUtility.IsDarklight -->
+						</li>
+						<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+							<fuelConsumptionRate>1.5</fuelConsumptionRate>
+							<fuelCapacity>20.0</fuelCapacity>
+							<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
+							<enableHeatPush>true</enableHeatPush>
+							<fuelFilter>
+								<thingDefs>
+									<li>WoodLog</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+						</li>
+						<li Class="CompProperties_DarklightOverlay">
+							<fireSize>0.4</fireSize>
+							<offset>(0,0,0.2)</offset>
+						</li>
+						<li Class="CompProperties_MeditationFocus">
+							<statDef>MeditationFocusStrength</statDef>
+							<focusTypes>
+								<li>Flame</li>
+							</focusTypes>
+							<offsets>
+								<li Class="FocusStrengthOffset_Lit">
+									<offset>0.1</offset>
+								</li>
+								<li Class="FocusStrengthOffset_BuildingDefsLit">
+									<defs>
+										<li>Campfire</li>
+										<li>TorchLamp</li>
+										<li MayRequire="Ludeon.RimWorld.Royalty">Brazier</li>
+										<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+										<li MayRequire="Ludeon.RimWorld.Ideology">Darktorch</li>
+										<li MayRequire="Ludeon.RimWorld.Ideology">DarktorchFungus</li>
+									</defs>
+									<offsetPerBuilding>0.01</offsetPerBuilding>
+									<radius>9.9</radius>
+									<maxBuildings>8</maxBuildings>
+									<explanationKey>MeditationFocusPerFlame</explanationKey>
+									<explanationKeyAbstract>MeditationFocusPerFlameAbstract</explanationKeyAbstract>
+								</li>
+							</offsets>
+						</li>
+					</comps>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="DarktorchFungus"]</xpath>
 				<value>
 					<designatorDropdown>Lighting</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="DarktorchFungus"]</xpath>
+				<value>
+					<statBases>
+						<HeatingEfficiency>0.01</HeatingEfficiency>
+					</statBases>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="DarktorchFungus"]/comps</xpath>
+				<value>
+					<comps Inherit="False">
+						<li Class="CompProperties_Glower">
+							<glowRadius>7</glowRadius>
+							<glowColor>(78, 226, 229, 0)</glowColor>
+							<!-- This is a specific darklight color, make sure it matches DarklightUtility.IsDarklight -->
+						</li>
+						<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+							<fuelConsumptionRate>1.5</fuelConsumptionRate>
+							<fuelCapacity>20.0</fuelCapacity>
+							<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
+							<enableHeatPush>true</enableHeatPush>
+							<fuelFilter>
+								<thingDefs>
+									<li>RawFungus</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+						</li>
+						<li Class="CompProperties_DarklightOverlay">
+							<fireSize>0.4</fireSize>
+							<offset>(0,0,0.2)</offset>
+						</li>
+						<li Class="CompProperties_MeditationFocus">
+							<statDef>MeditationFocusStrength</statDef>
+							<focusTypes>
+								<li>Flame</li>
+							</focusTypes>
+							<offsets>
+								<li Class="FocusStrengthOffset_Lit">
+									<offset>0.1</offset>
+								</li>
+								<li Class="FocusStrengthOffset_BuildingDefsLit">
+									<defs>
+										<li>Campfire</li>
+										<li>TorchLamp</li>
+										<li MayRequire="Ludeon.RimWorld.Royalty">Brazier</li>
+										<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+										<li MayRequire="Ludeon.RimWorld.Ideology">Darktorch</li>
+										<li MayRequire="Ludeon.RimWorld.Ideology">DarktorchFungus</li>
+									</defs>
+									<offsetPerBuilding>0.01</offsetPerBuilding>
+									<radius>9.9</radius>
+									<maxBuildings>8</maxBuildings>
+									<explanationKey>MeditationFocusPerFlame</explanationKey>
+									<explanationKeyAbstract>MeditationFocusPerFlameAbstract</explanationKeyAbstract>
+								</li>
+							</offsets>
+						</li>
+					</comps>
 				</value>
 			</li>
 			<!-- <li Class="PatchOperationAdd">
@@ -641,6 +768,68 @@
 					<designatorDropdown>Lighting</designatorDropdown>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TorchLamp"]/statBases</xpath>
+				<value>
+					<HeatingEfficiency>0.01</HeatingEfficiency>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="TorchLamp"]/comps</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Styleable"/>
+						<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+							<fuelConsumptionRate>2.0</fuelConsumptionRate>
+							<fuelCapacity>20.0</fuelCapacity>
+							<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
+							<enableHeatPush>true</enableHeatPush>
+							<fuelFilter>
+								<thingDefs>
+									<li>WoodLog</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+						</li>
+						<li Class="CompProperties_Glower">
+							<glowRadius>10</glowRadius>
+							<glowColor>(184,136,83,0)</glowColor>
+						</li>
+						<li Class="CompProperties_FireOverlay">
+							<fireSize>0.4</fireSize>
+							<offset>(0,0,0.2)</offset>
+						</li>
+						<li Class="CompProperties_MeditationFocus">
+							<statDef>MeditationFocusStrength</statDef>
+							<focusTypes>
+								<li>Flame</li>
+							</focusTypes>
+							<offsets>
+								<li Class="FocusStrengthOffset_Lit">
+									<offset>0.1</offset>
+								</li>
+								<li Class="FocusStrengthOffset_BuildingDefsLit">
+									<defs>
+										<li>Campfire</li>
+										<li>TorchLamp</li>
+										<li MayRequire="Ludeon.RimWorld.Royalty">Brazier</li>
+										<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+										<li MayRequire="Ludeon.RimWorld.Ideology">Darktorch</li>
+										<li MayRequire="Ludeon.RimWorld.Ideology">DarktorchFungus</li>
+									</defs>
+									<offsetPerBuilding>0.01</offsetPerBuilding>
+									<radius>9.9</radius>
+									<maxBuildings>8</maxBuildings>
+									<explanationKey>MeditationFocusPerFlame</explanationKey>
+									<explanationKeyAbstract>MeditationFocusPerFlameAbstract</explanationKeyAbstract>
+								</li>
+							</offsets>
+						</li>
+					</comps>
+				</value>
+			</li>
+			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="StandingLamp"]</xpath>
 				<value>
@@ -694,9 +883,18 @@
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="SunLamp"]</xpath>
 				<value>
+					<researchPrerequisites Inherit="false">
+					  <li>Hydroponics</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="SunLamp"]</xpath>
+				<value>
 					<designatorDropdown>Lighting</designatorDropdown>
 				</value>
 			</li>
+			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="PlantPot"]</xpath>
 				<value>

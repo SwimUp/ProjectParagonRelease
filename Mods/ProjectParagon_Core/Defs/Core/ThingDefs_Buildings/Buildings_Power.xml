@@ -1,5 +1,120 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-  
+	<ThingDef ParentName="BuildingBase">
+		<defName>SimpleSteamGenerator</defName>
+		<label>Simple steam generator</label>
+		<description>A simple design for turning water into steam. The resulting steam can be used in machines to generate electricity. Requires water containers and heaters to operate.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamGenerator</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Power/WoodFiredGenerator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,1)</drawSize>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>300</costStuffCount>
+		<costList>
+			<ComponentSimple>15</ComponentSimple>
+			<StrongPlates>80</StrongPlates>
+			<MechanismSimple>10</MechanismSimple>
+		</costList>
+		<designatorDropdown>Power_SteamEngines</designatorDropdown>
+		<researchPrerequisites>
+			<li>SteamEnergyI</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<canOverlapZones>true</canOverlapZones>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>550</MaxHitPoints>
+			<WorkToBuild>4500</WorkToBuild>
+			<Mass>40</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<size>(2,1)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designationCategory>Power</designationCategory>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>SimpleSteamGenerator</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamGenerator">
+				<steamCapacity>500</steamCapacity>
+				<maxGeneratedSteamPerIteration>10</maxGeneratedSteamPerIteration>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>AtmosphericSteamEngine</defName>
+		<label>Atmospheric steam engine</label>
+		<description>This machine creates the most common vacuum inside the cylinder, and dumps the remaining steam into the air, creating a rather weak, but very stable source of mechanical energy.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamEngine</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Power/WoodFiredGenerator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,1)</drawSize>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>350</costStuffCount>
+		<costList>
+			<ComponentSimple>15</ComponentSimple>
+			<StrongPlates>150</StrongPlates>
+			<MechanismSimple>30</MechanismSimple>
+		</costList>
+		<designatorDropdown>Power_SteamEngines</designatorDropdown>
+		<researchPrerequisites>
+			<li>Electricity</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<canOverlapZones>true</canOverlapZones>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>5000</WorkToBuild>
+			<Mass>90</Mass>
+		</statBases>
+		<size>(2,1)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designationCategory>Power</designationCategory>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>AtmosphericSteamEngine</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamEngine">
+				<steamUsage>1.5</steamUsage>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>ProjectParagon.Core.Things.CompSteamPowerPlant</compClass>
+				<basePowerConsumption>-500</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+				<soundAmbientProducingPower>WoodFiredGenerator_Ambience</soundAmbientProducingPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>9</heatPerSecond>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+	</ThingDef>
 </Defs>

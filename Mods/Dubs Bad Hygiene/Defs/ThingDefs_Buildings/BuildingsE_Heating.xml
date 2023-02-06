@@ -81,6 +81,8 @@
 			<MaxHitPoints>250</MaxHitPoints>
 			<WorkToBuild>1000</WorkToBuild>
 			<Mass>50</Mass>
+			<FuelConsumption>2</FuelConsumption>
+			<HeatingEfficiency>1</HeatingEfficiency>
 		</statBases>
 		<comps>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
@@ -97,6 +99,7 @@
 				</effects>
 			</li>
 			<li Class="CompProperties_Flickable"/>
+			<!--
 			<li Class="CompProperties_Refuelable">
 				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
 				<fuelConsumptionRate>10.0</fuelConsumptionRate>
@@ -107,21 +110,38 @@
 					</thingDefs>
 				</fuelFilter>
 			</li>
+			-->
+			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelCapacity>75.0</fuelCapacity>
+				<startedFuel>WoodLog</startedFuel>
+				<enableHeatPush>true</enableHeatPush>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+						<li>Coal</li>
+					</thingDefs>
+				</fuelFilter>
+			</li>
+			
 			<li Class="CompProperties_Glower">
 				<glowRadius>6</glowRadius>
 				<glowColor>(217,112,33,0)</glowColor>
 			</li>
+			<!--
 			<li Class="CompProperties_HeatPusher">
 				<compClass>CompHeatPusherPowered</compClass>
 				<heatPerSecond>21</heatPerSecond>
 				<heatPushMaxTemperature>28</heatPushMaxTemperature>
 			</li>
+			-->
 		</comps>
 		<researchPrerequisites>
 			<li MayRequire="dbhlitemode">LogBoilers</li>
 		</researchPrerequisites>
 		<designatorDropdown>Hygiene_WaterHeaters</designatorDropdown>
 	</ThingDef>
+	<!--
 	<ThingDef ParentName="BasedHeating" DBHLite="true">
 		<defName>GasBoiler</defName>
 		<label>gas boiler</label>
@@ -183,6 +203,7 @@
 		</researchPrerequisites>
 		<designatorDropdown>Hygiene_WaterHeaters</designatorDropdown>
 	</ThingDef>
+	-->
 	<ThingDef ParentName="BasedHeating" DBHLite="true">
 		<defName>ElectricBoiler</defName>
 		<label>electric boiler</label>

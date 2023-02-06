@@ -369,42 +369,92 @@
 					</researchPrerequisites>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="FueledSmithy"]</xpath>
 				<value>
-					<designatorDropdown>Smithy</designatorDropdown>
+					<ThingDef ParentName="BenchBase">
+						<defName>FueledSmithy</defName>
+						<label>fueled smithy</label>
+						<description>A wood-fueled station for smithing non-mechanical weapons and tools.</description>
+						<thingClass>Building_WorkTable</thingClass>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<graphicData>
+							<texPath>Things/Building/Production/TableSmithingFueled</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3.5,1.5)</drawSize>
+							<shadowData>
+								<volume>(2.8, 0.35, 0.59)</volume>
+								<offset>(0, 0, 0.08)</offset>
+							</shadowData>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<costList>
+						  <ComponentSimple>10</ComponentSimple>
+						  <MechanismSimple>8</MechanismSimple>
+						  <StrongPlates>30</StrongPlates>
+						  <SimplePlates>10</SimplePlates>
+						</costList>
+						<altitudeLayer>Building</altitudeLayer>
+						<fillPercent>0.5</fillPercent>
+						<useHitPoints>True</useHitPoints>
+						<statBases>
+							<WorkToBuild>3000</WorkToBuild>
+							<MaxHitPoints>180</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Cleanliness>-3</Cleanliness>
+						</statBases>
+						<size>(3,1)</size>
+						<stuffCategories>
+						  <li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<designationCategory>Production</designationCategory>
+						<uiOrder>2500</uiOrder>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<designatorDropdown>Smithy</designatorDropdown>
+						<hasInteractionCell>True</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<surfaceType>Item</surfaceType>
+						<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+						<inspectorTabs>
+							<li>ITab_Bills</li>
+						</inspectorTabs>
+						<building>
+							<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+						</building>
+						<comps>
+							<li Class="CompProperties_Refuelable">
+								<fuelConsumptionRate>80.0</fuelConsumptionRate>
+								<fuelCapacity>50.0</fuelCapacity>
+								<fuelFilter>
+									<thingDefs>
+										<li>WoodLog</li>
+									</thingDefs>
+								</fuelFilter>
+								<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+								<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+							</li>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>SimpleBlacksmithSet</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>Machining</li>
+						</researchPrerequisites>
+					</ThingDef>
 				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="FueledSmithy"]/researchPrerequisites</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>Machining</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="FueledSmithy"]/costList</xpath>
-				<value>
-					<costList>
-					  <ComponentSimple>15</ComponentSimple>
-					  <MechanismSimple>10</MechanismSimple>
-					  <StrongPlates>50</StrongPlates>
-					  <SimplePlates>30</SimplePlates>
-					</costList>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="FueledSmithy"]</xpath>
-				<value>
-					<stuffCategories>
-					  <li>Metallic</li>
-					</stuffCategories>
-					<costStuffCount>150</costStuffCount>
-				</value>
-			</li>
-			<li Class="PatchOperationRemove">
-				<xpath>*/ThingDef[defName="FueledSmithy"]/constructEffect</xpath>
 			</li>
 			
 			<li Class="PatchOperationAdd">
@@ -493,6 +543,7 @@
 							<WorkToBuild>2000</WorkToBuild>
 							<MaxHitPoints>180</MaxHitPoints>
 							<Flammability>1.0</Flammability>
+							<HeatingEfficiency>0.15</HeatingEfficiency>
 						</statBases>
 						<size>(3,1)</size>
 						<designationCategory>Production</designationCategory>
@@ -509,9 +560,10 @@
 							<li>ITab_Bills</li>
 						</inspectorTabs>
 						<comps>
-							<li Class="CompProperties_Refuelable">
+							<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
 								<fuelConsumptionRate>160.0</fuelConsumptionRate>
 								<fuelCapacity>50.0</fuelCapacity>
+								<enableHeatPush>true</enableHeatPush>
 								<fuelFilter>
 									<thingDefs>
 										<li>WoodLog</li>
@@ -519,10 +571,6 @@
 								</fuelFilter>
 								<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
 								<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-							</li>
-							<li Class="CompProperties_HeatPusher">
-								<compClass>CompHeatPusherPowered</compClass>
-								<heatPerSecond>4</heatPerSecond>
 							</li>
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
@@ -1051,6 +1099,8 @@
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
 									<li>SimpleScienceSet</li>
+									<li>SimpleCookingSet</li>
+									<li>AdvancedCookingSet</li>
 								</linkableFacilities>
 							</li>
 						</comps>

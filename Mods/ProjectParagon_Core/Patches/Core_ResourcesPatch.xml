@@ -30,6 +30,8 @@
 							<StuffPower_Insulation_Heat>3</StuffPower_Insulation_Heat>
 							<SharpDamageMultiplier>0.35</SharpDamageMultiplier>
 							<BluntDamageMultiplier>0.5</BluntDamageMultiplier>
+							<CalorificValue>14.24</CalorificValue>
+							<BurnoutRate>5.0</BurnoutRate>
 						</statBases>
 						<burnableByRecipe>true</burnableByRecipe>
 						<healthAffectsPrice>false</healthAffectsPrice>
@@ -916,6 +918,55 @@
 					<techLevel>Spacer</techLevel>
 				</value>
 			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Chemfuel"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>Chemfuel</defName>
+						<label>chemfuel</label>
+						<description>A volatile liquid chemical. Used to fuel engines and rockets, or to transmute into propellant for projectiles, or as an incendiary weapon.</description>
+						<possessionCount>20</possessionCount>
+						<tickerType>Normal</tickerType>
+						<graphicData>
+							<texPath>Things/Item/Resource/Chemfuel</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.85</drawSize>
+						</graphicData>
+						<stackLimit>150</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<intricate>true</intricate>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<MarketValue>2.3</MarketValue>
+							<Mass>0.05</Mass>
+							<Flammability>2.0</Flammability>
+							<DeteriorationRate>1.0</DeteriorationRate>
+							<CalorificValue>48.0</CalorificValue>
+							<BurnoutRate>12.0</BurnoutRate>
+						</statBases>
+						<thingCategories>
+							<li>Manufactured</li>
+						</thingCategories>
+						<comps>
+							<li Class="CompProperties_Explosive">
+								<explosiveRadius>1.1</explosiveRadius>
+								<explosiveDamageType>Flame</explosiveDamageType>
+								<explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
+								<startWickOnDamageTaken>
+									<li>Flame</li>
+								</startWickOnDamageTaken>
+								<startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+								<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+								<preExplosionSpawnChance>1</preExplosionSpawnChance>
+								<wickTicks>70~150</wickTicks>
+							</li>
+						</comps>
+						<allowedArchonexusCount>100</allowedArchonexusCount>
+					</ThingDef>
+				</value>
+			</li>
+			
 			
 		</operations>
 	</Operation>

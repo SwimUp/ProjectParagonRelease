@@ -368,6 +368,7 @@
 			<MaxHitPoints>80</MaxHitPoints>
 			<WorkToBuild>200</WorkToBuild>
 			<Flammability>0</Flammability>
+			<HeatingEfficiency>0.8</HeatingEfficiency>
 		</statBases>
 		<selectable>true</selectable>
 		<researchPrerequisites>
@@ -381,21 +382,17 @@
 		</placeWorkers>
 		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
 		<comps>
-			<li Class="CompProperties_Refuelable">
+			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
 				<fuelConsumptionRate>100.0</fuelConsumptionRate>
 				<fuelCapacity>250.0</fuelCapacity>
 				<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
+				<enableHeatPush>true</enableHeatPush>
 				<fuelFilter>
 					<thingDefs>
 						<li>FecalSludge</li>
 					</thingDefs>
 				</fuelFilter>
 				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-			</li>
-			<li Class="CompProperties_HeatPusher">
-				<compClass>CompHeatPusherPowered</compClass>
-				<heatPerSecond>21</heatPerSecond>
-				<heatPushMaxTemperature>28</heatPushMaxTemperature>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>10</glowRadius>
@@ -569,13 +566,12 @@
 		<label>toilet</label>
 		<stuffCategories>
 			<li>Metallic</li>
-			<li>Woody</li>
-			<li>Stony</li>
 		</stuffCategories>
 		<costList>
-			<Steel>5</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismComplex>3</MechanismComplex>
 		</costList>
-		<costStuffCount>15</costStuffCount>
+		<costStuffCount>50</costStuffCount>
 	</ThingDef>
 	<ThingDef ParentName="DubsDirtyTerletBase" Name="AdvTerletBase" Abstract="True">
 		<defName>ToiletAdv</defName>
@@ -590,6 +586,14 @@
 			<Beauty>4</Beauty>
 			<Comfort>0.5</Comfort>
 		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costList>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismComplex>3</MechanismComplex>
+		</costList>
+		<costStuffCount>50</costStuffCount>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -597,7 +601,7 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 		</comps>
-		<researchPrerequisites>
+		<researchPrerequisites Inherit="False">
 			<li MayRequire="dbhlitemode">AdvancedToilets</li>
 		</researchPrerequisites>
 	</ThingDef>
@@ -703,15 +707,14 @@
 		<statBases>
 			<WorkToBuild>1300</WorkToBuild>
 		</statBases>
-		<costList>
-			<Steel>5</Steel>
-		</costList>
 		<stuffCategories>
 			<li>Metallic</li>
-			<li>Woody</li>
-			<li>Stony</li>
 		</stuffCategories>
-		<costStuffCount>20</costStuffCount>
+		<costList>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismComplex>2</MechanismComplex>
+		</costList>
+		<costStuffCount>80</costStuffCount>
 	</ThingDef>
 	<ThingDef ParentName="DubsDirtyShowerBase">
 		<defName>ShowerSimple</defName>
@@ -725,9 +728,14 @@
 		<statBases>
 			<WorkToBuild>800</WorkToBuild>
 		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
 		<costList>
-			<Steel>15</Steel>
+			<ComponentSimple>2</ComponentSimple>
+			<MechanismSimple>2</MechanismSimple>
 		</costList>
+		<costStuffCount>50</costStuffCount>
 	</ThingDef>
 	<ThingDef ParentName="DubsDirtyShowerBase">
 		<defName>ShowerAdvStuff</defName>
@@ -762,7 +770,7 @@
 			<li>Stony</li>
 		</stuffCategories>
 		<costStuffCount>20</costStuffCount>
-		<researchPrerequisites>
+		<researchPrerequisites Inherit="False">
 			<li MayRequire="dbhlitemode">AdvancedShowers</li>
 		</researchPrerequisites>
 	</ThingDef>
