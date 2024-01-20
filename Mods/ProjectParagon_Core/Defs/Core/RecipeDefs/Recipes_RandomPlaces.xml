@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<RecipeDef Name="ResearchDataFragment" Abstract="true">
+	<RecipeDef Name="ResearchDataFragment" Abstract="true" Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<jobString>Explores data fragments.</jobString>
 		<description>Collecting whole information from data fragments.</description>
 		<workerClass>ProjectParagon.Core.Recipes.RecipeWorker_ResearchItem</workerClass>
@@ -10,8 +10,7 @@
 		<workAmount>4000</workAmount>
 		<workSkill>Intellectual</workSkill>
 	</RecipeDef>
-	
-	<RecipeDef ParentName="ResearchDataFragment">
+	<RecipeDef ParentName="ResearchDataFragment" Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>ResearchDataFragment_Medieval</defName>
 		<label>Explore the map</label>
 		<workAmount>4000</workAmount>
@@ -35,10 +34,13 @@
 		</fixedIngredientFilter>
 		<recipeUsers>
 			<li>AlchemyStance</li>
+			<li>MechanicTable</li>
+			<li>MechanicalWorkbench</li>
+			<li>TableMachining</li>
+			<li>TableMachiningAdvanced</li>
 		</recipeUsers>
 	</RecipeDef>
-	
-	<RecipeDef ParentName="ResearchDataFragment">
+	<RecipeDef ParentName="ResearchDataFragment" Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>ResearchDataFragment_Industrial</defName>
 		<label>Explore diskette</label>
 		<workAmount>6000</workAmount>
@@ -60,9 +62,20 @@
 				<li>DataFragment_Industrial</li>
 			</thingDefs>
 		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>TableMachining</li>
+			<li>TableMachiningAdvanced</li>
+		</recipeUsers>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Performance">
+				<count>1</count>
+			</li>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Ram">
+				<count>4</count>
+			</li>
+		</abstractIngredients>
 	</RecipeDef>
-	
-	<RecipeDef ParentName="ResearchDataFragment">
+	<RecipeDef ParentName="ResearchDataFragment" Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>ResearchDataFragment_Spacer</defName>
 		<label>Explore HDD</label>
 		<workAmount>6000</workAmount>
@@ -84,9 +97,20 @@
 				<li>DataFragment_Spacer</li>
 			</thingDefs>
 		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>TableMachining</li>
+			<li>TableMachiningAdvanced</li>
+		</recipeUsers>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Performance">
+				<count>4</count>
+			</li>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Ram">
+				<count>16</count>
+			</li>
+		</abstractIngredients>
 	</RecipeDef>
-	
-	<RecipeDef ParentName="ResearchDataFragment">
+	<RecipeDef ParentName="ResearchDataFragment" Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>ResearchDataFragment_Archotech</defName>
 		<label>Explore information core</label>
 		<workAmount>10000</workAmount>
@@ -108,6 +132,47 @@
 				<li>DataFragment_Archotech</li>
 			</thingDefs>
 		</fixedIngredientFilter>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Performance">
+				<count>128</count>
+			</li>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Ram">
+				<count>256</count>
+			</li>
+		</abstractIngredients>
 	</RecipeDef>
-	
+	<RecipeDef ParentName="ResearchDataFragment" Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>ResearchSpaceDataHDD</defName>
+		<label>Decipher space data HDD</label>
+		<workAmount>8000</workAmount>
+		<skillRequirements>
+			<Intellectual>6</Intellectual>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SpaceDataHDD</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SpaceDataHDD</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>TableMachiningAdvanced</li>
+		</recipeUsers>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Performance">
+				<count>8</count>
+			</li>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Ram">
+				<count>32</count>
+			</li>
+		</abstractIngredients>
+	</RecipeDef>
 </Defs>

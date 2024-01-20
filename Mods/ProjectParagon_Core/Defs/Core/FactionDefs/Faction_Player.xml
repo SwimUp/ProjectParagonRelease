@@ -372,6 +372,49 @@
 		</modExtensions>
 	</FactionDef>
 	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerAutomaton</defName>
+		<label>Automatons</label>
+		<description>A group of automatons who arrived on the planet to colonize.</description>
+		<techLevel>Industrial</techLevel>
+		<factionIconPath>Core/World/Factions/Automatons/Automatons</factionIconPath>
+		<factionNameMaker>NamerAutomatons</factionNameMaker>
+		<settlementNameMaker>NamerSettlementAutomatons</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Automaton</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<startingResearchTags>
+			<li>Automaton</li>
+		</startingResearchTags>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<AutomatonRace>999</AutomatonRace>
+			</xenotypeChances>
+			<warnIfTotalAbove1>false</warnIfTotalAbove1>
+		</xenotypeSet>
+		<basicMemberKind>Automaton_Aristocrat</basicMemberKind>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Automaton_Aristocrat>20</Automaton_Aristocrat>
+					<Automaton_Laborer>30</Automaton_Laborer>
+					<Automaton_Worker>30</Automaton_Worker>
+				</basicMemberKinds>
+			</li>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<factionOtherSettings>
+					<strangerInBlackKindDef>Automaton_StrangerInBlack</strangerInBlackKindDef>
+				</factionOtherSettings>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
 		<defName>PlayerHeretics</defName>
 		<label>Heretics</label>
 		<description>Traitors who deviated from the ideals of the crusade and challenged it.</description>
@@ -407,6 +450,41 @@
 			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
 				<factionOtherSettings>
 					<strangerInBlackKindDef>Tribal_StrangerInBlack</strangerInBlackKindDef>
+				</factionOtherSettings>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerResonites</defName>
+		<label>Resonites colonization</label>
+		<description>Traitors who deviated from the ideals of the crusade and challenged it.</description>
+		<techLevel>Industrial</techLevel>
+		<factionIconPath>Core/World/Factions/Resonites/Resonites</factionIconPath>
+		<factionNameMaker>NamerResonites</factionNameMaker>
+		<settlementNameMaker>NamerSettlementResonites</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Pirate</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedCultures>
+			<li>Astropolitan</li>
+		</allowedCultures>
+		<startingResearchTags>
+			<li>Resonites</li>
+		</startingResearchTags>
+		<basicMemberKind>Resonite_Settler</basicMemberKind>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Resonite_Settler>10</Resonite_Settler>
+				</basicMemberKinds>
+			</li>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<factionOtherSettings>
+					<strangerInBlackKindDef>Resonite_StrangerInBlack</strangerInBlackKindDef>
 				</factionOtherSettings>
 			</li>
 		</modExtensions>

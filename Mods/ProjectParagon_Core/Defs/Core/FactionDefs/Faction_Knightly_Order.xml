@@ -37,6 +37,20 @@
 			</rulesStrings>
 		</rulePack>
 	</RulePackDef>
+	<RulePackDef>
+		<defName>NamerSettlementOrder</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>name->[Name]</li>
+			</rulesStrings>
+			<rulesRaw>
+				<li Class="Rule_File">
+					<keyword>Name</keyword>
+					<path>KnightlyOrder/SettlementNames</path>
+				</li>
+			</rulesRaw>
+		</rulePack>
+	</RulePackDef>
 	<FactionDef ParentName="FactionBase">
 		<defName>Knightly_Order</defName>
 		<label>knightly order</label>
@@ -76,7 +90,7 @@
 		</colorSpectrum>
 		<permanentEnemy>false</permanentEnemy>
 		<factionNameMaker>NamerFactionOrder</factionNameMaker>
-		<settlementNameMaker>NamerSettlementEmpire</settlementNameMaker>
+		<settlementNameMaker>NamerSettlementOrder</settlementNameMaker>
 		<techLevel>Medieval</techLevel>
 		<backstoryFilters>
 			<li>
@@ -275,6 +289,14 @@
 		</baseTraderKinds>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<questGenerationSettings>
+					<minPlayerGameStage>Tribe</minPlayerGameStage>
+				</questGenerationSettings>
+				<factionNuclearSettings>
+					<isNuclearFaction>false</isNuclearFaction>
+					<preventPlayerNuclearProgram>false</preventPlayerNuclearProgram>
+					<couldStartNuclearWar>false</couldStartNuclearWar>
+				</factionNuclearSettings>
 				<factionCaravanAISettings>
 					<maxCaravanPower>3000</maxCaravanPower>
 					<minCaravanPower>501</minCaravanPower>
@@ -461,15 +483,8 @@
 					<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
 					<cultureForDestroySettlementsByWealth>
 						<points>
-							<li>(0, 25)</li>
-							<li>(500, 50)</li>
-							<li>(1000, 75)</li>
-							<li>(2000, 100)</li>
-							<li>(5000, 125)</li>
-							<li>(8000, 150)</li>
-							<li>(12000, 200)</li>
-							<li>(15000, 250)</li>
-							<li>(20000, 300)</li>
+							<li>(0, 50)</li>
+							<li>(20000, 500)</li>
 						</points>
 					</cultureForDestroySettlementsByWealth>
 				</settlementGlobalSettings>

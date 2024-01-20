@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<HediffDef>
+		<defName>LackOfSun</defName>
+		<label>Lack of sun</label>
+		<description>The lack of sun for this creature is deadly.</description>
+		<lethalSeverity>1</lethalSeverity>
+		<stages>
+			<li>
+				<label>trivial</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.95</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.2</minSeverity>
+				<label>minor</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.9</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<label>moderate</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.8</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.6</minSeverity>
+				<label>severe</label>
+				<lifeThreatening>true</lifeThreatening>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.5</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<label>extreme</label>
+				<lifeThreatening>true</lifeThreatening>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<HediffDef>
+		<defName>SymbioticParasite</defName>
+		<label>Symbiotic parasite</label>
+		<description>A plant parasite that sucks energy from the host to grow fruits.</description>
+		<hediffClass>ProjectParagon.Core.Hediffs.Hediff_SymbioticParasite</hediffClass>
+		<initialSeverity>0.001</initialSeverity>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<maxSeverity>1</maxSeverity>
+		<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+		<makesSickThought>true</makesSickThought>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.5</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+		<chronic>true</chronic>
+	</HediffDef>
+	<!---->
+	<HediffDef>
+		<defName>JellyExcretion</defName>
+		<label>Jelly excretion</label>
+		<description>The creature's glands secrete nourishing insect jelly.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>0.001</initialSeverity>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<maxSeverity>1</maxSeverity>
+		<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.Genes.HediffCompProperties_ItemProducer">
+				<thingDef>InsectJelly</thingDef>
+				<dayDuration>1</dayDuration>
+				<countRange>15</countRange>
+			</li>
+		</comps>
+		<chronic>true</chronic>
+	</HediffDef>
+	<!---->
+	<HediffDef>
+		<defName>ChemfuelExcretion</defName>
+		<label>Chemfuel excretion</label>
+		<description>The creature's glands secrete nourishing chemfuel.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>0.001</initialSeverity>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<maxSeverity>1</maxSeverity>
+		<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.Genes.HediffCompProperties_ItemProducer">
+				<thingDef>Chemfuel</thingDef>
+				<dayDuration>7</dayDuration>
+				<countRange>30</countRange>
+			</li>
+		</comps>
+		<chronic>true</chronic>
+	</HediffDef>
+	<!---->
+	<HediffDef>
+		<defName>FearOfDarkness</defName>
+		<label>In the dark</label>
+		<description>The creature functions best when in direct sunlight.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>0.001</initialSeverity>
+		<defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+		<maxSeverity>1</maxSeverity>
+		<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.8</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<HediffDef>
+		<defName>SeasonHibernation</defName>
+		<label>Season hibernation</label>
+		<description>The creature goes into seasonal hibernation.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>0.001</initialSeverity>
+		<defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+		<maxSeverity>1</maxSeverity>
+		<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+		<stages>
+			<li>
+				<label>initial</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.9</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.5</minSeverity>
+				<label>medium</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.5</setMax>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<label>complete</label>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.01</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<HediffDef>
+		<defName>MetabolismSlowdown</defName>
+		<label>Metabolism slowdown</label>
+		<description>The creature slows down its metabolism if it is under cold thermal stress.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>0.001</initialSeverity>
+		<defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+		<maxSeverity>1</maxSeverity>
+		<countsAsAddedPartOrImplant>false</countsAsAddedPartOrImplant>
+		<stages>
+			<li>
+				<label>initial</label>
+				<capMods>
+					<li>
+						<capacity>BloodFiltration</capacity>
+						<postFactor>0.9</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<label>medium</label>
+				<capMods>
+					<li>
+						<capacity>BloodFiltration</capacity>
+						<postFactor>0.5</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<label>severe</label>
+				<capMods>
+					<li>
+						<capacity>BloodFiltration</capacity>
+						<postFactor>0.1</postFactor>
+					</li>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.01</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+</Defs>

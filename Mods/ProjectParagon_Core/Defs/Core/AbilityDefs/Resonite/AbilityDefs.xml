@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<AbilityDef>
+		<defName>BallLightning</defName>
+		<label>Ball lightning</label>
+		<description>Ball lightning is a natural phenomenon that looks like a luminous formation floating in the air.</description>
+		<iconPath>Core/UI/Abilities/BallLightning</iconPath>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<groupDef>BallLightning</groupDef>
+		<overrideGroupCooldown>True</overrideGroupCooldown>
+		<cooldownTicksRange>60000</cooldownTicksRange>
+		<abilityClass>Ability</abilityClass>
+		<category>Psychic</category>
+		<warmupSound>PsycastCastLoop</warmupSound>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>20</range>
+			<requireLineOfSight>True</requireLineOfSight>
+			<warmupTime>3</warmupTime>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetAnimals>False</canTargetAnimals>
+				<thingCategory>Item</thingCategory>
+				<canTargetPawns>False</canTargetPawns>
+				<canTargetLocations>True</canTargetLocations>
+				<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilitySpawn">
+				<thingDef>BallLightning</thingDef>
+				<allowOnBuildings>False</allowOnBuildings>
+			</li>
+			<li Class="CompProperties_AbilityEffecterOnTarget">
+				<effecterDef>Skip_Exit</effecterDef>
+				<maintainForTicks>60</maintainForTicks>
+				<scale>0.42</scale>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDefs>
+					<li>PsycastSkipInnerExit</li>
+					<li>PsycastSkipOuterRingExit</li>
+				</fleckDefs>
+				<scale>0.42</scale>
+				<sound>Psycast_Skip_Exit</sound>
+				<preCastTicks>5</preCastTicks>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+	<AbilityDef>
+		<defName>ChainLightning</defName>
+		<label>Chain lightning</label>
+		<description>The release of an electrical charge that is induced on objects around.</description>
+		<gizmoClass>Command_Ability</gizmoClass>
+		<jobDef>CastAbilityOnThing</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<iconPath>Core/UI/Abilities/ChainLightning</iconPath>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+		<warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+		<groupDef>BallLightning</groupDef>
+		<overrideGroupCooldown>True</overrideGroupCooldown>
+		<cooldownTicksRange>60000</cooldownTicksRange>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>10</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetHumans>false</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityEffectWithDuration">
+				<compClass>ProjectParagon.Core.Abilities.CompAbilityEffect_ChainLightning</compClass>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
+</Defs>

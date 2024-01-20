@@ -20,12 +20,13 @@
 		</statBases>
 		<tradeability>Sellable</tradeability>
 		<thingCategories>
-			<li>Manufactured</li>
+			<li>ArchitecturalBlueprints</li>
 		</thingCategories>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_ArchitecturalBlueprint">
 			</li>
 		</comps>
+		<techLevel>Neolithic</techLevel>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>AdvancedArchitecturalBlueprint</defName>
@@ -48,7 +49,7 @@
 		<tradeability>Sellable</tradeability>
 		<intricate>true</intricate>
 		<thingCategories>
-			<li>Manufactured</li>
+			<li>ArchitecturalBlueprints</li>
 		</thingCategories>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_ArchitecturalBlueprint">
@@ -63,6 +64,36 @@
 				-->
 			</li>
 		</comps>
+		<techLevel>Medieval</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>ModernArchitecturalBlueprint</defName>
+		<label>Modern architectural blueprint</label>
+		<description>A set of drawings used to document the structure of a building.</description>
+		<graphicData>
+			<texPath>Core/Resources/Misc/ModernArchitecturalBlueprint/ModernArchitecturalBlueprint</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>50</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>15</MaxHitPoints>
+			<MarketValue>20</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<tradeability>Sellable</tradeability>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>ArchitecturalBlueprints</li>
+		</thingCategories>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ArchitecturalBlueprint">
+			</li>
+		</comps>
+		<techLevel>Industrial</techLevel>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase" Name="DataFragment" Abstract="true">
 		<soundInteract>Metal_Drop</soundInteract>
@@ -70,7 +101,7 @@
 		<stackLimit>1</stackLimit>
 		<healthAffectsPrice>false</healthAffectsPrice>
 		<thingCategories>
-			<li>Manufactured</li>
+			<li>DataFragments</li>
 		</thingCategories>
 		<thingSetMakerTags>
 			<li>RewardStandardHighFreq</li>
@@ -91,12 +122,18 @@
 			<Flammability>2.0</Flammability>
 		</statBases>
 		<comps>
-			<li Class="ProjectParagon.Core.Things.CompProperties_WorldTriggerCreator">
-				<places>
-					<Medieval_TreasureMap>10</Medieval_TreasureMap>
-				</places>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ResearchItemActions">
+				<actions>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_PlaceWorldTrigger">
+						<weight>20</weight>
+						<places>
+							<Medieval_TreasureMap>10</Medieval_TreasureMap>
+						</places>
+					</li>
+				</actions>
 			</li>
 		</comps>
+		<techLevel>Medieval</techLevel>
 	</ThingDef>
 	<ThingDef ParentName="DataFragment">
 		<defName>DataFragment_Industrial</defName>
@@ -114,11 +151,21 @@
 			<Flammability>0</Flammability>
 		</statBases>
 		<comps>
-			<li Class="ProjectParagon.Core.Things.CompProperties_WorldTriggerCreator">
-				<places>
-					<Ancient_Ruins>10</Ancient_Ruins>
-					<!-- TODO! -->
-				</places>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ResearchItemActions">
+				<actions>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_PlaceWorldTrigger">
+						<weight>20</weight>
+						<places>
+							<Ancient_Ruins>10</Ancient_Ruins>
+							<DoomSarcophagus>1</DoomSarcophagus>
+						</places>
+					</li>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_FinishResearch">
+						<weight>5</weight>
+						<maxTechLevel>Industrial</maxTechLevel>
+						<minTechLevel>Animal</minTechLevel>
+					</li>
+				</actions>
 			</li>
 		</comps>
 	</ThingDef>
@@ -138,11 +185,28 @@
 		</statBases>
 		<techLevel>Industrial</techLevel>
 		<comps>
-			<li Class="ProjectParagon.Core.Things.CompProperties_WorldTriggerCreator">
-				<places>
-					<Ancient_Ruins>10</Ancient_Ruins>
-					<!-- TODO! -->
-				</places>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ResearchItemActions">
+				<actions>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_PlaceWorldTrigger">
+						<weight>20</weight>
+						<places>
+							<Ancient_Ruins>10</Ancient_Ruins>
+							<DoomSarcophagus>1</DoomSarcophagus>
+						</places>
+					</li>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_FinishResearch">
+						<weight>5</weight>
+						<maxTechLevel>Industrial</maxTechLevel>
+						<minTechLevel>Animal</minTechLevel>
+					</li>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_GiveCulture">
+						<weight>5</weight>
+						<culture>100~250</culture>
+					</li>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_SettlementInfo">
+						<weight>3</weight>
+					</li>
+				</actions>
 			</li>
 		</comps>
 	</ThingDef>
@@ -162,11 +226,32 @@
 		</statBases>
 		<techLevel>Ultra</techLevel>
 		<comps>
-			<li Class="ProjectParagon.Core.Things.CompProperties_WorldTriggerCreator">
-				<places>
-					<Ancient_Ruins>10</Ancient_Ruins>
-					<!-- TODO! -->
-				</places>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ResearchItemActions">
+				<actions>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_PlaceWorldTrigger">
+						<weight>20</weight>
+						<places>
+							<Ancient_Ruins>10</Ancient_Ruins>
+							<DoomSarcophagus>1</DoomSarcophagus>
+						</places>
+					</li>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_FinishResearch">
+						<weight>5</weight>
+						<maxTechLevel>Ultra</maxTechLevel>
+						<minTechLevel>Animal</minTechLevel>
+					</li>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_GiveCulture">
+						<weight>5</weight>
+						<culture>300~500</culture>
+					</li>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_GiveSpaceData">
+						<weight>10</weight>
+						<spaceData>50~200</spaceData>
+					</li>
+					<li Class="ProjectParagon.Core.Things.ResearchItemAction_SettlementInfo">
+						<weight>3</weight>
+					</li>
+				</actions>
 			</li>
 		</comps>
 	</ThingDef>
@@ -191,9 +276,12 @@
 		</statBases>
 		<tradeability>Sellable</tradeability>
 		<thingCategories>
-			<li>Manufactured</li>
+			<li>DataFragments</li>
 		</thingCategories>
+		<techLevel>Medieval</techLevel>
 	</ThingDef>
+	
+	<!--
 	<ThingDef ParentName="ResourceBase">
 		<defName>WaterForBill</defName>
 		<label>Water</label>
@@ -201,7 +289,8 @@
 		<alwaysHaulable>false</alwaysHaulable>
 		<tradeability>None</tradeability>
 		<graphicData>
-			<texPath>Core/UI/Special/WaterIcon</texPath>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(37, 124, 255)</color>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
@@ -216,13 +305,115 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 	</ThingDef>
+	
+	
+	<ThingDef ParentName="ResourceBase">
+		<defName>OilForBill</defName>
+		<label>Oil</label>
+		<description>A flammable, clear, yellowish liquid, a mixture of liquid hydrocarbons, heavier than gasoline. The main use is as a raw material for the petrochemical industry.</description>
+		<alwaysHaulable>false</alwaysHaulable>
+		<tradeability>None</tradeability>
+		<graphicData>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(156, 179, 45)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>LightOilForBill</defName>
+		<label>LightOil</label>
+		<description>A poisonous asphyxiating gas of a yellowish-green color, heavier than air, with a pungent odor and a sweetish, “metallic” taste.</description>
+		<alwaysHaulable>false</alwaysHaulable>
+		<tradeability>None</tradeability>
+		<graphicData>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(186, 199, 68)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>MediumOilForBill</defName>
+		<label>MediumOil</label>
+		<description>A flammable, clear, yellowish liquid, a mixture of liquid hydrocarbons, heavier than gasoline. The main use is as a raw material for the petrochemical industry.</description>
+		<alwaysHaulable>false</alwaysHaulable>
+		<tradeability>None</tradeability>
+		<graphicData>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(156, 179, 45)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>HeavyOilForBill</defName>
+		<label>HeavyOil</label>
+		<description>A poisonous asphyxiating gas of a yellowish-green color, heavier than air, with a pungent odor and a sweetish, “metallic” taste.</description>
+		<alwaysHaulable>false</alwaysHaulable>
+		<tradeability>None</tradeability>
+		<graphicData>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(186, 199, 68)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>NapthaForBill</defName>
+		<label>Naphtha</label>
+		<description>A flammable, clear, yellowish liquid, a mixture of liquid hydrocarbons, heavier than gasoline. The main use is as a raw material for the petrochemical industry.</description>
+		<alwaysHaulable>false</alwaysHaulable>
+		<tradeability>None</tradeability>
+		<graphicData>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(156, 179, 45)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>ChlorineForBill</defName>
+		<label>Chlorine</label>
+		<description>A poisonous asphyxiating gas of a yellowish-green color, heavier than air, with a pungent odor and a sweetish, “metallic” taste.</description>
+		<alwaysHaulable>false</alwaysHaulable>
+		<tradeability>None</tradeability>
+		<graphicData>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(186, 199, 68)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	
+	
+	<ThingDef ParentName="ResourceBase">
+		<defName>NapthaForBill</defName>
+		<label>Naphtha</label>
+		<description>A flammable, clear, yellowish liquid, a mixture of liquid hydrocarbons, heavier than gasoline. The main use is as a raw material for the petrochemical industry.</description>
+		<alwaysHaulable>false</alwaysHaulable>
+		<tradeability>None</tradeability>
+		<graphicData>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(156, 179, 45)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>ChlorineForBill</defName>
+		<label>Chlorine</label>
+		<description>A poisonous asphyxiating gas of a yellowish-green color, heavier than air, with a pungent odor and a sweetish, “metallic” taste.</description>
+		<alwaysHaulable>false</alwaysHaulable>
+		<tradeability>None</tradeability>
+		<graphicData>
+			<texPath>Core/UI/Special/LiquidIcon</texPath>
+			<color>(186, 199, 68)</color>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+	</ThingDef>
+	-->
+	
 	<ThingDef ParentName="ResourceBase">
 		<defName>Pesticides</defName>
 		<label>Pesticides</label>
 		<description>Poisonous substances used to destroy pests and pathogens of plants.</description>
 		<graphicData>
-			<texPath>Core/Resources/Misc/Intelligence/Intelligence</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Core/Resources/Misc/Pesticides</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<soundInteract>Metal_Drop</soundInteract>
@@ -236,9 +427,34 @@
 			<Mass>0.4</Mass>
 			<Flammability>2</Flammability>
 		</statBases>
-		<tradeability>Sellable</tradeability>
+		<tradeability>All</tradeability>
 		<thingCategories>
-			<li>Manufactured</li>
+			<li>Fertilizers</li>
 		</thingCategories>
 	</ThingDef>
+	
+	<ThingDef ParentName="ResourceBase">
+		<defName>DoomSarcophagusKey</defName>
+		<label>Sarcophagus key</label>
+		<description>A strange object resembling a sarcophagus key.</description>
+		<graphicData>
+			<texPath>Core/Resources/Misc/DoomSarcophagusKey/DoomSarcophagusKey</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>1</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<Mass>0.3</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<tradeability>None</tradeability>
+		<thingCategories>
+			<li>ItemsMisc</li>
+		</thingCategories>
+		<techLevel>Ultra</techLevel>
+	</ThingDef>
+	
 </Defs>

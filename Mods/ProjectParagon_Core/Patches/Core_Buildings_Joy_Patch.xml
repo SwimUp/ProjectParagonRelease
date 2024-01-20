@@ -11,16 +11,76 @@
 				</value>
 			</li>
 			
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="TubeTelevision"]</xpath>
 				<value>
-					<designatorDropdown>WatchingTV</designatorDropdown>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="TubeTelevision"]/researchPrerequisites</xpath>
-				<value>
-					<researchPrerequisites><li>DecorationsII</li></researchPrerequisites>
+					<ThingDef ParentName="BuildingBase">
+						<defName>TubeTelevision</defName>
+						<label>tube television</label>
+						<description>A cathode ray tube display for showing moving pictures with sound. Even on the rimworlds, there is often an old transmitter running something at least marginally interesting.</description>
+						<graphicData>
+							<texPath>Things/Building/Joy/TubeTelevision</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shadowData>
+								<volume>(0.5, 0.3, 0.4)</volume>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+						<rotatable>true</rotatable>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<fillPercent>0.40</fillPercent>
+						<thingCategories>
+							<li>BuildingsJoy</li>
+						</thingCategories>
+						<statBases>
+							<WorkToBuild>10000</WorkToBuild>
+							<MaxHitPoints>100</MaxHitPoints>
+							<Mass>14</Mass>
+							<Flammability>1.0</Flammability>
+							<JoyGainFactor>1.2</JoyGainFactor>
+						</statBases>
+						<costStuffCount>30</costStuffCount>
+						<costList>
+							<Plastic>150</Plastic>
+							<ComponentIndustrial>5</ComponentIndustrial>
+							<SimpleElectronic>10</SimpleElectronic>
+						</costList>
+						<pathCost>42</pathCost>
+						<passability>PassThroughOnly</passability>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<building>
+							<joyKind>Television</joyKind>
+							<spawnedConceptLearnOpportunity>TVForSickPeople</spawnedConceptLearnOpportunity>
+							<boughtConceptLearnOpportunity>TVForSickPeople</boughtConceptLearnOpportunity>
+							<watchBuildingStandDistanceRange>2~4</watchBuildingStandDistanceRange>
+							<watchBuildingStandRectWidth>5</watchBuildingStandRectWidth>
+							<watchBuildingInSameRoom>true</watchBuildingInSameRoom>
+							<effectWatching>WatchingTelevision</effectWatching>
+						</building>
+						<placeWorkers>
+							<li>PlaceWorker_WatchArea</li>
+						</placeWorkers>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<shortCircuitInRain>true</shortCircuitInRain>
+								<basePowerConsumption>200</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+						</comps>
+						<tradeTags>
+							<li>Television</li>
+						</tradeTags>
+						<constructEffect>ConstructMetal</constructEffect>
+						<designationCategory>Joy</designationCategory>
+						<designationHotKey>Misc4</designationHotKey>
+						<researchPrerequisites><li>DecorationsII</li></researchPrerequisites>
+						<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+						<uiIconScale>0.9</uiIconScale>
+						<designatorDropdown>WatchingTV</designatorDropdown>
+					</ThingDef>
 				</value>
 			</li>
 			
@@ -64,8 +124,8 @@
 						<costStuffCount>50</costStuffCount>
 						<costList>
 							<WoodPlanks>150</WoodPlanks>
-							<ComponentIndustrial>10</ComponentIndustrial>
-							<MechanismComplex>4</MechanismComplex>
+							<ComponentSimple>15</ComponentSimple>
+							<MechanismSimple>6</MechanismSimple>
 						</costList>
 						<pathCost>42</pathCost>
 						<passability>PassThroughOnly</passability>
@@ -126,8 +186,8 @@
 						<costStuffCount>100</costStuffCount>
 						<costList>
 							<WoodPlanks>300</WoodPlanks>
-							<ComponentIndustrial>20</ComponentIndustrial>
-							<MechanismComplex>8</MechanismComplex>
+							<ComponentSimple>35</ComponentSimple>
+							<MechanismSimple>12</MechanismSimple>
 						</costList>
 						<pathCost>42</pathCost>
 						<passability>PassThroughOnly</passability>

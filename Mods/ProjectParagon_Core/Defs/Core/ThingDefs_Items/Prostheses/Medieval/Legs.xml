@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>MechanicalLeg</defName>
+		<label>Mechanical leg</label>
+		<labelNoun>a mechanical leg</labelNoun>
+		<description>A simple leg prosthesis made from mechanical components and gears.</description>
+		<spawnThingOnRemoved>MechanicalLeg</spawnThingOnRemoved>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>0.65</partEfficiency>
+		</addedPartProps>
+		<priceImpact>true</priceImpact>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+				<multiplier>0.6</multiplier>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+			</li>
+		</modExtensions>
+	</HediffDef>
+	<ThingDef ParentName="ProsthesisMedievalBase">
+		<defName>MechanicalLeg</defName>
+		<label>Mechanical leg</label>
+		<description>A simple leg prosthesis made from mechanical components and gears.</description>
+		<graphicData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>4.0</Mass>
+			<MarketValue>300</MarketValue>
+		</statBases>
+		<recipeMaker>
+			<workSpeedStat>SmeltingSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smelt</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<researchPrerequisite>ProstheticsII</researchPrerequisite>
+			<recipeUsers>
+				<li>MechanicTable</li>
+				<li>MechanicalWorkbench</li>
+				<li>TableMachining</li><li>TableMachiningAdvanced</li>
+			</recipeUsers>
+			<unfinishedThingDef>ProstheticParagon_T1_</unfinishedThingDef>
+		</recipeMaker>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Plastic</li>
+		</stuffCategories>
+		<costStuffCount>50</costStuffCount>
+		<costList>
+			<MechanismSimple>4</MechanismSimple>
+			<ComponentSimple>4</ComponentSimple>
+		</costList>
+	</ThingDef>
+	<RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+		<defName>MechanicalLeg</defName>
+		<label>install mechanical leg</label>
+		<description>Install a mechanical leg.</description>
+		<jobString>Installing mechanical leg.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MechanicalLeg</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MechanicalLeg</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Leg</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>MechanicalLeg</addsHediff>
+		<researchPrerequisite>ProstheticsII</researchPrerequisite>
+	</RecipeDef>
+</Defs>

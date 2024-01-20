@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>TuberculosisVaccine</defName>
+		<label>Tuberculosis vaccine</label>
+		<description>A vaccine that provides immunity against tuberculosis.</description>
+		<possessionCount>10</possessionCount>
+		<descriptionHyperlinks>
+			<HediffDef>TuberculosisVaccineHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Vaccine/Vaccine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToMake>1000</WorkToMake>
+			<MarketValue>45</MarketValue>
+			<Mass>0.005</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>TuberculosisVaccineHigh</hediffDef>
+					<severity>1.0</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker Class="ProjectParagon.Core.Things.RecipeMakerPropertiesParagon">
+			<researchPrerequisite>Narko_VaccineProduction</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>DrugLab</li>
+			</recipeUsers>
+			<extraRecipeItems>
+				<li>
+					<thingDef>Cyclinder_Empty</thingDef>
+					<count>1</count>
+				</li>
+			</extraRecipeItems>
+			<productCount>4</productCount>
+		</recipeMaker>
+		<costList>
+			<Glass>4</Glass>
+			<Neutroamine>2</Neutroamine>
+			<Cyclinder_Chlorine>1</Cyclinder_Chlorine>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>TuberculosisVaccineHigh</defName>
+		<hediffClass>Hediff_High</hediffClass>
+		<label>Tuberculosis vaccine</label>
+		<description>A vaccine that provides immunity against tuberculosis.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.0166667</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<makeImmuneTo>
+					<li>Diseases_HediffDef_Tuberculosis</li>
+				</makeImmuneTo>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

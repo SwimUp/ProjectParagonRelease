@@ -1,74 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-    <ThingCategoryDef>
-      <defName>Ammo20Gauge</defName>
-      <label>20 gauge</label>
-      <parent>AmmoShotguns</parent>
-      <iconPath>UI/Icons/ThingCategories/CaliberShotgun</iconPath>
-    </ThingCategoryDef>
-	
+	<ThingCategoryDef>
+		<defName>Ammo20Gauge</defName>
+		<label>20 gauge</label>
+		<parent>AmmoShotguns</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberShotgun</iconPath>
+	</ThingCategoryDef>
 	<!-- ==================== AmmoSet ========================== -->
-
-  <CombatExtended.AmmoSetDef>
-    <defName>AmmoSet_20Gauge</defName>
-    <label>20 Gauge</label>
-    <ammoTypes>
-      <Ammo_20Gauge_Buck>Bullet_20Gauge_Buck</Ammo_20Gauge_Buck>
-      <Ammo_20Gauge_Slug>Bullet_20Gauge_Slug</Ammo_20Gauge_Slug>
-      <Ammo_20Gauge_Beanbag>Bullet_20Gauge_Beanbag</Ammo_20Gauge_Beanbag>
-      <Ammo_20Gauge_ElectroSlug>Bullet_20Gauge_ElectroSlug</Ammo_20Gauge_ElectroSlug>
-    </ammoTypes>
-    <similarTo>AmmoSet_Shotgun</similarTo>
-  </CombatExtended.AmmoSetDef>
-	
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_20Gauge</defName>
+		<label>20 Gauge</label>
+		<ammoTypes>
+			<Ammo_20Gauge_Buck>Bullet_20Gauge_Buck</Ammo_20Gauge_Buck>
+			<Ammo_20Gauge_Slug>Bullet_20Gauge_Slug</Ammo_20Gauge_Slug>
+			<!--  <Ammo_20Gauge_Beanbag>Bullet_20Gauge_Beanbag</Ammo_20Gauge_Beanbag> -->
+			<!-- <Ammo_20Gauge_ElectroSlug>Bullet_20Gauge_ElectroSlug</Ammo_20Gauge_ElectroSlug> -->
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
 	<!-- ==================== Ammo ========================== -->
-
-  <ThingDef Class="CombatExtended.AmmoDef" Name="20GaugeBase" ParentName="SmallAmmoBase" Abstract="True">
-    <description>Very common shotgun caliber used mostly for hunting.</description>
-    <statBases>
-	  <Mass>0.044</Mass>
-	  <Bulk>0.05</Bulk>
-    </statBases>
-	<tradeTags>
-	  <li>CE_AutoEnableTrade</li>
-	  <li>CE_AutoEnableCrafting</li>
-	</tradeTags>
-    <thingCategories>
-      <li>Ammo20Gauge</li>
-    </thingCategories>
-    <stackLimit>5000</stackLimit>
-  </ThingDef>
-
-  <ThingDef Class="CombatExtended.AmmoDef" ParentName="20GaugeBase">
-    <defName>Ammo_20Gauge_Buck</defName>
-    <label>20 gauge shell (Buck)</label>
-    <graphicData>
-      <texPath>Things/Ammo/Shotgun/Shot</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
-    </graphicData>
-    <statBases>
-      <MarketValue>0.18</MarketValue>
-    </statBases>
-    <ammoClass>BuckShot</ammoClass>
-    <cookOffProjectile>Bullet_20Gauge_Buck</cookOffProjectile>
-  </ThingDef>
-
-  <ThingDef Class="CombatExtended.AmmoDef" ParentName="20GaugeBase">
-    <defName>Ammo_20Gauge_Slug</defName>
-    <label>20 gauge shell (Slug)</label>
-    <graphicData>
-      <texPath>Things/Ammo/Shotgun/Slug</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
-    </graphicData>
-    <statBases>
-      <Mass>0.033</Mass>
-      <MarketValue>0.14</MarketValue>
-    </statBases>
-    <ammoClass>Slug</ammoClass>
-    <cookOffProjectile>Bullet_20Gauge_Slug</cookOffProjectile>
-  </ThingDef>
-
+	<ThingDef Class="CombatExtended.AmmoDef" Name="20GaugeBase" ParentName="SmallAmmoBase" Abstract="True">
+		<description>Very common shotgun caliber used mostly for hunting.</description>
+		<statBases>
+			<Mass>0.044</Mass>
+			<Bulk>0.05</Bulk>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo20Gauge</li>
+		</thingCategories>
+		<stackLimit>500</stackLimit>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="20GaugeBase">
+		<defName>Ammo_20Gauge_Buck</defName>
+		<label>20 gauge shell (Buck)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Shotgun/Shot</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.18</MarketValue>
+		</statBases>
+		<ammoClass>BuckShot</ammoClass>
+		<cookOffProjectile>Bullet_20Gauge_Buck</cookOffProjectile>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="20GaugeBase">
+		<defName>Ammo_20Gauge_Slug</defName>
+		<label>20 gauge shell (Slug)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Shotgun/Slug</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.033</Mass>
+			<MarketValue>0.14</MarketValue>
+		</statBases>
+		<ammoClass>Slug</ammoClass>
+		<cookOffProjectile>Bullet_20Gauge_Slug</cookOffProjectile>
+	</ThingDef>
+	<!--
   <ThingDef Class="CombatExtended.AmmoDef" ParentName="20GaugeBase">
     <defName>Ammo_20Gauge_Beanbag</defName>
     <label>20 gauge shell (Bean)</label>
@@ -84,7 +76,8 @@
     <ammoClass>Beanbag</ammoClass>
     <cookOffProjectile>Bullet_20Gauge_Beanbag</cookOffProjectile>
   </ThingDef>
-
+-->
+	<!--
   <ThingDef Class="CombatExtended.AmmoDef" ParentName="20GaugeBase">
     <defName>Ammo_20Gauge_ElectroSlug</defName>
     <label>20 gauge shell (EMP)</label>
@@ -99,9 +92,8 @@
     <ammoClass>ElectroSlug</ammoClass>
     <cookOffProjectile>Bullet_20Gauge_ElectroSlug</cookOffProjectile>
   </ThingDef>
-	
+-->
 	<!-- ================== Projectiles ================== -->
-
 	<ThingDef Name="Base20GaugeBullet" ParentName="BaseBullet" Abstract="true">
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageDef>Bullet</damageDef>
@@ -110,7 +102,6 @@
 			<casingMoteDefname>Mote_ShotgunShell</casingMoteDefname>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="Base20GaugeBullet">
 		<defName>Bullet_20Gauge_Buck</defName>
 		<label>buckshot pellet</label>
@@ -121,12 +112,11 @@
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>5</damageAmountBase>
 			<pelletCount>20</pelletCount>
-			<armorPenetrationSharp>3</armorPenetrationSharp>
+			<armorPenetrationSharp>4</armorPenetrationSharp>
 			<armorPenetrationBlunt>1.92</armorPenetrationBlunt>
 			<spreadMult>10.9</spreadMult>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="Base20GaugeBullet">
 		<defName>Bullet_20Gauge_Slug</defName>
 		<label>shotgun slug</label>
@@ -137,11 +127,11 @@
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<speed>97</speed>
 			<damageAmountBase>21</damageAmountBase>
-			<armorPenetrationSharp>4.5</armorPenetrationSharp>
+			<armorPenetrationSharp>5.5</armorPenetrationSharp>
 			<armorPenetrationBlunt>41.14</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
+	<!--
 	<ThingDef ParentName="Base20GaugeBullet">
 		<defName>Bullet_20Gauge_Beanbag</defName>
 		<label>beanbag</label>
@@ -174,61 +164,111 @@
 			<speed>30</speed>
 		</projectile>
 	</ThingDef>
-  
+  -->
 	<!-- ==================== Recipes ========================== -->
-
-  <RecipeDef ParentName="AmmoRecipeBase">
-    <defName>MakeAmmo_20Gauge_Buck</defName>
-    <label>make 20 gauge (Buck) shell x200</label>
-    <description>Craft 200 20 gauge (Buck) shells.</description>
-    <jobString>Making 20 gauge (Buck) shells.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>Steel</li>
-          </thingDefs>
-        </filter>
-        <count>18</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Steel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <Ammo_20Gauge_Buck>200</Ammo_20Gauge_Buck>
-    </products>
-    <workAmount>1800</workAmount>
-  </RecipeDef>
-
-  <RecipeDef ParentName="AmmoRecipeBase">
-    <defName>MakeAmmo_20Gauge_Slug</defName>
-    <label>make 20 gauge (Slug) shell x200</label>
-    <description>Craft 200 20 gauge (Slug) shells.</description>
-    <jobString>Making 20 gauge (Slug) shells.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>Steel</li>
-          </thingDefs>
-        </filter>
-        <count>14</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Steel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <Ammo_20Gauge_Slug>200</Ammo_20Gauge_Slug>
-    </products>
-    <workAmount>1400</workAmount>
-  </RecipeDef>
-
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_20Gauge_Buck</defName>
+		<label>make 20 gauge (Buck) shell x200</label>
+		<description>Craft 200 20 gauge (Buck) shells.</description>
+		<jobString>Making 20 gauge (Buck) shells.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>88</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_20Gauge_Buck>100</Ammo_20Gauge_Buck>
+		</products>
+		<workAmount>1800</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
+	</RecipeDef>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_20Gauge_Slug</defName>
+		<label>make 20 gauge (Slug) shell x200</label>
+		<description>Craft 200 20 gauge (Slug) shells.</description>
+		<jobString>Making 20 gauge (Slug) shells.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>88</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_20Gauge_Slug>100</Ammo_20Gauge_Slug>
+		</products>
+		<workAmount>1400</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
+	</RecipeDef>
+	<!--
   <RecipeDef ParentName="AmmoRecipeBase">
     <defName>MakeAmmo_20Gauge_Beanbag</defName>
     <label>make 20 gauge (Beanbag) shell x200</label>
@@ -262,7 +302,13 @@
       <Ammo_20Gauge_Beanbag>200</Ammo_20Gauge_Beanbag>
     </products>
     <workAmount>2500</workAmount>
+	<recipeUsers Inherit="false">
+		<li>AmmoBench</li>
+		<li>WeaponWorkbench</li>
+	</recipeUsers>
+	<researchPrerequisite>GasOperation</researchPrerequisite>
   </RecipeDef>
+
 
   <RecipeDef ParentName="AmmoRecipeBase">
     <defName>MakeAmmo_20Gauge_ElectroSlug</defName>
@@ -297,6 +343,7 @@
       <Ammo_20Gauge_ElectroSlug>200</Ammo_20Gauge_ElectroSlug>
     </products>
     <workAmount>2800</workAmount>
+	<researchPrerequisite>GasOperation</researchPrerequisite>
   </RecipeDef>
-	
+	-->
 </Defs>

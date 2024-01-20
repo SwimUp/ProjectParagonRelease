@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<ThingDef ParentName="SkyfallerBase">
+		<defName>SatelliteSkyfaller</defName>
+		<label>Satellite (leaving)</label>
+		<thingClass>ProjectParagon.Core.Space.SkyFaller_SatellitePartLeaving</thingClass>
+		<graphicData>
+			<texPath>Things/Special/DropPod</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutFlying</shaderType>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<skyfaller>
+			<movementType>Decelerate</movementType>
+			<reversed>true</reversed>
+			<shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+			<anticipationSound>DropPod_Leaving</anticipationSound>
+			<anticipationSoundTicks>-10</anticipationSoundTicks>
+			<ticksToImpactRange>
+				<min>-50</min>
+				<max>-50</max>
+			</ticksToImpactRange>
+		</skyfaller>
+	</ThingDef>
+	<!---->
+	<ThingDef Name="SatellitePodIncoming" ParentName="SkyfallerBase">
+		<defName>SatelliteLanding</defName>
+		<label>Satellite (landing)</label>
+		<thingClass>ProjectParagon.Core.Space.SkyFaller_SatelliteLanding</thingClass>
+		<graphicData>
+			<texPath>Things/Special/DropPod</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutFlying</shaderType>
+			<drawSize>1.9</drawSize>
+		</graphicData>
+		<skyfaller>
+			<movementType>Decelerate</movementType>
+			<shadow>Things/Skyfaller/SkyfallerShadowDropPod</shadow>
+			<shadowSize>(2, 2)</shadowSize>
+			<anticipationSound>DropPod_Fall</anticipationSound>
+			<anticipationSoundTicks>100</anticipationSoundTicks>
+			<impactSound>DropPod_Impact</impactSound>
+			<motesPerCell>0</motesPerCell>
+			<ticksToImpactRange>
+				<min>200</min>
+				<max>200</max>
+			</ticksToImpactRange>
+		</skyfaller>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="SatellitePodIncoming">
+		<defName>SatelliteStorageLanding</defName>
+		<thingClass>ProjectParagon.Core.Space.SkyFaller_SatelliteStorageLanding</thingClass>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="SkyfallerBase">
+		<defName>CrashedSatellitePart</defName>
+		<label>crashed satellite part (incoming)</label>
+		<thingClass>ProjectParagon.Core.Space.SkyFaller_SatelliteCrashlanding</thingClass>
+		<skyfaller>
+			<shadow>Things/Skyfaller/SkyfallerShadowRectangle</shadow>
+			<explosionRadius>5</explosionRadius>
+			<explosionDamageFactor>5</explosionDamageFactor>
+			<explosionDamage>Flame</explosionDamage>
+			<cameraShake>1</cameraShake>
+			<metalShrapnelCountRange>
+				<min>6</min>
+				<max>10</max>
+			</metalShrapnelCountRange>
+			<rubbleShrapnelCountRange>
+				<min>300</min>
+				<max>400</max>
+			</rubbleShrapnelCountRange>
+		</skyfaller>
+	</ThingDef>
+	<!---->
+</Defs>

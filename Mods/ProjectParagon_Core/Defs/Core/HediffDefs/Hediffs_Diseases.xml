@@ -117,6 +117,250 @@
 		</stages>
 	</HediffDef>
 	<HediffDef ParentName="InfectionBase">
+		<defName>HediffDef_AmmoniaPoisoning</defName>
+		<label>Ammonia poisoning</label>
+		<description>Exposure to ammonia causes difficulty breathing and can lead to death.</description>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<lethalSeverity>1</lethalSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>minor</label>
+				<vomitMtbDays>1.0</vomitMtbDays>
+				<statFactors>
+					<MoveSpeed>0.8</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.25</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>major</label>
+				<vomitMtbDays>2.0</vomitMtbDays>
+				<minSeverity>0.25</minSeverity>
+				<statFactors>
+					<MoveSpeed>0.6</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.5</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>extreme</label>
+				<vomitMtbDays>3.0</vomitMtbDays>
+				<minSeverity>0.7</minSeverity>
+				<statFactors>
+					<MoveSpeed>0.01</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.9</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>HediffDef_ChlorinePoisoning</defName>
+		<label>Chlorine poisoning</label>
+		<description>Exposure to chlorine causes difficulty breathing and critical lung damage.</description>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<lethalSeverity>1</lethalSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.25</severityPerDay>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>150000~200000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_PulmonaryEdema</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Lung</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>false</letter>
+						<chance>0.5</chance>
+						<severityRange>0.4~1.0</severityRange>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>72000~150000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Pneumothorax</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Lung</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>true</letter>
+						<chance>0.25</chance>
+						<severityRange>0.6~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>minor</label>
+				<vomitMtbDays>2.0</vomitMtbDays>
+				<painOffset>0.2</painOffset>
+				<statFactors>
+					<MoveSpeed>0.8</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.25</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>major</label>
+				<vomitMtbDays>4.0</vomitMtbDays>
+				<minSeverity>0.25</minSeverity>
+				<painOffset>0.4</painOffset>
+				<statFactors>
+					<MoveSpeed>0.6</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.5</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>extreme</label>
+				<vomitMtbDays>6.0</vomitMtbDays>
+				<minSeverity>0.7</minSeverity>
+				<painOffset>1</painOffset>
+				<statFactors>
+					<MoveSpeed>0.01</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.8</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>HediffDef_HydrogenSulfide</defName>
+		<label>Hydrogen sulfide poisoning</label>
+		<description>Exposure to chlorine causes difficulty breathing and critical lung damage.</description>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<lethalSeverity>1</lethalSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.35</severityPerDay>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>150000~200000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_PulmonaryEdema</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Lung</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>false</letter>
+						<chance>0.5</chance>
+						<severityRange>0.4~1.0</severityRange>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>72000~150000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Pneumothorax</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Lung</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>true</letter>
+						<chance>0.25</chance>
+						<severityRange>0.6~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>minor</label>
+				<vomitMtbDays>2.0</vomitMtbDays>
+				<painOffset>0.2</painOffset>
+				<statFactors>
+					<MoveSpeed>0.8</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.3</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>major</label>
+				<vomitMtbDays>4.0</vomitMtbDays>
+				<minSeverity>0.25</minSeverity>
+				<painOffset>0.4</painOffset>
+				<statFactors>
+					<MoveSpeed>0.6</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.4</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<label>extreme</label>
+				<vomitMtbDays>6.0</vomitMtbDays>
+				<minSeverity>0.7</minSeverity>
+				<painOffset>1</painOffset>
+				<statFactors>
+					<MoveSpeed>0.01</MoveSpeed>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>-0.7</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="InfectionBase">
 		<defName>Sneezing</defName>
 		<label>Jaw damage</label>
 		<description>You sneezed for a very long time. It will go away on its own.</description>
@@ -289,7 +533,7 @@
 			</li>
 		</stages>
 	</HediffDef>
-	<HediffDef ParentName="InfectionBase">
+	<!--<HediffDef ParentName="InfectionBase">
 		<defName>Irradiation</defName>
 		<label>Irradiation</label>
 		<description>Exposure to radioactive particles causes severe illness and irreversible processes when the dosage is exceeded.</description>
@@ -556,5 +800,6 @@
 				</hediffGivers>
 			</li>
 		</stages>
-	</HediffDef>
+	</HediffDef>-->
+	
 </Defs>

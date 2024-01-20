@@ -18,7 +18,6 @@
 			<Ammo_45ACP_AP>Bullet_45ACP_AP</Ammo_45ACP_AP>
 			<Ammo_45ACP_HP>Bullet_45ACP_HP</Ammo_45ACP_HP>
 		</ammoTypes>
-		<similarTo>AmmoSet_Pistol</similarTo>
 	</CombatExtended.AmmoSetDef>
 
 	<CombatExtended.AmmoSetDef>
@@ -28,9 +27,7 @@
 			<Ammo_45ACP_FMJ>Bullet_45ACP_FMJ</Ammo_45ACP_FMJ>
 			<Ammo_45ACP_AP>Bullet_45ACP_AP</Ammo_45ACP_AP>
 			<Ammo_45ACP_HP>Bullet_45ACP_HP</Ammo_45ACP_HP>
-			<Ammo_410Bore_Buck>Bullet_410Bore_Buck_SB</Ammo_410Bore_Buck>
 		</ammoTypes>
-		<similarTo>AmmoSet_RevolverShotgun</similarTo>
 	</CombatExtended.AmmoSetDef>
 
 	<!-- ==================== Ammo ========================== -->
@@ -111,7 +108,7 @@
 		<label>.45 ACP bullet (FMJ)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>12</damageAmountBase>
-			<armorPenetrationSharp>3.5</armorPenetrationSharp>
+			<armorPenetrationSharp>6.5</armorPenetrationSharp>
 			<armorPenetrationBlunt>10.860</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -121,7 +118,7 @@
 		<label>.45 ACP bullet (AP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>7</damageAmountBase>
-			<armorPenetrationSharp>7</armorPenetrationSharp>
+			<armorPenetrationSharp>9</armorPenetrationSharp>
 			<armorPenetrationBlunt>10.860</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -131,7 +128,7 @@
 		<label>.45 ACP bullet (HP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>15</damageAmountBase>
-			<armorPenetrationSharp>2</armorPenetrationSharp>
+			<armorPenetrationSharp>3</armorPenetrationSharp>
 			<armorPenetrationBlunt>10.860</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -146,22 +143,49 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>22</count>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_45ACP_FMJ>500</Ammo_45ACP_FMJ>
+			<Ammo_45ACP_FMJ>150</Ammo_45ACP_FMJ>
 		</products>
 		<workAmount>2200</workAmount>
+		<recipeUsers Inherit="false">
+			<li>AmmoBench</li>
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>Gunsmithing</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -172,22 +196,47 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>22</count>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_45ACP_AP>500</Ammo_45ACP_AP>
+			<Ammo_45ACP_AP>100</Ammo_45ACP_AP>
 		</products>
 		<workAmount>2640</workAmount>
+		<recipeUsers Inherit="false">
+			<li>AmmoBench</li>
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>Gunsmithing</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -198,22 +247,49 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>22</count>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>30</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_45ACP_HP>500</Ammo_45ACP_HP>
+			<Ammo_45ACP_HP>150</Ammo_45ACP_HP>
 		</products>
 		<workAmount>2200</workAmount>
+		<recipeUsers Inherit="false">
+			<li>AmmoBench</li>
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>Gunsmithing</researchPrerequisite>
 	</RecipeDef>
 
 </Defs>

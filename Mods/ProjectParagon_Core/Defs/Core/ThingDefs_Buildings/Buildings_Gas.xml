@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>GasStorage</defName>
+		<label>Gas storage</label>
+		<description>Stores various gases.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_LiquidStorage</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/GasStorage/GasStorage</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4.3,4.3)</drawSize>
+            <drawOffset>0, 0, 0.2</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>15000</WorkToBuild>
+			<Flammability>4.0</Flammability>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<MechanismSimple>2</MechanismSimple>
+			<SimplePlates>100</SimplePlates>
+		</costList>
+		<researchPrerequisites>
+			<li>GasIndustryI</li>
+		</researchPrerequisites>
+		<rotatable>true</rotatable>
+		<pathCost>180</pathCost>
+		<category>Building</category>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<designationCategory>LWM_DS_Storage</designationCategory>
+		<fillPercent>1.00</fillPercent>
+		<passability>Impassable</passability>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<size>(3,3)</size>
+		<tickerType>Normal</tickerType>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>false</castEdgeShadows>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0, 0, -2)</interactionCellOffset>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>10000</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<drainFlowSpeedPerDay>60000</drainFlowSpeedPerDay>
+				<pipeTypeDef>Hydrogen</pipeTypeDef>
+				<canChangePipeType>true</canChangePipeType>
+				<pipeTypeDefsWhitelist>
+					<li>Hydrogen</li>
+					<li>Oxyden</li>
+					<li>Nitrogen</li>
+					<li>Ammonia</li>
+					<li>Chlorine</li>
+					<li>CarbonDioxide</li>
+					<li>FuelGas</li>
+					<li>Refrigerant</li>
+					<li>HydrogenSulfide</li>
+				</pipeTypeDefsWhitelist>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>30</maxExplosiveRadius>
+				<damageAmountBase>50</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosionSound>Explosion_Bomb</explosionSound>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>1</chanceToStartFire>
+				<startWickHitPointsPercent>0.35</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>0.7~2.5</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+				  <min>400</min>
+				  <max>1000</max>
+				</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>AirSeparator</defName>
+		<label>Air separator</label>
+		<description>Performs a cryogenic distillation process at temperatures reaching -200 ºC to separate atmospheric air into its primary components - Oxygen and Nitrogen.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_PassiveLiquidProduser</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/AirSeparator/AirSeparator</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>8,8</drawSize>
+            <drawOffset>0, 0, 0.27</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
+		<tickerType>Normal</tickerType>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>300</costStuffCount>
+		<costList>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismComplex>30</MechanismComplex>
+			<StrongPlates>80</StrongPlates>
+			<SimpleElectronic>10</SimpleElectronic>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>18000</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Cleanliness>-2</Cleanliness>
+		</statBases>
+		<size>(4,6)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Production_GasProcessing</designatorDropdown>
+		<passability>Impassable</passability>
+		<pathCost>50</pathCost>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>GasIndustryI</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>250</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_PassiveLiquidProduser">
+				<baseProcessSpeedPerDay>10</baseProcessSpeedPerDay>
+				<processResult>
+					<li>
+						<pipeTypeDef>Oxyden</pipeTypeDef>
+						<baseCount>10</baseCount>
+					</li>
+					<li>
+						<pipeTypeDef>Nitrogen</pipeTypeDef>
+						<baseCount>10</baseCount>
+					</li>
+				</processResult>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>500</capacity>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<pipeTypeDef>Oxyden</pipeTypeDef>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<barOffset>(1, 0, 0)</barOffset>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>500</capacity>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<pipeTypeDef>Nitrogen</pipeTypeDef>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<barOffset>(-1, 0, 0)</barOffset>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>GasChamber</defName>
+		<label>Gas chamber</label>
+		<description>Allows you to mix and combine different gases and liquids to create new ones.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_GasProcessor</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/GasChamber/GasChamber</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>4.95,4.95</drawSize>
+			<drawOffset>0, 0, 0</drawOffset>
+			<drawRotated>false</drawRotated>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>400</costStuffCount>
+		<costList>
+			<ComponentIndustrial>15</ComponentIndustrial>
+			<MechanismComplex>12</MechanismComplex>
+			<StrongPlates>120</StrongPlates>
+			<SimpleElectronic>10</SimpleElectronic>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>20000</WorkToBuild>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Cleanliness>-4</Cleanliness>
+			<FuelConsumption>100</FuelConsumption>
+			<HeatingEfficiency>1.0</HeatingEfficiency>
+		</statBases>
+		<size>(4,4)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Production_GasProcessing</designatorDropdown>
+		<passability>Impassable</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<interactionCellIcon isNull="true"/>
+		<researchPrerequisites>
+			<li>GasIndustryIII</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_GasProcessor">
+				<processResult>
+					<li>
+						<outStorageTag>OutStorage</outStorageTag>
+						<pipeTypeDef>Ammonia</pipeTypeDef>
+						<progressPerDay>4</progressPerDay>
+						<resultCount>10</resultCount>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
+								<waterRequired>20</waterRequired>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Liquid">
+								<targetStorageTag>SourceStorage1</targetStorageTag>
+								<sourcePipeTypeDefs>
+									<li>Nitrogen</li>
+								</sourcePipeTypeDefs>
+								<count>25</count>
+							</li>
+						</ingredients>
+					</li>
+					<li>
+						<outStorageTag>OutStorage</outStorageTag>
+						<processLabelKey>GasChamber_FuelGas_Ethanol</processLabelKey>
+						<pipeTypeDef>FuelGas</pipeTypeDef>
+						<progressPerDay>3</progressPerDay>
+						<resultCount>50</resultCount>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
+								<waterRequired>225</waterRequired>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Liquid">
+								<targetStorageTag>SourceStorage1</targetStorageTag>
+								<sourcePipeTypeDefs>
+									<li>Ethanol</li>
+								</sourcePipeTypeDefs>
+								<count>100</count>
+							</li>
+						</ingredients>
+					</li>
+					<li>
+						<outStorageTag>OutStorage</outStorageTag>
+						<processLabelKey>GasChamber_FuelGas_Diesel</processLabelKey>
+						<pipeTypeDef>FuelGas</pipeTypeDef>
+						<progressPerDay>3</progressPerDay>
+						<resultCount>50</resultCount>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
+								<waterRequired>225</waterRequired>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Liquid">
+								<targetStorageTag>SourceStorage1</targetStorageTag>
+								<sourcePipeTypeDefs>
+									<li>Diesel</li>
+								</sourcePipeTypeDefs>
+								<count>50</count>
+							</li>
+						</ingredients>
+					</li>
+					<li>
+						<outStorageTag>OutStorage</outStorageTag>
+						<pipeTypeDef>Chlorine</pipeTypeDef>
+						<progressPerDay>8</progressPerDay>
+						<resultCount>10</resultCount>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
+								<waterRequired>60</waterRequired>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Thing">
+								<thingFilter>
+									<thingDefs>
+										<li>RockSalt</li>
+									</thingDefs>
+								</thingFilter>
+								<requiredCount>25</requiredCount>
+							</li>
+						</ingredients>
+					</li>
+					<li>
+						<outStorageTag>OutStorage</outStorageTag>
+						<pipeTypeDef>Diesel</pipeTypeDef>
+						<progressPerDay>4</progressPerDay>
+						<resultCount>16</resultCount>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
+								<waterRequired>80</waterRequired>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Liquid">
+								<targetStorageTag>SourceStorage1</targetStorageTag>
+								<sourcePipeTypeDefs>
+									<li>HeavyOil</li>
+								</sourcePipeTypeDefs>
+								<count>24</count>
+							</li>
+						</ingredients>
+					</li>
+					<li>
+						<outStorageTag>OutStorage</outStorageTag>
+						<pipeTypeDef>Hydrogen</pipeTypeDef>
+						<progressPerDay>8</progressPerDay>
+						<resultCount>50</resultCount>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
+								<waterRequired>20</waterRequired>
+							</li>
+						</ingredients>
+					</li>
+					<li>
+						<outStorageTag>OutStorage</outStorageTag>
+						<pipeTypeDef>RocketFuel</pipeTypeDef>
+						<reqResearch>RocketFuel</reqResearch>
+						<progressPerDay>2</progressPerDay>
+						<resultCount>25</resultCount>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
+								<waterRequired>150</waterRequired>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Liquid">
+								<targetStorageTag>SourceStorage1</targetStorageTag>
+								<sourcePipeTypeDefs>
+									<li>Diesel</li>
+								</sourcePipeTypeDefs>
+								<count>50</count>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Liquid">
+								<targetStorageTag>SourceStorage2</targetStorageTag>
+								<sourcePipeTypeDefs>
+									<li>Oxyden</li>
+								</sourcePipeTypeDefs>
+								<count>25</count>
+							</li>
+						</ingredients>
+					</li>
+					<li>
+						<processLabelKey>GasChamber_Sulfur_HydrogenSulfide</processLabelKey>
+						<progressPerDay>3</progressPerDay>
+						<resultCount>75</resultCount>
+						<resultThingDef>Sulfur</resultThingDef>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Liquid">
+								<targetStorageTag>SourceStorage1</targetStorageTag>
+								<sourcePipeTypeDefs>
+									<li>HydrogenSulfide</li>
+								</sourcePipeTypeDefs>
+								<count>20</count>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Thing">
+								<thingFilter>
+									<thingDefs>
+										<li>BauxiteOre</li>
+										<li>IlmeniteOre</li>
+									</thingDefs>
+								</thingFilter>
+								<requiredCount>10</requiredCount>
+							</li>
+						</ingredients>
+					</li>
+				</processResult>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>250</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<tag>SourceStorage1</tag>
+				<pipeTypeDef>Nitrogen</pipeTypeDef>
+				<capacity>500</capacity>
+				<pipeTypeDefsWhitelist>
+					<li>Nitrogen</li>
+					<li>Ethanol</li>
+					<li>Diesel</li>
+					<li>Oxyden</li>
+					<li>HeavyOil</li>
+					<li>HydrogenSulfide</li>
+				</pipeTypeDefsWhitelist>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>false</drawStorageOverlay>
+				<showStorageInfo>false</showStorageInfo>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<tag>SourceStorage2</tag>
+				<pipeTypeDef>Nitrogen</pipeTypeDef>
+				<capacity>500</capacity>
+				<pipeTypeDefsWhitelist>
+					<li>Nitrogen</li>
+					<li>Ethanol</li>
+					<li>Diesel</li>
+					<li>Oxyden</li>
+					<li>HeavyOil</li>
+				</pipeTypeDefsWhitelist>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>false</drawStorageOverlay>
+				<showStorageInfo>false</showStorageInfo>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<tag>OutStorage</tag>
+				<pipeTypeDef>Ammonia</pipeTypeDef>
+				<pipeTypeDefsWhitelist>
+					<li>Ammonia</li>
+					<li>Chlorine</li>
+					<li>FuelGas</li>
+					<li>Diesel</li>
+					<li>RocketFuel</li>
+					<li>Hydrogen</li>
+				</pipeTypeDefsWhitelist>
+				<capacity>500</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>true</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>500</WaterStorageCap>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>4</maxExplosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>0.2</chanceToStartFire>
+				<startWickHitPointsPercent>0.1</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>1.2~2.5</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+				  <min>400</min>
+				  <max>900</max>
+				</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

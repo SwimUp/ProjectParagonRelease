@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>ProstheticLeg</defName>
+		<label>Prosthetic leg</label>
+		<labelNoun>a prosthetic leg</labelNoun>
+		<description>A simple leg prosthesis made from prosthetic components and gears.</description>
+		<spawnThingOnRemoved>ProstheticLeg</spawnThingOnRemoved>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1</partEfficiency>
+		</addedPartProps>
+		<priceImpact>true</priceImpact>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+				<multiplier>1</multiplier>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+			</li>
+		</modExtensions>
+	</HediffDef>
+	<ThingDef ParentName="ProsthesisAdvancedIndustrialBase">
+		<defName>ProstheticLeg</defName>
+		<label>Prosthetic leg</label>
+		<description>A prosthesis made from prosthetic components and gears.</description>
+		<graphicData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>4.0</Mass>
+		</statBases>
+		<recipeMaker>
+			<workSpeedStat>SmeltingSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smelt</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<researchPrerequisite>ProstheticsV</researchPrerequisite>
+			<recipeUsers>
+				<li>TableMachiningAdvanced</li>
+			</recipeUsers>
+			<unfinishedThingDef>ProstheticParagon_T3_</unfinishedThingDef>
+		</recipeMaker>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Plastic</li>
+		</stuffCategories>
+		<costStuffCount>50</costStuffCount>
+		<costList>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Microelectronics>1</Microelectronics>
+		</costList>
+	</ThingDef>
+	<RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+		<defName>ProstheticLeg</defName>
+		<label>install prosthetic leg</label>
+		<description>Install a prosthetic leg.</description>
+		<jobString>Installing prosthetic leg.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ProstheticLeg</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ProstheticLeg</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Leg</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>ProstheticLeg</addsHediff>
+		<researchPrerequisite>ProstheticsV</researchPrerequisite>
+	</RecipeDef>
+</Defs>

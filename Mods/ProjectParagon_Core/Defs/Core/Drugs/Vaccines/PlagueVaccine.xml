@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>PlagueVaccine</defName>
+		<label>Plague vaccine</label>
+		<description>A vaccine that provides immunity against plague.</description>
+		<possessionCount>10</possessionCount>
+		<descriptionHyperlinks>
+			<HediffDef>PlagueVaccineHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Vaccine/Vaccine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToMake>1000</WorkToMake>
+			<MarketValue>30</MarketValue>
+			<Mass>0.005</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>PlagueVaccineHigh</hediffDef>
+					<severity>1.0</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker Class="ProjectParagon.Core.Things.RecipeMakerPropertiesParagon">
+			<researchPrerequisite>Narko_VaccineProduction</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>DrugLab</li>
+			</recipeUsers>
+			<extraRecipeItems>
+				<li>
+					<thingDef>Cyclinder_Empty</thingDef>
+					<count>1</count>
+				</li>
+			</extraRecipeItems>
+			<productCount>4</productCount>
+		</recipeMaker>
+		<costList>
+			<Glass>4</Glass>
+			<Neutroamine>2</Neutroamine>
+			<Cyclinder_Chlorine>1</Cyclinder_Chlorine>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>PlagueVaccineHigh</defName>
+		<hediffClass>Hediff_High</hediffClass>
+		<label>Plague vaccine</label>
+		<description>A vaccine that provides immunity against plague.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.0667</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<makeImmuneTo>
+					<li>Plague</li>
+				</makeImmuneTo>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

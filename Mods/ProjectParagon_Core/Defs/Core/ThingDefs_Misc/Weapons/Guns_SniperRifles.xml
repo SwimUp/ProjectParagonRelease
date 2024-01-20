@@ -1,0 +1,1779 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>TMC_IAR_HighWall</defName>
+		<label>1885 High-Wall Rifle</label>
+		<description>A single shot rifle that can be easily made with no requirement of component.</description>
+		<graphicData>
+			<texPath>HighWall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4, 1.4)</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>10</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>Gunsmithing</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>AmmoBench</li>
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToMake>15000</WorkToMake>
+			<Mass>5.5</Mass>
+			<Bulk>14.2</Bulk>
+			<SwayFactor>1.20</SwayFactor>
+			<ShotSpread>0.1</ShotSpread>
+			<SightsEfficiency>1</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.95</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<SimpleWeaponComponents>10</SimpleWeaponComponents>
+			<MechanismSimple>12</MechanismSimple>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>True</hasStandardCommand>
+				<defaultProjectile>Bullet_4570Gov_FMJ</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>40</range>
+				<soundCast>Shot_AssaultRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilAmount>2.5</recoilAmount>
+			</li>
+		</verbs>
+		<weaponTags>
+			<li>CE_AI_Rifle</li>
+			<li>SimpleGun</li>
+			<li>Weapon_SniperRifles_TierI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<reloadTime>2</reloadTime>
+				<ammoSet>AmmoSet_4570Gov</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+				<aiUseBurstMode>True</aiUseBurstMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.3,1.3</DrawSize>
+				<DrawOffset>0.08,0.08</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<!-- ================================= Lee Enfield ==================================== -->
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_LeeEnfield_BoltAction</defName>
+		<label>Lee Enfield Mk III</label>
+		<description>The Lee–Enfield is a bolt-action, magazine-fed, repeating rifle that served as the main firearm used by the military forces of the British Empire and Commonwealth during the first half of the 20th century. 
+	
+It was the British Army's standard rifle from its official adoption in 1895 until 1957.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/Lee_Enfield</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>4.19</Mass>
+			<RangedWeapon_Cooldown>1.17</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.7</SightsEfficiency>
+			<ShotSpread>0.12</ShotSpread>
+			<SwayFactor>1.62</SwayFactor>
+			<Bulk>12.60</Bulk>
+			<WorkToMake>12000</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>16</AdvancedWeaponComponents>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>10</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>BlowbackOperation</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>1.3</reloadTime>
+				<ammoSet>AmmoSet_303British</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_303British_FMJ</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>70</range>
+				<soundCast>RNShot_BoltActionOldie</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<weaponTags>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.08,0.06</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>TMC_IAR_PTRS</defName>
+		<label>PTRS</label>
+		<description>A semi-auto Anti-Tank rifle from ancient time, prove to be useful against mechanoids at some capacity.</description>
+		<graphicData>
+			<texPath>PTRS</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>7</Mass>
+			<Bulk>13.5</Bulk>
+			<SwayFactor>1.7</SwayFactor>
+			<ShotSpread>0.1</ShotSpread>
+			<SightsEfficiency>0.5</SightsEfficiency>
+			<RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+			<WorkToMake>25000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>20</AdvancedWeaponComponents>
+			<MechanismComplex>3</MechanismComplex>
+			<ComponentIndustrial>3</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>10</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>BlowbackOperation</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>4</reloadTime>
+				<ammoSet>AmmoSet_4570Gov</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>True</hasStandardCommand>
+				<defaultProjectile>Bullet_145x114mm_FMJ</defaultProjectile>
+				<warmupTime>1.2</warmupTime>
+				<range>82</range>
+				<soundCast>Shot_GenLeverRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>12</muzzleFlashScale>
+				<recoilAmount>1.9</recoilAmount>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.3,1.3</DrawSize>
+				<DrawOffset>0.17,0.2</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_M24A2_Sniper</defName>
+		<label>M24</label>
+		<description>The M24 Sniper Weapon System (SWS) is the military and police version of the Remington Model 700 rifle, M24 being the model name assigned by the United States Army after adoption as their standard sniper rifle in 1988. 
+	
+The M24 is referred to as a "weapon system" because it consists of not only a rifle, but also a detachable telescopic sight and other accessories.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/M24</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>7.10</Mass>
+			<RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.2</SightsEfficiency>
+			<ShotSpread>0.11</ShotSpread>
+			<SwayFactor>1.35</SwayFactor>
+			<Bulk>11.92</Bulk>
+			<WorkToMake>30000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>18</AdvancedWeaponComponents>
+			<MechanismComplex>6</MechanismComplex>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>15</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>BlowbackOperation</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>1.3</reloadTime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.35</warmupTime>
+				<range>85</range>
+				<soundCast>RNShot_GenericBoltSniper</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.18,0.12</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_MannlicherSchoenauer_Sniper</defName>
+		<label>Mannlicher–Schönauer</label>
+		<description>The Mannlicher–Schönauer (sometimes Anglicized as "Mannlicher Schoenauer", Hellenized as Τυφέκιον/Όπλον Μάνλιχερ, Óplon/Tyfékion Mannlicher) is a type of rotary-magazine bolt-action rifle produced by Steyr Mannlicher for the Greek Army in 1903 and later was also used in small numbers by the Austro-Hungarian Army. It was the main rifle of the Hellenic Army during the first half of the 20th century. Post war use was for civilian use, such as hunting and target practice. It's magazine capacity can hold up to 5 cartridges.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/Mannlicher_Schoenauer_Model1910</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>4</Mass>
+			<RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.8</SightsEfficiency>
+			<ShotSpread>0.14</ShotSpread>
+			<SwayFactor>1.56</SwayFactor>
+			<Bulk>12.26</Bulk>
+			<WorkToMake>19000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>17</AdvancedWeaponComponents>
+			<MechanismComplex>6</MechanismComplex>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>12</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>BlowbackOperation</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>1.4</reloadTime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.65</warmupTime>
+				<range>75</range>
+				<soundCast>RNShot_GenericBoltSniper</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_SV98_Sniper</defName>
+		<label>SV-98</label>
+		<description>The SV-98 (Snaiperskaya Vintovka Model 1998) is a Russian bolt-action sniper rifle designed by Vladimir Stronskiy. In 2003 special operations troops were armed with the 7.62 mm 6S11 sniper system comprising the SV-98 sniper rifle (index 6V10) and 7N14 sniper enhanced penetration round. 
+	
+The rifle has been used in combat during operations in Chechnya.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/SV98</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>6.80</Mass>
+			<RangedWeapon_Cooldown>1.25</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.2</SightsEfficiency>
+			<ShotSpread>0.06</ShotSpread>
+			<SwayFactor>1.39</SwayFactor>
+			<Bulk>11.00</Bulk>
+			<WorkToMake>19000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>18</AdvancedWeaponComponents>
+			<MechanismComplex>8</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>14</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>BlowbackOperation</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>3.3</reloadTime>
+				<ammoSet>AmmoSet_762x54mmR</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x54mmR_FMJ</defaultProjectile>
+				<warmupTime>1.4</warmupTime>
+				<range>87</range>
+				<soundCast>RNShotSV98</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.1,1.1</DrawSize>
+				<DrawOffset>0.08,0.07</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>CE_Gun_Krip_SV98b</defName>
+		<label>SV-98M</label>
+		<description>SV-98M. Ancient bolt-action sniper rifle, made to replace older designs and take advantage of more modern machining techniques. Good accuracy and reliability. This model is equipped with a folding stock, suppressor, and night vision optics.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/SV-98M_7.62x54mmR</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>7.80</Mass>
+			<RangedWeapon_Cooldown>1.15</RangedWeapon_Cooldown>
+			<SightsEfficiency>3.2</SightsEfficiency>
+			<ShotSpread>0.04</ShotSpread>
+			<SwayFactor>1.3</SwayFactor>
+			<Bulk>13.00</Bulk>
+			<WorkToMake>15000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<equippedStatOffsets>
+			<HuntingStealth>0.2</HuntingStealth>
+		</equippedStatOffsets>
+		<costList>
+			<RNGun_SV98_Sniper>1</RNGun_SV98_Sniper>
+			<UpgradeWeaponParts>20</UpgradeWeaponParts>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>WeaponModification</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>3.6</reloadTime>
+				<ammoSet>AmmoSet_762x54mmR</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x54mmR_FMJ</defaultProjectile>
+				<warmupTime>1.35</warmupTime>
+				<range>95</range>
+				<soundCast>Shot_BoltActionRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.3,1.3</DrawSize>
+				<DrawOffset>0.18,0.15</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>TMC_SR_M700tmc</defName>
+		<label>M700</label>
+		<description>.</description>
+		<graphicData>
+			<texPath>SniperRifle/M700</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.3, 1.3)</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>4.6</Mass>
+			<RangedWeapon_Cooldown>1.28</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.6</SightsEfficiency>
+			<ShotSpread>0.08</ShotSpread>
+			<SwayFactor>1.30</SwayFactor>
+			<Bulk>11.2</Bulk>
+			<WorkToMake>32000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>16</AdvancedWeaponComponents>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>15</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>BlowbackOperation</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>1.4</reloadTime>
+				<reloadOneAtATime>true</reloadOneAtATime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.65</warmupTime>
+				<range>75</range>
+				<soundCast>Shot_TMC_Bolt308</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.2,1.2</DrawSize>
+				<DrawOffset>0.07,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>M700_MOD</defName>
+		<label>M700 (mod)</label>
+		<description>.</description>
+		<graphicData>
+			<texPath>Things/Weapon/Range/TW_Guns_SniperRifle_A</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>5.4</Mass>
+			<RangedWeapon_Cooldown>1.28</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.9</SightsEfficiency>
+			<ShotSpread>0.05</ShotSpread>
+			<SwayFactor>1.4</SwayFactor>
+			<Bulk>12.2</Bulk>
+			<WorkToMake>27000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<equippedStatOffsets>
+			<HuntingStealth>0.15</HuntingStealth>
+		</equippedStatOffsets>
+		<costList>
+			<TMC_SR_M700tmc>1</TMC_SR_M700tmc>
+			<UpgradeWeaponParts>18</UpgradeWeaponParts>
+		</costList>
+		<recipeMaker>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<researchPrerequisite>WeaponModification</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>1.2</reloadTime>
+				<reloadOneAtATime>true</reloadOneAtATime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.45</warmupTime>
+				<range>92</range>
+				<soundCast>TW_Guns_SniperRifle_A_Shot</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.4,1.4</DrawSize>
+				<DrawOffset>0.15,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>HRK_DTSRS</defName>
+		<label>DT SRS</label>
+		<description>The Desert Tech Stealth Recon Scout (SRS) is a bolt-action sniper rifle developed by the firearm manufacturer Desert Tech. It is known for its bullpup design.</description>
+		<graphicData>
+			<texPath>Things/Weapons/HRK_DTSRS/HRK_DTSRS_Tan</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>5.6</Mass>
+            <RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+            <SightsEfficiency>2.60</SightsEfficiency>
+            <ShotSpread>0.04</ShotSpread>
+            <SwayFactor>1.61</SwayFactor>
+            <Bulk>9.53</Bulk>
+            <WorkToMake>55000</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>25</AdvancedWeaponComponents>
+			<MechanismComplex>12</MechanismComplex>
+			<ComponentIndustrial>12</ComponentIndustrial>
+			<Plastic>45</Plastic>
+			<Polymers>45</Polymers>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>3.5</reloadTime>
+				<ammoSet>AmmoSet_338Lapua</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>GasOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>20</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_338Lapua_FMJ</defaultProjectile>
+                <warmupTime>1.6</warmupTime>
+                <range>100</range>
+                <soundCast>HRK_Shot_DTSRS</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+                <recoilAmount>2.29</recoilAmount>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.1,1.1</DrawSize>
+				<DrawOffset>0.0,-0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>TMC_SR_MRAD</defName>
+		<label>MRAD</label>
+		<description>.</description>
+		<graphicData>
+			<texPath>SniperRifle/MRAD</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>6.3</Mass>
+            <RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+            <SightsEfficiency>2.75</SightsEfficiency>
+            <ShotSpread>0.03</ShotSpread>
+            <SwayFactor>1.61</SwayFactor>
+            <Bulk>10.5</Bulk>
+            <WorkToMake>52000</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>26</AdvancedWeaponComponents>
+			<MechanismComplex>14</MechanismComplex>
+			<ComponentIndustrial>12</ComponentIndustrial>
+			<Plastic>40</Plastic>
+			<Polymers>40</Polymers>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>3.8</reloadTime>
+				<ammoSet>AmmoSet_338Lapua</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>GasOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>20</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_338Lapua_FMJ</defaultProjectile>
+                <warmupTime>1.7</warmupTime>
+                <range>105</range>
+                <soundCast>Shot_TMC_50BMGBolt</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+                <recoilAmount>2.29</recoilAmount>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.1,1.1</DrawSize>
+				<DrawOffset>0.06,0.14</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_GOLMagnum_Sniper</defName>
+		<label>GOL Magnum</label>
+		<description>The GOL-Sniper Magnum is a bolt-action sniper rifle designed by the German company Gol-Matic GmbH of Birkenau, Hessen. The rifle is available in tactical as well as sporting and match configurations. 
+	
+It is developed from Austrian Steyr SSG 69.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/GOL_Magnum</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>6.00</Mass>
+			<RangedWeapon_Cooldown>1.45</RangedWeapon_Cooldown>
+			<SightsEfficiency>3.20</SightsEfficiency>
+			<ShotSpread>0.03</ShotSpread>
+			<SwayFactor>1.67</SwayFactor>
+			<Bulk>13.30</Bulk>
+			<WorkToMake>55500</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>24</AdvancedWeaponComponents>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Plastic>35</Plastic>
+			<Polymers>45</Polymers>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>3.7</reloadTime>
+				<ammoSet>AmmoSet_300WinchesterMagnum</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>GasOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierIV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_300WinchesterMagnum_FMJ</defaultProjectile>
+				<warmupTime>1.5</warmupTime>
+				<range>105</range>
+				<soundCast>RNShotGOL</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_L96A1_Sniper</defName>
+		<label>L96A1</label>
+		<description>The Accuracy International Arctic Warfare rifle is a bolt-action sniper rifle designed and manufactured by the British company Accuracy International. 
+	
+It has proved popular as a civilian, police, and military rifle since its introduction in the 1980s. The rifles have some features that improve performance in very cold conditions, without impairing operation in less extreme conditions.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/L96A1</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>6.50</Mass>
+			<RangedWeapon_Cooldown>1.25</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.5</SightsEfficiency>
+			<ShotSpread>0.04</ShotSpread>
+			<SwayFactor>1.32</SwayFactor>
+			<Bulk>12.80</Bulk>
+			<WorkToMake>32500</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>20</AdvancedWeaponComponents>
+			<MechanismComplex>8</MechanismComplex>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<Plastic>30</Plastic>
+			<Polymers>40</Polymers>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>3.2</reloadTime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>GasOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.4</warmupTime>
+				<range>92</range>
+				<soundCast>RNShot_L96A1Sn</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.02,0.08</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_M40A5_Sniper</defName>
+		<label>M40A5</label>
+		<description>The M40 rifle is a bolt-action sniper rifle used by the United States Marine Corps. It has had four variants—the M40, M40A1, M40A3, and M40A5. 
+	
+The M40 was introduced in 1966. The changeover to the A1 model was completed in the 1970s, the A3 in the 2000s, and the A5 in 2009.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/M40A5</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>7.50</Mass>
+			<RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.75</SightsEfficiency>
+			<ShotSpread>0.04</ShotSpread>
+			<SwayFactor>1.40</SwayFactor>
+			<Bulk>12.24</Bulk>
+			<WorkToMake>34000</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>20</AdvancedWeaponComponents>
+			<MechanismComplex>8</MechanismComplex>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Plastic>30</Plastic>
+			<Polymers>50</Polymers>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>3.9</reloadTime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>GasOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.4</warmupTime>
+				<range>95</range>
+				<soundCast>RNShotM40Sniper</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_M200Intervention_AMR</defName>
+		<label>M200 Intervention</label>
+		<description>The CheyTac Intervention is an American bolt-action sniper rifle manufactured by CheyTac LLC, which can also be classified as an anti-materiel rifle. It is fed by a 7-round detachable single-stack magazine (an optional 5-round magazine is also available). 
+	
+It is specifically chambered in either .408 Chey Tac or .375 Chey Tac ammunition.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/M200_Intervention</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>15.20</Mass>
+			<RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+			<SightsEfficiency>3.35</SightsEfficiency>
+			<ShotSpread>0.02</ShotSpread>
+			<SwayFactor>2.06</SwayFactor>
+			<Bulk>12.87</Bulk>
+			<WorkToMake>65500</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>28</AdvancedWeaponComponents>
+			<MechanismComplex>13</MechanismComplex>
+			<ComponentIndustrial>13</ComponentIndustrial>
+			<Plastic>40</Plastic>
+			<Polymers>55</Polymers>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>7</magazineSize>
+				<reloadTime>4.0</reloadTime>
+				<ammoSet>AmmoSet_408CheyenneTactical</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>GasOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>20</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_408CheyenneTactical_FMJ</defaultProjectile>
+				<warmupTime>1.85</warmupTime>
+				<range>115</range>
+				<soundCast>RNShotIntervention</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.2,1.2</DrawSize>
+				<DrawOffset>0.2,0.15</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_C14Timberwolf_Sniper</defName>
+		<label>C14 Timberwolf</label>
+		<description>The C14 Timberwolf MRSWS (Medium Range Sniper Weapon System) is a bolt-action sniper rifle built by the Canadian arms company PGW Defence Technologies Inc. In 2005 they won the contract to supply the Canadian Forces Land Command with the C14 Timberwolf MRSWS for $4.5 million.
+
+The military version of the rifle, which is being used to replace the C3A1 sniper rifle, started as a civilian precision sport rifle. The military rifle, however, has several modifications to make it better suited for military use, and many accessories are available.
+
+The official military designation for the rifle is C14 Timberwolf Medium Range Sniper Weapon System (MRSWS).</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sharpshooter/C14_Timberwolf</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>40</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>7.1</Mass>
+			<RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.8</SightsEfficiency>
+			<ShotSpread>0.03</ShotSpread>
+			<SwayFactor>1.64</SwayFactor>
+			<Bulk>13.00</Bulk>
+			<WorkToMake>60500</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>24</AdvancedWeaponComponents>
+			<MechanismComplex>12</MechanismComplex>
+			<ComponentIndustrial>12</ComponentIndustrial>
+			<Plastic>30</Plastic>
+			<Polymers>40</Polymers>
+			<UpgradeWeaponParts>20</UpgradeWeaponParts>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>3.4</reloadTime>
+				<ammoSet>AmmoSet_338Lapua</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<equippedStatOffsets>
+			<HuntingStealth>0.1</HuntingStealth>
+		</equippedStatOffsets>
+		<recipeMaker>
+			<researchPrerequisite>WeaponModification</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>20</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_338Lapua_FMJ</defaultProjectile>
+				<warmupTime>1.6</warmupTime>
+				<range>100</range>
+				<soundCast>RNShot_GenericBoltSniper_II</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.1,1.1</DrawSize>
+				<DrawOffset>0.1,0.15</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+</Defs>

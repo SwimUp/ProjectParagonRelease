@@ -15,11 +15,10 @@
 		<label>20x102mm NATO</label>
 		<ammoTypes>
       		<Ammo_20x102mmNATO_AP>Bullet_20x102mmNATO_AP</Ammo_20x102mmNATO_AP>		
-			<Ammo_20x102mmNATO_Incendiary>Bullet_20x102mmNATO_Incendiary</Ammo_20x102mmNATO_Incendiary>
-			<Ammo_20x102mmNATO_HE>Bullet_20x102mmNATO_HE</Ammo_20x102mmNATO_HE>
-			<Ammo_20x102mmNATO_Sabot>Bullet_20x102mmNATO_Sabot</Ammo_20x102mmNATO_Sabot>
+			<!--<Ammo_20x102mmNATO_Incendiary>Bullet_20x102mmNATO_Incendiary</Ammo_20x102mmNATO_Incendiary>
+			<Ammo_20x102mmNATO_HE>Bullet_20x102mmNATO_HE</Ammo_20x102mmNATO_HE> 
+			<Ammo_20x102mmNATO_Sabot>Bullet_20x102mmNATO_Sabot</Ammo_20x102mmNATO_Sabot>-->
 		</ammoTypes>
-		<similarTo>AmmoSet_Autocannon</similarTo>
 	</CombatExtended.AmmoSetDef>
 
 	<!-- ==================== Ammo ========================== -->
@@ -37,7 +36,7 @@
 		<thingCategories>
 			<li>Ammo20x102mmNATO</li>
 		</thingCategories>
-		<stackLimit>1000</stackLimit>
+		<stackLimit>500</stackLimit>
 	</ThingDef>
 
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo20x102mmNATOBase">
@@ -54,6 +53,7 @@
 		<cookOffProjectile>Bullet_20x102mmNATO_AP</cookOffProjectile>
 	</ThingDef>
 
+<!--
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo20x102mmNATOBase">
 		<defName>Ammo_20x102mmNATO_Incendiary</defName>
 		<label>20x102mm NATO cartridge (AP-I)</label>
@@ -96,7 +96,7 @@
 		<ammoClass>Sabot</ammoClass>
 		<cookOffProjectile>Bullet_20x102mmNATO_Sabot</cookOffProjectile>
 	</ThingDef>
-
+-->
 	<!-- ================== Projectiles ================== -->
 
 	<ThingDef Name="Base20x102mmNATOBullet" ParentName="BaseBullet" Abstract="true">
@@ -116,11 +116,11 @@
 		<label>20x102mm NATO bullet (AP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>44</damageAmountBase>
-			<armorPenetrationSharp>30</armorPenetrationSharp>
+			<armorPenetrationSharp>31</armorPenetrationSharp>
 			<armorPenetrationBlunt>1029.080</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
+<!--
 	<ThingDef ParentName="Base20x102mmNATOBullet">
 		<defName>Bullet_20x102mmNATO_Incendiary</defName>
 		<label>20x102mm NATO bullet (AP-I)</label>
@@ -163,7 +163,7 @@
 			<speed>309</speed>
 		</projectile>
 	</ThingDef>
-
+-->
 	<!-- ==================== Recipes ========================== -->
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -174,24 +174,48 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>104</count>
+				<count>85</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>300</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_20x102mmNATO_AP>200</Ammo_20x102mmNATO_AP>
+			<Ammo_20x102mmNATO_AP>100</Ammo_20x102mmNATO_AP>
 		</products>
 		<workAmount>12480</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
 	</RecipeDef>
-
+<!--
 	<RecipeDef ParentName="AdvancedAmmoRecipeBase">
 		<defName>MakeAmmo_20x102mmNATO_Incendiary</defName>
 		<label>make 20x102mm NATO (AP-I) cartridge x200</label>
@@ -225,6 +249,7 @@
 			<Ammo_20x102mmNATO_Incendiary>200</Ammo_20x102mmNATO_Incendiary>
 		</products>
 		<workAmount>14400</workAmount>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AdvancedAmmoRecipeBase">
@@ -260,6 +285,7 @@
 			<Ammo_20x102mmNATO_HE>200</Ammo_20x102mmNATO_HE>
 		</products>
 		<workAmount>18000</workAmount>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AdvancedAmmoRecipeBase">
@@ -304,6 +330,7 @@
 			<Ammo_20x102mmNATO_Sabot>200</Ammo_20x102mmNATO_Sabot>
 		</products>
 		<workAmount>13600</workAmount>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
 	</RecipeDef>
-
+-->
 </Defs>

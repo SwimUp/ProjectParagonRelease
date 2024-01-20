@@ -31,12 +31,13 @@
 			<ingestSound>Meal_Eat</ingestSound>
 			<foodType>Meal</foodType>
 			<optimalityOffsetHumanlikes>16</optimalityOffsetHumanlikes>
-		    <ingestCommandString>Eat {0}</ingestCommandString>
-		    <ingestReportString>Eating {0}.</ingestReportString>
+			<ingestCommandString>Eat {0}</ingestCommandString>
+			<ingestReportString>Eating {0}.</ingestReportString>
 		</ingestible>
 		<comps>
 			<li Class="CompProperties_Forbiddable"/>
-			<li Class="CompProperties_Ingredients"/>
+			<li Class="CompProperties_Ingredients">
+			</li>
 		</comps>
 		<pathCost>14</pathCost>
 		<resourceReadoutPriority>Last</resourceReadoutPriority>
@@ -128,7 +129,18 @@
 				<daysToRotStart>3</daysToRotStart>
 				<rotDestroys>true</rotDestroys>
 			</li>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
 		</comps>
+		<ingestible>
+			<drugCategory>Social</drugCategory>
+			<preferability>NeverForNutrition</preferability>
+			<foodType>Fluid, Processed</foodType>
+			<joy>0.1</joy>
+            <joyKind>Gluttonous</joyKind>
+		</ingestible>
 	</ThingDef>
 	<ThingDef ParentName="ParagonFoodTemplateItemBase">
 		<defName>FoodTemplate_HotDrink</defName>
@@ -142,7 +154,19 @@
 				<daysToRotStart>3</daysToRotStart>
 				<rotDestroys>true</rotDestroys>
 			</li>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
 		</comps>
+		<ingestible>
+			<drugCategory>Social</drugCategory>
+			<preferability>NeverForNutrition</preferability>
+			<foodType>Fluid, Processed</foodType>
+			<joy>0.1</joy>
+            <joyKind>Gluttonous</joyKind>
+		</ingestible>
+		<!--<orderedTakeGroup>Drug</orderedTakeGroup>-->
 	</ThingDef>
 	<ThingDef ParentName="ParagonFoodTemplateItemBase">
 		<defName>FoodTemplate_Bake</defName>
@@ -197,7 +221,18 @@
 				<daysToRotStart>60</daysToRotStart>
 				<rotDestroys>true</rotDestroys>
 			</li>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+			</li>
 		</comps>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+			<preferability>NeverForNutrition</preferability>
+			<foodType>Fluid, Processed</foodType>
+			<joy>0.05</joy>
+            <joyKind>Gluttonous</joyKind>
+		</ingestible>
 	</ThingDef>
 	<ThingDef ParentName="ParagonFoodTemplateItemBase">
 		<defName>FoodTemplate_Sushi</defName>
@@ -217,6 +252,80 @@
 			</li>
 		</comps>
 	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_MealSurvivalPack</defName>
+		<label>Meal survival pack</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/MealSurvivalPack/MealSurvivalPack_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Beauty>-4</Beauty>
+			<DeteriorationRate>0.25</DeteriorationRate>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Icecream</defName>
+		<label>Ice cream</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Icecream/Icecream_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Beauty>-4</Beauty>
+			<DeteriorationRate>4</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>2</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ParagonFoodTemplateItemBase">
+		<defName>FoodTemplate_Soda</defName>
+		<label>Soda</label>
+		<graphicData>
+			<texPath>Core/Food/Meals/Soda/Soda_a</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Beauty>-4</Beauty>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>60</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="MealBase">
+		<defName>SpacePaste</defName>
+		<label>Space paste</label>
+		<description>Hermetically sealed paste for nutrition in space.</description>
+		<graphicData>
+			<texPath>Core/Food/Meals/SpacePaste</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>8</MarketValue>
+			<WorkToMake>500</WorkToMake>
+			<Nutrition>1</Nutrition>
+			<Protein>0.2</Protein>
+			<Fat>0.2</Fat>
+			<Carbohydrates>0.2</Carbohydrates>
+			<Vitamins>0.2</Vitamins>
+			<Flavor>0.0</Flavor>
+		</statBases>
+		<stackLimit>50</stackLimit>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<foodType>Meat</foodType>
+		</ingestible>
+		<techLevel>Industrial</techLevel>
+	</ThingDef>
 	<ThingDef ParentName="MealBase">
 		<defName>RoastedMeat</defName>
 		<label>roasted meat</label>
@@ -235,6 +344,7 @@
 			<Vitamins>0.0</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Neolithic</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -265,6 +375,7 @@
 			<Vitamins>0.0</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Neolithic</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -295,6 +406,7 @@
 			<Vitamins>0.002</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Neolithic</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -330,6 +442,7 @@
 			<ingestSound>Meal_Eat</ingestSound>
 			<foodType>Meat</foodType>
 		</ingestible>
+		<techLevel>Neolithic</techLevel>
 		<comps>
 			<li Class="CompProperties_Rottable">
 				<daysToRotStart>3</daysToRotStart>
@@ -355,6 +468,7 @@
 			<Vitamins>0.03</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Medieval</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -385,6 +499,7 @@
 			<Vitamins>0.05</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Medieval</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -415,6 +530,7 @@
 			<Vitamins>0.1</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Neolithic</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -447,6 +563,7 @@
 			<Vitamins>0.03</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Neolithic</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -477,6 +594,7 @@
 			<Vitamins>0.05</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Neolithic</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -506,11 +624,17 @@
 			<Vitamins>0.033</Vitamins>
 			<Flavor>0.0</Flavor>
 		</statBases>
+		<techLevel>Medieval</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
 			<foodType>Meat</foodType>
 		</ingestible>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
 		<comps>
 			<li Class="CompProperties_Rottable">
 				<daysToRotStart>10</daysToRotStart>
@@ -1856,7 +1980,7 @@
 		<rotatable>false</rotatable>
 		<stackLimit>25</stackLimit>
 		<thingCategories>
-			<li>Manufactured</li>
+			<li>Wort</li>
 		</thingCategories>
 		<statBases>
 			<DeteriorationRate>1.0</DeteriorationRate>
@@ -1865,6 +1989,7 @@
 			<Flammability>0.3</Flammability>
 			<MaxHitPoints>50</MaxHitPoints>
 		</statBases>
+		<techLevel>Medieval</techLevel>
 		<tickerType>Rare</tickerType>
 		<comps>
 			<li Class="CompProperties_Rottable">
@@ -1872,6 +1997,11 @@
 				<rotDestroys>true</rotDestroys>
 			</li>
 		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="MealBase">
 		<defName>SandCactus</defName>
@@ -1890,6 +2020,7 @@
 			<Vitamins>0.009</Vitamins>
 			<Flavor>0</Flavor>
 		</statBases>
+		<techLevel>Neolithic</techLevel>
 		<ingestible>
 			<preferability>MealSimple</preferability>
 			<ingestSound>Meal_Eat</ingestSound>
@@ -1920,6 +2051,7 @@
 			<Vitamins>0.013</Vitamins>
 			<Flavor>0</Flavor>
 		</statBases>
+		<techLevel>Neolithic</techLevel>
 		<stackLimit>75</stackLimit>
 		<ingestible>
 			<preferability>MealFine</preferability>

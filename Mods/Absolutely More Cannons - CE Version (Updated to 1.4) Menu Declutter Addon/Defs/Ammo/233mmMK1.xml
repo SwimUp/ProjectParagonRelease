@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 233mmBLMK1 -->
+	<ThingCategoryDef>
+		<defName>Ammo233mmBLMK1Shells</defName>
+		<label>BL 9.2-inch MK I</label>
+		<parent>AmmoHighCaliber</parent>
+		<iconPath>Things/Projectile/233mmBLMK1HE</iconPath>
+	</ThingCategoryDef>
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_233mmBLMK1_Shells</defName>
+		<label>BL 9.2-inch MK I</label>
+		<ammoTypes>
+			<Ammo_233mmBLMK1_HE>Bullet_233mmBLMK1_HE</Ammo_233mmBLMK1_HE>
+		</ammoTypes>
+		<isMortarAmmoSet>true</isMortarAmmoSet>
+		<!-- Delete if not artillery -->
+	</CombatExtended.AmmoSetDef>
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="233mmBLMK1Base" ParentName="AmmoBase" Abstract="True">
+		<description>BL 9.2-inch MK I Ammunitions</description>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<thingCategories>
+			<li>Ammo233mmBLMK1Shells</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<cookOffFlashScale>30</cookOffFlashScale>
+		<cookOffSound>MortarBomb_Explode</cookOffSound>
+		<isMortarAmmo>true</isMortarAmmo>
+		<!-- Delete if not artillery -->
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" Name="233mmBLMK1BaseCraftableBase" ParentName="233mmBLMK1Base" Abstract="True">
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+		<!-- 	<li>CE_AutoEnableCrafting_TableMachining</li> -->
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>4</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<!--<explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>-->
+				<startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<explodeOnKilled>True</explodeOnKilled>
+				<wickTicks>30~60</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="233mmBLMK1BaseCraftableBase">
+		<defName>Ammo_233mmBLMK1_HE</defName>
+		<label>233mm Mk.I (HE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/233mmBLMK1HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>479.25</MarketValue>
+			<Mass>150</Mass>
+			<Bulk>141.3</Bulk>
+		</statBases>
+		<ammoClass>GrenadeHE</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_233mmBLMK1_HE</detonateProjectile>
+	</ThingDef>
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="Base233mmBLMK1Shell" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>0</speed>
+			<flyOverhead>false</flyOverhead>
+			<dropsCasings>false</dropsCasings>
+			<!--<casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_CannonAmmoCasings</casingFilthDefname>-->
+			<!--
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for HE -->
+		</projectile>
+	</ThingDef>
+	<!-- HE Projectile -->
+	<ThingDef ParentName="Base233mmBLMK1Shell">
+		<defName>Bullet_233mmBLMK1_HE</defName>
+		<label>233mm Mk.I (HE)</label>
+		<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+		<!-- Delete if not HE -->
+		<graphicData>
+			<texPath>Things/Projectile/LargeShell</texPath>
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="ProjectParagon.Core.Things.ProjectilePropertiesCEParagon">
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>700</damageAmountBase>
+			<armorPenetrationSharp>50</armorPenetrationSharp>
+			<armorPenetrationBlunt>50000</armorPenetrationBlunt>
+			<explosionRadius>9</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+			<soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+			<soundAmbient>MortarRound_Ambient</soundAmbient>
+			<gravityFactor>5</gravityFactor>
+			<roofThicknessPenetration>60</roofThicknessPenetration>
+			<!--
+			<explosionRadius>5</explosionRadius>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for HE -->
+			<!--
+			<secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount></amount>
+        </li>
+	    </secondaryDamage>
+	  	-->
+		</projectile>
+		<comps>
+			<!-- 
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>208</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>1.5</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<ai_IsIncendiary>true</ai_IsIncendiary>
+			</li>
+		for HEAT -->
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>80</Fragment_Large>
+					<Fragment_Small>190</Fragment_Small>
+				</fragments>
+			</li>
+			<!-- delete if no fragments -->
+		</comps>
+	</ThingDef>
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_233mmBLMK1_HE</defName>
+		<label>make 233mm Mk.I HE x1</label>
+		<description>233mm Mk.I HE Ammunitions for 9.2-Inch Howitzer gun</description>
+		<jobString>Making 233mm Mk.I HE cannon shells.</jobString>
+		<workAmount>35000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>200</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>170</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>200</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_233mmBLMK1_HE>5</Ammo_233mmBLMK1_HE>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>HeavyArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+</Defs>

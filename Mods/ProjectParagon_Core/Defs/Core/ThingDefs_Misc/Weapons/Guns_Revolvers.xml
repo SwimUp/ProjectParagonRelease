@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--========================================== Ocelot ====================================-->
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>Gun_TMC_IHG_Ocelot</defName>
+		<label>Ocelot</label>
+		<description>Six bullets , more than enough to kill anything that moves."You`re pretty good".</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Sidearms/IHG/Ocelot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.4, 1.4)</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Mass>1.2</Mass>
+			<RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.50</SightsEfficiency>
+			<ShotSpread>0.4</ShotSpread>
+			<SwayFactor>0.81</SwayFactor>
+			<Bulk>2.0</Bulk>
+			<WorkToMake>6500</WorkToMake>
+		</statBases>
+		<costList>
+			<SimpleWeaponComponents>4</SimpleWeaponComponents>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>1.1</reloadTime>
+				<ammoSet>AmmoSet_38Special</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>false</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>2.0</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_38Special_FMJ</defaultProjectile>
+				<warmupTime>0.3</warmupTime>
+				<range>26</range>
+				<soundCast>TMCShot_Ocelot</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Regular</recoilPattern>
+			</li>
+		</verbs>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_Sidearm</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>Weapon_Revolver_TierI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<armorPenetrationBlunt>0.65</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<armorPenetrationBlunt>0.65</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<recipeMaker>
+			<researchPrerequisite>Gunsmithing</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>AmmoBench</li>
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- ================================= Cobra Guy Never Dies ==================================== -->
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_ColtCobra_Revolver</defName>
+		<label>Colt Cobra</label>
+		<description>The Colt Cobra is a lightweight, aluminum-framed, double-action short-barrelled revolver, not to be confused with the Colt King Cobra. 
+	
+The Cobra was chambered in .38 Special, .38 New police, .32 Colt New Police, and .22 LR. It holds six shots of ammunition and was sold by Colt from 1950 until 1981.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Handgun/Colt_Cobra</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Mass>0.43</Mass>
+			<RangedWeapon_Cooldown>0.35</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.50</SightsEfficiency>
+			<ShotSpread>0.45</ShotSpread>
+			<SwayFactor>0.81</SwayFactor>
+			<Bulk>1.4</Bulk>
+			<WorkToMake>4500</WorkToMake>
+		</statBases>
+		<costList>
+			<SimpleWeaponComponents>4</SimpleWeaponComponents>
+			<MechanismSimple>2</MechanismSimple>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Gunsmithing</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>AmmoBench</li>
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_Sidearm</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>Weapon_Revolver_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>3.35</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_38Special_FMJ</defaultProjectile>
+				<warmupTime>0.25</warmupTime>
+				<range>23</range>
+				<soundCast>RNShotColtPython</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Regular</recoilPattern>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>0.9</reloadTime>
+				<ammoSet>AmmoSet_38Special</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.8,0.8</DrawSize>
+				<DrawOffset>-0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<!-- ================================= Model 36 ==================================== -->
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_Model36_Revolver</defName>
+		<label>SW Model 36</label>
+		<description>The Smith &amp; Wesson Model 36 (also known as the Chief's Special) is a revolver chambered for .38 Special. It is one of several models of J-frame revolvers. It was introduced in 1950, and is still in production in the classic blued Model 36 and the stainless steel Model 60.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Handgun/Model36</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Mass>0.55</Mass>
+			<RangedWeapon_Cooldown>0.35</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.50</SightsEfficiency>
+			<ShotSpread>0.45</ShotSpread>
+			<SwayFactor>0.87</SwayFactor>
+			<Bulk>1.45</Bulk>
+			<WorkToMake>4500</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_Sidearm</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>Weapon_Revolver_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<SimpleWeaponComponents>5</SimpleWeaponComponents>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>Gunsmithing</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>AmmoBench</li>
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>3.0</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_38Special_FMJ</defaultProjectile>
+				<warmupTime>0.25</warmupTime>
+				<range>23</range>
+				<soundCast>RNShotColtPython</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Regular</recoilPattern>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>0.9</reloadTime>
+				<ammoSet>AmmoSet_38Special</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.8,0.8</DrawSize>
+				<DrawOffset>-0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	
+	<!-- M29 -->
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>TMC_HG_M29a</defName>
+		<label>M29</label>
+		<description>Small revolver for conceal carrying.</description>
+		<graphicData>
+			<texPath>Hand_Guns/M29</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.2, 1.2)</drawSize>
+		</graphicData>
+		<uiIconScale>1.4</uiIconScale>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>1.1</Mass>
+			<RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.5</SightsEfficiency>
+			<ShotSpread>1.3</ShotSpread>
+			<SwayFactor>1.27</SwayFactor>
+			<Bulk>2.41</Bulk>
+			<WorkToMake>8500</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_Sidearm</li>
+			<li>CE_AI_Pistol</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>Weapon_Revolver_TierII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>6</AdvancedWeaponComponents>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>BlowbackOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>3.5</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_44Magnum_FMJ</defaultProjectile>
+				<warmupTime>0.25</warmupTime>
+				<range>33</range>
+				<soundCast>Shot_Revolver</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>1.2</reloadTime>
+				<ammoSet>AmmoSet_44Magnum</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>-0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_ColtPython_Revolver</defName>
+		<label>Colt Python</label>
+		<description>The Colt Python is a .357 Magnum caliber revolver formerly manufactured by Colt's Manufacturing Company of Hartford, Connecticut. It is sometimes referred to as a "Combat Magnum". It was first introduced in 1955, the same year as Smith and Wesson's M29 .44 Magnum. 
+	
+Now discontinued, the Colt Python was intended for the premium revolver market segment.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Handgun/Colt_Python</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>1.23</Mass>
+			<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.65</SightsEfficiency>
+			<ShotSpread>0.30</ShotSpread>
+			<SwayFactor>1.38</SwayFactor>
+			<Bulk>2.92</Bulk>
+			<WorkToMake>15000</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>1.3</reloadTime>
+				<ammoSet>AmmoSet_357Magnum</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>CE_Sidearm</li>
+			<li>Weapon_Revolver_TierIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>8</AdvancedWeaponComponents>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>BlowbackOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>2.15</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_357Magnum_FMJ</defaultProjectile>
+				<warmupTime>0.60</warmupTime>
+				<range>37</range>
+				<soundCast>RNShotColtPython</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Regular</recoilPattern>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.9,0.9</DrawSize>
+				<DrawOffset>0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>RNGun_MP412REX_Revolver</defName>
+		<label>MP-412 REX</label>
+		<description>The MP-412 REX (Revolver for Export; Russian: MP-412 РЕКС) is a Russian double-action/single-action revolver designed by the state-owned Izhevsk Mechanical Plant (IZHMEKH), with a break-action chamber and an automatic ejector, chambered for the .357 Magnum round.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/Handgun/MP412_REX</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Mass>0.90</Mass>
+			<RangedWeapon_Cooldown>1.55</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.70</SightsEfficiency>
+			<ShotSpread>0.25</ShotSpread>
+			<SwayFactor>1.07</SwayFactor>
+			<Bulk>2.32</Bulk>
+			<WorkToMake>17000</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>1.0</reloadTime>
+				<ammoSet>AmmoSet_357Magnum</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>CE_Sidearm</li>
+			<li>Weapon_Revolver_TierIV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>8</AdvancedWeaponComponents>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Plastic>35</Plastic>
+			<Polymers>5</Polymers>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>GasOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>10</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.9</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_357Magnum_FMJ</defaultProjectile>
+				<warmupTime>0.55</warmupTime>
+				<range>34</range>
+				<soundCast>RNShotRevolver</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Regular</recoilPattern>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.9,0.9</DrawSize>
+				<DrawOffset>0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>CGF1_MWP_Taurus_RagingBull_500_</defName>
+		<label>Taurus Raging Bull 500</label>
+		<description>Caliber: .500 S&amp;W. 5-round cylinder. Double-Action.</description>
+		<graphicData>
+			<texPath>CGF1/Gun/Taurus_RagingBull_500</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.90</drawSize>
+		</graphicData>
+		<uiIconScale>1.4</uiIconScale>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToMake>20000</WorkToMake>
+			<SightsEfficiency>0.7</SightsEfficiency>
+            <ShotSpread>0.19</ShotSpread>
+            <SwayFactor>1.92</SwayFactor>
+            <Bulk>3.2</Bulk>
+			<Mass>2.1</Mass>
+			<RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>1.4</reloadTime>
+				<ammoSet>AmmoSet_500SWMagnum</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>CE_Sidearm</li>
+			<li>Weapon_Revolver_TierV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>15</AdvancedWeaponComponents>
+			<MechanismComplex>8</MechanismComplex>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<Plastic>40</Plastic>
+			<Polymers>20</Polymers>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>GasOperation</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>15</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_500SWMagnum_FMJ</defaultProjectile>
+                <warmupTime>0.65</warmupTime>
+                <range>57</range>
+                <soundCast>CGF1_MWP_SFX_Pistol_Heavy4</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+				<recoilAmount>3.10</recoilAmount>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.9,0.9</DrawSize>
+				<DrawOffset>0.2,-0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>CGF1_MWP_Taurus_RagingBull_500_Scope_</defName>
+		<label>Taurus Raging Bull 500 (Scope)</label>
+		<description>Caliber: .500 S&amp;W. 5-round cylinder. Double-Action.</description>
+		<graphicData>
+			<texPath>CGF1/Gun/Taurus_RagingBull_500_Scope</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.90</drawSize>
+		</graphicData>
+		<uiIconScale>1.4</uiIconScale>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToMake>14000</WorkToMake>
+			<SightsEfficiency>1.7</SightsEfficiency>
+            <ShotSpread>0.19</ShotSpread>
+            <SwayFactor>1.92</SwayFactor>
+            <Bulk>3.8</Bulk>
+			<Mass>2.5</Mass>
+			<RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>1.4</reloadTime>
+				<ammoSet>AmmoSet_500SWMagnum</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>CE_Sidearm</li>
+			<li>Weapon_Revolver_TierV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+			<li>LongShots</li>
+		</weaponClasses>
+		<costList>
+			<CGF1_MWP_Taurus_RagingBull_500_>1</CGF1_MWP_Taurus_RagingBull_500_>
+			<UpgradeWeaponParts>2</UpgradeWeaponParts>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>WeaponModification</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>WeaponWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_500SWMagnum_FMJ</defaultProjectile>
+                <warmupTime>0.7</warmupTime>
+                <range>72</range>
+                <soundCast>CGF1_MWP_SFX_Pistol_Heavy4</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+				<recoilAmount>3.10</recoilAmount>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.9,0.9</DrawSize>
+				<DrawOffset>0.2,-0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+</Defs>

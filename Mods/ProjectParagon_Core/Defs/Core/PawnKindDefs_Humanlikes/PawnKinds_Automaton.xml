@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!---->
+	<PawnKindDef Name="BaseAutomatonPawn" Abstract="True">
+		<defaultFactionType>Automatons</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+		<invNutrition>1.0</invNutrition>
+		<invFoodDef>Coal</invFoodDef>
+		<apparelMoney>9999~9999</apparelMoney>
+		<initialWillRange>0~1</initialWillRange>
+		<initialResistanceRange>7~12</initialResistanceRange>
+		<apparelColor>110,110,110</apparelColor>
+		<xenotypeSet>
+			<xenotypeChances>
+				<AutomatonRace>100</AutomatonRace>
+			</xenotypeChances>
+		</xenotypeSet>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseAutomatonPawn" Name="Automaton_Aristocrat" Abstract="True">
+		<race>Automaton_Aristocrat</race>
+		<combatPower>100</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>AutomatonAristocrat</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+						<li>Shooting</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~5</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~5000</basicXpForSubSpec>
+						<randomSpecGenCount>0~5</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~5</Minor>
+							<Major>0~3</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Automaton_Aristocrat">
+		<defName>Automaton_Aristocrat</defName>
+		<label>Automaton aristocrat</label>
+		<combatPower>100</combatPower>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Good</itemQuality>
+		<gearHealthRange>0.5~1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>true</factionLeader>
+		<apparelTags>
+			<li>Backpack</li>
+			<li>IndustrialBasic</li>
+		</apparelTags>
+		<apparelRequired>
+			<li>CE_Apparel_Backpack</li>
+			<li>Apparel_HatTop</li>
+			<li>Apparel_ShirtRuffle</li>
+			<li>Apparel_VestRoyal</li>
+		</apparelRequired>
+		<weaponMoney>300~1000</weaponMoney>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_AI_AssaultWeapon</li>
+		</weaponTags>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>5</min>
+					<max>8</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<generateChance>1</generateChance>
+						<sidearmMoney>
+							<min>200</min>
+							<max>400</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>CE_Sidearm_Melee</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Automaton_Aristocrat">
+		<defName>Automaton_Aristocrat_Shooter</defName>
+		<label>Automaton shooter</label>
+		<combatPower>130</combatPower>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Good</itemQuality>
+		<gearHealthRange>0.5~1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>true</factionLeader>
+		<apparelTags>
+			<li>EFT_Backpack</li>
+			<li>EFT_ArmorClass1</li>
+			<li>EFT_ArmorClass2</li>
+			<li>IndustrialBasic</li>
+		</apparelTags>
+		<weaponMoney>300~1000</weaponMoney>
+		<weaponTags>
+			<li>CE_SMG</li>
+		</weaponTags>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>8</min>
+					<max>12</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<generateChance>1</generateChance>
+						<sidearmMoney>
+							<min>300</min>
+							<max>500</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>CE_Sidearm_Melee</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Automaton_Aristocrat">
+		<defName>Automaton_Aristocrat_Stormtrooper</defName>
+		<label>Automaton stormtrooper</label>
+		<combatPower>150</combatPower>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Good</itemQuality>
+		<gearHealthRange>0.5~1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>true</factionLeader>
+		<apparelTags>
+			<li>EFT_Backpack</li>
+			<li>EFT_ArmorClass2</li>
+			<li>EFT_ArmorClass3</li>
+			<li>IndustrialBasic</li>
+		</apparelTags>
+		<weaponMoney>500~1200</weaponMoney>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+		</weaponTags>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>8</min>
+					<max>12</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<generateChance>1</generateChance>
+						<sidearmMoney>
+							<min>300</min>
+							<max>500</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>CE_Sidearm_Melee</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Automaton_Aristocrat">
+		<defName>Newborn_Automaton_Aristocrat</defName>
+		<label>Automaton aristocrat</label>
+		<combatPower>100</combatPower>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Good</itemQuality>
+		<gearHealthRange>0</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseAutomatonPawn" Name="Automaton_Laborer" Abstract="True">
+		<race>Automaton_Laborer</race>
+		<combatPower>70</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>AutomatonLaborer</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.15</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Growing</li>
+						<li>Cooking</li>
+						<li>Mining</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Automaton_Laborer">
+		<defName>Automaton_Laborer</defName>
+		<label>Automaton laborer</label>
+		<combatPower>70</combatPower>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<apparelMoney>0</apparelMoney>
+		<techHediffsChance>0</techHediffsChance>
+		<weaponMoney>0</weaponMoney>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Automaton_Laborer">
+		<defName>Newborn_Automaton_Laborer</defName>
+		<label>Automaton laborer</label>
+		<combatPower>70</combatPower>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<apparelMoney>0</apparelMoney>
+		<techHediffsChance>0</techHediffsChance>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseAutomatonPawn" Name="Automaton_Worker" Abstract="True">
+		<race>Automaton_Worker</race>
+		<combatPower>70</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>AutomatonWorker</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.15</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Construction</li>
+						<li>Crafting</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Automaton_Worker">
+		<defName>Automaton_Worker</defName>
+		<label>Automaton worker</label>
+		<combatPower>70</combatPower>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<apparelMoney>0</apparelMoney>
+		<techHediffsChance>0</techHediffsChance>
+		<weaponMoney>0</weaponMoney>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Automaton_Worker">
+		<defName>Newborn_Automaton_Worker</defName>
+		<label>Automaton worker</label>
+		<combatPower>70</combatPower>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<apparelMoney>0</apparelMoney>
+		<techHediffsChance>0</techHediffsChance>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<!---->
+</Defs>

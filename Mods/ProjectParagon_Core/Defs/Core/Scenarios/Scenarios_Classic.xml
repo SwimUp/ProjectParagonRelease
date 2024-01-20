@@ -154,7 +154,7 @@
 			<parts>
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 					<def>ConfigurePawnsXenotypes</def>
-					<pawnChoiceCount>5</pawnChoiceCount>
+					<pawnChoiceCount>3</pawnChoiceCount>
 					<xenotypeCounts>
 						<li>
 							<xenotype>ShekRace</xenotype>
@@ -241,7 +241,7 @@
 			<parts>
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 					<def>ConfigurePawnsXenotypes</def>
-					<pawnChoiceCount>3</pawnChoiceCount>
+					<pawnChoiceCount>1</pawnChoiceCount>
 					<xenotypeCounts>
 						<li>
 							<xenotype>LivingTree</xenotype>
@@ -310,7 +310,7 @@
 			<parts>
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 					<def>ConfigurePawnsXenotypes</def>
-					<pawnChoiceCount>8</pawnChoiceCount>
+					<pawnChoiceCount>5</pawnChoiceCount>
 					<xenotypeCounts>
 						<li>
 							<xenotype>KairosRace</xenotype>
@@ -388,7 +388,7 @@
 			<parts>
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 					<def>ConfigurePawnsXenotypes</def>
-					<pawnChoiceCount>8</pawnChoiceCount>
+					<pawnChoiceCount>5</pawnChoiceCount>
 					<xenotypeCounts>
 						<li>
 							<xenotype>ArachnidRace</xenotype>
@@ -526,7 +526,7 @@
 			<parts>
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 					<def>ConfigurePawnsXenotypes</def>
-					<pawnChoiceCount>3</pawnChoiceCount>
+					<pawnChoiceCount>5</pawnChoiceCount>
 					<xenotypeCounts>
 						<li>
 							<xenotype>AeronRace</xenotype>
@@ -600,7 +600,7 @@
 			<parts>
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 					<def>ConfigurePawnsXenotypes</def>
-					<pawnChoiceCount>8</pawnChoiceCount>
+					<pawnChoiceCount>5</pawnChoiceCount>
 					<xenotypeCounts>
 						<li>
 							<xenotype>TaurusRace</xenotype>
@@ -677,7 +677,7 @@
 			<parts>
 				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
 					<def>ConfigurePawnsXenotypes</def>
-					<pawnChoiceCount>8</pawnChoiceCount>
+					<pawnChoiceCount>5</pawnChoiceCount>
 					<xenotypeCounts>
 						<li>
 							<xenotype>ZorgRace</xenotype>
@@ -731,6 +731,67 @@
 				<li Class="ScenPart_GameStartDialog">
 					<def>GameStartDialog</def>
 					<text>You and a few rank-and-file zorgs are unhappy with the policy of your leader, who carries out too few executions and does not wage wars of conquest. Once organized, you leave the tribe.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	<ScenarioDef>
+		<defName>AutomatonColonization</defName>
+		<label>Automaton colonization</label>
+		<description>A group of machines left at the old factory is activated. It is unknown who built the factory and why it was abandoned. The machines have to survive and rebuild a new factory.</description>
+		<scenario>
+			<summary>A group of machines left at the old factory is activated.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerAutomaton</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+					<def>ConfigurePawnsXenotypes</def>
+					<pawnChoiceCount>5</pawnChoiceCount>
+					<xenotypeCounts>
+						<li>
+							<xenotype>AutomatonRace</xenotype>
+							<count>5</count>
+							<description>Automatons</description>
+							<requiredAtStart>true</requiredAtStart>
+							<allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+						</li>
+					</xenotypeCounts>
+				</li>
+				
+				<li Class="ScenPart_PlayerPawnsArriveMethod">
+					<def>PlayerPawnsArriveMethod</def>
+					<method>Standing</method>
+				</li>
+				<li Class="ProjectParagon.Core.Scenarios.ScenPart_LoadMapBlueprintDef">
+					<def>LoadMapBlueprintDef</def>
+					<mapBlueprintDef>Scenario_AutomatonFabric</mapBlueprintDef>
+				</li>
+				<!-- <li Class="ScenPart_PlayerPawnsArriveMethod">
+				  <def>PlayerPawnsArriveMethod</def>
+				  <method>DropPods</method>
+				  <visible>false</visible>
+				</li>-->
+				<!--<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>Coal</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>StartingThing_Defined</def>
+					<thingDef>WoodLog</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>StartingThing_Defined</def>
+					<thingDef>Steel</thingDef>
+					<count>250</count>
+				</li>-->
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>A group of machines left at the old factory is activated. It is unknown who built the factory and why it was abandoned. The machines have to survive and rebuild a new factory.</text>
 					<closeSound>GameStartSting</closeSound>
 				</li>
 			</parts>
@@ -897,4 +958,64 @@
 			</parts>
 		</scenario>
 	</ScenarioDef>
+	
+	<ScenarioDef>
+		<defName>ResoniteColonization</defName>
+		<label>Resonite colonization</label>
+		<description>A group of rezonites land on a new planet for colonization. The ship has lost its course and you find yourself on an unknown planet where you have to survive.</description>
+		<scenario>
+			<summary>A group of rezonites land on a new planet for colonization.</summary>
+			<playerFaction>
+				<def>PlayerFaction</def>
+				<factionDef>PlayerResonites</factionDef>
+			</playerFaction>
+			<parts>
+				<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+					<def>ConfigurePawnsXenotypes</def>
+					<pawnChoiceCount>3</pawnChoiceCount>
+					<xenotypeCounts>
+						<li>
+							<xenotype>ResoniteRace</xenotype>
+							<count>3</count>
+							<description>Resonites</description>
+							<requiredAtStart>true</requiredAtStart>
+							<allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+						</li>
+					</xenotypeCounts>
+				</li>
+				
+				 <li Class="ScenPart_PlayerPawnsArriveMethod">
+				  <def>PlayerPawnsArriveMethod</def>
+				  <method>DropPods</method>
+				  <visible>false</visible>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>ShockCrystal</thingDef>
+					<count>100</count>
+				</li>
+				<li Class="ScenPart_StartingThing_Defined">
+					<def>StartingThing_Defined</def>
+					<thingDef>MealSurvivalPack</thingDef>
+					<count>30</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>StartingThing_Defined</def>
+					<thingDef>WoodLog</thingDef>
+					<count>200</count>
+				</li>
+				<li Class="ScenPart_ScatterThingsNearPlayerStart">
+					<def>StartingThing_Defined</def>
+					<thingDef>Steel</thingDef>
+					<count>250</count>
+				</li>
+				<li Class="ScenPart_GameStartDialog">
+					<def>GameStartDialog</def>
+					<text>A group of rezonites land on a new planet for colonization. The ship has lost its course and you find yourself on an unknown planet where you have to survive.</text>
+					<closeSound>GameStartSting</closeSound>
+				</li>
+			</parts>
+		</scenario>
+	</ScenarioDef>
+	
 </Defs>

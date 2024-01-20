@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<!---->
 	<RecipeDef>
 		<defName>Make_I_WoodPlanks</defName>
 		<label>make wood planks</label>
@@ -8,7 +9,7 @@
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Cook</effectWorking>
 		<soundWorking>Recipe_MakeWoodPlanks_Hand</soundWorking>
-		<workAmount>1800</workAmount>
+		<workAmount>300</workAmount>
 		<ingredients>
 			<li>
 				<filter>
@@ -51,7 +52,7 @@
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Cook</effectWorking>
 		<soundWorking>Recipe_MakeWoodPlanks_Hand</soundWorking>
-		<workAmount>7200</workAmount>
+		<workAmount>1200</workAmount>
 		<ingredients>
 			<li>
 				<filter>
@@ -70,6 +71,10 @@
 		<products>
 			<WoodPlanks>40</WoodPlanks>
 		</products>
+		<recipeUsers>
+			<li>PrimitiveCarpenterTable</li>
+			<li>CarpenterTable</li>
+		</recipeUsers>
 		<researchPrerequisite>SimpleWoodProcessing</researchPrerequisite>
 		<skillRequirements>
 			<Crafting>3</Crafting>
@@ -79,9 +84,11 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
+						<any>true</any>
 						<thingFilter>
 							<thingDefs>
 								<li>SimpleCarpentrySet</li>
+								<li>AdvancedBlacksmithSet</li>
 							</thingDefs>
 						</thingFilter>
 					</li>
@@ -94,285 +101,87 @@
 			</li>
 		</modExtensions>
 	</RecipeDef>
+	<!---->
 	<RecipeDef>
-		<defName>Make_I_ComponentPrimitive</defName>
-		<label>carve primitive components</label>
-		<description>Carve primitive components.</description>
-		<jobString>Carving primitive components.</jobString>
+		<defName>Make_II_WoodPlanks</defName>
+		<label>make wood planks</label>
+		<description>Make an wood planks.</description>
+		<jobString>Making wood planks.</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1500</workAmount>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_MakeWoodPlanks_Hand</soundWorking>
+		<workAmount>250</workAmount>
 		<ingredients>
 			<li>
 				<filter>
 					<thingDefs>
-						<li>WoodPlanks</li>
+						<li>WoodLog</li>
 					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>WoodPlanks</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<ComponentPrimitive>2</ComponentPrimitive>
-		</products>
-		<researchPrerequisite>SimpleWoodProcessing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>2</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>PrimitiveCarpenterTable</li>
-			<li>CarpenterTable</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_ComponentPrimitive</defName>
-		<label>carve primitive components x4</label>
-		<description>Carve primitive components x4.</description>
-		<jobString>Carving primitive components x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>6000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WoodPlanks</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>WoodPlanks</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<ComponentPrimitive>8</ComponentPrimitive>
-		</products>
-		<researchPrerequisite>SimpleWoodProcessing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>2</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleCarpentrySet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>PrimitiveCarpenterTable</li>
-			<li>CarpenterTable</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_ComponentSimple</defName>
-		<label>carve simple components</label>
-		<description>Carve simple components.</description>
-		<jobString>Carving simple components.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WoodPlanks</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys</li>
-					</categories>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>WoodPlanks</li>
-			</thingDefs>
-			<categories>
-				<li>Alloys</li>
-			</categories>
-		</fixedIngredientFilter>
-		<products>
-			<ComponentSimple>1</ComponentSimple>
-		</products>
-		<researchPrerequisite>PrimitiveMetalProcessing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>ForgeWithAnvil</li>
-			<li>BlacksmithFurnace</li>
-			<li>FueledSmithy</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_ComponentSimple</defName>
-		<label>carve simple components x4</label>
-		<description>Carve simple components x4.</description>
-		<jobString>Carving simple components x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>8000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WoodPlanks</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys</li>
-					</categories>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>WoodPlanks</li>
-			</thingDefs>
-			<categories>
-				<li>Alloys</li>
-			</categories>
-		</fixedIngredientFilter>
-		<products>
-			<ComponentSimple>4</ComponentSimple>
-		</products>
-		<researchPrerequisite>PrimitiveMetalProcessing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>ForgeWithAnvil</li>
-			<li>BlacksmithFurnace</li>
-			<li>FueledSmithy</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_MechanismSimple</defName>
-		<label>carve simple mechanism</label>
-		<description>Carve simple mechanism.</description>
-		<jobString>Carving simple mechanism.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3200</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
 				</filter>
 				<count>20</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
+			<thingDefs>
+				<li>WoodLog</li>
+			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<MechanismSimple>1</MechanismSimple>
+			<WoodPlanks>12</WoodPlanks>
 		</products>
-		<researchPrerequisite>BasicsMechanic</researchPrerequisite>
+		<researchPrerequisite>Steammechanics</researchPrerequisite>
 		<skillRequirements>
-			<Crafting>5</Crafting>
+			<Crafting>3</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
 		<recipeUsers>
-			<li>MechanicTable</li>
+			<li>SteamFormingMachine</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
-		<defName>Make_Bulk_I_MechanismSimple</defName>
-		<label>carve simple mechanism x4</label>
-		<description>Carve simple mechanism x4.</description>
-		<jobString>Carving simple mechanism x4.</jobString>
+		<defName>Make_Bulk_II_WoodPlanks</defName>
+		<label>make wood planks x4</label>
+		<description>Make an wood planks x4.</description>
+		<jobString>Making wood planks x4.</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12800</workAmount>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_MakeWoodPlanks_Hand</soundWorking>
+		<workAmount>1000</workAmount>
 		<ingredients>
 			<li>
 				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
 				</filter>
 				<count>80</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
+			<thingDefs>
+				<li>WoodLog</li>
+			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<MechanismSimple>4</MechanismSimple>
+			<WoodPlanks>48</WoodPlanks>
 		</products>
-		<researchPrerequisite>BasicsMechanic</researchPrerequisite>
+		<recipeUsers>
+			<li>SteamFormingMachine</li>
+		</recipeUsers>
+		<researchPrerequisite>Steammechanics</researchPrerequisite>
 		<skillRequirements>
-			<Crafting>5</Crafting>
+			<Crafting>3</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
+						<any>true</any>
 						<thingFilter>
 							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
+								<li>SimpleCarpentrySet</li>
+								<li>AdvancedBlacksmithSet</li>
 							</thingDefs>
 						</thingFilter>
 					</li>
@@ -382,99 +191,77 @@
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
 			</li>
 		</modExtensions>
-		<recipeUsers>
-			<li>MechanicTable</li>
-		</recipeUsers>
 	</RecipeDef>
-	
+	<!---->
 	<RecipeDef>
-		<defName>Make_I_MechanismComplex</defName>
-		<label>carve complex mechanism</label>
-		<description>Carve complex mechanism.</description>
-		<jobString>Carving complex mechanism.</jobString>
+		<defName>Make_III_WoodPlanks</defName>
+		<label>make wood planks</label>
+		<description>Make an wood planks.</description>
+		<jobString>Making wood planks.</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>4000</workAmount>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_MakeWoodPlanks_Hand</soundWorking>
+		<workAmount>220</workAmount>
 		<ingredients>
 			<li>
 				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
 					<thingDefs>
-						<li>ComponentSimple</li>
+						<li>WoodLog</li>
 					</thingDefs>
 				</filter>
-				<count>2</count>
+				<count>20</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
 			<thingDefs>
-				<li>ComponentSimple</li>
+				<li>WoodLog</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<MechanismComplex>1</MechanismComplex>
+			<WoodPlanks>15</WoodPlanks>
 		</products>
-		<researchPrerequisite>Machining</researchPrerequisite>
+		<researchPrerequisite>ForgingPress</researchPrerequisite>
 		<skillRequirements>
-			<Crafting>8</Crafting>
+			<Crafting>3</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
 		<recipeUsers>
-			<li>MechanicalWorkbench</li>
+			<li>ElectricSmithy</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
-		<defName>Make_Bulk_I_MechanismComplex</defName>
-		<label>carve complex mechanism x4</label>
-		<description>Carve complex mechanism x4.</description>
-		<jobString>Carving complex mechanism x4.</jobString>
+		<defName>Make_Bulk_III_WoodPlanks</defName>
+		<label>make wood planks x4</label>
+		<description>Make an wood planks x4.</description>
+		<jobString>Making wood planks x4.</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>16000</workAmount>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_MakeWoodPlanks_Hand</soundWorking>
+		<workAmount>880</workAmount>
 		<ingredients>
 			<li>
 				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
 					<thingDefs>
-						<li>ComponentSimple</li>
+						<li>WoodLog</li>
 					</thingDefs>
 				</filter>
-				<count>8</count>
+				<count>80</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
 			<thingDefs>
-				<li>ComponentSimple</li>
+				<li>WoodLog</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<MechanismComplex>4</MechanismComplex>
+			<WoodPlanks>60</WoodPlanks>
 		</products>
-		<researchPrerequisite>Machining</researchPrerequisite>
+		<recipeUsers>
+			<li>ElectricSmithy</li>
+		</recipeUsers>
+		<researchPrerequisite>ForgingPress</researchPrerequisite>
 		<skillRequirements>
-			<Crafting>8</Crafting>
+			<Crafting>3</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
 		<modExtensions>
@@ -493,1349 +280,10 @@
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
 			</li>
 		</modExtensions>
-		<recipeUsers>
-			<li>MechanicalWorkbench</li>
-		</recipeUsers>
 	</RecipeDef>
-	
-	<RecipeDef>
-		<defName>Make_I_Copper</defName>
-		<label>smelt blister copper</label>
-		<description>Smelt blister copper.</description>
-		<jobString>Smelting blister copper.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1200</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TetrahedriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>TetrahedriteOre</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<CopperIngot>30</CopperIngot>
-		</products>
-		<researchPrerequisite>Blacksmithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Copper</defName>
-		<label>smelt blister copper x4</label>
-		<description>Smelt blister copper x4.</description>
-		<jobString>Smelting blister copper x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>4800</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TetrahedriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>60</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>TetrahedriteOre</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<CopperIngot>120</CopperIngot>
-		</products>
-		<researchPrerequisite>Blacksmithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.032</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_II_Copper</defName>
-		<label>smelt blister copper</label>
-		<description>Smelt blister copper.</description>
-		<jobString>Smelting blister copper.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1200</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TetrahedriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>TetrahedriteOre</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<CopperIngot>30</CopperIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_II_Copper</defName>
-		<label>smelt blister copper x4</label>
-		<description>Smelt blister copper x4.</description>
-		<jobString>Smelting blister copper x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>4800</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TetrahedriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>TetrahedriteOre</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<CopperIngot>120</CopperIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Tin</defName>
-		<label>smelt tin</label>
-		<description>Smelt tin.</description>
-		<jobString>Smelting tin.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1500</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CassiteriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CassiteriteOre</li>
-				<li>Coal</li>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<TinIngot>15</TinIngot>
-		</products>
-		<researchPrerequisite>Blacksmithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Tin</defName>
-		<label>smelt tin x4</label>
-		<description>Smelt tin x4.</description>
-		<jobString>Smelting tin x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>6000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CassiteriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>80</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>60</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CassiteriteOre</li>
-				<li>Coal</li>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<TinIngot>60</TinIngot>
-		</products>
-		<researchPrerequisite>Blacksmithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.032</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_II_Tin</defName>
-		<label>smelt tin</label>
-		<description>Smelt tin.</description>
-		<jobString>Smelting tin.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1500</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CassiteriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CassiteriteOre</li>
-				<li>Coal</li>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<TinIngot>20</TinIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_II_Tin</defName>
-		<label>smelt tin x4</label>
-		<description>Smelt tin x4.</description>
-		<jobString>Smelting tin x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>6000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CassiteriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>60</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CassiteriteOre</li>
-				<li>Coal</li>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<TinIngot>80</TinIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Bronze</defName>
-		<label>smelt bronze</label>
-		<description>Smelt bronze.</description>
-		<jobString>Smelting bronze.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1800</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CopperIngot</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TinIngot</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CopperIngot</li>
-				<li>TinIngot</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<BronzeIngot>40</BronzeIngot>
-		</products>
-		<researchPrerequisite>Blacksmithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Bronze</defName>
-		<label>smelt bronze x4</label>
-		<description>Smelt bronze x4.</description>
-		<jobString>Smelting bronze x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>7200</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CopperIngot</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TinIngot</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CopperIngot</li>
-				<li>TinIngot</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<BronzeIngot>120</BronzeIngot>
-		</products>
-		<researchPrerequisite>Blacksmithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.032</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_II_Bronze</defName>
-		<label>smelt bronze</label>
-		<description>Smelt bronze.</description>
-		<jobString>Smelting bronze.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1800</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CopperIngot</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TinIngot</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CopperIngot</li>
-				<li>TinIngot</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<BronzeIngot>40</BronzeIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_II_Bronze</defName>
-		<label>smelt bronze x4</label>
-		<description>Smelt bronze x4.</description>
-		<jobString>Smelting bronze x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>7200</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CopperIngot</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TinIngot</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CopperIngot</li>
-				<li>TinIngot</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<BronzeIngot>120</BronzeIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.032</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Steel</defName>
-		<label>smelt steel</label>
-		<description>Smelt steel.</description>
-		<jobString>Smelting steel.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>HematiteOre</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>HematiteOre</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Steel>30</Steel>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.009</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Steel</defName>
-		<label>smelt steel x4</label>
-		<description>Smelt steel x4.</description>
-		<jobString>Smelting steel x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>8000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>HematiteOre</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>80</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>HematiteOre</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Steel>120</Steel>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.036</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Brass</defName>
-		<label>smelt brass</label>
-		<description>Smelt brass.</description>
-		<jobString>Smelting brass.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1800</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CopperIngot</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TinIngot</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CopperIngot</li>
-				<li>TinIngot</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<BrassIngot>30</BrassIngot>
-		</products>
-		<researchPrerequisite>Blacksmithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Brass</defName>
-		<label>smelt brass x4</label>
-		<description>Smelt brass x4.</description>
-		<jobString>Smelting brass x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>7200</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CopperIngot</li>
-					</thingDefs>
-				</filter>
-				<count>60</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>TinIngot</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CopperIngot</li>
-				<li>TinIngot</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<BrassIngot>120</BrassIngot>
-		</products>
-		<researchPrerequisite>Blacksmithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.032</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Lead</defName>
-		<label>smelt lead</label>
-		<description>Smelt lead.</description>
-		<jobString>Smelting lead.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CassiteriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CassiteriteOre</li>
-				<li>Coal</li>
-				<li>Sulfur</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<LeadIngot>30</LeadIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Lead</defName>
-		<label>smelt lead x4</label>
-		<description>Smelt lead x4.</description>
-		<jobString>Smelting lead x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CassiteriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>160</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>80</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>80</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CassiteriteOre</li>
-				<li>Coal</li>
-				<li>Sulfur</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<LeadIngot>120</LeadIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.032</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Gold</defName>
-		<label>smelt gold</label>
-		<description>Smelt gold.</description>
-		<jobString>Smelting gold.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CrenneriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CrenneriteOre</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<GoldIngot>5</GoldIngot>
-			<SilverIngot>10</SilverIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>5</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Gold</defName>
-		<label>smelt gold x4</label>
-		<description>Smelt gold x4.</description>
-		<jobString>Smelting gold x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CrenneriteOre</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>60</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CrenneriteOre</li>
-				<li>Coal</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<GoldIngot>20</GoldIngot>
-			<SilverIngot>40</SilverIngot>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>5</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.032</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_SilverCoins</defName>
-		<label>make silver coins</label>
-		<description>Make silver coins.</description>
-		<jobString>Making silver coins.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2500</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>SilverIngot</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>SilverIngot</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Silver>100</Silver>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_SilverCoins</defName>
-		<label>make silver coins x4</label>
-		<description>Make silver coins x4.</description>
-		<jobString>Making silver coins x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>10000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>SilverIngot</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>SilverIngot</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Silver>400</Silver>
-		</products>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
 	<RecipeDef>
 		<defName>Make_SmashRock</defName>
 		<label>break the rock</label>
@@ -1844,7 +292,7 @@
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>CutStone</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
-		<workAmount>1500</workAmount>
+		<workAmount>1000</workAmount>
 		<ingredients>
 			<li>
 				<filter>
@@ -1872,772 +320,15 @@
 		<recipeUsers>
 			<li>PrimitiveTableStonecutter</li>
 			<li>TableStonecutter</li>
+			<li>SteamCrusher</li>
+			<li>SteamFormingMachine</li>
+			<li>IndustrialCrusher</li>
 		</recipeUsers>
 		<modExtensions>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
 			</li>
 		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Glass</defName>
-		<label>smelt glass</label>
-		<description>Smelt glass.</description>
-		<jobString>Smelting glass.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>50</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Glass>30</Glass>
-		</products>
-		<researchPrerequisite>GlassMaking</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.005</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Glass</defName>
-		<label>smelt glass x4</label>
-		<description>Smelt glass x4.</description>
-		<jobString>Smelting glass x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>8000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>200</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Glass>120</Glass>
-		</products>
-		<researchPrerequisite>GlassMaking</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.020</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_II_Glass</defName>
-		<label>smelt glass</label>
-		<description>Smelt glass.</description>
-		<jobString>Smelting glass.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>45</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Glass>30</Glass>
-		</products>
-		<researchPrerequisite>GlassMaking</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.005</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_II_Glass</defName>
-		<label>smelt glass x4</label>
-		<description>Smelt glass x4.</description>
-		<jobString>Smelting glass x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>8000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>180</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Glass>120</Glass>
-		</products>
-		<researchPrerequisite>GlassMaking</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.020</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Powder</defName>
-		<label>Synthesize gunpowder</label>
-		<description>Synthesize of gunpowder.</description>
-		<jobString>Synthesizing gunpowder.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2300</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Saltpeter</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Gunpowder</li>
-				<li>Sulfur</li>
-				<li>Saltpeter</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Gunpowder>40</Gunpowder>
-		</products>
-		<researchPrerequisite>Alchemy</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>5</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>AlchemyStance</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Powder</defName>
-		<label>Synthesize gunpowder</label>
-		<description>Synthesize of gunpowder.</description>
-		<jobString>Synthesizing gunpowder.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>9200</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Saltpeter</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Gunpowder</li>
-				<li>Sulfur</li>
-				<li>Saltpeter</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Gunpowder>160</Gunpowder>
-		</products>
-		<researchPrerequisite>Alchemy</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>5</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleScienceSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>AlchemyStance</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Cotton_Fabric</defName>
-		<label>Make cotton fabric</label>
-		<description>Make cotton fabric.</description>
-		<jobString>Making cotton fabric.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2500</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawCotton</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawCotton</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Cloth>25</Cloth>
-		</products>
-		<researchPrerequisite>Weaving</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>Loom</li>
-			<li>SteamLoom</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Cotton_Fabric</defName>
-		<label>Make cotton fabric x4</label>
-		<description>Make cotton fabric x4.</description>
-		<jobString>Making cotton fabric x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>10000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawCotton</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawCotton</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Cloth>100</Cloth>
-		</products>
-		<researchPrerequisite>Weaving</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleSewingSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>Loom</li>
-			<li>SteamLoom</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Linen_Fabric</defName>
-		<label>Make linen fabric</label>
-		<description>Make linen fabric.</description>
-		<jobString>Making linen fabric.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2800</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawFlax</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawFlax</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<LinenCloth>25</LinenCloth>
-		</products>
-		<researchPrerequisite>LinenFabrics</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>Loom</li>
-			<li>SteamLoom</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Linen_Fabric</defName>
-		<label>Make linen fabric x4</label>
-		<description>Make linen fabric x4.</description>
-		<jobString>Making linen fabric x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>11200</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawFlax</li>
-					</thingDefs>
-				</filter>
-				<count>160</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawFlax</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<LinenCloth>100</LinenCloth>
-		</products>
-		<researchPrerequisite>LinenFabrics</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleSewingSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>Loom</li>
-			<li>SteamLoom</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Rye_Flour</defName>
-		<label>Make rye flour</label>
-		<description>Make rye flour.</description>
-		<jobString>Making rye flour.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>1700</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawRye</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawRye</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<RyeFlour>15</RyeFlour>
-		</products>
-		<researchPrerequisite>CookingIII</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>2</Crafting>
-		</skillRequirements>
-		<workSkill>Cooking</workSkill>
-		<recipeUsers>
-			<li>ManualFlourMill</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Rye_Flour</defName>
-		<label>Make rye flour x4</label>
-		<description>Make rye flour x4.</description>
-		<jobString>Making rye flour x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>6800</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawRye</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawRye</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<RyeFlour>60</RyeFlour>
-		</products>
-		<researchPrerequisite>CookingIII</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>2</Crafting>
-		</skillRequirements>
-		<workSkill>Cooking</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleCookingSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>ManualFlourMill</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Wheat_Flour</defName>
-		<label>Make wheat flour</label>
-		<description>Make wheat flour.</description>
-		<jobString>Making wheat flour.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawWheat</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawWheat</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<WheatFlour>10</WheatFlour>
-		</products>
-		<researchPrerequisite>CookingIII</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>2</Crafting>
-		</skillRequirements>
-		<workSkill>Cooking</workSkill>
-		<recipeUsers>
-			<li>ManualFlourMill</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Wheat_Flour</defName>
-		<label>Make wheat flour x4</label>
-		<description>Make wheat flour x4.</description>
-		<jobString>Making wheat flour x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>8000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawWheat</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawWheat</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<WheatFlour>40</WheatFlour>
-		</products>
-		<researchPrerequisite>CookingIII</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>2</Crafting>
-		</skillRequirements>
-		<workSkill>Cooking</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleCookingSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>ManualFlourMill</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_Sugar</defName>
-		<label>Make sugar</label>
-		<description>Make sugar.</description>
-		<jobString>Making sugar.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawCane</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawCane</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Sugar>10</Sugar>
-		</products>
-		<researchPrerequisite>CookingIII</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Cooking</workSkill>
-		<recipeUsers>
-			<li>ManualFlourMill</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_Sugar</defName>
-		<label>Make sugar x4</label>
-		<description>Make sugar x4.</description>
-		<jobString>Making sugar x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawCane</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawCane</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Sugar>40</Sugar>
-		</products>
-		<researchPrerequisite>CookingIII</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Cooking</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleCookingSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>ManualFlourMill</li>
-		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_I_Paper</defName>
@@ -2660,12 +351,7 @@
 			</li>
 		</ingredients>
 		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
 				<count>2</count>
 			</li>
 		</abstractIngredients>
@@ -2685,6 +371,8 @@
 		<workSkill>Crafting</workSkill>
 		<recipeUsers>
 			<li>AlchemyStance</li>
+			<li>ChemicalStation</li>
+			<li>DrugLab</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
@@ -2708,12 +396,7 @@
 			</li>
 		</ingredients>
 		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
 				<count>8</count>
 			</li>
 		</abstractIngredients>
@@ -2735,9 +418,11 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
+						<any>true</any>
 						<thingFilter>
 							<thingDefs>
 								<li>SimpleScienceSet</li>
+								<li>AdvancedScienceSet</li>
 							</thingDefs>
 						</thingFilter>
 					</li>
@@ -2749,6 +434,8 @@
 		</modExtensions>
 		<recipeUsers>
 			<li>AlchemyStance</li>
+			<li>ChemicalStation</li>
+			<li>DrugLab</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -2759,7 +446,7 @@
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3000</workAmount>
+		<workAmount>1000</workAmount>
 		<ingredients>
 			<li>
 				<filter>
@@ -2777,19 +464,10 @@
 				</filter>
 				<count>5</count>
 			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>ComponentPrimitive</li>
-					</thingDefs>
-				</filter>
-				<count>2</count>
-			</li>
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
 				<li>Paper</li>
-				<li>ComponentPrimitive</li>
 			</thingDefs>
 			<categories>
 				<li>Leathers</li>
@@ -2805,6 +483,9 @@
 		<workSkill>Crafting</workSkill>
 		<recipeUsers>
 			<li>AlchemyStance</li>
+			<li>MechanicTable</li>
+			<li>MechanicalWorkbench</li>
+			<li>DrugLab</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -2815,7 +496,7 @@
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12000</workAmount>
+		<workAmount>4000</workAmount>
 		<ingredients>
 			<li>
 				<filter>
@@ -2833,19 +514,10 @@
 				</filter>
 				<count>20</count>
 			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>ComponentPrimitive</li>
-					</thingDefs>
-				</filter>
-				<count>8</count>
-			</li>
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
 				<li>Paper</li>
-				<li>ComponentPrimitive</li>
 			</thingDefs>
 			<categories>
 				<li>Leathers</li>
@@ -2863,9 +535,11 @@
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<requiredFacilities>
 					<li>
+						<any>true</any>
 						<thingFilter>
 							<thingDefs>
 								<li>SimpleScienceSet</li>
+								<li>AdvancedScienceSet</li>
 							</thingDefs>
 						</thingFilter>
 					</li>
@@ -2877,1252 +551,9 @@
 		</modExtensions>
 		<recipeUsers>
 			<li>AlchemyStance</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_SimplePlates</defName>
-		<label>make simple plates</label>
-		<description>Make simple plates.</description>
-		<jobString>Making simple plates.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys_Simple</li>
-					</categories>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<products>
-			<SimplePlates>5</SimplePlates>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Coal</li>
-			</thingDefs>
-			<categories>
-				<li>Alloys_Simple</li>
-			</categories>
-		</fixedIngredientFilter>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.005</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_SimplePlates</defName>
-		<label>make simple plates x4</label>
-		<description>Make simple plates x4.</description>
-		<jobString>Making simple plates x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>8000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys_Simple</li>
-					</categories>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-		</ingredients>
-		<products>
-			<SimplePlates>20</SimplePlates>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Coal</li>
-			</thingDefs>
-			<categories>
-				<li>Alloys_Simple</li>
-			</categories>
-		</fixedIngredientFilter>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.020</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_StrongPlates</defName>
-		<label>make strong plates</label>
-		<description>Make strong plates.</description>
-		<jobString>Making strong plates.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BrassIngot</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<products>
-			<StrongPlates>5</StrongPlates>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Coal</li>
-				<li>BrassIngot</li>
-			</thingDefs>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
-		</fixedIngredientFilter>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.006</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_StrongPlates</defName>
-		<label>make strong plates x4</label>
-		<description>Make strong plates x4.</description>
-		<jobString>Making strong plates x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BrassIngot</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<products>
-			<StrongPlates>20</StrongPlates>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Coal</li>
-				<li>BrassIngot</li>
-			</thingDefs>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
-		</fixedIngredientFilter>
-		<researchPrerequisite>Smithing</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>6</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.024</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_SuperStrongPlates</defName>
-		<label>make super strong plates</label>
-		<description>Make super strong plates.</description>
-		<jobString>Making super strong plates.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys_Superalloys</li>
-					</categories>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BrassIngot</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-		</ingredients>
-		<products>
-			<SuperStrongPlates>5</SuperStrongPlates>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Coal</li>
-				<li>BrassIngot</li>
-			</thingDefs>
-			<categories>
-				<li>Alloys_Superalloys</li>
-			</categories>
-		</fixedIngredientFilter>
-		<researchPrerequisite>MultiAnalyzer</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>8</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.008</affectOnBodyPerIteration>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_SuperStrongPlates</defName>
-		<label>make super strong plates x4</label>
-		<description>Make super strong plates x4.</description>
-		<jobString>Making super strong plates x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys_Superalloys</li>
-					</categories>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BrassIngot</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Coal</li>
-					</thingDefs>
-				</filter>
-				<count>60</count>
-			</li>
-		</ingredients>
-		<products>
-			<SuperStrongPlates>20</SuperStrongPlates>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Coal</li>
-				<li>BrassIngot</li>
-			</thingDefs>
-			<categories>
-				<li>Alloys_Superalloys</li>
-			</categories>
-		</fixedIngredientFilter>
-		<researchPrerequisite>MultiAnalyzer</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>8</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<affectOnBody>true</affectOnBody>
-				<affectOnBodyPerIteration>0.032</affectOnBodyPerIteration>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_SimpleRepairKit</defName>
-		<label>make simple repair kit</label>
-		<description>Make simple repair kit.</description>
-		<jobString>Making simple repair kit.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>ComponentSimple</li>
-					</thingDefs>
-				</filter>
-				<count>2</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>MechanismSimple</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<products>
-			<SimpleRepairKit>1</SimpleRepairKit>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>ComponentSimple</li>
-				<li>MechanismSimple</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<researchPrerequisite>BasicsMechanic</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>5</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
 			<li>MechanicTable</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_SimpleRepairKit</defName>
-		<label>make simple repair kit x4</label>
-		<description>Make simple repair kit x4.</description>
-		<jobString>Making simple repair kit x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>8000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>ComponentSimple</li>
-					</thingDefs>
-				</filter>
-				<count>8</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>MechanismSimple</li>
-					</thingDefs>
-				</filter>
-				<count>4</count>
-			</li>
-		</ingredients>
-		<products>
-			<SimpleRepairKit>4</SimpleRepairKit>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>ComponentSimple</li>
-				<li>MechanismSimple</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<researchPrerequisite>BasicsMechanic</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>5</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MechanicTable</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
-		<defName>Make_I_ProcessSlag</defName>
-		<label>Process slag</label>
-		<description>Process slag. Side materials can be obtained with some chance.</description>
-		<jobString>Processing slag</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>450</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Slag</li>
-					</thingDefs>
-				</filter>
-				<count>50</count>
-			</li>
-		</ingredients>
-		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-		</abstractIngredients>
-		<products>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Slag</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>OreWashingMachine</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
-		<defName>Make_I_ProcessClay</defName>
-		<label>Process clay</label>
-		<description>Process clay. Side materials can be obtained with some chance.</description>
-		<jobString>Processing clay</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>400</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Clay</li>
-					</thingDefs>
-				</filter>
-				<count>50</count>
-			</li>
-		</ingredients>
-		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
-				<count>35</count>
-			</li>
-		</abstractIngredients>
-		<products>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Clay</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>OreWashingMachine</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
-		<defName>Make_I_ProcessSand</defName>
-		<label>Process sand</label>
-		<description>Process sand. Side materials can be obtained with some chance.</description>
-		<jobString>Processing sand</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>350</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>50</count>
-			</li>
-		</ingredients>
-		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-		</abstractIngredients>
-		<products>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>OreWashingMachine</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
-		<defName>Make_I_ProcessDirt</defName>
-		<label>Process dirt</label>
-		<description>Process dirt. Side materials can be obtained with some chance.</description>
-		<jobString>Processing dirt</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>350</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Dirt</li>
-					</thingDefs>
-				</filter>
-				<count>50</count>
-			</li>
-		</ingredients>
-		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-		</abstractIngredients>
-		<products>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Dirt</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>OreWashingMachine</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_IndustrialBiosolids</defName>
-		<label>make industrial biosolids</label>
-		<description>Make industrial biosolids.</description>
-		<jobString>Making industrial biosolids.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>5000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>SeedsCategory</li>
-					</categories>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<categories>
-						<li>MeatRaw</li>
-					</categories>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Biosolids</li>
-					</thingDefs>
-				</filter>
-				<count>8</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BoricAcid</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<products>
-			<IndustrialBiosolids>4</IndustrialBiosolids>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BoricAcid</li>
-				<li>Biosolids</li>
-			</thingDefs>
-			<categories>
-				<li>MeatRaw</li>
-				<li>SeedsCategory</li>
-			</categories>
-		</fixedIngredientFilter>
-		<researchPrerequisite>FertilizerProduction</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_IndustrialBiosolids</defName>
-		<label>make industrial biosolids x4</label>
-		<description>Make industrial biosolids x4.</description>
-		<jobString>Making industrial biosolids x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>20000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>SeedsCategory</li>
-					</categories>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<categories>
-						<li>MeatRaw</li>
-					</categories>
-				</filter>
-				<count>40</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Biosolids</li>
-					</thingDefs>
-				</filter>
-				<count>32</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BoricAcid</li>
-					</thingDefs>
-				</filter>
-				<count>4</count>
-			</li>
-		</ingredients>
-		<products>
-			<IndustrialBiosolids>16</IndustrialBiosolids>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>BoricAcid</li>
-				<li>Biosolids</li>
-			</thingDefs>
-			<categories>
-				<li>MeatRaw</li>
-				<li>SeedsCategory</li>
-			</categories>
-		</fixedIngredientFilter>
-		<researchPrerequisite>FertilizerProduction</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_GreekFire</defName>
-		<label>make greek fire</label>
-		<description>Make greek fire.</description>
-		<jobString>Making greek fire.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>5000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Oil</li>
-					</thingDefs>
-				</filter>
-				<count>25</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-		</ingredients>
-		<products>
-			<GreekFire>20</GreekFire>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Oil</li>
-				<li>Sulfur</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<researchPrerequisite>CombustibleMixtures</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>AlchemyStance</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_GreekFire</defName>
-		<label>make greek fire x4</label>
-		<description>Make greek fire x4.</description>
-		<jobString>Making greek fire x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>20000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Oil</li>
-					</thingDefs>
-				</filter>
-				<count>100</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>60</count>
-			</li>
-		</ingredients>
-		<products>
-			<GreekFire>80</GreekFire>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Oil</li>
-				<li>Sulfur</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<researchPrerequisite>CombustibleMixtures</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleScienceSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>AlchemyStance</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_CombustibleMixture</defName>
-		<label>make combustible mixture</label>
-		<description>Make combustible mixture.</description>
-		<jobString>Making combustible mixture.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>6000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Oil</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Gunpowder</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<products>
-			<CombustibleMixture>25</CombustibleMixture>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Oil</li>
-				<li>Sulfur</li>
-				<li>Gunpowder</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<researchPrerequisite>CombustibleMixtures</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>AlchemyStance</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_CombustibleMixture</defName>
-		<label>make combustible mixture x4</label>
-		<description>Make combustible mixture x4.</description>
-		<jobString>Making combustible mixture x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>24000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Oil</li>
-					</thingDefs>
-				</filter>
-				<count>80</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>80</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Gunpowder</li>
-					</thingDefs>
-				</filter>
-				<count>02</count>
-			</li>
-		</ingredients>
-		<products>
-			<CombustibleMixture>100</CombustibleMixture>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Oil</li>
-				<li>Sulfur</li>
-				<li>Gunpowder</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<researchPrerequisite>CombustibleMixtures</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>4</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>SimpleScienceSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>AlchemyStance</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_I_SulfurFromFirewort</defName>
-		<label>Make sulfur</label>
-		<description>Make sulfur.</description>
-		<jobString>Making sulfur.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2500</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawFirewort</li>
-					</thingDefs>
-				</filter>
-				<count>30</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawFirewort</li>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Sulfur>10</Sulfur>
-		</products>
-		<researchPrerequisite>BasicsMechanic</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>ManualFlourMill</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_SulfurFromFirewort</defName>
-		<label>Make sulfur x4</label>
-		<description>Make sulfur x4.</description>
-		<jobString>Making sulfur x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>10000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Flora_RawFirewort</li>
-					</thingDefs>
-				</filter>
-				<count>120</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>40</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawFirewort</li>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Sulfur>40</Sulfur>
-		</products>
-		<researchPrerequisite>BasicsMechanic</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>3</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>ManualFlourMill</li>
-		</recipeUsers>
-	</RecipeDef>
-
-	<RecipeDef Abstract="true" Name="MakePawnCocconBase">
-		<workerClass>ProjectParagon.Core.Recipes.RecipeWorker_MakePawnCoccon</workerClass>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Cremate</effectWorking>
-		<soundWorking>Recipe_Cremate</soundWorking>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Corpses</li>
-					</categories>
-					<disallowedCategories>
-						<li>CorpsesMechanoid</li>
-					</disallowedCategories>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<categories>
-				<li>Corpses</li>
-			</categories>
-			<disallowedCategories>
-				<li>CorpsesMechanoid</li>
-			</disallowedCategories>
-		</fixedIngredientFilter>
-		<products>
-		</products>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>ArachnidBroodCocoon</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef ParentName="MakePawnCocconBase">
-		<defName>Make_Arachnids_Worker</defName>
-		<label>Make arachnid worker</label>
-		<description>Make arachnid worker.</description>
-		<jobString>Making arachnid worker.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<workAmount>1500</workAmount>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipePawnMaker">
-				<pawnKindDef>Newborn_Arachnid_Worker</pawnKindDef>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef ParentName="MakePawnCocconBase">
-		<defName>Make_Arachnids_Soldier</defName>
-		<label>Make arachnid soldier</label>
-		<description>Make arachnid soldier.</description>
-		<jobString>Making arachnid soldier.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<workAmount>2000</workAmount>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipePawnMaker">
-				<pawnKindDef>Newborn_Arachnid_Soldier</pawnKindDef>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef ParentName="MakePawnCocconBase">
-		<defName>Make_Arachnids_Warrior</defName>
-		<label>Make arachnid warrior</label>
-		<description>Make arachnid warrior.</description>
-		<jobString>Making arachnid warrior.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<workAmount>2500</workAmount>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipePawnMaker">
-				<pawnKindDef>Newborn_Arachnid_Warrior</pawnKindDef>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef ParentName="MakePawnCocconBase">
-		<defName>Make_Arachnids_Scholary</defName>
-		<label>Make arachnid scholary</label>
-		<description>Make arachnid scholary.</description>
-		<jobString>Making arachnid scholary.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<workAmount>3000</workAmount>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipePawnMaker">
-				<pawnKindDef>Newborn_Arachnid_Scholary</pawnKindDef>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef ParentName="MakePawnCocconBase">
-		<defName>Make_Arachnids_Bombardier</defName>
-		<label>Make arachnid bombardier</label>
-		<description>Make arachnid bombardier.</description>
-		<jobString>Making arachnid bombardier.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<workAmount>2500</workAmount>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipePawnMaker">
-				<pawnKindDef>Newborn_Arachnid_Bombardier</pawnKindDef>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef ParentName="MakePawnCocconBase">
-		<defName>Make_Arachnids_Ram</defName>
-		<label>Make arachnid ram</label>
-		<description>Make arachnid ram.</description>
-		<jobString>Making arachnid ram.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<workAmount>3000</workAmount>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipePawnMaker">
-				<pawnKindDef>Newborn_Arachnid_Ram</pawnKindDef>
-			</li>
-		</modExtensions>
-	</RecipeDef>
-	<RecipeDef Name="ProcessChunkSlagSteelBase" Abstract="true">
-		<label>Process metal chunk</label>
-		<description>Process metal chunk.</description>
-		<jobString>Processing metal chunk</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>300</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>ChunkSlagSteel</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<products>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>ChunkSlagSteel</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<workSkill>Crafting</workSkill>
-	</RecipeDef>
-	<RecipeDef ParentName="ProcessChunkSlagSteelBase">
-		<defName>Make_I_ProcessChunkSlagSteel</defName>
-		<recipeUsers>
-			<li>Crucible</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef ParentName="ProcessChunkSlagSteelBase">
-		<defName>Make_II_ProcessChunkSlagSteel</defName>
-		<recipeUsers>
-			<li>MeltingFurnace</li>
+			<li>MechanicalWorkbench</li>
+			<li>DrugLab</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -4157,6 +588,11 @@
 			<li>Crucible</li>
 			<li>Campfire</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+			<li>SteamSmelter</li>
+			<li>ElectricSmelter</li>
+			<li>ArcSmelter</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
@@ -4191,9 +627,13 @@
 			<li>Crucible</li>
 			<li>Campfire</li>
 			<li>CookingFurnace</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+			<li>SteamSmelter</li>
+			<li>ElectricSmelter</li>
+			<li>ArcSmelter</li>
 		</recipeUsers>
 	</RecipeDef>
-	
 	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
 		<defName>Make_I_ConreteMechanic</defName>
 		<label>make concrete</label>
@@ -4202,7 +642,7 @@
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>2000</workAmount>
+		<workAmount>1000</workAmount>
 		<ingredients>
 			<li>
 				<filter>
@@ -4230,18 +670,15 @@
 			</li>
 		</ingredients>
 		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
 				<count>20</count>
 			</li>
 		</abstractIngredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>WoodLog</li>
+				<li>Sand</li>
+				<li>Clay</li>
+				<li>Slag</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
@@ -4253,7 +690,9 @@
 		<workSkill>Crafting</workSkill>
 		<recipeUsers>
 			<li>ManualConcreteMixer</li>
+			<li>SteamMixer</li>
 		</recipeUsers>
+		<researchPrerequisite>MaterialsScience</researchPrerequisite>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
 				<affectOnBody>true</affectOnBody>
@@ -4261,21 +700,20 @@
 			</li>
 		</modExtensions>
 	</RecipeDef>
-	
-	<RecipeDef>
-		<defName>Make_I_Pesticides</defName>
-		<label>Make pesticides</label>
-		<description>Make pesticides.</description>
-		<jobString>Making pesticides.</jobString>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_II_ConreteMechanic</defName>
+		<label>make concrete</label>
+		<description>Make concrete.</description>
+		<jobString>Making concrete.</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>4000</workAmount>
+		<workAmount>1000</workAmount>
 		<ingredients>
 			<li>
 				<filter>
 					<thingDefs>
-						<li>Flora_RawFirewort</li>
+						<li>Sand</li>
 					</thingDefs>
 				</filter>
 				<count>30</count>
@@ -4283,352 +721,129 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>Sand</li>
+						<li>Clay</li>
 					</thingDefs>
 				</filter>
 				<count>10</count>
 			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Flora_RawFirewort</li>
-				<li>Sand</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<Pesticides>10</Pesticides>
-		</products>
-		<researchPrerequisite>Pesticides</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>12</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>DrugLab</li>
-		</recipeUsers>
-	</RecipeDef>
-	
-	<RecipeDef>
-		<defName>Make_Bulk_I_Pesticides</defName>
-		<label>Make pesticides x4</label>
-		<description>Make pesticides x4.</description>
-		<jobString>Making pesticides.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>16000</workAmount>
-		<ingredients>
 			<li>
 				<filter>
 					<thingDefs>
-						<li>Flora_RawFirewort</li>
+						<li>Slag</li>
 					</thingDefs>
 				</filter>
 				<count>30</count>
 			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sand</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
 		</ingredients>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
+				<count>20</count>
+			</li>
+		</abstractIngredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>Flora_RawFirewort</li>
 				<li>Sand</li>
+				<li>Clay</li>
+				<li>Slag</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Pesticides>10</Pesticides>
+			<Concrete>35</Concrete>
 		</products>
-		<researchPrerequisite>Pesticides</researchPrerequisite>
 		<skillRequirements>
-			<Crafting>12</Crafting>
+			<Crafting>2</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
 		<recipeUsers>
-			<li>DrugLab</li>
+			<li>IndustrialCrusher</li>
 		</recipeUsers>
+		<researchPrerequisite>MaterialsScience</researchPrerequisite>
 	</RecipeDef>
-
-	<RecipeDef>
-		<defName>Make_Bulk_I_ComponentIndustrial</defName>
-		<label>make component x4</label>
-		<description>Make a component x4.</description>
-		<jobString>Making component.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Cook</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>20000</workAmount>
-		<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
-				</filter>
-				<count>60</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
-		</fixedIngredientFilter>
-		<products>
-			<ComponentIndustrial>4</ComponentIndustrial>
-		</products>
-		<skillRequirements>
-			<Crafting>10</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<researchPrerequisite>Machining</researchPrerequisite>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>AdvancedBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>MechanicalWorkbench</li>
-		</recipeUsers>
-	</RecipeDef>
-	
 	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
-		<defName>Make_SulphuricAcid</defName>
-		<label>make sulphuric acid</label>
-		<description>Make sulphuric acid</description>
-		<jobString>Making sulphuric acid.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Cook</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>5500</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Sulfur</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Saltpeter</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>HeatForBill</li>
-					</thingDefs>
-				</filter>
-				<count>0</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
-				<count>25</count>
-			</li>
-		</abstractIngredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>Sulfur</li>
-				<li>Saltpeter</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<SulphuricAcid>2</SulphuricAcid>
-		</products>
-		<skillRequirements>
-			<Crafting>12</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<researchPrerequisite>Chemistry</researchPrerequisite>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredModules>
-					<li>Heater</li>
-				</requiredModules>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>ChemicalStation</li>
-		</recipeUsers>
-	</RecipeDef>
-	
-	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
-		<defName>Make_HydrochloricAcid</defName>
-		<label>make hydrochloric acid</label>
-		<description>Make hydrochloric acid</description>
-		<jobString>Making hydrochloric acid.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Cook</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>4500</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>SulphuricAcid</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RockSalt</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</ingredients>
-		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>HeatForBill</li>
-					</thingDefs>
-				</filter>
-				<count>0</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>
-		</abstractIngredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>SulphuricAcid</li>
-				<li>RockSalt</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<HydrochloricAcid>2</HydrochloricAcid>
-		</products>
-		<skillRequirements>
-			<Crafting>12</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<researchPrerequisite>Chemistry</researchPrerequisite>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredModules>
-					<li>Heater</li>
-				</requiredModules>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>ChemicalStation</li>
-		</recipeUsers>
-	</RecipeDef>
-
-	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
-		<defName>Make_BoricAcid</defName>
-		<label>make boric acid</label>
-		<description>Make boric acid</description>
-		<jobString>Making boric acid.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Cook</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>4500</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Acids</li>
-					</categories>
-				</filter>
-				<count>1</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>MagnesiumOre</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<abstractIngredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>WaterForBill</li>
-					</thingDefs>
-				</filter>
-				<count>15</count>
-			</li>
-		</abstractIngredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>MagnesiumOre</li>
-			</thingDefs>
-			<categories>
-				<li>Acids</li>
-			</categories>
-		</fixedIngredientFilter>
-		<products>
-			<BoricAcid>5</BoricAcid>
-		</products>
-		<skillRequirements>
-			<Crafting>14</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<researchPrerequisite>Chemistry</researchPrerequisite>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-			</li>
-		</modExtensions>
-		<recipeUsers>
-			<li>ChemicalStation</li>
-		</recipeUsers>
-	</RecipeDef>
-	
-	<RecipeDef>
-		<defName>Make_I_RepairKit</defName>
-		<label>make repair kit</label>
-		<description>Make repair kit.</description>
-		<jobString>Making repair kit.</jobString>
+		<defName>Make_I_CinderBlock</defName>
+		<label>make cinder block</label>
+		<description>Make cinder block.</description>
+		<jobString>Making cinder block.</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3000</workAmount>
+		<workAmount>1500</workAmount>
 		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Concrete</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Slag</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
+				<count>10</count>
+			</li>
+		</abstractIngredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Concrete</li>
+				<li>Slag</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CinderBlock>25</CinderBlock>
+		</products>
+		<skillRequirements>
+			<Crafting>2</Crafting>
+		</skillRequirements>
+		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>ManualConcreteMixer</li>
+			<li>SteamMixer</li>
+			<li>IndustrialCrusher</li>
+		</recipeUsers>
+		<researchPrerequisite>MaterialsScience</researchPrerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<affectOnBody>true</affectOnBody>
+				<affectOnBodyPerIteration>0.010</affectOnBodyPerIteration>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef>
+		<defName>Make_ShockBelt</defName>
+		<label>Make shock belt</label>
+		<description>Make shock belt.</description>
+		<jobString>Making shock belt.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workAmount>40000</workAmount>
+		<unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ShockCrystal</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Microelectronics</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
 			<li>
 				<filter>
 					<thingDefs>
@@ -4637,239 +852,169 @@
 				</filter>
 				<count>2</count>
 			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>MechanismComplex</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
 		</ingredients>
-		<products>
-			<RepairKit>1</RepairKit>
-		</products>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>ComponentIndustrial</li>
-				<li>MechanismComplex</li>
+				<li>WoodLog</li>
 			</thingDefs>
 		</fixedIngredientFilter>
-		<researchPrerequisite>Machining</researchPrerequisite>
+		<products>
+			<ShockBelt>1</ShockBelt>
+		</products>
+		<researchPrerequisite>MicroelectronicsBasics</researchPrerequisite>
 		<skillRequirements>
 			<Crafting>8</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
 		<recipeUsers>
-			<li>MechanicalWorkbench</li>
-		</recipeUsers>
-	</RecipeDef>
-	<RecipeDef>
-		<defName>Make_Bulk_I_RepairKit</defName>
-		<label>make repair kit x4</label>
-		<description>Make repair kit x4.</description>
-		<jobString>Making repair kit x4.</jobString>
-		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-		<effectWorking>Smelt</effectWorking>
-		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12000</workAmount>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>ComponentIndustrial</li>
-					</thingDefs>
-				</filter>
-				<count>8</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>MechanismComplex</li>
-					</thingDefs>
-				</filter>
-				<count>4</count>
-			</li>
-		</ingredients>
-		<products>
-			<RepairKit>4</RepairKit>
-		</products>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>ComponentIndustrial</li>
-				<li>MechanismComplex</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<researchPrerequisite>Machining</researchPrerequisite>
-		<skillRequirements>
-			<Crafting>8</Crafting>
-		</skillRequirements>
-		<workSkill>Crafting</workSkill>
-		<recipeUsers>
-			<li>MechanicalWorkbench</li>
+			<li>TableMachiningAdvanced</li>
 		</recipeUsers>
 		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>AdvancedBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>ResoniteRace</li>
+				</associatedRaces>
 			</li>
 		</modExtensions>
 	</RecipeDef>
-	
 	<RecipeDef>
-		<defName>Make_I_SimpleElectronic</defName>
-		<label>make simple electronic</label>
-		<description>Make simple electronic.</description>
-		<jobString>Making simple electronic.</jobString>
+		<defName>Make_I_FruitVape</defName>
+		<label>Make fruit vape</label>
+		<description>Make fruit vape</description>
+		<jobString>Making fruit vape</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>3500</workAmount>
+		<workAmount>500</workAmount>
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Fruits</li>
+					</categories>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>PureCopperIngot</li>
+						<li>Plastic</li>
 					</thingDefs>
 				</filter>
 				<count>10</count>
 			</li>
 			<li>
 				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
+					<thingDefs>
+						<li>Sugar</li>
+					</thingDefs>
 				</filter>
-				<count>20</count>
+				<count>5</count>
 			</li>
 			<li>
 				<filter>
 					<thingDefs>
-						<li>HydrochloricAcid</li>
+						<li>SimpleElectronic</li>
 					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Glass</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
 			<thingDefs>
-				<li>PureCopperIngot</li>
-				<li>HydrochloricAcid</li>
-				<li>Glass</li>
+				<li>Plastic</li>
+				<li>Sugar</li>
+				<li>SimpleElectronic</li>
 			</thingDefs>
+			<categories>
+				<li>Fruits</li>
+			</categories>
 		</fixedIngredientFilter>
 		<products>
-			<SimpleElectronic>5</SimpleElectronic>
+			<FruitVape>5</FruitVape>
 		</products>
-		<researchPrerequisite>Electronics</researchPrerequisite>
+		<researchPrerequisite>FlatscreenTelevision</researchPrerequisite>
 		<skillRequirements>
-			<Crafting>10</Crafting>
+			<Crafting>5</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
 		<recipeUsers>
-			<li>MechanicalWorkbench</li>
+			<li>DrugLab</li>
 		</recipeUsers>
 	</RecipeDef>
 	<RecipeDef>
-		<defName>Make_Bulk_I_SimpleElectronic</defName>
-		<label>make simple electronic x4</label>
-		<description>make simple electronic x4.</description>
-		<jobString>making simple electronic x4.</jobString>
+		<defName>Make_Bulk_I_FruitVape</defName>
+		<label>Make fruit vape x4</label>
+		<description>Make fruit vape x4</description>
+		<jobString>Making fruit vape x4</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>14000</workAmount>
+		<workAmount>500</workAmount>
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Fruits</li>
+					</categories>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>PureCopperIngot</li>
+						<li>Plastic</li>
 					</thingDefs>
 				</filter>
 				<count>40</count>
 			</li>
 			<li>
 				<filter>
-					<categories>
-						<li>Alloys_Strong</li>
-					</categories>
+					<thingDefs>
+						<li>Sugar</li>
+					</thingDefs>
 				</filter>
-				<count>80</count>
+				<count>20</count>
 			</li>
 			<li>
 				<filter>
 					<thingDefs>
-						<li>HydrochloricAcid</li>
+						<li>SimpleElectronic</li>
 					</thingDefs>
 				</filter>
 				<count>4</count>
 			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Glass</li>
-					</thingDefs>
-				</filter>
-				<count>80</count>
-			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-			<categories>
-				<li>Alloys_Strong</li>
-			</categories>
 			<thingDefs>
-				<li>PureCopperIngot</li>
-				<li>HydrochloricAcid</li>
-				<li>Glass</li>
+				<li>Plastic</li>
+				<li>Sugar</li>
+				<li>SimpleElectronic</li>
 			</thingDefs>
+			<categories>
+				<li>Fruits</li>
+			</categories>
 		</fixedIngredientFilter>
 		<products>
-			<SimpleElectronic>4</SimpleElectronic>
+			<FruitVape>20</FruitVape>
 		</products>
-		<researchPrerequisite>Electronics</researchPrerequisite>
+		<researchPrerequisite>FlatscreenTelevision</researchPrerequisite>
 		<skillRequirements>
-			<Crafting>10</Crafting>
+			<Crafting>5</Crafting>
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
 		<modExtensions>
-			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-				<requiredFacilities>
-					<li>
-						<thingFilter>
-							<thingDefs>
-								<li>AdvancedBlacksmithSet</li>
-							</thingDefs>
-						</thingFilter>
-					</li>
-				</requiredFacilities>
-			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
 			</li>
 		</modExtensions>
 		<recipeUsers>
-			<li>MechanicalWorkbench</li>
+			<li>DrugLab</li>
 		</recipeUsers>
 	</RecipeDef>
 </Defs>

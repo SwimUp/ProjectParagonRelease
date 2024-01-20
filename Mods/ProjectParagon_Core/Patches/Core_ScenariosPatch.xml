@@ -1,11 +1,218 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-	<Operation Class="PatchOperationAdd">
-		<xpath>*/ScenarioDef[defName="Crashlanded" or defName="LostTribe" or defName="TheRichExplorer" or defName="NakedBrutality"]/scenario</xpath>
-		<value>
-			<showInUI>false</showInUI>
-			<enabled>false</enabled>
-		</value>
-		
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ScenarioDef[defName="Crashlanded" or defName="LostTribe" or defName="TheRichExplorer" or defName="NakedBrutality"
+				or defName="Sanguophage" or defName="Mechanitor"]/scenario</xpath>
+				<value>
+					<showInUI>false</showInUI>
+					<enabled>false</enabled>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ScenarioDef[defName="Crashlanded"]</xpath>
+				<value>
+					<ScenarioDef Name="Crashlanded">
+						<defName>Crashlanded</defName>
+						<label>Crashlanded</label>
+						<description>The three of you awake in your cryptosleep sarcophagi to the sound of sirens and ripping metal. You barely get to the escape pods before the ship is torn apart. Some time later, you land on this unknown rimworld.</description>
+						<scenario>
+							<summary>Three crashlanded survivors - the classic RimWorld experience.</summary>
+							<playerFaction>
+								<def>PlayerFaction</def>
+								<factionDef>PlayerColony</factionDef>
+							</playerFaction>
+							<parts>
+								<!-- Config pages -->
+								<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+									<def>ConfigPage_ConfigureStartingPawns</def>
+									<pawnCount>3</pawnCount>
+									<pawnChoiceCount>8</pawnChoiceCount>
+								</li>
+								<!-- Player starting stuff spawn method-->
+								<li Class="ScenPart_PlayerPawnsArriveMethod">
+									<def>PlayerPawnsArriveMethod</def>
+									<method>DropPods</method>
+									<visible>false</visible>
+								</li>
+								<!-- Player pawns modifiers -->
+								<li Class="ScenPart_ForcedHediff">
+									<def>ForcedHediff</def>
+									<visible>false</visible>
+									<context>PlayerStarter</context>
+									<chance>0.5</chance>
+									<hediff>CryptosleepSickness</hediff>
+									<hideOffMap>true</hideOffMap>
+									<severityRange>1~1</severityRange>
+								</li>
+								<!-- Player starting things -->
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>Silver</thingDef>
+									<count>500</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>MealSurvivalPack</thingDef>
+									<count>50</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>MedicineIndustrial</thingDef>
+									<count>30</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>ComponentIndustrial</thingDef>
+									<count>20</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>MechanismComplex</thingDef>
+									<count>20</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>AxePick</thingDef>
+									<stuff>Steel</stuff>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>HammerWrench</thingDef>
+									<stuff>Steel</stuff>
+								</li>
+								<!-- Scatter some things near player start -->
+								<li Class="ScenPart_ScatterThingsNearPlayerStart">
+									<def>ScatterThingsNearPlayerStart</def>
+									<thingDef>Steel</thingDef>
+									<count>500</count>
+								</li>
+								<li Class="ScenPart_ScatterThingsNearPlayerStart">
+									<def>ScatterThingsNearPlayerStart</def>
+									<thingDef>WoodLog</thingDef>
+									<count>250</count>
+								</li>
+								<!-- Scatter some things anywhere -->
+								<li Class="ScenPart_ScatterThingsAnywhere">
+									<def>ScatterThingsAnywhere</def>
+									<thingDef>ShipChunk</thingDef>
+									<allowRoofed>false</allowRoofed>
+									<count>5</count>
+								</li>
+								<li Class="ScenPart_ScatterThingsAnywhere">
+									<def>ScatterThingsAnywhere</def>
+									<thingDef>Steel</thingDef>
+									<count>500</count>
+								</li>
+								<li Class="ScenPart_ScatterThingsAnywhere">
+									<def>ScatterThingsAnywhere</def>
+									<thingDef>MealSurvivalPack</thingDef>
+									<count>10</count>
+								</li>
+								<!-- Game start dialog -->
+								<li Class="ScenPart_GameStartDialog">
+									<def>GameStartDialog</def>
+									<textKey>GameStartDialog</textKey>
+									<closeSound>GameStartSting</closeSound>
+								</li>
+							</parts>
+						</scenario>
+					</ScenarioDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ScenarioDef[defName="TheRichExplorer"]</xpath>
+				<value>
+					<ScenarioDef>
+						<defName>TheRichExplorer</defName>
+						<label>The Rich Explorer</label>
+						<description>People called you crazy for leaving your glitterworld home, but you always yearned to explore the stars - outside the neurosimulator. Now you're at the end of your long journey in cryptosleep, landing on an unknown rimworld to see what it's like.\n\nNote: Since your starting character will lack some skills, this is an especially difficult scenario in the early game.</description>
+						<scenario>
+							<summary>One rich explorer out to experience the universe. Extra difficult.</summary>
+							<playerFaction>
+								<def>PlayerFaction</def>
+								<factionDef>PlayerColony</factionDef>
+							</playerFaction>
+							<parts>
+								<!-- Config pages -->
+								<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+									<def>ConfigPage_ConfigureStartingPawns</def>
+									<pawnCount>1</pawnCount>
+									<pawnChoiceCount>8</pawnChoiceCount>
+								</li>
+								<!-- Player starting stuff spawn method-->
+								<li Class="ScenPart_PlayerPawnsArriveMethod">
+									<def>PlayerPawnsArriveMethod</def>
+									<visible>false</visible>
+									<method>DropPods</method>
+								</li>
+								<!-- Starting research -->
+								<!-- Player starting things -->
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>Silver</thingDef>
+									<count>2500</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>MealSurvivalPack</thingDef>
+									<count>40</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>MedicineUltratech</thingDef>
+									<count>30</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>ComponentIndustrial</thingDef>
+									<count>30</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>MechanismComplex</thingDef>
+									<count>30</count>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>HIDGun_AK47_</thingDef>
+								</li>
+								<li Class="ScenPart_StartingThing_Defined">
+									<def>StartingThing_Defined</def>
+									<thingDef>Ammo_762x39mmSoviet_FMJ</thingDef>
+									<count>500</count>
+								</li>
+								<li Class="ScenPart_StartingAnimal">
+									<def>StartingAnimal</def>
+									<count>1</count>
+									<bondToRandomPlayerPawnChance>1.0</bondToRandomPlayerPawnChance>
+								</li>
+								<!-- Scatter some things near player start -->
+								<li Class="ScenPart_ScatterThingsNearPlayerStart">
+									<def>ScatterThingsNearPlayerStart</def>
+									<thingDef>Steel</thingDef>
+									<count>500</count>
+								</li>
+								<li Class="ScenPart_ScatterThingsNearPlayerStart">
+									<def>ScatterThingsNearPlayerStart</def>
+									<thingDef>WoodLog</thingDef>
+									<count>250</count>
+								</li>
+								<!-- Game start dialog -->
+								<li Class="ScenPart_GameStartDialog">
+									<def>GameStartDialog</def>
+									<text>The neurosimulations, holo-games, and free-orgies were never enough for you. You wanted more - the grit and consequence of real life, like they talk about in the history books. You wanted to know what real challenge and consequence feel like.\n\nNow, after a journey of decades in cryptosleep, you're landing on this unknown rimworld. Real consequences await you.</text>
+									<closeSound>GameStartSting</closeSound>
+								</li>
+							</parts>
+						</scenario>
+					</ScenarioDef>
+				</value>
+			</li>
+			
+		</operations>
 	</Operation>
 </Patch>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>DoomSarcophagus</defName>
+		<label>Sealed Sarcophagus</label>
+		<description>Sarcophagus with an unknown inside.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_DoomSarcophagus</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/DoomSarcophagus/DoomSarcophagus</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2.2,2.2)</drawSize>
+			<shadowData>
+				<volume>(1.1,0.3,1.3)</volume>
+				<offset>(0,0,0.4)</offset>
+			</shadowData>
+			<drawOffset>-0.1,0,0</drawOffset>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<rotatable>false</rotatable>
+		<pathCost>50</pathCost>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<statBases>
+			<Mass>150</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<size>(2,2)</size>
+		<tickerType>Normal</tickerType>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_DoomSarcophagus</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_DoomSarcophagus">
+				<maxDistanceToComputers>10</maxDistanceToComputers>
+				<encryptProgressPerDayByTerfaplos>
+					<points>
+						<li>(1, 0.05)</li>
+						<li>(5, 0.08)</li>
+						<li>(10, 0.1)</li>
+						<li>(50, 0.2)</li>
+					</points>
+				</encryptProgressPerDayByTerfaplos>
+				<powerUsage>20000</powerUsage>
+				<energyShieldDischargeSpeedPerDay>0.35</energyShieldDischargeSpeedPerDay>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>ProjectParagon.Core.Things.CompPowerTraderParagon</compClass>
+				<basePowerConsumption>50</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

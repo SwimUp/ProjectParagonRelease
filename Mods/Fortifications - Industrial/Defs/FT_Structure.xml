@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Base -->
+	<ThingDef Name="FT_SandBag_Base" Abstract="True">
+		<category>Building</category>
+		<thingClass>Building</thingClass>
+		<soundImpactDefault>Pawn_Melee_Punch_HitPawn</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<graphicData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+			</damageData>
+		</graphicData>
+		<stuffCategories>
+			<li>Fabric</li>
+		</stuffCategories>
+		<colorPerStuff>
+			<li>
+				<stuff>Cloth</stuff>
+				<color>(139,122,87)</color>
+			</li>
+			<li>
+				<stuff>Synthread</stuff>
+				<color>(110,114,77)</color>
+			</li>
+		</colorPerStuff>
+		<blockWind>false</blockWind>
+		<neverMultiSelect>true</neverMultiSelect>
+		<holdsRoof>false</holdsRoof>
+		<castEdgeShadows>true</castEdgeShadows>
+		<building>
+			<allowAutoroof>false</allowAutoroof>
+			<isInert>true</isInert>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<blockLight>false</blockLight>
+		<repairEffect>ConstructDirt</repairEffect>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>SandbagRubble</filthLeaving>
+		<designationCategory>Security</designationCategory>
+		<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+	</ThingDef>
+	<ThingDef ParentName="FT_SandBag_Base">
+		<defName>FT_WallSandbag</defName>
+		<label>Military sandbag wall</label>
+		<thingClass>Building</thingClass>
+		<description>Bags of locally-sourced dirt or sand, stacked for use as wall. they are
+      well-stacked so it is more durable.</description>
+		<graphicData>
+			<texPath>FT_SandbagWall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>Asymmetric</linkType>
+			<linkFlags>
+				<li>Sandbags</li>
+			</linkFlags>
+			<asymmetricLink>
+				<linkFlags>
+					<li>Wall</li>
+					<!-- <li>Rock</li> -->
+				</linkFlags>
+				<linkToDoors>false</linkToDoors>
+			</asymmetricLink>
+		</graphicData>
+		<uiIconPath>FT_SandbagWall_icon</uiIconPath>
+		<building>
+			<blueprintGraphicData>
+				<texPath>FT_SandbagWall_blueprint</texPath>
+			</blueprintGraphicData>
+		</building>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>250</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Beauty>0</Beauty>
+		</statBases>
+		<blockWind>true</blockWind>
+		<holdsRoof>true</holdsRoof>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<colorPerStuff>
+			<li>
+				<stuff>Cloth</stuff>
+				<color>(139,122,87)</color>
+			</li>
+		</colorPerStuff>
+		<costStuffCount>8</costStuffCount>
+		<costList>
+			<Sand>10</Sand>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<fillPercent>1.00</fillPercent>
+		<coversFloor>false</coversFloor>
+		<castEdgeShadows>false</castEdgeShadows>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<researchPrerequisites>
+			<li>DefenseStructures</li>
+		</researchPrerequisites>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+		<designationCategory>Structure</designationCategory>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>1.5</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>0.85</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>0.75</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>1.3</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>0.75</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>1.4</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>0.85</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>1.2</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.3</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>0.25</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>0.3</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>1.25</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>0.75</multiplier>
+			</li>
+		</damageMultipliers>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>FT_TankTrapFresh</defName>
+		<label>Tank Trap</label>
+		<description>A solid concrete pillar that can hinder vehicles.</description>
+		<designatorDropdown>Barricades</designatorDropdown>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>FT_TankTrap</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.75,0.25,0.75)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.2,0.2)</rect>
+			</damageData>
+			<color>(138,138,138)</color>
+		</graphicData>
+		<blockLight>false</blockLight>
+		<uiIconPath>FT_TankTrap</uiIconPath>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>150</pathCost>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.55</fillPercent>
+		<coversFloor>false</coversFloor>
+		<holdsRoof>false</holdsRoof>
+		<castEdgeShadows>false</castEdgeShadows>
+		<tickerType>Never</tickerType>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<Beauty>-5</Beauty>
+			<WorkToBuild>350</WorkToBuild>
+			<Flammability>0.0</Flammability>
+		</statBases>
+		<researchPrerequisites>
+			<li>DefenseStructures</li>
+		</researchPrerequisites>
+		<pathCostIgnoreRepeat>false</pathCostIgnoreRepeat>
+		<building>
+			<allowAutoroof>false</allowAutoroof>
+			<ai_chillDestination>false</ai_chillDestination>
+			<expandHomeArea>false</expandHomeArea>
+			<isInert>true</isInert>
+			<blueprintGraphicData>
+				<texPath>FT_TankTrap_blueprint</texPath>
+			</blueprintGraphicData>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_NeverAdjacentTrap</li>
+		</placeWorkers>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ConcreteBuilding">
+				<daysToHardens>3</daysToHardens>
+				<replaceThingDef>FT_TankTrap</replaceThingDef>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>2.6</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>2.1</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>2.5</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>2.5</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>2.4</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>2.4</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>2.4</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>2.4</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.25</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>2.1</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>2.1</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>2.8</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>2.7</multiplier>
+			</li>
+		</damageMultipliers>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<repairEffect>ConstructMetal</repairEffect>
+		<modExtensions>
+			<li MayRequireAnyOf="SmashPhil.VehicleFramework,SmashPhil.VehicleFramework_steam" Class="Vehicles.CustomCostDefModExtension">
+				<cost>10086</cost>
+				<vehicles/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>FT_TankTrap</defName>
+		<label>Tank Trap</label>
+		<description>A solid concrete pillar that can hinder vehicles.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>FT_TankTrap</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.75,0.25,0.75)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.2,0.2)</rect>
+			</damageData>
+		</graphicData>
+		<blockLight>false</blockLight>
+		<uiIconPath>FT_TankTrap</uiIconPath>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>150</pathCost>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.4</fillPercent>
+		<coversFloor>false</coversFloor>
+		<holdsRoof>false</holdsRoof>
+		<castEdgeShadows>false</castEdgeShadows>
+		<tickerType>Never</tickerType>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Beauty>-5</Beauty>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>0.0</Flammability>
+		</statBases>
+		<pathCostIgnoreRepeat>false</pathCostIgnoreRepeat>
+		<building>
+			<allowAutoroof>false</allowAutoroof>
+			<ai_chillDestination>false</ai_chillDestination>
+			<expandHomeArea>false</expandHomeArea>
+			<isInert>true</isInert>
+			<blueprintGraphicData>
+				<texPath>FT_TankTrap_blueprint</texPath>
+			</blueprintGraphicData>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_NeverAdjacentTrap</li>
+		</placeWorkers>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>0.9</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>0.1</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>0.85</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.6</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>0.1</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>0.1</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>0.9</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+		</damageMultipliers>
+		<repairEffect>ConstructMetal</repairEffect>
+		<modExtensions>
+			<li MayRequireAnyOf="SmashPhil.VehicleFramework,SmashPhil.VehicleFramework_steam" Class="Vehicles.CustomCostDefModExtension">
+				<cost>10086</cost>
+				<vehicles/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>FT_BarrierFresh</defName>
+		<label>Concrete Barrier (fresh)</label>
+		<description>a solid concrete barrier that can hinder vehicles and provide cover</description>
+		<designatorDropdown>Barricades</designatorDropdown>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Barrier/FT_barrier</texPath>
+			<shadowData>
+				<volume>(0.75,0.25,0.75)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.2,0.2)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+			</damageData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3.25,2.25)</drawSize>
+			<drawOffset>(0,0,0.05)</drawOffset>
+			<color>(138,138,138)</color>
+		</graphicData>
+		<size>(2,1)</size>
+		<uiIconPath>Barrier/FT_barrier_south</uiIconPath>
+		<uiIconScale>1.2</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>100</pathCost>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<Beauty>-5</Beauty>
+			<WorkToBuild>450</WorkToBuild>
+			<Flammability>0.0</Flammability>
+			<Mass>20</Mass>
+		</statBases>
+		<researchPrerequisites>
+			<li>DefenseStructures</li>
+		</researchPrerequisites>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isInert>true</isInert>
+			<isFence>true</isFence>
+			<isPlaceOverableWall>true</isPlaceOverableWall>
+			<blueprintGraphicData>
+				<texPath>Barrier/FT_barrier_south</texPath>
+			</blueprintGraphicData>
+		</building>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ConcreteBuilding">
+				<daysToHardens>3</daysToHardens>
+				<replaceThingDef>FT_Barrier</replaceThingDef>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>2.6</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>2.1</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>2.5</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>2.5</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>2.4</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>2.4</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>2.4</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>2.4</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.25</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>2.1</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>2.1</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>2.8</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>2.7</multiplier>
+			</li>
+		</damageMultipliers>
+		<rotatable>true</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<!-- Best affordance needed for stone -->
+		<designationCategory>Security</designationCategory>
+		<staticSunShadowHeight>0.00</staticSunShadowHeight>
+		<modExtensions>
+			<li MayRequireAnyOf="SmashPhil.VehicleFramework,SmashPhil.VehicleFramework_steam" Class="Vehicles.CustomCostDefModExtension">
+				<cost>10086</cost>
+				<vehicles/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>FT_Barrier</defName>
+		<label>Concrete Barrier</label>
+		<description>a solid concrete barrier that can hinder vehicles and provide cover</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Barrier/FT_barrier</texPath>
+			<color>(180,180,180)</color>
+			<shadowData>
+				<volume>(0.75,0.25,0.75)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.2,0.2,0.2,0.2)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+			</damageData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3.25,2.25)</drawSize>
+			<drawOffset>(0,0,0.05)</drawOffset>
+		</graphicData>
+		<size>(2,1)</size>
+		<uiIconPath>Barrier/FT_barrier_south</uiIconPath>
+		<uiIconScale>1.2</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>100</pathCost>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Beauty>-5</Beauty>
+			<WorkToBuild>200</WorkToBuild>
+			<Flammability>0.0</Flammability>
+			<Mass>20</Mass>
+		</statBases>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isInert>true</isInert>
+			<isFence>true</isFence>
+			<isPlaceOverableWall>true</isPlaceOverableWall>
+			<blueprintGraphicData>
+				<texPath>Barrier/FT_barrier_south</texPath>
+			</blueprintGraphicData>
+		</building>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<rotatable>true</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<!-- Best affordance needed for stone -->
+		<staticSunShadowHeight>0.00</staticSunShadowHeight>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>0.9</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>0.1</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>0.85</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>0.7</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>0.6</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>0.1</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>0.1</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>0.9</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>0.8</multiplier>
+			</li>
+		</damageMultipliers>
+		<modExtensions>
+			<li MayRequireAnyOf="SmashPhil.VehicleFramework,SmashPhil.VehicleFramework_steam" Class="Vehicles.CustomCostDefModExtension">
+				<cost>10086</cost>
+				<vehicles/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+</Defs>	

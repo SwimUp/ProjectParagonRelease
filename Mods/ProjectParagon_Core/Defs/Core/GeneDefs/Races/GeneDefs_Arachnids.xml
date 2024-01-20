@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneArachnidsBase" Abstract="True">
+		<displayCategory>Arachnids</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneArachnidsBase">
+		<defName>Arachnid</defName>
+		<label>Arachnid</label>
+		<labelShortAdj>Arachnid</labelShortAdj>
+		<description>The pawn is a sentient half-insect.</description>
+		<iconPath>Core/Genes/Arachnid</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneArachnidsBase">
+		<defName>Ability_JellyExcretion</defName>
+		<label>Jelly excretion</label>
+		<labelShortAdj>The carrier's body secretes some nutrient jelly, as insects do.</labelShortAdj>
+		<description>TODO</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Things/Item/Resource/AnimalProductRaw/InsectJelly/InsectJelly_c</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<forcedHediffDef>JellyExcretion</forcedHediffDef>
+				</props>
+			</li>
+		</modExtensions>
+		<prerequisite>Arachnid</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneArachnidsBase">
+		<defName>Ability_ChemfuelExcretion</defName>
+		<label>Chemfuel excretion</label>
+		<labelShortAdj>Chemfuel excretion</labelShortAdj>
+		<description>The carrier's body secretes chemical fuel from special glands.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Things/Item/Resource/Chemfuel</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<forcedHediffDef>ChemfuelExcretion</forcedHediffDef>
+				</props>
+			</li>
+		</modExtensions>
+		<prerequisite>Arachnid</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneArachnidsBase">
+		<defName>ChitinArmor</defName>
+		<label>Chitin armor</label>
+		<labelShortAdj>Chitin armor</labelShortAdj>
+		<description>The carrier is covered with natural armor - thick bark, which protects him in a balanced way from all types of damage.</description>
+		<iconPath>Core/Genes/ChitinArmor</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<statOffsets>
+			<ArmorRating_Blunt>2.5</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+			<MoveSpeed>-1.0</MoveSpeed>
+		</statOffsets>
+		<exclusionTags>
+			<li>NaturalArmor</li>
+		</exclusionTags>
+		<prerequisite>Arachnid</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneArachnidsBase">
+		<defName>Hemogen_ColdBlood</defName>
+		<label>Cold blood</label>
+		<labelShortAdj>Cold blood</labelShortAdj>
+		<description>The carrier of the gene cannot maintain body temperature without the influence of the environment. In case of prolonged hypothermia, the creature will go into a stupor.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ColdBlood</geneClass>
+		<iconPath>Core/Genes/ColdBlood</iconPath>
+		<displayOrderInCategory>40</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+	</GeneDef>
+	<!---->
+</Defs>

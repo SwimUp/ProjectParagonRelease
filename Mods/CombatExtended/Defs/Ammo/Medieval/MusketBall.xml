@@ -39,8 +39,8 @@
 		<tradeTags>
       		  <li>CE_PreIndustrialAmmo</li>
 		  <li>CE_AutoEnableTrade</li>
-		  <li>CE_AutoEnableCrafting_FueledSmithy</li>
-		  <li>CE_AutoEnableCrafting_ElectricSmithy</li>
+		  <li>CE_AutoEnableCrafting_AmmoBench</li>
+		  <li>CE_AutoEnableCrafting_WeaponWorkbench</li>
 		</tradeTags>
 		<thingCategories>
 			<li>AmmoMusketBall</li>
@@ -81,9 +81,9 @@
 		<label>musket ball</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<speed>90</speed>	
-			<damageAmountBase>26</damageAmountBase>		
-			<armorPenetrationSharp>5</armorPenetrationSharp>
-			<armorPenetrationBlunt>64.8</armorPenetrationBlunt>				
+			<damageAmountBase>35</damageAmountBase>		
+			<armorPenetrationSharp>6</armorPenetrationSharp>
+			<armorPenetrationBlunt>10</armorPenetrationBlunt>				
 		</projectile>
 	</ThingDef>
 
@@ -94,9 +94,9 @@
 		<label>musket ball</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<speed>50</speed>	
-			<damageAmountBase>17</damageAmountBase>		
-			<armorPenetrationSharp>3.5</armorPenetrationSharp>
-			<armorPenetrationBlunt>20</armorPenetrationBlunt>				
+			<damageAmountBase>25</damageAmountBase>		
+			<armorPenetrationSharp>4</armorPenetrationSharp>
+			<armorPenetrationBlunt>8</armorPenetrationBlunt>				
 		</projectile>
 	</ThingDef>
   
@@ -110,22 +110,46 @@
     	<workAmount>2000</workAmount>		
 		<ingredients>
 			<li>
-			<filter>
-				<thingDefs>
-					<li>Steel</li>
-				</thingDefs>
-			</filter>
-			<count>20</count>
+				<filter>
+					<thingDefs>
+						<li>LeadIngot</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Paper</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>Steel</li>
+				<li>LeadIngot</li>
+				<li>Paper</li>
+				<li>Gunpowder</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
 			<Ammo_MusketBall>100</Ammo_MusketBall>
 		</products>
+		<researchPrerequisite>WeaponsII</researchPrerequisite>
+		<recipeUsers Inherit="false">
+			<li>ForgeWithAnvil</li>
+			<li>AmmoBench</li>
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
 	</RecipeDef>
 	
 </Defs>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 128mmPAK44 -->
+	<ThingCategoryDef>
+		<defName>Ammo128mmPAK44Shells</defName>
+		<label>128mm Pak44</label>
+		<parent>AmmoHighCaliber</parent>
+		<iconPath>Things/Projectile/128mmPAK44AP</iconPath>
+	</ThingCategoryDef>
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_128mmPAK44_Shells</defName>
+		<label>128mm Pak44</label>
+		<ammoTypes>
+			<Ammo_128mmPAK44_AP>Bullet_128mmPAK44_AP</Ammo_128mmPAK44_AP>
+			<Ammo_128mmPAK44_HE>Bullet_128mmPAK44_HE</Ammo_128mmPAK44_HE>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="128mmPAK44Base" ParentName="AmmoBase" Abstract="True">
+		<description>128mm Pak44 Ammunitions</description>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<thingCategories>
+			<li>Ammo128mmPAK44Shells</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<cookOffFlashScale>30</cookOffFlashScale>
+		<cookOffSound>MortarBomb_Explode</cookOffSound>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" Name="128mmPAK44BaseCraftableBase" ParentName="128mmPAK44Base" Abstract="True">
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+	<!-- 	<li>CE_AutoEnableCrafting_TableMachining</li> -->
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>3</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<!--<explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>-->
+				<startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<explodeOnKilled>True</explodeOnKilled>
+				<wickTicks>30~60</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="128mmPAK44BaseCraftableBase">
+		<defName>Ammo_128mmPAK44_AP</defName>
+		<label>128mm Pzgr. (AP)</label>
+		<graphicData>
+			<texPath>Things/Projectile/128mmPAK44AP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>103.6</MarketValue>
+			<Mass>37.25</Mass>
+			<Bulk>70.65</Bulk>
+		</statBases>
+		<ammoClass>ArmorPiercing</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_128mmPAK44_AP</detonateProjectile>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="128mmPAK44BaseCraftableBase">
+		<defName>Ammo_128mmPAK44_HE</defName>
+		<label>128mm Sprgr. L/5 (HE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/128mmPAK44HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>157.55</MarketValue>
+			<Mass>38.9</Mass>
+			<Bulk>70.65</Bulk>
+		</statBases>
+		<ammoClass>GrenadeHE</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_128mmPAK44_HE</detonateProjectile>
+	</ThingDef>
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="Base128mmPAK44Shell" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>1</speed>
+			<flyOverhead>false</flyOverhead>
+			<dropsCasings>true</dropsCasings>
+			<!-- <casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_CannonAmmoCasings</casingFilthDefname> -->
+			<!--
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for HE -->
+		</projectile>
+	</ThingDef>
+	<!-- AP Projectile -->
+	<ThingDef ParentName="Base128mmPAK44Shell">
+		<defName>Bullet_128mmPAK44_AP</defName>
+		<label>128mm Pzgr. (APHE)</label>
+		<!--<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass> -->
+		<graphicData>
+			<texPath>Things/Projectile/LargeShell</texPath>
+			<!-- <texPath>Things/Projectile/Bullet_Big</texPath> -->
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>186</speed>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>686</damageAmountBase>
+			<armorPenetrationSharp>239</armorPenetrationSharp>
+			<armorPenetrationBlunt>227901.16</armorPenetrationBlunt>
+			<!--
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for artillery -->
+			<secondaryDamage>
+				<li>
+					<def>Bomb_Secondary</def>
+					<amount>515</amount>
+				</li>
+			</secondaryDamage>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>40</Fragment_Large>
+					<Fragment_Small>30</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	<!-- HE Projectile -->
+	<ThingDef ParentName="Base128mmPAK44Shell">
+		<defName>Bullet_128mmPAK44_HE</defName>
+		<label>128mm Sprgr. L/5 (HE)</label>
+		<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/LargeShell</texPath>
+			<!-- <texPath>Things/Projectile/Bullet_Big</texPath> -->
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>150</speed>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>289</damageAmountBase>
+			<armorPenetrationSharp>50</armorPenetrationSharp>
+			<armorPenetrationBlunt>50000</armorPenetrationBlunt>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<explosionRadius>4</explosionRadius>
+			<!--
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<explosionRadius></explosionRadius>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			for artillery -->
+			<!--
+			<secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>18</amount>
+        </li>
+	    </secondaryDamage>
+	  	-->
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>40</Fragment_Large>
+					<Fragment_Small>90</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_128mmPAK44_AP</defName>
+		<label>make 128mm Pzgr. AP x5</label>
+		<description>128mm Pzgr. AP Ammunitions for 12.8/L55 Pak44 gun</description>
+		<jobString>Making 128mm Pzgr. AP cannon shells.</jobString>
+		<workAmount>19000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>120</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>35</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>120</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_128mmPAK44_AP>5</Ammo_128mmPAK44_AP>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>HeavyArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_128mmPAK44_HE</defName>
+		<label>make 128mm Sprgr. L/5 HE x5</label>
+		<description>128mm Sprgr. L/5 HE Ammunitions for 12.8/L55 Pak44 gun</description>
+		<jobString>Making 128mm Sprgr. L/5 HE cannon shells.</jobString>
+		<workAmount>18000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>105</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>35</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>110</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_128mmPAK44_HE>5</Ammo_128mmPAK44_HE>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>HeavyArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+</Defs>

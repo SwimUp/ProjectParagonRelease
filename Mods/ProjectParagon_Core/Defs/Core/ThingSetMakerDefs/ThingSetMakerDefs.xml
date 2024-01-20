@@ -703,10 +703,10 @@
 						<fixedParams>
 							<filter>
 								<thingDefs>
-									<li>Oil</li>
+									<li>Canister_Oil</li>
 								</thingDefs>
 							</filter>
-							<countRange>15~30</countRange>
+							<countRange>5~20</countRange>
 						</fixedParams>
 					</thingSetMaker>
 				</li>
@@ -1156,4 +1156,125 @@
 			</options>
 		</root>
 	</ThingSetMakerDef>
+	
+	<ThingSetMakerDef>
+	<defName>TrashTornado</defName>
+	<root Class="ThingSetMaker_Sum">
+		<options>
+			<li>
+				<chance>0.7</chance>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<thingDefs>
+								<li>Silver</li>
+							</thingDefs>
+						</filter>
+						<countRange>10~500</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+			<li>
+				<chance>0.7</chance>
+				<thingSetMaker Class="ThingSetMaker_MarketValue">
+					<fixedParams>
+						<filter>
+							<categories>
+								<li>Apparel</li>
+							</categories>
+							<thingSetMakerTagsToDisallow>
+								<li>RewardStandardHighFreq</li>
+								<li>RewardStandardCore</li>
+							</thingSetMakerTagsToDisallow>
+						</filter>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+			<li>
+				<chance>0.9</chance>
+				<thingSetMaker Class="ThingSetMaker_MarketValue">
+					<fixedParams>
+						<filter>
+							<categories>
+								<li>ResourcesRaw</li>
+							</categories>
+							<thingSetMakerTagsToDisallow>
+								<li>RewardStandardHighFreq</li>
+								<li>RewardStandardCore</li>
+							</thingSetMakerTagsToDisallow>
+						</filter>
+						<totalMarketValueRange>400~900</totalMarketValueRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+			<li>
+				<chance>0.8</chance>
+				<thingSetMaker Class="ThingSetMaker_MarketValue">
+					<fixedParams>
+						<filter>
+							<categories>
+								<li>ResourcesRaw</li>
+							</categories>
+							<thingSetMakerTagsToDisallow>
+								<li>RewardStandardHighFreq</li>
+								<li>RewardStandardCore</li>
+							</thingSetMakerTagsToDisallow>
+						</filter>
+						<totalMarketValueRange>200~300</totalMarketValueRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+			<li>
+				<chance>1</chance>
+				<thingSetMaker Class="ThingSetMaker_MarketValue">
+					<fixedParams>
+						<filter>
+							<categories>
+								<li>ResourcesRaw</li>
+							</categories>
+							<thingSetMakerTagsToDisallow>
+								<li>RewardStandardHighFreq</li>
+								<li>RewardStandardCore</li>
+							</thingSetMakerTagsToDisallow>
+						</filter>
+						<totalMarketValueRange>150~500</totalMarketValueRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+			<li>
+				<chance>1</chance>
+				<thingSetMaker Class="ThingSetMaker_StackCount">
+					<fixedParams>
+						<filter>
+							<categories>
+								<li>StoneChunks</li>
+							</categories>
+						</filter>
+						<countRange>200~300</countRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+			<li>
+				<chance>0.6</chance>
+				<thingSetMaker Class="ThingSetMaker_MarketValue">
+					<fixedParams>
+						<filter>
+							<categories>
+								<li>Weapons</li>
+							</categories>
+							<disallowedThingDefs>
+								<li>WoodLog</li>
+							</disallowedThingDefs>
+							<thingSetMakerTagsToDisallow>
+								<li>RewardStandardHighFreq</li>
+								<li>RewardStandardCore</li>
+							</thingSetMakerTagsToDisallow>
+						</filter>
+						<totalMarketValueRange>800~1500</totalMarketValueRange>
+					</fixedParams>
+				</thingSetMaker>
+			</li>
+		</options>
+	</root>
+</ThingSetMakerDef>
 </Defs>

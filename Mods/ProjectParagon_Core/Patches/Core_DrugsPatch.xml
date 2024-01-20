@@ -29,6 +29,8 @@
 							<DeteriorationRate>6</DeteriorationRate>
 						</statBases>
 						<techLevel>Neolithic</techLevel>
+						<recipeMaker Inherit="false" IsNull="true">
+						</recipeMaker>
 						<ingestible>
 							<foodType>Fluid, Processed</foodType>
 							<joyKind>Chemical</joyKind>
@@ -63,8 +65,6 @@
 								</li>
 							</outcomeDoers>
 						</ingestible>
-						<recipeMaker Inherit="False" IsNill="true">
-						</recipeMaker>
 						<!--
 						<recipeMaker>
 							<researchPrerequisite>Agro_AddictivePlantsII</researchPrerequisite>
@@ -95,6 +95,284 @@
 						</comps>
 					</ThingDef>
 				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Penoxycyline"]</xpath>
+				<value>
+					<ThingDef ParentName="MakeableDrugPillBase">
+						<defName>Penoxycyline</defName>
+						<label>Antibiotics</label>
+						<description>A drug for the treatment of infections. Accelerates the production of immunity.</description>
+						<descriptionHyperlinks>
+							<HediffDef>PenoxycylineHigh</HediffDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<texPath>Core/Items/Antibiotics/Antibiotics</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<socialPropernessMatters>false</socialPropernessMatters>
+						<rotatable>false</rotatable>
+						<statBases>
+							<WorkToMake>600</WorkToMake>
+							<MarketValue>25</MarketValue>
+							<Mass>0.005</Mass>
+							<Flammability>0.7</Flammability>
+						</statBases>
+						<stackLimit>25</stackLimit>
+						<techLevel>Industrial</techLevel>
+						<ingestible>
+							<drugCategory>Medical</drugCategory>
+							<outcomeDoers>
+								<li Class="IngestionOutcomeDoer_GiveHediff">
+									<hediffDef>PenoxycylineHigh</hediffDef>
+									<severity>0.4</severity>
+								</li>
+							</outcomeDoers>
+						</ingestible>
+						<recipeMaker>
+							<researchPrerequisite>PenoxycylineProduction</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>DrugLab</li>
+							</recipeUsers>
+							<productCount>4</productCount>
+						</recipeMaker>
+						<costList>
+							<Neutroamine>2</Neutroamine>
+							<Cyclinder_Oxyden>1</Cyclinder_Oxyden>
+						</costList>
+						<comps>
+							<li Class="CompProperties_Drug">
+								<listOrder>1000</listOrder>
+								<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="PenoxycylineHigh"]</xpath>
+				<value>
+					<HediffDef>
+						<defName>PenoxycylineHigh</defName>
+						<hediffClass>Hediff_High</hediffClass>
+						<label>Antibiotics</label>
+						<description>Accelerated development of immunity.</description>
+						<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+						<scenarioCanAdd>true</scenarioCanAdd>
+						<maxSeverity>1.0</maxSeverity>
+						<isBad>false</isBad>
+						<comps>
+							<li Class="HediffCompProperties_SeverityPerDay">
+								<severityPerDay>-1.0</severityPerDay>
+								<showHoursToRecover>true</showHoursToRecover>
+							</li>
+						</comps>
+						<stages>
+							<li>
+								<statOffsets>
+									<ImmunityGainSpeed>0.3</ImmunityGainSpeed>
+								</statOffsets>
+							</li>
+						</stages>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Flake"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>Narko_SimpleStimulants</researchPrerequisite>
+						<recipeUsers>
+							<li>ChemicalStation</li>
+							<li>DrugLab</li>
+						</recipeUsers>
+						<soundWorking>Recipe_Drug</soundWorking>
+					</recipeMaker>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Yayo"]/recipeMaker</xpath>
+				<value>
+					<recipeMaker>
+						<researchPrerequisite>Narko_SimpleStimulants</researchPrerequisite>
+						<recipeUsers>
+							<li>ChemicalStation</li>
+							<li>DrugLab</li>
+						</recipeUsers>
+						<soundWorking>Recipe_Drug</soundWorking>
+					</recipeMaker>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="WakeUp"]</xpath>
+				<value>
+					<ThingDef ParentName="MakeableDrugPillBase">
+						<defName>WakeUp</defName>
+						<label>wake-up</label>
+						<description>A synthetic stimulant. Wake-up fills the user's need for rest, allowing them to work for extended periods without getting tired. However, taking wake-up runs the risk of developing an addiction.\n\nIn the most competitive universities and companies of many worlds, high-achievers are sometimes called 'wake-ups' because of the association with this drug.</description>
+						<descriptionHyperlinks>
+							<HediffDef>WakeUpHigh</HediffDef>
+							<HediffDef>WakeUpAddiction</HediffDef>
+							<HediffDef>HeartAttack</HediffDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<texPath>Things/Item/Drug/WakeUp</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<rotatable>false</rotatable>
+						<statBases>
+							<WorkToMake>900</WorkToMake>
+							<MarketValue>35</MarketValue>
+							<Mass>0.005</Mass>
+						</statBases>
+						<techLevel>Industrial</techLevel>
+						<ingestible>
+							<joyKind>Chemical</joyKind>
+							<joy>0.40</joy>
+							<drugCategory>Hard</drugCategory>
+							<outcomeDoers>
+								<li Class="IngestionOutcomeDoer_GiveHediff">
+									<hediffDef>WakeUpHigh</hediffDef>
+									<severity>0.75</severity>
+									<toleranceChemical>WakeUp</toleranceChemical>
+								</li>
+								<li Class="IngestionOutcomeDoer_OffsetNeed">
+									<need>Rest</need>
+									<offset>1.0</offset>
+									<toleranceChemical>WakeUp</toleranceChemical>
+								</li>
+							</outcomeDoers>
+						</ingestible>
+						<recipeMaker>
+							<researchPrerequisite>Narko_AdvancedStimulants</researchPrerequisite>
+							<recipeUsers>
+								<li>DrugLab</li>
+							</recipeUsers>
+							<productCount>4</productCount>
+						</recipeMaker>
+						<costList>
+							<Neutroamine>2</Neutroamine>
+							<Cyclinder_Nitrogen>1</Cyclinder_Nitrogen>
+							<Cyclinder_Ammonia>1</Cyclinder_Ammonia>
+						</costList>
+						<comps>
+							<li Class="CompProperties_Drug">
+								<chemical>WakeUp</chemical>
+								<addictiveness>0.02</addictiveness>
+								<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+								<needLevelOffset>0.9</needLevelOffset>
+								<listOrder>210</listOrder>
+								<overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+								<largeOverdoseChance>0.005</largeOverdoseChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GoJuice"]</xpath>
+				<value>
+					<ThingDef ParentName="MakeableDrugBase">
+						<defName>GoJuice</defName>
+						<label>go-juice</label>
+						<description>A synthetic performance-enhancing drug developed for space marines during the early days of interplanetary warfare. Go-juice blocks pain, increases movement speed, and improves the user's melee and shooting abilities.\n\nThe military chemists who created it were never able to remove its addictiveness. Some saw this as a downside; others saw it as a benefit.</description>
+						<descriptionHyperlinks>
+							<HediffDef>GoJuiceHigh</HediffDef>
+							<HediffDef>GoJuiceAddiction</HediffDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<texPath>Things/Item/Drug/GoJuice</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<rotatable>false</rotatable>
+						<statBases>
+							<WorkToMake>600</WorkToMake>
+							<MarketValue>53</MarketValue>
+							<Mass>0.1</Mass>
+						</statBases>
+						<techLevel>Industrial</techLevel>
+						<ingestible>
+							<joyKind>Chemical</joyKind>
+							<joy>0.40</joy>
+							<drugCategory>Hard</drugCategory>
+							<foodType>Processed, Fluid</foodType>
+							<baseIngestTicks>80</baseIngestTicks>
+							<ingestSound>Ingest_Inject</ingestSound>
+							<ingestHoldOffsetStanding>
+								<northDefault>
+									<offset>(0.18,0,0)</offset>
+								</northDefault>
+							</ingestHoldOffsetStanding>
+							<ingestCommandString>Inject {0}</ingestCommandString>
+							<ingestReportString>Injecting {0}.</ingestReportString>
+							<useEatingSpeedStat>false</useEatingSpeedStat>
+							<chairSearchRadius>0</chairSearchRadius>
+							<outcomeDoers>
+								<li Class="IngestionOutcomeDoer_GiveHediff">
+									<hediffDef>GoJuiceHigh</hediffDef>
+									<severity>0.5</severity>
+									<toleranceChemical>GoJuice</toleranceChemical>
+								</li>
+								<li Class="IngestionOutcomeDoer_OffsetNeed">
+									<need>Rest</need>
+									<offset>0.4</offset>
+									<toleranceChemical>GoJuice</toleranceChemical>
+								</li>
+								<li Class="IngestionOutcomeDoer_OffsetPsyfocus">
+									<offset>0.15</offset>
+								</li>
+							</outcomeDoers>
+						</ingestible>
+						<recipeMaker>
+							<researchPrerequisite>Narko_AdvancedStimulants</researchPrerequisite>
+							<recipeUsers>
+								<li>DrugLab</li>
+							</recipeUsers>
+							<productCount>4</productCount>
+						</recipeMaker>
+						<costList>
+							<Neutroamine>2</Neutroamine>
+							<Cyclinder_Nitrogen>1</Cyclinder_Nitrogen>
+							<Yayo>2</Yayo>
+						</costList>
+						<comps>
+							<li Class="CompProperties_Drug">
+								<chemical>GoJuice</chemical>
+								<addictiveness>0.026</addictiveness>
+								<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+								<needLevelOffset>0.9</needLevelOffset>
+								<isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+								<listOrder>200</listOrder>
+								<overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+								<largeOverdoseChance>0.005</largeOverdoseChance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Beer"]/equipmentType</xpath>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Beer"]/comps</xpath>
+				<value>
+					<comps>
+						<li Class="CompProperties_Drug">
+							<chemical>Alcohol</chemical>
+							<addictiveness>0.010</addictiveness>
+							<minToleranceToAddict>0.25</minToleranceToAddict>
+							<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+							<needLevelOffset>0.9</needLevelOffset>
+							<listOrder>10</listOrder>
+						</li>
+					</comps>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Beer"]/weaponClasses</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Beer"]/tools</xpath>
 			</li>
 		</operations>
 	</Operation>

@@ -85,7 +85,7 @@ namespace TicksPerSecond
                 if (PreviousTick < -1)
                     PreviousTick = tick;
                 int target = (int)Math.Round((trm == 0f) ? 0f : (60f * trm));
-                ToDisplay = $"TPS: {(tick - PreviousTick) / (td * TicksPerSecondMultiplier):0.00} ({target})";
+                ToDisplay = $"TPS: {(tick - PreviousTick) / (td * TicksPerSecondMultiplier):0} ({target})";
                 PreviousTime = DateTime.Now.Ticks;
                 PreviousTick = tick;
                 PreviousTickRateMultiplier = trm;

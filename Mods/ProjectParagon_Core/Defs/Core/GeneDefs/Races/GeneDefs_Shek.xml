@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneShekBase" Abstract="True">
+		<displayCategory>Shek</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneShekBase">
+		<defName>Shek</defName>
+		<label>Shek</label>
+		<labelShortAdj>Shek</labelShortAdj>
+		<description>A creature that lives in very salty places.</description>
+		<iconPath>Core/Genes/Shek</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>ShekRace</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneShekBase">
+		<defName>SaltNeed</defName>
+		<label>Salt need</label>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_SaltNeed</geneClass>
+		<labelShortAdj>Salt need</labelShortAdj>
+		<description>The presence of the gene rearranges the water-salt balance, increasing the need and need for the second, while reducing the amount of salt received with food, which forces the carrier to consume salt in its pure form.</description>
+		<iconPath>Core/Genes/SaltNeed</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<prerequisite>Shek</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_SaltNeed">
+					<minSaltLevel>0.8</minSaltLevel>
+				</props>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+</Defs>

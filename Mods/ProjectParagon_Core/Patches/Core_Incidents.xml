@@ -6,6 +6,9 @@
 			<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_RaidEnemyParagon</workerClass>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>*/IncidentDef[defName = "VolcanicWinter"]</xpath>
+	</Operation>
 	<Operation Class="PatchOperationReplace">
 		<xpath>*/IncidentDef[defName = "RaidFriendly"]/workerClass</xpath>
 		<value>
@@ -22,7 +25,7 @@
 		<xpath>*/IncidentDef[defName="ProblemCauser"]</xpath>
 		<value>
 			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
-				<minGameStage>Industrial</minGameStage>
+				<minGameStage>Space</minGameStage>
 			</li>
 		</value>
 	</Operation>
@@ -30,15 +33,7 @@
 		<xpath>*/IncidentDef[defName="MechCluster"]</xpath>
 		<value>
 			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
-				<minGameStage>Industrial</minGameStage>
-			</li>
-		</value>
-	</Operation>
-	<Operation Class="PatchOperationAddModExtension">
-		<xpath>*/IncidentDef[defName="ProblemCauser"]</xpath>
-		<value>
-			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
-				<minGameStage>Industrial</minGameStage>
+				<minGameStage>Space</minGameStage>
 			</li>
 		</value>
 	</Operation>
@@ -46,15 +41,42 @@
 		<xpath>*/IncidentDef[defName="PsychicEmanatorShipPartCrash"]</xpath>
 		<value>
 			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
-				<minGameStage>Industrial</minGameStage>
+				<minGameStage>Space</minGameStage>
 			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>*/IncidentDef[defName="Infestation"]</xpath>
+		<value>
+			<IncidentDef>
+				<defName>Infestation</defName>
+				<label>infestation</label>
+				<targetTags>
+					<li>Map_PlayerHome</li>
+				</targetTags>
+				<workerClass>IncidentWorker_Infestation</workerClass>
+				<letterLabel>Infestation</letterLabel>
+				<letterText>Giant insects are tunneling towards you! They will break through in a few seconds and plant hives.\n\nThe hives will spawn more insects and more hives.\n\nIf you don't want the insects to infest the whole area, destroy the hives. But beware - the bugs will defend their home.</letterText>
+				<letterDef>ThreatBig</letterDef>
+				<baseChance>1.0</baseChance>
+				<minRefireDays>50</minRefireDays>
+				<category>ThreatBig</category>
+				<pointsScaleable>true</pointsScaleable>
+				<minThreatPoints>400</minThreatPoints>
+				<tale>Infestation</tale>
+				<modExtensions>
+					<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
+						<minGameStage>Medieval</minGameStage>
+					</li>
+				</modExtensions>
+			</IncidentDef>
 		</value>
 	</Operation>
 	<Operation Class="PatchOperationAddModExtension">
 		<xpath>*/IncidentDef[defName="DefoliatorShipPartCrash"]</xpath>
 		<value>
 			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
-				<minGameStage>Industrial</minGameStage>
+				<minGameStage>Space</minGameStage>
 			</li>
 		</value>
 	</Operation>
@@ -62,7 +84,7 @@
 		<xpath>*/IncidentDef[@Name="DiseaseIncident"]</xpath>
 		<value>
 			<IncidentDef Name="DiseaseIncident" Abstract="True">
-				<workerClass>IncidentWorker_DiseaseHuman</workerClass>
+				<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_DiseaseHuman</workerClass>
 				<category>DiseaseHuman</category>
 				<targetTags>
 					<li>Map_PlayerHome</li>
@@ -72,10 +94,16 @@
 					<li>Caravan</li>
 				</targetTags>
 				<diseaseVictimFractionRange>0.2~0.5</diseaseVictimFractionRange>
-				<letterText>{0} of your {1} have gotten sick from {2}.\n\nEnsure you have a medical bed and a doctor. Make sure that they get proper treatment and spend as much time in bed as possible.\n\nThe following {1} have gotten sick:\n\n{3}</letterText>
+				<letterText>{0} of your settlers have gotten sick from {2}.\n\nEnsure you have a medical bed and a doctor. Make sure that they get proper treatment and spend as much time in bed as possible.\n\nThe following settlers have gotten sick:\n\n{1}</letterText>
 				<letterDef>NegativeEvent</letterDef>
 				<earliestDay>30</earliestDay>
 			</IncidentDef>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>*/IncidentDef[defName="WildManWandersIn"]/workerClass</xpath>
+		<value>
+			<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_WildManWandersInParagon</workerClass>
 		</value>
 	</Operation>
 </Patch>

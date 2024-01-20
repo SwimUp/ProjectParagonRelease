@@ -523,7 +523,7 @@ Note that you can only fit so many giant corpses into one space, even if you sta
 		<costStuffCount>100</costStuffCount>
 		<costList>
 			<MechanismSimple>4</MechanismSimple>
-			<ComponentSimple>8</ComponentSimple>
+			<ComponentSimple>4</ComponentSimple>
 		</costList>
 		<building>
 			<preventDeteriorationOnTop>false</preventDeteriorationOnTop>
@@ -904,7 +904,6 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 					<categories>
 						<li>Medicine</li>
 						<li>Drugs</li>
-						<li>Blood</li>
 					</categories>
 				</filter>
 			</fixedStorageSettings>
@@ -1375,6 +1374,7 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 		</researchPrerequisites>
 	</ThingDef>
 	
+	<!--
 	<ThingDef ParentName="LWM_DeepStorage">
 		<defName>SmallConcreteTank</defName>
 		<label>Small concrete tank</label>
@@ -1491,15 +1491,15 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 			<li>StoragesIV</li>
 		</researchPrerequisites>
 	</ThingDef>
-	
+	-->
 	<ThingDef ParentName="LWM_DeepStorage">
 		<defName>Cellar</defName>
 		<label>Cellar</label>
 		<description>A specially equipped pit in the ground for longer storage of products due to the constantly low temperature. Reduces the rate of corruption by {0}%.</description>
 		<thingClass>ProjectParagon.Core.Things.Building_StorageParagon</thingClass>
 		<graphicData>
-			<texPath>Core/Buildings/LargeChemicalStorage/LargeChemicalStorage</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Core/Buildings/Cellar/Cellar</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(2,2)</drawSize>
 		</graphicData>
@@ -1512,21 +1512,18 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 			<Beauty>-10</Beauty>
 			<Mass>70</Mass>
 		</statBases>
-		<rotatable>false</rotatable>
 		<size>2,2</size>
 		<uiIconScale>0.9</uiIconScale>
-		<staticSunShadowHeight>0.4</staticSunShadowHeight>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<resourcesFractionWhenDeconstructed>1</resourcesFractionWhenDeconstructed>
 		<costList>
-			<ComponentIndustrial>8</ComponentIndustrial>
-			<MechanismComplex>8</MechanismComplex>
-			<StrongPlates>60</StrongPlates>
+			<ComponentSimple>4</ComponentSimple>
+			<StrongPlates>50</StrongPlates>
 		</costList>
 		<stuffCategories>
-			<li>Metallic</li>
+			<li>Stony</li>
 		</stuffCategories>
-		<costStuffCount>350</costStuffCount>
+		<costStuffCount>250</costStuffCount>
 		<building>
 			<fixedStorageSettings>
 				<filter>
@@ -1552,6 +1549,63 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 		</comps>
 		<researchPrerequisites>
 			<li>StoragesII</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="LWM_DeepStorage">
+		<defName>ModularHopper</defName>
+		<label>modular hopper</label>
+		<description>A special building designed to deliver various ingredients to buildings.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ModularHopper</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Production/Hopper</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>1,1</drawSize>
+			<damageData>
+				<rect>(0.05,0.1,0.9,0.9)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+			</damageData>
+		</graphicData>
+		<pathCost>100</pathCost>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>50</costStuffCount>
+		<size>1,1</size>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+		</costList>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>8</Mass>
+			<WorkToBuild>1000</WorkToBuild>
+			<Flammability>0.4</Flammability>
+		</statBases>
+		<building>
+			<fixedStorageSettings>
+				<filter>
+					<allowWithComp>ProjectParagon.Core.FoodSystem.CompFoodComponent</allowWithComp>
+					<!--<categories>
+						<li>Root</li>
+					</categories>
+					<disallowedCategories>
+						<li>FoodMeals</li>
+					</disallowedCategories>-->
+				</filter>
+			</fixedStorageSettings>
+		</building>
+		<comps>
+			<li Class="LWM.DeepStorage.Properties">
+				<maxNumberStacks>2</maxNumberStacks>
+				<timeStoringTakes>100</timeStoringTakes>
+				<overlayType>SumOfItemsPerCell</overlayType>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>CookingVII</li>
 		</researchPrerequisites>
 	</ThingDef>
 </Defs>

@@ -138,6 +138,7 @@
 			</targetParams>
 		</verbProperties>
 	</AbilityDef>
+	<!---->
 	<ThingDef ParentName="GreatTreeBase">
 		<defName>Seedling</defName>
 		<label>Seedling</label>
@@ -171,4 +172,50 @@
 			</li>
 		</comps>
 	</ThingDef>
+	<!---->
+	<AbilityGroupDef>
+		<defName>SymbioticParasite</defName>
+		<cooldownTicks>420000</cooldownTicks>
+	</AbilityGroupDef>
+	<!---->
+	<AbilityDef>
+		<defName>SymbioticParasite</defName>
+		<label>Symbiotic parasite</label>
+		<description>The introduction of a carrier of a special parasite into the body, which gradually grows in the body, sucking out its resources for the growth of various fruits.</description>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<iconPath>Core/Genes/Phytolysis</iconPath>
+		<groupDef>SymbioticParasite</groupDef>
+		<warmupMoteSocialSymbol>Genes/Phytolysis</warmupMoteSocialSymbol>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+		<showWhenDrafted>true</showWhenDrafted>
+		<uiOrder>999</uiOrder>
+		<warmupStartSound>WorkDrive_Warmup</warmupStartSound>
+		<hostile>false</hostile>
+		<verbProperties>
+			<verbClass>Verb_CastAbilityTouch</verbClass>
+			<drawAimPie>true</drawAimPie>
+			<range>-1</range>
+			<warmupTime>5.0</warmupTime>
+			<targetParams>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetSelf>false</canTargetSelf>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>ProjectParagon.Core.Things.Genes.CompAbilityEffect_GiveHediffSymbioticParasite</compClass>
+				<hediffDef>SymbioticParasite</hediffDef>
+				<onlyBrain>false</onlyBrain>
+				<applicableToMechs>False</applicableToMechs>
+				<canTargetBaby>true</canTargetBaby>
+				<goodwillImpact>-30</goodwillImpact>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
 </Defs>

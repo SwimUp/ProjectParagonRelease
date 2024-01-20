@@ -26,10 +26,10 @@
 						<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
 						<passability>PassThroughOnly</passability>
 						<castEdgeShadows>true</castEdgeShadows>
-						<fillPercent>0.55</fillPercent>
+						<fillPercent>0.35</fillPercent>
 						<canOverlapZones>false</canOverlapZones>
 						<statBases>
-							<MaxHitPoints>300</MaxHitPoints>
+							<MaxHitPoints>100</MaxHitPoints>
 							<Beauty>-10</Beauty>
 							<WorkToBuild>180</WorkToBuild>
 							<Flammability>0</Flammability>
@@ -67,8 +67,80 @@
 						<designationHotKey>Misc1</designationHotKey>
 						<designatorDropdown>Barricades</designatorDropdown>
 						<researchPrerequisites>
-						  <li>AdvancedDefense</li>
+							<li>AdvancedDefense</li>
 						</researchPrerequisites>
+						<damageMultipliers>
+							<li>
+								<!-- Бомба -->
+								<damageDef>Bomb</damageDef>
+								<multiplier>1.5</multiplier>
+							</li>
+							<li>
+								<!-- Укус -->
+								<damageDef>Bite</damageDef>
+								<multiplier>0.8</multiplier>
+							</li>
+							<li>
+								<!-- Удар -->
+								<damageDef>Blunt</damageDef>
+								<multiplier>0.85</multiplier>
+							</li>
+							<li>
+								<!-- Давка -->
+								<damageDef>Crush</damageDef>
+								<multiplier>0.75</multiplier>
+							</li>
+							<li>
+								<!-- Порез -->
+								<damageDef>Cut</damageDef>
+								<multiplier>1.3</multiplier>
+							</li>
+							<li>
+								<!-- Тычок -->
+								<damageDef>Poke</damageDef>
+								<multiplier>0.75</multiplier>
+							</li>
+							<li>
+								<!-- Рваная рана -->
+								<damageDef>Scratch</damageDef>
+								<multiplier>1.4</multiplier>
+							</li>
+							<li>
+								<!-- Рана с ядом -->
+								<damageDef>ScratchToxic</damageDef>
+								<multiplier>0.85</multiplier>
+							</li>
+							<li>
+								<!-- Укол -->
+								<damageDef>Stab</damageDef>
+								<multiplier>1.2</multiplier>
+							</li>
+							<li>
+								<!-- Ядовитый укус -->
+								<damageDef>ToxicBite</damageDef>
+								<multiplier>0.3</multiplier>
+							</li>
+							<li>
+								<!-- Стрела -->
+								<damageDef>Arrow</damageDef>
+								<multiplier>0.25</multiplier>
+							</li>
+							<li>
+								<!-- Стрела (выс.скорость) -->
+								<damageDef>ArrowHighVelocity</damageDef>
+								<multiplier>0.3</multiplier>
+							</li>
+							<li>
+								<!-- Пуля -->
+								<damageDef>Bullet</damageDef>
+								<multiplier>1.25</multiplier>
+							</li>
+							<li>
+								<!-- Укол (дальний бой) -->
+								<damageDef>RangedStab</damageDef>
+								<multiplier>0.75</multiplier>
+							</li>
+						</damageMultipliers>
 					</ThingDef>
 				</value>
 			</li>
@@ -133,7 +205,7 @@
 						<designationHotKey>Misc1</designationHotKey>
 						<designatorDropdown>Barricades</designatorDropdown>
 						<researchPrerequisites>
-						  <li>AdvancedDefense</li>
+							<li>AdvancedDefense</li>
 						</researchPrerequisites>
 					</ThingDef>
 				</value>
@@ -145,7 +217,7 @@
 						<defName>TrapSpike</defName>
 						<label>spike trap</label>
 						<description>Five spikes under tension, connected to a touch-activated trigger. When the victim disturbs the trigger, the spikes spring forth and strike the victim. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
-						<thingClass>Building_TrapDamager</thingClass>
+						<thingClass>ProjectParagon.Core.Things.Building_TrapDamagerParagon</thingClass>
 						<graphicData>
 							<texPath>Things/Building/Security/TrapSpikeArmed</texPath>
 							<graphicClass>Graphic_Single</graphicClass>
@@ -204,6 +276,314 @@
 				<xpath>*/ThingDef[@Name="TrapIEDBase"]</xpath>
 				<value>
 					<designatorDropdown>Traps</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_Mortar"]</xpath>
+				<value>
+					<researchPrerequisites Inherit="false">
+						<li>Mortars</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_Mortar"]</xpath>
+				<value>
+					<designationCategory>Security</designationCategory>
+					<designatorDropdown>Security_Artillery</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[@Name="BaseArtilleryBuilding"]/researchPrerequisites</xpath>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_MiniTurret"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites Inherit="false">
+						<li>AutoTurretsI</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_MiniTurret"]</xpath>
+				<value>
+					<designatorDropdown>Security_AutoTurrets</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_MiniTurret"]/costList</xpath>
+				<value>
+					<costList>
+						<MechanismComplex>4</MechanismComplex>
+						<SimpleElectronic>2</SimpleElectronic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_MiniTurret"]/stuffCategories</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_MiniTurret"]/costStuffCount</xpath>
+				<value>
+					<costStuffCount>100</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_FoamTurret"]</xpath>
+				<value>
+					<designatorDropdown>Security_AutoTurrets</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_FoamTurret"]/costList</xpath>
+				<value>
+					<costList>
+						<MechanismComplex>4</MechanismComplex>
+						<SimpleElectronic>2</SimpleElectronic>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_FoamTurret"]/stuffCategories</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_FoamTurret"]/costStuffCount</xpath>
+				<value>
+					<costStuffCount>100</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_FoamTurret"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites Inherit="false">
+						<li>AutoTurretsI</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_Sniper"]</xpath>
+				<value>
+					<designatorDropdown>Security_AutoTurrets</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_Sniper"]/costList</xpath>
+				<value>
+					<costList>
+						<MechanismComplex>8</MechanismComplex>
+						<Microelectronics>4</Microelectronics>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_Sniper"]</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_Sniper"]</xpath>
+				<value>
+					<costStuffCount>300</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_Autocannon"]</xpath>
+				<value>
+					<designatorDropdown>Security_AutoTurrets</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_Autocannon"]/costList</xpath>
+				<value>
+					<costList>
+						<MechanismComplex>6</MechanismComplex>
+						<Microelectronics>2</Microelectronics>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_Autocannon"]</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_Autocannon"]</xpath>
+				<value>
+					<costStuffCount>200</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_RocketswarmLauncher"]</xpath>
+				<value>
+					<designatorDropdown>Security_AutoTurrets</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_RocketswarmLauncher"]/costList</xpath>
+				<value>
+					<costList>
+						<MechanismComplex>8</MechanismComplex>
+						<Microelectronics>4</Microelectronics>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_RocketswarmLauncher"]</xpath>
+				<value>
+					<stuffCategories>
+						<li>Metallic</li>
+					</stuffCategories>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Turret_RocketswarmLauncher"]</xpath>
+				<value>
+					<costStuffCount>200</costStuffCount>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_Autocannon"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites Inherit="false">
+						<li>AutoTurretsII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_Sniper"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites Inherit="false">
+						<li>AutoTurretsII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Turret_RocketswarmLauncher"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites Inherit="false">
+						<li>AutoTurretsII</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="TrapIED_HighExplosive"]/costList</xpath>
+				<value>
+					<costList>
+						<SmokelessGunpowder>20</SmokelessGunpowder>
+						<SimpleWeaponComponents>1</SimpleWeaponComponents>
+						<ComponentSimple>1</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="TrapIED_HighExplosive"]/comps/li[@Class="CompProperties_Explosive"]</xpath>
+				<value>
+					<li Class="CompProperties_Explosive">
+						<explosiveDamageType>Bomb</explosiveDamageType>
+						<damageAmountBase>270</damageAmountBase>
+						<explosiveRadius>4.5</explosiveRadius>
+						<startWickOnDamageTaken>
+							<li>Bullet</li>
+						</startWickOnDamageTaken>
+						<wickTicks>
+							<min>5</min>
+							<max>30</max>
+						</wickTicks>
+					</li>
+					<li Class="CombatExtended.CompProperties_Fragments">
+						<fragments>
+							<Fragment_Large>16</Fragment_Large>
+							<Fragment_Small>100</Fragment_Small>
+						</fragments>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="TrapIED_Incendiary"]/costList</xpath>
+				<value>
+					<costList>
+						<Canister_HeavyOil>1</Canister_HeavyOil>
+						<SimpleWeaponComponents>1</SimpleWeaponComponents>
+						<ComponentSimple>1</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="TrapIED_Incendiary"]/comps/li[@Class="CompProperties_Explosive"]</xpath>
+				<value>
+					<li Class="CompProperties_Explosive">
+						<explosiveDamageType>PrometheumFlame</explosiveDamageType>
+						<explosiveRadius>5</explosiveRadius>
+						<preExplosionSpawnThingDef>FilthPrometheum</preExplosionSpawnThingDef>
+						<preExplosionSpawnChance>0.75</preExplosionSpawnChance>
+						<startWickOnDamageTaken>
+							<li>Bullet</li>
+							<li>Arrow</li>
+							<li>ArrowHighVelocity</li>
+						</startWickOnDamageTaken>
+						<wickTicks>
+							<min>5</min>
+							<max>20</max>
+						</wickTicks>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="TrapIED_EMP"]</xpath>
+				<value>
+					<designationCategory isNull="true" Inherit="false"/>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="TrapIED_Smoke"]/costList</xpath>
+				<value>
+					<costList>
+						<Cyclinder_CarbonDioxide>1</Cyclinder_CarbonDioxide>
+						<SimpleWeaponComponents>1</SimpleWeaponComponents>
+						<ComponentSimple>1</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="TrapIED_Firefoam"]/costList</xpath>
+				<value>
+					<costList>
+						<Canister_Refrigerant>2</Canister_Refrigerant>
+						<SimpleWeaponComponents>1</SimpleWeaponComponents>
+						<ComponentSimple>1</ComponentSimple>
+					</costList>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="TrapIED_AntigrainWarhead"]</xpath>
+				<value>
+					<designationCategory isNull="true" Inherit="false"/>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="TrapIED_ToxGas"]/costList</xpath>
+				<value>
+					<costList>
+						<Cyclinder_Chlorine>1</Cyclinder_Chlorine>
+						<SimpleWeaponComponents>1</SimpleWeaponComponents>
+						<ComponentSimple>1</ComponentSimple>
+					</costList>
 				</value>
 			</li>
 		</operations>

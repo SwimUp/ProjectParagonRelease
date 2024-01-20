@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 57mmOQF -->
+	<ThingCategoryDef>
+		<defName>Ammo57mmOQFShells</defName>
+		<label>OQF 6-pounder 7 cwt shells</label>
+		<parent>AmmoHighCaliber</parent>
+		<iconPath>Things/Projectile/57mmOQFAP</iconPath>
+	</ThingCategoryDef>
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_57mmOQF_Shells</defName>
+		<label>OQF 6-pounder 7 cwt Ammunitions</label>
+		<ammoTypes>
+			<Ammo_57mmOQF_AP>Bullet_57mmOQF_AP</Ammo_57mmOQF_AP>
+			<Ammo_57mmOQF_APDS>Bullet_57mmOQF_APDS</Ammo_57mmOQF_APDS>
+			<Ammo_57mmOQF_HE>Bullet_57mmOQF_HE</Ammo_57mmOQF_HE>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="57mmOQFBase" ParentName="AmmoBase" Abstract="True">
+		<description>OQF 6-pounder 7 cwt</description>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<thingCategories>
+			<li>Ammo57mmOQFShells</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<cookOffFlashScale>30</cookOffFlashScale>
+		<cookOffSound>MortarBomb_Explode</cookOffSound>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" Name="57mmOQFBaseCraftableBase" ParentName="57mmOQFBase" Abstract="True">
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<!--<li>CE_AutoEnableCrafting_TableMachining</li> -->
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>2</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<!--<explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>-->
+				<startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<explodeOnKilled>True</explodeOnKilled>
+				<wickTicks>30~60</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="57mmOQFBaseCraftableBase">
+		<defName>Ammo_57mmOQF_AP</defName>
+		<label>57mm Shot Mk.8 (AP)</label>
+		<graphicData>
+			<texPath>Things/Projectile/57mmOQFAP</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>7.46</MarketValue>
+			<Mass>3.77</Mass>
+			<Bulk>7.53</Bulk>
+		</statBases>
+		<ammoClass>ArmorPiercing</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_57mmOQF_AP</detonateProjectile>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="57mmOQFBaseCraftableBase">
+		<defName>Ammo_57mmOQF_APDS</defName>
+		<label>57mm Shot Mk.1T (APDS)</label>
+		<graphicData>
+			<texPath>Things/Projectile/57mmOQFAPDS</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>28.11</MarketValue>
+			<Mass>2.33</Mass>
+			<Bulk>7.53</Bulk>
+		</statBases>
+		<ammoClass>Sabot</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_57mmOQF_APDS</detonateProjectile>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="57mmOQFBaseCraftableBase">
+		<defName>Ammo_57mmOQF_HE</defName>
+		<label>57mm Shot Mk.1T (HE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/57mmOQFAPDS</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>37.11</MarketValue>
+			<Mass>3.2</Mass>
+			<Bulk>9.53</Bulk>
+		</statBases>
+		<ammoClass>GrenadeHE</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_57mmOQF_HE</detonateProjectile>
+	</ThingDef>
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="Base57mmOQFShell" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>1</speed>
+			<flyOverhead>false</flyOverhead>
+			<dropsCasings>true</dropsCasings>
+			<!-- <casingMoteDefname>Fleck_BigShell</casingMoteDefname> -->
+			<!--
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for HE -->
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef ParentName="Base57mmOQFShell">
+		<defName>Bullet_57mmOQF_HE</defName>
+		<label>57mm Shot Mk.8 (HE)</label>
+		<!--<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass> -->
+		<graphicData>
+			<texPath>Things/Projectile/MediumShell</texPath>
+			<!-- <texPath>Things/Projectile/Bullet_Big</texPath> -->
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>130</speed>
+			<explosionRadius>1.4</explosionRadius>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>70</damageAmountBase>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>8</Fragment_Large>
+					<Fragment_Small>24</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<!-- AP Projectile -->
+	<ThingDef ParentName="Base57mmOQFShell">
+		<defName>Bullet_57mmOQF_AP</defName>
+		<label>57mm Shot Mk.8 (AP)</label>
+		<!--<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass> -->
+		<graphicData>
+			<texPath>Things/Projectile/MediumShell</texPath>
+			<!-- <texPath>Things/Projectile/Bullet_Big</texPath> -->
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>177</speed>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>183</damageAmountBase>
+			<armorPenetrationSharp>116</armorPenetrationSharp>
+			<armorPenetrationBlunt>22349.64</armorPenetrationBlunt>
+			<!--
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for artillery -->
+			<!--
+			<secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>18</amount>
+        </li>
+	    </secondaryDamage>
+	  	-->
+		</projectile>
+		<comps>
+			<!-- 
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>208</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>1.5</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<ai_IsIncendiary>true</ai_IsIncendiary>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+		  	<fragments>
+				<Fragment_Large>40</Fragment_Large>
+				<Fragment_Small>80</Fragment_Small>
+		  	</fragments>
+			</li>
+		for artillery -->
+		</comps>
+	</ThingDef>
+	<!-- APDS Projectile -->
+	<ThingDef ParentName="Base57mmOQFShell">
+		<defName>Bullet_57mmOQF_APDS</defName>
+		<label>57mm Shot Mk.1T (APDS)</label>
+		<!--<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass> -->
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Big</texPath>
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>244</speed>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>157</damageAmountBase>
+			<armorPenetrationSharp>177</armorPenetrationSharp>
+			<armorPenetrationBlunt>21100.64</armorPenetrationBlunt>
+			<!--
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for artillery -->
+			<!--
+			<secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>18</amount>
+        </li>
+	    </secondaryDamage>
+	  	-->
+		</projectile>
+		<comps>
+			<!-- 
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>208</damageAmountBase>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<explosiveRadius>1.5</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<ai_IsIncendiary>true</ai_IsIncendiary>
+			</li>
+			<li Class="CombatExtended.CompProperties_Fragments">
+		  	<fragments>
+				<Fragment_Large>40</Fragment_Large>
+				<Fragment_Small>80</Fragment_Small>
+		  	</fragments>
+			</li>
+		for artillery -->
+		</comps>
+	</ThingDef>
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_57mmOQF_HE</defName>
+		<label>make 57mm Shot Mk.8 HE x10</label>
+		<description>57mm Shot Mk.8 AP Ammunitions for OQF 6-pounder 7 cwt gun</description>
+		<jobString>Making 57mm Shot Mk.8 AP cannon shells.</jobString>
+		<workAmount>7000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>35</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_57mmOQF_HE>10</Ammo_57mmOQF_HE>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>MediumArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_57mmOQF_AP</defName>
+		<label>make 57mm Shot Mk.8 AP x10</label>
+		<description>57mm Shot Mk.8 AP Ammunitions for OQF 6-pounder 7 cwt gun</description>
+		<jobString>Making 57mm Shot Mk.8 AP cannon shells.</jobString>
+		<workAmount>8000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>70</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_57mmOQF_AP>10</Ammo_57mmOQF_AP>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>MediumArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_57mmOQF_APDS</defName>
+		<label>make 57mm Shot Mk.1T APDS x10</label>
+		<description>57mm Shot Mk.1T APDS Ammunitions for OQF 6-pounder 7 cwt gun</description>
+		<jobString>Making 57mm Shot Mk.1T APDS cannon shells.</jobString>
+		<workAmount>9500</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_57mmOQF_APDS>10</Ammo_57mmOQF_APDS>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>MediumArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+</Defs>

@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RulePackDef>
+		<defName>NamerResonites</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>name->[Name]</li>
+			</rulesStrings>
+			<rulesRaw>
+				<li Class="Rule_File">
+					<keyword>Name</keyword>
+					<path>Resonites/ResonitesFactions</path>
+				</li>
+			</rulesRaw>
+		</rulePack>
+	</RulePackDef>
+	<RulePackDef>
+		<defName>NamerSettlementResonites</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>name->[Name]</li>
+			</rulesStrings>
+			<rulesRaw>
+				<li Class="Rule_File">
+					<keyword>Name</keyword>
+					<path>Resonites/ResonitesSettlements</path>
+				</li>
+			</rulesRaw>
+		</rulePack>
+	</RulePackDef>
+	<ThingSetMakerDef>
+		<defName>ResoniteLootMaker</defName>
+		<root Class="ThingSetMaker_MarketValue">
+			<fixedParams>
+				<filter>
+					<thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+			</fixedParams>
+		</root>
+	</ThingSetMakerDef>
+	<FactionDef ParentName="FactionBase">
+		<defName>Resonites</defName>
+		<label>Resonites</label>
+		<description>A society of xenos who prefer to live in urban settlements, developing industrial facilities for complete self-sufficiency.</description>
+		<pawnSingular>Resonite</pawnSingular>
+		<pawnsPlural>Resonites</pawnsPlural>
+		<listOrderPriority>100</listOrderPriority>
+		<settlementGenerationWeight>1</settlementGenerationWeight>
+		<requiredCountAtGameStart>0</requiredCountAtGameStart>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<canMakeRandomly>true</canMakeRandomly>
+		<canSiege>true</canSiege>
+		<canStageAttacks>true</canStageAttacks>
+		<leaderTitle>otuam</leaderTitle>
+		<permanentEnemy>false</permanentEnemy>
+		<naturalEnemy>false</naturalEnemy>
+		<basicMemberKind>Resonite_Settler</basicMemberKind>
+		<allowedCultures>
+			<li>Astropolitan</li>
+		</allowedCultures>
+		<autoFlee>true</autoFlee>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<ResoniteRace>999</ResoniteRace>
+			</xenotypeChances>
+			<warnIfTotalAbove1>false</warnIfTotalAbove1>
+		</xenotypeSet>
+		<structureMemeWeights>
+			<Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
+		</structureMemeWeights>
+		<allowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Structure_Ideological</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">HumanPrimacy</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Loyalist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">MaleSupremacy</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+		</allowedMemes>
+		<requiredMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Structure_Ideological</li>
+		</requiredMemes>
+		<factionIconPath>Core/World/Factions/Resonites/Resonites</factionIconPath>
+		<colorSpectrum>
+			<li>100, 70, 145</li>
+			<li>116, 77, 177</li>
+		</colorSpectrum>
+		<factionNameMaker>NamerResonites</factionNameMaker>
+		<settlementNameMaker>NamerSettlementResonites</settlementNameMaker>
+		<techLevel>Industrial</techLevel>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Pirate</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedArrivalTemperatureRange>-50~50</allowedArrivalTemperatureRange>
+		<raidLootMaker>ResoniteLootMaker</raidLootMaker>
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,1000)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
+		<pawnGroupMakers>
+			<li>
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<Resonite_Stormtrooper>20</Resonite_Stormtrooper>
+					<Resonite_MachineGunner>10</Resonite_MachineGunner>
+					<Resonite_Soldier>10</Resonite_Soldier>
+					<Resonite_Sniper>10</Resonite_Sniper>
+					<Resonite_Grenadier>5</Resonite_Grenadier>
+					<Resonite_Leader>1</Resonite_Leader>
+				</options>
+			</li>
+			<li>
+				<kindDef>Peaceful</kindDef>
+				<options>
+					<Resonite_Settler>20</Resonite_Settler>
+					<Resonite_Stormtrooper>10</Resonite_Stormtrooper>
+					<Resonite_MachineGunner>10</Resonite_MachineGunner>
+					<Resonite_Soldier>10</Resonite_Soldier>
+					<Resonite_Sniper>10</Resonite_Sniper>
+					<Resonite_Grenadier>5</Resonite_Grenadier>
+					<Resonite_Leader>1</Resonite_Leader>
+				</options>
+			</li>
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<Resonite_Settler>10</Resonite_Settler>
+				</traders>
+				<carriers>
+					<Muffalo>6</Muffalo>
+					<Dromedary>5</Dromedary>
+					<Alpaca>2.5</Alpaca>
+					<Elephant>2</Elephant>
+				</carriers>
+				<guards>
+					<Resonite_Settler>20</Resonite_Settler>
+					<Resonite_Stormtrooper>10</Resonite_Stormtrooper>
+					<Resonite_MachineGunner>10</Resonite_MachineGunner>
+					<Resonite_Soldier>10</Resonite_Soldier>
+					<Resonite_Sniper>10</Resonite_Sniper>
+					<Resonite_Grenadier>5</Resonite_Grenadier>
+					<Resonite_Leader>1</Resonite_Leader>
+				</guards>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<Resonite_Settler>40</Resonite_Settler>
+					<Resonite_Stormtrooper>10</Resonite_Stormtrooper>
+					<Resonite_MachineGunner>10</Resonite_MachineGunner>
+					<Resonite_Soldier>10</Resonite_Soldier>
+					<Resonite_Sniper>10</Resonite_Sniper>
+					<Resonite_Grenadier>5</Resonite_Grenadier>
+					<Resonite_Leader>1</Resonite_Leader>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+		<caravanTraderKinds>
+			<li>ResoniteTrader</li>
+		</caravanTraderKinds>
+		<visitorTraderKinds>
+			<li>ResoniteVisitor</li>
+		</visitorTraderKinds>
+		<baseTraderKinds>
+			<li>ResoniteTrader</li>
+		</baseTraderKinds>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<questGenerationSettings>
+					<minPlayerGameStage>Industrial</minPlayerGameStage>
+				</questGenerationSettings>
+				<factionNuclearSettings>
+					<isNuclearFaction>true</isNuclearFaction>
+					<preventPlayerNuclearProgram>true</preventPlayerNuclearProgram>
+					<couldStartNuclearWar>false</couldStartNuclearWar>
+				</factionNuclearSettings>
+				<factionCaravanAISettings>
+					<maxCaravanPower>5000</maxCaravanPower>
+					<minCaravanPower>501</minCaravanPower>
+					<totalPowerMultiplier>1.15</totalPowerMultiplier>
+					<powerMultiplierByCaravansCount>
+						<points>
+							<li>(0, 1)</li>
+							<li>(8, 1)</li>
+							<li>(15, 0.7)</li>
+							<li>(20, 0.3)</li>
+							<li>(50, 0)</li>
+						</points>
+					</powerMultiplierByCaravansCount>
+					<powerByTechLevel>
+						<Animal>200</Animal>
+						<Neolithic>200</Neolithic>
+						<Medieval>500</Medieval>
+						<Industrial>1200</Industrial>
+						<Spacer>1500</Spacer>
+						<Ultra>2000</Ultra>
+						<Archotech>3000</Archotech>
+					</powerByTechLevel>
+					<powerMultiplierByTechLevel>
+						<Animal>1</Animal>
+						<Neolithic>1.1</Neolithic>
+						<Medieval>1.25</Medieval>
+						<Industrial>1.5</Industrial>
+						<Spacer>2</Spacer>
+						<Ultra>2.5</Ultra>
+						<Archotech>3</Archotech>
+					</powerMultiplierByTechLevel>
+				</factionCaravanAISettings>
+				<raidGenerationSettings>
+					<minPlayerGameStage>Industrial</minPlayerGameStage>
+					<maxRaidDistance>120</maxRaidDistance>
+					<mountChance>25</mountChance>
+				</raidGenerationSettings>
+				<factionOrdersSettings>
+					<orders>
+						<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+							<checkIntervalDays>1.2~1.8</checkIntervalDays>
+							<buildiableWorldObjects>
+								<li>
+									<worldObjectDef>WatchTower</worldObjectDef>
+									<minThreat>1500</minThreat>
+									<priority>1</priority>
+									<maxCount>6</maxCount>
+									<maxCountForEachSettlement>1</maxCountForEachSettlement>
+									<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+								</li>
+							</buildiableWorldObjects>
+						</li>
+						<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+							<mtbDays>1</mtbDays>
+							<excludeSettlementSpecialization>
+								<li>SlaveOwners</li>
+							</excludeSettlementSpecialization>
+							<caravans>
+								<li>
+									<commonality>70</commonality>
+									<caravanPower>600~1100</caravanPower>
+									<maxTotalCaravans>5</maxTotalCaravans>
+									<wealthRequired>500</wealthRequired>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>40</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>TravelingGroup</caravanTypeDef>
+									<wealthCost>100</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+								</li>
+								<li>
+									<commonality>150</commonality>
+									<caravanPower>1300~2000</caravanPower>
+									<maxTotalCaravans>5</maxTotalCaravans>
+									<wealthRequired>800</wealthRequired>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 5.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<wealthCostMultiplierByCaravanPowerCurve>
+										<points>
+											<li>(100, 1)</li>
+											<li>(1500, 3)</li>
+										</points>
+									</wealthCostMultiplierByCaravanPowerCurve>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>40</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>Trade</caravanTypeDef>
+									<wealthCost>250</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+									<minSettlementMoney>750</minSettlementMoney>
+									<minMarketStockPriceWithoutSilver>1500</minMarketStockPriceWithoutSilver>
+									<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+									<exceptSettlementSpecializtions>
+										<li>SlaveOwners</li>
+									</exceptSettlementSpecializtions>
+								</li>
+								<li>
+									<commonality>40</commonality>
+									<caravanPower>1200~1500</caravanPower>
+									<maxTotalCaravans>2</maxTotalCaravans>
+									<wealthRequired>500</wealthRequired>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 4.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<caravanThingSetMakerProps>
+										<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+										<thingSetMakerParams>
+											<countRange>500~1000</countRange>
+										</thingSetMakerParams>
+										<countRangeMultiplierByWealthCurve>
+											<points>
+												<li>(200, 1)</li>
+												<li>(20000, 4.0)</li>
+											</points>
+										</countRangeMultiplierByWealthCurve>
+									</caravanThingSetMakerProps>
+									<wealthCostMultiplierByCaravanPowerCurve>
+										<points>
+											<li>(100, 1)</li>
+											<li>(1500, 4)</li>
+										</points>
+									</wealthCostMultiplierByCaravanPowerCurve>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>30</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>TransportCaravan</caravanTypeDef>
+									<wealthCost>120</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+								</li>
+								<li>
+									<commonality>30</commonality>
+									<caravanPower>1200~2000</caravanPower>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 3.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<maxTotalCaravans>6</maxTotalCaravans>
+									<wealthRequired>1000</wealthRequired>
+									<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+									<caravanTypeDef>Battle</caravanTypeDef>
+									<wealthCost>500</wealthCost>
+								</li>
+							</caravans>
+						</li>
+					</orders>
+				</factionOrdersSettings>
+				<settlementGlobalSettings>
+					<threatRadius>25</threatRadius>
+					<startedSilver>500~700</startedSilver>
+					<silverMultiplierByWealth>
+						<points>
+							<li>(200, 1)</li>
+							<li>(500, 1.25)</li>
+							<li>(1000, 2)</li>
+							<li>(2000, 3)</li>
+							<li>(5000, 5)</li>
+							<li>(10000, 10)</li>
+							<li>(20000, 15)</li>
+						</points>
+					</silverMultiplierByWealth>
+					<maxSilverPerSettlement>10000</maxSilverPerSettlement>
+					<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+					<cultureForDestroySettlementsByWealth>
+						<points>
+							<li>(0, 50)</li>
+							<li>(20000, 800)</li>
+						</points>
+					</cultureForDestroySettlementsByWealth>
+				</settlementGlobalSettings>
+				<factionEconomySettings>
+					<economyList>
+						<li>
+							<thingCategoryDefs>
+								<li>Foods</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>2</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Manufactured</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.6</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.4</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>ResourcesRaw</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.5</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Weapons</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.85</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Apparel</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.85</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.8</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Animals</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.5</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.3</priceSellMultiplier>
+						</li>
+					</economyList>
+					<successTradeMultiplierRange>1.2~1.4</successTradeMultiplierRange>
+				</factionEconomySettings>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<TraderKindDef>
+		<defName>ResoniteTrader</defName>
+		<stockGenerators>
+		</stockGenerators>
+	</TraderKindDef>
+	<TraderKindDef>
+		<defName>ResoniteVisitor</defName>
+		<label>trader</label>
+		<stockGenerators>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>RepairKit</thingDef>
+				<countRange>1~3</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MealSurvivalPack</thingDef>
+				<countRange>5~10</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MechanismComplex</thingDef>
+				<countRange>2~7</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>ComponentIndustrial</thingDef>
+				<countRange>2~7</countRange>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+</Defs>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!--==================== Low cover ======================== -->
+	<ThingDef ParentName="BuildingBase">
+		<defName>RN2Explosive_M18Claymore</defName>
+		<label>M18A1 claymore</label>
+		<description>The M18A1 Claymore is a directional anti-personnel mine developed for the United States Armed Forces. Its inventor, Norman MacLeod, named the mine after a large medieval Scottish sword.</description>
+		<tickerType>Normal</tickerType>
+		<rotatable>True</rotatable>
+		<graphicData>
+			<!-- Copied directly from the dining chair, I just needed to let it rotate -->
+			<texPath>Things/Building/Security/M18A1_Claymore/M18Claymore</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1.10,1.10)</drawSize>
+			<damageData>
+				<rectN>(0.25,0.234375,0.5,0.28125)</rectN>
+				<rectS>(0.25,0.234375,0.5,0.28125)</rectS>
+				<rectE>(0.28125,0.25,0.453125,0.25)</rectE>
+				<rectW>(0.28125,0.25,0.453125,0.25)</rectW>
+			</damageData>
+			<shadowData>
+				<volume>(0.23, 0.26, 0.23)</volume>
+			</shadowData>
+		</graphicData>
+		<stealable>false</stealable>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
+		<statBases>
+			<Mass>1.0</Mass>
+			<MaxHitPoints>40</MaxHitPoints>
+			<WorkToBuild>1400</WorkToBuild>
+			<Flammability>0.4</Flammability>
+			<Beauty>-4</Beauty>
+			<TrapSpringChance>1.0</TrapSpringChance>
+		</statBases>
+		<costList>
+			<SmokelessGunpowder>60</SmokelessGunpowder>
+			<SimpleWeaponComponents>2</SimpleWeaponComponents>
+			<ComponentSimple>2</ComponentSimple>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<defaultPlacingRot>North</defaultPlacingRot>
+		<designationCategory>Security</designationCategory>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<designatorDropdown>Traps</designatorDropdown>
+		<researchPrerequisites>
+			<li>IEDSII</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ChickenExplosives.PlaceWorker_ShowClaymoreAffectArea</li>
+		</placeWorkers>
+		<specialDisplayRadius>2</specialDisplayRadius>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>2</explosiveRadius>
+				<explosiveDamageType>RN2_Claymore_Bomb</explosiveDamageType>
+				<wickTicks>0</wickTicks>
+			</li>
+			<li Class="ChickenExplosives.CompProperties_ProjectileSprayer">
+				<projectileDef>Projectile_ClaymoreBall</projectileDef>
+				<projectileCount>40</projectileCount>
+				<projectileDistanceRange>0~15</projectileDistanceRange>
+				<projectileWidth>3</projectileWidth>
+			</li>
+			<li Class="ChickenExplosives.CompProperties_RemoteTrigger">
+				<labelKey>RH_Claymore_Detonate</labelKey>
+				<descKey>RH_Claymore_Detonate_Desc</descKey>
+				<activateSound>RN_DetonatorClick</activateSound>
+				<!-- Must have a grain with onCamera true or you will get errors! -->
+				<iconPath>UI/M57Firing_Device</iconPath>
+			</li>
+		</comps>
+	</ThingDef>
+	<!-- Projectile def -->
+	<ThingDef>
+		<defName>Projectile_ClaymoreBall</defName>
+		<label>claymore ball bearing</label>
+		<thingClass>ChickenExplosives.Projectile_NotBullet</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>RN2_SteelBall</damageDef>
+			<damageAmountBase>51</damageAmountBase>
+			<speed>75</speed>
+		</projectile>
+		<category>Projectile</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<useHitPoints>False</useHitPoints>
+		<neverMultiSelect>True</neverMultiSelect>
+	</ThingDef>
+</Defs>

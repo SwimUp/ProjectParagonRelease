@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!--
+        Vanilla Apparel Expanded (https://steamcommunity.com/sharedfiles/filedetails/?id=1814987817)
+
+        Jumpsuit counts as thin full-body protection, scarf and surgical mask count as thin mouth protection.
+    -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Apparel Expanded</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/Def[defName="MouthCoveringThin"]/apparel</xpath>
+                    <value>
+                        <li>VAE_Headgear_Scarf</li>
+                        <li>VAE_Headgear_SurgicalMask</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/Def[defName="FullBodyCoveringThin"]/apparel</xpath>
+                    <value>
+                        <li>VAE_Apparel_Jumpsuit</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

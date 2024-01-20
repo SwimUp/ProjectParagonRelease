@@ -2,10 +2,22 @@
 <LanguageData>
 
   <MeleeDamage.label>урон в ближнем бою</MeleeDamage.label>
-  <MeleeDamage.description>Величина урона различается в зависимости от применяемой части оружия. В случае оружия ближнего боя ими могут выступать лезвие клинка или же его навершие, например; при использовании оружия дальнего боя можно как ударить противника прикладом так и ткнуть стволом.</MeleeDamage.description>
+  <MeleeDamage.description>Величина урона различается в зависимости от применяемой части оружия. В случае оружия ближнего боя ими могут выступать лезвие клинка или же его навершие, например; при использовании оружия дальнего боя можно как ударить противника прикладом так и ткнуть стволом</MeleeDamage.description>
+
+
+  <!-- Used for stuffable weapons. Multiplies the material's sharp armour by this stat's value. -->
+
+  <StuffEffectMultiplierToughness.label>Жесткость - Множитель эффекта материала</StuffEffectMultiplierToughness.label>
+
+
+  <!-- Base value for toughness. Acts as a base for further final value modifiers. Final value is (ToughnessRating + StuffEffectMultiplierToughness * StuffPower_Armor_Sharp) * Modifiers. -->
+
+  <ToughnessRating.label>Жесткость</ToughnessRating.label>
+  <ToughnessRating.description>Эффект смягчения урона, наносимого оружием при отражении атаки.\n\nВо-первых, проверяется тип атаки. Если атака сравнивается с обычной тупой броней, то это значение умножается на 1,5 и рассматривается как MPa, в противном случае оно остается неизменным. Затем значение сравнивается с бронепробиваемостью атаки, при этом отклонение происходит, если показатель Жесткости выше. В противном случае урон уменьшается на основе отношения ударной Жесткости к AP и базового уменьшения на 50% (Если оружие с Жесткостью 8 мм RHA поражено атакой 10 мм RHA и 20 МПа из другого оружия, оружие получит 10% урона от острой части атаки и 12,5% от заблокированной тупой части атаки). Внутренняя формула может быть аппроксимирована следующим образом:\n\nОстрыйУронПолучен = НачальныйОстрыйУрон * (1 - Жескость / НачальныйОстрыйAP) / 2 \nЗаблокированныйТупойAP = НачальныйТупойAP * Жескость / НачальныйОстрыйAP\nТупойУронПолучен = ТупойУронОтЗаблокированногоТупойAP * (1 - Жескость / ЗаблокированныйТупойAP * 1.5) / 2\n\nДля тупых атак все, что связано с острым в формулах, может быть проигнорировано.</ToughnessRating.description>
+  <ToughnessRating.formatString>{0}мм RHA</ToughnessRating.formatString>
 
   <MeleePenetrationFactor.label>коэффициент пробития брони в ближнем бою</MeleePenetrationFactor.label>
-  <MeleePenetrationFactor.description>Возможность пробить броню при ударе в ближем бою. Этот множитель применяется ко всем атакам ближнего боя, совершаемым этим оружием.\n\nБазовое значение определяется используемым инструментом.</MeleePenetrationFactor.description>
+  <MeleePenetrationFactor.description>Возможность пробить броню при ударе в ближем бою. Этот множитель применяется ко всем атакам ближнего боя, совершаемым этим оружием.\n\nБазовое значение определяется используемым инструментом</MeleePenetrationFactor.description>
 
 
   <!-- <StatDef ParentName="MeleeArmorPenetrationBase">
@@ -15,10 +27,15 @@
   </StatDef> -->
 
   <MeleeCounterParryBonus.label>контрпарирование</MeleeCounterParryBonus.label>
-  <MeleeCounterParryBonus.description>При атаке противника этим оружием, базовое значение парирования делится на это значение.</MeleeCounterParryBonus.description>
+  <MeleeCounterParryBonus.description>При атаке противника этим оружием, базовое значение парирования делится на это значение</MeleeCounterParryBonus.description>
 
 
+  <!-- <StatDef ParentName="MeleeArmorPenetrationBase">
+    <defName>MeleeArmorPenetration_Weapon</defName>
+    <category>Weapon</category>
+    <displayPriorityInCategory>897</displayPriorityInCategory>
+  </StatDef>-->
   <!--<MeleeArmorPenetration_Weapon.label>бронепробиваемость в ближнем бою</MeleeArmorPenetration_Weapon.label>-->
-  <!--<MeleeArmorPenetration_Weapon.description>Бронепробиваемость в ближнем бою. Определяет, сколько урона поглотить броня противника.</MeleeArmorPenetration_Weapon.description>-->
+  <!--<MeleeArmorPenetration_Weapon.description>Бронепробиваемость в ближнем бою. Определяет, сколько урона поглотить броня противника</MeleeArmorPenetration_Weapon.description>-->
 
 </LanguageData>

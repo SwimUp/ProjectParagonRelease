@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!--
+        Vanilla Armour Expanded (https://steamcommunity.com/sharedfiles/filedetails/?id=1814988282)
+
+        Similar with Rimatomics, the hazmat suit is counted as 'thick' even though it is cloth based.
+    -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Armour Expanded</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/Def[defName="HeadCoveringThick"]/apparel</xpath>
+                    <value>
+                        <li>VAE_Headgear_HAZMATMask</li> <!-- hazmat mask -->
+                        <li>VAE_Headgear_HeavyMarineHelmet</li> <!-- siegebreaker helmet -->
+                        <li MayRequire="Ludeon.RimWorld.Royalty">VAE_Headgear_RoyalSiegeHelmet</li> <!-- prestige siegebreaker helmet -->
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/Def[defName="FullBodyCoveringThick"]/apparel</xpath>
+                    <value>
+                        <li>VAE_Apparel_HAZMATSuit</li> <!-- hazmat suit -->
+                        <li>VAE_Apparel_HeavyMarineArmor</li> <!-- siegebreaker armour -->
+                        <li MayRequire="Ludeon.RimWorld.Royalty">VAE_Apparel_RoyalSiegeArmor</li> <!-- prestige siegebreaker armour -->
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

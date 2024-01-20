@@ -1,28 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<ResearchProjectDef Abstract="true" Name="PrimitiveResearchBench">
+	<ResearchProjectDef Abstract="true" Name="ParagonResearchBase">
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiResearchProjectDef"/>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	<ResearchProjectDef Abstract="true" Name="PrimitiveResearchBench" ParentName="ParagonResearchBase">
 		<requiredResearchBuilding>PrimitiveResearchBench</requiredResearchBuilding>
 	</ResearchProjectDef>
-	<ResearchProjectDef Abstract="true" Name="SimpleResearchBench">
+	<ResearchProjectDef Abstract="true" Name="SimpleResearchBench" ParentName="ParagonResearchBase">
 		<requiredResearchBuilding>SimpleResearchBench</requiredResearchBuilding>
 	</ResearchProjectDef>
-	<ResearchProjectDef Abstract="true" Name="SimpleResearchBenchAndSmallLibrary">
+	<ResearchProjectDef Abstract="true" Name="SimpleResearchBenchAndSmallLibrary" ParentName="ParagonResearchBase">
 		<requiredResearchBuilding>SimpleResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>SmallLibrary</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 	
-	<ResearchProjectDef Abstract="true" Name="IndustrialResearchBench">
+	<ResearchProjectDef Abstract="true" Name="IndustrialResearchBench" ParentName="ParagonResearchBase">
 		<requiredResearchBuilding>ResearchBench</requiredResearchBuilding>
 	</ResearchProjectDef>
-	<ResearchProjectDef Abstract="true" Name="IndustrialResearchBenchAndResearchLibrary">
+	<ResearchProjectDef Abstract="true" Name="IndustrialResearchBenchAndResearchLibrary" ParentName="ParagonResearchBase">
 		<requiredResearchBuilding>ResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>ResearchLibrary</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
-	
+	<ResearchProjectDef Abstract="true" Name="IndustrialResearchBenchAndScientificMonitor" ParentName="ParagonResearchBase">
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>ScientificMonitor</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
 	<ResearchProjectDef Abstract="true" Name="SpacerResearchBench">
 		<requiredResearchBuilding>SimpleResearchBench</requiredResearchBuilding>
 	</ResearchProjectDef>
@@ -45,6 +58,11 @@
 		<prerequisites>
 			<li>Smithing</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 	
 
@@ -63,6 +81,8 @@
 			<li>YoungTribe</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 
@@ -86,6 +106,8 @@
 			<li>ShardOfTheHorde</li>
 			<li>BloodySect</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -111,6 +133,8 @@
 			<li>ShardOfTheHorde</li>
 			<li>BloodySect</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
 		</tags>
 		<prerequisites>
 			<li>LessonsPast</li>
@@ -139,6 +163,9 @@
 			<li>YoungTribe</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -155,6 +182,8 @@
 			<tags>
 				<li>LostSheks</li>
 				<li>AeronRefugees</li>
+				<li>Resonites</li>
+				<li>ClassicStart</li>
 			</tags>
 		</ResearchProjectDef>
 			<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -170,6 +199,10 @@
 					<li>FishingI</li>
 					<li>Weaving</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>CookingI</defName>
@@ -188,6 +221,9 @@
 			<li>YoungTribe</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -211,6 +247,9 @@
 			<li>AeronRefugees</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -227,6 +266,9 @@
 			<tags>
 				<li>ShardOfTheHorde</li>
 				<li>Battlefield</li>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
 			</tags>
 			<modExtensions>
 				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -246,7 +288,29 @@
 					<li>Smithing</li>
 					<li>InstrumentsI</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
+					<defName>InstrumentsIII</defName>
+					<label>Instruments III</label>
+					<description>Learn to create advanced multi-tools for factory work.</description>
+					<baseCost>700</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>0.00</researchViewX>
+					<researchViewY>20</researchViewY>
+					<prerequisites>
+						<li>ForgingPress</li>
+						<li>InstrumentsII</li>
+					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+						<li>ClassicStart</li>
+					</tags>
+				</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>ProstheticsI</defName>
 		<label>Prosthetics I</label>
@@ -259,6 +323,11 @@
 			<li>AdvancedWoodProcessing</li>
 			<li>BasicHealthCare</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 				<researchFinishThoughtDef>ProstheticsI</researchFinishThoughtDef>
@@ -278,8 +347,49 @@
 				<li>BasicsMechanic</li>
 				<li>SimpleHealthCare</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
+			<modExtensions>
+				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+					<researchFinishThoughtDef>ProstheticsI</researchFinishThoughtDef>
+				</li>
+			</modExtensions>
 			<requiredResearchBuilding>SimpleResearchBench</requiredResearchBuilding>
 		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>ProstheticsIV</defName>
+				<label>Prosthetics IV</label>
+				<description>Learn to make new prostheses.</description>
+				<baseCost>1200</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>Prosthetics</li>
+					<li>Electronics</li>
+				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>ClassicStart</li>
+				</tags>
+			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+					<defName>ProstheticsV</defName>
+					<label>Prosthetics V</label>
+					<description>Learn to make new prostheses.</description>
+					<baseCost>1500</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>0.00</researchViewX>
+					<researchViewY>20</researchViewY>
+					<prerequisites>
+						<li>ProstheticsIV</li>
+						<li>MicroelectronicsBasics</li>
+						<li>AdvancedPolymerization</li>
+					</prerequisites>
+				</ResearchProjectDef>
 		
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>GamesI</defName>
@@ -298,6 +408,9 @@
 			<li>YoungTribe</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -322,6 +435,8 @@
 			<li>YoungTribe</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -341,7 +456,53 @@
 				<li>FirstAlcohol</li>
 				<li>CookingIII</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
+		
+	<ResearchProjectDef ParentName="PrimitiveResearchBench">
+		<defName>LeatherFloorsI</defName>
+		<label>Leather floors I</label>
+		<description>Discover beautiful but demanding leather floors.</description>
+		<baseCost>250</baseCost>
+		<techLevel>Neolithic</techLevel>
+		<researchViewX>1.00</researchViewX>
+		<researchViewY>117</researchViewY>
+		<prerequisites>
+			<li>FurnitureI</li>
+		</prerequisites>
+		<tags>
+			<li>KairosRebels</li>
+			<li>AeronRefugees</li>
+			<li>YoungTribe</li>
+			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
+	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="SimpleResearchBench">
+			<defName>LeatherFloorsII</defName>
+			<label>Leather floors II</label>
+			<description>Discover beautiful but demanding leather floors.</description>
+			<baseCost>300</baseCost>
+			<techLevel>Medieval</techLevel>
+			<researchViewX>2.00</researchViewX>
+			<researchViewY>119</researchViewY>
+			<prerequisites>
+				<li>FurnitureII</li>
+				<li>LeatherFloorsI</li>
+			</prerequisites>
+			<tags>
+				<li>Battlefield</li>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
+		</ResearchProjectDef>
+	
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>WoodenFloorsI</defName>
 		<label>Wooden floors I</label>
@@ -358,6 +519,9 @@
 			<li>AeronRefugees</li>
 			<li>YoungTribe</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -375,6 +539,9 @@
 			<li>KairosRebels</li>
 			<li>AeronRefugees</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -391,8 +558,24 @@
 			</prerequisites>
 			<tags>
 				<li>Battlefield</li>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
 			</tags>
 		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="PrimitiveResearchBench">
+				<defName>FloorDecorationIII</defName>
+				<label>Floor decoration III</label>
+				<description>Learn how to create beautiful and soft rugs to create coziness.</description>
+				<baseCost>500</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>FloorDecorationII</li>
+					<li>ComplexFurnitureII</li>
+				</prerequisites>
+			</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>FurnitureI</defName>
 		<label>Furniture I</label>
@@ -409,6 +592,9 @@
 			<li>AeronRefugees</li>
 			<li>YoungTribe</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -432,6 +618,9 @@
 			<li>AeronRefugees</li>
 			<li>YoungTribe</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -455,6 +644,9 @@
 			<li>AeronRefugees</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -471,6 +663,9 @@
 		<tags>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -492,6 +687,9 @@
 		<tags>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -507,6 +705,9 @@
 			</prerequisites>
 			<tags>
 				<li>Battlefield</li>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
 			</tags>
 			<modExtensions>
 				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -525,6 +726,11 @@
 				<prerequisites>
 					<li>WorldAndYou</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
 		
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -541,6 +747,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -558,6 +767,9 @@
 		<tags>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -577,6 +789,9 @@
 			<li>YoungTribe</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -593,6 +808,9 @@
 			<tags>
 				<li>ShardOfTheHorde</li>
 				<li>Battlefield</li>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
 			</tags>
 		</ResearchProjectDef>
 
@@ -612,6 +830,9 @@
 			<li>AeronRefugees</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -633,6 +854,9 @@
 			</prerequisites>
 			<tags>
 				<li>Battlefield</li>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
 			</tags>
 		</ResearchProjectDef>
 
@@ -650,6 +874,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
@@ -673,6 +900,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -688,6 +918,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -701,6 +934,11 @@
 			<prerequisites>
 				<li>StoneFloorsI</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 			<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 				<defName>MetallicFloorsI</defName>
@@ -713,7 +951,41 @@
 				<prerequisites>
 					<li>StoneFloorsII</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+					<defName>MetallicFloorsII</defName>
+					<label>Metallic floors II</label>
+					<description>Coating composed of metal plates or cast plates.</description>
+					<baseCost>1000</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>0.00</researchViewX>
+					<researchViewY>30</researchViewY>
+					<prerequisites>
+						<li>MetallicFloorsI</li>
+						<li>MicroelectronicsBasics</li>
+					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+					</tags>
+				</ResearchProjectDef>
+					<ResearchProjectDef ParentName="SpacerResearchBench">
+						<defName>MetallicFloorsIII</defName>
+						<label>Metallic floors III</label>
+						<description>Coating composed of metal plates or cast plates.</description>
+						<baseCost>1200</baseCost>
+						<techLevel>Spacer</techLevel>
+						<researchViewX>1</researchViewX>
+						<researchViewY>50</researchViewY>
+						<prerequisites>
+							<li>MetallicFloorsII</li>
+							<li>ProductionIII</li>
+						</prerequisites>
+					</ResearchProjectDef>
 			<ResearchProjectDef ParentName="IndustrialResearchBench">
 				<defName>StoneFloorsIII</defName>
 				<label>Stone floors III</label>
@@ -726,7 +998,50 @@
 					<li>ProductionII</li>
 					<li>StoneFloorsII</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+					<defName>StoneFloorsIV</defName>
+					<label>Stone floors IV</label>
+					<description>Learn to lay more stone floors.</description>
+					<baseCost>600</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>0.00</researchViewX>
+					<researchViewY>40</researchViewY>
+					<prerequisites>
+						<li>MicroelectronicsBasics</li>
+						<li>StoneFloorsIII</li>
+					</prerequisites>
+				</ResearchProjectDef>
+					<ResearchProjectDef ParentName="SpacerResearchBench">
+						<defName>StoneFloorsV</defName>
+						<label>Stone floors V</label>
+						<description>Learn to lay more stone floors.</description>
+						<baseCost>1000</baseCost>
+						<techLevel>Spacer</techLevel>
+						<researchViewX>5</researchViewX>
+						<researchViewY>50</researchViewY>
+						<prerequisites>
+							<li>ProductionIII</li>
+							<li>StoneFloorsIV</li>
+						</prerequisites>
+					</ResearchProjectDef>
+						<ResearchProjectDef ParentName="SpacerResearchBench">
+							<defName>StoneFloorsVI</defName>
+							<label>Stone floors VI</label>
+							<description>Learn to lay more stone floors.</description>
+							<baseCost>1200</baseCost>
+							<techLevel>Spacer</techLevel>
+							<researchViewX>6</researchViewX>
+							<researchViewY>50</researchViewY>
+							<prerequisites>
+								<li>StoneFloorsV</li>
+							</prerequisites>
+						</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>Joinery</defName>
 		<label>Joinery</label>
@@ -740,6 +1055,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -756,6 +1074,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -771,6 +1092,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -784,6 +1108,11 @@
 			<prerequisites>
 				<li>Weaving</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 			<modExtensions>
 				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 					<researchFinishThoughtDef>Medicine</researchFinishThoughtDef>
@@ -802,29 +1131,17 @@
 					<li>BasicHealthCare</li>
 					<li>Alchemy</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
 				<modExtensions>
 					<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 						<researchFinishThoughtDef>Medicine</researchFinishThoughtDef>
 					</li>
 				</modExtensions>
 			</ResearchProjectDef>
-				<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
-					<defName>Pharmacology</defName>
-					<label>Pharmacology</label>
-					<description>Immerse yourself in the world of drugs! Start creating cures for all sorts of diseases, new stimulants and of course drugs!</description>
-					<baseCost>650</baseCost>
-					<techLevel>Industrial</techLevel>
-					<researchViewX>0.00</researchViewX>
-					<researchViewY>20</researchViewY>
-					<prerequisites>
-						<li>Medicine</li>
-					</prerequisites>
-					<modExtensions>
-						<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
-							<researchFinishThoughtDef>Medicine</researchFinishThoughtDef>
-						</li>
-					</modExtensions>
-				</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>FurnitureII</defName>
 		<label>Furniture II</label>
@@ -839,6 +1156,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
@@ -853,6 +1173,11 @@
 				<li>Smithing</li>
 				<li>FurnitureII</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 			<ResearchProjectDef ParentName="PrimitiveResearchBench">
 				<defName>StoragesI</defName>
@@ -867,6 +1192,9 @@
 				</prerequisites>
 				<tags>
 					<li>Battlefield</li>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
 				</tags>
 			</ResearchProjectDef>
 				<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -881,6 +1209,11 @@
 						<li>StoragesI</li>
 						<li>ErgonomicsI</li>
 					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+						<li>Automaton</li>
+						<li>ClassicStart</li>
+					</tags>
 				</ResearchProjectDef>
 					<ResearchProjectDef ParentName="SimpleResearchBench">
 						<defName>StoragesIII</defName>
@@ -893,6 +1226,11 @@
 						<prerequisites>
 							<li>StoragesII</li>
 						</prerequisites>
+						<tags>
+							<li>Resonites</li>
+							<li>Automaton</li>
+							<li>ClassicStart</li>
+						</tags>
 					</ResearchProjectDef>
 						<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 							<defName>StoragesIV</defName>
@@ -905,6 +1243,10 @@
 							<prerequisites>
 								<li>Machining</li>
 							</prerequisites>
+							<tags>
+								<li>Resonites</li>
+								<li>ClassicStart</li>
+							</tags>
 						</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
 			<defName>ExquisiteFurniture</defName>
@@ -917,6 +1259,11 @@
 			<prerequisites>
 				<li>FurnitureII</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 			<modExtensions>
 				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 					<researchFinishThoughtDef>ExquisiteFurniture</researchFinishThoughtDef>
@@ -935,6 +1282,11 @@
 					<li>ExquisiteFurniture</li>
 					<li>Architecture</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
 				<ResearchProjectDef ParentName="SimpleResearchBench">
 					<defName>MonumentsII</defName>
@@ -947,6 +1299,11 @@
 					<prerequisites>
 						<li>MonumentsI</li>
 					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+						<li>Automaton</li>
+						<li>ClassicStart</li>
+					</tags>
 				</ResearchProjectDef>
 					<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 						<defName>MonumentsIII</defName>
@@ -972,6 +1329,11 @@
 			<li>FurnitureII</li>
 			<li>GamesI</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>CookingIII</defName>
@@ -985,6 +1347,11 @@
 			<li>CookingII</li>
 			<li>FurnitureII</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
 			<defName>Preserving</defName>
@@ -997,6 +1364,11 @@
 			<prerequisites>
 				<li>CookingIII</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 			<defName>BeekeepingBasics</defName>
@@ -1009,6 +1381,11 @@
 			<prerequisites>
 				<li>CookingIII</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 			<modExtensions>
 				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 					<researchFinishThoughtDef>BeekeepingBasics</researchFinishThoughtDef>
@@ -1026,6 +1403,11 @@
 		<prerequisites>
 			<li>FurnitureII</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 				<researchFinishThoughtDef>Alchemy</researchFinishThoughtDef>
@@ -1043,6 +1425,11 @@
 			<prerequisites>
 				<li>Alchemy</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
 			<defName>Architecture</defName>
@@ -1057,6 +1444,11 @@
 				<li>MysticismAndRituals</li>
 				<li>Alchemy</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
 			<defName>EquipmentModification</defName>
@@ -1070,6 +1462,11 @@
 				<li>SimpleArmor</li>
 				<li>Alchemy</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
 		<defName>WeaponsI</defName>
@@ -1083,6 +1480,11 @@
 			<li>Smithing</li>
 			<li>ImprovedBows</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 				<researchFinishThoughtDef>WeaponsI</researchFinishThoughtDef>
@@ -1097,6 +1499,11 @@
 			<techLevel>Medieval</techLevel>
 			<researchViewX>0.00</researchViewX>
 			<researchViewY>20</researchViewY>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 			<prerequisites>
 				<li>Alchemy</li>
 				<li>WeaponsI</li>
@@ -1116,6 +1523,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 	<ResearchProjectDef ParentName="PrimitiveResearchBench"> 
@@ -1129,6 +1539,11 @@
 		<prerequisites>
 			<li>Weaving</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench"> 
 			<defName>Silk</defName>
@@ -1142,6 +1557,11 @@
 				<li>LinenFabrics</li>
 				<li>BasicsMechanic</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -1156,6 +1576,11 @@
 			<li>Joinery</li>
 			<li>Smithing</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
 			<defName>MechanicalMills</defName>
@@ -1169,6 +1594,28 @@
 				<li>BasicsMechanic</li>
 				<li>CookingIII</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
+		</ResearchProjectDef>
+		<ResearchProjectDef ParentName="SimpleResearchBench">
+			<defName>PrintingPress</defName>
+			<label>Printing press</label>
+			<description>Learn to create machines for mass production of paper and books. Knowledge to the masses!</description>
+			<baseCost>800</baseCost>
+			<techLevel>Medieval</techLevel>
+			<researchViewX>3.00</researchViewX>
+			<researchViewY>23</researchViewY>
+			<prerequisites>
+				<li>BasicsMechanic</li>
+			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
 			<defName>GemstoneProcessing</defName>
@@ -1181,6 +1628,11 @@
 			<prerequisites>
 				<li>BasicsMechanic</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 			<modExtensions>
 				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 					<researchFinishThoughtDef>GemstoneProcessing</researchFinishThoughtDef>
@@ -1198,6 +1650,11 @@
 			<prerequisites>
 				<li>BasicsMechanic</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 			<modExtensions>
 				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 					<researchFinishThoughtDef>ImprovedOreMining</researchFinishThoughtDef>
@@ -1216,6 +1673,11 @@
 					<li>ImprovedOreMining</li>
 					<li>BasicHealthCare</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
 				<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 					<defName>AdvancedQuarryDesign</defName>
@@ -1228,6 +1690,11 @@
 					<prerequisites>
 						<li>SafetyEngineering</li>
 					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+						<li>Automaton</li>
+						<li>ClassicStart</li>
+					</tags>
 				</ResearchProjectDef>
 				<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 					<defName>AdvancedMinesVentilation</defName>
@@ -1240,6 +1707,11 @@
 					<prerequisites>
 						<li>SafetyEngineering</li>
 					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+						<li>Automaton</li>
+						<li>ClassicStart</li>
+					</tags>
 				</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 			<defName>ImprovedOreProcessing</defName>
@@ -1252,6 +1724,11 @@
 			<prerequisites>
 				<li>ImprovedOreMining</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 		
 		<ResearchProjectDef ParentName="SimpleResearchBench">
@@ -1266,6 +1743,11 @@
 				<li>BasicsMechanic</li>
 				<li>AdvancedDefense</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 			<ResearchProjectDef ParentName="SimpleResearchBench">
 				<defName>GunFire</defName>
@@ -1280,6 +1762,11 @@
 					<li>WeaponsII</li>
 					<li>Alchemy</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
 				<modExtensions>
 					<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 						<researchFinishThoughtDef>GunFire</researchFinishThoughtDef>
@@ -1297,6 +1784,11 @@
 					<prerequisites>
 						<li>GunFire</li>
 					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+						<li>Automaton</li>
+						<li>ClassicStart</li>
+					</tags>
 				</ResearchProjectDef>
 					<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 						<defName>HeavyGuns</defName>
@@ -1309,6 +1801,11 @@
 						<prerequisites>
 							<li>MediumGuns</li>
 						</prerequisites>
+						<tags>
+							<li>Resonites</li>
+							<li>Automaton</li>
+							<li>ClassicStart</li>
+						</tags>
 					</ResearchProjectDef>
 						<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
 							<defName>ModifiedGuns</defName>
@@ -1321,6 +1818,11 @@
 							<prerequisites>
 								<li>HeavyGuns</li>
 							</prerequisites>
+							<tags>
+								<li>Resonites</li>
+								<li>Automaton</li>
+								<li>ClassicStart</li>
+							</tags>
 						</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="SimpleResearchBenchAndSmallLibrary">
@@ -1339,6 +1841,11 @@
 			<li>MonumentsII</li>
 			<li>SimpleHealthCare</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 				<gameStage>Industrial</gameStage>
@@ -1366,6 +1873,9 @@
 			<li>YoungTribe</li>
 			<li>ShardOfTheHorde</li>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -1382,6 +1892,9 @@
 			</prerequisites>
 			<tags>
 				<li>Battlefield</li>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
 			</tags>
 		</ResearchProjectDef>
 			<ResearchProjectDef ParentName="PrimitiveResearchBench">
@@ -1397,6 +1910,9 @@
 				</prerequisites>
 				<tags>
 					<li>Battlefield</li>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
 				</tags>
 			</ResearchProjectDef>
 	
@@ -1414,6 +1930,9 @@
 		</prerequisites>
 		<tags>
 			<li>Battlefield</li>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
 		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="SimpleResearchBench">
@@ -1429,6 +1948,11 @@
 				<li>Smithing</li>
 				<li>HeavyLeatherArmor</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 	
 	<ResearchProjectDef ParentName="IndustrialResearchBench">
@@ -1442,9 +1966,30 @@
 		<prerequisites>
 			<li>ProductionII</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBench">
+			<defName>AdvancedArcheology</defName>
+			<label>Advanced archeology</label>
+			<description>Learn to accurately locate ancient remains in order to mine them.</description>
+			<baseCost>1200</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>Archeology</li>
+				<li>ForgingPress</li>
+			</prerequisites>
+			<tags>
+				<li>ClassicStart</li>
+			</tags>
+		</ResearchProjectDef>
 	
-	<ResearchProjectDef ParentName="IndustrialResearchBench">
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>ArchitecturalEngineering</defName>
 		<label>Architectural engineering</label>
 		<description>Start designing and building more complex and complex structures.</description>
@@ -1456,9 +2001,14 @@
 			<li>Machining</li>
 			<li>MaterialsScience</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 	
-	<ResearchProjectDef ParentName="IndustrialResearchBench">
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>Chemistry</defName>
 		<label>Chemistry</label>
 		<description>A deep study of the interactions of different substances with each other opens up new perspectives.</description>
@@ -1469,6 +2019,16 @@
 		<prerequisites>
 			<li>ProductionII</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>Chemistry</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 			<defName>Petrochemistry</defName>
@@ -1482,9 +2042,29 @@
 				<li>Chemistry</li>
 				<li>Electronics</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>NitrogenFertilizers</defName>
+				<label>Nitrogen fertilizers</label>
+				<description>Industrial fertilizer from chemical reagents.</description>
+				<baseCost>900</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>Petrochemistry</li>
+				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>ClassicStart</li>
+				</tags>
+			</ResearchProjectDef>
 	
-	<ResearchProjectDef ParentName="IndustrialResearchBench">
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>Medicine</defName>
 		<label>Medicine</label>
 		<description>Deeper knowledge in the field of medicine will increase the chances of survival for your colonists.</description>
@@ -1495,7 +2075,38 @@
 		<prerequisites>
 			<li>ComplexFurniture</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>Medicine</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
 	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+			<defName>AdvancedMedicine</defName>
+			<label>Advanced medicine</label>
+			<description>Deeper knowledge in the field of medicine will increase the chances of survival for your colonists.</description>
+			<baseCost>1500</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>Medicine</li>
+				<li>MicroelectronicsBasics</li>
+			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+			</tags>
+			<modExtensions>
+				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+					<researchFinishThoughtDef>Medicine</researchFinishThoughtDef>
+				</li>
+			</modExtensions>
+		</ResearchProjectDef>
 	
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>SteamEnergyI</defName>
@@ -1509,19 +2120,258 @@
 			<li>MaterialsScience</li>
 			<li>Machining</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>SteamEnergy</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
-			<defName>SteamEnergyII</defName>
-			<label>Steam energy</label>
-			<description>Upgrade your steam plants to automate and simplify even more complex processes.</description>
-			<baseCost>1000</baseCost>
+			<defName>Steammechanics</defName>
+			<label>Steammechanics</label>
+			<description>Learn how to build steam machines to meet basic industrial needs.</description>
+			<baseCost>800</baseCost>
 			<techLevel>Industrial</techLevel>
 			<researchViewX>0.00</researchViewX>
 			<researchViewY>20</researchViewY>
 			<prerequisites>
 				<li>SteamEnergyI</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>SteamSmelter</defName>
+				<label>Steam smelter</label>
+				<description>Industrial foundry for mass production.</description>
+				<baseCost>1000</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>Steammechanics</li>
+				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
+			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+					<defName>SteamMechanicalForge</defName>
+					<label>Steam mechanical forge</label>
+					<description>Industrial forge for the manufacture of complex components, edged weapons and equipment.</description>
+					<baseCost>1200</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>0.00</researchViewX>
+					<researchViewY>20</researchViewY>
+					<prerequisites>
+						<li>SteamSmelter</li>
+					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+						<li>Automaton</li>
+						<li>ClassicStart</li>
+					</tags>
+				</ResearchProjectDef>
+					<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+						<defName>SteamJetpack</defName>
+						<label>Steam jetpack</label>
+						<description>Steam packs consume coal to generate thrust for short jumps.</description>
+						<baseCost>1000</baseCost>
+						<techLevel>Industrial</techLevel>
+						<researchViewX>0.00</researchViewX>
+						<researchViewY>20</researchViewY>
+						<prerequisites>
+							<li>SteamMechanicalForge</li>
+						</prerequisites>
+						<tags>
+							<li>Automaton</li>
+							<li>ClassicStart</li>
+						</tags>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+								<canBeResearch>false</canBeResearch>
+							</li>
+						</modExtensions>
+					</ResearchProjectDef>
+					<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+						<defName>AutomatonProduction</defName>
+						<label>Automaton production</label>
+						<description>Technology for the automaton production.</description>
+						<baseCost>2000</baseCost>
+						<techLevel>Industrial</techLevel>
+						<researchViewX>0.00</researchViewX>
+						<researchViewY>20</researchViewY>
+						<prerequisites>
+							<li>SteamMechanicalForge</li>
+						</prerequisites>
+						<tags>
+							<li>Automaton</li>
+							<li>ClassicStart</li>
+						</tags>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+								<canBeResearch>false</canBeResearch>
+							</li>
+						</modExtensions>
+					</ResearchProjectDef>
+					<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+						<defName>SteamEnergyII</defName>
+						<label>Steam energy II</label>
+						<description>Upgrade your steam plants to automate and simplify even more complex processes.</description>
+						<baseCost>1000</baseCost>
+						<techLevel>Industrial</techLevel>
+						<researchViewX>0.00</researchViewX>
+						<researchViewY>20</researchViewY>
+						<prerequisites>
+							<li>SteamMechanicalForge</li>
+						</prerequisites>
+						<tags>
+							<li>Resonites</li>
+							<li>Automaton</li>
+							<li>ClassicStart</li>
+						</tags>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+								<researchFinishThoughtDef>SteamEnergy</researchFinishThoughtDef>
+							</li>
+						</modExtensions>
+					</ResearchProjectDef>
+						<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+							<defName>SteamCentrifuge</defName>
+							<label>Steam centrifuge</label>
+							<description>The mechanism is designed for washing of materials to search for useful resources.</description>
+							<baseCost>1500</baseCost>
+							<techLevel>Industrial</techLevel>
+							<researchViewX>0.00</researchViewX>
+							<researchViewY>20</researchViewY>
+							<prerequisites>
+								<li>SteamEnergyII</li>
+							</prerequisites>
+							<tags>
+								<li>Resonites</li>
+								<li>Automaton</li>
+								<li>ClassicStart</li>
+							</tags>
+						</ResearchProjectDef>
+						<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+							<defName>SteamDrill</defName>
+							<label>Steam drill</label>
+							<description>The steam drill is designed for autonomous extraction of resources underground.</description>
+							<baseCost>2000</baseCost>
+							<techLevel>Industrial</techLevel>
+							<researchViewX>0.00</researchViewX>
+							<researchViewY>20</researchViewY>
+							<prerequisites>
+								<li>SteamEnergyII</li>
+								<li>SteamMechanicalMiner</li>
+							</prerequisites>
+							<tags>
+								<li>Resonites</li>
+								<li>Automaton</li>
+								<li>ClassicStart</li>
+							</tags>
+						</ResearchProjectDef>
+							<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+								<defName>SeismologicalSensor</defName>
+								<label>Seismological sensor</label>
+								<description>Installation for the slow analysis of underground soil for the presence of useful resources.</description>
+								<baseCost>1500</baseCost>
+								<techLevel>Industrial</techLevel>
+								<researchViewX>0.00</researchViewX>
+								<researchViewY>20</researchViewY>
+								<prerequisites>
+									<li>SteamDrill</li>
+								</prerequisites>
+								<tags>
+									<li>Resonites</li>
+									<li>Automaton</li>
+									<li>ClassicStart</li>
+								</tags>
+							</ResearchProjectDef>
+						<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+							<defName>SteamEnergyIII</defName>
+							<label>Steam energy III</label>
+							<description>Upgrade your steam plants to automate and simplify even more complex processes.</description>
+							<baseCost>1200</baseCost>
+							<techLevel>Industrial</techLevel>
+							<researchViewX>0.00</researchViewX>
+							<researchViewY>20</researchViewY>
+							<prerequisites>
+								<li>SteamEnergyII</li>
+							</prerequisites>
+							<tags>
+								<li>Resonites</li>
+								<li>Automaton</li>
+								<li>ClassicStart</li>
+							</tags>
+							<modExtensions>
+								<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+									<researchFinishThoughtDef>SteamEnergy</researchFinishThoughtDef>
+								</li>
+							</modExtensions>
+						</ResearchProjectDef>
+					<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+						<defName>SteamMixer</defName>
+						<label>Steam mixer</label>
+						<description>The steam mixer is designed to mix various liquids and materials, for example to produce concrete.</description>
+						<baseCost>1000</baseCost>
+						<techLevel>Industrial</techLevel>
+						<researchViewX>0.00</researchViewX>
+						<researchViewY>20</researchViewY>
+						<prerequisites>
+							<li>SteamMechanicalForge</li>
+						</prerequisites>
+						<tags>
+							<li>Resonites</li>
+							<li>Automaton</li>
+							<li>ClassicStart</li>
+						</tags>
+					</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>SteamCrusher</defName>
+				<label>Steam crusher</label>
+				<description>The steam crusher crushes the ore to the state of ore powder. Additional processing allows you to get more resources when smelted.</description>
+				<baseCost>800</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>Steammechanics</li>
+				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>Automaton</li>
+					<li>ClassicStart</li>
+				</tags>
+			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+					<defName>SteamMechanicalMiner</defName>
+					<label>Steam mechanical miner</label>
+					<description>Autonomous steam miner digging rocky soil on the surface of the planet.</description>
+					<baseCost>1500</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>0.00</researchViewX>
+					<researchViewY>20</researchViewY>
+					<prerequisites>
+						<li>SteamCrusher</li>
+					</prerequisites>
+					<tags>
+						<li>Resonites</li>
+						<li>Automaton</li>
+						<li>ClassicStart</li>
+					</tags>
+				</ResearchProjectDef>
+	
 	
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>Electronics</defName>
@@ -1532,10 +2382,52 @@
 		<researchViewX>0.00</researchViewX>
 		<researchViewY>20</researchViewY>
 		<prerequisites>
-			<li>Electricity</li>
+			<li>ImprovedAutomation</li>
 			<li>Electrolysis</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+			<defName>IndustrialCrusher</defName>
+			<label>Industrial crusher</label>
+			<description>Electric crusher for efficient rock crushing.</description>
+			<baseCost>1200</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>Electronics</li>
+			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>ClassicStart</li>
+			</tags>
+		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>Radio</defName>
+				<label>Radio</label>
+				<description>A tower for collecting radio signals and for broadcasting them. Using radio, you can communicate with factions of the appropriate technological level.</description>
+				<baseCost>1500</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>AdvancedDesign</li>
+				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>ClassicStart</li>
+				</tags>
+				<modExtensions>
+					<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+						<researchFinishThoughtDef>Radio</researchFinishThoughtDef>
+					</li>
+				</modExtensions>
+			</ResearchProjectDef>
+			
 		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 			<defName>DecorationsI</defName>
 			<label>Decorations</label>
@@ -1547,6 +2439,11 @@
 			<prerequisites>
 				<li>ComplexFurniture</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 				<defName>DecorationsII</defName>
@@ -1560,7 +2457,25 @@
 					<li>Electronics</li>
 					<li>DecorationsI</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
+			
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>IEDSII</defName>
+		<label>IEDs II</label>
+		<description>Discover new means of protection using electronics.</description>
+		<baseCost>700</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>5.00</researchViewX>
+		<researchViewY>30</researchViewY>
+		<prerequisites>
+			<li>Electronics</li>
+			<li>IEDs</li>
+		</prerequisites>
+	</ResearchProjectDef>
 	
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>MaterialsScience</defName>
@@ -1573,6 +2488,11 @@
 		<prerequisites>
 			<li>Chemistry</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 			<defName>PracticalChemistry</defName>
@@ -1587,7 +2507,27 @@
 				<li>Chemistry</li>
 				<li>Electricity</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>ImprovedAutomation</defName>
+				<label>Industrial production</label>
+				<description>Increase production speed to accelerate industrialization.</description>
+				<baseCost>1200</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>PracticalChemistry</li>
+				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>ClassicStart</li>
+				</tags>
+			</ResearchProjectDef>
 			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 				<defName>Electrolysis</defName>
 				<label>Electrolysis</label>
@@ -1599,6 +2539,10 @@
 				<prerequisites>
 					<li>PracticalChemistry</li>
 				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+					<li>ClassicStart</li>
+				</tags>
 			</ResearchProjectDef>
 		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 			<defName>DefenseStructures</defName>
@@ -1611,8 +2555,18 @@
 			<prerequisites>
 				<li>MaterialsScience</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
+			<modExtensions>
+				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+					<researchFinishThoughtDef>PrimitiveDefense</researchFinishThoughtDef>
+				</li>
+			</modExtensions>
 		</ResearchProjectDef>
-		<ResearchProjectDef ParentName="IndustrialResearchBench">
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 			<defName>Ballistics</defName>
 			<label>Ballistics</label>
 			<description>For the production of more complex and deadly weapons, it will be necessary to study the behavior of projectiles in more detail.</description>
@@ -1623,20 +2577,13 @@
 			<prerequisites>
 				<li>MaterialsScience</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
-		
-	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
-		<defName>ImprovedAutomation</defName>
-		<label>Improved automation</label>
-		<description>Take the first steps in manufacturing automation to produce various mechanisms at a higher speed.</description>
-		<baseCost>1000</baseCost>
-		<techLevel>Industrial</techLevel>
-		<researchViewX>0.00</researchViewX>
-		<researchViewY>20</researchViewY>
-		<prerequisites>
-			<li>Electricity</li>
-		</prerequisites>
-	</ResearchProjectDef>
+
 	
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>IndustrialOreProcessing</defName>
@@ -1647,9 +2594,29 @@
 		<researchViewX>0.00</researchViewX>
 		<researchViewY>20</researchViewY>
 		<prerequisites>
-			<li>Electricity</li>
+			<li>Electronics</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+			<defName>ForgingPress</defName>
+			<label>Forming press</label>
+			<description>Industrial device for the production of various standard mechanisms and templates.</description>
+			<baseCost>1200</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>IndustrialOreProcessing</li>
+			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>ClassicStart</li>
+			</tags>
+		</ResearchProjectDef>
 	
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>ElectricHeating</defName>
@@ -1662,9 +2629,13 @@
 		<prerequisites>
 			<li>CentralHeating</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 		
-	<ResearchProjectDef ParentName="IndustrialResearchBench">
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>Agronomy</defName>
 		<label>Agronomy</label>
 		<description>Discover new ways to increase the volume and quality of crop production.</description>
@@ -1673,10 +2644,16 @@
 		<researchViewX>0.00</researchViewX>
 		<researchViewY>20</researchViewY>
 		<prerequisites>
-			<li>Machining</li>
+			<li>Chemistry</li>
+			<li>AdvancedAgriculture</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
-		<ResearchProjectDef ParentName="IndustrialResearchBench">
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 			<defName>FertilizerProduction</defName>
 			<label>Fertilizer production</label>
 			<description>Learn to create powerful biological fertilizers to significantly increase soil fertility.</description>
@@ -1685,11 +2662,15 @@
 			<researchViewX>0.00</researchViewX>
 			<researchViewY>20</researchViewY>
 			<prerequisites>
-				<li>Chemistry</li>
 				<li>Agronomy</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
-		<ResearchProjectDef ParentName="IndustrialResearchBench">
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 			<defName>Pesticides</defName>
 			<label>Pesticides</label>
 			<description>Start treating your crops with pesticides. This will protect them from pests and increase productivity.</description>
@@ -1698,9 +2679,13 @@
 			<researchViewX>0.00</researchViewX>
 			<researchViewY>20</researchViewY>
 			<prerequisites>
-				<li>Chemistry</li>
 				<li>Agronomy</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
 		
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
@@ -1713,7 +2698,13 @@
 		<researchViewY>20</researchViewY>
 		<prerequisites>
 			<li>Machining</li>
+			<li>Steammechanics</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 			<defName>CookingV</defName>
@@ -1724,10 +2715,68 @@
 			<researchViewX>0.00</researchViewX>
 			<researchViewY>20</researchViewY>
 			<prerequisites>
-				<li>Electricity</li>
+				<li>ForgingPress</li>
 				<li>CookingIV</li>
 			</prerequisites>
+			<tags>
+				<li>Resonites</li>
+				<li>ClassicStart</li>
+			</tags>
 		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>PlantBasedMeat</defName>
+				<label>Plant based meat</label>
+				<description>Plant-based meat is made from plant proteins and is perceived as meat.</description>
+				<baseCost>700</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>CookingV</li>
+				</prerequisites>
+			</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>MeatExtract</defName>
+				<label>Meat extract</label>
+				<description>Technology for the production of nutritious and non-repulsive meat products from insects.</description>
+				<baseCost>800</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>CookingV</li>
+				</prerequisites>
+			</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>CookingVI</defName>
+				<label>Cooking VI</label>
+				<description>Learn to make new sweets and gourmet dishes using new and unusual ingredients.</description>
+				<baseCost>900</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>0.00</researchViewX>
+				<researchViewY>20</researchViewY>
+				<prerequisites>
+					<li>CookingV</li>
+					<li>GasIndustryII</li>
+				</prerequisites>
+				<tags>
+					<li>Resonites</li>
+				</tags>
+			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+					<defName>CookingVII</defName>
+					<label>Cooking VII</label>
+					<description>Automate food preparation using special devices.</description>
+					<baseCost>900</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>1.00</researchViewX>
+					<researchViewY>21</researchViewY>
+					<prerequisites>
+						<li>CookingVI</li>
+						<li>MicroelectronicsBasics</li>
+					</prerequisites>
+				</ResearchProjectDef>
+			
 	
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
 		<defName>ErgonomicsII</defName>
@@ -1740,6 +2789,11 @@
 		<prerequisites>
 			<li>Machining</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
 	</ResearchProjectDef>
 	
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
@@ -1753,9 +2807,853 @@
 		<prerequisites>
 			<li>Machining</li>
 		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>ComplexClothingII</defName>
+		<label>Complex clothing II</label>
+		<description>Use new materials to create durable clothing for any situation.</description>
+		<baseCost>800</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>ComplexClothing</li>
+			<li>AdvancedPolymerization</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>FlakArmorII</defName>
+		<label>Flak armor II</label>
+		<description>Start producing medium protection classes.</description>
+		<baseCost>800</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedPolymerization</li>
+			<li>FlakArmor</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>FlakArmorIII</defName>
+		<label>Flak armor III</label>
+		<description>Start producing heavy protection classes.</description>
+		<baseCost>800</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedAlloys</li>
+			<li>FlakArmorII</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>ThrownWeaponsI</defName>
+		<label>Thrown weapons I</label>
+		<description>Production of new throwing weapons to hit targets at a distance.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Ballistics</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>ThrownWeaponsII</defName>
+		<label>Thrown weapons II</label>
+		<description>Production of throwing weapons using advanced chemistry.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>ThrownWeaponsI</li>
+			<li>PracticalChemistry</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>ComplexFurnitureII</defName>
+		<label>Complex furniture II</label>
+		<description>Provide your colonists with the most comfortable furniture.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>ComplexFurniture</li>
+			<li>Electricity</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>FurnitureI</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+			<defName>ComplexFurnitureIII</defName>
+			<label>Complex furniture III</label>
+			<description>Provide your colonists with the most comfortable furniture.</description>
+			<baseCost>800</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>0.00</researchViewX>
+			<researchViewY>20</researchViewY>
+			<prerequisites>
+				<li>ComplexFurnitureII</li>
+				<li>MicroelectronicsBasics</li>
+			</prerequisites>
+			<modExtensions>
+				<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+					<researchFinishThoughtDef>FurnitureI</researchFinishThoughtDef>
+				</li>
+			</modExtensions>
+		</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>LightEaselWeapon</defName>
+		<label>Light easel weapon</label>
+		<description>Production of small caliber machine guns. Easel guns are characterized by low mobility, but increased accuracy.</description>
+		<baseCost>400</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>BlowbackOperation</li>
+			<li>AdvancedPolymerization</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>LightEaselWeapon</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>MediumEaselWeapon</defName>
+		<label>Light easel weapon</label>
+		<description>Production of medium-caliber mounted guns to combat well-defended enemies and fortifications.</description>
+		<baseCost>650</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>LightEaselWeapon</li>
+			<li>GasOperation</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>WeaponModification</defName>
+		<label>Weapon mdification</label>
+		<description>Deeper study of ballistics and new materials make it possible to bring firearms to the ideal.</description>
+		<baseCost>1100</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>TubeComputers</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>IndustrialRefrigeration</defName>
+		<label>Industrial refrigeration</label>
+		<description>Creation and use of a special refrigerant for cooling rooms.</description>
+		<baseCost>700</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>TubeComputers</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>HeavyEaselWeapon</defName>
+		<label>Light easel weapon</label>
+		<description>Production of large caliber mounted guns for maximum protection of your settlement.</description>
+		<baseCost>700</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>MediumEaselWeapon</li>
+			<li>TubeComputers</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>MediumArtillery</defName>
+		<label>Medium artillery</label>
+		<description>The production of medium artillery will help provide significant support in both defense and assault.</description>
+		<baseCost>400</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Mortars</li>
+			<li>TubeComputers</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>HeavyArtillery</defName>
+		<label>Heavy artillery</label>
+		<description>The production of heavy artillery will allow you to deliver massive attacks on the enemy, minimizing your losses.</description>
+		<baseCost>650</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedAlloys</li>
+			<li>MediumArtillery</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>AutoTurretsI</defName>
+		<label>Auto turrets I</label>
+		<description>Production of automatic turrets that do not require an operator.</description>
+		<baseCost>650</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>AutoTurretsII</defName>
+		<label>Auto turrets II</label>
+		<description>Production of automatic turrets that do not require an operator.</description>
+		<baseCost>650</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AutoTurretsI</li>
+			<li>AdvancedAlloys</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>GasIndustryI</defName>
+		<label>Cryogenic rectification</label>
+		<description>Separation of air and water into components for further use.</description>
+		<baseCost>750</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Electronics</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>GasIndustryII</defName>
+		<label>Fuel Gas</label>
+		<description>Obtaining hydrogen and carbon dioxide for its further conversion into fuel gas - a very flammable and calorific fuel.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>GasIndustryI</li>
+			<li>Petrochemistry</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>GasIndustryIII</defName>
+		<label>Dangerous gases</label>
+		<description>Industrial mixing, processing and processing of gases and liquids to produce new ones.</description>
+		<baseCost>600</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>GasIndustryII</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>OilProduction</defName>
+		<label>Oil production</label>
+		<description>Creation of mechanisms for extracting oil from the bowels of the planet.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Petrochemistry</li>
+			<li>SeismologicalSensor</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>OilProduction</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>BasicOilProcessing</defName>
+		<label>Basic oil processing</label>
+		<description>Primary oil processing through distillation in distillation columns to obtain medium and heavy oil fractions.</description>
+		<baseCost>900</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>OilProduction</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>BasicPolymerization</defName>
+		<label>Basic polymerization</label>
+		<description>Processing petroleum products will make it possible to obtain new materials through polymerization and other processes.</description>
+		<baseCost>600</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>BasicOilProcessing</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>AdvancedOilProcessing</defName>
+		<label>Basic oil processing</label>
+		<description>The full oil processing cycle will allow us to fully process all petroleum products to obtain maximum benefits.</description>
+		<baseCost>900</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>BasicOilProcessing</li>
+			<li>GasIndustryII</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>AdvancedPolymerization</defName>
+		<label>Advanced polymerization</label>
+		<description>Use of all petroleum products to obtain a full range of materials.</description>
+		<baseCost>750</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>BasicPolymerization</li>
+			<li>AdvancedOilProcessing</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>AdvancedPolymerization</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>RepairMachine</defName>
+		<label>Repair machine</label>
+		<description>Advanced repair machine for repair and disassembly.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedPolymerization</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>TubeComputers</defName>
+		<label>Tube computers</label>
+		<description>Technologies are becoming more and more complex and for further development we need to resort to computing systems.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedPolymerization</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>TubeComputers</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="SpacerResearchBenchAndResearchLibrary">
+		<defName>AdvancedRepairMachine</defName>
+		<label>Advanced repair machine</label>
+		<description>High-quality repair machine for repair and disassembly.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedPolymerization</li>
+			<li>MultiAnalyzer</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>AdvancedAlloys</defName>
+		<label>Advanced alloys</label>
+		<description>The development and creation of new types of alloys will make it possible to create more reliable structures and expand construction possibilities.</description>
+		<baseCost>1200</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>AdvancedAlloys</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>IndustrialWells</defName>
+		<label>Industrial wells</label>
+		<description>In the future, you will need huge amounts of water, which will be difficult to obtain without industrial drilling.</description>
+		<baseCost>1200</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>5.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedAlloys</li>
+			<li>LargeWaterPumps</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>RimatomicsActivate</defName>
+		<label>Rimatomics</label>
+		<discoveredLetterTitle>Rimatomics Unlocked!</discoveredLetterTitle>
+		<description>A probe has been detected in orbit! It seems to be sending signals to the surface; maybe we can decipher its message.</description>
+	<!--	<discoveredLetterText>You open a connection to the probe and a recorded message starts to play.\n\nSomeone with the slimy demeanour of a used bionics salesman claims to represent a trading faction known as "Rimatomics".\n\nAs he makes his sales pitch, exabytes of data begins flooding into the console. He explains that he's sending blueprints to construct a Rimatomics research bench, which you can use to purchase plans for some of their technology or request trade ships.\n\nCheck the Rimatomics tab in the architect menu.</discoveredLetterText> -->
+		<baseCost>800</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>Rimatomics</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>25</researchViewY>
+		<prerequisites>
+			<li>IndustrialRefrigeration</li>
+			<li>IndustrialWells</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>RimatomicsActivate</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>ElectricFertilizer</defName>
+		<label>Electric fertilizer</label>
+		<description>Autonomous device for applying fertilizers to the soil. Allows you to maintain the level of fertile layer for agricultural soils.</description>
+		<baseCost>700</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>23</researchViewY>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>WorkingExoskeleton</defName>
+		<label>Working exoskeleton</label>
+		<description>Exoskeleton to cushion the stress of heavy work. Equipped with an additional manipulator.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>24</researchViewY>
+		<prerequisites>
+			<li>AdvancedAlloys</li>
+			<li>InstrumentsIII</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>RocketFuel</defName>
+		<label>Rocket fuel</label>
+		<description>Combustible fuel for launching various devices into space.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>Satellites</defName>
+		<label>Satellites</label>
+		<description>The launch of a satellite is a big step for science. Satellites can perform a variety of useful functions.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>SolarPanels</li>
+			<li>RocketFuel</li>
+		</prerequisites>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>Satellites</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>SatelliteStorages</defName>
+		<label>Satellite storages</label>
+		<description>Durable storage facilities for maintaining a small number of equipment in orbit.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>1</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Satellites</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>ResidentialSatelliteModule</defName>
+		<label>Residential satellite module</label>
+		<description>Module for storing food to support people in orbit.</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>25</researchViewY>
+		<prerequisites>
+			<li>SatelliteStorages</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>SatelliteCommunicator</defName>
+		<label>Satellite communicator</label>
+		<description>The satellite communications module will allow you to communicate with other spacecraft in orbit.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Satellites</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>SatelliteScienceModule</defName>
+		<label>Satellite science module</label>
+		<description>Science modules speed up research when the satellite has enough energy.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Satellites</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>BatteriesII</defName>
+		<label>Batteries II</label>
+		<description>New era - new tools. Learn to create even more and multi-tasking craft kits.</description>
+		<baseCost>700</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>22</researchViewY>
+		<prerequisites>
+			<li>Batteries</li>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>SatelliteLander</defName>
+		<label>Satellite lander</label>
+		<description>The landing module allows you to land the satellite on the surface.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<researchViewX>0.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>Satellites</li>
+			<li>MultiAnalyzer</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>Autofarm</defName>
+		<label>Autofarm</label>
+		<description>Autonomous farm for growing crops. Requires a light source as well as a supply of liquid fertilizer.</description>
+		<baseCost>1200</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>2.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedAlloys</li>
+			<li>Hydroponics</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>Terraformer</defName>
+		<label>Terraformer</label>
+		<description>A device for carrying out terraforming in an area, as well as for excavating soil.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>20</researchViewY>
+		<prerequisites>
+			<li>AdvancedAlloys</li>
+			<li>GroundPenetratingScanner</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>ShockCrystals</defName>
+		<label>Shock crystals</label>
+		<description>A special material with electrical potential. Reacts to damage with an explosion.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>10.00</researchViewX>
+		<researchViewY>27</researchViewY>
+		<prerequisites>
+			<li>AdvancedAlloys</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<canBeResearch>false</canBeResearch>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>BioelectricCapsule</defName>
+		<label>Bioelectric capsules</label>
+		<description>Xenotechnology for extracting energy from living beings.</description>
+		<baseCost>1200</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>9.00</researchViewX>
+		<researchViewY>27</researchViewY>
+		<prerequisites>
+			<li>ShockCrystals</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<canBeResearch>false</canBeResearch>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>ManhattanProject</defName>
+		<label>Manhattan Project</label>
+		<description>Start a project to develop a nuclear bomb.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>27</researchViewY>
+		<prerequisites>
+			<li>RimatomicsActivate</li>
+			<li>AdvancedAlloys</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchActions>
+					<li Class="ProjectParagon.Core.ResearchSystem.ResearchAction_NuclearWeapon"></li>
+				</researchActions>
+				<researchFinishThoughtDef>ManhattanProject</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>Bunkers</defName>
+		<label>Bunkers</label>
+		<description>Learn to create fortified bunkers to protect against nuclear attack.</description>
+		<baseCost>1200</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>33</researchViewY>
+		<prerequisites>
+			<li>RimatomicsActivate</li>
+			<li>AdvancedAlloys</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>ImprovedRimatomics</defName>
+		<label>Improved Nuclear Power Plant</label>
+		<description>Explore new nuclear power plant options to obtain even more energy.</description>
+		<baseCost>1400</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>28</researchViewY>
+		<prerequisites>
+			<li>RimatomicsActivate</li>
+			<li>AdvancedAlloys</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>AutonomousNuclearPowerPlants</defName>
+		<label>Autonomous nuclear power plants</label>
+		<description>Learn to create autonomous power sources based on radioactive materials.</description>
+		<baseCost>800</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>29</researchViewY>
+		<prerequisites>
+			<li>ImprovedRimatomics</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>AdvancedDesign</defName>
+		<label>Advanced design</label>
+		<description>Design and create complex buildings.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>30</researchViewY>
+		<prerequisites>
+			<li>ForgingPress</li>
+		</prerequisites>
+		<tags>
+			<li>Resonites</li>
+			<li>ClassicStart</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
 		<defName>ProductionIII</defName>
 		<label>Production III</label>
 		<description>This planet is too small for you and it's time to expand your knowledge beyond it.</description>
@@ -1765,13 +3663,209 @@
 		<researchViewY>20</researchViewY>
 		<prerequisites>
 			<li>MicroelectronicsBasics</li>
+			<li>Satellites</li>
+			<li>AutonomousNuclearPowerPlants</li>
+			<li>BatteriesII</li>
+			<li>ResidentialSatelliteModule</li>
 		</prerequisites>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 				<gameStage>Space</gameStage>
-			</li>
-			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
 				<researchFinishThoughtDef>Production</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>EnergyWeapons</defName>
+		<label>Energy weapons</label>
+		<description>Explore the possibilities of using energy to create a new type of weapon.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<researchViewX>3.00</researchViewX>
+		<researchViewY>27</researchViewY>
+		<prerequisites>
+			<li>ProductionIII</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+		<defName>ModernMeleeWeapons</defName>
+		<label>Modern melee weapons</label>
+		<description>A line of modern weapons for close combat fighters.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>15.00</researchViewX>
+		<researchViewY>22</researchViewY>
+		<prerequisites>
+			<li>LongBlades</li>
+			<li>ImprovedAutomation</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+	
+	<ResearchProjectDef ParentName="PrimitiveResearchBench">
+		<defName>LivestockI</defName>
+		<label>Livestock I</label>
+		<description>Learn to breed non-aggressive animals.</description>
+		<baseCost>200</baseCost>
+		<techLevel>Neolithic</techLevel>
+		<researchViewX>1</researchViewX>
+		<researchViewY>40</researchViewY>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>Livestock</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+		<tags>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="SimpleResearchBench">
+		<defName>LivestockII</defName>
+		<label>Livestock II</label>
+		<description>Apply new knowledge in the process of domesticating livestock.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Medieval</techLevel>
+		<researchViewX>2</researchViewX>
+		<researchViewY>40</researchViewY>
+		<prerequisites>
+			<li>Alchemy</li>
+			<li>LivestockI</li>
+		</prerequisites>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>Livestock</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+		<tags>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+		</tags>
+	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="SimpleResearchBench">
+			<defName>MineralFeed</defName>
+			<label>Mineral feed</label>
+			<description>New, higher quality feed for livestock.</description>
+			<baseCost>300</baseCost>
+			<techLevel>Medieval</techLevel>
+			<researchViewX>2</researchViewX>
+			<researchViewY>41</researchViewY>
+			<prerequisites>
+				<li>LivestockII</li>
+			</prerequisites>
+			<tags>
+				<li>Automaton</li>
+				<li>ClassicStart</li>
+			</tags>
+		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="SimpleResearchBench">
+				<defName>IndustrialFeed</defName>
+				<label>Industrial feed</label>
+				<description>New, higher quality feed for livestock.</description>
+				<baseCost>800</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>3</researchViewX>
+				<researchViewY>42</researchViewY>
+				<prerequisites>
+					<li>LivestockIII</li>
+					<li>PenoxycylineProduction</li>
+				</prerequisites>
+			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="SimpleResearchBench">
+					<defName>FeedConcentrate</defName>
+					<label>Feed concentrate</label>
+					<description>New, higher quality feed for livestock.</description>
+					<baseCost>1200</baseCost>
+					<techLevel>Spacer</techLevel>
+					<researchViewX>4</researchViewX>
+					<researchViewY>43</researchViewY>
+					<prerequisites>
+						<li>LivestockIV</li>
+						<li>ProductionIII</li>
+					</prerequisites>
+				</ResearchProjectDef>
+
+	<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+		<defName>LivestockIII</defName>
+		<label>Livestock III</label>
+		<description>Expand your knowledge of animal husbandry.</description>
+		<baseCost>800</baseCost>
+		<techLevel>Industrial</techLevel>
+		<researchViewX>3</researchViewX>
+		<researchViewY>40</researchViewY>
+		<prerequisites>
+			<li>LivestockII</li>
+			<li>Chemistry</li>
+		</prerequisites>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>Livestock</researchFinishThoughtDef>
+			</li>
+		</modExtensions>
+		<tags>
+			<li>Automaton</li>
+			<li>ClassicStart</li>
+			<li>Resonites</li>
+		</tags>
+	</ResearchProjectDef>
+		<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+			<defName>LivestockDrugs</defName>
+			<label>Livestock drugs I</label>
+			<description>Learn to create medicines and preparations that accelerate the growth of livestock and increase their productivity.</description>
+			<baseCost>500</baseCost>
+			<techLevel>Industrial</techLevel>
+			<researchViewX>6</researchViewX>
+			<researchViewY>41</researchViewY>
+			<prerequisites>
+				<li>LivestockIII</li>
+				<li>Medicine</li>
+			</prerequisites>
+		</ResearchProjectDef>
+			<ResearchProjectDef ParentName="IndustrialResearchBenchAndResearchLibrary">
+				<defName>LivestockDrugsII</defName>
+				<label>Livestock drugs II</label>
+				<description>Learn to create medicines and preparations that accelerate the growth of livestock and increase their productivity.</description>
+				<baseCost>1000</baseCost>
+				<techLevel>Industrial</techLevel>
+				<researchViewX>7</researchViewX>
+				<researchViewY>42</researchViewY>
+				<prerequisites>
+					<li>LivestockDrugs</li>
+					<li>MedicineProduction</li>
+				</prerequisites>
+			</ResearchProjectDef>
+				<ResearchProjectDef ParentName="IndustrialResearchBenchAndScientificMonitor">
+					<defName>VeterinaryStation</defName>
+					<label>Veterinary station</label>
+					<description>Automate the livestock vaccination process.</description>
+					<baseCost>900</baseCost>
+					<techLevel>Industrial</techLevel>
+					<researchViewX>8</researchViewX>
+					<researchViewY>44</researchViewY>
+					<prerequisites>
+						<li>LivestockDrugsII</li>
+						<li>MicroelectronicsBasics</li>
+					</prerequisites>
+				</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="SpacerResearchBench">
+		<defName>LivestockIV</defName>
+		<label>Livestock IV</label>
+		<description>Master animal husbandry to perfection.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<researchViewX>4</researchViewX>
+		<researchViewY>40</researchViewY>
+		<prerequisites>
+			<li>LivestockIII</li>
+			<li>ProductionIII</li>
+		</prerequisites>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchFinishThoughtDef>Livestock</researchFinishThoughtDef>
 			</li>
 		</modExtensions>
 	</ResearchProjectDef>

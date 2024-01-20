@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>CGF1_MWP_Turret_M60_</defName>
+		<label>M60</label>
+		<description>A stationary general purpose machine gun.</description>
+		<thingClass>CombatExtended.Building_TurretGunCE</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>CGF1/Building/M60_Base</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+			<shadowData>
+				<volume>(0.27,0.25,0.27)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<techLevel>Industrial</techLevel>
+		<uiIconPath>CGF1/Building/M60/M60_MenuIcon</uiIconPath>
+		<uiIconScale>0.90</uiIconScale>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<altitudeLayer>Building</altitudeLayer>
+		<stealable>false</stealable>
+		<rotatable>true</rotatable>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
+		<costList>
+			<AdvancedWeaponComponents>25</AdvancedWeaponComponents>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<Plastic>50</Plastic>
+			<Polymers>30</Polymers>
+		</costList>
+		<fillPercent>0.85</fillPercent>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>35000</WorkToBuild>
+			<Mass>26.5</Mass>
+			<Beauty>-20</Beauty>
+			<ShootingAccuracyTurret>0.97</ShootingAccuracyTurret>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Mannable">
+				<manWorkType>Violent</manWorkType>
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<hasInteractionCell>true</hasInteractionCell>
+		<passability>PassThroughOnly</passability>
+		<pathCost>40</pathCost>
+		<hasTooltip>true</hasTooltip>
+		<designationCategory>Security</designationCategory>
+		<designatorDropdown>Security_EaselWeapons</designatorDropdown>
+		<building>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretGunDef>CGF1_MWP_TurretGun_M60_</turretGunDef>
+			<turretBurstCooldownTime>2.6</turretBurstCooldownTime>
+			<turretBurstWarmupTime>2.4</turretBurstWarmupTime>
+			<turretTopOffset>(0.01,0.0)</turretTopOffset>
+			<turretTopDrawSize>1.5</turretTopDrawSize>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>LightEaselWeapon</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>CGF1_MWP_TurretGun_M60_</defName>
+		<label>M60</label>
+		<description>A mounted variant of the M60 GPMG.</description>
+		<graphicData>
+			<texPath>CGF1/Building/M60/M60</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<destroyOnDrop>true</destroyOnDrop>
+		<tradeability>None</tradeability>
+		<useHitPoints>false</useHitPoints>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>100</magazineSize>
+				<reloadTime>4.9</reloadTime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>6</aimedBurstShotCount>
+				<aiAimMode>SuppressFire</aiAimMode>
+			</li>
+		</comps>
+		<statBases>
+			<RangedWeapon_Cooldown>0.36</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.7</SightsEfficiency>
+			<ShotSpread>0.08</ShotSpread>
+			<SwayFactor>1.16</SwayFactor>
+			<Mass>10.5</Mass>
+		</statBases>
+		<weaponTags Inherit="false">
+			<li>TurretGun</li>
+		</weaponTags>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>0.81</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>True</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.2</warmupTime>
+				<range>50</range>
+				<burstShotCount>12</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<soundCast>CGF1_MWP_SFX_MG_Medium2</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+				<targetParams>
+					<canTargetLocations>True</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<modExtensions>
+			<li Class="MuzzleFlash.MuzzleFlashProps" MayRequire="issaczhuang.muzzleflash">
+				<def>MF_StandardMuzzleFalshThree</def>
+				<drawSize>(1.2,1.2)</drawSize>
+				<offsets>
+					<li>(0.82,0.01)</li>
+				</offsets>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>CGF1_MWP_Turret_HK23_</defName>
+		<label>HK23</label>
+		<description>A stationary light machine gun.</description>
+		<thingClass>CombatExtended.Building_TurretGunCE</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>CGF1/Building/MAG_Base</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+			</damageData>
+			<shadowData>
+				<volume>(0.27,0.25,0.27)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+		</graphicData>
+		<techLevel>Industrial</techLevel>
+		<uiIconPath>CGF1/Building/HK23/HK23_MenuIcon</uiIconPath>
+		<uiIconScale>0.90</uiIconScale>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<altitudeLayer>Building</altitudeLayer>
+		<stealable>false</stealable>
+		<rotatable>true</rotatable>
+		<fillPercent>0.85</fillPercent>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
+		<costList>
+			<AdvancedWeaponComponents>26</AdvancedWeaponComponents>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<Plastic>50</Plastic>
+			<Polymers>30</Polymers>
+		</costList>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<WorkToBuild>38000</WorkToBuild>
+			<Mass>22.5</Mass>
+			<Beauty>-20</Beauty>
+			<ShootingAccuracyTurret>0.97</ShootingAccuracyTurret>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Mannable">
+				<manWorkType>Violent</manWorkType>
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<hasInteractionCell>true</hasInteractionCell>
+		<passability>PassThroughOnly</passability>
+		<pathCost>40</pathCost>
+		<hasTooltip>true</hasTooltip>
+		<researchPrerequisites>
+			<li>LightEaselWeapon</li>
+		</researchPrerequisites>
+		<designationCategory>Security</designationCategory>
+		<designatorDropdown>Security_EaselWeapons</designatorDropdown>
+		<building>
+			<ai_combatDangerous>true</ai_combatDangerous>
+			<turretGunDef>CGF1_MWP_TurretGun_HK23_</turretGunDef>
+			<turretBurstCooldownTime>2.6</turretBurstCooldownTime>
+			<turretBurstWarmupTime>2.4</turretBurstWarmupTime>
+			<turretTopOffset>(0.02,0)</turretTopOffset>
+			<turretTopDrawSize>1.4</turretTopDrawSize>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_TurretTop</li>
+			<li>PlaceWorker_ShowTurretRadius</li>
+		</placeWorkers>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+	</ThingDef>
+	<ThingDef ParentName="BaseWeaponTurret">
+		<defName>CGF1_MWP_TurretGun_HK23_</defName>
+		<label>HK23</label>
+		<description>A mounted variant of the HK23 LMG.</description>
+		<graphicData>
+			<texPath>CGF1/Building/HK23/HK23</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<destroyOnDrop>true</destroyOnDrop>
+		<tradeability>None</tradeability>
+		<useHitPoints>false</useHitPoints>
+		<statBases>
+			<RangedWeapon_Cooldown>0.32</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.7</SightsEfficiency>
+			<ShotSpread>0.12</ShotSpread>
+			<SwayFactor>1.27</SwayFactor>
+			<DeteriorationRate>0</DeteriorationRate>
+			<Mass>7.60</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<weaponTags Inherit="false">
+			<li>TurretGun</li>
+		</weaponTags>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>100</magazineSize>
+				<reloadTime>4.5</reloadTime>
+				<ammoSet>AmmoSet_556x45mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>6</aimedBurstShotCount>
+				<aiAimMode>SuppressFire</aiAimMode>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>0.75</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>True</hasStandardCommand>
+				<defaultProjectile>Bullet_556x45mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>50</range>
+				<burstShotCount>12</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<soundCast>CGF1_MWP_SFX_Rifle_Auto9</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+				<targetParams>
+					<canTargetLocations>True</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<modExtensions>
+			<li Class="MuzzleFlash.MuzzleFlashProps" MayRequire="issaczhuang.muzzleflash">
+				<def>MF_StandardMuzzleFalshThree</def>
+				<drawSize>(1.0,1.0)</drawSize>
+				<offsets>
+					<li>(0.72,0.0)</li>
+				</offsets>
+			</li>
+		</modExtensions>
+	</ThingDef>
+</Defs>

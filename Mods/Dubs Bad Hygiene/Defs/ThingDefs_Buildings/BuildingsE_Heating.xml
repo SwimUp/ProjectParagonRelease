@@ -55,7 +55,8 @@
 	<ThingDef ParentName="BasedHeating" DBHLite="true">
 		<defName>LogBoiler</defName>
 		<label>log boiler</label>
-		<description>Produces 2000 heating units for piped radiators and hot water tanks. Heats the room and adjacent baths. Requires wood logs for fuel.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SolidFuelSource</thingClass>
+		<description>A primitive solid fuel boiler for heat production.</description>
 		<graphicData>
 			<texPath>DBH/Things/Building/Heating/Stove</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -81,7 +82,7 @@
 			<MaxHitPoints>250</MaxHitPoints>
 			<WorkToBuild>1000</WorkToBuild>
 			<Mass>50</Mass>
-			<FuelConsumption>2</FuelConsumption>
+			<FuelConsumption>4</FuelConsumption>
 			<HeatingEfficiency>1</HeatingEfficiency>
 		</statBases>
 		<comps>
@@ -89,7 +90,7 @@
 				<mode>Sewage</mode>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_CompBoiler">
-				<BaseCapacity>2000</BaseCapacity>
+				<compClass>ProjectParagon.Core.Things.CompBoilerParagon</compClass>
 				<ThermostatControl>false</ThermostatControl>
 				<effects>
 					<texPath>DBH/Things/Building/Heating/LogBoilerEffects</texPath>
@@ -99,18 +100,6 @@
 				</effects>
 			</li>
 			<li Class="CompProperties_Flickable"/>
-			<!--
-			<li Class="CompProperties_Refuelable">
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-				<fuelConsumptionRate>10.0</fuelConsumptionRate>
-				<fuelCapacity>75.0</fuelCapacity>
-				<fuelFilter>
-					<thingDefs>
-						<li>WoodLog</li>
-					</thingDefs>
-				</fuelFilter>
-			</li>
-			-->
 			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
 				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
 				<fuelCapacity>75.0</fuelCapacity>
@@ -120,6 +109,8 @@
 					<thingDefs>
 						<li>WoodLog</li>
 						<li>Coal</li>
+						<li>CokeCoal</li>
+						<li>FuelBriquette</li>
 					</thingDefs>
 				</fuelFilter>
 			</li>
@@ -128,24 +119,18 @@
 				<glowRadius>6</glowRadius>
 				<glowColor>(217,112,33,0)</glowColor>
 			</li>
-			<!--
-			<li Class="CompProperties_HeatPusher">
-				<compClass>CompHeatPusherPowered</compClass>
-				<heatPerSecond>21</heatPerSecond>
-				<heatPushMaxTemperature>28</heatPushMaxTemperature>
-			</li>
-			-->
 		</comps>
 		<researchPrerequisites>
 			<li MayRequire="dbhlitemode">LogBoilers</li>
 		</researchPrerequisites>
 		<designatorDropdown>Hygiene_WaterHeaters</designatorDropdown>
 	</ThingDef>
-	<!--
+	
 	<ThingDef ParentName="BasedHeating" DBHLite="true">
 		<defName>GasBoiler</defName>
 		<label>gas boiler</label>
-		<description>Produces 2000 heating units for radiators and hot water tanks. Requires chemfuel for fuel. Can be controlled by thermostats.</description>
+		<description>Produces heat from gas fuel.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_GasFuelSource</thingClass>
 		<graphicData>
 			<texPath>DBH/Things/Building/Heating/GasBoiler</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -158,52 +143,168 @@
 		<castEdgeShadows>false</castEdgeShadows>
 		<pathCost>150</pathCost>
 		<size>(1,1)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>85</costStuffCount>
 		<costList>
-			<Steel>80</Steel>
-			<ComponentIndustrial>3</ComponentIndustrial>
+			<MechanismComplex>1</MechanismComplex>
+			<SimpleElectronic>2</SimpleElectronic>
 		</costList>
 		<rotatable>true</rotatable>
 		<statBases>
-			<MaxHitPoints>150</MaxHitPoints>
-			<WorkToBuild>1500</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>3000</WorkToBuild>
 			<Mass>50</Mass>
+			<FuelConsumption>3</FuelConsumption>
+			<HeatingEfficiency>2.3</HeatingEfficiency>
 		</statBases>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
 		<comps>
-			<li>
-				<compClass>CompColorable</compClass>
-			</li>
-			<li Class="DubsBadHygiene.CompProperties_Pipe">
-				<mode>Sewage</mode>
-			</li>
 			<li Class="DubsBadHygiene.CompProperties_CompBoiler">
-				<BaseCapacity>2000</BaseCapacity>
-				<ThermostatControl>true</ThermostatControl>
+				<compClass>ProjectParagon.Core.Things.CompBoilerParagon</compClass>
+				<ThermostatControl>false</ThermostatControl>
 				<effects>
-					<texPath>DBH/Things/Building/Heating/GasBoilerEffects</texPath>
+					<texPath>DBH/Things/Building/Heating/LogBoilerEffects</texPath>
 					<graphicClass>DubsBadHygiene.Graphic_FX</graphicClass>
 					<shaderType>MoteGlow</shaderType>
 					<drawSize>(2,2)</drawSize>
 				</effects>
 			</li>
-			<li Class="CompProperties_Breakdownable"/>
-			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Refuelable">
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-				<fuelConsumptionRate>4.0</fuelConsumptionRate>
-				<fuelCapacity>25.0</fuelCapacity>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>100</capacity>
+				<canAutoDrain>false</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<pipeTypeDef>FuelGas</pipeTypeDef>
+				<canChangePipeType>true</canChangePipeType>
+				<pipeTypeDefsWhitelist>
+					<li>FuelGas</li>
+				</pipeTypeDefsWhitelist>
+				<showStorageInfo>false</showStorageInfo>
+				<drawStorageOverlay>false</drawStorageOverlay>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_GasRefuelable">
+				<consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
+				<fuelCapacity>100</fuelCapacity>
+				<startedFuel>Cyclinder_FuelGas</startedFuel>
+				<enableHeatPush>true</enableHeatPush>
 				<fuelFilter>
 					<thingDefs>
-						<li>Chemfuel</li>
+						<li>Cyclinder_FuelGas</li>
 					</thingDefs>
 				</fuelFilter>
 			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Flickable"/>
 		</comps>
+		<tickerType>Normal</tickerType>
 		<researchPrerequisites>
-			<li MayRequire="dbhlitemode">CentralHeating</li>
+			<li>GasIndustryII</li>
 		</researchPrerequisites>
 		<designatorDropdown>Hygiene_WaterHeaters</designatorDropdown>
 	</ThingDef>
-	-->
+	
+	<ThingDef ParentName="BasedHeating" DBHLite="true">
+		<defName>LiquidBoiler</defName>
+		<label>liquid boiler</label>
+		<description>Produces heat from liquid fuel.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_LiquidFuelSource</thingClass>
+		<graphicData>
+			<texPath>DBH/Things/Building/Heating/LiquidBoiler</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<rect>(0.05,0.05,0.95,0.95)</rect>
+			</damageData>
+		</graphicData>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>false</castEdgeShadows>
+		<pathCost>150</pathCost>
+		<size>(1,1)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>85</costStuffCount>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>3000</WorkToBuild>
+			<Mass>50</Mass>
+			<FuelConsumption>3</FuelConsumption>
+			<HeatingEfficiency>2.2</HeatingEfficiency>
+		</statBases>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="DubsBadHygiene.CompProperties_CompBoiler">
+				<compClass>ProjectParagon.Core.Things.CompBoilerParagon</compClass>
+				<ThermostatControl>false</ThermostatControl>
+				<effects>
+					<texPath>DBH/Things/Building/Heating/LogBoilerEffects</texPath>
+					<graphicClass>DubsBadHygiene.Graphic_FX</graphicClass>
+					<shaderType>MoteGlow</shaderType>
+					<drawSize>(2,2)</drawSize>
+				</effects>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>100</capacity>
+				<canAutoDrain>false</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<pipeTypeDef>Ethanol</pipeTypeDef>
+				<canChangePipeType>true</canChangePipeType>
+				<pipeTypeDefsWhitelist>
+					<li>Ethanol</li>
+					<li>LightOil</li>
+					<li>MediumOil</li>
+					<li>HeavyOil</li>
+					<li>Diesel</li>
+					<li>Naphtha</li>
+				</pipeTypeDefsWhitelist>
+				<showStorageInfo>false</showStorageInfo>
+				<drawStorageOverlay>false</drawStorageOverlay>
+			</li>
+			
+			
+			<li Class="ProjectParagon.Core.Things.CompProperties_GasRefuelable">
+				<consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
+				<fuelCapacity>100</fuelCapacity>
+				<startedFuel>Chemfuel</startedFuel>
+				<enableHeatPush>true</enableHeatPush>
+				<fuelFilter>
+					<thingDefs>
+						<li>Chemfuel</li>
+						<li>Canister_Oil</li>
+						<li>Canister_LightOil</li>
+						<li>Canister_MediumOil</li>
+						<li>Canister_HeavyOil</li>
+						<li>Canister_Diesel</li>
+						<li>Canister_Naphtha</li>
+					</thingDefs>
+				</fuelFilter>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<tickerType>Normal</tickerType>
+		<researchPrerequisites>
+			<li>Petrochemistry</li>
+		</researchPrerequisites>
+		<designatorDropdown>Hygiene_WaterHeaters</designatorDropdown>
+	</ThingDef>
+
 	<ThingDef ParentName="BasedHeating" DBHLite="true">
 		<defName>ElectricBoiler</defName>
 		<label>electric boiler</label>
@@ -220,9 +321,12 @@
 		<castEdgeShadows>false</castEdgeShadows>
 		<pathCost>150</pathCost>
 		<size>(1,1)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>85</costStuffCount>
 		<costList>
-			<Steel>80</Steel>
-			<ComponentIndustrial>3</ComponentIndustrial>
+			<SimpleElectronic>3</SimpleElectronic>
 		</costList>
 		<rotatable>true</rotatable>
 		<statBases>
@@ -239,10 +343,11 @@
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>250</basePowerConsumption>
+				<basePowerConsumption>100</basePowerConsumption>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_CompBoiler">
-				<BaseCapacity>250</BaseCapacity>
+				<compClass>ProjectParagon.Core.Things.CompBoilerParagon</compClass>
+				<BaseCapacity>300</BaseCapacity>
 				<LowPowerMode>-20</LowPowerMode>
 				<ThermostatControl>true</ThermostatControl>
 				<effects>
@@ -290,7 +395,7 @@
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_CompBoiler">
 				<compClass>DubsBadHygiene.CompBoilerSolar</compClass>
-				<BaseCapacity>2000</BaseCapacity>
+				<BaseCapacity>200</BaseCapacity>
 				<ThermostatControl>false</ThermostatControl>
 			</li>
 		</comps>
@@ -404,10 +509,7 @@
 		<defName>RadiatorStuffed</defName>
 		<label>radiator</label>
 		<uiIconPath>DBH/UI/radiator</uiIconPath>
-		<costList>
-			<Steel>15</Steel>
-		</costList>
-		<costStuffCount>10</costStuffCount>
+		<costStuffCount>20</costStuffCount>
 		<stuffCategories>
 			<li>Metallic</li>
 			<li>Stony</li>
@@ -435,9 +537,6 @@
 		</graphicData>
 		<description>Three times the output of a standard radiator. Useful for larger rooms. Requires 300 heating units.</description>
 		<size>(2,1)</size>
-		<costList>
-			<Steel>15</Steel>
-		</costList>
 		<costStuffCount>60</costStuffCount>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -484,9 +583,13 @@
 				<texPath>DBH/Things/Building/Heating/CeilingFanBlades</texPath>
 			</blueprintGraphicData>
 		</building>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>20</costStuffCount>
 		<costList>
-			<Steel>40</Steel>
-			<ComponentIndustrial>1</ComponentIndustrial>
+			<SimpleElectronic>1</SimpleElectronic>
+			<MechanismSimple>4</MechanismSimple>
 		</costList>
 		<size>(2,2)</size>
 		<statBases>
@@ -497,7 +600,7 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>50</basePowerConsumption>
+				<basePowerConsumption>100</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>9</glowRadius>
@@ -545,9 +648,13 @@
 				<texPath>DBH/Things/Building/Heating/CeilingFanBlades</texPath>
 			</blueprintGraphicData>
 		</building>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>10</costStuffCount>
 		<costList>
-			<Steel>40</Steel>
-			<ComponentIndustrial>1</ComponentIndustrial>
+			<SimpleElectronic>1</SimpleElectronic>
+			<MechanismSimple>2</MechanismSimple>
 		</costList>
 		<size>(1,1)</size>
 		<statBases>
@@ -558,7 +665,7 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>50</basePowerConsumption>
+				<basePowerConsumption>100</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>9</glowRadius>
@@ -590,27 +697,46 @@
 		<castEdgeShadows>true</castEdgeShadows>
 		<pathCost>8</pathCost>
 		<size>(1,1)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>50</costStuffCount>
 		<costList>
-			<Steel>90</Steel>
-			<ComponentIndustrial>3</ComponentIndustrial>
+			<SimplePlates>5</SimplePlates>
+			<SimpleElectronic>1</SimpleElectronic>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<MechanismComplex>5</MechanismComplex>
 		</costList>
 		<rotatable>false</rotatable>
 		<statBases>
 			<MaxHitPoints>125</MaxHitPoints>
 			<WorkToBuild>1600</WorkToBuild>
 			<Mass>50</Mass>
+			<FuelConsumption>2</FuelConsumption>
 		</statBases>
 		<comps>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Air</mode>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_AirconBaseUnit">
+				<compClass>ProjectParagon.Core.Things.CompAirconBaseUnitFueled</compClass>
 				<BaseCapacity>100</BaseCapacity>
 				<PowerModes>10</PowerModes>
 			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+				<fuelCapacity>20.0</fuelCapacity>
+				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+				<fuelFilter>
+					<thingDefs>
+						<li>Canister_Refrigerant</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>0</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>200</basePowerConsumption>
+				<basePowerConsumption>250</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
@@ -653,8 +779,15 @@
 		<defName>AirconIndoorUnit</defName>
 		<label>air-con indoor unit</label>
 		<description>Indoor air-con unit for rooms. Connect to outdoor air-con units. Requires 100 cooling units.</description>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>25</costStuffCount>
 		<costList>
-			<Steel>25</Steel>
+			<SimplePlates>2</SimplePlates>
+			<SimpleElectronic>1</SimpleElectronic>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<MechanismComplex>1</MechanismComplex>
 		</costList>
 		<graphicData>
 			<texPath>DBH/Things/Building/Heating/centralAirVent</texPath>
@@ -675,7 +808,7 @@
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>25</basePowerConsumption>
+				<basePowerConsumption>100</basePowerConsumption>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_CompAirconUnit">
 				<compClass>DubsBadHygiene.CompRoomUnit</compClass>
@@ -699,9 +832,15 @@
 		<defName>FreezerUnit</defName>
 		<label>walk-in freezer unit</label>
 		<description>Freezer unit for creating a walk-in freezer. Connect to outdoor air-con units. Requires 300 cooling units.</description>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>80</costStuffCount>
 		<costList>
-			<Steel>30</Steel>
-			<ComponentIndustrial>1</ComponentIndustrial>
+			<SimplePlates>10</SimplePlates>
+			<SimpleElectronic>2</SimpleElectronic>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismComplex>2</MechanismComplex>
 		</costList>
 		<graphicData>
 			<texPath>DBH/Things/Building/Heating/freezerUnit</texPath>
@@ -744,7 +883,7 @@
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>25</basePowerConsumption>
+				<basePowerConsumption>100</basePowerConsumption>
 			</li>
 			<li>
 				<compClass>CompColorable</compClass>

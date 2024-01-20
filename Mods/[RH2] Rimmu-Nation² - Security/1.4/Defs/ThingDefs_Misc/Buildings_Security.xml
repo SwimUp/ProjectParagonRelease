@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef Name="RH_TrapC4Base" ParentName="BuildingBase" Abstract="True">
+		<thingClass>Building_TrapExplosive</thingClass>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<damageData>
+				<rect>(0.1,0,0.8,0.3)</rect>
+			</damageData>
+		</graphicData>
+		<uiIconOffset>(0,-0.14)</uiIconOffset>
+		<altitudeLayer>Building</altitudeLayer>
+		<drawerType>RealtimeOnly</drawerType>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<stealable>false</stealable>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<thingCategories>
+			<li>BuildingsSecurity</li>
+		</thingCategories>
+		<statBases>
+			<Mass>1.0</Mass>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>3500</WorkToBuild>
+			<Flammability>0.2</Flammability>
+			<Beauty>-4</Beauty>
+			<TrapSpringChance>0</TrapSpringChance>
+		</statBases>
+		<designationCategory>Security</designationCategory>
+		<designatorDropdown>Traps</designatorDropdown>
+		<building>
+			<isTrap>true</isTrap>
+			<trapPeacefulWildAnimalsSpringChanceFactor>0.25</trapPeacefulWildAnimalsSpringChanceFactor>
+			<expandHomeArea>false</expandHomeArea>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>IEDSII</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>PlaceWorker_NeverAdjacentTrap</li>
+		</placeWorkers>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	</ThingDef>
+	<!--==================== C4 IED ======================== -->
+	<ThingDef ParentName="RH_TrapC4Base">
+		<defName>RN2Explosive_C4Charge</defName>
+		<label>C-4 charge</label>
+		<description>C-4 or Composition C-4 is a common variety of the plastic explosive family known as Composition C. A similar British plastic explosive, based on RDX but with different plasticizer than Composition C-4, is known as PE-4 (Plastic Explosive No. 4). C-4 is composed of explosives, plastic binder, plasticizer to make it malleable, and usually a marker or odorizing taggant chemical.
+	
+C-4 has a texture similar to modelling clay and can be molded into any desired shape. C-4 is metastable and can be exploded only by the shock wave from a detonator or blasting cap.</description>
+		<graphicData>
+			<texPath>Things/Building/Security/C4/C4_512</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(0.9,0.9)</drawSize>
+		</graphicData>
+		<costList>
+			<SmokelessGunpowder>35</SmokelessGunpowder>
+			<SimpleWeaponComponents>2</SimpleWeaponComponents>
+			<ComponentSimple>1</ComponentSimple>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>3.9</explosiveRadius>
+				<explosiveDamageType>RN2_PlasticExplosive_Bomb</explosiveDamageType>
+				<wickTicks>0</wickTicks>
+			</li>
+			<li Class="ChickenExplosives.CompProperties_RemoteTrigger">
+				<labelKey>RH_Claymore_Detonate</labelKey>
+				<descKey>RH_Claymore_Detonate_Desc</descKey>
+				<activateSound>RN_DetonatorClick</activateSound>
+				<!-- Must have a grain with onCamera true or you will get errors! -->
+				<iconPath>UI/M57Firing_Device</iconPath>
+			</li>
+		</comps>
+		<specialDisplayRadius>3.9</specialDisplayRadius>
+	</ThingDef>
+	<!--==================== C4 IED ======================== -->
+	<ThingDef ParentName="RH_TrapC4Base">
+		<defName>RN2Explosive_C4IED</defName>
+		<label>C-4 IED</label>
+		<description>C-4 or Composition C-4 is a common variety of the plastic explosive family known as Composition C. A similar British plastic explosive, based on RDX but with different plasticizer than Composition C-4, is known as PE-4 (Plastic Explosive No. 4). C-4 is composed of explosives, plastic binder, plasticizer to make it malleable, and usually a marker or odorizing taggant chemical.
+	
+C-4 has a texture similar to modelling clay and can be molded into any desired shape. C-4 is metastable and can be exploded only by the shock wave from a detonator or blasting cap.\n\nThis variant is a homemade C-4 improvised explosive device which has a wider blast radius but less damage.</description>
+		<graphicData>
+			<texPath>Things/Building/Security/C4_IED/C4_IED</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.0,1.0)</drawSize>
+		</graphicData>
+		<costList>
+			<SmokelessGunpowder>60</SmokelessGunpowder>
+			<SimpleWeaponComponents>2</SimpleWeaponComponents>
+			<ComponentSimple>1</ComponentSimple>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>6.9</explosiveRadius>
+				<explosiveDamageType>RN2_PlasticExplosive_IED</explosiveDamageType>
+				<wickTicks>17</wickTicks>
+			</li>
+			<li Class="ChickenExplosives.CompProperties_RemoteTrigger">
+				<labelKey>RH_Claymore_Detonate</labelKey>
+				<descKey>RH_Claymore_Detonate_Desc</descKey>
+				<activateSound>RN_DetonatorPhone</activateSound>
+				<!-- Must have a grain with onCamera true or you will get errors! -->
+				<iconPath>UI/NOKIA_Detonator</iconPath>
+			</li>
+		</comps>
+		<specialDisplayRadius>6.9</specialDisplayRadius>
+	</ThingDef>
+	<!--==================== IED ======================== -->
+	<ThingDef ParentName="RH_TrapC4Base">
+		<defName>RN2Explosive_155mmIED</defName>
+		<label>155mm shell IED</label>
+		<description>An improvised explosive device (IED) is a bomb constructed and deployed in ways other than in conventional military action. It may be constructed of conventional military explosives, such as an artillery shell, attached to a detonating mechanism. IEDs are commonly used as roadside bombs.</description>
+		<graphicData>
+			<texPath>Things/Building/Security/155mm_IED/155mm_IED</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.5,1.5)</drawSize>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<costList>
+			<SmokelessGunpowder>90</SmokelessGunpowder>
+			<SimpleWeaponComponents>1</SimpleWeaponComponents>
+			<ComponentSimple>2</ComponentSimple>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>12.9</explosiveRadius>
+				<explosiveDamageType>RN2_HEShell_IED</explosiveDamageType>
+				<wickTicks>30</wickTicks>
+			</li>
+			<li Class="ChickenExplosives.CompProperties_RemoteTrigger">
+				<labelKey>RH_Claymore_Detonate</labelKey>
+				<descKey>RH_Claymore_Detonate_Desc</descKey>
+				<activateSound>RN_DetonatorPhone</activateSound>
+				<!-- Must have a grain with onCamera true or you will get errors! -->
+				<iconPath>UI/NOKIA_Detonator2</iconPath>
+			</li>
+		</comps>
+		<specialDisplayRadius>12.9</specialDisplayRadius>
+	</ThingDef>
+	<!-- YM-1B AP Mine -->
+	<ThingDef ParentName="TrapIEDBase">
+		<defName>RN2Explosive_YM1B_APMine</defName>
+		<label>YM-1B AP Mine</label>
+		<description>Anti-personnel mines are a form of mine designed for use against humans, as opposed to anti-tank mines, which are designed for use against vehicles. Anti-personnel mines may be classified into blast mines or fragmentation mines, the latter may or may not be a bounding mine.\n\nThis version is the soviet made YM-1B AP Mine.</description>
+		<graphicData>
+			<texPath>Things/Building/Security/YM-1B_APMine/YM-1B_APMine</texPath>
+			<drawSize>(0.8,0.8)</drawSize>
+		</graphicData>
+		<costList>
+			<SmokelessGunpowder>35</SmokelessGunpowder>
+			<SimpleWeaponComponents>1</SimpleWeaponComponents>
+			<ComponentSimple>1</ComponentSimple>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>3.9</explosiveRadius>
+				<explosiveDamageType>RN2_APMine_Bomb</explosiveDamageType>
+				<startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+				<wickTicks>5</wickTicks>
+				<startWickOnDamageTaken>
+					<li>Bullet</li>
+					<li>Arrow</li>
+					<li>ArrowHighVelocity</li>
+				</startWickOnDamageTaken>
+			</li>
+		</comps>
+		<specialDisplayRadius>3.9</specialDisplayRadius>
+	</ThingDef>
+</Defs>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef>
+		<defName>CaffeineHigh</defName>
+		<label>high on caffeine</label>
+		<labelNoun>a caffeine high</labelNoun>
+		<description>The effect of the caffeine.</description>
+		<hediffClass>Hediff_High</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>600000~1000000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Arrhythmia</li>
+							<li>Diseases_HediffDef_HeartDefect</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Heart</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.2</chance>
+						<severityRange>0~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<RestFallRateFactor>0.85</RestFallRateFactor>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

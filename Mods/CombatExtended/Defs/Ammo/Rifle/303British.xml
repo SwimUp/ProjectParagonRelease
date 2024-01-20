@@ -17,11 +17,10 @@
 			<Ammo_303British_FMJ>Bullet_303British_FMJ</Ammo_303British_FMJ>
 			<Ammo_303British_AP>Bullet_303British_AP</Ammo_303British_AP>
 			<Ammo_303British_HP>Bullet_303British_HP</Ammo_303British_HP>
-			<Ammo_303British_Incendiary>Bullet_303British_Incendiary</Ammo_303British_Incendiary>
+			<!--<Ammo_303British_Incendiary>Bullet_303British_Incendiary</Ammo_303British_Incendiary>
 			<Ammo_303British_HE>Bullet_303British_HE</Ammo_303British_HE>
-			<Ammo_303British_Sabot>Bullet_303British_Sabot</Ammo_303British_Sabot>				
+			<Ammo_303British_Sabot>Bullet_303British_Sabot</Ammo_303British_Sabot>				-->
 		</ammoTypes>
-		<similarTo>AmmoSet_Rifle</similarTo>
 	</CombatExtended.AmmoSetDef>
 
 	<!-- ==================== Ammo ========================== -->
@@ -83,6 +82,7 @@
 		<cookOffProjectile>Bullet_303British_HP</cookOffProjectile>
 	</ThingDef>
 
+<!--
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="303BritishBase">
 		<defName>Ammo_303British_Incendiary</defName>
 		<label>.303 British cartridge (AP-I)</label>
@@ -125,7 +125,7 @@
 		<ammoClass>Sabot</ammoClass>
 		<cookOffProjectile>Bullet_303British_Sabot</cookOffProjectile>
 	</ThingDef>
-  
+  -->
 	<!-- ================== Projectiles ================== -->
 
 	<ThingDef Name="Base303BritishBullet" ParentName="BaseBullet" Abstract="true">
@@ -145,7 +145,7 @@
 		<label>.303 British bullet (FMJ)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>20</damageAmountBase>
-			<armorPenetrationSharp>6.5</armorPenetrationSharp>
+			<armorPenetrationSharp>8</armorPenetrationSharp>
 			<armorPenetrationBlunt>67</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -155,7 +155,7 @@
 		<label>.303 British bullet (AP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>12</damageAmountBase>
-			<armorPenetrationSharp>13</armorPenetrationSharp>
+			<armorPenetrationSharp>14</armorPenetrationSharp>
 			<armorPenetrationBlunt>67</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -165,11 +165,11 @@
 		<label>.303 British bullet (HP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>25</damageAmountBase>
-			<armorPenetrationSharp>4</armorPenetrationSharp>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
 			<armorPenetrationBlunt>67</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
+<!--
 	  <ThingDef ParentName="Base303BritishBullet">
 		<defName>Bullet_303British_Incendiary</defName>
 		<label>.303 British bullet (AP-I)</label>
@@ -212,7 +212,7 @@
 		  <speed>224</speed>
 		</projectile>
 	  </ThingDef>
-	  
+	  -->
 	<!-- ==================== Recipes ========================== -->
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -223,22 +223,48 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>28</count>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>88</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_303British_FMJ>500</Ammo_303British_FMJ>
+			<Ammo_303British_FMJ>150</Ammo_303British_FMJ>
 		</products>
 		<workAmount>2800</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -249,22 +275,46 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>28</count>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>88</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
 			<Ammo_303British_AP>500</Ammo_303British_AP>
 		</products>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
 		<workAmount>3360</workAmount>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -275,24 +325,50 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>28</count>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>78</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_303British_HP>500</Ammo_303British_HP>
+			<Ammo_303British_HP>150</Ammo_303British_HP>
 		</products>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
 		<workAmount>2800</workAmount>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
-
+<!--
   <RecipeDef ParentName="AdvancedAmmoRecipeBase">
     <defName>MakeAmmo_303British_Incendiary</defName>
     <label>make .303 British (AP-I) cartridge x500</label>
@@ -406,5 +482,5 @@
     </products>
     <workAmount>4000</workAmount>
   </RecipeDef>
-  
+  -->
 </Defs>

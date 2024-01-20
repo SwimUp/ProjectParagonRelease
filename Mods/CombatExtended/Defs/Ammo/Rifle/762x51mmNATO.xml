@@ -1,15 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
 	<ThingCategoryDef>
 		<defName>Ammo762x51mmNATO</defName>
 		<label>7.62x51mm NATO</label>
 		<parent>AmmoRifles</parent>
 		<iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
 	</ThingCategoryDef>
-
 	<!-- ==================== AmmoSet ========================== -->
-
 	<CombatExtended.AmmoSetDef>
 		<defName>AmmoSet_762x51mmNATO</defName>
 		<label>7.62x51mm NATO</label>
@@ -17,15 +14,12 @@
 			<Ammo_762x51mmNATO_FMJ>Bullet_762x51mmNATO_FMJ</Ammo_762x51mmNATO_FMJ>
 			<Ammo_762x51mmNATO_AP>Bullet_762x51mmNATO_AP</Ammo_762x51mmNATO_AP>
 			<Ammo_762x51mmNATO_HP>Bullet_762x51mmNATO_HP</Ammo_762x51mmNATO_HP>
-			<Ammo_762x51mmNATO_Incendiary>Bullet_762x51mmNATO_Incendiary</Ammo_762x51mmNATO_Incendiary>
+			<!--<Ammo_762x51mmNATO_Incendiary>Bullet_762x51mmNATO_Incendiary</Ammo_762x51mmNATO_Incendiary>
 			<Ammo_762x51mmNATO_HE>Bullet_762x51mmNATO_HE</Ammo_762x51mmNATO_HE>
-			<Ammo_762x51mmNATO_Sabot>Bullet_762x51mmNATO_Sabot</Ammo_762x51mmNATO_Sabot>				
+			<Ammo_762x51mmNATO_Sabot>Bullet_762x51mmNATO_Sabot</Ammo_762x51mmNATO_Sabot>			-->
 		</ammoTypes>
-		<similarTo>AmmoSet_Rifle</similarTo>
 	</CombatExtended.AmmoSetDef>
-
 	<!-- ==================== Ammo ========================== -->
-
 	<ThingDef Class="CombatExtended.AmmoDef" Name="762x51mmNATOBase" ParentName="SmallAmmoBase" Abstract="True">
 		<description>Large rifle bullet used in machine guns, sniper rifles and the occasional assault rifle.</description>
 		<statBases>
@@ -40,7 +34,6 @@
 			<li>Ammo762x51mmNATO</li>
 		</thingCategories>
 	</ThingDef>
-
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="762x51mmNATOBase">
 		<defName>Ammo_762x51mmNATO_FMJ</defName>
 		<label>7.62x51mm NATO cartridge (FMJ)</label>
@@ -54,7 +47,6 @@
 		<ammoClass>FullMetalJacket</ammoClass>
 		<cookOffProjectile>Bullet_762x51mmNATO_FMJ</cookOffProjectile>
 	</ThingDef>
-
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="762x51mmNATOBase">
 		<defName>Ammo_762x51mmNATO_AP</defName>
 		<label>7.62x51mm NATO cartridge (AP)</label>
@@ -68,7 +60,6 @@
 		<ammoClass>ArmorPiercing</ammoClass>
 		<cookOffProjectile>Bullet_762x51mmNATO_AP</cookOffProjectile>
 	</ThingDef>
-
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="762x51mmNATOBase">
 		<defName>Ammo_762x51mmNATO_HP</defName>
 		<label>7.62x51mm NATO cartridge (HP)</label>
@@ -82,7 +73,7 @@
 		<ammoClass>HollowPoint</ammoClass>
 		<cookOffProjectile>Bullet_762x51mmNATO_HP</cookOffProjectile>
 	</ThingDef>
-		
+	<!--
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="762x51mmNATOBase">
 		<defName>Ammo_762x51mmNATO_Incendiary</defName>
 		<label>7.62x51mm NATO cartridge (AP-I)</label>
@@ -125,9 +116,8 @@
 		<ammoClass>Sabot</ammoClass>
 		<cookOffProjectile>Bullet_762x51mmNATO_Sabot</cookOffProjectile>
 	</ThingDef>
-
+-->
 	<!-- ================== Projectiles ================== -->
-
 	<ThingDef Name="Base762x51mmNATOBullet" ParentName="BaseBullet" Abstract="true">
 		<graphicData>
 			<texPath>Things/Projectile/Bullet_Small</texPath>
@@ -139,37 +129,34 @@
 			<dropsCasings>true</dropsCasings>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="Base762x51mmNATOBullet">
 		<defName>Bullet_762x51mmNATO_FMJ</defName>
 		<label>7.62mm NATO bullet (FMJ)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>20</damageAmountBase>
-			<armorPenetrationSharp>7</armorPenetrationSharp>
+			<armorPenetrationSharp>11.5</armorPenetrationSharp>
 			<armorPenetrationBlunt>66.72</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="Base762x51mmNATOBullet">
 		<defName>Bullet_762x51mmNATO_AP</defName>
 		<label>7.62mm NATO bullet (AP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>12</damageAmountBase>
-			<armorPenetrationSharp>14</armorPenetrationSharp>
+			<armorPenetrationSharp>16</armorPenetrationSharp>
 			<armorPenetrationBlunt>66.72</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="Base762x51mmNATOBullet">
 		<defName>Bullet_762x51mmNATO_HP</defName>
 		<label>7.62mm NATO bullet (HP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>25</damageAmountBase>
-			<armorPenetrationSharp>4</armorPenetrationSharp>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
 			<armorPenetrationBlunt>66.72</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
+	<!--
 	  <ThingDef ParentName="Base762x51mmNATOBullet">
 		<defName>Bullet_762x51mmNATO_Incendiary</defName>
 		<label>7.62mm NATO bullet (AP-I)</label>
@@ -212,9 +199,8 @@
 		  <speed>252</speed>
 		</projectile>
 	  </ThingDef>
-  
+  -->
 	<!-- ==================== Recipes ========================== -->
-
 	<RecipeDef ParentName="AmmoRecipeBase">
 		<defName>MakeAmmo_762x51mmNATO_FMJ</defName>
 		<label>make 7.62x51mm NATO (FMJ) cartridge x500</label>
@@ -223,24 +209,49 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>26</count>
+				<count>38</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>92</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x51mmNATO_FMJ>500</Ammo_762x51mmNATO_FMJ>
+			<Ammo_762x51mmNATO_FMJ>150</Ammo_762x51mmNATO_FMJ>
 		</products>
-	<workAmount>2600</workAmount>		
+		<workAmount>2600</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
-
 	<RecipeDef ParentName="AmmoRecipeBase">
 		<defName>MakeAmmo_762x51mmNATO_AP</defName>
 		<label>make 7.62x51mm NATO (AP) cartridge x500</label>
@@ -249,24 +260,47 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>26</count>
+				<count>38</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>92</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x51mmNATO_AP>500</Ammo_762x51mmNATO_AP>
+			<Ammo_762x51mmNATO_AP>100</Ammo_762x51mmNATO_AP>
 		</products>
-	<workAmount>3120</workAmount>		
+		<workAmount>3120</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
-
 	<RecipeDef ParentName="AmmoRecipeBase">
 		<defName>MakeAmmo_762x51mmNATO_HP</defName>
 		<label>make 7.62x51mm NATO (HP) cartridge x500</label>
@@ -275,24 +309,50 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>26</count>
+				<count>38</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>82</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x51mmNATO_HP>500</Ammo_762x51mmNATO_HP>
+			<Ammo_762x51mmNATO_HP>150</Ammo_762x51mmNATO_HP>
 		</products>
-	<workAmount>2600</workAmount>		
+		<workAmount>2600</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
-
+	<!--
   <RecipeDef ParentName="AdvancedAmmoRecipeBase">
     <defName>MakeAmmo_762x51mmNATO_Incendiary</defName>
     <label>make 7.62x51mm NATO (AP-I) cartridge x500</label>
@@ -406,5 +466,5 @@
     </products>
     <workAmount>3400</workAmount>
   </RecipeDef>
-  
+  -->
 </Defs>

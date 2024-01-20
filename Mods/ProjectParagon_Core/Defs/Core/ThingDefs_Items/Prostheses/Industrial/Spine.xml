@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>ProstheticSpine</defName>
+		<label>Prosthetic spine</label>
+		<labelNoun>a prosthetic spine</labelNoun>
+		<description>A simple spine prosthesis made from prosthetic components and gears.</description>
+		<spawnThingOnRemoved>ProstheticSpine</spawnThingOnRemoved>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1</partEfficiency>
+		</addedPartProps>
+		<priceImpact>true</priceImpact>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+				<multiplier>1</multiplier>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+			</li>
+		</modExtensions>
+	</HediffDef>
+	<ThingDef ParentName="ProsthesisAdvancedIndustrialBase">
+		<defName>ProstheticSpine</defName>
+		<label>Prosthetic spine</label>
+		<description>A prosthesis made from prosthetic components and gears.</description>
+		<graphicData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>4.0</Mass>
+		</statBases>
+		<recipeMaker>
+			<workSpeedStat>SmeltingSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smelt</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<researchPrerequisite>ProstheticsV</researchPrerequisite>
+			<recipeUsers>
+				<li>TableMachiningAdvanced</li>
+			</recipeUsers>
+			<unfinishedThingDef>ProstheticParagon_T3_</unfinishedThingDef>
+		</recipeMaker>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Plastic</li>
+		</stuffCategories>
+		<costStuffCount>75</costStuffCount>
+		<costList>
+			<MechanismComplex>6</MechanismComplex>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<Microelectronics>2</Microelectronics>
+			<Paraffin>10</Paraffin>
+		</costList>
+	</ThingDef>
+	<RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+		<defName>ProstheticSpine</defName>
+		<label>install prosthetic spine</label>
+		<description>Install a prosthetic spine.</description>
+		<jobString>Installing prosthetic spine.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ProstheticSpine</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ProstheticSpine</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Spine</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>ProstheticSpine</addsHediff>
+		<researchPrerequisite>ProstheticsV</researchPrerequisite>
+	</RecipeDef>
+</Defs>

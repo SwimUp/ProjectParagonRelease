@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneTaurusBase" Abstract="True">
+		<displayCategory>Taurus</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTaurusBase">
+		<defName>Taurus</defName>
+		<label>Taurus</label>
+		<labelShortAdj>Taurus</labelShortAdj>
+		<description>The pawn is a humanoid mammal.</description>
+		<iconPath>Core/Genes/Taurus</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>TaurusRace</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTaurusBase">
+		<defName>ThickSkin</defName>
+		<label>Thick skin</label>
+		<labelShortAdj>Thick skin</labelShortAdj>
+		<description>Carriers of the gene have thick skin, which further enhances survival in harsh environments.</description>
+		<iconPath>Core/Genes/ThickSkin</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<statOffsets>
+			<ComfyTemperatureMin>-25</ComfyTemperatureMin>
+			<ComfyTemperatureMax>10</ComfyTemperatureMax>
+			<ArmorRating_Sharp>1</ArmorRating_Sharp>
+		</statOffsets>
+		<exclusionTags>
+			<li>NaturalSkin</li>
+		</exclusionTags>
+		<prerequisite>Taurus</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTaurusBase">
+		<defName>StrongMuscles</defName>
+		<label>Strong muscles</label>
+		<labelShortAdj>Strong muscles</labelShortAdj>
+		<description>The carrier of the gene has a stronger muscle structure, which increases the overall level of its strength.</description>
+		<iconPath>Core/Genes/StrongMuscles</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<statOffsets>
+			<CarryWeight>15</CarryWeight>
+			<CarryingCapacity>20</CarryingCapacity>
+			<MuscleBuilding>1.3</MuscleBuilding>
+		</statOffsets>
+		<prerequisite>Taurus</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTaurusBase">
+		<defName>AcceleratedMetabolism</defName>
+		<label>Accelerated metabolism</label>
+		<labelShortAdj>Accelerated metabolism</labelShortAdj>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_AcceleratedMetabolism</geneClass>
+		<description>The gene bestows an accelerated metabolism, due to which the carrier consumes more food, but gets tired more slowly.</description>
+		<iconPath>Core/Genes/AcceleratedMetabolism</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Taurus</prerequisite>
+	</GeneDef>
+	<!---->
+</Defs>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 57mmDeacon -->
+	<ThingDef ParentName="AMCTurretMannedBase">
+		<defName>QF57mmDeacon_Turret</defName>
+		<label>OQF 6-pounder 7 cwt</label>
+		<description>Gun: 57mm OQF 6-pounder 7 cwt</description>
+		<graphicData>
+			<texPath>Things/Building/M57mmDeacon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(11,11)</drawSize>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+			</damageData>
+			<shadowData>
+				<offset>(0,0,0)</offset>
+				<volume>(2,1.5,2)</volume>
+			</shadowData>
+		</graphicData>
+		<comps/>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<size>(3,3)</size>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<costList>
+			<AdvancedWeaponComponents>28</AdvancedWeaponComponents>
+			<MechanismComplex>8</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<costStuffCount>200</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<WorkToBuild>65000</WorkToBuild>
+			<Mass>150</Mass>
+		</statBases>
+		<tradeTags>
+			<li>CE_Turret</li>
+		</tradeTags>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building Inherit="False">
+			<turretGunDef>Turret_57mmDeacon_Weapon</turretGunDef>
+			<turretTopDrawSize>11</turretTopDrawSize>
+			<turretBurstWarmupTime>0</turretBurstWarmupTime>
+			<turretBurstCooldownTime>4</turretBurstCooldownTime>
+		</building>
+		<designationCategory>Security</designationCategory>
+		<designatorDropdown>Security_Artillery</designatorDropdown>
+		<researchPrerequisites Inherit="False">
+			<li>MediumArtillery</li>
+		</researchPrerequisites>
+		<uiIconPath>Things/Icons/M57mmDeacon_MenuIcon</uiIconPath>
+		<uiIconScale>0.9</uiIconScale>
+	</ThingDef>
+	<ThingDef ParentName="BaseTurretGun">
+		<defName>Turret_57mmDeacon_Weapon</defName>
+		<label>OQF 6-pounder 7 cwt</label>
+		<description>Ammo: 57mmOQF</description>
+		<graphicData>
+			<texPath>Things/Building/M57mmDeacon_Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<weaponTags>
+			<li>TurretGun</li>
+		</weaponTags>
+		<statBases>
+			<SightsEfficiency>2</SightsEfficiency>
+			<ShotSpread>0.2</ShotSpread>
+			<SwayFactor>0.5</SwayFactor>
+			<RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_57mmOQF_AP</defaultProjectile>
+				<warmupTime>1</warmupTime>
+				<minRange>3</minRange>
+				<range>50</range>
+				<burstShotCount/>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>Sound_6Pdr</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>40</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<reloadTime>3.5</reloadTime>
+				<ammoSet>AmmoSet_57mmOQF_Shells</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

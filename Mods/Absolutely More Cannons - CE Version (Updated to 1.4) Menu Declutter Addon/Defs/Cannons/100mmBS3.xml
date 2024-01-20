@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 100mmBS3 -->
+	<ThingDef ParentName="AMCTurretMannedBase">
+		<!-- AMCTurretAutoBase | AMCArtilleryBase | AMCArtilleryAutoBase -->
+		<defName>Gun100mmBS3_Turret</defName>
+		<label>BS-3</label>
+		<description>Gun: 100mm BS-3</description>
+		<graphicData>
+			<texPath>Things/Building/M100mmBS3</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(10,10)</drawSize>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+			</damageData>
+			<shadowData>
+				<offset>(0,0,0)</offset>
+				<volume>(2,1.5,2)</volume>
+			</shadowData>
+		</graphicData>
+		<comps/>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<size>(4,4)</size>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<costList>
+			<AdvancedWeaponComponents>40</AdvancedWeaponComponents>
+			<MechanismComplex>15</MechanismComplex>
+			<ComponentIndustrial>15</ComponentIndustrial>
+		</costList>
+		<costStuffCount>400</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>650</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<WorkToBuild>88000</WorkToBuild>
+			<Mass>280</Mass>
+		</statBases>
+		<tradeTags>
+			<li>CE_Turret</li>
+		</tradeTags>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building Inherit="False">
+			<turretGunDef>Turret_100mmBS3_Weapon</turretGunDef>
+			<turretTopDrawSize>14</turretTopDrawSize>
+			<turretBurstWarmupTime>0</turretBurstWarmupTime>
+			<turretBurstCooldownTime>10</turretBurstCooldownTime>
+		</building>
+		<designationCategory>Security</designationCategory>
+		<designatorDropdown>Security_Artillery</designatorDropdown>
+		<researchPrerequisites Inherit="False">
+			<li>HeavyArtillery</li>
+		</researchPrerequisites>
+		<uiIconPath>Things/Icons/M100mmBS3_MenuIcon</uiIconPath>
+		<uiIconScale>0.9</uiIconScale>
+		<!-- delete if not minifiable -->
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+	<ThingDef ParentName="BaseTurretGun">
+		<defName>Turret_100mmBS3_Weapon</defName>
+		<label>100mm BS-3</label>
+		<description>Ammo: 100mmBS3</description>
+		<graphicData>
+			<texPath>Things/Building/M100mmBS3_Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<weaponTags>
+			<li>TurretGun</li>
+		</weaponTags>
+		<statBases>
+			<SightsEfficiency>3</SightsEfficiency>
+			<ShotSpread>0.12</ShotSpread>
+			<SwayFactor>0.5</SwayFactor>
+			<RangedWeapon_Cooldown>8</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_100mmBS3_HE</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<minRange>3</minRange>
+				<range>100</range>
+				<burstShotCount/>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>Sound_Russian100mm</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>70</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<reloadTime>6.0</reloadTime>
+				<ammoSet>AmmoSet_100mmBS3_Shells</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<!--
+      <li Class="CombatExtended.CompProperties_Charges">
+        <chargeSpeeds>
+          <li>10</li>
+          <li>25</li>
+          <li>45</li>
+          <li>70</li>
+          <li>100</li>
+          <li>135</li>
+        </chargeSpeeds>
+      </li>-->
+		</comps>
+	</ThingDef>
+</Defs>

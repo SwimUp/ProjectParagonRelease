@@ -31,7 +31,8 @@
 							<SharpDamageMultiplier>0.35</SharpDamageMultiplier>
 							<BluntDamageMultiplier>0.5</BluntDamageMultiplier>
 							<CalorificValue>14.24</CalorificValue>
-							<BurnoutRate>5.0</BurnoutRate>
+							<BurnoutRate>7.5</BurnoutRate>
+							<Nutrition>0.03</Nutrition>
 						</statBases>
 						<burnableByRecipe>true</burnableByRecipe>
 						<healthAffectsPrice>false</healthAffectsPrice>
@@ -60,9 +61,15 @@
 								<WorkTableWorkSpeedFactor>0.65</WorkTableWorkSpeedFactor>
 							</statFactors>
 						</stuffProps>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<ingestible>
+							<preferability>MealSimple</preferability>
+							<foodType>OmnivoreHuman</foodType>
+							<optimalityOffsetHumanlikes>8</optimalityOffsetHumanlikes>
+						</ingestible>
 						<isTechHediff>true</isTechHediff>
 						<thingCategories>
-							<li>ResourcesRaw</li>
+							<li>ResourcesOther</li>
 						</thingCategories>
 						<techHediffsTags>
 							<li>Poor</li>
@@ -212,6 +219,7 @@
 								<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
 								<WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
 								<MeleePenetrationFactor>1.0</MeleePenetrationFactor>
+								<ProsthesisEfficiency>1</ProsthesisEfficiency>
 							</statFactors>
 						</stuffProps>
 						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -327,7 +335,7 @@
 							<BluntDamageMultiplier>1.0</BluntDamageMultiplier>-->
 						</statBases>
 						<thingCategories>
-							<li>ResourcesRaw</li>
+							<li>Jewerly</li>
 						</thingCategories>
 						<stackLimit>500</stackLimit>
 						<smallVolume>true</smallVolume>
@@ -429,60 +437,35 @@
 				<value>
 					<ThingDef ParentName="ResourceBase">
 						<defName>Uranium</defName>
-						<label>uranium</label>
-						<description>A dark, heavy metal. While it is best known as a fuel for nuclear devices, its extreme density and hardness also make it good for making certain weapons, armor, and ammunition.</description>
+						<label>Uranium ore</label>
+						<description>A piece of rock that is a source of radioactive uranium ores.</description>
 						<graphicData>
-							<texPath>Things/Item/Resource/Uranium</texPath>
+							<texPath>Core/Resources/Mineable/UraniumOre</texPath>
 							<graphicClass>Graphic_StackCount</graphicClass>
 						</graphicData>
-						<useHitPoints>false</useHitPoints>
-						<healthAffectsPrice>false</healthAffectsPrice>
 						<soundInteract>Metal_Drop</soundInteract>
 						<soundDrop>Metal_Drop</soundDrop>
 						<statBases>
-							<MarketValue>6</MarketValue>
-							<Mass>1</Mass>
-							<StuffPower_Armor_Sharp>1.08</StuffPower_Armor_Sharp>
-							<StuffPower_Armor_Blunt>0.54</StuffPower_Armor_Blunt>
-							<StuffPower_Armor_Heat>0.65</StuffPower_Armor_Heat>
-							<StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
-							<StuffPower_Insulation_Heat>0</StuffPower_Insulation_Heat>
-							<SharpDamageMultiplier>1.1</SharpDamageMultiplier>
-							<BluntDamageMultiplier>1.5</BluntDamageMultiplier>
+							<MarketValue>5.0</MarketValue>
+							<Mass>0.5</Mass>
+							<OreDepth>200</OreDepth>
 						</statBases>
+						<useHitPoints>false</useHitPoints>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<slagDef>ChunkSlagSteel</slagDef>
 						<thingCategories>
-							<li>ResourcesRaw</li>
+							<li>ResourcesOres</li>
 						</thingCategories>
-						<deepCommonality>0</deepCommonality>
-						<deepCountPerPortion>0</deepCountPerPortion>
-						<deepLumpSizeRange>0</deepLumpSizeRange>
+						<deepCommonality>0.25</deepCommonality>
+						<deepCountPerPortion>20</deepCountPerPortion>
+						<deepLumpSizeRange>1~5</deepLumpSizeRange>
 						<burnableByRecipe>false</burnableByRecipe>
-						<smeltable>true</smeltable>
-						<minRewardCount>10</minRewardCount>
-						<techLevel>Industrial</techLevel>
-						<stuffProps>
-							<categories>
-								<li>Metallic_NonConstruct</li>
-							</categories>
-							<commonality>0.05</commonality>
-							<color>(100,100,100)</color>
-							<constructEffect>ConstructMetal</constructEffect>
-							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
-							<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
-							<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
-							<statFactors>
-								<MaxHitPoints>2.5</MaxHitPoints>
-								<WorkToMake>1.9</WorkToMake>
-								<WorkToBuild>1.9</WorkToBuild>
-								<Beauty>0.5</Beauty>
-								<Flammability>0.0</Flammability>
-								<DoorOpenSpeed>0.75</DoorOpenSpeed>
-								<MeleeWeapon_CooldownMultiplier>1.10</MeleeWeapon_CooldownMultiplier>
-							</statFactors>
-						</stuffProps>
+						<!-- <smeltable>true</smeltable> -->
 						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 						<modExtensions>
-							<li Class="ProjectParagon.Core.Things.DefExtension_BlockThingGeneration"></li>
+							<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+								<stalagmiteDef>StalagmiteUraniumOre</stalagmiteDef>
+							</li>
 						</modExtensions>
 					</ThingDef>
 				</value>
@@ -893,45 +876,58 @@
 					</comps>
 				</value>
 			</li>
-			
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="ComponentIndustrial"]</xpath>
 				<value>
-					<techLevel>Industrial</techLevel>
+					<ThingDef ParentName="ResourceBase">
+						<defName>ComponentIndustrial</defName>
+						<label>component</label>
+						<description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+						<possessionCount>2</possessionCount>
+						<graphicData>
+							<texPath>Core/Resources/Misc/ComponentIndustrial/ComponentIndustrial</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.90</drawSize>
+						</graphicData>
+						<soundInteract>Metal_Drop</soundInteract>
+						<techLevel>Industrial</techLevel>
+						<soundDrop>Standard_Drop</soundDrop>
+						<stackLimit>50</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+							<MaxHitPoints>70</MaxHitPoints>
+							<MarketValue>32</MarketValue>
+							<Mass>0.6</Mass>
+							<Flammability>0.6</Flammability>
+							<DeteriorationRate>2.0</DeteriorationRate>
+						</statBases>
+						<intricate>true</intricate>
+						<thingCategories>
+							<li>Components</li>
+						</thingCategories>
+						<allowedArchonexusCount>10</allowedArchonexusCount>
+					</ThingDef>
 				</value>
 			</li>
-			
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="ComponentIndustrial"]/graphicData</xpath>
-				<value>
-					<graphicData>
-						<texPath>Core/Resources/Misc/ComponentIndustrial/ComponentIndustrial</texPath>
-						<graphicClass>Graphic_Single</graphicClass>
-						<drawSize>0.90</drawSize>
-					</graphicData>
-				</value>
-			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="ComponentSpacer"]</xpath>
 				<value>
 					<techLevel>Spacer</techLevel>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Chemfuel"]</xpath>
 				<value>
 					<ThingDef ParentName="ResourceBase">
 						<defName>Chemfuel</defName>
-						<label>chemfuel</label>
-						<description>A volatile liquid chemical. Used to fuel engines and rockets, or to transmute into propellant for projectiles, or as an incendiary weapon.</description>
+						<label>Ethanol canister</label>
+						<description>Ethanol canister.</description>
 						<possessionCount>20</possessionCount>
 						<tickerType>Normal</tickerType>
 						<graphicData>
-							<texPath>Things/Item/Resource/Chemfuel</texPath>
+							<texPath>Core/Items/Canister/Canister</texPath>
 							<graphicClass>Graphic_Single</graphicClass>
-							<drawSize>0.85</drawSize>
+							<color>(173, 173, 173)</color>
 						</graphicData>
 						<stackLimit>150</stackLimit>
 						<healthAffectsPrice>false</healthAffectsPrice>
@@ -939,35 +935,40 @@
 						<statBases>
 							<MaxHitPoints>50</MaxHitPoints>
 							<MarketValue>2.3</MarketValue>
-							<Mass>0.05</Mass>
+							<Mass>3.9</Mass>
 							<Flammability>2.0</Flammability>
-							<DeteriorationRate>1.0</DeteriorationRate>
-							<CalorificValue>48.0</CalorificValue>
+							<DeteriorationRate>0.8</DeteriorationRate>
+							<CalorificValue>30.0</CalorificValue>
 							<BurnoutRate>12.0</BurnoutRate>
 						</statBases>
 						<thingCategories>
-							<li>Manufactured</li>
+							<li>Canisters</li>
 						</thingCategories>
 						<comps>
-							<li Class="CompProperties_Explosive">
-								<explosiveRadius>1.1</explosiveRadius>
+							<li Class="ProjectParagon.Core.Things.CompProperties_LiquidCanister">
+								<maxExplosiveRadius>2</maxExplosiveRadius>
 								<explosiveDamageType>Flame</explosiveDamageType>
-								<explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
-								<startWickOnDamageTaken>
-									<li>Flame</li>
-								</startWickOnDamageTaken>
-								<startWickHitPointsPercent>0.333</startWickHitPointsPercent>
-								<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
-								<preExplosionSpawnChance>1</preExplosionSpawnChance>
-								<wickTicks>70~150</wickTicks>
+								<postExplosionSpawnChance>1</postExplosionSpawnChance>
+								<chanceToStartFire>1</chanceToStartFire>
+								<startWickHitPointsPercent>0.15</startWickHitPointsPercent>
+								<wickTicks>
+									<min>150</min>
+									<max>400</max>
+								</wickTicks>
+								<pipeTypeDef>Ethanol</pipeTypeDef>
+								<capacity>5</capacity>
 							</li>
 						</comps>
 						<allowedArchonexusCount>100</allowedArchonexusCount>
 					</ThingDef>
 				</value>
 			</li>
-			
-			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Shell_Toxic"]/recipeMaker/researchPrerequisite</xpath>
+				<value>
+					<researchPrerequisite>ThrownWeaponsI</researchPrerequisite>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 </Patch>

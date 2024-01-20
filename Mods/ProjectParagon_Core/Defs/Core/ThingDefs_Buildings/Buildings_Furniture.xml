@@ -34,6 +34,8 @@
 				<fuelFilter>
 					<thingDefs>
 						<li>Coal</li>
+						<li>CokeCoal</li>
+						<li>FuelBriquette</li>
 					</thingDefs>
 				</fuelFilter>
 				<initialFuelPercent>0</initialFuelPercent>
@@ -62,7 +64,7 @@
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(4, 4)</drawSize>
 		</graphicData>
-		<uiIconScale>1</uiIconScale>
+		<uiIconScale>0.5</uiIconScale>
 		<comps>
 			<li Class="CompProperties_Glower">
 				<glowRadius>8</glowRadius>
@@ -91,7 +93,7 @@
 				<offset>0,0,-1.25</offset>
 			</shadowData>
 		</graphicData>
-		<uiIconScale>1</uiIconScale>
+		<uiIconScale>0.25</uiIconScale>
 		<comps>
 			<li Class="CompProperties_Glower">
 				<glowRadius>10</glowRadius>
@@ -658,6 +660,7 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
 				</assignableRaces>
 			</li>
 			<li Class="CompProperties_AffectedByFacilities">
@@ -676,6 +679,7 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -748,6 +752,7 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
 				</assignableRaces>
 			</li>
 			<li Class="CompProperties_AffectedByFacilities">
@@ -766,6 +771,7 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -773,5 +779,768 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-
+	<ThingDef ParentName="ArtableFurnitureBase">
+		<defName>OldClock</defName>
+		<label>Old clock</label>
+		<description>A tall clock that tells the time.</description>
+		<tickerType>Normal</tickerType>
+		<thingClass>ProjectParagon.Core.Things.Building_Clock</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/OldClock/OldClock</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+			<shadowData>
+				<volume>(0.5,0.35,0.4)</volume>
+			</shadowData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<uiIconScale>0.8</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.4</fillPercent>
+		<castEdgeShadows>true</castEdgeShadows>
+		<pathCost>42</pathCost>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<costStuffCount>80</costStuffCount>
+		<costList>
+			<MechanismSimple>4</MechanismSimple>
+		</costList>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<Mass>15</Mass>
+			<WorkToBuild>10000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>50</Beauty>
+		</statBases>
+		<size>(1,1)</size>
+		<uiOrder>2900</uiOrder>
+		<canOverlapZones>false</canOverlapZones>
+		<researchPrerequisites>
+			<li>ExquisiteFurniture</li>
+		</researchPrerequisites>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Clock">
+				<mode>Time</mode>
+				<format>Default</format>
+			</li>
+		</comps>
+		<designatorDropdown>Decorations</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="ArtableFurnitureBase">
+		<defName>ModernClock</defName>
+		<label>modern clock</label>
+		<description>A tall clock that tells the time. Has a modern aesthetic.</description>
+		<tickerType>Normal</tickerType>
+		<thingClass>ProjectParagon.Core.Things.Building_Clock</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/ModernClock/ModernClock</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+			<shadowData>
+				<volume>(0.5,0.35,0.4)</volume>
+			</shadowData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<uiIconScale>0.8</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.4</fillPercent>
+		<pathCost>42</pathCost>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<costStuffCount>80</costStuffCount>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<Mass>15</Mass>
+			<WorkToBuild>15000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>65</Beauty>
+		</statBases>
+		<size>(1,1)</size>
+		<uiOrder>2900</uiOrder>
+		<canOverlapZones>false</canOverlapZones>
+		<researchPrerequisites>
+			<li>ComplexFurnitureII</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Clock">
+				<mode>Time, Date</mode>
+				<format>Default</format>
+			</li>
+		</comps>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<designatorDropdown>Decorations</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="ArtableFurnitureBase">
+		<defName>ArchaeologicalInstallation</defName>
+		<label>Archaeological installation</label>
+		<description>Miniature dinosaur exhibition.</description>
+		<thingClass>Building</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/ArchaeologicalInstallation</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3.3,3.3)</drawSize>
+			<drawOffset>0,0,0.2</drawOffset>
+		</graphicData>
+		<staticSunShadowHeight>0.1</staticSunShadowHeight>
+		<uiIconScale>1</uiIconScale>
+		<passability>PassThroughOnly</passability>
+		<pathCost>30</pathCost>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>5000</WorkToBuild>
+			<Mass>10</Mass>
+			<Flammability>2.0</Flammability>
+			<Beauty>20</Beauty>
+		</statBases>
+		<size>(2,2)</size>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+		</building>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Woody</li>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<SmallBoneFragments>2</SmallBoneFragments>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Cloth>100</Cloth>
+		</costList>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Decorations</designatorDropdown>
+		<researchPrerequisites>
+			<li>ComplexFurnitureII</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+	</ThingDef>
+	<ThingDef ParentName="LampBase">
+		<defName>GlowingPillar</defName>
+		<label>Glowing pillar</label>
+		<description>Design lamp for lighting.</description>
+		<graphicData>
+			<texPath>Core/Buildings/GlowingPillar/GlowingPillar</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawOffset>(0,0,0.35)</drawOffset>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<designatorDropdown>Lighting</designatorDropdown>
+		<costList Inherit="false">
+			<ComponentIndustrial>3</ComponentIndustrial>
+			<SimpleElectronic>2</SimpleElectronic>
+			<Plastic>25</Plastic>
+		</costList>
+		<rotatable>false</rotatable>
+		<researchPrerequisites Inherit="false">
+			<li>ComplexFurnitureIII</li>
+		</researchPrerequisites>
+		<size>(1,1)</size>
+		<statBases>
+			<Mass>1</Mass>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>300</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>40</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Styleable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(214,148,94,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="LampBase">
+		<defName>FuturisticLamp</defName>
+		<label>Futuristic lamp</label>
+		<description>Design lamp for lighting.</description>
+		<graphicData>
+			<texPath>Core/Buildings/FuturisticLamp/FuturisticLamp</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1.25,1.25)</drawSize>
+			<drawOffset>(0,0,0.3)</drawOffset>
+		</graphicData>
+		<designatorDropdown>Lighting</designatorDropdown>
+		<costList Inherit="false">
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Microelectronics>1</Microelectronics>
+			<Plastic>25</Plastic>
+		</costList>
+		<rotatable>false</rotatable>
+		<researchPrerequisites Inherit="false">
+			<li>ComplexFurnitureIII</li>
+		</researchPrerequisites>
+		<size>(1,1)</size>
+		<statBases>
+			<Mass>1</Mass>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>300</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>40</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Styleable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(214,148,94,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="LampBase">
+		<defName>TallFloorLamp</defName>
+		<label>Tall floor lamp</label>
+		<description>Design lamp for lighting.</description>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<graphicData>
+			<texPath>Core/Buildings/TallFloorLamp/TallFloorLamp</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(2,2)</drawSize>
+			<drawOffset>(0,0,0.6)</drawOffset>
+		</graphicData>
+		<uiIconScale>0.6</uiIconScale>
+		<designatorDropdown>Lighting</designatorDropdown>
+		<costList Inherit="false">
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Microelectronics>1</Microelectronics>
+			<Plastic>50</Plastic>
+		</costList>
+		<rotatable>false</rotatable>
+		<researchPrerequisites Inherit="false">
+			<li>ComplexFurnitureIII</li>
+		</researchPrerequisites>
+		<size>(1,1)</size>
+		<statBases>
+			<Mass>1</Mass>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>300</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>40</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Styleable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(214,148,94,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="LampBase">
+		<defName>StreetLight</defName>
+		<label>Street light</label>
+		<description>Design lamp for lighting.</description>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<graphicData>
+			<texPath>Core/Buildings/StreetLight/StreetLight</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(2,4)</drawSize>
+			<drawOffset>(0,0,1.15)</drawOffset>
+		</graphicData>
+		<designatorDropdown>Lighting</designatorDropdown>
+		<costList Inherit="false">
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Microelectronics>2</Microelectronics>
+			<StrongPlates>50</StrongPlates>
+		</costList>
+		<rotatable>false</rotatable>
+		<researchPrerequisites Inherit="false">
+			<li>ComplexFurnitureIII</li>
+		</researchPrerequisites>
+		<size>(1,1)</size>
+		<statBases>
+			<Mass>10</Mass>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>1000</WorkToBuild>
+			<Flammability>0</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>80</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Styleable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>16</glowRadius>
+				<glowColor>(214,148,94,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="FurnitureBase">
+		<defName>DogHouse</defName>
+		<label>dog house</label>
+		<description>A small house typically used for pets, like dogs, to have a space to shelter in whilst outdoors.</description>
+		<rotatable>false</rotatable>
+		<fillPercent>0.15</fillPercent>
+		<pathCost>14</pathCost>
+		<passability>PassThroughOnly</passability>
+		<canOverlapZones>false</canOverlapZones>
+		<graphicData>
+			<texPath>Core/Buildings/DogHouse/DogHouse</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Stony</li>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>75</costStuffCount>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>400</WorkToBuild>
+			<Mass>5</Mass>
+			<Beauty>5</Beauty>
+		</statBases>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<researchPrerequisites Inherit="false">
+			<li>ComplexFurnitureII</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designatorDropdown>Decorations</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="FurnitureBase">
+		<defName>Bin</defName>
+		<label>bin</label>
+		<description>A small bin for trash. Too small to provide any meaningful reduction in a room's dirtiness, it at least makes a space feel more lived in.</description>
+		<graphicData>
+			<texPath>Core/Buildings/Bin</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1.2,1.2)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.20</fillPercent>
+		<statBases>
+			<MaxHitPoints>10</MaxHitPoints>
+			<WorkToBuild>150</WorkToBuild>
+			<Mass>0.5</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>2</Beauty>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<designationCategory>Furniture</designationCategory>
+		<costStuffCount>20</costStuffCount>
+		<rotatable>false</rotatable>
+		<researchPrerequisites>
+			<li>ComplexFurnitureII</li>
+		</researchPrerequisites>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<designatorDropdown>Decorations</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="ArtableFurnitureRegardlessOfQualityBase">
+		<defName>Trophy</defName>
+		<label>trophy</label>
+		<thingClass>Building</thingClass>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<clearBuildingArea>false</clearBuildingArea>
+		<description>A single trophy, allowing you to show off your achievements - real or imagined.</description>
+		<graphicData>
+			<texPath>Core/Buildings/Trophy/Trophy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1.3,1.3)</drawSize>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>30</costStuffCount>
+		<rotatable>false</rotatable>
+		<building>
+			<isEdifice>false</isEdifice>
+			<canPlaceOverWall>true</canPlaceOverWall>
+		</building>
+		<passability>Standable</passability>
+		<pathCost>8</pathCost>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>350</WorkToBuild>
+			<Flammability>1</Flammability>
+			<Beauty>15</Beauty>
+			<Mass>1</Mass>
+		</statBases>
+		<designationCategory>Furniture</designationCategory>
+		<researchPrerequisites>
+			<li>ComplexFurnitureII</li>
+		</researchPrerequisites>
+		<designatorDropdown>Decorations</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>Laptop</defName>
+		<label>laptop</label>
+		<thingClass>Building</thingClass>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<clearBuildingArea>false</clearBuildingArea>
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<description>A small, personal computer of a brand favoured by artists across the human diaspora. Whilst not functionally useful to a rimworld colony, it is something of a status symbol to own one.</description>
+		<graphicData>
+			<texPath>Core/Buildings/Laptop/Laptop</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1.3,1.3)</drawSize>
+		</graphicData>
+		<costList>
+			<SimpleElectronic>2</SimpleElectronic>
+			<Plastic>25</Plastic>
+		</costList>
+		<building>
+			<isEdifice>false</isEdifice>
+			<canPlaceOverWall>true</canPlaceOverWall>
+		</building>
+		<passability>Standable</passability>
+		<pathCost>8</pathCost>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>15</MaxHitPoints>
+			<WorkToBuild>1000</WorkToBuild>
+			<Flammability>1</Flammability>
+			<Beauty>10</Beauty>
+			<Mass>1</Mass>
+		</statBases>
+		<designationCategory>Furniture</designationCategory>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<researchPrerequisites>
+			<li>ComplexFurnitureIII</li>
+		</researchPrerequisites>
+		<designatorDropdown>Decorations</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="FurnitureWithQualityBase">
+		<defName>Plushie</defName>
+		<label>plushie</label>
+		<thingClass>Building</thingClass>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<clearBuildingArea>false</clearBuildingArea>
+		<description>A small, cute plush animal in the shape of a stylised bear/cat/dog/bunny. Typically a toy for children, but adults can find them comforting too.</description>
+		<graphicData>
+			<texPath>Core/Buildings/Plushie</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(1.3,1.3)</drawSize>
+		</graphicData>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<costStuffCount>30</costStuffCount>
+		<rotatable>false</rotatable>
+		<building>
+			<isEdifice>false</isEdifice>
+			<canPlaceOverWall>true</canPlaceOverWall>
+		</building>
+		<passability>Standable</passability>
+		<pathCost>8</pathCost>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>5</MaxHitPoints>
+			<WorkToBuild>150</WorkToBuild>
+			<Flammability>1</Flammability>
+			<Beauty>15</Beauty>
+			<Mass>0.03</Mass>
+		</statBases>
+		<designationCategory>Furniture</designationCategory>
+		<researchPrerequisites>
+			<li>ComplexFurnitureIII</li>
+		</researchPrerequisites>
+		<designatorDropdown>Decorations</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="SteleBase">
+		<defName>SkeletonStatue</defName>
+		<label>skeleton statue</label>
+		<description>A sculpted replica of a human skeleton wielding a spear and shield. A grim decoration often placed within catacombs and ossuraries.</description>
+		<graphicData>
+			<texPath>Core/Buildings/SkeletonStatue/SkeletonStatue</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<uiIconScale>0.5</uiIconScale>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<castEdgeShadows>false</castEdgeShadows>
+		<rotatable>True</rotatable>
+		<researchPrerequisites>
+			<li>MonumentsI</li>
+		</researchPrerequisites>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>75</costStuffCount>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>8000</WorkToBuild>
+			<Beauty>15</Beauty>
+			<MeditationFocusStrength>0.15</MeditationFocusStrength>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">20</StyleDominance>
+		</statBases>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Monuments</designatorDropdown>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Artistic</li>
+					<li>Morbid</li>
+				</focusTypes>
+			</li>
+		</comps>
+		<size>(1,1)</size>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+	</ThingDef>
+	<ThingDef ParentName="SteleBase">
+		<defName>ImpStatue</defName>
+		<label>imp statue</label>
+		<description>A grim sculpture depicting a lesser demon perching. Often used to decorate tombs and crypts, it is said to guard the dead and scare away spirits and ghosts.</description>
+		<size>(1,1)</size>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>16000</WorkToBuild>
+			<Beauty>30</Beauty>
+			<MeditationFocusStrength>0.18</MeditationFocusStrength>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">20</StyleDominance>
+		</statBases>
+		<costStuffCount>100</costStuffCount>
+		<uiIconScale>0.6</uiIconScale>
+		<uiIconOffset>(0, 0.04)</uiIconOffset>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<castEdgeShadows>false</castEdgeShadows>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>50</pathCost>
+		<rotatable>false</rotatable>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<graphicData>
+			<texPath>Core/Buildings/ImpStatue/ImpStatue</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<drawOffset>(0,0.1,0)</drawOffset>
+			<shadowData>
+				<volume>(0.6, 0.6, 0.6)</volume>
+				<offset>(0, 0, -0.15)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.1,0.1,1.9,1.9)</rect>
+			</damageData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>MonumentsI</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Monuments</designatorDropdown>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Artistic</li>
+					<li>Morbid</li>
+				</focusTypes>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="SteleBase">
+		<defName>GargoyleStatue</defName>
+		<label>gargoyle statue</label>
+		<description>A sculpture of a Gargoyle, watchdog of the dead often depicted as bat-winged demons able the breath fire and torment the less fortunate. Now they are used as symbols of fear to scare away  the spirits from sacred grounds.</description>
+		<size>(1,1)</size>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>18000</WorkToBuild>
+			<Beauty>40</Beauty>
+			<MeditationFocusStrength>0.19</MeditationFocusStrength>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">20</StyleDominance>
+		</statBases>
+		<costStuffCount>125</costStuffCount>
+		<uiIconScale>0.6</uiIconScale>
+		<uiIconOffset>(0, 0.04)</uiIconOffset>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<castEdgeShadows>false</castEdgeShadows>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>50</pathCost>
+		<rotatable>false</rotatable>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<graphicData>
+			<texPath>Core/Buildings/GargoyleStatue</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<drawOffset>(0,0.1,0)</drawOffset>
+			<shadowData>
+				<volume>(0.6, 0.6, 0.6)</volume>
+				<offset>(0, 0, -0.15)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.1,0.1,1.9,1.9)</rect>
+			</damageData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>MonumentsII</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Monuments</designatorDropdown>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Artistic</li>
+					<li>Morbid</li>
+				</focusTypes>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="SteleBase">
+		<defName>DemonStatue</defName>
+		<label>demon statue</label>
+		<description>A large sculpture depicting a demon. Creature of hell sent to torture the miscreants and wrongdoers alike. Although this is but a statue some believe that malicious spirits inhabits them.</description>
+		<size>(2,2)</size>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToBuild>25000</WorkToBuild>
+			<Beauty>45</Beauty>
+			<MeditationFocusStrength>0.20</MeditationFocusStrength>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">20</StyleDominance>
+		</statBases>
+		<costStuffCount>200</costStuffCount>
+		<uiIconScale>1</uiIconScale>
+		<uiIconOffset>(0, 0.04)</uiIconOffset>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<castEdgeShadows>false</castEdgeShadows>
+		<graphicData>
+			<texPath>Core/Buildings/DemonStatue/DemonStatue</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4.5,4.5)</drawSize>
+			<drawOffset>(0,0.1,0)</drawOffset>
+			<shadowData>
+				<volume>(1, 1, 1)</volume>
+				<offset>(0, 0, -0.15)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.1,0.1,1.9,1.9)</rect>
+			</damageData>
+		</graphicData>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>50</pathCost>
+		<rotatable>false</rotatable>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<inspectorTabs>
+			<li>ITab_Art</li>
+		</inspectorTabs>
+		<researchPrerequisites>
+			<li>MonumentsIII</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<designationCategory>Furniture</designationCategory>
+		<designatorDropdown>Monuments</designatorDropdown>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Artistic</li>
+					<li>Morbid</li>
+				</focusTypes>
+				<compClass>CompQuality</compClass>
+			</li>
+		</comps>
+	</ThingDef>
 </Defs>

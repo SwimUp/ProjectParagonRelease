@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteBeam</defName>
+		<label>Satellite structural beam</label>
+		<description>A structural beam around which a satellite can be constructed. Includes all the necessary conduits and transit pipes for communications, power, and materials transport.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteBeam</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Ship/ShipBeam</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,8)</drawSize>
+			<shadowData>
+				<volume>(2.04, 1.0, 5.75)</volume>
+			</shadowData>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>25000</WorkToBuild>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,6)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+		</building>
+		<costList>
+			<SuperStrongPlates>150</SuperStrongPlates>
+			<Microelectronics>2</Microelectronics>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<MechanismComplex>8</MechanismComplex>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<researchPrerequisites>
+			<li>Satellites</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<uiIconScale>1.2</uiIconScale>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteEngine</defName>
+		<label>Satellite engine</label>
+		<description>An engine capable of keeping a satellite in orbit around a planet and directing its orbit of rotation.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteEngine</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Ship/ShipEngine</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4.25,4.25)</drawSize>
+			<shadowData>
+				<volume>(3.1, 1.0, 3.3)</volume>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Satellites</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(3,4)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+				<energyStorage>1000</energyStorage>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>2500</capacity>
+				<canAutoDrain>false</canAutoDrain>
+				<canManualDrain>false</canManualDrain>
+				<drainFlowSpeedPerDay>250</drainFlowSpeedPerDay>
+				<pipeTypeDef>RocketFuel</pipeTypeDef>
+				<canChangePipeType>false</canChangePipeType>
+				<barSize>1.3, 0.2</barSize>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>15</maxExplosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<damageAmountBase>50</damageAmountBase>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>1</chanceToStartFire>
+				<destroyThingOnExplosionSize>4</destroyThingOnExplosionSize>
+				<startWickHitPointsPercent>0.15</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>0.8~2.0</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+					<min>500</min>
+					<max>900</max>
+				</wickTicks>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<costList>
+			<SuperStrongPlates>150</SuperStrongPlates>
+			<Microelectronics>4</Microelectronics>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<MechanismComplex>10</MechanismComplex>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteSensorCluster</defName>
+		<label>Satellite sensor cluster</label>
+		<description>A multi-function sensor module. Can scan and signal across the void for communications, threat detection, deception, jamming, and other purposes.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteSensorCluster</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Ship/ShipSensorCluster</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Satellites</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>30000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<SuperStrongPlates>50</SuperStrongPlates>
+			<Polymers>100</Polymers>
+			<Microelectronics>10</Microelectronics>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismComplex>4</MechanismComplex>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteSolarGenerator</defName>
+		<label>Satellite solar generator</label>
+		<description>Produces electricity from sunlight in space.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteSolarGenerator</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Things/Building/Power/SolarCollector</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4,4)</drawSize>
+			<shadowData>
+				<volume>(3.5,0.75,3.4)</volume>
+				<offset>(0,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0,0.6,4,2.8)</rect>
+			</damageData>
+		</graphicData>
+		<castEdgeShadows>true</castEdgeShadows>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>8000</WorkToBuild>
+			<Flammability>0.7</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(4,4)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<costList>
+			<SuperStrongPlates>50</SuperStrongPlates>
+			<SolarCell>25</SolarCell>
+			<Microelectronics>4</Microelectronics>
+			<MechanismComplex>2</MechanismComplex>
+		</costList>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+				<energyGenerationPerSecond>0.05</energyGenerationPerSecond>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<designationCategory>Satellites</designationCategory>
+		<constructEffect>ConstructMetal</constructEffect>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>Satellites</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteComputerCore</defName>
+		<label>Satellite computer core</label>
+		<description>A computer core containing complex flight algorithms that will be able to guide the satellite through any tests in its flight.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteComputerCore</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Ship/ShipComputerCore</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<researchPrerequisites>
+			<li>Satellites</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>16000</WorkToBuild>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<costList>
+			<SuperStrongPlates>50</SuperStrongPlates>
+			<Microelectronics>16</Microelectronics>
+			<MechanismComplex>4</MechanismComplex>
+			<DiamondPowder>25</DiamondPowder>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<!--<ThingDef ParentName="BuildingBase">
+		<defName>SatellitePowerTranslator</defName>
+		<label>Power translator</label>
+		<description>Energy translator for connection with the Novax center. Allows you to supply energy to the planet. Satellite with a translator does not store energy.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatellitePowerTranslator</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/PowerTranslator</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>SatellitePowerTranslator</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>30000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<Steel>150</Steel>
+			<Uranium>20</Uranium>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentSpacer>4</ComponentSpacer>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>-->
+	<!---->
+	<!--<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteBeamFocuser</defName>
+		<label>Beam focuser</label>
+		<description>Deadly energy beam focuser. Will allow the satellite to attack targets with a beam. Increasing the number of focusers increases the number of beams and energy requirements.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteBeamFocuser</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/BeamFocuser</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>SatelliteBeamFocuser</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>40000</WorkToBuild>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<Plasteel>100</Plasteel>
+			<Uranium>50</Uranium>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<ComponentSpacer>6</ComponentSpacer>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>-->
+	<!---->
+	<!--<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteOrbitalBombarder</defName>
+		<label>Orbital bombarder</label>
+		<description>Bomb bay loaded with mortar rounds.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteOrbitalBombarder</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/OrbitalBombarder</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>SatelliteOrbitalBombarder</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>30000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<Plasteel>100</Plasteel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentSpacer>4</ComponentSpacer>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>-->
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteCommunicator</defName>
+		<label>Communicator</label>
+		<description>Communication device for communicating with spacecraft.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteCommunicator</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/Communicator</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>SatelliteCommunicator</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>20000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+				<energyGenerationPerSecond>-0.2</energyGenerationPerSecond>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<SuperStrongPlates>50</SuperStrongPlates>
+			<Microelectronics>8</Microelectronics>
+			<MechanismComplex>4</MechanismComplex>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteLander</defName>
+		<label>Lander</label>
+		<description>The lander allows the satellite to make a soft landing on the planet's surface for repairs or upgrades.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteLander</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/Lander</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>SatelliteLander</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>20000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<!-- TODO -->
+			<Steel>100</Steel>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<!--<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteCollector</defName>
+		<label>Collector</label>
+		<description>An advanced space debris collector that captures small pieces of debris and sends them back to earth. Satellites will send cargo once every 15 days. Requires an active landing zone.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteCollector</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/Collector</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>SatelliteCollector</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>30000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+				<energyGenerationPerSecond>-0.2</energyGenerationPerSecond>
+			</li>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatelliteCollector">
+				<dropFilter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+						<li>Steel</li>
+						<li>Plasteel</li>
+						<li>Uranium</li>
+						<li>Gold</li>
+						<li>Jade</li>
+					</thingDefs>
+				</dropFilter>
+				<marketValueRange>250~500</marketValueRange>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<Plasteel>100</Plasteel>
+			<Uranium>50</Uranium>
+			<Gold>25</Gold>
+			<ComponentSpacer>6</ComponentSpacer>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>-->
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteScienceModule</defName>
+		<label>Science module</label>
+		<description>The science module allows you to research technologies 20% faster if the satellite has enough power. The maximum bonus is 100%.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteScienceModule</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/ScienceModule</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>SatelliteScienceModule</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>45000</WorkToBuild>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+				<energyGenerationPerSecond>-0.4</energyGenerationPerSecond>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<SuperStrongPlates>50</SuperStrongPlates>
+			<Microelectronics>12</Microelectronics>
+			<MechanismComplex>6</MechanismComplex>
+			<BulletproofGlass>100</BulletproofGlass>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<!--<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteFoodStorage</defName>
+		<label>Satellite food storage</label>
+		<description>Module for storing food for colonists in space.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteFoodStorage</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/FoodStorage</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>ResidentialSatelliteModule</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>25000</WorkToBuild>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<SuperStrongPlates>150</SuperStrongPlates>
+			<Microelectronics>2</Microelectronics>
+			<MechanismComplex>4</MechanismComplex>
+			<BulletproofGlass>100</BulletproofGlass>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>-->
+	<!---->
+	<ThingDef ParentName="LWM_DeepStorage">
+		<defName>SatelliteStorage</defName>
+		<label>Satellite storage</label>
+		<description>Module for storing objects in space.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteStorage</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Space/Storage</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<defaultPlacingRot>North</defaultPlacingRot>
+		<building>
+			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+			<shipPart>true</shipPart>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>Root</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<filter Inherit="false">
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<researchPrerequisites>
+			<li>SatelliteStorages</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<blockWind>true</blockWind>
+		<blockLight>true</blockLight>
+		<statBases>
+			<WorkToBuild>25000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<passability>PassThroughOnly</passability>
+		<designationCategory>Satellites</designationCategory>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+			<li Class="LWM.DeepStorage.Properties">
+				<maxNumberStacks>1</maxNumberStacks>
+				<minNumberStacks>1</minNumberStacks>
+				<minTimeStoringTakes>200</minTimeStoringTakes>
+				<additionalTimeEachStack>25</additionalTimeEachStack>
+				<overlayType>SumOfItemsPerCell</overlayType>
+				<showContents>false</showContents>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<costList>
+			<SuperStrongPlates>75</SuperStrongPlates>
+			<Microelectronics>2</Microelectronics>
+			<MechanismComplex>8</MechanismComplex>
+			<BulletproofGlass>125</BulletproofGlass>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SatelliteCapsule</defName>
+		<label>Satellite capsule</label>
+		<description>Module for colonists in space.</description>
+		<thingClass>ProjectParagon.Core.Space.Building_SatelliteCapsule</thingClass>
+		<containedPawnsSelectable>true</containedPawnsSelectable>
+		<graphicData>
+			<texPath>Core/Buildings/Space/SatelliteCapsule</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<drawRotated>false</drawRotated>
+			<shadowData>
+				<volume>(1.83, 0.5, 1.73)</volume>
+				<offset>(0,0,-0.05)</offset>
+			</shadowData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>ResidentialSatelliteModule</li>
+		</researchPrerequisites>
+		<rotatable>true</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<size>(2,2)</size>
+		<designationCategory>Satellites</designationCategory>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(2,0,0)</interactionCellOffset>
+		<comps>
+			<li Class="ProjectParagon.Core.Space.CompProperties_SatellitePart">
+			</li>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<inspectorTabs>
+      <li>ITab_ContentsCasket</li>
+    </inspectorTabs>
+		<building>
+			<shipPart>true</shipPart>
+		</building>
+		<costList>
+			<SuperStrongPlates>75</SuperStrongPlates>
+			<Microelectronics>10</Microelectronics>
+			<MechanismComplex>6</MechanismComplex>
+			<BulletproofGlass>75</BulletproofGlass>
+			<Paraffin>75</Paraffin>
+		</costList>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>CenterNovax</defName>
+		<label>Center «Novax»</label>
+		<thingClass>ProjectParagon.Core.Space.Building_Novax</thingClass>
+		<description>Center for space navigation for satellites.</description>
+		<graphicData>
+			<texPath>Core/Buildings/Space/CenterNovax</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>5.3, 5.4</drawSize>
+			<shadowData>
+				<volume>(4.4,0.5,4.1)</volume>
+				<offset>(0,0,-0.5)</offset>
+			</shadowData>
+		</graphicData>
+		<costList>
+			<SuperStrongPlates>150</SuperStrongPlates>
+			<Microelectronics>20</Microelectronics>
+			<MechanismComplex>10</MechanismComplex>
+			<SolarCell>75</SolarCell>
+			<BulletproofGlass>125</BulletproofGlass>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>2000</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>Satellites</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<constructEffect>ConstructMetal</constructEffect>
+		<fillPercent>0.5</fillPercent>
+		<altitudeLayer>Building</altitudeLayer>
+		<blockWind>true</blockWind>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>25000</WorkToBuild>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Flammability>0.1</Flammability>
+			<Mass>400</Mass>
+		</statBases>
+		<size>(5,5)</size>
+		<designationCategory>Satellites</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>60</pathCost>
+		<hasInteractionCell>false</hasInteractionCell>
+		<surfaceType>Item</surfaceType>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<tickerType>Normal</tickerType>
+		<placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<minifiedDef/>
+		<thingCategories Inherit="false"/>
+	</ThingDef>
+	<!---->
+</Defs>

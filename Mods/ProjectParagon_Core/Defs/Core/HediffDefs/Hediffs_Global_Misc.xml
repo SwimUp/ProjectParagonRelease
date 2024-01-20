@@ -70,4 +70,187 @@
 			</li>
 		</stages>
 	</HediffDef>
+	
+	<HediffDef>
+		<defName>JointPain</defName>
+		<label>Joint pain</label>
+		<description>Joint pain caused by external influences.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>1</initialSeverity>
+		<stages>
+			<li>
+				<painOffset>0.1</painOffset>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+			</li>
+		</comps>
+	</HediffDef>
+	
+	<HediffDef ParentName="DiseaseBase">
+		<defName>IceBlockSickness</defName>
+		<label>Deep freeze</label>
+		<description>The creature was frozen for a very long time, which led to a complete loss of mobility for a long time.</description>
+		<makesSickThought>true</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>240000~370000</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<setMax>0.1</setMax>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef ParentName="DiseaseBase">
+		<defName>Domestication</defName>
+		<label>Domestication</label>
+		<description>The more generations of domestication they undergo, the more efficient their breeding will be.</description>
+		<makesSickThought>false</makesSickThought>
+		<isBad>false</isBad>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<maxSeverity>6</maxSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<stages>
+			<li>
+				<label>I</label>
+			</li>
+			<li>
+				<label>II</label>
+				<minSeverity>1</minSeverity>
+				<fertilityFactor>1.1</fertilityFactor>
+				<hungerRateFactor>1.05</hungerRateFactor>
+				<statOffsets>
+					<Domestication>0.25</Domestication>
+				</statOffsets>
+			</li>
+			<li>
+				<label>III</label>
+				<minSeverity>2</minSeverity>
+				<fertilityFactor>1.25</fertilityFactor>
+				<hungerRateFactor>1.10</hungerRateFactor>
+				<statOffsets>
+					<Domestication>0.5</Domestication>
+				</statOffsets>
+			</li>
+			<li>
+				<label>IV</label>
+				<minSeverity>3</minSeverity>
+				<fertilityFactor>1.5</fertilityFactor>
+				<hungerRateFactor>1.15</hungerRateFactor>
+				<statOffsets>
+					<Domestication>1</Domestication>
+				</statOffsets>
+			</li>
+			<li>
+				<label>V</label>
+				<minSeverity>4</minSeverity>
+				<fertilityFactor>1.75</fertilityFactor>
+				<hungerRateFactor>1.20</hungerRateFactor>
+				<statOffsets>
+					<Domestication>1.25</Domestication>
+				</statOffsets>
+			</li>
+			<li>
+				<label>VI</label>
+				<minSeverity>5</minSeverity>
+				<fertilityFactor>2</fertilityFactor>
+				<hungerRateFactor>1.25</hungerRateFactor>
+				<statOffsets>
+					<Domestication>1.5</Domestication>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef ParentName="DiseaseBase">
+		<defName>QualityAnimalFood</defName>
+		<label>Quality animal food</label>
+		<description>The better the quality of the feed, the more production the animal produces.</description>
+		<makesSickThought>false</makesSickThought>
+		<isBad>false</isBad>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<maxSeverity>4</maxSeverity>
+		<initialSeverity>0.001</initialSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<compClass>ProjectParagon.Core.Hediffs.HediffComp_SeverityPerDayHungerRate</compClass>
+				<severityPerDay>-0.5</severityPerDay>
+				<showHoursToRecover>false</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>I</label>
+				<statOffsets>
+					<AnimalProductionSpeed>0.1</AnimalProductionSpeed>
+				</statOffsets>
+			</li>
+			<li>
+				<label>II</label>
+				<minSeverity>1</minSeverity>
+				<statOffsets>
+					<AnimalProductionSpeed>0.2</AnimalProductionSpeed>
+				</statOffsets>
+			</li>
+			<li>
+				<label>III</label>
+				<minSeverity>2</minSeverity>
+				<statOffsets>
+					<AnimalProductionSpeed>0.3</AnimalProductionSpeed>
+				</statOffsets>
+			</li>
+			<li>
+				<label>IV</label>
+				<minSeverity>3</minSeverity>
+				<statOffsets>
+					<AnimalProductionSpeed>0.4</AnimalProductionSpeed>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<HediffDef>
+		<defName>DoomExecutioner</defName>
+		<label>Doom executioner</label>
+		<description>Doom executioner</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>219,100,75</defaultLabelColor>
+		<stages>
+			<li>
+				<restFallFactor>0.3</restFallFactor>
+				<hungerRateFactor>0.2</hungerRateFactor>
+				<totalBleedFactor>0.2</totalBleedFactor>
+				<painFactor>0.0</painFactor>
+				<statFactors>
+					<MeleeHitChance>0.4</MeleeHitChance>
+					<SocialImpact>0</SocialImpact>
+					<MeleeDamageFactor>3</MeleeDamageFactor>
+					<MeleeArmorPenetration>2</MeleeArmorPenetration>
+					<IncomingDamageFactor>0.5</IncomingDamageFactor>
+				</statFactors>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<postFactor>2.0</postFactor>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<postFactor>2.0</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
 </Defs>

@@ -1,23 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+	<!---->
 	<ThingDef ParentName="BuildingBase">
 		<defName>SimpleSteamGenerator</defName>
 		<label>Simple steam generator</label>
 		<description>A simple design for turning water into steam. The resulting steam can be used in machines to generate electricity. Requires water containers and heaters to operate.</description>
 		<thingClass>ProjectParagon.Core.Things.Building_SteamGenerator</thingClass>
 		<graphicData>
-			<texPath>Things/Building/Power/WoodFiredGenerator</texPath>
+			<texPath>Core/Buildings/SimpleSteamGenerator/SimpleSteamGenerator</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2,1)</drawSize>
+			<drawSize>5.9, 5.9</drawSize>
+			<drawOffset>0, 0, 0</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
 		</graphicData>
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
 		<costStuffCount>300</costStuffCount>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsPower</li>
+		</thingCategories>
 		<costList>
-			<ComponentSimple>15</ComponentSimple>
-			<StrongPlates>80</StrongPlates>
-			<MechanismSimple>10</MechanismSimple>
+			<CinderBlock>100</CinderBlock>
+			<ComponentSimple>10</ComponentSimple>
+			<StrongPlates>50</StrongPlates>
+			<MechanismSimple>12</MechanismSimple>
 		</costList>
 		<designatorDropdown>Power_SteamEngines</designatorDropdown>
 		<researchPrerequisites>
@@ -29,12 +38,75 @@
 		<canOverlapZones>true</canOverlapZones>
 		<tickerType>Normal</tickerType>
 		<statBases>
-			<MaxHitPoints>550</MaxHitPoints>
-			<WorkToBuild>4500</WorkToBuild>
-			<Mass>40</Mass>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>8000</WorkToBuild>
+			<Mass>100</Mass>
 			<Flammability>0</Flammability>
 		</statBases>
-		<size>(2,1)</size>
+		<size>(3,3)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designationCategory>Power</designationCategory>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>SimpleSteamGenerator</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamGenerator">
+				<steamCapacity>200</steamCapacity>
+				<maxGeneratedSteamPerIteration>5</maxGeneratedSteamPerIteration>
+			</li>
+		</comps>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>AdvancedSteamGenerator</defName>
+		<label>Advanced steam generator</label>
+		<description>Sophisticated design for turning water into steam. The resulting steam can be used in machines to generate electricity. Requires water containers and heaters to operate.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamGenerator</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/AdvancedSteamGenerator/AdvancedSteamGenerator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>5.9, 5.9</drawSize>
+			<drawOffset>0, 0, 0</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>300</costStuffCount>
+		<costList>
+			<CinderBlock>150</CinderBlock>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<StrongPlates>100</StrongPlates>
+			<MechanismSimple>16</MechanismSimple>
+		</costList>
+		<designatorDropdown>Power_SteamEngines</designatorDropdown>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsPower</li>
+		</thingCategories>
+		<researchPrerequisites>
+			<li>SteamEnergyII</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<canOverlapZones>true</canOverlapZones>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToBuild>12000</WorkToBuild>
+			<Mass>100</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<size>(3,3)</size>
 		<building>
 			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
 		</building>
@@ -52,26 +124,151 @@
 				<maxGeneratedSteamPerIteration>10</maxGeneratedSteamPerIteration>
 			</li>
 		</comps>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
 	</ThingDef>
-	
+	<!---->
 	<ThingDef ParentName="BuildingBase">
-		<defName>AtmosphericSteamEngine</defName>
-		<label>Atmospheric steam engine</label>
-		<description>This machine creates the most common vacuum inside the cylinder, and dumps the remaining steam into the air, creating a rather weak, but very stable source of mechanical energy.</description>
+		<defName>MultistageSteamGenerator</defName>
+		<label>Multistage steam generator</label>
+		<description>Multistage structure for converting water into steam. The resulting steam can be used in machines to generate electricity. Requires water containers and heaters to operate.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamGenerator</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/MultistageSteamGenerator/MultistageSteamGenerator</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>13,13</drawSize>
+			<drawOffset>0, 0, 0</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>400</costStuffCount>
+		<costList>
+			<CinderBlock>200</CinderBlock>
+			<ComponentIndustrial>16</ComponentIndustrial>
+			<StrongPlates>250</StrongPlates>
+			<MechanismSimple>20</MechanismSimple>
+		</costList>
+		<designatorDropdown>Power_SteamEngines</designatorDropdown>
+		<researchPrerequisites>
+			<li>SteamEnergyIII</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<canOverlapZones>true</canOverlapZones>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>25000</WorkToBuild>
+			<Mass>300</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<size>(3,6)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designationCategory>Power</designationCategory>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>MultistageSteamGenerator</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamGenerator">
+				<steamCapacity>600</steamCapacity>
+				<maxGeneratedSteamPerIteration>20</maxGeneratedSteamPerIteration>
+			</li>
+		</comps>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>BlockSteamGenerator</defName>
+		<label>Block steam generator</label>
+		<description>Huge structure for converting water into steam. The resulting steam can be used in machines to generate electricity. Requires water containers and heaters to operate.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamGenerator</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/BlockSteamGenerator/BlockSteamGenerator</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>13,13</drawSize>
+			<drawOffset>0, 0, 0</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<uiIconScale>0.85</uiIconScale>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>500</costStuffCount>
+		<costList>
+			<CinderBlock>300</CinderBlock>
+			<StrongPlates>300</StrongPlates>
+			<ComponentIndustrial>20</ComponentIndustrial>
+			<MechanismComplex>10</MechanismComplex>
+			<SimpleElectronic>4</SimpleElectronic>
+		</costList>
+		<designatorDropdown>Power_SteamEngines</designatorDropdown>
+		<researchPrerequisites>
+			<li>Electronics</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<canOverlapZones>true</canOverlapZones>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>600</MaxHitPoints>
+			<WorkToBuild>35000</WorkToBuild>
+			<Mass>500</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<size>(3,6)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designationCategory>Power</designationCategory>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>BlockSteamGenerator</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamGenerator">
+				<steamCapacity>750</steamCapacity>
+				<maxGeneratedSteamPerIteration>62.5</maxGeneratedSteamPerIteration>
+			</li>
+		</comps>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SmallSteamEngine</defName>
+		<label>Small steam engine</label>
+		<description>This machine converts incoming mechanical energy into electrical energy.</description>
 		<thingClass>ProjectParagon.Core.Things.Building_SteamEngine</thingClass>
 		<graphicData>
-			<texPath>Things/Building/Power/WoodFiredGenerator</texPath>
+			<texPath>Core/Buildings/SmallSteamEngine/SmallSteamEngine</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(2,1)</drawSize>
+			<drawSize>5.9, 5.9</drawSize>
+			<drawOffset>0, 0, 0</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
 		</graphicData>
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
 		<costStuffCount>350</costStuffCount>
 		<costList>
-			<ComponentSimple>15</ComponentSimple>
-			<StrongPlates>150</StrongPlates>
-			<MechanismSimple>30</MechanismSimple>
+			<CinderBlock>100</CinderBlock>
+			<StrongPlates>100</StrongPlates>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<MechanismSimple>12</MechanismSimple>
 		</costList>
 		<designatorDropdown>Power_SteamEngines</designatorDropdown>
 		<researchPrerequisites>
@@ -83,25 +280,19 @@
 		<canOverlapZones>true</canOverlapZones>
 		<tickerType>Normal</tickerType>
 		<statBases>
-			<MaxHitPoints>500</MaxHitPoints>
-			<WorkToBuild>5000</WorkToBuild>
-			<Mass>90</Mass>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>15000</WorkToBuild>
+			<Mass>100</Mass>
 		</statBases>
-		<size>(2,1)</size>
+		<size>(3,3)</size>
 		<building>
 			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
 		</building>
 		<designationCategory>Power</designationCategory>
-		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
-		<placeWorkers>
-			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
-		</placeWorkers>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
 		<comps>
-			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
-				<scheme>AtmosphericSteamEngine</scheme>
-			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_SteamEngine">
-				<steamUsage>1.5</steamUsage>
+				<steamUsage>10</steamUsage>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>ProjectParagon.Core.Things.CompSteamPowerPlant</compClass>
@@ -116,5 +307,142 @@
 			</li>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
 	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>AdvancedSteamEngine</defName>
+		<label>Advanced steam engine</label>
+		<description>This machine converts incoming mechanical energy into electrical energy.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamEngine</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/AdvancedSteamEngine/AdvancedSteamEngine</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>5.9, 5.9</drawSize>
+			<drawOffset>0, 0, 0</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>400</costStuffCount>
+		<costList>
+			<CinderBlock>150</CinderBlock>
+			<StrongPlates>100</StrongPlates>
+			<ComponentIndustrial>12</ComponentIndustrial>
+			<MechanismComplex>8</MechanismComplex>
+			<SimpleElectronic>4</SimpleElectronic>
+		</costList>
+		<designatorDropdown>Power_SteamEngines</designatorDropdown>
+		<researchPrerequisites>
+			<li>Electronics</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<canOverlapZones>true</canOverlapZones>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>20000</WorkToBuild>
+			<Mass>100</Mass>
+		</statBases>
+		<size>(3,3)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designationCategory>Power</designationCategory>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamEngine">
+				<steamUsage>20</steamUsage>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>ProjectParagon.Core.Things.CompSteamPowerPlant</compClass>
+				<basePowerConsumption>-1200</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+				<soundAmbientProducingPower>WoodFiredGenerator_Ambience</soundAmbientProducingPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>13</heatPerSecond>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>BioelectricCapsule</defName>
+		<label>Bioelectric capsule</label>
+		<description>Capsule for extracting energy from living beings. The larger the creature, the more energy can be extracted from it. Gradually kills the creature.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_BioelectricCapsule</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/BioelectricCapsule/BioelectricCapsule</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4.2,4.2)</drawSize>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories inherit="false">
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<size>2,4</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>true</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>20000</WorkToBuild>
+			<Mass>100</Mass>
+		</statBases>
+		<researchPrerequisites>
+			<li>BioelectricCapsule</li>
+		</researchPrerequisites>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<designationCategory>Power</designationCategory>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<Microelectronics>8</Microelectronics>
+			<MechanismComplex>4</MechanismComplex>
+			<StrongPlates>75</StrongPlates>
+			<ShockCrystal>25</ShockCrystal>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>ProjectParagon.Core.Things.CompPowerTraderParagon</compClass>
+				<basePowerConsumption>0</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>ResoniteRace</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+		<inspectorTabs>
+			<li>ITab_ContentsCasket</li>
+		</inspectorTabs>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
+	</ThingDef>
+	<!---->
 </Defs>

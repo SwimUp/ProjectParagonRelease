@@ -3,6 +3,40 @@
 	<Operation Class="PatchOperationSequence">
 		<success>Normal</success>
 		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Wort"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>Wort</defName>
+						<label>wort</label>
+						<description>Un-fermented beer. This substance needs to ferment in a fermenting barrel before it becomes drinkable beer.</description>
+						<graphicData>
+							<texPath>Things/Item/Resource/Wort</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<rotatable>false</rotatable>
+						<stackLimit>25</stackLimit>
+						<thingCategories>
+							<li>Wort</li>
+						</thingCategories>
+						<statBases>
+							<DeteriorationRate>1.0</DeteriorationRate>
+							<MarketValue>2.5</MarketValue>
+							<Mass>0.8</Mass>
+							<Flammability>0.2</Flammability>
+							<MaxHitPoints>60</MaxHitPoints>
+						</statBases>
+						<tickerType>Rare</tickerType>
+						<comps>
+							<li Class="CompProperties_Rottable">
+								<daysToRotStart>5</daysToRotStart>
+								<rotDestroys>true</rotDestroys>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="Bow_Short"]/recipeMaker</xpath>
 				<value>
@@ -15,7 +49,6 @@
 					<researchPrerequisite>ImprovedBows</researchPrerequisite>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[@Name="ChunkRockBase"]</xpath>
 				<value>
@@ -154,45 +187,123 @@
 										</li>
 									</products>
 								</li>
+								<li>
+									<targetRecipe>Make_III_ProcessChunkSlagSteel</targetRecipe>
+									<products>
+										<li>
+											<thingDef>Steel</thingDef>
+											<countRange>2~5</countRange>
+											<produceChance>1</produceChance>
+										</li>
+										<li>
+											<thingDef>BronzeIngot</thingDef>
+											<countRange>2~4</countRange>
+											<produceChance>0.15</produceChance>
+										</li>
+										<li>
+											<thingDef>CopperIngot</thingDef>
+											<countRange>2~6</countRange>
+											<produceChance>0.15</produceChance>
+										</li>
+										<li>
+											<thingDef>TinIngot</thingDef>
+											<countRange>2~6</countRange>
+											<produceChance>0.15</produceChance>
+										</li>
+										<li>
+											<thingDef>BrassIngot</thingDef>
+											<countRange>1~3</countRange>
+											<produceChance>0.15</produceChance>
+										</li>
+										<li>
+											<thingDef>LeadIngot</thingDef>
+											<countRange>1~3</countRange>
+											<produceChance>0.15</produceChance>
+										</li>
+									</products>
+								</li>
+								<li>
+									<targetRecipe>Make_IV_ProcessChunkSlagSteel</targetRecipe>
+									<products>
+										<li>
+											<thingDef>Steel</thingDef>
+											<countRange>3~6</countRange>
+											<produceChance>1</produceChance>
+										</li>
+										<li>
+											<thingDef>BronzeIngot</thingDef>
+											<countRange>2~5</countRange>
+											<produceChance>0.2</produceChance>
+										</li>
+										<li>
+											<thingDef>CopperIngot</thingDef>
+											<countRange>2~6</countRange>
+											<produceChance>0.25</produceChance>
+										</li>
+										<li>
+											<thingDef>TinIngot</thingDef>
+											<countRange>2~6</countRange>
+											<produceChance>0.25</produceChance>
+										</li>
+										<li>
+											<thingDef>BrassIngot</thingDef>
+											<countRange>1~4</countRange>
+											<produceChance>0.2</produceChance>
+										</li>
+										<li>
+											<thingDef>LeadIngot</thingDef>
+											<countRange>1~4</countRange>
+											<produceChance>0.2</produceChance>
+										</li>
+									</products>
+								</li>
+								<li>
+									<targetRecipe>Make_V_ProcessChunkSlagSteel</targetRecipe>
+									<products>
+										<li>
+											<thingDef>Steel</thingDef>
+											<countRange>3~6</countRange>
+											<produceChance>1</produceChance>
+										</li>
+										<li>
+											<thingDef>BronzeIngot</thingDef>
+											<countRange>2~5</countRange>
+											<produceChance>0.25</produceChance>
+										</li>
+										<li>
+											<thingDef>CopperIngot</thingDef>
+											<countRange>2~6</countRange>
+											<produceChance>0.3</produceChance>
+										</li>
+										<li>
+											<thingDef>TinIngot</thingDef>
+											<countRange>2~6</countRange>
+											<produceChance>0.3</produceChance>
+										</li>
+										<li>
+											<thingDef>BrassIngot</thingDef>
+											<countRange>1~4</countRange>
+											<produceChance>0.25</produceChance>
+										</li>
+										<li>
+											<thingDef>LeadIngot</thingDef>
+											<countRange>1~4</countRange>
+											<produceChance>0.25</produceChance>
+										</li>
+									</products>
+								</li>
 							</specialProducts>
 						</li>
 					</comps>
 				</value>
 			</li>
 			
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="GoJuice"]/recipeMaker/researchPrerequisite</xpath>
-				<value>
-					<researchPrerequisite>Narko_AdvancedStimulants</researchPrerequisite>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="Flake"]/recipeMaker/researchPrerequisite</xpath>
-				<value>
-					<researchPrerequisite>Narko_SimpleStimulants</researchPrerequisite>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="Yayo"]/recipeMaker/researchPrerequisite</xpath>
-				<value>
-					<researchPrerequisite>Narko_SimpleStimulants</researchPrerequisite>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="WakeUp"]/recipeMaker/researchPrerequisite</xpath>
-				<value>
-					<researchPrerequisite>Narko_AdvancedStimulants</researchPrerequisite>
-				</value>
-			</li>
-			
 			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="HemogenPack"]/statBases</xpath>
+				<xpath>*/ThingDef[defName="MechSerumHealer"]</xpath>
 				<value>
-					<CalorificValue>8.0</CalorificValue>
-					<BurnoutRate>1.0</BurnoutRate>
+					<techLevel>Spacer</techLevel>
 				</value>
 			</li>
-			
 		</operations>
 	</Operation>
 </Patch>

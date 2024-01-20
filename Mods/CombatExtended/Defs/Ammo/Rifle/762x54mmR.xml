@@ -17,11 +17,10 @@
 			<Ammo_762x54mmR_FMJ>Bullet_762x54mmR_FMJ</Ammo_762x54mmR_FMJ>
 			<Ammo_762x54mmR_AP>Bullet_762x54mmR_AP</Ammo_762x54mmR_AP>
 			<Ammo_762x54mmR_HP>Bullet_762x54mmR_HP</Ammo_762x54mmR_HP>
-			<Ammo_762x54mmR_Incendiary>Bullet_762x54mmR_Incendiary</Ammo_762x54mmR_Incendiary>
+		<!--	<Ammo_762x54mmR_Incendiary>Bullet_762x54mmR_Incendiary</Ammo_762x54mmR_Incendiary>
 			<Ammo_762x54mmR_HE>Bullet_762x54mmR_HE</Ammo_762x54mmR_HE>
-			<Ammo_762x54mmR_Sabot>Bullet_762x54mmR_Sabot</Ammo_762x54mmR_Sabot>				
+			<Ammo_762x54mmR_Sabot>Bullet_762x54mmR_Sabot</Ammo_762x54mmR_Sabot>				 -->
 		</ammoTypes>
-		<similarTo>AmmoSet_Rifle</similarTo>
 	</CombatExtended.AmmoSetDef>
 
 	<!-- ==================== Ammo ========================== -->
@@ -82,7 +81,7 @@
 		<ammoClass>HollowPoint</ammoClass>
 		<cookOffProjectile>Bullet_762x54mmR_HP</cookOffProjectile>
 	</ThingDef>
-
+<!--
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="762x54mmRBase">
 		<defName>Ammo_762x54mmR_Incendiary</defName>
 		<label>7.62x54mmR cartridge (AP-I)</label>
@@ -125,7 +124,7 @@
 		<ammoClass>Sabot</ammoClass>
 		<cookOffProjectile>Bullet_762x54mmR_Sabot</cookOffProjectile>
 	</ThingDef>
-
+-->
 	<!-- ================== Projectiles ================== -->
 
 	<ThingDef Name="Base762x54mmRBullet" ParentName="BaseBullet" Abstract="true">
@@ -145,7 +144,7 @@
 		<label>7.62mmR bullet (FMJ)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>20</damageAmountBase>
-			<armorPenetrationSharp>7</armorPenetrationSharp>
+			<armorPenetrationSharp>12</armorPenetrationSharp>
 			<armorPenetrationBlunt>67.340</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -155,7 +154,7 @@
 		<label>7.62mmR bullet (AP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>12</damageAmountBase>
-			<armorPenetrationSharp>14</armorPenetrationSharp>
+			<armorPenetrationSharp>17</armorPenetrationSharp>
 			<armorPenetrationBlunt>67.340</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -165,11 +164,11 @@
 		<label>7.62mmR bullet (HP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>25</damageAmountBase>
-			<armorPenetrationSharp>4</armorPenetrationSharp>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
 			<armorPenetrationBlunt>67.340</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
+<!--
   <ThingDef ParentName="Base762x54mmRBullet">
     <defName>Bullet_762x54mmR_Incendiary</defName>
     <label>7.62mmR bullet (AP-I)</label>
@@ -212,7 +211,7 @@
       <speed>249</speed>
     </projectile>
   </ThingDef>
-  
+  -->
 	<!-- ==================== Recipes ========================== -->
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -223,22 +222,48 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>28</count>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>95</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x54mmR_FMJ>500</Ammo_762x54mmR_FMJ>
+			<Ammo_762x54mmR_FMJ>150</Ammo_762x54mmR_FMJ>
 		</products>
 		<workAmount>2800</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -249,22 +274,46 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>28</count>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>95</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x54mmR_AP>500</Ammo_762x54mmR_AP>
+			<Ammo_762x54mmR_AP>100</Ammo_762x54mmR_AP>
 		</products>
 		<workAmount>3360</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -275,24 +324,51 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>28</count>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>85</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x54mmR_HP>500</Ammo_762x54mmR_HP>
+			<Ammo_762x54mmR_HP>150</Ammo_762x54mmR_HP>
 		</products>
 		<workAmount>2800</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
 
+<!--
   <RecipeDef ParentName="AdvancedAmmoRecipeBase">
     <defName>MakeAmmo_762x54mmR_Incendiary</defName>
     <label>make 7.62x54mmR (AP-I) cartridge x500</label>
@@ -406,5 +482,5 @@
     </products>
     <workAmount>3600</workAmount>
   </RecipeDef>
-
+-->
 </Defs>

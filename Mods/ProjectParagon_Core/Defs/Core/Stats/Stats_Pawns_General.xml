@@ -1,53 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<StatDef>
-		<defName>BloodTransfusionIntolerance</defName>
-		<label>intolerance to blood transfusion</label>
-		<description>Base chance of death after a blood transfusion.</description>
-		<category>BasicsPawn</category>
-		<defaultBaseValue>0.0</defaultBaseValue>
-		<hideAtValue>0</hideAtValue>
-		<minValue>0.0</minValue>
-		<toStringStyle>PercentZero</toStringStyle>
-		<showOnPawns>true</showOnPawns>
-		<displayPriorityInCategory>1000</displayPriorityInCategory>
-	</StatDef>
-	<StatDef>
-		<defName>BloodAmountPawn</defName>
-		<label>blood amount</label>
-		<description>The normal amount of blood in a pawn's body. As a rule, a drop in blood volume below the middle of the norm is fatal.</description>
-		<category>BasicsPawn</category>
-		<defaultBaseValue>5</defaultBaseValue>
-		<hideAtValue>0</hideAtValue>
-		<workerClass>ProjectParagon.Core.Things.StatWorker_BloodAmountPawn</workerClass>
-		<minValue>0</minValue>
-		<showOnMechanoids>false</showOnMechanoids>
-		<showOnPawns>true</showOnPawns>
-		<toStringStyle>FloatTwo</toStringStyle>
-		<parts>
-			<li Class="StatPart_NaturalNotMissingBodyPartsCoverage"/>
-			<li Class="ProjectParagon.Core.Things.StatPart_BloodLoss">
-				<curve>
-					<points>
-						<li>
-							<loc>
-								<x>0</x>
-								<y>1</y>
-							</loc>
-						</li>
-						<li>
-							<loc>
-								<x>1</x>
-								<y>0.5</y>
-							</loc>
-						</li>
-					</points>
-				</curve>
-			</li>
-		</parts>
-		<displayPriorityInCategory>1000</displayPriorityInCategory>
-	</StatDef>
-	<StatDef>
 		<defName>SandCollectSpeed</defName>
 		<label>sand collect speed</label>
 		<description>debug desc.</description>
@@ -58,7 +11,6 @@
 		<displayPriorityInCategory>1000</displayPriorityInCategory>
 		<alwaysHide>true</alwaysHide>
 	</StatDef>
-	
 	<StatDef>
 		<defName>MuscleBuilding</defName>
 		<label>Muscle building</label>
@@ -70,5 +22,54 @@
 		<showOnPawns>true</showOnPawns>
 		<toStringStyle>FloatTwo</toStringStyle>
 		<displayPriorityInCategory>1000</displayPriorityInCategory>
+	</StatDef>
+	<StatDef>
+		<defName>Domestication</defName>
+		<label>Domestication</label>
+		<description>Modifier for the efficiency of breeding animals for economic needs. Affects the amount of products obtained and grows from generation to generation.</description>
+		<workerClass>ProjectParagon.Core.Stats.StatWorker_Domestication</workerClass>
+		<category>BasicsPawn</category>
+		<defaultBaseValue>1</defaultBaseValue>
+		<minValue>1</minValue>
+		<showOnMechanoids>false</showOnMechanoids>
+		<showOnPawns>true</showOnPawns>
+		<toStringStyle>FloatTwo</toStringStyle>
+		<displayPriorityInCategory>1000</displayPriorityInCategory>
+	</StatDef>
+	<StatDef>
+		<defName>AnimalProductionSpeed</defName>
+		<label>Animal production speed</label>
+		<description>Modifier for the rate at which a creature lays eggs, produces milk or other products.</description>
+		<workerClass>ProjectParagon.Core.Stats.StatWorker_AnimalProductionSpeed</workerClass>
+		<category>BasicsPawn</category>
+		<defaultBaseValue>1</defaultBaseValue>
+		<minValue>1</minValue>
+		<showOnMechanoids>false</showOnMechanoids>
+		<showOnPawns>true</showOnPawns>
+		<toStringStyle>FloatTwo</toStringStyle>
+		<displayPriorityInCategory>1000</displayPriorityInCategory>
+		<parts>
+			<li Class="ProjectParagon.Core.Stats.StatPart_Domestication">
+				<curve>
+					<points>
+						<li>(0, 0)</li>
+						<li>(1, 1)</li>
+						<li>(2.5, 2)</li>
+					</points>
+				</curve>
+			</li>
+			<li Class="StatPart_Glow">
+				<humanlikeOnly>false</humanlikeOnly>
+				<factorFromGlowCurve>
+				  <points>
+					<li>(0,0.5)</li>
+					<li>(0.30,1.00)</li>
+					<li>(1,1.25)</li>
+				  </points>
+				</factorFromGlowCurve>
+				<ignoreIfIncapableOfSight>false</ignoreIfIncapableOfSight>
+				<ignoreIfPrefersDarkness>false</ignoreIfPrefersDarkness>
+			  </li>
+		</parts>
 	</StatDef>
 </Defs>

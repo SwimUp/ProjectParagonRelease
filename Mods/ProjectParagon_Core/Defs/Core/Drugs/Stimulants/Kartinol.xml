@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>Kartinol</defName>
+		<label>Kartinol</label>
+		<description>Sterile disposable syringe with a dose of kartinol. Dangerous if used repeatedly.</description>
+		<possessionCount>10</possessionCount>
+		<descriptionHyperlinks>
+			<HediffDef>KartinolHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Stimulants/Kartinol</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToMake>2500</WorkToMake>
+			<MarketValue>50</MarketValue>
+			<Mass>0.005</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<ingestible>
+			<drugCategory>Hard</drugCategory>
+			<foodType>Processed, Fluid</foodType>
+			<baseIngestTicks>40</baseIngestTicks>
+			<ingestSound>Ingest_Inject</ingestSound>
+			<ingestCommandString>Inject {0}</ingestCommandString>
+			<ingestReportString>Injecting {0}.</ingestReportString>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<chairSearchRadius>0</chairSearchRadius>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>KartinolHigh</hediffDef>
+					<severity>0.95</severity>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_HeartAttackByHediff">
+					<parentHediffDef>KartinolHigh</parentHediffDef>
+					<parentSeverityRange>0.96~1</parentSeverityRange>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker Class="ProjectParagon.Core.Things.RecipeMakerPropertiesParagon">
+			<researchPrerequisite>Narko_InjectableStimulants</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>DrugLab</li>
+			</recipeUsers>
+			<extraRecipeItems>
+				<li>
+					<thingDef>Cyclinder_Empty</thingDef>
+					<count>2</count>
+				</li>
+			</extraRecipeItems>
+			<productCount>4</productCount>
+		</recipeMaker>
+		<costList>
+			<Glass>4</Glass>
+			<Neutroamine>2</Neutroamine>
+			<Cyclinder_Nitrogen>1</Cyclinder_Nitrogen>
+			<Cyclinder_Hydrogen>1</Cyclinder_Hydrogen>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+				<isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>KartinolHigh</defName>
+		<hediffClass>Hediff_High</hediffClass>
+		<label>Kartinol</label>
+		<description>Kartinol effect.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>normal</label>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.5</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.95</minSeverity>
+				<label>overdose</label>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.75</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

@@ -4,6 +4,97 @@
 		<success>Normal</success>
 		<operations>
 			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="CommsConsole"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>CommsConsole</defName>
+						<label>comms console</label>
+						<description>Allows radio contact with other factions and orbital traders.</description>
+						<thingClass>Building_CommsConsole</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Misc/CommsConsole</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(5,4)</drawSize>
+							<damageData>
+								<rect>(0,0,3,1.8)</rect>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+							<shadowData>
+								<volume>(3,0.5,2)</volume>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<blockWind>true</blockWind>
+						<castEdgeShadows>false</castEdgeShadows>
+						<fillPercent>0.5</fillPercent>
+						<canOverlapZones>false</canOverlapZones>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<WorkToBuild>2200</WorkToBuild>
+							<Flammability>0.6</Flammability>
+						</statBases>
+						<size>(3,2)</size>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+						</building>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>150</costStuffCount>
+						<costList>
+							<ComponentIndustrial>5</ComponentIndustrial>
+							<MechanismComplex>5</MechanismComplex>
+							<Microelectronics>15</Microelectronics>
+							<StrongPlates>150</StrongPlates>
+						</costList>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<hasInteractionCell>true</hasInteractionCell>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<designationCategory>Misc</designationCategory>
+						<uiOrder>2100</uiOrder>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<shortCircuitInRain>true</shortCircuitInRain>
+								<basePowerConsumption>500</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Breakdownable"/>
+							<li Class="CompProperties_Usable" MayRequire="Ludeon.RimWorld.Biotech">
+								<useJob>TriggerObject</useJob>
+								<useLabel>Summon diabolus threat</useLabel>
+								<useDuration>900</useDuration>
+								<floatMenuOptionPriority>SummonThreat</floatMenuOptionPriority>
+								<floatMenuFactionIcon>Mechanoid</floatMenuFactionIcon>
+								<ignoreOtherReservations>true</ignoreOtherReservations>
+							</li>
+							<li Class="CompProperties_Useable_CallBossgroup" MayRequire="Ludeon.RimWorld.Biotech">
+								<bossgroupDef>Diabolus</bossgroupDef>
+								<spawnLetterLabelKey>LetterLabelCommsConsoleSpawned</spawnLetterLabelKey>
+								<spawnLetterTextKey>LetterCommsConsoleSpawned</spawnLetterTextKey>
+								<effecterDef>CommsConsoleBossgroupSummoned</effecterDef>
+								<delayTicks>120</delayTicks>
+							</li>
+						</comps>
+						<designationHotKey>Misc3</designationHotKey>
+						<placeWorkers>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>SatelliteCommunicator</li>
+						</researchPrerequisites>
+						<constructionSkillPrerequisite>15</constructionSkillPrerequisite>
+						<tickerType MayRequire="Ludeon.RimWorld.Biotech">Normal</tickerType>
+						<!-- used by call bossgroup -->
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="EggBox"]</xpath>
 				<value>
 					<ThingDef ParentName="BuildingBase">
@@ -545,9 +636,14 @@
 						<researchPrerequisites>
 							<li>DecorationsII</li>
 						</researchPrerequisites>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>30</costStuffCount>
 						<costList>
-							<Steel>30</Steel>
+							<Plastic>80</Plastic>
 							<ComponentIndustrial>1</ComponentIndustrial>
+							<SimpleElectronic>2</SimpleElectronic>
 						</costList>
 						<building>
 							<relatedBuildCommands>
@@ -624,9 +720,14 @@
 						<researchPrerequisites>
 							<li>DecorationsII</li>
 						</researchPrerequisites>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>35</costStuffCount>
 						<costList>
-							<Steel>80</Steel>
+							<Plastic>100</Plastic>
 							<ComponentIndustrial>2</ComponentIndustrial>
+							<SimpleElectronic>2</SimpleElectronic>
 						</costList>
 						<building>
 							<relatedBuildCommands>
@@ -1778,7 +1879,6 @@
 					</ThingDef>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="ToolCabinet"]</xpath>
 				<value>
@@ -1850,29 +1950,12 @@
 					</ThingDef>
 				</value>
 			</li>
-			
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="ShipLandingBeacon"]/researchPrerequisites</xpath>
-				<value>
-					<researchPrerequisites>
-						<li>MultiAnalyzer</li>
-					</researchPrerequisites>
-				</value>
-			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="PollutionPump"]/researchPrerequisites</xpath>
 				<value>
 					<researchPrerequisites>
 						<li>MultiAnalyzer</li>
 					</researchPrerequisites>
-				</value>
-			</li>
-			
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="ShipLandingBeacon"]/statBases</xpath>
-				<value>
-					<HeatingEfficiency>0.01</HeatingEfficiency>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -1884,7 +1967,6 @@
 							<glowColor>(460, 220, 205, 0)</glowColor>
 						</li>
 						<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
-							<fuelConsumptionRate>1.5</fuelConsumptionRate>
 							<fuelCapacity>20.0</fuelCapacity>
 							<initialFuelPercent>0.1</initialFuelPercent>
 							<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
@@ -1930,7 +2012,607 @@
 					</comps>
 				</value>
 			</li>
-			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MoisturePump"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>MoisturePump</defName>
+						<label>moisture pump</label>
+						<description>Very slowly equalizes moisture in nearby terrain, converting marshes or shallow water into dry ground, and soft sand into normal sand. Does not affect deep water.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/MoisturePump</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shadowData>
+								<volume>(0.58, 0.35, 0.25)</volume>
+								<offset>(0,0,-0.1)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.2,0.2,0.6,0.6)</rect>
+							</damageData>
+						</graphicData>
+						<comps>
+							<li Class="CompProperties_Forbiddable"/>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>150</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_TerrainPumpDry">
+								<soundWorking>MoisturePump_Ambience</soundWorking>
+								<radius>6.9</radius>
+								<daysToRadius>60</daysToRadius>
+							</li>
+						</comps>
+						<tickerType>Rare</tickerType>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>1500</WorkToBuild>
+							<Flammability>1.0</Flammability>
+							<Beauty>-8</Beauty>
+						</statBases>
+						<fillPercent>0.15</fillPercent>
+						<building>
+							<ai_chillDestination>false</ai_chillDestination>
+							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+						</building>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<SimpleElectronic>5</SimpleElectronic>
+							<ComponentIndustrial>5</ComponentIndustrial>
+							<MechanismComplex>8</MechanismComplex>
+						</costList>
+						<specialDisplayRadius>6.9</specialDisplayRadius>
+						<pathCost>30</pathCost>
+						<passability>PassThroughOnly</passability>
+						<designationCategory>Misc</designationCategory>
+						<rotatable>false</rotatable>
+						<researchPrerequisites>
+							<li>MoisturePump</li>
+						</researchPrerequisites>
+						<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ShipLandingBeacon"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>ShipLandingBeacon</defName>
+						<label>ship landing beacon</label>
+						<description>Marks the corner of a landing area. Four of these placed at the corners of a clear area (minimum 9x9) create a landing pad. Spacecraft usually land on pads if possible.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/ShipLandingBeacon</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shadowData>
+								<volume>(0.3, 0.2, 0.3)</volume>
+								<offset>(0,0,-0.1)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.2,0.2,0.6,0.6)</rect>
+							</damageData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<statBases>
+							<MaxHitPoints>75</MaxHitPoints>
+							<WorkToBuild>1250</WorkToBuild>
+							<Flammability>0.5</Flammability>
+							<Mass>5</Mass>
+						</statBases>
+						<tickerType>Rare</tickerType>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<fillPercent>0.15</fillPercent>
+						<costList>
+							<ComponentIndustrial>2</ComponentIndustrial>
+							<Microelectronics>2</Microelectronics>
+							<Plastic>50</Plastic>
+						</costList>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>50</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>2</glowRadius>
+								<glowColor>(164, 255, 138, 0)</glowColor>
+							</li>
+							<li Class="CompProperties_ShipLandingBeacon">
+								<edgeLengthRange>9~25</edgeLengthRange>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Breakdownable"/>
+						</comps>
+						<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+						<displayNumbersBetweenSameDefDistRange>9~25</displayNumbersBetweenSameDefDistRange>
+						<pathCost>14</pathCost>
+						<designationCategory>Misc</designationCategory>
+						<uiOrder>2100</uiOrder>
+						<rotatable>false</rotatable>
+						<placeWorkers>
+							<li>PlaceWorker_ShipLandingBeacon</li>
+						</placeWorkers>
+						<designationHotKey>Misc2</designationHotKey>
+						<researchPrerequisites>
+							<li>MicroelectronicsBasics</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="LongRangeMineralScanner"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>LongRangeMineralScanner</defName>
+						<label>long-range mineral scanner</label>
+						<description>A lateral sensor unit used by researchers to detect a specific type of mineral across the planet. The chance to find a resource depends on the operator's research ability. This sensor can be tuned to target a specific resource type. It consumes a lot of electricity. If you find a resource, you'll need to travel to collect it.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/LongRangeMineralScanner</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(4, 4)</drawSize>
+							<shadowData>
+								<volume>(1.4, 0.4, 1.4)</volume>
+								<offset>(0,0,-0.1)</offset>
+							</shadowData>
+						</graphicData>
+						<costList>
+							<Steel>200</Steel>
+							<ComponentIndustrial>6</ComponentIndustrial>
+							<ComponentSpacer>2</ComponentSpacer>
+						</costList>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+						</building>
+						<comps>
+							<li Class="CompProperties_Forbiddable"/>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>700</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Breakdownable"/>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_LongRangeMineralScanner">
+								<scanSpeedStat>ResearchSpeed</scanSpeedStat>
+								<scanFindMtbDays>4</scanFindMtbDays>
+								<scanFindGuaranteedDays>8</scanFindGuaranteedDays>
+								<soundWorking>ScannerLongRangeMineral_Ambience</soundWorking>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_NotUnderRoof</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<altitudeLayer>Building</altitudeLayer>
+						<canBeUsedUnderRoof>false</canBeUsedUnderRoof>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<WorkToBuild>10000</WorkToBuild>
+							<Flammability>0.5</Flammability>
+							<Beauty>-8</Beauty>
+						</statBases>
+						<fillPercent>0.40</fillPercent>
+						<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<rotatable>true</rotatable>
+						<hasInteractionCell>true</hasInteractionCell>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<interactionCellIcon>DiningChair</interactionCellIcon>
+						<interactionCellIconReverse>true</interactionCellIconReverse>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<canOverlapZones>false</canOverlapZones>
+						<size>(3, 3)</size>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="OrbitalTradeBeacon"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>OrbitalTradeBeacon</defName>
+						<label>orbital trade beacon</label>
+						<thingClass>Building_OrbitalTradeBeacon</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Misc/DropBeacon</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shadowData>
+								<volume>(0.3, 0.2, 0.3)</volume>
+								<offset>(0,0,-0.1)</offset>
+							</shadowData>
+							<damageData>
+								<rect>(0.2,0.2,0.6,0.6)</rect>
+							</damageData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<statBases>
+							<MaxHitPoints>75</MaxHitPoints>
+							<WorkToBuild>800</WorkToBuild>
+							<Flammability>0.5</Flammability>
+							<Mass>5</Mass>
+						</statBases>
+						<description>Required for orbital trading. You can only sell goods to orbital traders if they're near an orbital trade beacon. Can be placed indoors.</description>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+						<fillPercent>0.15</fillPercent>
+						<costList>
+							<Plastic>30</Plastic>
+							<ComponentIndustrial>1</ComponentIndustrial>
+							<Microelectronics>1</Microelectronics>
+						</costList>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+						</building>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>50</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Breakdownable"/>
+						</comps>
+						<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+						<pathCost>14</pathCost>
+						<designationCategory>Misc</designationCategory>
+						<uiOrder>2100</uiOrder>
+						<rotatable>false</rotatable>
+						<placeWorkers>
+							<li>PlaceWorker_ShowTradeBeaconRadius</li>
+						</placeWorkers>
+						<designationHotKey>Misc2</designationHotKey>
+						<researchPrerequisites>
+							<li>SatelliteCommunicator</li>
+						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SleepAccelerator"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>SleepAccelerator</defName>
+						<label>sleep accelerator</label>
+						<description>A bedside device that accelerates the sleeper's circadian rhythm. This speeds up sleep, but consumes a lot of electricity and also causes increased hunger. It must be placed directly adjacent to and facing the head of the bed. Placing more than one sleep accelerator near the same bed has no effect.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/SleepAccelerator/SleepAccelerator</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<shadowData>
+								<volume>(0.55, 0.30, 0.40)</volume>
+							</shadowData>
+							<damageData>
+								<rectN>(0.078125,0.46875,0.859375,0.53125)</rectN>
+								<rectS>(0.078125,0.46875,0.859375,0.53125)</rectS>
+								<rectE>(0.125,0.46875,0.625,0.296875)</rectE>
+								<rectW>(0.25,0.46875,0.625,0.296875)</rectW>
+								<cornerTR>Damage/Corner</cornerTR>
+							</damageData>
+						</graphicData>
+						<uiIconScale>0.7</uiIconScale>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<researchPrerequisites>
+							<li>FlatscreenTelevision</li>
+						</researchPrerequisites>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.2</fillPercent>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>6000</WorkToBuild>
+							<Mass>20</Mass>
+							<Flammability>0.7</Flammability>
+						</statBases>
+						<size>(1,1)</size>
+						<costList>
+							<StrongPlates>150</StrongPlates>
+							<ComponentIndustrial>6</ComponentIndustrial>
+							<MechanismComplex>4</MechanismComplex>
+							<Microelectronics>8</Microelectronics>
+						</costList>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+						</building>
+						<designationCategory>Ideology</designationCategory>
+						<uiOrder>2510</uiOrder>
+						<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<tickerType>Normal</tickerType>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>100</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_FacilityInUse">
+								<inUsePowerConsumption>500</inUsePowerConsumption>
+								<effectInUse>SleepAcceleratorActive</effectInUse>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<BedRestEffectiveness>0.35</BedRestEffectiveness>
+									<BedHungerRateFactor>0.20</BedHungerRateFactor>
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+								<mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+								<mustBePlacedAdjacentCardinalToAndFacingBedHead>true</mustBePlacedAdjacentCardinalToAndFacingBedHead>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Autobong"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>Autobong</defName>
+						<label>autobong</label>
+						<description>An automatic smokeleaf-burning device which generates a smoke cloud around itself. Anyone in the cloud will become high on smokeleaf over time.</description>
+						<category>Building</category>
+						<graphicData>
+							<texPath>Things/Building/Misc/Autobong/Autobong</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(2,2)</drawSize>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<uiIconPath>Things/Building/Misc/Autobong/Autobong</uiIconPath>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>42</pathCost>
+						<tickerType>Normal</tickerType>
+						<drawerType>RealtimeOnly</drawerType>
+						<fillPercent>0.20</fillPercent>
+						<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+						<size>(2,2)</size>
+						<statBases>
+							<MaxHitPoints>80</MaxHitPoints>
+							<WorkToBuild>800</WorkToBuild>
+						</statBases>
+						<selectable>true</selectable>
+						<costList>
+							<SmokeleafLeaves>25</SmokeleafLeaves>
+							<ComponentIndustrial>2</ComponentIndustrial>
+							<Microelectronics>2</Microelectronics>
+						</costList>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>150</costStuffCount>
+						<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+						<researchPrerequisites>
+							<li>FlatscreenTelevision</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_Refuelable">
+								<fuelConsumptionRate>1.66</fuelConsumptionRate>
+								<fuelCapacity>25.0</fuelCapacity>
+								<fuelFilter>
+									<thingDefs>
+										<li>SmokeleafLeaves</li>
+									</thingDefs>
+								</fuelFilter>
+								<initialFuelPercent>1</initialFuelPercent>
+								<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+								<consumeFuelOnlyWhenPowered>true</consumeFuelOnlyWhenPowered>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>10</glowRadius>
+								<glowColor>(252,187,113,0)</glowColor>
+							</li>
+							<li>
+								<compClass>CompGatherSpot</compClass>
+							</li>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>150</basePowerConsumption>
+								<shortCircuitInRain>true</shortCircuitInRain>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_GiveHediffSeverity">
+								<hediff>SmokeleafHigh</hediff>
+								<range>4.9</range>
+								<severityPerSecond>0.005</severityPerSecond>
+								<drugExposure>true</drugExposure>
+								<chemical>Smokeleaf</chemical>
+								<allowMechs>false</allowMechs>
+							</li>
+							<li Class="CompProperties_SmokeCloudMaker">
+								<sourceStreamEffect>BurnbongSmoke</sourceStreamEffect>
+								<cloudRadius>4.9</cloudRadius>
+								<fleckScale>4</fleckScale>
+								<cloudFleck>AutobongSmoke</cloudFleck>
+								<fleckSpawnMTB>25</fleckSpawnMTB>
+							</li>
+						</comps>
+						<designationCategory>Ideology</designationCategory>
+						<uiOrder>2110</uiOrder>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+						<placeWorkers>
+							<li>PlaceWorker_SmokeCloudMaker</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GroundPenetratingScanner"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>GroundPenetratingScanner</defName>
+						<label>ground-penetrating scanner</label>
+						<description>A sensor unit used by researchers to search for buried resources. The chance to find a resource depends on the operator's research ability. It consumes a lot of electricity. If you find a buried resource, you'll need to use deep drills to extract it. It doesn't work under a roof.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/GroundPenetratingScanner</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>2.65</drawSize>
+							<drawRotated>false</drawRotated>
+							<drawOffset>(0,0,-0.05)</drawOffset>
+							<shadowData>
+								<volume>(1.6875, 0.375, 2.125)</volume>
+								<offset>(0,0,-0.12)</offset>
+							</shadowData>
+						</graphicData>
+						<costList>
+							<Steel>150</Steel>
+							<ComponentIndustrial>4</ComponentIndustrial>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+						</building>
+						<comps>
+							<li Class="CompProperties_Forbiddable"/>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>700</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Breakdownable"/>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_ScannerMineralsDeep">
+								<scanSpeedStat>ResearchSpeed</scanSpeedStat>
+								<scanFindMtbDays>3</scanFindMtbDays>
+								<scanFindGuaranteedDays>6</scanFindGuaranteedDays>
+								<soundWorking>ScannerGroundPenetrating_Ambience</soundWorking>
+							</li>
+						</comps>
+						<altitudeLayer>Building</altitudeLayer>
+						<canBeUsedUnderRoof>false</canBeUsedUnderRoof>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<WorkToBuild>12000</WorkToBuild>
+							<Flammability>0.5</Flammability>
+							<Beauty>-8</Beauty>
+						</statBases>
+						<hasInteractionCell>true</hasInteractionCell>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<interactionCellIcon>DiningChair</interactionCellIcon>
+						<interactionCellIconReverse>true</interactionCellIconReverse>
+						<fillPercent>0.40</fillPercent>
+						<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<rotatable>true</rotatable>
+						<canOverlapZones>false</canOverlapZones>
+						<size>(3,3)</size>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<placeWorkers>
+							<li>PlaceWorker_NotUnderRoof</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<!-- to match long range mineral scanner -->
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ShipChunk"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>ShipChunk</defName>
+						<label>ship chunk</label>
+						<description>A chunk of a spacecraft. It seems to have been torn off either by uncontrolled re-entry forces or some kind of weapon.\n\nHaving landed not long ago, it still contains useful resources which you can acquire by deconstructing it.</description>
+						<category>Building</category>
+						<graphicData>
+							<texPath>Things/Building/Exotic/ShipChunk</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+							<drawSize>(2,2)</drawSize>
+							<damageData>
+								<rect>(0.1,0.1,1.8,1.8)</rect>
+							</damageData>
+							<shadowData>
+								<volume>(1.39,0.5,1.25)</volume>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<pathCost>42</pathCost>
+						<blockWind>true</blockWind>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.50</fillPercent>
+						<size>(2,2)</size>
+						<statBases>
+							<MaxHitPoints>300</MaxHitPoints>
+							<Flammability>0</Flammability>
+							<Beauty>-20</Beauty>
+							<WorkToBuild>12000</WorkToBuild>
+						</statBases>
+						<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+						<killedLeavings>
+							<ChunkSlagSteel>4</ChunkSlagSteel>
+							<ComponentIndustrial>1</ComponentIndustrial>
+							<MechanismComplex>1</MechanismComplex>
+							<Steel>25</Steel>
+							<Wire>4</Wire>
+						</killedLeavings>
+						<costList>
+							<ComponentIndustrial>8</ComponentIndustrial>
+							<MechanismComplex>8</MechanismComplex>
+							<Wire>50</Wire>
+							<Steel>150</Steel>
+						</costList>
+						<building>
+							<claimable>false</claimable>
+							<alwaysDeconstructible>true</alwaysDeconstructible>
+						</building>
+						<selectable>true</selectable>
+						<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+						<drawerType>MapMeshOnly</drawerType>
+						<repairEffect>ConstructMetal</repairEffect>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ShuttleCrashed"]</xpath>
+				<value>
+					<ThingDef ParentName="ShuttleBase" Name="ShuttleCrashedBase">
+						<defName>ShuttleCrashed</defName>
+						<label>crashed shuttle</label>
+						<graphicData>
+							<texPath>Things/Building/Misc/CrashedShuttle</texPath>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<Flammability>1</Flammability>
+							<WorkToBuild>800</WorkToBuild>
+						</statBases>
+						<comps Inherit="False"/>
+						<killedLeavings Inherit="False">
+							<ComponentIndustrial>1</ComponentIndustrial>
+							<MechanismComplex>1</MechanismComplex>
+							<ChunkSlagSteel>4</ChunkSlagSteel>
+							<Steel>25</Steel>
+						</killedLeavings>
+						<costList>
+							<ComponentIndustrial>6</ComponentIndustrial>
+							<MechanismComplex>6</MechanismComplex>
+							<Wire>30</Wire>
+							<Steel>100</Steel>
+						</costList>
+						<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+						<preventSkyfallersLandingOn>true</preventSkyfallersLandingOn>
+						<building Inherit="False">
+							<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+							<claimable>false</claimable>
+							<alwaysDeconstructible>true</alwaysDeconstructible>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 </Patch>

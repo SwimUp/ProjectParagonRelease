@@ -9,6 +9,7 @@
 		<fixedBillGiverDefs>
 			<li>AlchemyStance</li>
 			<li>ChemicalStation</li>
+			<li>DrugLab</li>
 		</fixedBillGiverDefs>
 		<verb>synthesize</verb>
 		<gerund>Synthesizing on</gerund>
@@ -16,10 +17,9 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>DoBillsCookCookingPot</defName>
-		<label>cook meals at cooking pot</label>
+		<label>cook meals</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillExtended</giverClass>
 		<workType>Cooking</workType>
 		<priorityInType>97</priorityInType>
@@ -31,6 +31,7 @@
 			<li>Juicer</li>
 			<li>ElectricStove</li>
 			<li>FueledStove</li>
+			<li>ElectricTeapot</li>
 		</fixedBillGiverDefs>
 		<verb>cook</verb>
 		<gerund>cooking at</gerund>
@@ -39,7 +40,6 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
-
 	<WorkGiverDef>
 		<defName>DoFillResearchResourcesBox</defName>
 		<label>haul resources for research</label>
@@ -55,11 +55,10 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-
 	<WorkGiverDef>
-		<defName>DoFillItemRecycler_WaterMill</defName>
-		<label>haul resources for water mill</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_FillItemRecycler_Watermill</giverClass>
+		<defName>DoFillItemRecycler</defName>
+		<label>haul resources</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_FillItemRecycler</giverClass>
 		<workType>Hauling</workType>
 		<priorityInType>50</priorityInType>
 		<verb>haul</verb>
@@ -68,33 +67,6 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-
-	<WorkGiverDef>
-		<defName>DoFillItemRecycler_Windmill</defName>
-		<label>haul resources for wind mill</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_FillItemRecycler_Windmill</giverClass>
-		<workType>Hauling</workType>
-		<priorityInType>50</priorityInType>
-		<verb>haul</verb>
-		<gerund>hauling</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>
-	
-	<WorkGiverDef>
-		<defName>DoFillItemRecycler_SilkPress</defName>
-		<label>haul resources for silk press</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_FillItemRecycler_SilkPress</giverClass>
-		<workType>Hauling</workType>
-		<priorityInType>50</priorityInType>
-		<verb>haul</verb>
-		<gerund>hauling</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>
-
 	<WorkGiverDef>
 		<defName>DoCultureBlueprint</defName>
 		<label>create blueprint</label>
@@ -107,7 +79,6 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>DoFillCompostPit</defName>
 		<label>haul resources for composting</label>
@@ -123,8 +94,6 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-
-
 	<WorkGiverDef Abstract="true" Name="CollectBase">
 		<workType>Mining</workType>
 		<priorityInType>20</priorityInType>
@@ -136,7 +105,6 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-
 	<WorkGiverDef ParentName="CollectBase">
 		<defName>CollectSand</defName>
 		<label>collect sand</label>
@@ -174,7 +142,6 @@
 		<workType>Growing</workType>
 		<priorityInType>50</priorityInType>
 	</WorkGiverDef>
-
 	<WorkGiverDef>
 		<defName>DoBills_RepairTable</defName>
 		<label>Repair</label>
@@ -183,6 +150,8 @@
 		<priorityInType>200</priorityInType>
 		<fixedBillGiverDefs>
 			<li>SimpleRepairTable</li>
+			<li>IndustrialRepairTable</li>
+			<li>SpacerRepairTable</li>
 		</fixedBillGiverDefs>
 		<verb>Repairing</verb>
 		<gerund>Repairing on</gerund>
@@ -191,7 +160,6 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
-
 	<WorkGiverDef>
 		<defName>DoBills_Examine</defName>
 		<label>Examine</label>
@@ -208,7 +176,6 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>DoBills_Excavate</defName>
 		<label>Excavate</label>
@@ -225,8 +192,20 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
-	
-	  <WorkGiverDef>
+	<!--<WorkGiverDef>
+		<defName>FillSatelliteFoodStorage</defName>
+		<label>Fill satellite food storage</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_FillSatelliteFoodStorage</giverClass>
+		<workType>Hauling</workType>
+		<priorityInType>200</priorityInType>
+		<verb>Fill satellite food storage</verb>
+		<gerund>Fill satellite food storage</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>-->
+	<WorkGiverDef>
 		<defName>ConstructFinishTerraformFrame</defName>
 		<label>construct placed frames</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_ConstructFinishTerraformFrame</giverClass>
@@ -235,14 +214,13 @@
 		<verb>construct</verb>
 		<gerund>constructing</gerund>
 		<requiredCapacities>
-		  <li>Manipulation</li>
+			<li>Manipulation</li>
 		</requiredCapacities>
 		<nonColonistsCanDo>true</nonColonistsCanDo>
 		<prioritizeSustains>true</prioritizeSustains>
 		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
-	  </WorkGiverDef>
-	  
-	  <WorkGiverDef>
+	</WorkGiverDef>
+	<WorkGiverDef>
 		<defName>ConstructDeliverResourcesToTerraformFrames</defName>
 		<label>deliver resources to frames</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_ConstructDeliverResourcesToTerraformFrames</giverClass>
@@ -251,30 +229,28 @@
 		<verb>work on</verb>
 		<gerund>working on</gerund>
 		<requiredCapacities>
-		  <li>Manipulation</li>
+			<li>Manipulation</li>
 		</requiredCapacities>
 		<nonColonistsCanDo>true</nonColonistsCanDo>
 		<prioritizeSustains>true</prioritizeSustains>
 		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
-	  </WorkGiverDef>
-
-	  <WorkGiverDef>
+	</WorkGiverDef>
+	<WorkGiverDef>
 		<defName>DoWorkWithWaterBill</defName>
 		<label>works behind a</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillExtended</giverClass>
 		<workType>Smithing</workType>
 		<priorityInType>70</priorityInType>
 		<fixedBillGiverDefs>
-		  <li>OreWashingMachine</li>
+			<li>OreWashingMachine</li>
 		</fixedBillGiverDefs>
 		<verb>work</verb>
 		<gerund>working at</gerund>
 		<requiredCapacities>
-		  <li>Manipulation</li>
+			<li>Manipulation</li>
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
-	  </WorkGiverDef>
-	  
+	</WorkGiverDef>
 	<WorkGiverDef>
 		<defName>DoBills_Fishing</defName>
 		<label>To fish</label>
@@ -291,7 +267,6 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>ManageFishTrap</defName>
 		<label>Interact</label>
@@ -309,7 +284,6 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
-
 	<WorkGiverDef>
 		<defName>ManageHiveBee</defName>
 		<label>Interact</label>
@@ -323,7 +297,6 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>DoFillStasisCocoon</defName>
 		<label>haul jelly for stasis cocoon</label>
@@ -339,7 +312,21 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
+	<WorkGiverDef>
+		<defName>DoFillStasisCapsule</defName>
+		<label>haul paraffin for stasis capsule</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_StasisCapsule</giverClass>
+		<workType>Hauling</workType>
+		<priorityInType>100</priorityInType>
+		<fixedBillGiverDefs>
+			<li>StasisCapsule</li>
+		</fixedBillGiverDefs>
+		<verb>haul</verb>
+		<gerund>hauling</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
 	<WorkGiverDef>
 		<defName>GotoProcessingArachnidHive</defName>
 		<label>work in processing arachnid hive</label>
@@ -355,7 +342,6 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>RecycleByDesignator</defName>
 		<label>recycle</label>
@@ -368,11 +354,10 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
-		<defName>RefillWaterWorkTable</defName>
+		<defName>RefillWateredBuilding</defName>
 		<label>refill water</label>
-		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_RefillWaterWorkTable</giverClass>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_RefillWateredBuilding</giverClass>
 		<workType>Hauling</workType>
 		<priorityInType>400</priorityInType>
 		<verb>refill</verb>
@@ -381,7 +366,6 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>ArachnidBroodCocoon</defName>
 		<label>haul resources for brood cocoon</label>
@@ -397,7 +381,6 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>RepairRoof</defName>
 		<label>repair damaged roofs</label>
@@ -413,7 +396,6 @@
 		<scanThings>false</scanThings>
 		<scanCells>true</scanCells>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>ConstructDeliverResourcesToRoofBlueprints</defName>
 		<label>deliver resources to blueprints</label>
@@ -423,15 +405,14 @@
 		<verb>work on</verb>
 		<gerund>working on</gerund>
 		<requiredCapacities>
-		  <li>Manipulation</li>
+			<li>Manipulation</li>
 		</requiredCapacities>
 		<nonColonistsCanDo>true</nonColonistsCanDo>
 		<prioritizeSustains>true</prioritizeSustains>
 		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
 	</WorkGiverDef>
-	
-    <WorkGiverDef>
-        <defName>ConstructDeliverResourcesToRoofFrames</defName>
+	<WorkGiverDef>
+		<defName>ConstructDeliverResourcesToRoofFrames</defName>
 		<label>deliver resources to frames</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_ConstructDeliverResourcesToRoofFrames</giverClass>
 		<workType>Construction</workType>
@@ -439,13 +420,13 @@
 		<verb>work on</verb>
 		<gerund>working on</gerund>
 		<requiredCapacities>
-		  <li>Manipulation</li>
+			<li>Manipulation</li>
 		</requiredCapacities>
 		<nonColonistsCanDo>true</nonColonistsCanDo>
 		<prioritizeSustains>true</prioritizeSustains>
 		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
-    </WorkGiverDef>
-	
+	</WorkGiverDef>
+	<!--
 	<WorkGiverDef>
 		<defName>DoBreeding</defName>
 		<label>breed</label>
@@ -458,7 +439,7 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
+	-->
 	<WorkGiverDef>
 		<defName>DoBillsExtended</defName>
 		<label>make things</label>
@@ -466,8 +447,22 @@
 		<workType>Crafting</workType>
 		<priorityInType>100</priorityInType>
 		<fixedBillGiverDefs>
+			<li>FueledSmithy</li>
+			<li>SteamFormingMachine</li>
+			<li>SteamCrusher</li>
+			<li>FueledStove</li>
+			<li>SteamSmelter</li>
 			<li>SteamLoom</li>
-			<li>SteamSmithy</li>
+			<li>SteamMixer</li>
+			<li>SteamCentrifuge</li>
+			<li>IndustrialCrusher</li>
+			<li>ElectrolysisBath</li>
+			<li>OilStorage</li>
+			<li>GasStorage</li>
+			<li>BiofuelRefinery</li>
+			<li>OilChemicalStation</li>
+			<li>ArcSmelter</li>
+			<li>ManualConcreteMixer</li>
 		</fixedBillGiverDefs>
 		<verb>craft</verb>
 		<gerund>crafting at</gerund>
@@ -476,5 +471,50 @@
 		</requiredCapacities>
 		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
-	
+	<WorkGiverDef>
+		<defName>DoBillSeismicScanner</defName>
+		<label>Scan</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillSeismicScanner</giverClass>
+		<workType>Research</workType>
+		<priorityInType>200</priorityInType>
+		<verb>Scan</verb>
+		<gerund>Scaning at</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>DrainLiquidStorage</defName>
+		<label>empty the container</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DrainLiquidStorage</giverClass>
+		<workType>BasicWorker</workType>
+		<verb>drain</verb>
+		<gerund>draining</gerund>
+		<canBeDoneWhileDrafted>true</canBeDoneWhileDrafted>
+		<priorityInType>600</priorityInType>
+   </WorkGiverDef>
+   
+   <WorkGiverDef>
+		<defName>HaulResourcesToGasProcessor</defName>
+		<label>haul resources to gas processor</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_GasProcessor</giverClass>
+		<workType>Crafting</workType>
+		<verb>haul resources</verb>
+		<gerund>hauling resources</gerund>
+		<canBeDoneWhileDrafted>true</canBeDoneWhileDrafted>
+		<priorityInType>100</priorityInType>
+   </WorkGiverDef>
+   
+	<WorkGiverDef>
+		<defName>WorkInQuarry</defName>
+		<label>Work in quarry</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_WorkInQuarry</giverClass>
+		<workType>Mining</workType>
+		<priorityInType>150</priorityInType>
+		<verb>work in quarry</verb>
+		<gerund>working in quarry</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
 </Defs>

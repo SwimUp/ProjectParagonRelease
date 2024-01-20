@@ -45,11 +45,14 @@
 			<li Class="DubsBadHygiene.CompProperties_WaterInlet">
 				<Radius>7.9</Radius>
 			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WaterWell">
+				<waterMult>1.5</waterMult>
+			</li>
 		</comps>
 		<placeWorkers>
 			<li>DubsBadHygiene.PlaceWorker_WaterGrid</li>
 			<li>DubsBadHygiene.PlaceWorker_SewageGrid</li>
-			<li>DubsBadHygiene.PlaceWorker_UserGrid</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_UserGrid</li>
 		</placeWorkers>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -75,11 +78,14 @@
 		<statBases>
 			<WorkToBuild>29000</WorkToBuild>
 		</statBases>
+		<costStuffCount>150</costStuffCount>
 		<costList>
-			<Steel>100</Steel>
+			<MechanismComplex>5</MechanismComplex>
+			<ComponentSimple>15</ComponentSimple>
+			<StrongPlates>20</StrongPlates>
 		</costList>
 		<researchPrerequisites>
-			<li MayRequire="dbhlitemode">DeepWells</li>
+			<li MayRequire="dbhlitemode">LargeWaterPumps</li>
 		</researchPrerequisites>
 		<comps>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
@@ -89,11 +95,60 @@
 				<Deep>true</Deep>
 				<Radius>13.7</Radius>
 			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WaterWell">
+				<waterMult>1.5</waterMult>
+			</li>
 		</comps>
 		<placeWorkers>
 			<li>DubsBadHygiene.PlaceWorker_DeepWaterGrid</li>
 			<li>DubsBadHygiene.PlaceWorker_SewageGrid</li>
-			<li>DubsBadHygiene.PlaceWorker_UserGrid</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_UserGrid</li>
+		</placeWorkers>
+		<designatorDropdown>Hygiene_WaterExtraction</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BasedWaterWell" DBHLite="true">
+		<defName>IndustrialWell</defName>
+		<label>Industrial well</label>
+		<description>Accesses a large area of ground water which can be pumped by water pumps. Deep wells are unaffected by pollution.</description>
+		<graphicData>
+			<texPath>DBH/Things/Building/Water/IndustrialWell</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(5.5,5.5)</drawSize>
+			<drawOffset>0,0,0.3</drawOffset>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<!--<specialDisplayRadius>13.7</specialDisplayRadius>-->
+		<size>2,2</size>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+		</statBases>
+		<costStuffCount>200</costStuffCount>
+		<costList>
+			<Microelectronics>2</Microelectronics>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<SuperStrongPlates>75</SuperStrongPlates>
+			<CinderBlock>100</CinderBlock>
+		</costList>
+		<researchPrerequisites>
+			<li MayRequire="dbhlitemode">IndustrialWells</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterInlet">
+				<Deep>true</Deep>
+				<Radius>17</Radius>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WaterWell">
+				<waterMult>3</waterMult>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>DubsBadHygiene.PlaceWorker_DeepWaterGrid</li>
+			<li>DubsBadHygiene.PlaceWorker_SewageGrid</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_UserGrid</li>
 		</placeWorkers>
 		<designatorDropdown>Hygiene_WaterExtraction</designatorDropdown>
 	</ThingDef>
@@ -219,9 +274,14 @@
 				<WaterStorageCap>50000</WaterStorageCap>
 			</li>
 		</comps>
+		<stuffCategories>
+			<li>Stony</li>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>400</costStuffCount>
 		<costList>
-			<Steel>200</Steel>
-			<ComponentIndustrial>1</ComponentIndustrial>
+			<ComponentSimple>10</ComponentSimple>
+			<MechanismSimple>5</MechanismSimple>
 		</costList>
 		<statBases>
 			<MaxHitPoints>150</MaxHitPoints>
@@ -229,7 +289,7 @@
 			<Flammability>0.0</Flammability>
 		</statBases>
 		<researchPrerequisites>
-			<li MayRequire="dbhlitemode">LargeWaterPumps</li>
+			<li MayRequire="dbhlitemode">ElectricPumps</li>
 		</researchPrerequisites>
 		<designatorDropdown>Hygiene_Reservoirs</designatorDropdown>
 	</ThingDef>
@@ -286,7 +346,7 @@
 		<comps>
 			<li Class="DubsBadHygiene.CompProperties_WaterPumpingStation">
 				<compClass>DubsBadHygiene.CompWindPump</compClass>
-				<Capacity>2000</Capacity>
+				<Capacity>3000</Capacity>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -310,7 +370,7 @@
 	<ThingDef ParentName="BasedWaterPump" DBHLite="true">
 		<defName>ElectricPump</defName>
 		<label>electric pump</label>
-		<description>Pumps water from wells to water towers. Pumping capacity: 1500 L/day.</description>
+		<description>Pumps water from wells to water towers. Pumping capacity: 3000 L/day.</description>
 		<graphicData>
 			<texPath>DBH/Things/Building/Water/MiniPump</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -323,9 +383,15 @@
 			<li>BuildingsHygiene</li>
 		</thingCategories>
 		<tickerType>Never</tickerType>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
 		<costList>
-			<Steel>80</Steel>
-			<ComponentIndustrial>1</ComponentIndustrial>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismComplex>4</MechanismComplex>
+			<StrongPlates>50</StrongPlates>
+			<SimpleElectronic>4</SimpleElectronic>
 		</costList>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
@@ -336,12 +402,12 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>300</basePowerConsumption>
+				<basePowerConsumption>75</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="DubsBadHygiene.CompProperties_WaterPumpingStation">
-				<Capacity>2000</Capacity>
+				<Capacity>3500</Capacity>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -361,9 +427,15 @@
 		</graphicData>
 		<tickerType>Never</tickerType>
 		<size>(2,2)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>250</costStuffCount>
 		<costList>
-			<Steel>120</Steel>
-			<ComponentIndustrial>3</ComponentIndustrial>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<MechanismComplex>15</MechanismComplex>
+			<StrongPlates>60</StrongPlates>
+			<SimpleElectronic>6</SimpleElectronic>
 		</costList>
 		<statBases>
 			<MaxHitPoints>150</MaxHitPoints>
@@ -373,12 +445,12 @@
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>1000</basePowerConsumption>
+				<basePowerConsumption>500</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="DubsBadHygiene.CompProperties_WaterPumpingStation">
-				<Capacity>10000</Capacity>
+				<Capacity>15000</Capacity>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -531,9 +603,15 @@
 		<castEdgeShadows>false</castEdgeShadows>
 		<pathCost>60</pathCost>
 		<size>(5,5)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>500</costStuffCount>
 		<costList>
-			<Steel>400</Steel>
-			<ComponentIndustrial>8</ComponentIndustrial>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<MechanismComplex>10</MechanismComplex>
+			<StrongPlates>70</StrongPlates>
+			<SimpleElectronic>5</SimpleElectronic>
 		</costList>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<rotatable>false</rotatable>
@@ -588,9 +666,15 @@
 		<castEdgeShadows>false</castEdgeShadows>
 		<pathCost>60</pathCost>
 		<size>(2,2)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>300</costStuffCount>
 		<costList>
-			<Steel>250</Steel>
-			<ComponentIndustrial>5</ComponentIndustrial>
+			<ComponentIndustrial>20</ComponentIndustrial>
+			<MechanismComplex>5</MechanismComplex>
+			<StrongPlates>25</StrongPlates>
+			<SimpleElectronic>2</SimpleElectronic>
 		</costList>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<rotatable>false</rotatable>
@@ -612,7 +696,7 @@
 			</li>
 		</comps>
 		<researchPrerequisites>
-			<li MayRequire="dbhlitemode">WaterFiltration</li>
+			<li MayRequire="dbhlitemode">LargeWaterPumps</li>
 		</researchPrerequisites>
 		<designatorDropdown>Hygiene_WasteProducts</designatorDropdown>
 	</ThingDef>

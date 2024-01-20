@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<!---->
 	<ThingDef ParentName="BuildingNaturalBase">
 		<defName>StasisCocoon</defName>
 		<label>Stasis cocoon</label>
@@ -37,7 +38,7 @@
 		<tickerType>Normal</tickerType>
 		<passability>PassThroughOnly</passability>
 		<designationCategory>Medicine</designationCategory>
-		<!--<designatorDropdown>Farming</designatorDropdown>-->
+		<designatorDropdown>Medicine_Stasis</designatorDropdown>
 		<costList>
 			<Dirt>150</Dirt>
 			<Clay>150</Clay>
@@ -74,8 +75,290 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
 				</associatedRaces>
 			</li>
 		</modExtensions>
 	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>StasisCapsule</defName>
+		<label>Stasis capsule</label>
+		<description>Emergency capsule. A constant supply of paraffin is required to maintain life. The body will gradually recover while it is inside.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_StasisCapsule</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/StasisCapsule/StasisCapsule</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3,4)</drawSize>
+			<damageData>
+				<rect>(0,0.05,1,1.95)</rect>
+			</damageData>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories inherit="false">
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<size>1,2</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>true</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>25000</WorkToBuild>
+			<Mass>100</Mass>
+		</statBases>
+		<researchPrerequisites>
+			<li>AdvancedMedicine</li>
+		</researchPrerequisites>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<tickerType>Normal</tickerType>
+		<passability>PassThroughOnly</passability>
+		<designatorDropdown>Medicine_Stasis</designatorDropdown>
+		<designationCategory>Medicine</designationCategory>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<Microelectronics>12</Microelectronics>
+			<MechanismComplex>8</MechanismComplex>
+			<StrongPlates>75</StrongPlates>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>250</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<inspectorTabs>
+			<li>ITab_ContentsCasket</li>
+		</inspectorTabs>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>MedicalDrip</defName>
+		<label>Medical drip</label>
+		<description>An IV used to maintain fluid levels in a patient's body and also to administer medications.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_MedicalDrip</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/MedicalDrip/MedicalDrip</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1.5,1.5)</drawSize>
+			<drawOffset>0,0,0.2</drawOffset>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories inherit="false">
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<size>1,1</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>5000</WorkToBuild>
+			<Mass>5</Mass>
+		</statBases>
+		<researchPrerequisites>
+			<li>AdvancedMedicine</li>
+		</researchPrerequisites>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<passability>PassThroughOnly</passability>
+		<designatorDropdown>Medicine_MedicalWard</designatorDropdown>
+		<designationCategory>Medicine</designationCategory>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<MechanismComplex>1</MechanismComplex>
+			<Neutroamine>10</Neutroamine>
+			<Plastic>50</Plastic>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Facility">
+				<maxSimultaneous>1</maxSimultaneous>
+				<mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>MedicalDrip</defName>
+		<label>Medical drip effect</label>
+		<description>The effect of a medical drip on the body.</description>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>false</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-60</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<naturalHealingFactor>1.15</naturalHealingFactor>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>MedicalVentilator</defName>
+		<label>Medical ventilator</label>
+		<description>Device for artificial ventilation of the lungs. Helps support the lives of patients with severe lung damage.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_MedicalVentilator</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/MedicalVentilator/MedicalVentilator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1.45,1.45)</drawSize>
+			<drawOffset>0,0,0.12</drawOffset>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories inherit="false">
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<size>1,1</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>false</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>15000</WorkToBuild>
+			<Mass>15</Mass>
+		</statBases>
+		<researchPrerequisites>
+			<li>AdvancedMedicine</li>
+		</researchPrerequisites>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<passability>PassThroughOnly</passability>
+		<designatorDropdown>Medicine_MedicalWard</designatorDropdown>
+		<designationCategory>Medicine</designationCategory>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<MechanismComplex>4</MechanismComplex>
+			<Microelectronics>4</Microelectronics>
+			<Plastic>75</Plastic>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>100</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Facility">
+				<maxSimultaneous>1</maxSimultaneous>
+				<mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>MedicalVentilator</defName>
+		<label>Medical ventilator effect</label>
+		<description>The effect of a medical ventilator on the body.</description>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>false</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-60</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.1</offset>
+					</li>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>0.25</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>MedicalComputer</defName>
+		<label>Medical computer</label>
+		<description>A device for analyzing the state of the body, making operations and treatment more productive.</description>
+		<graphicData>
+			<texPath>Core/Buildings/MedicalComputer/MedicalComputer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.15,1.15</drawSize>
+			<drawOffset>0,0,0</drawOffset>
+		</graphicData>
+		<researchPrerequisites>
+			<li>AdvancedMedicine</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.2</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>20000</WorkToBuild>
+			<Mass>20</Mass>
+			<Flammability>0.7</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<Microelectronics>4</Microelectronics>
+			<Plastic>150</Plastic>
+		</costList>
+		<rotatable>false</rotatable>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designatorDropdown>Medicine_MedicalWard</designatorDropdown>
+		<designationCategory>Medicine</designationCategory>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>100</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<MedicalTendQualityOffset>0.05</MedicalTendQualityOffset>
+					<SurgerySuccessChanceFactor>0.1</SurgerySuccessChanceFactor>
+				</statOffsets>
+				<maxSimultaneous>1</maxSimultaneous>
+				<mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<uiIconScale>0.85</uiIconScale>
+	</ThingDef>
+	<!---->
 </Defs>

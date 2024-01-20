@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 75mmPAK40 -->
+	<ThingCategoryDef>
+		<defName>Ammo75mmPAK40Shells</defName>
+		<label>75mm Pak40 shells</label>
+		<parent>AmmoHighCaliber</parent>
+		<iconPath>Things/Projectile/75mmPAK40APHE</iconPath>
+	</ThingCategoryDef>
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_75mmPAK40_Shells</defName>
+		<label>75mm Pak40</label>
+		<ammoTypes>
+			<Ammo_75mmPAK40_APHE>Bullet_75mmPAK40_APHE</Ammo_75mmPAK40_APHE>
+			<Ammo_75mmPAK40_HE>Bullet_75mmPAK40_HE</Ammo_75mmPAK40_HE>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="75mmPAK40Base" ParentName="AmmoBase" Abstract="True">
+		<description>75mm Pak40 Ammunitions</description>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<thingCategories>
+			<li>Ammo75mmPAK40Shells</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<cookOffFlashScale>30</cookOffFlashScale>
+		<cookOffSound>MortarBomb_Explode</cookOffSound>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" Name="75mmPAK40BaseCraftableBase" ParentName="75mmPAK40Base" Abstract="True">
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+		<!-- 	<li>CE_AutoEnableCrafting_TableMachining</li> -->
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>2</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<!--<explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>-->
+				<startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<explodeOnKilled>True</explodeOnKilled>
+				<wickTicks>30~60</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="75mmPAK40BaseCraftableBase">
+		<defName>Ammo_75mmPAK40_APHE</defName>
+		<label>75mm Pzgr. 39 (APHE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/75mmPAK40APHE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>65.67</MarketValue>
+			<Mass>13.9</Mass>
+			<Bulk>21.05</Bulk>
+		</statBases>
+		<ammoClass>ExplosiveAP</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_75mmPAK40_APHE</detonateProjectile>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="75mmPAK40BaseCraftableBase">
+		<defName>Ammo_75mmPAK40_HE</defName>
+		<label>75mm Sprgr. 34 (HE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/75mmPAK40HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>40.73</MarketValue>
+			<Mass>12.54</Mass>
+			<Bulk>20.62</Bulk>
+		</statBases>
+		<ammoClass>GrenadeHE</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_75mmPAK40_HE</detonateProjectile>
+	</ThingDef>
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="Base75mmPAK40Shell" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>1</speed>
+			<flyOverhead>false</flyOverhead>
+			<dropsCasings>true</dropsCasings>
+			<!--<casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_CannonAmmoCasings</casingFilthDefname>-->
+			<!--
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for HE -->
+		</projectile>
+	</ThingDef>
+	<!-- APHE Projectile -->
+	<ThingDef ParentName="Base75mmPAK40Shell">
+		<defName>Bullet_75mmPAK40_APHE</defName>
+		<label>75mm Pzgr. 39 (APHE)</label>
+		<!--<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass> -->
+		<graphicData>
+			<texPath>Things/Projectile/MediumShell</texPath>
+			<!-- <texPath>Things/Projectile/Bullet_Big</texPath> -->
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>159</speed>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>140</damageAmountBase>
+			<armorPenetrationSharp>138</armorPenetrationSharp>
+			<armorPenetrationBlunt>42653.96</armorPenetrationBlunt>
+			<!--
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for artillery -->
+			<secondaryDamage>
+				<li>
+					<def>Bomb_Secondary</def>
+					<amount>80</amount>
+				</li>
+			</secondaryDamage>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>13</Fragment_Large>
+					<Fragment_Small>0</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	<!-- HE Projectile -->
+	<ThingDef ParentName="Base75mmPAK40Shell">
+		<defName>Bullet_75mmPAK40_HE</defName>
+		<label>75mm Sprgr. 34 (HE)</label>
+		<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/MediumShell</texPath>
+			<!-- <texPath>Things/Projectile/Bullet_Big</texPath> -->
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>110</speed>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>105</damageAmountBase>
+			<armorPenetrationSharp>50</armorPenetrationSharp>
+			<armorPenetrationBlunt>50000</armorPenetrationBlunt>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<explosionRadius>2</explosionRadius>
+			<!--
+			<flyOverhead>true</flyOverhead>
+			for artillery -->
+			<!--
+			<secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>18</amount>
+        </li>
+	    </secondaryDamage>
+	  	-->
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>14</Fragment_Large>
+					<Fragment_Small>44</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_75mmPAK40_APHE</defName>
+		<label>make 75mm Pzgr. 39 APHE x10</label>
+		<description>75mm Pzgr. 39 APHE Ammunitions for 7.5/L46 gun</description>
+		<jobString>Making 75mm Pzgr. 39 APHE cannon shells.</jobString>
+		<workAmount>11000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>80</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>90</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_75mmPAK40_APHE>10</Ammo_75mmPAK40_APHE>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>MediumArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_75mmPAK40_HE</defName>
+		<label>make 75mm Sprgr. 34 HE x10</label>
+		<description>75mm Sprgr. 34 HE Ammunitions for 7.5/L46 Pak 40 gun</description>
+		<jobString>Making 75mm Sprgr. 34 HE cannon shells.</jobString>
+		<workAmount>10000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>65</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>80</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_75mmPAK40_HE>10</Ammo_75mmPAK40_HE>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>MediumArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+</Defs>

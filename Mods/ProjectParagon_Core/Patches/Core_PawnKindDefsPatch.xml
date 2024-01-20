@@ -33,20 +33,121 @@
 					</value>
 				</match>
 			</li>
-			<li Class="PatchOperationConditional">
-				<xpath>*/PawnKindDef[defName="Tribal_Warrior"]/combatPower</xpath>
-				<nomatch Class="PatchOperationAdd">
-					<xpath>*/PawnKindDef[defName="Tribal_Warrior"]</xpath>
-					<value>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[defName="WildMan"]</xpath>
+				<value>
+					<PawnKindDef>
+						<defName>WildMan</defName>
+						<label>wild man</label>
+						<labelPlural>wild men</labelPlural>
+						<labelFemale>wild woman</labelFemale>
+						<labelFemalePlural>wild women</labelFemalePlural>
+						<combatPower>30</combatPower>
+						<race>Human</race>
+						<acceptArrestChanceFactor>0.5</acceptArrestChanceFactor>
+						<backstoryFilters>
+							<li>
+								<categories>
+									<li>Offworld</li>
+									<li>Pirate</li>
+									<li>Tribal</li>
+								</categories>
+							</li>
+						</backstoryFilters>
+						<backstoryCryptosleepCommonality>0.1</backstoryCryptosleepCommonality>
+						<itemQuality>Poor</itemQuality>
+						<chemicalAddictionChance>0.03</chemicalAddictionChance>
+						<apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+						<apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
+						<techHediffsChance>0.03</techHediffsChance>
+						<techHediffsMoney>50~50</techHediffsMoney>
+						<techHediffsTags>
+							<li>Poor</li>
+						</techHediffsTags>
+						<initialWillRange>2~4</initialWillRange>
+						<initialResistanceRange>28~44</initialResistanceRange>
+						<xenotypeSet>
+						</xenotypeSet>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[@Name="SpaceRefugeeBase"]</xpath>
+				<value>
+					<PawnKindDef Name="SpaceRefugeeBase" Abstract="True">
+						<race>Human</race>
+						<combatPower>30</combatPower>
+						<backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+						<forceNormalGearQuality>true</forceNormalGearQuality>
+						<isFighter>false</isFighter>
+						<chemicalAddictionChance>0.08</chemicalAddictionChance>
+						<gearHealthRange>0.4~1.4</gearHealthRange>
+						<apparelTags>
+							<li>IndustrialBasic</li>
+						</apparelTags>
+						<apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+						<apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
+						<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+						<techHediffsMoney>50~800</techHediffsMoney>
+						<techHediffsTags>
+							<li>Poor</li>
+							<li>Simple</li>
+						</techHediffsTags>
+						<techHediffsChance>0.08</techHediffsChance>
+						<xenotypeSet>
+						</xenotypeSet>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[defName="Tribal_Warrior"]</xpath>
+				<value>
+					<PawnKindDef ParentName="TribalBase" Name="TribalWarriorBase">
+						<defName>Tribal_Warrior</defName>
+						<label>warrior</label>
 						<combatPower>50</combatPower>
-					</value>
-				</nomatch>
-				<match Class="PatchOperationReplace">
-					<xpath>*/PawnKindDef[defName="Tribal_Warrior"]/combatPower</xpath>
-					<value>
-						<combatPower>50</combatPower>
-					</value>
-				</match>
+						<itemQuality>Poor</itemQuality>
+						<canBeSapper>true</canBeSapper>
+						<gearHealthRange>0.5~1.8</gearHealthRange>
+						<apparelMoney>200~300</apparelMoney>
+						<apparelRequired>
+							<li>Apparel_WarVeil</li>
+						</apparelRequired>
+						<requiredWorkTags>
+							<li>Violent</li>
+						</requiredWorkTags>
+						<weaponMoney>200~250</weaponMoney>
+						<weaponTags>
+							<li>NeolithicMeleeDecent</li>
+						</weaponTags>
+						<initialWillRange>1~3</initialWillRange>
+						<initialResistanceRange>5~9</initialResistanceRange>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[defName="Tribal_Breacher"]</xpath>
+				<value>
+					<PawnKindDef ParentName="TribalBase">
+						<defName>Tribal_Breacher</defName>
+						<label>breacher</label>
+						<combatPower>55</combatPower>
+						<itemQuality>Poor</itemQuality>
+						<canBeSapper>true</canBeSapper>
+						<isGoodBreacher>true</isGoodBreacher>
+						<gearHealthRange>0.5~1.8</gearHealthRange>
+						<apparelMoney>200~300</apparelMoney>
+						<apparelRequired>
+							<li>Apparel_WarVeil</li>
+						</apparelRequired>
+						<weaponMoney>200~250</weaponMoney>
+						<weaponTags>
+							<li>NeolithicMeleeDestructive</li>
+						</weaponTags>
+						<initialWillRange>1~3</initialWillRange>
+						<initialResistanceRange>12~19</initialResistanceRange>
+					</PawnKindDef>
+				</value>
 			</li>
 			<li Class="PatchOperationConditional">
 				<xpath>*/PawnKindDef[defName="Tribal_Hunter"]/combatPower</xpath>
@@ -164,7 +265,36 @@
 					</PawnKindDef>
 				</value>
 			</li>
-			
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[defName="Mechanitor"]/apparelRequired</xpath>
+				<value>
+					<apparelRequired>
+						<li>Apparel_Duster</li>
+						<li>Apparel_CollarShirt</li>
+						<li>Apparel_Pants</li>
+						<li>Apparel_AirwireHeadset</li>
+					</apparelRequired>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[defName="StrangerInBlack"]/apparelRequired</xpath>
+				<value>
+					<apparelRequired>
+						<li>Apparel_CollarShirt</li>
+						<li>Apparel_Pants</li>
+						<li>Apparel_Duster</li>
+						<li>Apparel_CowboyHat</li>
+					</apparelRequired>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[@Name="ImperialTrooperBase"]/apparelRequired</xpath>
+				<value>
+					<apparelRequired>
+
+					</apparelRequired>
+				</value>
+			</li>
 			<li Class="PatchOperationAdd">
 				<xpath>*/PawnKindDef[@Name="TribalBase"]</xpath>
 				<value>
@@ -209,12 +339,10 @@
 					</modExtensions>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationRemove">
 				<xpath>*/PawnKindDef[defName="Villager_Pig" or defName="Villager_Child_Pig" or defName="Town_Guard_Pig" or defName="Town_Councilman_Pig" 
 				or defName="Town_Trader_Pig" or defName="Mercenary_Gunner_Pig" or defName="Mercenary_Elite_Pig"]/defaultFactionType</xpath>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/PawnKindDef[defName="Pirate_Yttakin" or defName="Scavenger_Yttakin" or defName="Drifter_Yttakin" or defName="Thrasher_Yttakin"
 				or defName="Mercenary_Gunner_Yttakin" or defName="Mercenary_Heavy_Yttakin" or defName="Mercenary_Slasher_Yttakin" or defName="Mercenary_Sniper_Yttakin" or defName="Mercenary_Elite_Yttakin"]/defaultFactionType</xpath>
@@ -222,12 +350,1077 @@
 					<defaultFactionType>Pirate</defaultFactionType>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationRemove">
 				<xpath>*/PawnKindDef[defName="Tribal_Archer_Fire" or defName="Tribal_Hunter_Fire" or defName="Tribal_Warrior_Fire" or defName="Tribal_Penitent_Fire"
 				or defName="Tribal_Child_Fire"]/defaultFactionType</xpath>
 			</li>
-			
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[defName="Town_Guard"]</xpath>
+				<value>
+					<PawnKindDef ParentName="OutlanderBase" Name="GuardBase">
+						<defName>Town_Guard</defName>
+						<label>town guard</label>
+						<combatPower>60</combatPower>
+						<isFighter>true</isFighter>
+						<gearHealthRange>0.6~2</gearHealthRange>
+						<apparelTags>
+							<li>IndustrialMilitaryBasic</li>
+							<li>BeltDefensePop</li>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass3</li>
+							<li>EFT_ArmorClass4</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<apparelMoney>9999</apparelMoney>
+						<apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+						<weaponMoney>800~1500</weaponMoney>
+						<weaponTags>
+							<li>Weapon_Pistol_TierI</li>
+							<li>Weapon_Revolver_TierI</li>
+						</weaponTags>
+						<techHediffsChance>0.04</techHediffsChance>
+						<techHediffsMoney>200~700</techHediffsMoney>
+						<techHediffsTags>
+							<li>Poor</li>
+							<li>Simple</li>
+							<li>ImplantEmpireCommon</li>
+						</techHediffsTags>
+						<initialWillRange>1~3</initialWillRange>
+						<initialResistanceRange>15~24</initialResistanceRange>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierI</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Shooting</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>Guns</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[defName="Town_Trader"]</xpath>
+				<value>
+					<PawnKindDef ParentName="OutlanderBase" Name="TraderBase">
+						<defName>Town_Trader</defName>
+						<label>town trader</label>
+						<trader>true</trader>
+						<combatPower>45</combatPower>
+						<isFighter>false</isFighter>
+						<gearHealthRange>1~1</gearHealthRange>
+						<itemQuality>Normal</itemQuality>
+						<weaponMoney>800~1500</weaponMoney>
+						<weaponTags>
+							<li>Weapon_Pistol_TierI</li>
+							<li>Weapon_Revolver_TierI</li>
+							<li>Weapon_Shotgun_TierI</li>
+						</weaponTags>
+						<apparelMoney>9999</apparelMoney>
+						<apparelTags>
+							<li>IndustrialMilitaryBasic</li>
+							<li>IndustrialMilitaryAdvanced</li>
+							<li>BeltDefensePop</li>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass3</li>
+							<li>EFT_ArmorClass4</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<techHediffsChance>0.15</techHediffsChance>
+						<techHediffsMoney>600~1500</techHediffsMoney>
+						<techHediffsTags>
+							<li>Poor</li>
+							<li>Simple</li>
+							<li>Advanced</li>
+							<li>ImplantEmpireCommon</li>
+						</techHediffsTags>
+						<initialWillRange>2~4</initialWillRange>
+						<initialResistanceRange>12~20</initialResistanceRange>
+						<xenotypeSet>
+							<xenotypeChances>
+								<Highmate MayRequire="Ludeon.RimWorld.Biotech">0.04</Highmate>
+							</xenotypeChances>
+						</xenotypeSet>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierI</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Shooting</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>Guns</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[defName="Town_Councilman"]</xpath>
+				<value>
+					<PawnKindDef ParentName="OutlanderBase" Name="CouncilmanBase">
+						<defName>Town_Councilman</defName>
+						<label>town councilman</label>
+						<labelPlural>town councilmen</labelPlural>
+						<combatPower>40</combatPower>
+						<factionLeader>true</factionLeader>
+						<minGenerationAge>30</minGenerationAge>
+						<isFighter>false</isFighter>
+						<gearHealthRange>1~1</gearHealthRange>
+						<itemQuality>Good</itemQuality>
+						<weaponMoney>1200~1500</weaponMoney>
+						<weaponTags>
+							<li>Weapon_SMG_TierII</li>
+							<li>Weapon_Shotgun_TierII</li>
+							<li>Weapon_AssaultRifle_TierIV</li>
+						</weaponTags>
+						<apparelMoney>9999</apparelMoney>
+						<apparelTags>
+							<li>IndustrialMilitaryBasic</li>
+							<li>BeltDefensePop</li>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass5</li>
+							<li>EFT_ArmorClass6</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<techHediffsChance>0.15</techHediffsChance>
+						<techHediffsMoney>600~1500</techHediffsMoney>
+						<techHediffsTags>
+							<li>Simple</li>
+							<li>Advanced</li>
+							<li>ImplantEmpireCommon</li>
+						</techHediffsTags>
+						<initialWillRange>3~5</initialWillRange>
+						<initialResistanceRange>7~11</initialResistanceRange>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierIII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Shooting</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>Guns</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[@Name="GrenadierBase"]</xpath>
+				<value>
+					<PawnKindDef Abstract="True" Name="GrenadierBase" ParentName="MercenaryBase">
+						<race>Human</race>
+						<gearHealthRange>0.7~2.3</gearHealthRange>
+						<initialWillRange>1~3</initialWillRange>
+						<apparelTags>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass3</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+							<li>IndustrialAdvanced</li>
+							<li>IndustrialMilitaryBasic</li>
+							<li>BeltDefensePop</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<apparelMoney>9999</apparelMoney>
+						<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+						<weaponMoney>1600~2000</weaponMoney>
+						<techHediffsChance>0.05</techHediffsChance>
+						<techHediffsMoney>500~500</techHediffsMoney>
+						<techHediffsTags>
+							<li>Poor</li>
+							<li>Simple</li>
+							<li>ImplantEmpireCommon</li>
+						</techHediffsTags>
+						<disallowedTraits>
+							<li>Brawler</li>
+						</disallowedTraits>
+						<inventoryOptions>
+							<skipChance>0.95</skipChance>
+							<subOptionsChooseOne>
+								<li>
+									<thingDef>MedicineIndustrial</thingDef>
+									<countRange>1</countRange>
+								</li>
+							</subOptionsChooseOne>
+						</inventoryOptions>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierI</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Shooting</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>Guns</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[@Name="MercenaryGunnerBase"]</xpath>
+				<value>
+					<PawnKindDef ParentName="MercenaryMidTierBase" Name="MercenaryGunnerBase" Abstract="True">
+						<label>mercenary gunner</label>
+						<combatPower>85</combatPower>
+						<gearHealthRange>0.7~3.2</gearHealthRange>
+						<apparelTags>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass4</li>
+							<li>EFT_ArmorClass5</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+							<li>IndustrialAdvanced</li>
+							<li>IndustrialMilitaryBasic</li>
+							<li>IndustrialMilitaryAdvanced</li>
+							<li>BeltDefensePop</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<apparelMoney>9999</apparelMoney>
+						<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+						<weaponMoney>1700~2000</weaponMoney>
+						<weaponTags>
+							<li>Weapon_AssaultRifle_TierI</li>
+							<li>Weapon_AssaultRifle_TierII</li>
+							<li>Weapon_MachineGuns_TierI</li>
+						</weaponTags>
+						<disallowedTraits>
+							<li>Brawler</li>
+						</disallowedTraits>
+						<combatEnhancingDrugsChance>0.05</combatEnhancingDrugsChance>
+						<combatEnhancingDrugsCount>0~2</combatEnhancingDrugsCount>
+						<inventoryOptions>
+							<skipChance>0.9</skipChance>
+							<subOptionsChooseOne>
+								<li>
+									<thingDef>MedicineIndustrial</thingDef>
+									<countRange>1</countRange>
+								</li>
+							</subOptionsChooseOne>
+						</inventoryOptions>
+						<skills>
+							<li>
+								<skill>Shooting</skill>
+								<range>4~14</range>
+							</li>
+						</skills>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierIII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Shooting</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>Guns</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[@Name="MercenarySniperBase"]</xpath>
+				<value>
+					<PawnKindDef ParentName="MercenaryMidTierBase" Name="MercenarySniperBase" Abstract="True">
+						<label>mercenary sniper</label>
+						<combatPower>110</combatPower>
+						<gearHealthRange>0.7~3.2</gearHealthRange>
+						<apparelTags>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass4</li>
+							<li>EFT_ArmorClass5</li>
+							<li>EFT_ArmorClass6</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+							<li>IndustrialAdvanced</li>
+							<li>IndustrialMilitaryBasic</li>
+							<li>IndustrialMilitaryAdvanced</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<apparelMoney>9999</apparelMoney>
+						<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+						<weaponMoney>1500~2000</weaponMoney>
+						<weaponTags>
+							<li>Weapon_SniperRifles_TierII</li>
+							<li>Weapon_SniperRifles_TierIII</li>
+						</weaponTags>
+						<inventoryOptions>
+							<skipChance>0.9</skipChance>
+							<subOptionsChooseOne>
+								<li>
+									<thingDef>MedicineIndustrial</thingDef>
+									<countRange>1</countRange>
+								</li>
+							</subOptionsChooseOne>
+						</inventoryOptions>
+						<skills>
+							<li>
+								<skill>Shooting</skill>
+								<range>8~16</range>
+							</li>
+						</skills>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierIII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Shooting</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>Guns</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[@Name="MercenarySlasherBase"]</xpath>
+				<value>
+					<PawnKindDef ParentName="MercenaryMidTierBase" Name="MercenarySlasherBase" Abstract="True">
+						<defName>Mercenary_Slasher</defName>
+						<label>mercenary slasher</label>
+						<combatPower>140</combatPower>
+						<canBeSapper>true</canBeSapper>
+						<gearHealthRange>0.7~3.2</gearHealthRange>
+						<apparelTags>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass3</li>
+							<li>EFT_ArmorClass4</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+							<li>IndustrialAdvanced</li>
+							<li>IndustrialMilitaryBasic</li>
+							<li>IndustrialMilitaryAdvanced</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<apparelRequired>
+							<li>Apparel_ShieldBelt</li>
+						</apparelRequired>
+						<apparelMoney>9999</apparelMoney>
+						<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+						<weaponMoney>1000~1500</weaponMoney>
+						<weaponTags>
+							<li>IndustrialMelee</li>
+						</weaponTags>
+						<inventoryOptions>
+							<skipChance>0.9</skipChance>
+							<subOptionsChooseOne>
+								<li>
+									<thingDef>MedicineIndustrial</thingDef>
+									<countRange>1</countRange>
+								</li>
+							</subOptionsChooseOne>
+						</inventoryOptions>
+						<initialResistanceRange>19~29</initialResistanceRange>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierI</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Melee</li>
+										<li>MiscCombat</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>HandWeapons</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[@Name="MercenaryHeavyBase"]</xpath>
+				<value>
+					<PawnKindDef ParentName="MercenaryMidTierBase" Name="MercenaryHeavyBase">
+						<defName>Mercenary_Heavy</defName>
+						<label>heavy mercenary</label>
+						<labelPlural>heavy mercenaries</labelPlural>
+						<defaultFactionType>Pirate</defaultFactionType>
+						<combatPower>150</combatPower>
+						<gearHealthRange>0.7~3.2</gearHealthRange>
+						<apparelTags>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass4</li>
+							<li>EFT_ArmorClass5</li>
+							<li>EFT_ArmorClass6</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+							<li>IndustrialAdvanced</li>
+							<li>IndustrialMilitaryBasic</li>
+							<li>IndustrialMilitaryAdvanced</li>
+							<li>BeltDefensePop</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<apparelMoney>9999</apparelMoney>
+						<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+						<weaponMoney>2000~2500</weaponMoney>
+						<weaponTags>
+							<li>Weapon_MachineGuns_TierI</li>
+							<li>Weapon_MachineGuns_TierII</li>
+						</weaponTags>
+						<initialResistanceRange>14~23</initialResistanceRange>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierIII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Shooting</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>Guns</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/PawnKindDef[@Name="MercenaryEliteTierBase"]</xpath>
+				<value>
+					<PawnKindDef Abstract="True" Name="MercenaryEliteTierBase" ParentName="MercenaryBase">
+						<combatPower>180</combatPower>
+						<maxGenerationAge>45</maxGenerationAge>
+						<backstoryCryptosleepCommonality>0.25</backstoryCryptosleepCommonality>
+						<gearHealthRange>1~1</gearHealthRange>
+						<apparelTags>
+							<!--<li>Backpack</li>-->
+							<li>IndustrialBasic</li>
+							<li>EFT_ArmorClass5</li>
+							<li>EFT_ArmorClass6</li>
+							<li>EFT_Headgear</li>
+							<li>EFT_ChestRig_NoArmor</li>
+							<li>IndustrialAdvanced</li>
+							<li>IndustrialMilitaryBasic</li>
+							<li>IndustrialMilitaryAdvanced</li>
+							<li>BeltDefensePop</li>
+						</apparelTags>
+						<apparelDisallowTags>
+							<li>BackpackCE</li>
+						</apparelDisallowTags>
+						<apparelMoney>9999</apparelMoney>
+						<apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
+						<weaponMoney>2200~3000</weaponMoney>
+						<weaponTags>
+							<li>Weapon_AssaultRifle_TierII</li>
+							<li>Weapon_AssaultRifle_TierIII</li>
+						</weaponTags>
+						<disallowedTraits>
+							<li>Brawler</li>
+						</disallowedTraits>
+						<techHediffsMoney>1000~1200</techHediffsMoney>
+						<techHediffsTags>
+							<li>Advanced</li>
+							<li>ImplantEmpireCommon</li>
+						</techHediffsTags>
+						<techHediffsChance>0.35</techHediffsChance>
+						<combatEnhancingDrugsChance>0.80</combatEnhancingDrugsChance>
+						<combatEnhancingDrugsCount>1~2</combatEnhancingDrugsCount>
+						<biocodeWeaponChance>0.3</biocodeWeaponChance>
+						<initialWillRange>3~5</initialWillRange>
+						<specificApparelRequirements>
+							<li>
+								<alternateTagChoices>
+									<li>
+										<tag>EFT_Backpack_TierII</tag>
+										<chance>0.4</chance>
+									</li>
+									<li>
+										<tag>EFT_Backpack_TierIII</tag>
+										<chance>0.25</chance>
+									</li>
+								</alternateTagChoices>
+							</li>
+						</specificApparelRequirements>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+								<pawnSkillGenerationSettings>
+									<skillChance>0.2</skillChance>
+									<skillsCount>0~2</skillsCount>
+									<allowedTags>
+										<li>Shooting</li>
+									</allowedTags>
+								</pawnSkillGenerationSettings>
+								<equipmentGenerationSettings>
+									<weaponSpecializationGenSettings>
+										<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+										<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+										<randomSpecGenCount>1~7</randomSpecGenCount>
+										<maxPassions>
+											<Minor>0~8</Minor>
+											<Major>0~4</Major>
+										</maxPassions>
+										<specs>
+											<li>
+												<specDef>Guns</specDef>
+												<passions>
+													<li>
+														<specPassion>None</specPassion>
+														<commonality>80</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 0.7)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Minor</specPassion>
+														<commonality>15</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+													<li>
+														<specPassion>Major</specPassion>
+														<commonality>5</commonality>
+														<curveBySkillDef>
+															<points>
+																<li>(0, 1)</li>
+																<li>(20, 2)</li>
+															</points>
+														</curveBySkillDef>
+													</li>
+												</passions>
+											</li>
+										</specs>
+									</weaponSpecializationGenSettings>
+								</equipmentGenerationSettings>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 </Patch>

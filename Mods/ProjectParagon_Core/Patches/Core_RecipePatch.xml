@@ -15,6 +15,50 @@
 			<li Class="PatchOperationRemove">
 				<xpath>*/RecipeDef[defName="Make_Patchleather"]</xpath>
 			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/RecipeDef[defName="Make_ChemfuelFromWood"]</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/RecipeDef[defName="Make_ChemfuelFromOrganics"]</xpath>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="DestroyWeapon"]</xpath>
+				<value>
+					<RecipeDef>
+						<defName>DestroyWeapon</defName>
+						<label>destroy weapon</label>
+						<description>Use heat to destroy unwanted weapons. This process is faster than smelting, and works on non-smeltable items, but yields no resources.</description>
+						<jobString>Destroying weapon.</jobString>
+						<workAmount>400</workAmount>
+						<workSpeedStat>SmeltingSpeed</workSpeedStat>
+						<effectWorking>Smelt</effectWorking>
+						<soundWorking>Recipe_Smelt</soundWorking>
+						<ingredients>
+							<li>
+								<filter>
+									<categories>
+										<li>Weapons</li>
+									</categories>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>Weapons</li>
+							</categories>
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>Weapons</li>
+							</categories>
+							<disallowedThingDefs>
+								<li>TornadoGenerator</li>
+							</disallowedThingDefs>
+						</defaultIngredientFilter>
+					</RecipeDef>
+				</value>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/RecipeDef[defName="ButcherCorpseFlesh"]/uiIconThing</xpath>
 				<value>
@@ -25,6 +69,7 @@
 				<xpath>*/RecipeDef[@Name="MakeStoneBlocksBase"]/recipeUsers</xpath>
 				<value>
 					<li>PrimitiveTableStonecutter</li>
+					<li>SteamFormingMachine</li>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -54,12 +99,7 @@
 							</li>
 						</ingredients>
 						<abstractIngredients>
-							<li>
-								<filter>
-									<thingDefs>
-										<li>WaterForBill</li>
-									</thingDefs>
-								</filter>
+							<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
 								<count>5</count>
 							</li>
 						</abstractIngredients>
@@ -71,6 +111,76 @@
 						<products>
 							<Wort>5</Wort>
 						</products>
+					</RecipeDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="Make_Kibble"]</xpath>
+				<value>
+					<RecipeDef>
+						<defName>Make_Kibble</defName>
+						<label>make kibble</label>
+						<description>Make animal kibble by combining raw meat and plants.</description>
+						<jobString>Making kibble.</jobString>
+						<workAmount>450</workAmount>
+						<workSpeedStat>CookSpeed</workSpeedStat>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<allowMixingIngredients>true</allowMixingIngredients>
+						<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+						<ingredients>
+							<li>
+								<filter>
+									<customSummary>protein</customSummary>
+									<categories>
+										<li>MeatRaw</li>
+										<li>AnimalProductRaw</li>
+									</categories>
+								</filter>
+								<count>1</count>
+							</li>
+							<li>
+								<filter>
+									<customSummary>greens</customSummary>
+									<categories>
+										<li>PlantFoodRaw</li>
+									</categories>
+									<disallowedCategories>
+										<li>MiscPlants</li>
+									</disallowedCategories>
+									<thingDefs>
+										<li>Hay</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<products>
+							<Kibble>50</Kibble>
+						</products>
+						<fixedIngredientFilter>
+							<categories>
+								<li>FoodRaw</li>
+							</categories>
+							<disallowedCategories>
+								<li>MiscPlants</li>
+							</disallowedCategories>
+							<thingDefs>
+								<li>Hay</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>Foods</li>
+							</categories>
+							<disallowedCategories>
+								<li>EggsFertilized</li>
+							</disallowedCategories>
+							<disallowedThingDefs>
+								<li>InsectJelly</li>
+							</disallowedThingDefs>
+						</defaultIngredientFilter>
+						<workSkill>Cooking</workSkill>
 					</RecipeDef>
 				</value>
 			</li>
@@ -141,6 +251,7 @@
 							<li>TableButcher</li>
 							<li>CookingFurnace</li>
 							<li>FueledStove</li>
+							<li>ElectricStove</li>
 						</recipeUsers>
 					</RecipeDef>
 				</value>
@@ -212,11 +323,11 @@
 							<li>TableButcher</li>
 							<li>CookingFurnace</li>
 							<li>FueledStove</li>
+							<li>ElectricStove</li>
 						</recipeUsers>
 					</RecipeDef>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationAttributeAdd">
 				<xpath>*/RecipeDef[defName="CookMealSimpleBulk"]</xpath>
 				<attribute>Abstract</attribute>
@@ -282,7 +393,6 @@
 				<attribute>Abstract</attribute>
 				<value>true</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/RecipeDef[defName="Make_ComponentIndustrial"]</xpath>
 				<value>
@@ -299,17 +409,28 @@
 						<ingredients>
 							<li>
 								<filter>
+									<thingDefs>
+										<li>ComponentSimple</li>
+									</thingDefs>
+								</filter>
+								<count>2</count>
+							</li>
+							<li>
+								<filter>
 									<categories>
-										<li>Alloys_Strong</li>
+										<li>Alloys_Precious</li>
 									</categories>
 								</filter>
-								<count>15</count>
+								<count>5</count>
 							</li>
 						</ingredients>
 						<fixedIngredientFilter>
 							<categories>
-								<li>Alloys_Strong</li>
+								<li>Alloys_Precious</li>
 							</categories>
+							<thingDefs>
+								<li>ComponentSimple</li>
+							</thingDefs>
 						</fixedIngredientFilter>
 						<products>
 							<ComponentIndustrial>1</ComponentIndustrial>
@@ -318,30 +439,24 @@
 							<Crafting>10</Crafting>
 						</skillRequirements>
 						<workSkill>Crafting</workSkill>
-						<researchPrerequisite>Machining</researchPrerequisite>
-						<modExtensions>
-							<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
-								<requiredFacilities>
-									<li>
-										<thingFilter>
-											<thingDefs>
-												<li>AdvancedBlacksmithSet</li>
-											</thingDefs>
-										</thingFilter>
-									</li>
-								</requiredFacilities>
-							</li>
-							<li Class="ParagonWiki.Other.DefExtension_Wiki">
-								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
-							</li>
-						</modExtensions>
+						<researchPrerequisite>SteamMechanicalForge</researchPrerequisite>
 						<recipeUsers>
-							<li>MechanicalWorkbench</li>
+							<li>FueledSmithy</li>
+							<li>ElectricSmithy</li>
 						</recipeUsers>
 					</RecipeDef>
 				</value>
 			</li>
-
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealSurvival"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
+			<li Class="PatchOperationAttributeAdd">
+				<xpath>*/RecipeDef[defName="CookMealSurvivalBulk"]</xpath>
+				<attribute>Abstract</attribute>
+				<value>true</value>
+			</li>
 		</operations>
 	</Operation>
 </Patch>

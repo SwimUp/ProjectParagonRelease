@@ -29,6 +29,7 @@
 			<Flammability>2</Flammability>
 			<Mass>3</Mass>
 			<Beauty>25</Beauty>
+			<FuelConsumption>0.25</FuelConsumption>
 		</statBases>
 		<selectable>true</selectable>
 		<costList>
@@ -44,7 +45,6 @@
 		<comps>
 			<li Class="CompProperties_Styleable"/>
 			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
-				<fuelConsumptionRate>3.0</fuelConsumptionRate>
 				<fuelCapacity>15.0</fuelCapacity>
 				<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
 				<fuelFilter>
@@ -73,6 +73,7 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -90,10 +91,8 @@
 		<canOverlapZones>false</canOverlapZones>
 		<pathCost>42</pathCost>
 		<graphicData>
-			<texPath>Things/Building/Misc/ToolCabinet</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
-			<drawSize>(1.9,1.9)</drawSize>
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
@@ -113,23 +112,27 @@
 	</ThingDef>
 	
 	<ThingDef ParentName="HeatingElement">
-		<defName>SolidStateHeater</defName>
-		<label>Solid state heater</label>
-		<description>Heating oven. It has devices that allow it to be connected to technical structures for the use of heat.</description>
+		<defName>StoneOven</defName>
+		<label>Stone Oven</label>
+		<description>Stone stove for heating large rooms.</description>
 		<thingClass>ProjectParagon.Core.Things.Building_SolidFuelSource</thingClass>
 		<graphicData>
-			<texPath>Core/Buildings/SimpleScienceSet/SimpleScienceSet</texPath>
+			<texPath>Core/Buildings/SolidStateHeater/SolidStateHeater</texPath>
+			<drawSize>4,4</drawSize>
+			<drawOffset>0, 0, -0.05</drawOffset>
 		</graphicData>
 		<stuffCategories>
-			<li>Metallic</li>
+			<li>Stony</li>
 		</stuffCategories>
 		<costStuffCount>150</costStuffCount>
+		<size>(2,2)</size>
 		<costList>
 			<StrongPlates>40</StrongPlates>
 			<ComponentSimple>10</ComponentSimple>
 		</costList>
 		<statBases>
 			<HeatingEfficiency>1.35</HeatingEfficiency>
+			<FuelConsumption>4</FuelConsumption>
 		</statBases>
 		<researchPrerequisites>
 			<li>Smithing</li>
@@ -137,7 +140,7 @@
 		<tickerType>Normal</tickerType>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
 				<fuelCapacity>100.0</fuelCapacity>
 				<startedFuel>WoodLog</startedFuel>
 				<enableHeatPush>true</enableHeatPush>
@@ -145,6 +148,9 @@
 					<thingDefs>
 						<li>WoodLog</li>
 						<li>Coal</li>
+						<li>CokeCoal</li>
+						<li>Chemfuel</li>
+						<li>FuelBriquette</li>
 					</thingDefs>
 				</fuelFilter>
 			</li>
@@ -152,23 +158,27 @@
 	</ThingDef>
 	
 	<ThingDef ParentName="HeatingElement">
-		<defName>IndustrialSolidStateHeater</defName>
-		<label>Industrial solid state heater</label>
-		<description>Heating oven. It has devices that allow it to be connected to technical structures for the use of heat.</description>
+		<defName>BigStoneOven</defName>
+		<label>Big stone oven</label>
+		<description>Stone stove for heating large rooms.</description>
 		<thingClass>ProjectParagon.Core.Things.Building_SolidFuelSource</thingClass>
 		<graphicData>
-			<texPath>Core/Buildings/SimpleScienceSet/SimpleScienceSet</texPath>
+			<texPath>Core/Buildings/IndustrialSolidStateHeater/IndustrialSolidStateHeater</texPath>
+			<drawSize>4.35,4.35</drawSize>
+			<drawOffset>0, 0, 0</drawOffset>
 		</graphicData>
 		<stuffCategories>
-			<li>Metallic</li>
+			<li>Stony</li>
 		</stuffCategories>
 		<costStuffCount>250</costStuffCount>
+		<size>(3,3)</size>
 		<costList>
 			<StrongPlates>70</StrongPlates>
 			<ComponentSimple>20</ComponentSimple>
 		</costList>
 		<statBases>
 			<HeatingEfficiency>1.6</HeatingEfficiency>
+			<FuelConsumption>6</FuelConsumption>
 		</statBases>
 		<researchPrerequisites>
 			<li>Machining</li>
@@ -176,7 +186,7 @@
 		<tickerType>Normal</tickerType>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
-				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
 				<fuelCapacity>200.0</fuelCapacity>
 				<startedFuel>WoodLog</startedFuel>
 				<enableHeatPush>true</enableHeatPush>
@@ -184,9 +194,81 @@
 					<thingDefs>
 						<li>WoodLog</li>
 						<li>Coal</li>
+						<li>CokeCoal</li>
+						<li>FuelBriquette</li>
 					</thingDefs>
 				</fuelFilter>
 			</li>
 		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>CoolingRecirculator</defName>
+		<label>Cooling recirculator</label>
+		<description>Installation that cools air using refrigerant. The air circulates in a strong flow and is cooled as it passes through the installation. Requires refrigerant to operate.</description>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/CoolingRecirculator/CoolingRecirculator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories inherit="false">
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>10</pathCost>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>0</Flammability>
+			<Mass>8</Mass>
+			<Beauty>0</Beauty>
+			<FuelConsumption>4</FuelConsumption>
+		</statBases>
+		<selectable>true</selectable>
+		<costList>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<MechanismComplex>5</MechanismComplex>
+			<StrongPlates>10</StrongPlates>
+		</costList>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>20</costStuffCount>
+		<building>
+			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+		</building>
+		<researchPrerequisites>
+			<li>IndustrialRefrigeration</li>
+		</researchPrerequisites>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+				<fuelCapacity>20.0</fuelCapacity>
+				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+				<fuelFilter>
+					<thingDefs>
+						<li>Canister_Refrigerant</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>0</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+			</li>
+		    <li Class="CompProperties_HeatPusher">
+				<compClass>CompHeatPusherPowered</compClass>
+				<heatPerSecond>-13</heatPerSecond>
+				<heatPushMinTemperature>5</heatPushMinTemperature>
+		    </li>
+		</comps>
+		<designationCategory>Temperature</designationCategory>
+		<designatorDropdown>Temperature_Cooling</designatorDropdown>
 	</ThingDef>
 </Defs>

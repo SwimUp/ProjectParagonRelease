@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugPillBase">
+		<defName>Norepinephrine</defName>
+		<label>Norepinephrine</label>
+		<description>Sterile disposable syringe with a dose of norepinephrine. Dangerous if used repeatedly.</description>
+		<possessionCount>10</possessionCount>
+		<descriptionHyperlinks>
+			<HediffDef>NorepinephrineHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Items/Stimulants/Norepinephrine</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToMake>2500</WorkToMake>
+			<MarketValue>50</MarketValue>
+			<Mass>0.005</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<ingestible>
+			<drugCategory>Hard</drugCategory>
+			<foodType>Processed, Fluid</foodType>
+			<baseIngestTicks>40</baseIngestTicks>
+			<ingestSound>Ingest_Inject</ingestSound>
+			<ingestCommandString>Inject {0}</ingestCommandString>
+			<ingestReportString>Injecting {0}.</ingestReportString>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<chairSearchRadius>0</chairSearchRadius>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>NorepinephrineHigh</hediffDef>
+					<severity>0.95</severity>
+				</li>
+				<li Class="ProjectParagon.Core.Hediffs.IngestionOutcomeDoers.IngestionOutcomeDoer_HeartAttackByHediff">
+					<parentHediffDef>NorepinephrineHigh</parentHediffDef>
+					<parentSeverityRange>0.96~1</parentSeverityRange>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker Class="ProjectParagon.Core.Things.RecipeMakerPropertiesParagon">
+			<researchPrerequisite>Narko_InjectableStimulants</researchPrerequisite>
+			<recipeUsers Inherit="false">
+				<li>DrugLab</li>
+			</recipeUsers>
+			<extraRecipeItems>
+				<li>
+					<thingDef>Cyclinder_Empty</thingDef>
+					<count>1</count>
+				</li>
+			</extraRecipeItems>
+			<productCount>4</productCount>
+		</recipeMaker>
+		<costList>
+			<Glass>4</Glass>
+			<Adrenaline>2</Adrenaline>
+			<Cyclinder_Oxyden>1</Cyclinder_Oxyden>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+				<overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+				<isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>NorepinephrineHigh</defName>
+		<hediffClass>Hediff_High</hediffClass>
+		<label>Norepinephrine</label>
+		<description>Norepinephrine effect.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>normal</label>
+				<statOffsets>
+					<MentalBreakThreshold>-0.16</MentalBreakThreshold>
+				</statOffsets>
+				<hungerRateFactor>0.3</hungerRateFactor>
+				<restFallFactor>0.1</restFallFactor>
+				<painFactor>0.8</painFactor>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>0.5</offset>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.95</minSeverity>
+				<label>overdose</label>
+				<statOffsets>
+					<MentalBreakThreshold>-0.16</MentalBreakThreshold>
+				</statOffsets>
+				<hungerRateFactor>0.3</hungerRateFactor>
+				<restFallFactor>0.1</restFallFactor>
+				<painFactor>0.6</painFactor>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>1</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

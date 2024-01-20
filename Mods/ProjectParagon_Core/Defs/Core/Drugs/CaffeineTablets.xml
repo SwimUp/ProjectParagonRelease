@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="DrugBase">
+		<defName>CaffeineTablets</defName>
+		<label>Caffeine tablets</label>
+		<description>An invigorating drink made from fruits and berries that grow near oases.</description>
+		<descriptionHyperlinks>
+			<HediffDef>CaffeineHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Core/Drugs/CaffeineTablets</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<WorkToMake>450</WorkToMake>
+			<MarketValue>25</MarketValue>
+			<Mass>0.05</Mass>
+			<DeteriorationRate>5</DeteriorationRate>
+			<Flammability>1.25</Flammability>
+			<Nutrition>0</Nutrition>
+			<Protein>0.001</Protein>
+			<Fat>0.001</Fat>
+			<Carbohydrates>0.05</Carbohydrates>
+			<Vitamins>0.010</Vitamins>
+			<Flavor>1</Flavor>
+		</statBases>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<baseIngestTicks>400</baseIngestTicks>
+			<chairSearchRadius>25</chairSearchRadius>
+			<ingestSound>Ingest_Pill</ingestSound>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Take {0}</ingestCommandString>
+			<ingestReportString>Taking {0}.</ingestReportString>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>CaffeineHigh</hediffDef>
+					<severity>1</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_OffsetNeed">
+					<need>Rest</need>
+					<offset>0.2</offset>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<techLevel>Industrial</techLevel>
+	</ThingDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_CaffeineTablets</defName>
+		<label>Make caffeine tablets</label>
+		<description>Make caffeine tablets</description>
+		<jobString>Makes caffeine tablets</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workAmount>500</workAmount>
+		<targetCountAdjustment>1</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawCoffee</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Neutroamine</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<researchPrerequisite>DrugProduction</researchPrerequisite>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
+				<count>1</count>
+			</li>
+		</abstractIngredients>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawCoffee</li>
+				<li>Neutroamine</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawCoffee</li>
+				<li>Neutroamine</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CaffeineTablets>1</CaffeineTablets>
+		</products>
+		<recipeUsers>
+			<li>DrugLab</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"></wikiExtraInfo>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+</Defs>

@@ -122,6 +122,12 @@
 						<chance>0.01</chance>
 					</li>
 				</extraDrop>
+				<terrainFertility>
+					<fertilityCount>200</fertilityCount>
+					<downGradeFertilityTerrainDef>Terrain_PoorSoil</downGradeFertilityTerrainDef>
+					<fertilityThingDef>Biosolids</fertilityThingDef>
+					<fertilityRepairCostPerUnit>0.05</fertilityRepairCostPerUnit>
+				</terrainFertility>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -192,6 +198,12 @@
 						<chance>0.02</chance>
 					</li>
 				</extraDrop>
+				<terrainFertility>
+					<fertilityCount>250</fertilityCount>
+					<downGradeFertilityTerrainDef>Terrain_PoorSoil</downGradeFertilityTerrainDef>
+					<fertilityThingDef>Biosolids</fertilityThingDef>
+					<fertilityRepairCostPerUnit>0.05</fertilityRepairCostPerUnit>
+				</terrainFertility>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -359,9 +371,17 @@
 						<workAmount>3000</workAmount>
 					</li>
 					<li>
-						<terrainDef>Terrain_PoorSoil</terrainDef>
+						<terrainDef>Sand</terrainDef>
 						<costList>
 							<Sand>100</Sand>
+						</costList>
+						<workAmount>2000</workAmount>
+					</li>
+					<li>
+						<terrainDef>Terrain_RedSoil</terrainDef>
+						<costList>
+							<Dirt>30</Dirt>
+							<UraniumPowder>10</UraniumPowder>
 						</costList>
 						<workAmount>2000</workAmount>
 					</li>
@@ -382,6 +402,12 @@
 						<chance>0.01</chance>
 					</li>
 				</extraDrop>
+				<terrainFertility>
+					<fertilityCount>250</fertilityCount>
+					<downGradeFertilityTerrainDef>Sand</downGradeFertilityTerrainDef>
+					<fertilityThingDef>Biosolids</fertilityThingDef>
+					<fertilityRepairCostPerUnit>0.05</fertilityRepairCostPerUnit>
+				</terrainFertility>
 			</li>
 		</modExtensions>
 	</TerrainDef>
@@ -479,10 +505,15 @@
 						<chance>0.01</chance>
 					</li>
 				</extraDrop>
+				<terrainFertility>
+					<fertilityCount>300</fertilityCount>
+					<downGradeFertilityTerrainDef>Terrain_PoorSoil</downGradeFertilityTerrainDef>
+					<fertilityThingDef>Biosolids</fertilityThingDef>
+					<fertilityRepairCostPerUnit>0.05</fertilityRepairCostPerUnit>
+				</terrainFertility>
 			</li>
 		</modExtensions>
 	</TerrainDef>
-	
 	<TerrainDef ParentName="NaturalTerrainBase">
 		<defName>Chernozem</defName>
 		<label>Chernozem</label>
@@ -529,6 +560,89 @@
 						</costList>
 						<workAmount>8000</workAmount>
 					</li>
+					<li>
+						<terrainDef>RichChernozem</terrainDef>
+						<costList>
+							<Dirt>50</Dirt>
+							<NitrogenFertilizers>25</NitrogenFertilizers>
+						</costList>
+						<workAmount>8000</workAmount>
+					</li>
+				</childs>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefExtension_TerrainDef">
+				<collectedThingDef>Dirt</collectedThingDef>
+				<regenRange>40~50</regenRange>
+				<extraDrop>
+					<li>
+						<thingDef>ShardAlexandrite</thingDef>
+						<countRange>1~2</countRange>
+						<chance>0.02</chance>
+					</li>
+					<li>
+						<thingDef>ShardTopaz</thingDef>
+						<countRange>1~2</countRange>
+						<chance>0.01</chance>
+					</li>
+				</extraDrop>
+				<terrainFertility>
+					<fertilityCount>100</fertilityCount>
+					<downGradeFertilityTerrainDef>SoilRich</downGradeFertilityTerrainDef>
+					<fertilityThingDef>IndustrialBiosolids</fertilityThingDef>
+					<fertilityRepairCostPerUnit>0.07</fertilityRepairCostPerUnit>
+				</terrainFertility>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiTerrainDef"/>
+			</li>
+		</modExtensions>
+	</TerrainDef>
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>RichChernozem</defName>
+		<label>Rich chernozem</label>
+		<texturePath>Core/Surfaces/RichChernozem</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>335</renderPrecedence>
+		<pathCost>2</pathCost>
+		<statBases>
+			<Beauty>-3</Beauty>
+			<BeautyOutdoors>0</BeautyOutdoors>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>GrowSoil</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Dirt</generatedFilth>
+		<fertility>1.8</fertility>
+		<takeFootprints>True</takeFootprints>
+		<designationCategory>Terraform</designationCategory>
+		<tools>
+			<li>
+				<label>dirt</label>
+				<capacities>
+					<li>KickMaterialInEyes</li>
+				</capacities>
+				<hediff>DirtInEyes</hediff>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+		<tags>
+			<li>Soil</li>
+		</tags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_TerraformTerrainDef">
+				<childs>
+					<li>
+						<terrainDef>Chernozem</terrainDef>
+						<costList>
+							<Clay>20</Clay>
+						</costList>
+						<workAmount>4000</workAmount>
+					</li>
 				</childs>
 			</li>
 			<li Class="ProjectParagon.Core.Other.DefExtension_TerrainDef">
@@ -547,9 +661,9 @@
 					</li>
 				</extraDrop>
 				<terrainFertility>
-					<fertilityCount>150</fertilityCount>
-					<downGradeFertilityTerrainDef>SoilRich</downGradeFertilityTerrainDef>
-					<fertilityThingDef>IndustrialBiosolids</fertilityThingDef>
+					<fertilityCount>100</fertilityCount>
+					<downGradeFertilityTerrainDef>Chernozem</downGradeFertilityTerrainDef>
+					<fertilityThingDef>NitrogenFertilizers</fertilityThingDef>
 					<fertilityRepairCostPerUnit>0.07</fertilityRepairCostPerUnit>
 				</terrainFertility>
 			</li>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugBase">
+		<defName>FruitVape</defName>
+		<label>fruit vape</label>
+		<description>A simple vaporizer with berry flavor.</description>
+		<graphicData>
+			<texPath>Core/Drugs/Vapes/VapeFruit</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<WorkToMake>300</WorkToMake>
+			<MarketValue>10</MarketValue>
+			<Mass>0.20</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<drugCategory>Social</drugCategory>
+			<joyKind>Vaping</joyKind>
+			<joy>0.15</joy>
+			<baseIngestTicks>450</baseIngestTicks>
+			<ingestSound>Ingest_Smoke</ingestSound>
+			<ingestEffect>Smoke_Joint</ingestEffect>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.27,0,0.08)</offset>
+					<behind>true</behind>
+				</northDefault>
+				<east>
+					<offset>(0.45,0,0.08)</offset>
+				</east>
+				<south>
+					<offset>(0.27,0,0.08)</offset>
+				</south>
+				<west>
+					<offset>(-0.50,0,0.08)</offset>
+					<flip>true</flip>
+				</west>
+			</ingestHoldOffsetStanding>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Inhale {0}</ingestCommandString>
+			<ingestReportString>Inhaling {0}.</ingestReportString>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>FruitVapeHigh</hediffDef>
+					<severity>0.75</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker Inherit="false" IsNull="true"/>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1210</listOrder>
+				<addictiveness>0</addictiveness>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>FruitVapeHigh</defName>
+		<label>fruit vape</label>
+		<hediffClass>Hediff_High</hediffClass>
+		<description>Smooth and fruity vapor in the bloodstream, relaxes people.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-2.0</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>30000~180000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_PulmonaryEdema</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Lung</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>true</letter>
+						<chance>0.05</chance>
+						<severityRange>0~1</severityRange>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>300000~600000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Depression</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Brain</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.2</chance>
+						<severityRange>0.1~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li/>
+		</stages>
+	</HediffDef>
+	<ThoughtDef>
+		<defName>FruitVapeHigh</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>FruitVapeHigh</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>high on fruit vape</label>
+				<description>That was simple but good.</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<ProjectParagon.Core.WorldObjects.CultureObjectDef>
+		<defName>Woodcutter_Hut</defName>
+		<label>Woodcutter's hut</label>
+		<description>Small house in the forest. It is home to the woodcutter directed to this area for work.</description>
+		<category>Category_Production</category>
+		<daysTimeout>30</daysTimeout>
+		<worldObjectIcon>Core/World/Objects/CultureSites/Woodcutter_Hut</worldObjectIcon>
+		<cultureAfterBuild>10</cultureAfterBuild>
+		<thingsCount>
+			<li>
+				<thingCategoryDef>StoneBlocks</thingCategoryDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingCategoryDef>Alloys_Simple</thingCategoryDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingDef>WoodLog</thingDef>
+				<count>200</count>
+			</li>
+			<li>
+				<thingDef>Glass</thingDef>
+				<count>50</count>
+			</li>
+			<li>
+				<thingDef>ComponentSimple</thingDef>
+				<count>10</count>
+			</li>
+		</thingsCount>
+		<effectDescription>Construction increases the amount of culture points once. The structures attract the attention of travelers who will be eager to visit this place. If there is a colonist inside, then he gets wood and the speed of production depends on his skill in plant growing.</effectDescription>
+		<minConstructionSkill>3</minConstructionSkill>
+		<buildCost>10000</buildCost>
+		<worker>ProjectParagon.Core.WorldObjects.CulturalSiteWorker_WoodcutterHut</worker>
+		<mapTag>CultureObject_Woodcutter_Hut</mapTag>
+		<sitePriorityForHostile>65</sitePriorityForHostile>
+		<sitePriorityForNeutral>0</sitePriorityForNeutral>
+		<sitePriorityForAlly>0</sitePriorityForAlly>
+		<props Class="ProjectParagon.Core.WorldObjects.CultureSiteProducerWorkerProps">
+			<efficiencySkill>Plants</efficiencySkill>
+			<production>
+				<WoodLog>50</WoodLog>
+			</production>
+			<produceTicks>60000</produceTicks>
+			<produceMultiplierBySkill>
+				<points>
+					<li>(0, 1)</li>
+					<li>(5, 0.9)</li>
+					<li>(10, 0.85)</li>
+					<li>(15, 0.8)</li>
+					<li>(20, 0.7)</li>
+				</points>
+			</produceMultiplierBySkill>
+			<stackLimit>2000</stackLimit>
+		</props>
+		<biomeDefsWhitelist>
+			<li>Biome_Steppes</li>
+			<li>Biome_Grassland</li>
+			<li>Biome_Savanna</li>
+			<li>Biome_Oasis</li>
+			<li>AridShrubland</li>
+			<li>TropicalSwamp</li>
+			<li>TropicalRainforest</li>
+			<li>TemperateSwamp</li>
+			<li>TemperateForest</li>
+			<li>ColdBog</li>
+			<li>Tundra</li>
+			<li>BorealForest</li>
+		</biomeDefsWhitelist>
+		<maxCaravanTechLevel>Industrial</maxCaravanTechLevel>
+		<cultureMultiplierByTechLevel>
+			<points>
+				<li>(0, 1)</li>
+				<!-- Undefined -->
+				<li>(1, 1)</li>
+				<!-- Animal -->
+				<li>(2, 1)</li>
+				<!-- Neolithic -->
+				<li>(3, 1.1)</li>
+				<!-- Medieval -->
+				<li>(4, 1.15)</li>
+				<!-- Industrial -->
+				<li>(5, 1.2)</li>
+				<!-- Spacer -->
+				<li>(6, 1.25)</li>
+				<!-- Ultra -->
+				<li>(7, 1.3)</li>
+				<!-- Archotech -->
+			</points>
+		</cultureMultiplierByTechLevel>
+		<techLevel>Medieval</techLevel>
+		<requiredResearch>Architecture</requiredResearch>
+		<blueprintDef>AdvancedArchitecturalBlueprint</blueprintDef>
+		<workToMake>20000</workToMake>
+		<recipeUsers>
+			<li>AdvancedArchitecturalTable</li>
+		</recipeUsers>
+		<upgradeCultureObjectDef>Sawmill</upgradeCultureObjectDef>
+	</ProjectParagon.Core.WorldObjects.CultureObjectDef>
+	<!---->
+	<ProjectParagon.Core.WorldObjects.CultureObjectDef>
+		<defName>Sawmill</defName>
+		<label>Sawmill</label>
+		<description>A specially equipped place for industrial wood extraction. It is home to the woodcutter directed to this area for work.</description>
+		<category>Category_Production</category>
+		<daysTimeout>30</daysTimeout>
+		<worldObjectIcon>Core/World/Objects/CultureSites/Woodcutter_Hut</worldObjectIcon>
+		<cultureAfterBuild>10</cultureAfterBuild>
+		<thingsCount>
+			<li>
+				<thingDef>CinderBlock</thingDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingCategoryDef>StoneBlocks</thingCategoryDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingCategoryDef>Alloys_Strong</thingCategoryDef>
+				<count>200</count>
+			</li>
+			<li>
+				<thingDef>ComponentIndustrial</thingDef>
+				<count>5</count>
+			</li>
+			<li>
+				<thingDef>MechanismComplex</thingDef>
+				<count>5</count>
+			</li>
+			<li>
+				<thingDef>SimpleElectronic</thingDef>
+				<count>5</count>
+			</li>
+		</thingsCount>
+		<effectDescription>Construction increases the amount of culture points once. The structures attract the attention of travelers who will be eager to visit this place. If there is a colonist inside, then he gets wood and the speed of production depends on his skill in plant growing.</effectDescription>
+		<minConstructionSkill>5</minConstructionSkill>
+		<buildCost>15000</buildCost>
+		<worker>ProjectParagon.Core.WorldObjects.CulturalSiteWorker_WoodcutterHut</worker>
+		<mapTag>CultureObject_Woodcutter_Hut</mapTag>
+		<sitePriorityForHostile>70</sitePriorityForHostile>
+		<sitePriorityForNeutral>0</sitePriorityForNeutral>
+		<sitePriorityForAlly>0</sitePriorityForAlly>
+		<props Class="ProjectParagon.Core.WorldObjects.CultureSiteProducerWorkerProps">
+			<efficiencySkill>Plants</efficiencySkill>
+			<production>
+				<WoodLog>100</WoodLog>
+			</production>
+			<produceTicks>60000</produceTicks>
+			<produceMultiplierBySkill>
+				<points>
+					<li>(0, 1)</li>
+					<li>(5, 0.9)</li>
+					<li>(10, 0.85)</li>
+					<li>(15, 0.8)</li>
+					<li>(20, 0.7)</li>
+				</points>
+			</produceMultiplierBySkill>
+			<stackLimit>4000</stackLimit>
+		</props>
+		<biomeDefsWhitelist>
+			<li>Biome_Steppes</li>
+			<li>Biome_Grassland</li>
+			<li>Biome_Savanna</li>
+			<li>Biome_Oasis</li>
+			<li>AridShrubland</li>
+			<li>TropicalSwamp</li>
+			<li>TropicalRainforest</li>
+			<li>TemperateSwamp</li>
+			<li>TemperateForest</li>
+			<li>ColdBog</li>
+			<li>Tundra</li>
+			<li>BorealForest</li>
+		</biomeDefsWhitelist>
+		<maxCaravanTechLevel>Spacer</maxCaravanTechLevel>
+		<cultureMultiplierByTechLevel>
+			<points>
+				<li>(0, 1)</li>
+				<!-- Undefined -->
+				<li>(1, 1)</li>
+				<!-- Animal -->
+				<li>(2, 1)</li>
+				<!-- Neolithic -->
+				<li>(3, 1.1)</li>
+				<!-- Medieval -->
+				<li>(4, 1.15)</li>
+				<!-- Industrial -->
+				<li>(5, 1.2)</li>
+				<!-- Spacer -->
+				<li>(6, 1.25)</li>
+				<!-- Ultra -->
+				<li>(7, 1.3)</li>
+				<!-- Archotech -->
+			</points>
+		</cultureMultiplierByTechLevel>
+		<techLevel>Industrial</techLevel>
+		<requiredResearch>AdvancedDesign</requiredResearch>
+		<blueprintDef>ModernArchitecturalBlueprint</blueprintDef>
+		<workToMake>40000</workToMake>
+		<recipeUsers>
+			<li>ModernArchitecturalTable</li>
+		</recipeUsers>
+	</ProjectParagon.Core.WorldObjects.CultureObjectDef>
+	<!---->
+	<ProjectParagon.Core.WorldObjects.CultureObjectDef>
+		<defName>Mason_Hut</defName>
+		<label>Mason's hut</label>
+		<description>A small house on a rocky cliff. It is home to the mason, directed to this area for work.</description>
+		<category>Category_Production</category>
+		<daysTimeout>30</daysTimeout>
+		<worldObjectIcon>Core/World/Objects/CultureSites/Mason_Hut</worldObjectIcon>
+		<cultureAfterBuild>10</cultureAfterBuild>
+		<thingsCount>
+			<li>
+				<thingCategoryDef>StoneBlocks</thingCategoryDef>
+				<count>200</count>
+			</li>
+			<li>
+				<thingCategoryDef>Alloys_Simple</thingCategoryDef>
+				<count>100</count>
+			</li>
+			<li>
+				<thingDef>WoodLog</thingDef>
+				<count>200</count>
+			</li>
+			<li>
+				<thingDef>Glass</thingDef>
+				<count>50</count>
+			</li>
+			<li>
+				<thingDef>ComponentSimple</thingDef>
+				<count>5</count>
+			</li>
+		</thingsCount>
+		<effectDescription>Construction increases the amount of culture points once. Allies and neutrals will not visit. Enemies seek to destroy. If there is a colonist inside, then he mines stone blocks and the speed of production depends on his mining skill.</effectDescription>
+		<minConstructionSkill>3</minConstructionSkill>
+		<buildCost>12000</buildCost>
+		<worker>ProjectParagon.Core.WorldObjects.CulturalSiteWorker_MasonHut</worker>
+		<mapTag>CultureObject_Woodcutter_Hut</mapTag>
+		<sitePriorityForHostile>65</sitePriorityForHostile>
+		<sitePriorityForNeutral>0</sitePriorityForNeutral>
+		<sitePriorityForAlly>0</sitePriorityForAlly>
+		<props Class="ProjectParagon.Core.WorldObjects.CultureSiteProducerWorkerProps">
+			<efficiencySkill>Mining</efficiencySkill>
+			<production>
+				<BlocksSandstone>20</BlocksSandstone>
+				<BlocksGranite>20</BlocksGranite>
+				<BlocksLimestone>20</BlocksLimestone>
+				<BlocksSlate>20</BlocksSlate>
+				<BlocksMarble>20</BlocksMarble>
+			</production>
+			<produceTicks>75000</produceTicks>
+			<produceMultiplierBySkill>
+				<points>
+					<li>(0, 1)</li>
+					<li>(5, 0.9)</li>
+					<li>(10, 0.85)</li>
+					<li>(15, 0.8)</li>
+					<li>(20, 0.7)</li>
+				</points>
+			</produceMultiplierBySkill>
+			<stackLimit>1000</stackLimit>
+		</props>
+		<hillinessesWhitelist>
+			<li>LargeHills</li>
+			<li>Mountainous</li>
+		</hillinessesWhitelist>
+		<maxCaravanTechLevel>Industrial</maxCaravanTechLevel>
+		<cultureMultiplierByTechLevel>
+			<points>
+				<li>(0, 1)</li>
+				<!-- Undefined -->
+				<li>(1, 1)</li>
+				<!-- Animal -->
+				<li>(2, 1)</li>
+				<!-- Neolithic -->
+				<li>(3, 1.1)</li>
+				<!-- Medieval -->
+				<li>(4, 1.15)</li>
+				<!-- Industrial -->
+				<li>(5, 1.2)</li>
+				<!-- Spacer -->
+				<li>(6, 1.25)</li>
+				<!-- Ultra -->
+				<li>(7, 1.3)</li>
+				<!-- Archotech -->
+			</points>
+		</cultureMultiplierByTechLevel>
+		<techLevel>Medieval</techLevel>
+		<requiredResearch>Architecture</requiredResearch>
+		<blueprintDef>AdvancedArchitecturalBlueprint</blueprintDef>
+		<workToMake>20000</workToMake>
+		<recipeUsers>
+			<li>AdvancedArchitecturalTable</li>
+		</recipeUsers>
+	</ProjectParagon.Core.WorldObjects.CultureObjectDef>
+	<!---->
+	<ProjectParagon.Core.WorldObjects.CultureObjectDef>
+		<defName>Mine</defName>
+		<label>Mine</label>
+		<description>Many interconnected tunnels for mining at relatively shallow depths.</description>
+		<category>Category_Production</category>
+		<daysTimeout>30</daysTimeout>
+		<worldObjectIcon>Core/World/Objects/CultureSites/Mine</worldObjectIcon>
+		<cultureAfterBuild>10</cultureAfterBuild>
+		<thingsCount>
+			<li>
+				<thingCategoryDef>StoneBlocks</thingCategoryDef>
+				<count>200</count>
+			</li>
+			<li>
+				<thingDef>WoodLog</thingDef>
+				<count>200</count>
+			</li>
+			<li>
+				<thingDef>ComponentSimple</thingDef>
+				<count>10</count>
+			</li>
+		</thingsCount>
+		<effectDescription>Construction increases the amount of culture points once. Allies and neutrals will not visit. Enemies seek to destroy. The work efficiency is influenced by the number of miners inside.</effectDescription>
+		<minConstructionSkill>8</minConstructionSkill>
+		<buildCost>20000</buildCost>
+		<worker>ProjectParagon.Core.WorldObjects.CulturalSiteWorker_Mine</worker>
+		<mapTag>CultureObject_Woodcutter_Hut</mapTag>
+		<sitePriorityForHostile>50</sitePriorityForHostile>
+		<sitePriorityForNeutral>0</sitePriorityForNeutral>
+		<sitePriorityForAlly>0</sitePriorityForAlly>
+		<props Class="ProjectParagon.Core.WorldObjects.CultureSiteMineWorkerProps">
+			<produceTicks>60000</produceTicks>
+			<produceSpeedMultiplierByWorkersCount>
+				<points>
+					<li>(0, 1)</li>
+					<li>(20, 0.75)</li>
+				</points>
+			</produceSpeedMultiplierByWorkersCount>
+			<producePortionPerWorkerRange>100~150</producePortionPerWorkerRange>
+			<producePortionMultiplierByMiningSkill>
+				<points>
+					<li>(1, 0.25)</li>
+					<li>(10, 1)</li>
+					<li>(20, 2)</li>
+				</points>
+			</producePortionMultiplierByMiningSkill>
+			<stackLimit>7500</stackLimit>
+			<workersLimit>10</workersLimit>
+			<maxOreDepth>100</maxOreDepth>
+		</props>
+		<caravanCommands>
+			<li Class="ProjectParagon.Core.WorldObjects.Caravans.Command_ExploreWorldTileResources"/>
+		</caravanCommands>
+		<maxCaravanTechLevel>Industrial</maxCaravanTechLevel>
+		<cultureMultiplierByTechLevel>
+			<points>
+				<li>(0, 1)</li>
+				<!-- Undefined -->
+				<li>(1, 1)</li>
+				<!-- Animal -->
+				<li>(2, 1)</li>
+				<!-- Neolithic -->
+				<li>(3, 1.1)</li>
+				<!-- Medieval -->
+				<li>(4, 1.15)</li>
+				<!-- Industrial -->
+				<li>(5, 1.2)</li>
+				<!-- Spacer -->
+				<li>(6, 1.25)</li>
+				<!-- Ultra -->
+				<li>(7, 1.3)</li>
+				<!-- Archotech -->
+			</points>
+		</cultureMultiplierByTechLevel>
+		<techLevel>Medieval</techLevel>
+		<requiredResearch>ImprovedOreMining</requiredResearch>
+		<blueprintDef>AdvancedArchitecturalBlueprint</blueprintDef>
+		<workToMake>30000</workToMake>
+		<recipeUsers>
+			<li>AdvancedArchitecturalTable</li>
+		</recipeUsers>
+		<upgradeCultureObjectDef>Quarry</upgradeCultureObjectDef>
+	</ProjectParagon.Core.WorldObjects.CultureObjectDef>
+	<!---->
+	<ProjectParagon.Core.WorldObjects.CultureObjectDef>
+		<defName>Quarry</defName>
+		<label>Quarry</label>
+		<description>Many mine workings for mining.</description>
+		<category>Category_Production</category>
+		<daysTimeout>40</daysTimeout>
+		<worldObjectIcon>Core/World/Objects/CultureSites/Mine</worldObjectIcon>
+		<cultureAfterBuild>10</cultureAfterBuild>
+		<thingsCount>
+			<li>
+				<thingDef>CinderBlock</thingDef>
+				<count>200</count>
+			</li>
+			<li>
+				<thingCategoryDef>StoneBlocks</thingCategoryDef>
+				<count>200</count>
+			</li>
+			<li>
+				<thingCategoryDef>Alloys_Strong</thingCategoryDef>
+				<count>150</count>
+			</li>
+			<li>
+				<thingDef>ComponentIndustrial</thingDef>
+				<count>8</count>
+			</li>
+			<li>
+				<thingDef>SimpleElectronic</thingDef>
+				<count>2</count>
+			</li>
+		</thingsCount>
+		<effectDescription>Construction increases the amount of culture points once. Allies and neutrals will not visit. Enemies seek to destroy. The work efficiency is influenced by the number of miners inside.</effectDescription>
+		<minConstructionSkill>4</minConstructionSkill>
+		<buildCost>30000</buildCost>
+		<worker>ProjectParagon.Core.WorldObjects.CulturalSiteWorker_Mine</worker>
+		<mapTag>CultureObject_Woodcutter_Hut</mapTag>
+		<sitePriorityForHostile>50</sitePriorityForHostile>
+		<sitePriorityForNeutral>0</sitePriorityForNeutral>
+		<sitePriorityForAlly>0</sitePriorityForAlly>
+		<props Class="ProjectParagon.Core.WorldObjects.CultureSiteMineWorkerProps">
+			<produceTicks>60000</produceTicks>
+			<produceSpeedMultiplierByWorkersCount>
+				<points>
+					<li>(0, 1)</li>
+					<li>(20, 0.75)</li>
+				</points>
+			</produceSpeedMultiplierByWorkersCount>
+			<producePortionPerWorkerRange>150~200</producePortionPerWorkerRange>
+			<producePortionMultiplierByMiningSkill>
+				<points>
+					<li>(1, 0.25)</li>
+					<li>(10, 1)</li>
+					<li>(20, 2)</li>
+				</points>
+			</producePortionMultiplierByMiningSkill>
+			<stackLimit>10000</stackLimit>
+			<workersLimit>15</workersLimit>
+			<maxOreDepth>250</maxOreDepth>
+		</props>
+		<maxCaravanTechLevel>Spacer</maxCaravanTechLevel>
+		<cultureMultiplierByTechLevel>
+			<points>
+				<li>(0, 1)</li>
+				<!-- Undefined -->
+				<li>(1, 1)</li>
+				<!-- Animal -->
+				<li>(2, 1)</li>
+				<!-- Neolithic -->
+				<li>(3, 1.1)</li>
+				<!-- Medieval -->
+				<li>(4, 1.15)</li>
+				<!-- Industrial -->
+				<li>(5, 1.2)</li>
+				<!-- Spacer -->
+				<li>(6, 1.25)</li>
+				<!-- Ultra -->
+				<li>(7, 1.3)</li>
+				<!-- Archotech -->
+			</points>
+		</cultureMultiplierByTechLevel>
+		<techLevel>Industrial</techLevel>
+		<requiredResearch>AdvancedDesign</requiredResearch>
+		<blueprintDef>ModernArchitecturalBlueprint</blueprintDef>
+		<workToMake>45000</workToMake>
+		<recipeUsers>
+			<li>ModernArchitecturalTable</li>
+		</recipeUsers>
+	</ProjectParagon.Core.WorldObjects.CultureObjectDef>
+	<!---->
+</Defs>

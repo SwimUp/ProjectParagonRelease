@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 75mmLEIG18 -->
+	<ThingDef ParentName="AMCArtilleryBase">
+		<!-- AMCTurretAutoBase | AMCArtilleryBase | AMCArtilleryAutoBase -->
+		<defName>Gun75mmLEIG18_Turret</defName>
+		<label>7.5 cm le.IG 18</label>
+		<description>Gun: 7.5cm L11.2</description>
+		<graphicData>
+			<texPath>Things/Building/M75mmLEIG18</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(7,7)</drawSize>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+			</damageData>
+			<shadowData>
+				<offset>(0,0,0)</offset>
+				<volume>(2,1.5,2)</volume>
+			</shadowData>
+		</graphicData>
+		<comps/>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<size>(3,3)</size>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<costList>
+			<AdvancedWeaponComponents>35</AdvancedWeaponComponents>
+			<MechanismComplex>15</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<costStuffCount>300</costStuffCount>
+		<statBases>
+			<MaxHitPoints>600</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<WorkToBuild>78000</WorkToBuild>
+			<Mass>190</Mass>
+		</statBases>
+		<tradeTags>
+			<li>CE_Turret</li>
+		</tradeTags>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building Inherit="False">
+			<turretGunDef>Turret_75mmLEIG18_Weapon</turretGunDef>
+			<turretTopDrawSize>7</turretTopDrawSize>
+			<turretBurstWarmupTime>0</turretBurstWarmupTime>
+			<turretBurstCooldownTime>6</turretBurstCooldownTime>
+			<buildingTags>
+				<li>Artillery_MannedMortar</li>
+				<li>Artillery</li>
+			</buildingTags>
+		</building>
+		<designationCategory>Security</designationCategory>
+		<designatorDropdown>Security_Artillery</designatorDropdown>
+		<researchPrerequisites Inherit="False">
+			<li>MediumArtillery</li>
+		</researchPrerequisites>
+		<uiIconPath>Things/Icons/M75mmLEIG18_MenuIcon</uiIconPath>
+		<uiIconScale>0.9</uiIconScale>
+		<!-- delete if not minifiable -->
+		<minifiedDef>MinifiedThing</minifiedDef>
+	</ThingDef>
+	<ThingDef ParentName="BaseTurretGun">
+		<defName>Turret_75mmLEIG18_Weapon</defName>
+		<label>7.5cm L11.2</label>
+		<description>Ammo: 75mmLEIG18</description>
+		<graphicData>
+			<texPath>Things/Building/M75mmLEIG18_Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<weaponTags>
+			<li>TurretGun</li>
+		</weaponTags>
+		<statBases>
+			<SightsEfficiency>1</SightsEfficiency>
+			<ShotSpread>0.04</ShotSpread>
+			<SwayFactor>0.9</SwayFactor>
+			<RangedWeapon_Cooldown>6</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_75mmLEIG18_HE</defaultProjectile>
+				<warmupTime>1</warmupTime>
+				<minRange>8</minRange>
+				<range>100</range>
+				<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Sound_75mm</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>50</muzzleFlashScale>
+				<recoilPattern>Mounted</recoilPattern>
+				<circularError>1</circularError>
+				<indirectFirePenalty>0.1</indirectFirePenalty>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<reloadTime>7.5</reloadTime>
+				<ammoSet>AmmoSet_75mmLEIG18_Shells</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_Charges">
+				<chargeSpeeds>
+					<li>10</li>
+					<li>25</li>
+					<li>45</li>
+					<li>70</li>
+					<li>100</li>
+					<li>135</li>
+				</chargeSpeeds>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

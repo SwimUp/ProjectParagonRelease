@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_PackTox"]</xpath>
+				<value>
+					<ThingDef ParentName="ApparelNoQualityBase">
+						<defName>Apparel_PackTox</defName>
+						<label>tox pack</label>
+						<description>A reusable backpack containing canisters of reagents and a mechanism that uses them to generate tox gas. When the wearer activates the pack, it will begin spreading tox gas and continue for several seconds until it runs out of reagents.\n\nOnce used, it must be reloaded with chemfuel before it can be used again.\n\nTox gas burns the lungs and eyes, causing a temporary shortness of breath and reduction in sight. Continued exposure to tox gas results in toxic buildup which can be lethal.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/ToxPack/ToxPack</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(0.7,0.7)</drawSize>
+						</graphicData>
+						<tickerType>Normal</tickerType>
+						<techLevel>Industrial</techLevel>
+						<statBases>
+							<Mass>3</Mass>
+							<Flammability>0.6</Flammability>
+							<EquipDelay>2</EquipDelay>
+						</statBases>
+						<thingCategories>
+							<li>ApparelUtility</li>
+						</thingCategories>
+						<costList>
+							<Steel>10</Steel>
+							<ComponentIndustrial>1</ComponentIndustrial>
+							<Chemfuel>35</Chemfuel>
+						</costList>
+						<recipeMaker>
+							<unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+							<researchPrerequisite>ThrownWeaponsII</researchPrerequisite>
+							<recipeUsers>
+								<li>TableMachining</li>
+							</recipeUsers>
+							<useIngredientsForColor>false</useIngredientsForColor>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smith</effectWorking>
+							<soundWorking>Recipe_Smith</soundWorking>
+							<skillRequirements>
+								<Crafting>3</Crafting>
+							</skillRequirements>
+							<displayPriority>350</displayPriority>
+						</recipeMaker>
+						<apparel>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<scoreOffset>4</scoreOffset>
+							<careIfWornByCorpse>false</careIfWornByCorpse>
+							<careIfDamaged>false</careIfDamaged>
+							<wearPerDay>0</wearPerDay>
+							<tags>
+								<li>BeltDefenseTox</li>
+							</tags>
+							<bodyPartGroups>
+								<li>Waist</li>
+							</bodyPartGroups>
+							<layers>
+								<li>Belt</li>
+							</layers>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/ToxPack/ToxPack</wornGraphicPath>
+							<wornGraphicData>
+								<renderUtilityAsPack>true</renderUtilityAsPack>
+								<north>
+									<offset>(0,-0.15)</offset>
+								</north>
+								<south>
+									<offset>(0,-0.15)</offset>
+								</south>
+								<east>
+									<offset>(-0.35,-0.1)</offset>
+									<thin>
+										<offset>(0.05,0)</offset>
+									</thin>
+									<hulk>
+										<offset>(-0.15,0)</offset>
+									</hulk>
+									<fat>
+										<offset>(-0.20,0)</offset>
+									</fat>
+								</east>
+								<west>
+									<offset>(0.35,-0.1))</offset>
+									<thin>
+										<offset>(-0.05,0)</offset>
+									</thin>
+									<hulk>
+										<offset>(0.15,0)</offset>
+									</hulk>
+									<fat>
+										<offset>(0.20,0)</offset>
+									</fat>
+								</west>
+								<male>
+									<scale>(0.6,0.6)</scale>
+								</male>
+								<female>
+									<scale>(0.6,0.6)</scale>
+								</female>
+								<thin>
+									<scale>(0.6,0.6)</scale>
+								</thin>
+								<hulk>
+									<scale>(0.75,0.75)</scale>
+								</hulk>
+								<fat>
+									<scale>(0.75,0.75)</scale>
+								</fat>
+							</wornGraphicData>
+						</apparel>
+						<comps>
+							<li Class="CompProperties_Reloadable">
+								<maxCharges>1</maxCharges>
+								<soundReload>Standard_Reload</soundReload>
+								<chargeNoun>tox pack</chargeNoun>
+								<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+								<ammoDef>Chemfuel</ammoDef>
+								<ammoCountToRefill>35</ammoCountToRefill>
+								<baseReloadTicks>60</baseReloadTicks>
+								<hotKey>Misc4</hotKey>
+							</li>
+							<li Class="CompProperties_ReleaseGas">
+								<gasType>ToxGas</gasType>
+								<cellsToFill>45</cellsToFill>
+								<durationSeconds>12.75</durationSeconds>
+								<effecterReleasing>GasReleasing</effecterReleasing>
+							</li>
+							<li Class="CompProperties_AIUSablePack">
+								<compClass>CompToxPack</compClass>
+								<checkInterval>60</checkInterval>
+							</li>
+						</comps>
+						<verbs>
+							<li>
+								<verbClass>Verb_DeployToxPack</verbClass>
+								<label>deploy tox pack</label>
+								<violent>false</violent>
+								<hasStandardCommand>true</hasStandardCommand>
+								<targetable>false</targetable>
+								<soundCast>ToxPack_Deploy</soundCast>
+								<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+							</li>
+						</verbs>
+						<tradeTags>
+							<li>Clothing</li>
+						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_GasMask"]</xpath>
+				<value>
+					<ThingDef ParentName="HatMakeableBase">
+						<defName>Apparel_GasMask</defName>
+						<label>gas mask</label>
+						<description>A flexible mask worn over the face with an embedded air filter. It dramatically reduces exposure to pollution through the lungs, but does not protect the skin on the rest of the body.\n\nIt prevents tox gas irritants from entering through the eyes and mouth.</description>
+						<possessionCount>1</possessionCount>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/GasMask/GasMask</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.8</drawSize>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>80</MaxHitPoints>
+							<WorkToMake>6000</WorkToMake>
+							<Mass>0.4</Mass>
+							<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>0.50</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>0.8</EquipDelay>
+						</statBases>
+						<equippedStatOffsets>
+							<ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
+						</equippedStatOffsets>
+						<recipeMaker>
+							<researchPrerequisite>ComplexClothing</researchPrerequisite>
+							<unfinishedThingDef>UnfinishedMask</unfinishedThingDef>
+							<recipeUsers Inherit="False">
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+							<displayPriority>215</displayPriority>
+						</recipeMaker>
+						<costList>
+							<Cloth>75</Cloth>
+							<Steel>25</Steel>
+						</costList>
+						<apparel>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+							<immuneToToxGasExposure>true</immuneToToxGasExposure>
+							<bodyPartGroups>
+								<li>FullHead</li>
+							</bodyPartGroups>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/GasMask/GasMask</wornGraphicPath>
+							<hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
+							<layers>
+								<li>Overhead</li>
+							</layers>
+							<tags>
+								<li>IndustrialGasMask</li>
+							</tags>
+							<forceEyesVisibleForRotations>
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+							</forceEyesVisibleForRotations>
+						</apparel>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_ClothMask"]</xpath>
+				<value>
+					<ThingDef ParentName="HatMakeableBase">
+						<defName>Apparel_ClothMask</defName>
+						<label>face mask</label>
+						<description>A piece of fabric which covers the wearer's mouth and nose with several layers of textile. It is remarkably effective in reducing the effects of environmental toxins.</description>
+						<techLevel>Neolithic</techLevel>
+						<possessionCount>1</possessionCount>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/ClothMask/ClothMask</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(0.7, 0.7)</drawSize>
+						</graphicData>
+						<stuffCategories>
+							<li>Fabric</li>
+						</stuffCategories>
+						<costStuffCount>10</costStuffCount>
+						<statBases>
+							<WorkToMake>800</WorkToMake>
+							<MaxHitPoints>40</MaxHitPoints>
+							<Mass>0.04</Mass>
+							<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>0.02</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0.02</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>1</EquipDelay>
+						</statBases>
+						<equippedStatOffsets>
+							<ToxicEnvironmentResistance>0.5</ToxicEnvironmentResistance>
+						</equippedStatOffsets>
+						<apparel>
+							<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+							<bodyPartGroups>
+								<li>Mouth</li>
+							</bodyPartGroups>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/ClothMask/ClothMask</wornGraphicPath>
+							<hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<coversHeadMiddle>true</coversHeadMiddle>
+							<layers>
+								<li>Overhead</li>
+							</layers>
+						</apparel>
+						<recipeMaker>
+							<researchPrerequisite>TribalClothing</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>HandTailoringBench</li>
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+							<displayPriority>165</displayPriority>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_Sash"]</xpath>
+				<value>
+					<ThingDef ParentName="ApparelMakeableBase">
+						<defName>Apparel_Sash</defName>
+						<label>sash</label>
+						<description>A long strip of material worn over one shoulder. It offers minimal protection from heat, cold, and attacks. Due to its minimalist nature, nudists won't complain about wearing it.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/Sash/Sash</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.7</drawSize>
+						</graphicData>
+						<techLevel>Industrial</techLevel>
+						<costStuffCount>25</costStuffCount>
+						<stuffCategories>
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToMake>1000</WorkToMake>
+							<Mass>1</Mass>
+							<StuffEffectMultiplierArmor>0.1</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>0.1</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0.1</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>1.5</EquipDelay>
+						</statBases>
+						<recipeMaker>
+							<researchPrerequisite>TribalClothing</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>HandTailoringBench</li>
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+							<skillRequirements>
+								<Crafting>3</Crafting>
+							</skillRequirements>
+							<displayPriority>250</displayPriority>
+						</recipeMaker>
+						<thingCategories>
+							<li>ApparelMisc</li>
+						</thingCategories>
+						<apparel>
+							<bodyPartGroups>
+								<li>Torso</li>
+							</bodyPartGroups>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/Sash/Sash</wornGraphicPath>
+							<layers>
+								<li>Middle</li>
+							</layers>
+							<tags>
+								<li>Apparel_Yttakin</li>
+							</tags>
+							<defaultOutfitTags>
+								<li>Worker</li>
+								<li>Soldier</li>
+								<li>Nudist</li>
+							</defaultOutfitTags>
+							<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+						</apparel>
+						<tradeTags>
+							<li>Armor</li>
+						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_KidRomper"]</xpath>
+				<value>
+					<ThingDef ParentName="ChildApparelMakeableBase">
+						<defName>Apparel_KidRomper</defName>
+						<label>kid romper</label>
+						<description>A combined t-shirt and pants sized for kids, with a snuggly built-in undergarment. Little ones love it!</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/KidRomper/KidRomper</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(0.7, 0.7)</drawSize>
+						</graphicData>
+						<costStuffCount>30</costStuffCount>
+						<costList>
+							<ComponentPrimitive>1</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToMake>2000</WorkToMake>
+							<Mass>0.18</Mass>
+							<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>0.22</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>1.5</EquipDelay>
+						</statBases>
+						<apparel>
+							<bodyPartGroups>
+								<li>Torso</li>
+								<li>Neck</li>
+								<li>Shoulders</li>
+								<li>Arms</li>
+								<li>Legs</li>
+							</bodyPartGroups>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/KidRomper/KidRomper</wornGraphicPath>
+						</apparel>
+						<colorGenerator Class="ColorGenerator_StandardApparel"/>
+						<tradeTags>
+							<li>BasicClothing</li>
+						</tradeTags>
+						<recipeMaker>
+							<displayPriority>270</displayPriority>
+							<researchPrerequisite>TribalClothing</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>HandTailoringBench</li>
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_KidShirt"]</xpath>
+				<value>
+					<ThingDef ParentName="ChildApparelMakeableBase">
+						<defName>Apparel_KidShirt</defName>
+						<label>kid shirt</label>
+						<description>A small, simple t-shirt sized to fit children.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/KidShirt/KidShirt</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(0.7, 0.7)</drawSize>
+						</graphicData>
+						<costStuffCount>20</costStuffCount>
+						<costList>
+							<ComponentPrimitive>1</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToMake>1280</WorkToMake>
+							<Mass>0.15</Mass>
+							<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>0.22</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0.10</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>1.5</EquipDelay>
+						</statBases>
+						<apparel>
+							<bodyPartGroups>
+								<li>Torso</li>
+								<li>Shoulders</li>
+							</bodyPartGroups>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/KidShirt/KidShirt</wornGraphicPath>
+						</apparel>
+						<colorGenerator Class="ColorGenerator_StandardApparel"/>
+						<tradeTags>
+							<li>BasicClothing</li>
+						</tradeTags>
+						<recipeMaker>
+							<displayPriority>275</displayPriority>
+							<researchPrerequisite>TribalClothing</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>HandTailoringBench</li>
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_KidPants"]</xpath>
+				<value>
+					<ThingDef ParentName="ChildApparelMakeableBase">
+						<defName>Apparel_KidPants</defName>
+						<label>kid pants</label>
+						<description>A small set of pants sized to fit children.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/KidPants/KidPants</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(0.7, 0.7)</drawSize>
+						</graphicData>
+						<costStuffCount>20</costStuffCount>
+						<costList>
+							<ComponentPrimitive>1</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToMake>1280</WorkToMake>
+							<Mass>0.25</Mass>
+							<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>0.20</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0.08</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>2</EquipDelay>
+						</statBases>
+						<apparel>
+							<bodyPartGroups>
+								<li>Legs</li>
+							</bodyPartGroups>
+						</apparel>
+						<colorGenerator Class="ColorGenerator_StandardApparel"/>
+						<tradeTags>
+							<li>BasicClothing</li>
+						</tradeTags>
+						<recipeMaker>
+							<displayPriority>285</displayPriority>
+							<researchPrerequisite>TribalClothing</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>HandTailoringBench</li>
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_KidParka"]</xpath>
+				<value>
+					<ThingDef ParentName="ChildApparelMakeableBase">
+						<defName>Apparel_KidParka</defName>
+						<label>kid parka</label>
+						<description>A heavy jacket for keeping a child warm in cold temperatures.</description>
+						<techLevel>Neolithic</techLevel>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/KidParka/KidParka</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(0.7, 0.7)</drawSize>
+						</graphicData>
+						<costStuffCount>40</costStuffCount>
+						<costList>
+							<ComponentPrimitive>1</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToMake>6400</WorkToMake>
+							<Mass>1</Mass>
+							<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>1.5</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0.00</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>3</EquipDelay>
+						</statBases>
+						<apparel>
+							<bodyPartGroups>
+								<li>Torso</li>
+								<li>Neck</li>
+								<li>Shoulders</li>
+								<li>Arms</li>
+							</bodyPartGroups>
+							<layers Inherit="False">
+								<li>Shell</li>
+							</layers>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/KidParka/KidParka</wornGraphicPath>
+							<tags>
+								<li>Neolithic</li>
+							</tags>
+						</apparel>
+						<colorGenerator Class="ColorGenerator_StandardApparel"/>
+						<tradeTags>
+							<li>BasicClothing</li>
+						</tradeTags>
+						<recipeMaker>
+							<displayPriority>280</displayPriority>
+							<recipeUsers>
+								<li>HandTailoringBench</li>
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+							<researchPrerequisite>TribalClothing</researchPrerequisite>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_KidTribal"]</xpath>
+				<value>
+					<ThingDef ParentName="ChildApparelMakeableBase">
+						<defName>Apparel_KidTribal</defName>
+						<label>kid tribalwear</label>
+						<description>A one-piece garment sized for kids, crafted using neolithic tools. It provides effective insulation against the elements.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/KidTribal/KidTribalwear</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(0.7, 0.7)</drawSize>
+						</graphicData>
+						<costStuffCount>30</costStuffCount>
+						<costList>
+							<ComponentPrimitive>1</ComponentPrimitive>
+						</costList>
+						<statBases>
+							<MaxHitPoints>60</MaxHitPoints>
+							<WorkToMake>1400</WorkToMake>
+							<Mass>0.5</Mass>
+							<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>0.5</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0.5</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>1.5</EquipDelay>
+						</statBases>
+						<apparel>
+							<bodyPartGroups>
+								<li>Torso</li>
+								<li>Legs</li>
+							</bodyPartGroups>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/KidTribal/KidTribalwear</wornGraphicPath>
+							<tags Inherit="False">
+								<li>Neolithic</li>
+							</tags>
+							<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+							<developmentalStageFilter>Child</developmentalStageFilter>
+						</apparel>
+						<techLevel>Neolithic</techLevel>
+						<recipeMaker>
+							<recipeUsers>
+								<li>HandTailoringBench</li>
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+							<researchPrerequisite>TribalClothing</researchPrerequisite>
+							<displayPriority>290</displayPriority>
+						</recipeMaker>
+						<colorGenerator Class="ColorGenerator_Options">
+							<options>
+								<li>
+									<weight>10</weight>
+									<only>(0.4,0.3,0.15)</only>
+								</li>
+								<li>
+									<weight>15</weight>
+									<only>(0.6,0.45,0.18)</only>
+								</li>
+								<li>
+									<weight>20</weight>
+									<only>(0.8,0.6,0.23)</only>
+								</li>
+							</options>
+						</colorGenerator>
+						<tradeTags>
+							<li>BasicClothing</li>
+						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
+			<!--<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_KidHelmet"]</xpath>
+				<value>
+					<ThingDef ParentName="ArmorHelmetMakeableBase">
+						<defName>Apparel_KidHelmet</defName>
+						<label>kid helmet</label>
+						<description>A simple helmet sized for children. It gives moderate protection against sharp attacks. Not effective against blunt weapons. That said, if this is being used in combat something has already gone very wrong.</description>
+						<techLevel>Industrial</techLevel>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/KidHelmet/KidHelmet</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.55</drawSize>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>30</costStuffCount>
+						<costList>
+							<ComponentSimple>2</ComponentSimple>
+						</costList>
+						<statBases>
+							<WorkToMake>4000</WorkToMake>
+							<MaxHitPoints>60</MaxHitPoints>
+							<Mass>1</Mass>
+							<StuffEffectMultiplierInsulation_Cold>0.15</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>2</EquipDelay>
+							<Bulk>2</Bulk>
+							<WornBulk>2</WornBulk>
+							<Suppressability>-0.25</Suppressability>
+							<StuffEffectMultiplierArmor>4</StuffEffectMultiplierArmor>
+						</statBases>
+						<recipeMaker>
+							<researchPrerequisite>FlakArmor</researchPrerequisite>
+							<recipeUsers>
+								<li>ElectricSmithy</li>
+							</recipeUsers>
+							<displayPriority>210</displayPriority>
+						</recipeMaker>
+						<apparel>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<bodyPartGroups>
+								<li>UpperHead</li>
+							</bodyPartGroups>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/KidHelmet/KidHelmet</wornGraphicPath>
+							<layers>
+								<li>Overhead</li>
+							</layers>
+							<tags>
+								<li>IndustrialMilitaryBasic</li>
+							</tags>
+							<defaultOutfitTags>
+								<li>Soldier</li>
+							</defaultOutfitTags>
+							<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+							<developmentalStageFilter>Child</developmentalStageFilter>
+						</apparel>
+						<tradeTags>
+							<li>Clothing</li>
+							<li>Armor</li>
+						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>-->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_Bandolier"]</xpath>
+				<value>
+					<ThingDef ParentName="ApparelMakeableBase">
+						<defName>Apparel_Bandolier</defName>
+						<label>heavy bandolier</label>
+						<description>A heavy shoulder-belt for keeping spare munitions close at hand. It allows quick access to bullets, grenades, arrows, or whatever the user needs, reducing their weapon's ranged cooldown. Due to its bulk, it can't be worn under other clothing. It doesn't cover the body, so it can be worn happily by nudists and yttakin.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/HeavyBandolier/HeavyBandolier</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.8</drawSize>
+						</graphicData>
+						<techLevel>Industrial</techLevel>
+						<costStuffCount>75</costStuffCount>
+						<stuffCategories>
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToMake>3500</WorkToMake>
+							<Mass>1.5</Mass>
+							<StuffEffectMultiplierArmor>0.1</StuffEffectMultiplierArmor>
+							<StuffEffectMultiplierInsulation_Cold>0.1</StuffEffectMultiplierInsulation_Cold>
+							<StuffEffectMultiplierInsulation_Heat>0.1</StuffEffectMultiplierInsulation_Heat>
+							<EquipDelay>1.5</EquipDelay>
+						</statBases>
+						<equippedStatOffsets>
+							<RangedCooldownFactor>-0.2</RangedCooldownFactor>
+						</equippedStatOffsets>
+						<recipeMaker>
+							<researchPrerequisite>ComplexClothing</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>HandTailoringBench</li>
+								<li>ElectricTailoringBench</li>
+								<li>SteamLoom</li>
+							</recipeUsers>
+							<skillRequirements>
+								<Crafting>4</Crafting>
+							</skillRequirements>
+							<displayPriority>255</displayPriority>
+						</recipeMaker>
+						<thingCategories>
+							<li>ApparelMisc</li>
+						</thingCategories>
+						<apparel>
+							<bodyPartGroups>
+								<li>Torso</li>
+							</bodyPartGroups>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/HeavyBandolier/HeavyBandolier</wornGraphicPath>
+							<layers>
+								<li>Shell</li>
+							</layers>
+							<tags>
+								<li>Apparel_Yttakin</li>
+							</tags>
+							<defaultOutfitTags>
+								<li>Worker</li>
+								<li>Soldier</li>
+								<li>Nudist</li>
+							</defaultOutfitTags>
+							<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+						</apparel>
+						<tradeTags>
+							<li>Armor</li>
+						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

@@ -1,0 +1,1068 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!---->
+	<AlienRace.ThingDef_AlienRace ParentName="ParagonBasePawn">
+		<defName>Automaton_Aristocrat</defName>
+		<label>Automaton aristocrat</label>
+		<description>A complex mechanical creature that consumes solid fuel to operate. The design is imperfect, but durable. It is not entirely clear who the creators of these mechanisms are, but it is hardly possible to repeat the design. These automatons are the intelligent superior species among their fellows and constitute the governing force.</description>
+		<statBases>
+			<Fertility>0</Fertility>
+			<PsychicSensitivity>0</PsychicSensitivity>
+			<ComfyTemperatureMin>-20</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<ToxicResistance>1</ToxicResistance>
+			<MarketValue>1750</MarketValue>
+			<Mass>60</Mass>
+			<MoveSpeed>4.5</MoveSpeed>
+			<Flammability>0.5</Flammability>
+			<MeatAmount>30</MeatAmount>
+			<LeatherAmount>30</LeatherAmount>
+			<CarryingCapacity>50</CarryingCapacity>
+			<MiningSpeed>1.5</MiningSpeed>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+			<MeleeDodgeChance>0</MeleeDodgeChance>
+			<MeleeCritChance>0.2</MeleeCritChance>
+			<NightVisionEfficiency>0.5</NightVisionEfficiency>
+			<MaxNutrition>2</MaxNutrition>
+			<MuscleBuilding>0</MuscleBuilding>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>jaw</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.07</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<alienRace>
+			<raceRestriction>
+				<onlyHaveRaceRestrictedGenes>true</onlyHaveRaceRestrictedGenes>
+				<whiteGeneList>
+					<li>Automaton</li>
+				</whiteGeneList>
+				<onlyGetRaceRestrictedTraits>true</onlyGetRaceRestrictedTraits>
+				<whiteTraitList>
+					<li>Xenophobia</li>
+					<li>SpeedOffset</li>
+					<li>ShootingAccuracy</li>
+					<li>Beauty</li>
+					<li>CreepyBreathing</li>
+					<li>AnnoyingVoice</li>
+				</whiteTraitList>
+				<onlyEatRaceRestrictedFood>true</onlyEatRaceRestrictedFood>
+				<whiteFoodList>
+					<li>WoodLog</li>
+					<li>Coal</li>
+					<li>CokeCoal</li>
+					<li>FuelBriquette</li>
+				</whiteFoodList>
+				<blackFoodList Inherit="false">
+				</blackFoodList>
+				<canReproduce>false</canReproduce>
+				<canReproduceWithSelf>false</canReproduceWithSelf>
+			</raceRestriction>
+			<generalSettings>
+				<humanRecipeImport>true</humanRecipeImport>
+				<alienPartGenerator>
+					<customDrawSize>(1.2, 1.2)</customDrawSize>
+					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+					<headOffset>(0,	-0.035)</headOffset>
+					<bodyTypes>
+						<li>Thin</li>
+					</bodyTypes>
+					<!-- <useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies> -->
+					<headTypes>
+						<li>Male_AverageNormal</li>
+					</headTypes>
+					<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(1.0,1.0,1.0,1)</only>
+									</li>
+								</options>
+							</first>
+						</li>
+					</colorChannels>
+					<!--<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<!{1}** White Steel **{1}>
+										<weight>8</weight>
+										<only>RGBA(120,120,120)</only>
+									</li>
+									<li>
+										<!{1}** Steel **{1}>
+										<weight>20</weight>
+										<only>RGBA(105,105,105)</only>
+									</li>
+									<li>
+										<!{1}** Aged Steel **{1}>
+										<weight>8</weight>
+										<only>RGBA(85,85,85)</only>
+									</li>
+									<li>
+										<!{1}** Dark Steel **{1}>
+										<weight>6</weight>
+										<only>RGBA(65,65,65)</only>
+									</li>
+									<li>
+										<!{1}** Rusted **{1}>
+										<weight>8</weight>
+										<only>RGBA(120,102,100)</only>
+									</li>
+									<li>
+										<!{1}** Aged Rust **{1}>
+										<weight>6</weight>
+										<only>RGBA(100,82,80)</only>
+									</li>
+									<li>
+										<!{1}** Dark Rust **{1}>
+										<weight>4</weight>
+										<only>RGBA(80,62,60)</only>
+									</li>
+									<!{1}** VFE Mechanoid / Rusted **{1}>
+									<li>
+										<weight>3</weight>
+										<only>RGBA(139,122,109)</only>
+									</li>
+									<li>
+										<!{1}** Plasteel **{1}>
+										<weight>0.1</weight>
+										<only>RGBA(160,178,181)</only>
+									</li>
+									<!{1}** Mechanoid Black **{1}>
+									<li>
+										<weight>0.4</weight>
+										<only>RGBA(54,56,51)</only>
+									</li>
+								</options>
+							</first>
+							<second Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>100</weight>
+										<only>RGBA(255, 255, 255, 255)</only>
+									</li>
+								</options>
+							</second>
+						</li>
+					</colorChannels>-->
+				</alienPartGenerator>
+				<maleGenderProbability>1</maleGenderProbability>
+				<notXenophobistTowards>
+					<li>Automaton_Laborer</li>
+					<li>Automaton_Worker</li>
+				</notXenophobistTowards>
+			</generalSettings>
+			<graphicPaths>
+				<body>
+					<path>Core/Races/Automatons/Aristocrat/Body/Naked_Hulk</path>
+					<bodytypeGraphics>
+						<Baby>Core/Races/Automatons/Aristocrat/Body/Naked_Hulk</Baby>
+						<Child>Core/Races/Automatons/Aristocrat/Body/Naked_Hulk</Child>
+						<Thin>Core/Races/Automatons/Aristocrat/Body/Naked_Hulk</Thin>
+					</bodytypeGraphics>
+				</body>
+				<head>
+					<path>Core/Races/Automatons/Aristocrat/Head/</path>
+				</head>
+				<skeleton>
+					<path>Core/Races/Automatons/Aristocrat/Body/Naked_Hulk_east</path>
+				</skeleton>
+				<skull>
+					<path>Core/Races/Automatons/Aristocrat/Head/Average_Normal_south</path>
+				</skull>
+			</graphicPaths>
+			<styleSettings>
+				<li>
+					<key>HairDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>TattooDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>BeardDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+			</styleSettings>
+		</alienRace>
+		<race>
+			<needsRest>false</needsRest>
+			<nameGenerator>NamerPersonAutomatonAristocrat</nameGenerator>
+			<thinkTreeMain>Humanlike</thinkTreeMain>
+			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<intelligence>Humanlike</intelligence>
+			<makesFootprints>true</makesFootprints>
+			<lifeExpectancy>1000</lifeExpectancy>
+			<bloodDef>Filth_MachineBits</bloodDef>
+			<leatherDef>StrongPlates</leatherDef>
+			<nameCategory>HumanStandard</nameCategory>
+			<body>AutomatonAristocrat</body>
+			<baseBodySize>2</baseBodySize>
+			<baseHealthScale>0.8</baseHealthScale>
+			<baseHungerRate>1</baseHungerRate>
+			<foodType>OmnivoreHuman</foodType>
+			<gestationPeriodDays>-1</gestationPeriodDays>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>0.1</minAge>
+					<soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
+					<soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
+					<soundCall>Pawn_Mech_Centipede_Call</soundCall>
+					<soundAngry>Pawn_Mech_Centipede_Call</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<specialShadowData>
+				<volume>(0.3, 0.8, 0.4)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li>(10,0)</li>
+					<li>(50,100)</li>
+					<li>(100,150)</li>
+					<li>(150,100)</li>
+					<li>(300,80)</li>
+					<li>(600,50)</li>
+					<li>(1000, 0)</li>
+				</points>
+			</ageGenerationCurve>
+			<hediffGiverSets>
+				<li>InorganicGroup</li>
+				<li>InorganicAutomatonAristocrat</li>
+				<li>InorganicAutomatonGroup</li>
+			</hediffGiverSets>
+		</race>
+		<butcherProducts>
+		</butcherProducts>
+		<comps>
+			<li>
+				<compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+			<li Class="CombatExtended.CompProperties_Suppressable"/>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnParagon"/>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<overrideMeatDef>Steel</overrideMeatDef>
+				<fightSystemRestMultiplier>0.8</fightSystemRestMultiplier>
+				<canHaveFavoriteFood>false</canHaveFavoriteFood>
+				<bleedMult>0</bleedMult>
+				<xenosHediffFilter>
+					<whiteHediffTagList>
+						<li>AutomatonDisease</li>
+					</whiteHediffTagList>
+					<whiteListOnly>true</whiteListOnly>
+				</xenosHediffFilter>
+				<defaultRaceLanguage>LinguaTechnis</defaultRaceLanguage>
+				<geneticAllowed>false</geneticAllowed>
+				<permanentInjuriesAllowed>false</permanentInjuriesAllowed>
+				<injuries>false</injuries>
+			</li>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+		</modExtensions>
+	</AlienRace.ThingDef_AlienRace>
+	<RulePackDef>
+		<defName>NamerPersonAutomatonAristocrat</defName>
+		<rulePack>
+			<include>
+				<li>NamerWorld</li>
+				<li>ArtNameUtility</li>
+			</include>
+			<rulesStrings>
+				<li>name->A[RomanNumeral]</li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
+	<!---->
+	<AlienRace.ThingDef_AlienRace ParentName="ParagonBasePawn">
+		<defName>Automaton_Laborer</defName>
+		<label>Automaton laborer</label>
+		<description>A mechanical creature powered by a steam core at the heart of the structure. The production technology is known to automatons aristocrats who reproduce laborers as slaves. These mechanisms do not have will or emotions, but only follow instructions.</description>
+		<statBases>
+			<Fertility>0</Fertility>
+			<PsychicSensitivity>0</PsychicSensitivity>
+			<ComfyTemperatureMin>-50</ComfyTemperatureMin>
+			<ComfyTemperatureMax>80</ComfyTemperatureMax>
+			<ToxicResistance>1</ToxicResistance>
+			<MarketValue>1200</MarketValue>
+			<Mass>60</Mass>
+			<MoveSpeed>3.5</MoveSpeed>
+			<Flammability>0.5</Flammability>
+			<MeatAmount>50</MeatAmount>
+			<LeatherAmount>50</LeatherAmount>
+			<CarryingCapacity>50</CarryingCapacity>
+			<MiningSpeed>1.5</MiningSpeed>
+			<ArmorRating_Blunt>3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+			<MeleeDodgeChance>0</MeleeDodgeChance>
+			<MeleeCritChance>0.2</MeleeCritChance>
+			<NightVisionEfficiency>0.5</NightVisionEfficiency>
+			<MaxNutrition>2</MaxNutrition>
+			<MuscleBuilding>0</MuscleBuilding>
+			<MentalBreakThreshold>0.5</MentalBreakThreshold>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>jaw</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.07</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<alienRace>
+			<thoughtSettings>
+				<ateThoughtSpecific>
+				</ateThoughtSpecific>
+				<cannotReceiveThoughtsAtAll>true</cannotReceiveThoughtsAtAll>
+			</thoughtSettings>
+			<raceRestriction>
+				<onlyHaveRaceRestrictedGenes>true</onlyHaveRaceRestrictedGenes>
+				<whiteGeneList>
+					<li>Automaton</li>
+				</whiteGeneList>
+				<onlyGetRaceRestrictedTraits>true</onlyGetRaceRestrictedTraits>
+				<whiteTraitList>
+					<li>SpeedOffset</li>
+					<li>Beauty</li>
+					<li>CreepyBreathing</li>
+					<li>AnnoyingVoice</li>
+				</whiteTraitList>
+				<onlyEatRaceRestrictedFood>true</onlyEatRaceRestrictedFood>
+				<whiteFoodList>
+					<li>WoodLog</li>
+					<li>Coal</li>
+					<li>CokeCoal</li>
+					<li>FuelBriquette</li>
+				</whiteFoodList>
+				<blackFoodList Inherit="false">
+				</blackFoodList>
+				<canReproduce>false</canReproduce>
+				<canReproduceWithSelf>false</canReproduceWithSelf>
+				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+				<whiteApparelList>
+				</whiteApparelList>
+			</raceRestriction>
+			<generalSettings>
+				<humanRecipeImport>true</humanRecipeImport>
+				<alienPartGenerator>
+					<customDrawSize>(1.2, 1.2)</customDrawSize>
+					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+					<headOffset>(0,	-0.035)</headOffset>
+					<bodyTypes>
+						<li>Hulk</li>
+					</bodyTypes>
+					<!-- <useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies> -->
+					<headTypes>
+						<li>Male_AverageNormal</li>
+					</headTypes>
+					<!--<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<!{1}** White Steel **{1}>
+										<weight>8</weight>
+										<only>RGBA(120,120,120)</only>
+									</li>
+									<li>
+										<!{1}** Steel **{1}>
+										<weight>20</weight>
+										<only>RGBA(105,105,105)</only>
+									</li>
+									<li>
+										<!{1}** Aged Steel **{1}>
+										<weight>8</weight>
+										<only>RGBA(85,85,85)</only>
+									</li>
+									<li>
+										<!{1}** Dark Steel **{1}>
+										<weight>6</weight>
+										<only>RGBA(65,65,65)</only>
+									</li>
+									<li>
+										<!{1}** Rusted **{1}>
+										<weight>8</weight>
+										<only>RGBA(120,102,100)</only>
+									</li>
+									<li>
+										<!{1}** Aged Rust **{1}>
+										<weight>6</weight>
+										<only>RGBA(100,82,80)</only>
+									</li>
+									<li>
+										<!{1}** Dark Rust **{1}>
+										<weight>4</weight>
+										<only>RGBA(80,62,60)</only>
+									</li>
+									<!{1}** VFE Mechanoid / Rusted **{1}>
+									<li>
+										<weight>3</weight>
+										<only>RGBA(139,122,109)</only>
+									</li>
+									<li>
+										<!{1}** Plasteel **{1}>
+										<weight>0.1</weight>
+										<only>RGBA(160,178,181)</only>
+									</li>
+									<!{1}** Mechanoid Black **{1}>
+									<li>
+										<weight>0.4</weight>
+										<only>RGBA(54,56,51)</only>
+									</li>
+								</options>
+							</first>
+							<second Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>100</weight>
+										<only>RGBA(255, 255, 255, 255)</only>
+									</li>
+								</options>
+							</second>
+						</li>
+					</colorChannels>-->
+					<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(1.0,1.0,1.0,1)</only>
+									</li>
+								</options>
+							</first>
+						</li>
+					</colorChannels>
+				</alienPartGenerator>
+				<maleGenderProbability>1</maleGenderProbability>
+				<notXenophobistTowards>
+					<li>Automaton_Aristocrat</li>
+					<li>Automaton_Worker</li>
+				</notXenophobistTowards>
+			</generalSettings>
+			<graphicPaths>
+				<body>
+					<path>Core/Races/Automatons/Laborer/Body/Naked_Hulk</path>
+					<bodytypeGraphics>
+						<Baby>Core/Races/Automatons/Laborer/Body/Naked_Hulk</Baby>
+						<Child>Core/Races/Automatons/Laborer/Body/Naked_Hulk</Child>
+						<Thin>Core/Races/Automatons/Laborer/Body/Naked_Hulk</Thin>
+					</bodytypeGraphics>
+				</body>
+				<head>
+					<path>Core/Races/Automatons/Laborer/Head/</path>
+				</head>
+				<skeleton>
+					<path>Core/Races/Automatons/Laborer/Body/Naked_Hulk_east</path>
+				</skeleton>
+				<skull>
+					<path>Core/Races/Automatons/Laborer/Head/Average_Normal_south</path>
+				</skull>
+			</graphicPaths>
+			<styleSettings>
+				<li>
+					<key>HairDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>TattooDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>BeardDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+			</styleSettings>
+		</alienRace>
+		<race>
+			<needsRest>false</needsRest>
+			<nameGenerator>NamerPersonAutomatonLaborer</nameGenerator>
+			<thinkTreeMain>Humanlike</thinkTreeMain>
+			<intelligence>Humanlike</intelligence>
+			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<makesFootprints>true</makesFootprints>
+			<lifeExpectancy>1000</lifeExpectancy>
+			<bloodDef>Filth_MachineBits</bloodDef>
+			<leatherDef>StrongPlates</leatherDef>
+			<nameCategory>HumanStandard</nameCategory>
+			<body>AutomatonLaborer</body>
+			<baseBodySize>2</baseBodySize>
+			<baseHealthScale>1.25</baseHealthScale>
+			<baseHungerRate>1</baseHungerRate>
+			<foodType>OmnivoreHuman</foodType>
+			<gestationPeriodDays>-1</gestationPeriodDays>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>0.1</minAge>
+					<soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
+					<soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
+					<soundCall>Pawn_Mech_Centipede_Call</soundCall>
+					<soundAngry>Pawn_Mech_Centipede_Call</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<specialShadowData>
+				<volume>(0.3, 0.8, 0.4)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li>(10,0)</li>
+					<li>(50,100)</li>
+					<li>(100,150)</li>
+					<li>(150,100)</li>
+					<li>(300,80)</li>
+					<li>(600,50)</li>
+					<li>(1000, 0)</li>
+				</points>
+			</ageGenerationCurve>
+			<hediffGiverSets>
+				<li>InorganicGroup</li>
+				<li>InorganicAutomatonLaborer</li>
+				<li>InorganicAutomatonGroup</li>
+			</hediffGiverSets>
+		</race>
+		<butcherProducts>
+		</butcherProducts>
+		<comps>
+			<li>
+				<compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+			<li Class="CombatExtended.CompProperties_Suppressable"/>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnParagon"/>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<overrideMeatDef>Steel</overrideMeatDef>
+				<fightSystemRestMultiplier>0.8</fightSystemRestMultiplier>
+				<canHaveFavoriteFood>false</canHaveFavoriteFood>
+				<bleedMult>0</bleedMult>
+				<xenosHediffFilter>
+					<whiteHediffTagList>
+						<li>AutomatonDisease</li>
+					</whiteHediffTagList>
+					<whiteListOnly>true</whiteListOnly>
+				</xenosHediffFilter>
+				<defaultRaceLanguage>LinguaTechnis</defaultRaceLanguage>
+				<geneticAllowed>false</geneticAllowed>
+				<permanentInjuriesAllowed>false</permanentInjuriesAllowed>
+				<draftable>false</draftable>
+				<playerOrdersAllowed>false</playerOrdersAllowed>
+				<injuries>false</injuries>
+				<everDrawBodyInBed>true</everDrawBodyInBed>
+			</li>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+		</modExtensions>
+	</AlienRace.ThingDef_AlienRace>
+	<RulePackDef>
+		<defName>NamerPersonAutomatonLaborer</defName>
+		<rulePack>
+			<include>
+				<li>NamerWorld</li>
+				<li>ArtNameUtility</li>
+			</include>
+			<rulesStrings>
+				<li>name->L[RomanNumeral]</li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
+	<!---->
+	<AlienRace.ThingDef_AlienRace ParentName="ParagonBasePawn">
+		<defName>Automaton_Worker</defName>
+		<label>Automaton worker</label>
+		<description>A mechanical creature powered by a steam core at the heart of the structure. Production technology is known to automaton aristocrats who reproduce workers to perform skilled work. The workers are not capable of thinking, but only follow instructions.</description>
+		<statBases>
+			<Fertility>0</Fertility>
+			<PsychicSensitivity>0</PsychicSensitivity>
+			<ComfyTemperatureMin>-50</ComfyTemperatureMin>
+			<ComfyTemperatureMax>80</ComfyTemperatureMax>
+			<ToxicResistance>1</ToxicResistance>
+			<MarketValue>1400</MarketValue>
+			<Mass>60</Mass>
+			<MoveSpeed>3.5</MoveSpeed>
+			<Flammability>0.5</Flammability>
+			<MeatAmount>40</MeatAmount>
+			<LeatherAmount>40</LeatherAmount>
+			<CarryingCapacity>40</CarryingCapacity>
+			<MiningSpeed>1.5</MiningSpeed>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+			<MeleeDodgeChance>0</MeleeDodgeChance>
+			<MeleeCritChance>0.2</MeleeCritChance>
+			<NightVisionEfficiency>0.5</NightVisionEfficiency>
+			<MaxNutrition>2</MaxNutrition>
+			<MuscleBuilding>0</MuscleBuilding>
+			<MentalBreakThreshold>0.5</MentalBreakThreshold>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>jaw</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.07</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<alienRace>
+			<thoughtSettings>
+				<ateThoughtSpecific>
+				</ateThoughtSpecific>
+				<cannotReceiveThoughtsAtAll>true</cannotReceiveThoughtsAtAll>
+			</thoughtSettings>
+			<raceRestriction>
+				<onlyHaveRaceRestrictedGenes>true</onlyHaveRaceRestrictedGenes>
+				<whiteGeneList>
+					<li>Automaton</li>
+				</whiteGeneList>
+				<onlyGetRaceRestrictedTraits>true</onlyGetRaceRestrictedTraits>
+				<whiteTraitList>
+					<li>SpeedOffset</li>
+					<li>Beauty</li>
+					<li>CreepyBreathing</li>
+					<li>AnnoyingVoice</li>
+				</whiteTraitList>
+				<onlyEatRaceRestrictedFood>true</onlyEatRaceRestrictedFood>
+				<whiteFoodList>
+					<li>WoodLog</li>
+					<li>Coal</li>
+					<li>CokeCoal</li>
+					<li>FuelBriquette</li>
+				</whiteFoodList>
+				<blackFoodList Inherit="false">
+				</blackFoodList>
+				<canReproduce>false</canReproduce>
+				<canReproduceWithSelf>false</canReproduceWithSelf>
+				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+				<whiteApparelList>
+				</whiteApparelList>
+			</raceRestriction>
+			<generalSettings>
+				<humanRecipeImport>true</humanRecipeImport>
+				<alienPartGenerator>
+					<customDrawSize>(1.2, 1.2)</customDrawSize>
+					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+					<headOffset>(0,	-0.035)</headOffset>
+					<bodyTypes>
+						<li>Hulk</li>
+					</bodyTypes>
+					<!-- <useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies> -->
+					<headTypes>
+						<li>Male_AverageNormal</li>
+					</headTypes>
+					<!--<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<!{1}** White Steel **{1}>
+										<weight>8</weight>
+										<only>RGBA(120,120,120)</only>
+									</li>
+									<li>
+										<!{1}** Steel **{1}>
+										<weight>20</weight>
+										<only>RGBA(105,105,105)</only>
+									</li>
+									<li>
+										<!{1}** Aged Steel **{1}>
+										<weight>8</weight>
+										<only>RGBA(85,85,85)</only>
+									</li>
+									<li>
+										<!{1}** Dark Steel **{1}>
+										<weight>6</weight>
+										<only>RGBA(65,65,65)</only>
+									</li>
+									<li>
+										<!{1}** Rusted **{1}>
+										<weight>8</weight>
+										<only>RGBA(120,102,100)</only>
+									</li>
+									<li>
+										<!{1}** Aged Rust **{1}>
+										<weight>6</weight>
+										<only>RGBA(100,82,80)</only>
+									</li>
+									<li>
+										<!{1}** Dark Rust **{1}>
+										<weight>4</weight>
+										<only>RGBA(80,62,60)</only>
+									</li>
+									<!{1}** VFE Mechanoid / Rusted **{1}>
+									<li>
+										<weight>3</weight>
+										<only>RGBA(139,122,109)</only>
+									</li>
+									<li>
+										<!{1}** Plasteel **{1}>
+										<weight>0.1</weight>
+										<only>RGBA(160,178,181)</only>
+									</li>
+									<!{1}** Mechanoid Black **{1}>
+									<li>
+										<weight>0.4</weight>
+										<only>RGBA(54,56,51)</only>
+									</li>
+								</options>
+							</first>
+							<second Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>100</weight>
+										<only>RGBA(255, 255, 255, 255)</only>
+									</li>
+								</options>
+							</second>
+						</li>
+					</colorChannels>-->
+					<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>10</weight>
+										<only>RGBA(1.0,1.0,1.0,1)</only>
+									</li>
+								</options>
+							</first>
+						</li>
+					</colorChannels>
+				</alienPartGenerator>
+				<maleGenderProbability>1</maleGenderProbability>
+				<notXenophobistTowards>
+					<li>Automaton_Laborer</li>
+					<li>Automaton_Aristocrat</li>
+				</notXenophobistTowards>
+			</generalSettings>
+			<graphicPaths>
+				<body>
+					<path>Core/Races/Automatons/Worker/Body/Naked_Hulk</path>
+					<bodytypeGraphics>
+						<Baby>Core/Races/Automatons/Worker/Body/Naked_Hulk</Baby>
+						<Child>Core/Races/Automatons/Worker/Body/Naked_Hulk</Child>
+						<Thin>Core/Races/Automatons/Worker/Body/Naked_Hulk</Thin>
+					</bodytypeGraphics>
+				</body>
+				<head>
+					<path>Core/Races/Automatons/Worker/Head/</path>
+				</head>
+				<skeleton>
+					<path>Core/Races/Automatons/Worker/Body/Naked_Hulk_east</path>
+				</skeleton>
+				<skull>
+					<path>Core/Races/Automatons/Worker/Head/Average_Normal_south</path>
+				</skull>
+			</graphicPaths>
+			<styleSettings>
+				<li>
+					<key>HairDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>TattooDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>BeardDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+			</styleSettings>
+		</alienRace>
+		<race>
+			<needsRest>false</needsRest>
+			<nameGenerator>NamerPersonAutomatonWorker</nameGenerator>
+			<thinkTreeMain>Humanlike</thinkTreeMain>
+			<intelligence>Humanlike</intelligence>
+			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<makesFootprints>true</makesFootprints>
+			<lifeExpectancy>1000</lifeExpectancy>
+			<bloodDef>Filth_MachineBits</bloodDef>
+			<leatherDef>StrongPlates</leatherDef>
+			<nameCategory>HumanStandard</nameCategory>
+			<body>AutomatonWorker</body>
+			<baseBodySize>2</baseBodySize>
+			<baseHealthScale>0.8</baseHealthScale>
+			<baseHungerRate>1</baseHungerRate>
+			<foodType>OmnivoreHuman</foodType>
+			<gestationPeriodDays>-1</gestationPeriodDays>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>0.1</minAge>
+					<soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
+					<soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
+					<soundCall>Pawn_Mech_Centipede_Call</soundCall>
+					<soundAngry>Pawn_Mech_Centipede_Call</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<specialShadowData>
+				<volume>(0.3, 0.8, 0.4)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li>(10,0)</li>
+					<li>(50,100)</li>
+					<li>(100,150)</li>
+					<li>(150,100)</li>
+					<li>(300,80)</li>
+					<li>(600,50)</li>
+					<li>(1000, 0)</li>
+				</points>
+			</ageGenerationCurve>
+			<hediffGiverSets>
+				<li>InorganicGroup</li>
+				<li>InorganicAutomatonWorker</li>
+				<li>InorganicAutomatonGroup</li>
+			</hediffGiverSets>
+		</race>
+		<butcherProducts>
+		</butcherProducts>
+		<comps>
+			<li>
+				<compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+			<li Class="CombatExtended.CompProperties_Suppressable"/>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnParagon"/>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<overrideMeatDef>Steel</overrideMeatDef>
+				<fightSystemRestMultiplier>0.8</fightSystemRestMultiplier>
+				<canHaveFavoriteFood>false</canHaveFavoriteFood>
+				<bleedMult>0</bleedMult>
+				<xenosHediffFilter>
+					<whiteHediffTagList>
+						<li>AutomatonDisease</li>
+					</whiteHediffTagList>
+					<whiteListOnly>true</whiteListOnly>
+				</xenosHediffFilter>
+				<defaultRaceLanguage>LinguaTechnis</defaultRaceLanguage>
+				<geneticAllowed>false</geneticAllowed>
+				<permanentInjuriesAllowed>false</permanentInjuriesAllowed>
+				<draftable>false</draftable>
+				<playerOrdersAllowed>false</playerOrdersAllowed>
+				<injuries>false</injuries>
+				<everDrawBodyInBed>true</everDrawBodyInBed>
+			</li>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+		</modExtensions>
+	</AlienRace.ThingDef_AlienRace>
+	<RulePackDef>
+		<defName>NamerPersonAutomatonWorker</defName>
+		<rulePack>
+			<include>
+				<li>NamerWorld</li>
+				<li>ArtNameUtility</li>
+			</include>
+			<rulesStrings>
+				<li>name->W[RomanNumeral]</li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
+	<!---->
+</Defs>

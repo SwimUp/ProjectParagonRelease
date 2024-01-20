@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 100mmBS3 -->
+	<ThingCategoryDef>
+		<defName>Ammo100mmBS3Shells</defName>
+		<label>100mm BS-3</label>
+		<parent>AmmoHighCaliber</parent>
+		<iconPath>Things/Projectile/100mmBS3APHE</iconPath>
+	</ThingCategoryDef>
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_100mmBS3_Shells</defName>
+		<label>100mm BS-3</label>
+		<ammoTypes>
+			<Ammo_100mmBS3_APHE>Bullet_100mmBS3_APHE</Ammo_100mmBS3_APHE>
+			<Ammo_100mmBS3_HE>Bullet_100mmBS3_HE</Ammo_100mmBS3_HE>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="100mmBS3Base" ParentName="AmmoBase" Abstract="True">
+		<description>100mm BS-3 Ammunitions</description>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<thingCategories>
+			<li>Ammo100mmBS3Shells</li>
+		</thingCategories>
+		<stackLimit>25</stackLimit>
+		<cookOffFlashScale>30</cookOffFlashScale>
+		<cookOffSound>MortarBomb_Explode</cookOffSound>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" Name="100mmBS3BaseCraftableBase" ParentName="100mmBS3Base" Abstract="True">
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+		<!-- 	<li>CE_AutoEnableCrafting_TableMachining</li> -->
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>2</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<!--<explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>-->
+				<startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<explodeOnKilled>True</explodeOnKilled>
+				<wickTicks>30~60</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="100mmBS3BaseCraftableBase">
+		<defName>Ammo_100mmBS3_APHE</defName>
+		<label>100mm BR-412D (APHE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/100mmBS3APHE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>75.42</MarketValue>
+			<Mass>30</Mass>
+			<Bulk>48.99</Bulk>
+		</statBases>
+		<ammoClass>ExplosiveAP</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_100mmBS3_APHE</detonateProjectile>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="100mmBS3BaseCraftableBase">
+		<defName>Ammo_100mmBS3_HE</defName>
+		<label>100mm OF-412 (HE)</label>
+		<graphicData>
+			<texPath>Things/Projectile/100mmBS3HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<!--<graphicClass>Graphic_StackCount</graphicClass>-->
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>104.87</MarketValue>
+			<Mass>30</Mass>
+			<Bulk>48.99</Bulk>
+		</statBases>
+		<ammoClass>GrenadeHE</ammoClass>
+		<!-- ammo class choices:
+  	ArmorPiercing, Sabot, IncendiaryAP, ExplosiveAP, IncendiaryFuel, GrenadeHE, GrenadeIncendiary, RocketHEAT, Antigrain, RadiationIonising -->
+		<detonateProjectile>Bullet_100mmBS3_HE</detonateProjectile>
+	</ThingDef>
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="Base100mmBS3Shell" ParentName="BaseBullet" Abstract="true">
+		<graphicData>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>1</speed>
+			<flyOverhead>false</flyOverhead>
+			<dropsCasings>true</dropsCasings>
+			<!--<casingMoteDefname>Fleck_BigShell</casingMoteDefname>
+			<casingFilthDefname>Filth_CannonAmmoCasings</casingFilthDefname>-->
+			<!--
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for HE -->
+		</projectile>
+	</ThingDef>
+	<!-- APHE Projectile -->
+	<ThingDef ParentName="Base100mmBS3Shell">
+		<defName>Bullet_100mmBS3_APHE</defName>
+		<label>100mm BR-412D (APHE)</label>
+		<!--<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass> -->
+		<graphicData>
+			<texPath>Things/Projectile/MediumShell</texPath>
+			<!-- <texPath>Things/Projectile/Bullet_Big</texPath> -->
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>178</speed>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>510</damageAmountBase>
+			<armorPenetrationSharp>239</armorPenetrationSharp>
+			<armorPenetrationBlunt>123522.74</armorPenetrationBlunt>
+			<!--
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			for artillery -->
+			<secondaryDamage>
+				<li>
+					<def>Bomb_Secondary</def>
+					<amount>127</amount>
+				</li>
+			</secondaryDamage>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>29</Fragment_Large>
+					<Fragment_Small>0</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	<!-- HE Projectile -->
+	<ThingDef ParentName="Base100mmBS3Shell">
+		<defName>Bullet_100mmBS3_HE</defName>
+		<label>100mm OF-412 (HE)</label>
+		<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/MediumShell</texPath>
+			<!-- <texPath>Things/Projectile/Bullet_Big</texPath> -->
+			<!-- <texPath>Things/Projectile/RodShell</texPath> -->
+			<!-- <texPath>Things/Projectile/FinShell</texPath> -->
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>180</speed>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>209</damageAmountBase>
+			<armorPenetrationSharp>50</armorPenetrationSharp>
+			<armorPenetrationBlunt>50000</armorPenetrationBlunt>
+			<soundExplode>Small_Pop</soundExplode>
+			<explosionRadius>3</explosionRadius>
+			<!--
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<explosionRadius></explosionRadius>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			for artillery -->
+			<!--
+			<secondaryDamage>
+        <li>
+          <def>Bomb_Secondary</def>
+          <amount>18</amount>
+        </li>
+	    </secondaryDamage>
+	  	-->
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>40</Fragment_Large>
+					<Fragment_Small>75</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_100mmBS3_APHE</defName>
+		<label>make 100mm BR-412D APHE x10</label>
+		<description>100mm BR-412D APHE Ammunitions for 100mm BS-3 gun</description>
+		<jobString>Making 100mm BR-412D APHE cannon shells.</jobString>
+		<workAmount>14000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>100</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>60</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>110</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_100mmBS3_APHE>10</Ammo_100mmBS3_APHE>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>HeavyArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_100mmBS3_HE</defName>
+		<label>make 100mm OF-412 HE x10</label>
+		<description>100mm OF-412 HE Ammunitions for 100mm BS-3 gun</description>
+		<jobString>Making 100mm OF-412 HE cannon shells.</jobString>
+		<workAmount>12000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>85</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>60</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>100</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_100mmBS3_HE>10</Ammo_100mmBS3_HE>
+		</products>
+		<researchPrerequisites Inherit="False">
+			<li>HeavyArtillery</li>
+		</researchPrerequisites>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	</RecipeDef>
+</Defs>

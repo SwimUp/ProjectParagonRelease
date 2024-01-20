@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>ProstheticHeart</defName>
+		<label>Prosthetic heart</label>
+		<labelNoun>a prosthetic heart</labelNoun>
+		<description>A simple heart prosthesis made from prosthetic components and gears.</description>
+		<spawnThingOnRemoved>ProstheticHeart</spawnThingOnRemoved>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1</partEfficiency>
+		</addedPartProps>
+		<priceImpact>true</priceImpact>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+				<multiplier>1</multiplier>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+			</li>
+		</modExtensions>
+	</HediffDef>
+	<ThingDef ParentName="ProsthesisAdvancedIndustrialBase">
+		<defName>ProstheticHeart</defName>
+		<label>Prosthetic heart</label>
+		<description>A prosthesis made from prosthetic components and gears.</description>
+		<graphicData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>4.0</Mass>
+		</statBases>
+		<recipeMaker>
+			<workSpeedStat>SmeltingSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smelt</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<researchPrerequisite>ProstheticsV</researchPrerequisite>
+			<recipeUsers>
+				<li>TableMachiningAdvanced</li>
+			</recipeUsers>
+			<unfinishedThingDef>ProstheticParagon_T3_</unfinishedThingDef>
+		</recipeMaker>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Plastic</li>
+		</stuffCategories>
+		<costStuffCount>30</costStuffCount>
+		<costList>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Microelectronics>2</Microelectronics>
+			<Paraffin>10</Paraffin>
+		</costList>
+	</ThingDef>
+	<RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+		<defName>ProstheticHeart</defName>
+		<label>install prosthetic heart</label>
+		<description>Install a prosthetic heart.</description>
+		<jobString>Installing prosthetic heart.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ProstheticHeart</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ProstheticHeart</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Heart</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>ProstheticHeart</addsHediff>
+		<researchPrerequisite>ProstheticsV</researchPrerequisite>
+	</RecipeDef>
+</Defs>

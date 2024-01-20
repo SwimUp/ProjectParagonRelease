@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneTreantBase" Abstract="True">
+		<displayCategory>Treant</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTreantBase">
+		<defName>Treant</defName>
+		<label>Treant</label>
+		<labelShortAdj>Treant</labelShortAdj>
+		<description>Sentient plant.</description>
+		<iconPath>Core/Genes/Treant</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<statFactors>
+			<InjuryHealingFactor>0.7</InjuryHealingFactor>
+		</statFactors>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>TreantRace</li>
+					<li>DryadRace</li>
+					<li>PsionicDryadRace</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTreantBase">
+		<defName>NaturalArmor</defName>
+		<label>Natural armor</label>
+		<labelShortAdj>Natural armor</labelShortAdj>
+		<description>The carrier is covered with natural armor - thick bark, which protects him in a balanced way from all types of damage.</description>
+		<iconPath>Core/Genes/NaturalArmor</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>6</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<statOffsets>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+		</statOffsets>
+		<exclusionTags>
+			<li>NaturalArmor</li>
+		</exclusionTags>
+		<prerequisite>Treant</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTreantBase">
+		<defName>ReproductionBySeedlings</defName>
+		<label>Reproduction by seedlings</label>
+		<labelShortAdj>Reproduction by seedlings</labelShortAdj>
+		<description>Rebuilds the reproductive system and allows the host to plant themselves as plants, transferring enough genetic material for them to grow.</description>
+		<iconPath>Core/Genes/ReproductionBySeedlings</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<abilities>
+			<li>Seedling</li>
+		</abilities>
+		<prerequisite>Treant</prerequisite>
+	</GeneDef>
+	<GeneDef ParentName="GeneTreantBase">
+		<defName>Plants_Photosynthesis</defName>
+		<label>Photosynthesis</label>
+		<labelShortAdj>Photosynthesis</labelShortAdj>
+		<description>The creature produces nutrients while it is in the open sun. It also does not change the standard food intake.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_Photosynthesis</geneClass>
+		<iconPath>Core/Genes/Photosynthesis</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<prerequisite>Treant</prerequisite>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTreantBase">
+		<defName>Plants_SunRequirement</defName>
+		<label>Sun requirement</label>
+		<labelShortAdj>Sun requirement</labelShortAdj>
+		<description>The creature cannot live long without direct sunlight.</description>
+		<iconPath>Core/Genes/SunRequirement</iconPath>
+		<displayOrderInCategory>40</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>3</biostatMet>
+		<causesNeed>Need_Sun</causesNeed>
+		<prerequisite>Treant</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTreantBase">
+		<defName>Plants_Regrowing</defName>
+		<label>Regrowing</label>
+		<labelShortAdj>Regrowing</labelShortAdj>
+		<description>Carriers of this gene are able to regenerate lost limbs and organs over time.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_Regrowing</geneClass>
+		<iconPath>Core/Genes/Regrowing</iconPath>
+		<displayOrderInCategory>50</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Treant</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTreantBase">
+		<defName>Plants_Phytolysis</defName>
+		<label>Phytolysis</label>
+		<labelShortAdj>Phytolysis</labelShortAdj>
+		<description>Carriers of this gene are able to infect animals and humans with a symbiotic parasite. This allows fruit to grow on their body, lowering the consciousness of the bearers.</description>
+		<iconPath>Core/Genes/Phytolysis</iconPath>
+		<displayOrderInCategory>60</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<abilities>
+			<li>SymbioticParasite</li>
+		</abilities>
+		<prerequisite>Treant</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneTreantBase">
+		<defName>Plants_FearOfDarkness</defName>
+		<label>Fear of darkness</label>
+		<labelShortAdj>Fear of darkness</labelShortAdj>
+		<description>The creature reacts painfully to the absence of direct sunlight, reducing its productivity.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_FearOfDarkness</geneClass>
+		<iconPath>Core/Genes/FearOfDarkness</iconPath>
+		<displayOrderInCategory>70</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>2</biostatMet>
+		<prerequisite>Treant</prerequisite>
+	</GeneDef>
+	<!---->
+</Defs>

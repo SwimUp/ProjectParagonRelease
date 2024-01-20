@@ -17,11 +17,10 @@
 			<Ammo_762x39mmSoviet_FMJ>Bullet_762x39mmSoviet_FMJ</Ammo_762x39mmSoviet_FMJ>
 			<Ammo_762x39mmSoviet_AP>Bullet_762x39mmSoviet_AP</Ammo_762x39mmSoviet_AP>
 			<Ammo_762x39mmSoviet_HP>Bullet_762x39mmSoviet_HP</Ammo_762x39mmSoviet_HP>
-			<Ammo_762x39mmSoviet_Incendiary>Bullet_762x39mmSoviet_Incendiary</Ammo_762x39mmSoviet_Incendiary>
+			<!--<Ammo_762x39mmSoviet_Incendiary>Bullet_762x39mmSoviet_Incendiary</Ammo_762x39mmSoviet_Incendiary>
 			<Ammo_762x39mmSoviet_HE>Bullet_762x39mmSoviet_HE</Ammo_762x39mmSoviet_HE>
-			<Ammo_762x39mmSoviet_Sabot>Bullet_762x39mmSoviet_Sabot</Ammo_762x39mmSoviet_Sabot>				
+			<Ammo_762x39mmSoviet_Sabot>Bullet_762x39mmSoviet_Sabot</Ammo_762x39mmSoviet_Sabot>		-->		
 		</ammoTypes>
-		<similarTo>AmmoSet_RifleIntermediate</similarTo>
 	</CombatExtended.AmmoSetDef>
 
 	<!-- ==================== Ammo ========================== -->
@@ -83,6 +82,7 @@
 		<cookOffProjectile>Bullet_762x39mmSoviet_HP</cookOffProjectile>
 	</ThingDef>
 		
+		<!--
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="762x39mmSovietBase">
 		<defName>Ammo_762x39mmSoviet_Incendiary</defName>
 		<label>7.62x39mm Soviet cartridge (AP-I)</label>
@@ -125,7 +125,7 @@
 		<ammoClass>Sabot</ammoClass>
 		<cookOffProjectile>Bullet_762x39mmSoviet_Sabot</cookOffProjectile>
 	</ThingDef>
-	
+	-->
 	<!-- ================== Projectiles ================== -->
 
 	<ThingDef Name="Base762x39mmSovietBullet" ParentName="BaseBullet" Abstract="true">
@@ -145,7 +145,7 @@
 		<label>7.62mm Soviet bullet (FMJ)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>17</damageAmountBase>
-			<armorPenetrationSharp>5.5</armorPenetrationSharp>
+			<armorPenetrationSharp>8</armorPenetrationSharp>
 			<armorPenetrationBlunt>41.08</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -155,7 +155,7 @@
 		<label>7.62mm Soviet bullet (AP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>10</damageAmountBase>
-			<armorPenetrationSharp>11</armorPenetrationSharp>
+			<armorPenetrationSharp>14</armorPenetrationSharp>
 			<armorPenetrationBlunt>41.08</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
@@ -165,11 +165,11 @@
 		<label>7.62mm Soviet bullet (HP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>21</damageAmountBase>
-			<armorPenetrationSharp>3</armorPenetrationSharp>
+			<armorPenetrationSharp>4</armorPenetrationSharp>
 			<armorPenetrationBlunt>41.08</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
+<!--
 	  <ThingDef ParentName="Base762x39mmSovietBullet">
 		<defName>Bullet_762x39mmSoviet_Incendiary</defName>
 		<label>7.62mm Soviet bullet (AP-I)</label>
@@ -212,7 +212,7 @@
 		  <speed>216</speed>
 		</projectile>
 	  </ThingDef>
-	  
+	  -->
 	<!-- ==================== Recipes ========================== -->
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -223,22 +223,48 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>18</count>
+				<count>26</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>88</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x39mmSoviet_FMJ>500</Ammo_762x39mmSoviet_FMJ>
+			<Ammo_762x39mmSoviet_FMJ>150</Ammo_762x39mmSoviet_FMJ>
 		</products>
 		<workAmount>1800</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -249,22 +275,46 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>18</count>
+				<count>26</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>88</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x39mmSoviet_AP>500</Ammo_762x39mmSoviet_AP>
+			<Ammo_762x39mmSoviet_AP>100</Ammo_762x39mmSoviet_AP>
 		</products>
 		<workAmount>2160</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AmmoRecipeBase">
@@ -275,24 +325,50 @@
 		<ingredients>
 			<li>
 				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
 					<thingDefs>
-						<li>Steel</li>
+						<li>BrassIngot</li>
 					</thingDefs>
 				</filter>
-				<count>18</count>
+				<count>26</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>78</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
 			<thingDefs>
-				<li>Steel</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Ammo_762x39mmSoviet_HP>500</Ammo_762x39mmSoviet_HP>
+			<Ammo_762x39mmSoviet_HP>150</Ammo_762x39mmSoviet_HP>
 		</products>
 		<workAmount>1800</workAmount>
+		<recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>BlowbackOperation</researchPrerequisite>
 	</RecipeDef>
-
+<!--
   <RecipeDef ParentName="AdvancedAmmoRecipeBase">
     <defName>MakeAmmo_762x39mmSoviet_Incendiary</defName>
     <label>make 7.62x39mm Soviet (AP-I) cartridge x500</label>
@@ -406,5 +482,5 @@
     </products>
     <workAmount>2800</workAmount>
   </RecipeDef>
-
+-->
 </Defs>

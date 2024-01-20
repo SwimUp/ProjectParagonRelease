@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<!---->
 	<ThingDef ParentName="BuildingBase" Abstract = "true" Name = "SimpleSetBase">
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>PassThroughOnly</passability>
@@ -43,9 +44,10 @@
 			<graphicClass>Graphic_Multi</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(1.9,1.9)</drawSize>
+			<drawRotated>false</drawRotated>
 		</graphicData>
 	</ThingDef>
-	
+	<!---->
 	<ThingDef ParentName="BuildingBase" Abstract = "true" Name="AdvancedSetBase">
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>PassThroughOnly</passability>
@@ -56,7 +58,7 @@
 		<pathCost>42</pathCost>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>5000</WorkToBuild>
+			<WorkToBuild>10000</WorkToBuild>
 			<Mass>15</Mass>
 			<Flammability>0.5</Flammability>
 		</statBases>
@@ -76,7 +78,7 @@
 		<comps>
 			<li Class="CompProperties_Facility">
 				<statOffsets>
-					<WorkTableWorkSpeedFactor>0.05</WorkTableWorkSpeedFactor>
+					<WorkTableWorkSpeedFactor>0.1</WorkTableWorkSpeedFactor>
 				</statOffsets>
 				<maxSimultaneous>2</maxSimultaneous>
 			</li>
@@ -86,12 +88,13 @@
 		</placeWorkers>
 		<graphicData>
 			<texPath>Things/Building/Misc/ToolCabinet</texPath>
-			<graphicClass>Graphic_Multi</graphicClass>
+			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
-			<drawSize>(1.9,1.9)</drawSize>
+			<drawSize>(2,2)</drawSize>
+			<drawRotated>false</drawRotated>
 		</graphicData>
 	</ThingDef>
-	
+	<!---->
 	<ThingDef ParentName="SimpleSetBase">
 		<defName>SimpleCarpentrySet</defName>
 		<label>Simple carpentry set</label>
@@ -109,7 +112,7 @@
 		</costList>
 		<designatorDropdown>Extensions_Wood</designatorDropdown>
 	</ThingDef>
-	
+	<!---->
 	<ThingDef ParentName="SimpleSetBase">
 		<defName>SimpleBlacksmithSet</defName>
 		<label>Simple blacksmith set</label>
@@ -127,7 +130,24 @@
 		</costList>
 		<designatorDropdown>Extensions_Blacksmithing</designatorDropdown>
 	</ThingDef>
-	
+	<ThingDef ParentName="AdvancedSetBase">
+		<defName>AdvancedBlacksmithSet</defName>
+		<label>Tools</label>
+		<description>A set of tools and fixtures to facilitate the production of various mechanical parts. Can unlock new recipes if connected to themed workbenches.</description>
+		<graphicData>
+			<texPath>Core/Buildings/AdvancedBlacksmithSet/AdvancedBlacksmithSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+		<designatorDropdown>Extensions_Blacksmithing</designatorDropdown>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="SimpleSetBase">
 		<defName>SimpleSewingSet</defName>
 		<label>Simple sewing set</label>
@@ -145,7 +165,24 @@
 		</costList>
 		<designatorDropdown>Extensions_Tailoring</designatorDropdown>
 	</ThingDef>
-	
+	<ThingDef ParentName="AdvancedSetBase">
+		<defName>AdvancedSewingSet</defName>
+		<label>Sewing set</label>
+		<description>A set of tools for sewing.</description>
+		<graphicData>
+			<texPath>Core/Buildings/AdvancedSewingSet/AdvancedSewingSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<designatorDropdown>Extensions_Tailoring</designatorDropdown>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="SimpleSetBase">
 		<defName>SimpleScienceSet</defName>
 		<label>Simple science set</label>
@@ -163,7 +200,24 @@
 		</costList>
 		<designatorDropdown>Extensions_Science</designatorDropdown>
 	</ThingDef>
-	
+	<ThingDef ParentName="AdvancedSetBase">
+		<defName>AdvancedScienceSet</defName>
+		<label>Scientific instruments</label>
+		<description>Scientific instruments designed to facilitate scientific research. Can unlock new recipes if connected to themed workbenches.</description>
+		<graphicData>
+			<texPath>Core/Buildings/AdvancedScienceSet/AdvancedScienceSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<designatorDropdown>Extensions_Science</designatorDropdown>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="SimpleSetBase">
 		<defName>SimpleStonecutterSet</defName>
 		<label>Simple stonecutter set</label>
@@ -181,7 +235,7 @@
 		</costList>
 		<designatorDropdown>Extensions_Stone</designatorDropdown>
 	</ThingDef>
-	
+	<!---->
 	<ThingDef ParentName="SimpleSetBase">
 		<defName>SimpleCookingSet</defName>
 		<label>Simple cooking set</label>
@@ -199,7 +253,24 @@
 		</costList>
 		<designatorDropdown>Extensions_Cooking</designatorDropdown>
 	</ThingDef>
-	
+	<ThingDef ParentName="AdvancedSetBase">
+		<defName>AdvancedCookingSet</defName>
+		<label>Cooking set</label>
+		<description>A set of tools and utensils for cooking for the entire colony. Can unlock new recipes if connected to themed workbenches.</description>
+		<graphicData>
+			<texPath>Core/Buildings/AdvancedCookingSet/AdvancedCookingSet</texPath>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<designatorDropdown>Extensions_Cooking</designatorDropdown>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="SimpleSetBase">
 		<defName>SimpleSurgicalSet</defName>
 		<label>Simple surgical set</label>
@@ -225,50 +296,12 @@
 		</comps>
 		<designatorDropdown>Extensions_Medicine</designatorDropdown>
 	</ThingDef>
-	
-	
-	<ThingDef ParentName="AdvancedSetBase">
-		<defName>AdvacedScienceSet</defName>
-		<label>Scientific instruments</label>
-		<description>Scientific instruments designed to facilitate scientific research. Can unlock new recipes if connected to themed workbenches.</description>
-		<graphicData>
-			<texPath>Core/Buildings/SimpleScienceSet/SimpleScienceSet</texPath>
-		</graphicData>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
-		<costStuffCount>100</costStuffCount>
-		<costList>
-			<MechanismComplex>10</MechanismComplex>
-			<ComponentIndustrial>2</ComponentIndustrial>
-		</costList>
-		<designatorDropdown>Extensions_Science</designatorDropdown>
-	</ThingDef>
-	
-	<ThingDef ParentName="AdvancedSetBase">
-		<defName>AdvancedCookingSet</defName>
-		<label>Cooking set</label>
-		<description>A set of tools and utensils for cooking for the entire colony. Can unlock new recipes if connected to themed workbenches.</description>
-		<graphicData>
-			<texPath>Core/Buildings/SimpleCookingSet/SimpleCookingSet</texPath>
-		</graphicData>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
-		<costStuffCount>100</costStuffCount>
-		<costList>
-			<MechanismComplex>2</MechanismComplex>
-			<ComponentIndustrial>4</ComponentIndustrial>
-		</costList>
-		<designatorDropdown>Extensions_Cooking</designatorDropdown>
-	</ThingDef>
-	
 	<ThingDef ParentName="AdvancedSetBase">
 		<defName>AdvancedSurgicalSet</defName>
 		<label>Surgical supplies</label>
 		<description>Various surgical accessories for precise operations. Can unlock new recipes if connected to themed workbenches.</description>
 		<graphicData>
-			<texPath>Core/Buildings/SimpleSurgicalSet/SimpleSurgicalSet</texPath>
+			<texPath>Core/Buildings/AdvancedSurgicalSet/AdvancedSurgicalSet</texPath>
 		</graphicData>
 		<stuffCategories>
 			<li>Metallic</li>
@@ -288,23 +321,5 @@
 		</comps>
 		<designatorDropdown>Extensions_Medicine</designatorDropdown>
 	</ThingDef>
-	
-	<ThingDef ParentName="AdvancedSetBase">
-		<defName>AdvancedBlacksmithSet</defName>
-		<label>Tools</label>
-		<description>A set of tools and fixtures to facilitate the production of various mechanical parts. Can unlock new recipes if connected to themed workbenches.</description>
-		<graphicData>
-			<texPath>Core/Buildings/SimpleBlacksmithSet/SimpleBlacksmithSet</texPath>
-		</graphicData>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
-		<costStuffCount>100</costStuffCount>
-		<costList>
-			<MechanismComplex>2</MechanismComplex>
-			<ComponentIndustrial>8</ComponentIndustrial>
-		</costList>
-		<designatorDropdown>Extensions_Blacksmithing</designatorDropdown>
-	</ThingDef>
-
+	<!---->
 </Defs>

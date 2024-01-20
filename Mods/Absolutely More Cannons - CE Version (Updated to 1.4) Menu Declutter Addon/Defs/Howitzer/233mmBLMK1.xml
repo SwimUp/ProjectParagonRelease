@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- M233mmBLMK1 -->
+	<ThingDef ParentName="AMCArtilleryBase">
+		<defName>M233mmBLMK1_Turret</defName>
+		<label>9.2in BL Howitzer Mk.1</label>
+		<description>Gun: 233mm / 9.2-Inch Howitzer</description>
+		<graphicData>
+			<texPath>Things/Building/M233mmBLMK1</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(10,10)</drawSize>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+			</damageData>
+			<shadowData>
+				<offset>(0,0,0)</offset>
+				<volume>(2,1.5,2)</volume>
+			</shadowData>
+		</graphicData>
+		<interactionCellOffset>(0,0,-3)</interactionCellOffset>
+		<size>(4,6)</size>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<costList>
+			<AdvancedWeaponComponents>60</AdvancedWeaponComponents>
+			<MechanismComplex>30</MechanismComplex>
+			<ComponentIndustrial>30</ComponentIndustrial>
+		</costList>
+		<costStuffCount>750</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<WorkToBuild>190000</WorkToBuild>
+			<Mass>700</Mass>
+		</statBases>
+		<tradeTags>
+			<li>CE_Turret</li>
+		</tradeTags>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building Inherit="False">
+			<turretGunDef>Turret_M233mmBLMK1_Weapon</turretGunDef>
+			<turretTopDrawSize>10</turretTopDrawSize>
+			<turretBurstWarmupTime>2</turretBurstWarmupTime>
+			<turretBurstCooldownTime>2</turretBurstCooldownTime>
+			<buildingTags>
+				<li>Artillery_MannedMortar</li>
+				<li>Artillery</li>
+			</buildingTags>
+		</building>
+		<designationCategory>Security</designationCategory>
+		<designatorDropdown>Security_Artillery</designatorDropdown>
+		<researchPrerequisites Inherit="False">
+			<li>HeavyArtillery</li>
+		</researchPrerequisites>
+		<uiIconPath>Things/Icons/M233mmBLMK1_MenuIcon</uiIconPath>
+		<uiIconScale>0.9</uiIconScale>
+	</ThingDef>
+	<ThingDef ParentName="BaseArtilleryWeapon">
+		<defName>Turret_M233mmBLMK1_Weapon</defName>
+		<label>9.2-Inch Howitzer</label>
+		<description>Ammo: 233mmBLMK1</description>
+		<graphicData>
+			<texPath>Things/Building/M233mmBLMK1_Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<weaponTags>
+			<li>Artillery_BaseDestroyer</li>
+			<li>TurretGun</li>
+		</weaponTags>
+		<statBases>
+			<SightsEfficiency>1</SightsEfficiency>
+			<ShotSpread>0.01</ShotSpread>
+			<SwayFactor>0.9</SwayFactor>
+			<RangedWeapon_Cooldown>50</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_233mmBLMK1_HE</defaultProjectile>
+				<warmupTime>1</warmupTime>
+				<minRange>20</minRange>
+				<range>200</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Sound_288mm</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>100</muzzleFlashScale>
+				<circularError>0</circularError>
+				<indirectFirePenalty>0</indirectFirePenalty>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Charges">
+				<chargeSpeeds>
+					<li>25</li>
+					<li>45</li>
+					<li>70</li>
+					<li>100</li>
+					<li>135</li>
+				</chargeSpeeds>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<reloadTime>25</reloadTime>
+				<ammoSet>AmmoSet_233mmBLMK1_Shells</ammoSet>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

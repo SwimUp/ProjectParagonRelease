@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-
 	<Operation Class="PatchOperationSequence">
 		<success>Normal</success>
 		<operations>
 		
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Gun_Revolver" or defName="Gun_Autopistol" or defName="Gun_MachinePistol" or defName="Gun_PumpShotgun" or defName="Gun_ChainShotgun" or 
+				defName="Gun_BoltActionRifle" or defName="Gun_AssaultRifle" or defName="Gun_SniperRifle" or defName="Gun_HeavySMG" or defName="Gun_IncendiaryLauncher" or defName="Gun_LMG" or defName="Gun_Minigun" 
+				or defName="Gun_TripleRocket" or defName="Gun_DoomsdayRocket"]</xpath>
+			</li>
+		<!--
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Gun_Revolver" or defName="Gun_Autopistol" or defName="Gun_MachinePistol" or defName="Gun_PumpShotgun" or defName="Gun_ChainShotgun" or 
+				defName="Gun_BoltActionRifle" or defName="Gun_AssaultRifle" or defName="Gun_SniperRifle" or defName="Gun_HeavySMG" or defName="Gun_IncendiaryLauncher" or defName="Gun_LMG"]/weaponTags</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Gun_Revolver" or defName="Gun_Autopistol" or defName="Gun_MachinePistol" or defName="Gun_PumpShotgun" or defName="Gun_ChainShotgun" or 
+				defName="Gun_BoltActionRifle" or defName="Gun_AssaultRifle" or defName="Gun_SniperRifle" or defName="Gun_HeavySMG" or defName="Gun_IncendiaryLauncher" or defName="Gun_LMG"]/weaponClasses</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="Gun_Revolver" or defName="Gun_Autopistol" or defName="Gun_MachinePistol" or defName="Gun_PumpShotgun" or defName="Gun_ChainShotgun" or 
+				defName="Gun_BoltActionRifle" or defName="Gun_AssaultRifle" or defName="Gun_SniperRifle" or defName="Gun_HeavySMG" or defName="Gun_IncendiaryLauncher" or defName="Gun_LMG"]/recipeMaker</xpath>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Gun_Revolver" or defName="Gun_Autopistol" or defName="Gun_MachinePistol" or defName="Gun_PumpShotgun" or defName="Gun_ChainShotgun" or 
+				defName="Gun_BoltActionRifle" or defName="Gun_AssaultRifle" or defName="Gun_SniperRifle" or defName="Gun_HeavySMG" or defName="Gun_IncendiaryLauncher" or defName="Gun_LMG"]</xpath>
+				<value>
+					<tradeability>None</tradeability>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Gun_Revolver" or defName="Gun_Autopistol" or defName="Gun_MachinePistol" or defName="Gun_PumpShotgun" or defName="Gun_ChainShotgun" or 
+				defName="Gun_BoltActionRifle" or defName="Gun_AssaultRifle" or defName="Gun_SniperRifle" or defName="Gun_HeavySMG" or defName="Gun_IncendiaryLauncher" or defName="Gun_LMG"]</xpath>
+				<value>
+					 <tradeTags/>
+				</value>
+			</li>
+			-->
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[@Name="BaseGunWithQuality"]/comps</xpath>
 				<value>
@@ -44,7 +76,6 @@
 					<li>ProjectParagon.Core.Things.ITab_Engraving</li>
 				</value>
 			</li>
-		
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Bow_Short"]/recipeMaker</xpath>
 				<value>
@@ -76,7 +107,6 @@
 					<texPath>Core/Items/Bows/Bow_Short</texPath>
 				</value>
 			</li>
-
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Bow_Recurve"]/recipeMaker</xpath>
 				<value>
@@ -108,8 +138,6 @@
 					<texPath>Core/Items/Bows/Bow_Recurve</texPath>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Bow_Great"]/recipeMaker</xpath>
 				<value>
@@ -141,8 +169,6 @@
 					<texPath>Core/Items/Bows/Bow_Great</texPath>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MeleeWeapon_Axe"]</xpath>
 				<value>
@@ -162,14 +188,13 @@
 						</skillRequirements>
 						<recipeUsers inherit="false">
 							<li>ForgeWithAnvil</li>
-							<li>BlacksmithFurnace</li>
 							<li>FueledSmithy</li>
-						 </recipeUsers>
+							<li>ElectricSmithy</li>
+							<li>BlacksmithFurnace</li>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MeleeWeapon_Warhammer"]</xpath>
 				<value>
@@ -190,12 +215,11 @@
 						<recipeUsers inherit="false">
 							<li>ForgeWithAnvil</li>
 							<li>FueledSmithy</li>
-						 </recipeUsers>
+							<li>ElectricSmithy</li>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MeleeWeapon_Mace"]</xpath>
 				<value>
@@ -217,12 +241,11 @@
 							<li>ForgeWithAnvil</li>
 							<li>BlacksmithFurnace</li>
 							<li>FueledSmithy</li>
-						 </recipeUsers>
+							<li>ElectricSmithy</li>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MeleeWeapon_Gladius"]</xpath>
 				<value>
@@ -243,12 +266,11 @@
 						<recipeUsers inherit="false">
 							<li>ForgeWithAnvil</li>
 							<li>FueledSmithy</li>
-						 </recipeUsers>
+							<li>ElectricSmithy</li>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MeleeWeapon_LongSword"]</xpath>
 				<value>
@@ -269,12 +291,11 @@
 						<recipeUsers inherit="false">
 							<li>ForgeWithAnvil</li>
 							<li>FueledSmithy</li>
-						 </recipeUsers>
+							<li>ElectricSmithy</li>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MeleeWeapon_Ikwa"]</xpath>
 				<value>
@@ -293,15 +314,14 @@
 						</skillRequirements>
 						<recipeUsers inherit="false">
 							<li>ForgeWithAnvil</li>
+							<li>FueledSmithy</li>
+							<li>ElectricSmithy</li>
 							<li>BlacksmithFurnace</li>
 							<li>CraftingSpot</li>
-							<li>FueledSmithy</li>
-						 </recipeUsers>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MeleeWeapon_Spear"]</xpath>
 				<value>
@@ -320,15 +340,14 @@
 						</skillRequirements>
 						<recipeUsers inherit="false">
 							<li>ForgeWithAnvil</li>
+							<li>FueledSmithy</li>
+							<li>ElectricSmithy</li>
 							<li>BlacksmithFurnace</li>
 							<li>CraftingSpot</li>
-							<li>FueledSmithy</li>
-						 </recipeUsers>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
-			
-
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MeleeWeapon_BreachAxe"]</xpath>
 				<value>
@@ -349,11 +368,11 @@
 						<recipeUsers inherit="false">
 							<li>ForgeWithAnvil</li>
 							<li>FueledSmithy</li>
-						 </recipeUsers>
+							<li>ElectricSmithy</li>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="MeleeWeapon_Club"]/recipeMaker</xpath>
 				<value>
@@ -366,14 +385,14 @@
 							<li>ForgeWithAnvil</li>
 							<li>BlacksmithFurnace</li>
 							<li>FueledSmithy</li>
-						 </recipeUsers>
-						 <researchPrerequisite>
+							<li>ElectricSmithy</li>
+						</recipeUsers>
+						<researchPrerequisite>
 							<li>PrimitiveWeapons</li>
-						 </researchPrerequisite>
+						</researchPrerequisite>
 					</recipeMaker>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="MeleeWeapon_Knife"]/recipeMaker</xpath>
 				<value>
@@ -387,7 +406,8 @@
 							<li>BlacksmithFurnace</li>
 							<li>CraftingSpot</li>
 							<li>FueledSmithy</li>
-						 </recipeUsers>
+							<li>ElectricSmithy</li>
+						</recipeUsers>
 					</recipeMaker>
 				</value>
 			</li>
@@ -397,9 +417,6 @@
 					<li>Woody</li>
 				</value>
 			</li>
-
-			
 		</operations>
 	</Operation>
-
 </Patch>

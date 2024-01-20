@@ -889,19 +889,19 @@
 			</li>
 		</damageMultipliers>
 		<designatorDropdown>Structure_Walls</designatorDropdown>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Soldier</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
 	</ThingDef>
-	<modExtensions>
-		<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
-			<associatedRaces>
-				<li>Kairos_Worker</li>
-				<li>Kairos_Prince</li>
-				<li>Kairos_Soldier</li>
-			</associatedRaces>
-		</li>
-		<li Class="ParagonWiki.Other.DefExtension_Wiki">
-			<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-		</li>
-	</modExtensions>
 	<ThingDef ParentName="BuildingBase">
 		<defName>SpikedWall</defName>
 		<label>Spiked wall</label>
@@ -1062,7 +1062,6 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-	
 	<ThingDef ParentName="BuildingBase">
 		<defName>ConcreteWallFresh</defName>
 		<label>Concrete wall (fresh)</label>
@@ -1215,7 +1214,6 @@
 		<designationHotKey>Misc3</designationHotKey>
 		<designatorDropdown>Structure_Walls</designatorDropdown>
 	</ThingDef>
-	
 	<ThingDef ParentName="BuildingBase">
 		<defName>ConcreteWall</defName>
 		<label>Concrete wall</label>
@@ -1356,7 +1354,6 @@
 			</li>
 		</damageMultipliers>
 	</ThingDef>
-	
 	<ThingDef ParentName="BuildingBase">
 		<defName>ReinforcedConcreteWallFresh</defName>
 		<label>Reinforced concrete wall (fresh)</label>
@@ -1512,7 +1509,6 @@
 		<designationHotKey>Misc3</designationHotKey>
 		<designatorDropdown>Structure_Walls</designatorDropdown>
 	</ThingDef>
-	
 	<ThingDef ParentName="BuildingBase">
 		<defName>ReinforcedConcreteWall</defName>
 		<label>Reinforced concrete wall</label>
@@ -1656,7 +1652,6 @@
 			</li>
 		</damageMultipliers>
 	</ThingDef>
-	
 	<ThingDef ParentName="BuildingBase">
 		<defName>GreenhouseWall</defName>
 		<label>Greenhouse wall</label>
@@ -1808,7 +1803,6 @@
 		</damageMultipliers>
 		<designatorDropdown>Structure_Walls</designatorDropdown>
 	</ThingDef>
-	
 	<ThingDef ParentName="DoorBase">
 		<defName>GlassDoor</defName>
 		<label>Glass door</label>
@@ -1836,4 +1830,161 @@
 		<designationHotKey>Misc1</designationHotKey>
 		<designatorDropdown>Structure_Doors</designatorDropdown>
 	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>OssuaryWall</defName>
+		<label>ossuary wall</label>
+		<description>An impassable wall made out of sculpted skulls used to decorate ossuaries and crypts. A grim decoration that functions as a memento mori. Capable of holding up a roof.</description>
+		<thingClass>Building</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Core/Buildings/OssuaryWall/OssuaryWall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>CornerFiller</linkType>
+			<linkFlags>
+				<li>Wall</li>
+				<li>Rock</li>
+			</linkFlags>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+				<edgeTop>Damage/Edge</edgeTop>
+				<edgeBot>Damage/Edge</edgeBot>
+				<edgeLeft>Damage/Edge</edgeLeft>
+				<edgeRight>Damage/Edge</edgeRight>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Core/Buildings/OssuaryWall/OssuaryWall_MenuIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>750</WorkToBuild>
+			<Flammability>0</Flammability>
+			<MeditationFocusStrength>0.22</MeditationFocusStrength>
+		</statBases>
+		<costStuffCount>10</costStuffCount>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<useStuffTerrainAffordance>true</useStuffTerrainAffordance>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<uiOrder>2000</uiOrder>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<fertility>0</fertility>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<building>
+			<paintable>true</paintable>
+			<isInert>true</isInert>
+			<isPlaceOverableWall>true</isPlaceOverableWall>
+			<ai_chillDestination>false</ai_chillDestination>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+			<relatedBuildCommands>
+				<li>Door</li>
+				<li>Autodoor</li>
+			</relatedBuildCommands>
+		</building>
+		<designatorDropdown>Structure_Walls</designatorDropdown>
+		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Morbid</li>
+				</focusTypes>
+			</li>
+		</comps>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>4</multiplier>
+			</li>
+			<li>
+				<!-- Укус -->
+				<damageDef>Bite</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Удар -->
+				<damageDef>Blunt</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Давка -->
+				<damageDef>Crush</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Порез -->
+				<damageDef>Cut</damageDef>
+				<multiplier>1.5</multiplier>
+			</li>
+			<li>
+				<!-- Тычок -->
+				<damageDef>Poke</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Рваная рана -->
+				<damageDef>Scratch</damageDef>
+				<multiplier>1.2</multiplier>
+			</li>
+			<li>
+				<!-- Рана с ядом -->
+				<damageDef>ScratchToxic</damageDef>
+				<multiplier>1.25</multiplier>
+			</li>
+			<li>
+				<!-- Укол -->
+				<damageDef>Stab</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Ядовитый укус -->
+				<damageDef>ToxicBite</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Стрела -->
+				<damageDef>Arrow</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Стрела (выс.скорость) -->
+				<damageDef>ArrowHighVelocity</damageDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<!-- Пуля -->
+				<damageDef>Bullet</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+			<li>
+				<!-- Укол (дальний бой) -->
+				<damageDef>RangedStab</damageDef>
+				<multiplier>2</multiplier>
+			</li>
+		</damageMultipliers>
+		<researchPrerequisites>
+			<li>MonumentsI</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<!---->
 </Defs>

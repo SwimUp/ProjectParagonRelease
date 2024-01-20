@@ -1,15 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
 	<ThingCategoryDef>
 		<defName>Ammo9x18mmMakarov</defName>
 		<label>9x18mm Makarov</label>
 		<parent>AmmoPistols</parent>
-    <iconPath>UI/Icons/ThingCategories/CaliberPistol</iconPath>
+		<iconPath>UI/Icons/ThingCategories/CaliberPistol</iconPath>
 	</ThingCategoryDef>
-	
 	<!-- ==================== AmmoSet ========================== -->
-
 	<CombatExtended.AmmoSetDef>
 		<defName>AmmoSet_9x18mmMakarov</defName>
 		<label>9x18mm Makarov</label>
@@ -18,11 +15,8 @@
 			<Ammo_9x18mmMakarov_AP>Bullet_9x18mmMakarov_AP</Ammo_9x18mmMakarov_AP>
 			<Ammo_9x18mmMakarov_HP>Bullet_9x18mmMakarov_HP</Ammo_9x18mmMakarov_HP>
 		</ammoTypes>
-		<similarTo>AmmoSet_Pistol</similarTo>
 	</CombatExtended.AmmoSetDef>
-	
 	<!-- ==================== Ammo ========================== -->
-
 	<ThingDef Class="CombatExtended.AmmoDef" Name="9x18mmMakarovBase" ParentName="SmallAmmoBase" Abstract="True">
 		<description>Common pistol cartridge used by a variety of handguns and SMGs.</description>
 		<statBases>
@@ -37,7 +31,6 @@
 			<li>Ammo9x18mmMakarov</li>
 		</thingCategories>
 	</ThingDef>
-
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="9x18mmMakarovBase">
 		<defName>Ammo_9x18mmMakarov_FMJ</defName>
 		<label>9x18mm Makarov cartridge (FMJ)</label>
@@ -51,7 +44,6 @@
 		<ammoClass>FullMetalJacket</ammoClass>
 		<cookOffProjectile>Bullet_9x18mmMakarov_FMJ</cookOffProjectile>
 	</ThingDef>
-
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="9x18mmMakarovBase">
 		<defName>Ammo_9x18mmMakarov_AP</defName>
 		<label>9x18mm Makarov cartridge (AP)</label>
@@ -65,7 +57,6 @@
 		<ammoClass>ArmorPiercing</ammoClass>
 		<cookOffProjectile>Bullet_9x18mmMakarov_AP</cookOffProjectile>
 	</ThingDef>
-
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="9x18mmMakarovBase">
 		<defName>Ammo_9x18mmMakarov_HP</defName>
 		<label>9x18mm Makarov cartridge (HP)</label>
@@ -79,9 +70,7 @@
 		<ammoClass>HollowPoint</ammoClass>
 		<cookOffProjectile>Bullet_9x18mmMakarov_HP</cookOffProjectile>
 	</ThingDef>
-	
 	<!-- ================== Projectiles ================== -->
-
 	<ThingDef Name="Base9x18mmMakarovBullet" ParentName="BaseBullet" Abstract="true">
 		<graphicData>
 			<texPath>Things/Projectile/Bullet_Small</texPath>
@@ -93,115 +82,186 @@
 			<dropsCasings>true</dropsCasings>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="Base9x18mmMakarovBullet">
 		<defName>Bullet_9x18mmMakarov_FMJ</defName>
 		<label>9mm Makarov bullet (FMJ)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>9</damageAmountBase>
-			<armorPenetrationSharp>4</armorPenetrationSharp>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
 			<armorPenetrationBlunt>6.1</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="Base9x18mmMakarovBullet">
 		<defName>Bullet_9x18mmMakarov_AP</defName>
 		<label>9mm Makarov bullet (AP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>6</damageAmountBase>
-			<armorPenetrationSharp>8</armorPenetrationSharp>
+			<armorPenetrationSharp>7</armorPenetrationSharp>
 			<armorPenetrationBlunt>6.1</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
 	<ThingDef ParentName="Base9x18mmMakarovBullet">
 		<defName>Bullet_9x18mmMakarov_HP</defName>
 		<label>9mm Makarov bullet (HP)</label>
 		<projectile Class="CombatExtended.ProjectilePropertiesCE">
 			<damageAmountBase>12</damageAmountBase>
-			<armorPenetrationSharp>2</armorPenetrationSharp>
+			<armorPenetrationSharp>3</armorPenetrationSharp>
 			<armorPenetrationBlunt>6.1</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-  
 	<!-- ==================== Recipes ========================== -->
-
-  <RecipeDef ParentName="AmmoRecipeBase">
-    <defName>MakeAmmo_9x18mmMakarov_FMJ</defName>
-    <label>make 9x18mm Makarov (FMJ) cartridge x500</label>
-    <description>Craft 500 9x18mm Makarov (FMJ) cartridges.</description>
-    <jobString>Making 9x18mm Makarov (FMJ) cartridges.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>Steel</li>
-          </thingDefs>
-        </filter>
-        <count>12</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Steel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <Ammo_9x18mmMakarov_FMJ>500</Ammo_9x18mmMakarov_FMJ>
-    </products>
-    <workAmount>1200</workAmount>
-  </RecipeDef>
-
-  <RecipeDef ParentName="AmmoRecipeBase">
-    <defName>MakeAmmo_9x18mmMakarov_AP</defName>
-    <label>make 9x18mm Makarov (AP) cartridge x500</label>
-    <description>Craft 500 9x18mm Makarov (AP) cartridges.</description>
-    <jobString>Making 9x18mm Makarov (AP) cartridges.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>Steel</li>
-          </thingDefs>
-        </filter>
-        <count>12</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Steel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <Ammo_9x18mmMakarov_AP>500</Ammo_9x18mmMakarov_AP>
-    </products>
-    <workAmount>1440</workAmount>
-  </RecipeDef>
-
-  <RecipeDef ParentName="AmmoRecipeBase">
-    <defName>MakeAmmo_9x18mmMakarov_HP</defName>
-    <label>make 9x18mm Makarov (HP) cartridge x500</label>
-    <description>Craft 500 9x18mm Makarov (HP) cartridges.</description>
-    <jobString>Making 9x18mm Makarov (HP) cartridges.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>Steel</li>
-          </thingDefs>
-        </filter>
-        <count>12</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Steel</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <Ammo_9x18mmMakarov_HP>500</Ammo_9x18mmMakarov_HP>
-    </products>
-    <workAmount>1200</workAmount>
-  </RecipeDef>
-	
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_9x18mmMakarov_FMJ</defName>
+		<label>make 9x18mm Makarov (FMJ) cartridge x500</label>
+		<description>Craft 500 9x18mm Makarov (FMJ) cartridges.</description>
+		<jobString>Making 9x18mm Makarov (FMJ) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>35</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_9x18mmMakarov_FMJ>150</Ammo_9x18mmMakarov_FMJ>
+		</products>
+		<workAmount>1200</workAmount>
+		<recipeUsers Inherit="false">
+			<li>AmmoBench</li>
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>Gunsmithing</researchPrerequisite>
+	</RecipeDef>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_9x18mmMakarov_AP</defName>
+		<label>make 9x18mm Makarov (AP) cartridge x500</label>
+		<description>Craft 500 9x18mm Makarov (AP) cartridges.</description>
+		<jobString>Making 9x18mm Makarov (AP) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>35</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_9x18mmMakarov_AP>100</Ammo_9x18mmMakarov_AP>
+		</products>
+		<workAmount>1440</workAmount>
+		<recipeUsers Inherit="false">
+			<li>AmmoBench</li>
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>Gunsmithing</researchPrerequisite>
+	</RecipeDef>
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_9x18mmMakarov_HP</defName>
+		<label>make 9x18mm Makarov (HP) cartridge x500</label>
+		<description>Craft 500 9x18mm Makarov (HP) cartridges.</description>
+		<jobString>Making 9x18mm Makarov (HP) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_9x18mmMakarov_HP>150</Ammo_9x18mmMakarov_HP>
+		</products>
+		<workAmount>1200</workAmount>
+		<recipeUsers Inherit="false">
+			<li>AmmoBench</li>
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>Gunsmithing</researchPrerequisite>
+	</RecipeDef>
 </Defs>

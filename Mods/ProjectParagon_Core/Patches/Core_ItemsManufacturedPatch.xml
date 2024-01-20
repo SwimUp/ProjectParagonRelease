@@ -27,9 +27,14 @@
 							<MedicalTendMult>0.5</MedicalTendMult>
 						</statBases>
 						<tickerType>Rare</tickerType>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+							</li>
+						</modExtensions>
 						<comps>
 							<li Class="CompProperties_Rottable">
-								<daysToRotStart>100</daysToRotStart>
+								<daysToRotStart>60</daysToRotStart>
 								<rotDestroys>true</rotDestroys>
 							</li>
 							<li Class="ProjectParagon.Core.FoodSystem.CompProperties_FoodComponent">
@@ -158,12 +163,12 @@
 						<costList>
 							<MedicineHerbal>1</MedicineHerbal>
 							<Neutroamine>1</Neutroamine>
-							<Cloth>3</Cloth>
+							<Cloth>5</Cloth>
 						</costList>
 						<recipeMaker>
 							<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
 							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
+							<recipeUsers Inherit="false">
 								<li>DrugLab</li>
 							</recipeUsers>
 							<researchPrerequisite>MedicineProduction</researchPrerequisite>
@@ -206,6 +211,52 @@
 							<li>RewardStandardHighFreq</li>
 						</thingSetMakerTags>
 						<allowedArchonexusCount>5</allowedArchonexusCount>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Neutroamine"]</xpath>
+				<value>
+					<ThingDef ParentName="ResourceBase">
+						<defName>Neutroamine</defName>
+						<label>neutroamine</label>
+						<description>A synthetic precursor chemical. While it is useless on its own, many drugs require neutroamine as an ingredient.</description>
+						<possessionCount>10</possessionCount>
+						<graphicData>
+							<texPath>Things/Item/Resource/Neutroamine</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+							<drawSize>0.90</drawSize>
+						</graphicData>
+						<stackLimit>150</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<MarketValue>6</MarketValue>
+							<Mass>0.02</Mass>
+							<Flammability>0.7</Flammability>
+							<DeteriorationRate>1.0</DeteriorationRate>
+						</statBases>
+						<thingCategories>
+							<li>Chemistry</li>
+						</thingCategories>
+						<costList>
+							<Chemfuel>1</Chemfuel>
+							<Cyclinder_Ammonia>1</Cyclinder_Ammonia>
+							<Glass>4</Glass>
+						</costList>
+						<recipeMaker>
+							<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers Inherit="false">
+								<li>DrugLab</li>
+							</recipeUsers>
+							<researchPrerequisite>MedicineProduction</researchPrerequisite>
+							<skillRequirements>
+								<Crafting>4</Crafting>
+								<Intellectual>4</Intellectual>
+							</skillRequirements>
+							<productCount>4</productCount>
+						</recipeMaker>
 					</ThingDef>
 				</value>
 			</li>

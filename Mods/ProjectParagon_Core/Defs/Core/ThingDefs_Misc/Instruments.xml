@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
 	<ThingDef ParentName="FightSystem_LightHammer">
 		<defName>DankPyon_MeleeWeapon_Pickaxe</defName>
 		<label>pickaxe</label>
@@ -32,10 +31,11 @@
 			<ComponentSimple>2</ComponentSimple>
 		</costList>
 		<recipeMaker>
-			<recipeUsers> 
+			<recipeUsers>
 				<li>BlacksmithFurnace</li>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsI</researchPrerequisite>
 			<skillRequirements>
@@ -77,7 +77,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="FightSystem_LightHammer">
 		<defName>DankPyon_MeleeWeapon_MilitaryPick</defName>
 		<label>strong pickaxe</label>
@@ -110,9 +109,10 @@
 			<ComponentSimple>4</ComponentSimple>
 		</costList>
 		<recipeMaker>
-			<recipeUsers> 
+			<recipeUsers>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsII</researchPrerequisite>
 			<skillRequirements>
@@ -154,7 +154,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="FightSystem_HeavyHammer">
 		<defName>DankPyon_MeleeWeapon_TwoHandedMallet</defName>
 		<label>two-handed mallet</label>
@@ -187,10 +186,11 @@
 			<ComponentSimple>2</ComponentSimple>
 		</costList>
 		<recipeMaker>
-			<recipeUsers> 
+			<recipeUsers>
 				<li>BlacksmithFurnace</li>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsI</researchPrerequisite>
 			<skillRequirements>
@@ -212,7 +212,7 @@
 				<chanceFactor>0.05</chanceFactor>
 				<armorPenetrationBlunt>0.625</armorPenetrationBlunt>
 				<linkedBodyPartsGroup>Shaft</linkedBodyPartsGroup>
-			</li>            
+			</li>
 			<li Class="CombatExtended.ToolCE">
 				<label>head</label>
 				<capacities>
@@ -231,7 +231,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="FightSystem_LightHammer">
 		<defName>DankPyon_MeleeWeapon_Warhammer</defName>
 		<label>Construction hammer</label>
@@ -265,9 +264,10 @@
 			<ComponentSimple>4</ComponentSimple>
 		</costList>
 		<recipeMaker>
-			<recipeUsers> 
+			<recipeUsers>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsII</researchPrerequisite>
 			<skillRequirements>
@@ -320,7 +320,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="FightSystem_ShortAxe">
 		<defName>DankPyon_MeleeWeapon_Hatchet</defName>
 		<label>hatchet</label>
@@ -353,10 +352,11 @@
 			<ComponentSimple>2</ComponentSimple>
 		</costList>
 		<recipeMaker>
-			<recipeUsers> 
+			<recipeUsers>
 				<li>BlacksmithFurnace</li>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsI</researchPrerequisite>
 			<skillRequirements>
@@ -409,7 +409,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="FightSystem_ShortAxe">
 		<defName>DankPyon_MeleeWeapon_WoodcuttersAxe</defName>
 		<label>woodcutter's axe</label>
@@ -442,9 +441,10 @@
 			<ComponentSimple>4</ComponentSimple>
 		</costList>
 		<recipeMaker>
-			<recipeUsers> 
+			<recipeUsers>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsII</researchPrerequisite>
 			<skillRequirements>
@@ -497,5 +497,160 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
+	<!---->
+	<ThingDef ParentName="FightSystem_LightHammer">
+		<defName>AxePick</defName>
+		<label>Axepick</label>
+		<description>An effective tool for extracting rocks and wood.</description>
+		<graphicData>
+			<texPath>Core/Items/Instruments/AxePick/AxePick</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<uiIconScale>1</uiIconScale>
+		<techLevel>Industrial</techLevel>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<Mass>2</Mass>
+			<Bulk>4</Bulk>
+		</statBases>
+		<equippedStatOffsets>
+			<MiningSpeed>0.75</MiningSpeed>
+			<PlantHarvestYield>0.2</PlantHarvestYield>
+			<PlantWorkSpeed>0.4</PlantWorkSpeed>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.1</MeleeParryChance>
+			<MeleeDodgeChance>0.1</MeleeDodgeChance>
+		</equippedStatOffsets>
+		<costStuffCount>75</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costList>
+			<WoodLog>25</WoodLog>
+			<MechanismComplex>2</MechanismComplex>
+		</costList>
+		<recipeMaker>
+			<recipeUsers>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+			<researchPrerequisite>InstrumentsIII</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags Inherit="false">
+			<li>IndustrialMeleeBasic</li>
+			<li>IndustrialMeleeInstrument</li>
+		</weaponTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>shaft</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>1.69</cooldownTime>
+				<chanceFactor>0.05</chanceFactor>
+				<armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Shaft</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>1.80</cooldownTime>
+				<chanceFactor>0.95</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<armorPenetrationSharp>1.25</armorPenetrationSharp>
+				<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>LightHammers</subWeaponSpecialization>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="FightSystem_LightHammer">
+		<defName>HammerWrench</defName>
+		<label>Hammerwrench</label>
+		<description>Multi-tool for efficient construction and production.</description>
+		<graphicData>
+			<texPath>Core/Items/Instruments/HammerWrench/HammerWrench</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<uiIconScale>1</uiIconScale>
+		<techLevel>Industrial</techLevel>
+		<statBases>
+			<WorkToMake>10000</WorkToMake>
+			<Mass>2</Mass>
+			<Bulk>4</Bulk>
+		</statBases>
+		<equippedStatOffsets>
+			<ConstructionSpeed>0.75</ConstructionSpeed>
+			<ConstructSuccessChance>0.2</ConstructSuccessChance>
+			<GeneralLaborSpeed>0.2</GeneralLaborSpeed>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.1</MeleeParryChance>
+			<MeleeDodgeChance>0.1</MeleeDodgeChance>
+		</equippedStatOffsets>
+		<costStuffCount>75</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costList>
+			<WoodLog>25</WoodLog>
+			<MechanismComplex>2</MechanismComplex>
+		</costList>
+		<recipeMaker>
+			<recipeUsers>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+			<researchPrerequisite>InstrumentsIII</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags Inherit="false">
+			<li>IndustrialMeleeBasic</li>
+			<li>IndustrialMeleeInstrument</li>
+		</weaponTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>shaft</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>1.69</cooldownTime>
+				<chanceFactor>0.05</chanceFactor>
+				<armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Shaft</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.80</cooldownTime>
+				<chanceFactor>0.95</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<armorPenetrationSharp>1.25</armorPenetrationSharp>
+				<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>LightHammers</subWeaponSpecialization>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 </Defs>

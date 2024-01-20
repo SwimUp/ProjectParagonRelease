@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneAeronBase" Abstract="True">
+		<displayCategory>Aeron</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneAeronBase">
+		<defName>Aeron</defName>
+		<label>Aeron</label>
+		<labelShortAdj>Aeron</labelShortAdj>
+		<description>Arthropods inhabiting radioactive forests.</description>
+		<iconPath>Core/Genes/Aeron</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>2</biostatMet>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>AeronRace</li>
+					<li>AeronesRace</li>
+					<li>AeronixRace</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneAeronBase">
+		<defName>RadioactiveSkin</defName>
+		<label>Radioactive skin</label>
+		<labelShortAdj>Radioactive skin</labelShortAdj>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_RadioactiveSkin</geneClass>
+		<description>The owner of the gene receives the skin of a special structure that reacts to high levels of radiation. Grants low health regeneration anywhere, and fast regeneration in red forest.</description>
+		<iconPath>Core/Genes/RadioactiveSkin</iconPath>
+		<statFactors>
+			<InjuryHealingFactor>0.5</InjuryHealingFactor>
+		</statFactors>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<exclusionTags>
+			<li>NaturalSkin</li>
+		</exclusionTags>
+		<prerequisite>Aeron</prerequisite>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneAeronBase">
+		<defName>CarapaceArmor</defName>
+		<label>Carapace armor</label>
+		<labelShortAdj>Carapace armor</labelShortAdj>
+		<description>The wearer possesses durable carapace armor that aids in survival.</description>
+		<iconPath>Core/Genes/CarapaceArmor</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<statOffsets>
+			<ArmorRating_Blunt>1</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2.5</ArmorRating_Sharp>
+			<MoveSpeed>-0.5</MoveSpeed>
+		</statOffsets>
+		<prerequisite>Aeron</prerequisite>
+	</GeneDef>
+	<!---->
+</Defs>

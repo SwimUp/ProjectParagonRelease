@@ -15,11 +15,10 @@
 		<label>40x311mmR</label>
 		<ammoTypes>
 			<Ammo_40x311mmR_AP>Bullet_40x311mmR_AP</Ammo_40x311mmR_AP>
-			<Ammo_40x311mmR_Incendiary>Bullet_40x311mmR_Incendiary</Ammo_40x311mmR_Incendiary>
+			<!--<Ammo_40x311mmR_Incendiary>Bullet_40x311mmR_Incendiary</Ammo_40x311mmR_Incendiary>
 			<Ammo_40x311mmR_HE>Bullet_40x311mmR_HE</Ammo_40x311mmR_HE>
-			<Ammo_40x311mmR_Sabot>Bullet_40x311mmR_Sabot</Ammo_40x311mmR_Sabot>
+			<Ammo_40x311mmR_Sabot>Bullet_40x311mmR_Sabot</Ammo_40x311mmR_Sabot>-->
 		</ammoTypes>
-		<similarTo>AmmoSet_Autocannon</similarTo>
 	</CombatExtended.AmmoSetDef>
 
 	<!-- ==================== Ammo ========================== -->
@@ -53,7 +52,7 @@
 		<ammoClass>ArmorPiercing</ammoClass>
 		<cookOffProjectile>Bullet_40x311mmR_AP</cookOffProjectile>
 	</ThingDef>
-
+<!--
 	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Ammo40x311mmRBase">
 		<defName>Ammo_40x311mmR_Incendiary</defName>
 		<label>40x311mmR cartridge (AP-I)</label>
@@ -96,7 +95,7 @@
 		<ammoClass>Sabot</ammoClass>
 		<cookOffProjectile>Bullet_40x311mmR_Sabot</cookOffProjectile>
 	</ThingDef>
-
+-->
 	<!-- ================== Projectiles ================== -->
 
 	<ThingDef Name="Base40x311mmRBullet" ParentName="BaseBullet" Abstract="true">
@@ -120,7 +119,7 @@
 		<armorPenetrationBlunt>6502.5</armorPenetrationBlunt>
 		</projectile>
 	</ThingDef>
-
+<!--
 	<ThingDef ParentName="Base40x311mmRBullet">
 		<defName>Bullet_40x311mmR_Incendiary</defName>
 		<label>40x311mmR bullet (AP-I)</label>
@@ -163,7 +162,7 @@
 			<speed>238</speed>
 		</projectile>
 	</ThingDef>
-
+-->
 	<!-- ==================== Recipes ========================== -->
 
     <RecipeDef ParentName="AmmoRecipeBase">
@@ -171,27 +170,51 @@
       <label>make 40x311mmR (AP) cartridge x50</label>
       <description>Craft 50 40x311mmR (AP) cartridges.</description>
       <jobString>Making 40x311mmR (AP) cartridges.</jobString>
-      <ingredients>
-        <li>
-          <filter>
-            <thingDefs>
-              <li>Steel</li>
-            </thingDefs>
-          </filter>
-          <count>216</count>
-        </li>
-      </ingredients>
-      <fixedIngredientFilter>
-        <thingDefs>
-          <li>Steel</li>
-        </thingDefs>
-      </fixedIngredientFilter>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>70</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>110</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>450</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
       <products>
-        <Ammo_40x311mmR_AP>50</Ammo_40x311mmR_AP>
+        <Ammo_40x311mmR_AP>25</Ammo_40x311mmR_AP>
       </products>
       <workAmount>25920</workAmount>
+	  <recipeUsers Inherit="false">
+			<li>WeaponWorkbench</li>
+		</recipeUsers>
+	  <researchPrerequisite>GasOperation</researchPrerequisite>
     </RecipeDef>
-
+<!--
 	<RecipeDef ParentName="AdvancedAmmoRecipeBase">
 		<defName>MakeAmmo_40x311mmR_Incendiary</defName>
 		<label>make 40x311mmR (AP-I) cartridge x50</label>
@@ -225,6 +248,7 @@
 			<Ammo_40x311mmR_Incendiary>50</Ammo_40x311mmR_Incendiary>
 		</products>
 		<workAmount>30800</workAmount>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AdvancedAmmoRecipeBase">
@@ -260,6 +284,7 @@
 			<Ammo_40x311mmR_HE>50</Ammo_40x311mmR_HE>
 		</products>
 		<workAmount>38000</workAmount>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
 	</RecipeDef>
 
 	<RecipeDef ParentName="AdvancedAmmoRecipeBase">
@@ -304,6 +329,7 @@
 			<Ammo_40x311mmR_Sabot>50</Ammo_40x311mmR_Sabot>
 		</products>
 		<workAmount>28200</workAmount>
+		<researchPrerequisite>GasOperation</researchPrerequisite>
 	</RecipeDef>
-
+-->
 </Defs>

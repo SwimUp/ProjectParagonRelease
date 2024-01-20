@@ -15,14 +15,15 @@
 					</comps>
 				</value>
 			</li>
-		
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MegascreenTelevision"]</xpath>
 				<value>
 					<techLevel>Industrial</techLevel>
 				</value>
 			</li>
-			
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[defName="ShelfSmall"]/building/relatedBuildCommands</xpath>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Bed"]</xpath>
 				<value>
@@ -47,7 +48,7 @@
 							<Mass>30</Mass>
 							<BedRestEffectiveness>1</BedRestEffectiveness>
 							<Comfort>1</Comfort>
-							<ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
+							<ImmunityGainSpeedFactor>1.1</ImmunityGainSpeedFactor>
 							<SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
 						</statBases>
 						<size>(1,2)</size>
@@ -77,8 +78,6 @@
 					</ThingDef>
 				</value>
 			</li>
-			
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="DoubleBed"]</xpath>
 				<value>
@@ -106,7 +105,7 @@
 							<Mass>50</Mass>
 							<BedRestEffectiveness>1</BedRestEffectiveness>
 							<Comfort>1</Comfort>
-							<ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
+							<ImmunityGainSpeedFactor>1.1</ImmunityGainSpeedFactor>
 							<SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
 						</statBases>
 						<size>(2,2)</size>
@@ -165,7 +164,7 @@
 							<Mass>50</Mass>
 							<BedRestEffectiveness>1.1</BedRestEffectiveness>
 							<Comfort>2</Comfort>
-							<ImmunityGainSpeedFactor>1.3</ImmunityGainSpeedFactor>
+							<ImmunityGainSpeedFactor>1.1</ImmunityGainSpeedFactor>
 							<SurgerySuccessChanceFactor>1.1</SurgerySuccessChanceFactor>
 						</statBases>
 						<size>(2,2)</size>
@@ -263,7 +262,6 @@
 					</ThingDef>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="DiningChair"]</xpath>
 				<value>
@@ -325,7 +323,6 @@
 					</ThingDef>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Armchair"]</xpath>
 				<value>
@@ -523,7 +520,6 @@
 							<li>ComplexFurniture</li>
 						</researchPrerequisites>
 					</ThingDef>
-					
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -627,6 +623,7 @@
 				<value>
 					<statBases>
 						<HeatingEfficiency>0.01</HeatingEfficiency>
+						<FuelConsumption>5</FuelConsumption>
 					</statBases>
 				</value>
 			</li>
@@ -640,7 +637,6 @@
 							<!-- This is a specific darklight color, make sure it matches DarklightUtility.IsDarklight -->
 						</li>
 						<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
-							<fuelConsumptionRate>1.5</fuelConsumptionRate>
 							<fuelCapacity>20.0</fuelCapacity>
 							<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
 							<enableHeatPush>true</enableHeatPush>
@@ -685,7 +681,6 @@
 					</comps>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="DarktorchFungus"]</xpath>
 				<value>
@@ -697,6 +692,7 @@
 				<value>
 					<statBases>
 						<HeatingEfficiency>0.01</HeatingEfficiency>
+						<FuelConsumption>1.5</FuelConsumption>
 					</statBases>
 				</value>
 			</li>
@@ -710,7 +706,6 @@
 							<!-- This is a specific darklight color, make sure it matches DarklightUtility.IsDarklight -->
 						</li>
 						<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
-							<fuelConsumptionRate>1.5</fuelConsumptionRate>
 							<fuelCapacity>20.0</fuelCapacity>
 							<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
 							<enableHeatPush>true</enableHeatPush>
@@ -772,6 +767,7 @@
 				<xpath>*/ThingDef[defName="TorchLamp"]/statBases</xpath>
 				<value>
 					<HeatingEfficiency>0.01</HeatingEfficiency>
+					<FuelConsumption>1.5</FuelConsumption>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -780,7 +776,6 @@
 					<comps>
 						<li Class="CompProperties_Styleable"/>
 						<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
-							<fuelConsumptionRate>2.0</fuelConsumptionRate>
 							<fuelCapacity>20.0</fuelCapacity>
 							<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
 							<enableHeatPush>true</enableHeatPush>
@@ -829,11 +824,27 @@
 					</comps>
 				</value>
 			</li>
-			
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="StandingLamp"]</xpath>
 				<value>
-					<designatorDropdown>Lighting</designatorDropdown>
+					<ThingDef ParentName="StandingLampBase">
+						<defName>StandingLamp</defName>
+						<label>standing lamp</label>
+						<description>An electrical standing lamp that lights an area. People need light to move and work at full speed.</description>
+						<comps>
+							<li Class="CompProperties_Glower">
+								<glowRadius>12</glowRadius>
+								<glowColor>(214,148,94,0)</glowColor>
+								<colorPickerEnabled>true</colorPickerEnabled>
+								<darklightToggle>true</darklightToggle>
+							</li>
+						</comps>
+						<designatorDropdown>Lighting</designatorDropdown>
+						<costList Inherit="false">
+							<ComponentIndustrial>2</ComponentIndustrial>
+							<SimpleElectronic>1</SimpleElectronic>
+						</costList>
+					</ThingDef>
 				</value>
 			</li>
 			<!--
@@ -880,21 +891,59 @@
 				</value>
 			</li>
 			-->
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="SunLamp"]</xpath>
 				<value>
-					<researchPrerequisites Inherit="false">
-					  <li>Hydroponics</li>
-					</researchPrerequisites>
+					<ThingDef ParentName="LampBase">
+						<defName>SunLamp</defName>
+						<label>sun lamp</label>
+						<description>An industrial lamp which lights an area brightly enough to grow crops, but consumes a huge amount of power. Automatically turns itself off at night.</description>
+						<thingClass>Building_SunLamp</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Production/LampSun</texPath>
+						</graphicData>
+						<blockWind>true</blockWind>
+						<tickerType>Rare</tickerType>
+						<statBases>
+							<WorkToBuild>330</WorkToBuild>
+							<Mass>4.5</Mass>
+						</statBases>
+						<designatorDropdown>Lighting</designatorDropdown>
+						<researchPrerequisites Inherit="false">
+							<li>Hydroponics</li>
+						</researchPrerequisites>
+						<costList>
+							<ComponentIndustrial>2</ComponentIndustrial>
+							<MechanismComplex>2</MechanismComplex>
+							<SimpleElectronic>4</SimpleElectronic>
+							<Plastic>50</Plastic>
+						</costList>
+						<uiOrder>2995</uiOrder>
+						<comps>
+							<li Class="CompProperties_Glower">
+								<overlightRadius>7.0</overlightRadius>
+								<glowRadius>14</glowRadius>
+								<glowColor>(370,370,370,0)</glowColor>
+							</li>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<shortCircuitInRain>true</shortCircuitInRain>
+								<basePowerConsumption>1600</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Schedule">
+								<startTime>0.25</startTime>
+								<endTime>0.8</endTime>
+								<offMessage>Off for plant resting period</offMessage>
+							</li>
+							<li Class="CompProperties_HeatPusher">
+								<compClass>CompHeatPusherPowered</compClass>
+								<heatPerSecond>3</heatPerSecond>
+							</li>
+						</comps>
+						<specialDisplayRadius>5.8</specialDisplayRadius>
+					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="SunLamp"]</xpath>
-				<value>
-					<designatorDropdown>Lighting</designatorDropdown>
-				</value>
-			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="PlantPot"]</xpath>
 				<value>
@@ -905,7 +954,7 @@
 				<xpath>*/ThingDef[defName="PlantPot"]</xpath>
 				<value>
 					<researchPrerequisites>
-					  <li>FurnitureI</li>
+						<li>FurnitureI</li>
 					</researchPrerequisites>
 				</value>
 			</li>
@@ -919,12 +968,10 @@
 				<xpath>*/ThingDef[defName="PlantPot_Bonsai"]/researchPrerequisites</xpath>
 				<value>
 					<researchPrerequisites>
-					  <li>FurnitureI</li>
+						<li>FurnitureI</li>
 					</researchPrerequisites>
 				</value>
 			</li>
-			
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Dresser"]</xpath>
 				<value>
@@ -989,14 +1036,12 @@
 					</ThingDef>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="AnimalSleepingSpot"]</xpath>
 				<value>
 					<designatorDropdown>AnimalFurniture</designatorDropdown>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="AnimalSleepingBox"]</xpath>
 				<value>
@@ -1011,7 +1056,6 @@
 					</researchPrerequisites>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="AnimalBed"]</xpath>
 				<value>
@@ -1026,46 +1070,47 @@
 					</researchPrerequisites>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="HospitalBed"]</xpath>
 				<value>
-					<ThingDef ParentName="ParagonFurnitureBase">
+					<ThingDef ParentName="BedWithQualityBase">
 						<defName>HospitalBed</defName>
 						<label>hospital bed</label>
 						<description>A bed specially designed for use in hospitals. Adjustable for a patient and festooned with built-in equipment, it improves medical outcomes over normal beds.</description>
 						<graphicData>
-						  <texPath>Things/Building/Furniture/Bed/HospitalBed</texPath>
-						  <graphicClass>Graphic_Multi</graphicClass>
-						  <shaderType>CutoutComplex</shaderType>
-						  <drawSize>(2,2)</drawSize>
+							<texPath>Things/Building/Furniture/Bed/HospitalBed</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(2,2)</drawSize>
 						</graphicData>
 						<castEdgeShadows>True</castEdgeShadows>
 						<statBases>
-						  <MaxHitPoints>150</MaxHitPoints>
-						  <WorkToBuild>2800</WorkToBuild>
-						  <Mass>35</Mass>
-						  <Flammability>1.0</Flammability>
-						  <BedRestEffectiveness>1</BedRestEffectiveness>
-						  <Comfort>0.80</Comfort>
-						  <ImmunityGainSpeedFactor>1.11</ImmunityGainSpeedFactor>
-						  <MedicalTendQualityOffset>0.10</MedicalTendQualityOffset>
-						  <SurgerySuccessChanceFactor>1.1</SurgerySuccessChanceFactor>
+							<MaxHitPoints>150</MaxHitPoints>
+							<WorkToBuild>8900</WorkToBuild>
+							<Mass>35</Mass>
+							<Flammability>1.0</Flammability>
+							<BedRestEffectiveness>1</BedRestEffectiveness>
+							<Comfort>0.80</Comfort>
+							<ImmunityGainSpeedFactor>1.15</ImmunityGainSpeedFactor>
+							<MedicalTendQualityOffset>0.10</MedicalTendQualityOffset>
+							<SurgerySuccessChanceFactor>1.1</SurgerySuccessChanceFactor>
+							<BirthRitualQualityOffset MayRequire="Ludeon.RimWorld.Biotech">5</BirthRitualQualityOffset>
 						</statBases>
 						<size>(1,2)</size>
 						<stuffCategories>
-						  <li>Metallic</li>
+							<li>Metallic</li>
 						</stuffCategories>
-						<costStuffCount>40</costStuffCount>
+						<costStuffCount>100</costStuffCount>
 						<costList>
-						  <Steel>80</Steel>
-						  <ComponentIndustrial>5</ComponentIndustrial>
+							<MechanismComplex>8</MechanismComplex>
+							<ComponentIndustrial>4</ComponentIndustrial>
 						</costList>
 						<building>
-						  <bed_showSleeperBody>False</bed_showSleeperBody>
-						  <bed_healPerDay>10</bed_healPerDay>
-						  <bed_defaultMedical>true</bed_defaultMedical>
-						  <buildingSizeCategory>Small</buildingSizeCategory>
+							<bed_showSleeperBody>False</bed_showSleeperBody>
+							<bed_healPerDay>10</bed_healPerDay>
+							<bed_defaultMedical>true</bed_defaultMedical>
+							<buildingSizeCategory>Small</buildingSizeCategory>
+							<paintable>true</paintable>
 						</building>
 						<fillPercent>0.4</fillPercent>
 						<pathCost>42</pathCost>
@@ -1073,21 +1118,187 @@
 						<staticSunShadowHeight>0.17</staticSunShadowHeight>
 						<designationHotKey>Misc5</designationHotKey>
 						<researchPrerequisites>
-						  <li>Medicine</li>
+							<li>Medicine</li>
 						</researchPrerequisites>
 						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 						<techLevel>Industrial</techLevel>
 						<uiIconScale>0.90</uiIconScale>
 						<designatorDropdown>Medicine_Beds</designatorDropdown>
-					    <designationCategory>Medicine</designationCategory>
-					  </ThingDef>
+						<designationCategory>Medicine</designationCategory>
+						<tickerType>Normal</tickerType>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<compClass>ProjectParagon.Core.Things.CompAffectedByMedicalFacilities</compClass>
+								<linkableFacilities>
+									<li>VitalsMonitor</li>
+									<li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
+									<li>MedicalDrip</li>
+									<li>MedicalVentilator</li>
+									<li>MedicalComputer</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+					</ThingDef>
 				</value>
 			</li>
-			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="VitalsMonitor"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>VitalsMonitor</defName>
+						<label>vitals monitor</label>
+						<description>Increases medical tend quality, surgery success chance, and immunity gain speed when placed directly adjacent to a hospital bed. Only works for hospital beds - normal beds will not benefit. Attaching more than one vitals monitor to the same bed will have no effect.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/VitalsMonitor</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shadowData>
+								<volume>(0.55, 0.30, 0.40)</volume>
+							</shadowData>
+							<damageData>
+								<rectN>(0.078125,0.46875,0.859375,0.53125)</rectN>
+								<rectS>(0.078125,0.46875,0.859375,0.53125)</rectS>
+								<rectE>(0.125,0.46875,0.625,0.296875)</rectE>
+								<rectW>(0.25,0.46875,0.625,0.296875)</rectW>
+								<cornerTR>Damage/Corner</cornerTR>
+							</damageData>
+						</graphicData>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<researchPrerequisites>
+							<li>AdvancedMedicine</li>
+						</researchPrerequisites>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.2</fillPercent>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>20000</WorkToBuild>
+							<Mass>20</Mass>
+							<Flammability>0.7</Flammability>
+						</statBases>
+						<size>(1,1)</size>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Microelectronics>2</Microelectronics>
+							<Plastic>50</Plastic>
+						</costList>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+						</building>
+						<designatorDropdown>Medicine_MedicalWard</designatorDropdown>
+						<designationCategory>Medicine</designationCategory>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsSpecial</li>
+						</thingCategories>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<shortCircuitInRain>true</shortCircuitInRain>
+								<basePowerConsumption>100</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<MedicalTendQualityOffset>0.05</MedicalTendQualityOffset>
+									<ImmunityGainSpeedFactor>0.02</ImmunityGainSpeedFactor>
+									<!--<SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>-->
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+								<mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+						<uiIconScale>0.85</uiIconScale>
+					</ThingDef>
+				</value>
+			</li>
 			<li Class="PatchOperationRemove">
 				<xpath>*/ThingDef[defName="Shelf"]</xpath>
 			</li>
-			
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="FlatscreenTelevision"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>FlatscreenTelevision</defName>
+						<label>flatscreen television</label>
+						<description>A high-tech flat-screen television with crystal-clear image and rich color. Picks up transmissions from ancient satellites and ubiquitous data cards.</description>
+						<graphicData>
+							<texPath>Things/Building/Joy/FlatscreenTelevision</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shadowData>
+								<volume>(1.6, 0.6, 0.1)</volume>
+								<offset>(0, 0, 0.35)</offset>
+							</shadowData>
+							<drawSize>(2,1)</drawSize>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+						<rotatable>true</rotatable>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<fillPercent>0.35</fillPercent>
+						<thingCategories>
+							<li>BuildingsJoy</li>
+						</thingCategories>
+						<thingSetMakerTags>
+							<li>RewardStandardQualitySuper</li>
+						</thingSetMakerTags>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>140</costStuffCount>
+						<costList>
+							<SimpleElectronic>4</SimpleElectronic>
+							<Microelectronics>4</Microelectronics>
+							<ComponentIndustrial>16</ComponentIndustrial>
+							<MechanismComplex>5</MechanismComplex>
+							<Plastic>80</Plastic>
+						</costList>
+						<statBases>
+							<WorkToBuild>40000</WorkToBuild>
+							<MaxHitPoints>80</MaxHitPoints>
+							<Flammability>1.0</Flammability>
+							<Mass>8</Mass>
+							<JoyGainFactor>1.4</JoyGainFactor>
+						</statBases>
+						<pathCost>50</pathCost>
+						<passability>PassThroughOnly</passability>
+						<size>(2,1)</size>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<researchPrerequisites>
+							<li>FlatscreenTelevision</li>
+						</researchPrerequisites>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+						<building>
+							<joyKind>Television</joyKind>
+							<spawnedConceptLearnOpportunity>TVForSickPeople</spawnedConceptLearnOpportunity>
+							<boughtConceptLearnOpportunity>TVForSickPeople</boughtConceptLearnOpportunity>
+							<watchBuildingStandDistanceRange>2~6</watchBuildingStandDistanceRange>
+							<watchBuildingStandRectWidth>6</watchBuildingStandRectWidth>
+							<watchBuildingInSameRoom>true</watchBuildingInSameRoom>
+							<effectWatching>WatchingTelevision</effectWatching>
+						</building>
+						<designationCategory>Joy</designationCategory>
+						<placeWorkers>
+							<li>PlaceWorker_WatchArea</li>
+						</placeWorkers>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<shortCircuitInRain>true</shortCircuitInRain>
+								<basePowerConsumption>200</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+						</comps>
+						<tradeTags>
+							<li>Television</li>
+						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 </Patch>

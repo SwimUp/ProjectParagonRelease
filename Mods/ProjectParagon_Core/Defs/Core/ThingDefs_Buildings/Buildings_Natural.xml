@@ -1,9 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<!---->
 	<ThingDef Name="ParagonRockBase" ParentName="RockBase" Abstract="True">
 		<thingClass>ProjectParagon.Core.Things.MineableWithComps</thingClass>
 		<saveCompressible>false</saveCompressible>
 	</ThingDef>
+	<!---->
+	<ThingDef ParentName="ParagonRockBase" Abstract="true" Name="OreStalagmiteBase">
+		<description>Stalagmites indicate underground ore deposits.</description>
+		<graphicData>
+			<texPath>Core/Buildings/OreStalagmites</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<linkType>None</linkType>
+			<linkFlags inherit="false">
+				<li>None</li>
+			</linkFlags>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Beauty>-4</Beauty>
+		</statBases>
+		<neverMultiSelect>false</neverMultiSelect>
+		<constructEffect>ConstructMetal</constructEffect>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0</staticSunShadowHeight>
+		<building>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+			<isResourceRock>true</isResourceRock>
+		</building>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableHematiteOre</defName>
 		<label>Hematite ore</label>
@@ -328,7 +358,46 @@
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteHematiteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteHematiteOre</defName>
+		<label>Hematite stalagmites</label>
+		<graphicData>
+			<color>180,140,77</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>HematiteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>HematiteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableBauxiteOre</defName>
 		<label>Bauxite ore</label>
@@ -428,7 +497,46 @@
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteBauxiteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteBauxiteOre</defName>
+		<label>Bauxite stalagmites</label>
+		<graphicData>
+			<color>150,150,150</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>BauxiteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>BauxiteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableTetrahedriteOre</defName>
 		<label>Tetrahedrite</label>
@@ -739,13 +847,52 @@
 		<thingCategories>
 			<li>ResourcesOres</li>
 		</thingCategories>
-		<deepCommonality>1.5</deepCommonality>
+		<deepCommonality>1.3</deepCommonality>
 		<deepCountPerPortion>40</deepCountPerPortion>
 		<deepLumpSizeRange>15~25</deepLumpSizeRange>
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteTetrahedriteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteTetrahedriteOre</defName>
+		<label>Tetrahedrite stalagmites</label>
+		<graphicData>
+			<color>150,100,70</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>TetrahedriteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>TetrahedriteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableCassiteriteOre</defName>
 		<label>Cassiterite</label>
@@ -1061,13 +1208,52 @@
 		<thingCategories>
 			<li>ResourcesOres</li>
 		</thingCategories>
-		<deepCommonality>1.25</deepCommonality>
+		<deepCommonality>1.1</deepCommonality>
 		<deepCountPerPortion>25</deepCountPerPortion>
 		<deepLumpSizeRange>8~15</deepLumpSizeRange>
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteCassiteriteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteCassiteriteOre</defName>
+		<label>Cassiterite stalagmites</label>
+		<graphicData>
+			<color>133,133,100</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>CassiteriteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>CassiteriteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableSphaleriteOre</defName>
 		<label>Sphalerite</label>
@@ -1377,13 +1563,52 @@
 		<thingCategories>
 			<li>ResourcesOres</li>
 		</thingCategories>
-		<deepCommonality>0.9</deepCommonality>
+		<deepCommonality>0.5</deepCommonality>
 		<deepCountPerPortion>25</deepCountPerPortion>
 		<deepLumpSizeRange>5~10</deepLumpSizeRange>
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteSphaleriteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteSphaleriteOre</defName>
+		<label>Sphalerite stalagmites</label>
+		<graphicData>
+			<color>160,150,100</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>SphaleriteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>SphaleriteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableChromiteOre</defName>
 		<label>Chromite ore</label>
@@ -1402,8 +1627,8 @@
 			<isResourceRock>true</isResourceRock>
 			<mineableThing>ChromiteOre</mineableThing>
 			<mineableYield>15</mineableYield>
-			<mineableScatterCommonality>1</mineableScatterCommonality>
-			<mineableScatterLumpSizeRange>5~10</mineableScatterLumpSizeRange>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
 		</building>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_OreBeneficiation">
@@ -1473,13 +1698,52 @@
 		<thingCategories>
 			<li>ResourcesOres</li>
 		</thingCategories>
-		<deepCommonality>0.65</deepCommonality>
+		<deepCommonality>0.5</deepCommonality>
 		<deepCountPerPortion>20</deepCountPerPortion>
 		<deepLumpSizeRange>5~10</deepLumpSizeRange>
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteChromiteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteChromiteOre</defName>
+		<label>Chromite stalagmites</label>
+		<graphicData>
+			<color>125,155,170</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>ChromiteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>ChromiteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableCoalOre</defName>
 		<label>Hard coal</label>
@@ -1780,7 +2044,8 @@
 			<Mass>0.5</Mass>
 			<OreDepth>5</OreDepth>
 			<CalorificValue>27.00</CalorificValue>
-			<BurnoutRate>7.5</BurnoutRate>
+			<BurnoutRate>5.0</BurnoutRate>
+			<Nutrition>0.08</Nutrition>
 		</statBases>
 		<useHitPoints>false</useHitPoints>
 		<healthAffectsPrice>false</healthAffectsPrice>
@@ -1788,13 +2053,58 @@
 		<thingCategories>
 			<li>ResourcesOres</li>
 		</thingCategories>
-		<deepCommonality>2</deepCommonality>
+		<deepCommonality>1.5</deepCommonality>
 		<deepCountPerPortion>30</deepCountPerPortion>
 		<deepLumpSizeRange>10~20</deepLumpSizeRange>
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<foodType>OmnivoreHuman</foodType>
+			<optimalityOffsetHumanlikes>15</optimalityOffsetHumanlikes>
+		</ingestible>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteCoal</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteCoal</defName>
+		<label>Coal stalagmites</label>
+		<graphicData>
+			<color>75,75,84</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>Coal</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>Coal</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableCrenneriteOre</defName>
 		<label>Crennerite</label>
@@ -2094,13 +2404,52 @@
 		<thingCategories>
 			<li>ResourcesOres</li>
 		</thingCategories>
-		<deepCommonality>0.15</deepCommonality>
+		<deepCommonality>0.3</deepCommonality>
 		<deepCountPerPortion>20</deepCountPerPortion>
 		<deepLumpSizeRange>3~10</deepLumpSizeRange>
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteCrenneriteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteCrenneriteOre</defName>
+		<label>Crennerite stalagmites</label>
+		<graphicData>
+			<color>116,130,137</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>CrenneriteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>CrenneriteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableRockSalt</defName>
@@ -2425,6 +2774,14 @@
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteRockSalt</stalagmiteDef>
+			</li>
+		</modExtensions>
 		<comps>
 			<li Class="ProjectParagon.Core.FoodSystem.CompProperties_FoodComponent">
 				<slot>Misc</slot>
@@ -2465,10 +2822,79 @@
 							</li>
 						</foodParams>
 					</li>
+					<li>
+						<foodTemplate>MealSurvivalPack</foodTemplate>
+						<foodParams>
+							<li>
+								<param>Nutrition</param>
+								<baseValue>0.01</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Protein</param>
+								<baseValue>0.0</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Fat</param>
+								<baseValue>0.0</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Carbohydrates</param>
+								<baseValue>0.0</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Vitamins</param>
+								<baseValue>0.006</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Flavor</param>
+								<baseValue>0.0</baseValue>
+								<compatabilityWithOtherFood />
+							</li>
+						</foodParams>
+					</li>
 				</foodSettings>
 			</li>
 		</comps>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteRockSalt</defName>
+		<label>Salt stalagmites</label>
+		<graphicData>
+			<color>180,180,180</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>RockSalt</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>RockSalt</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableSulfurOre</defName>
@@ -2489,7 +2915,7 @@
 			<mineableThing>Sulfur</mineableThing>
 			<mineableYield>30</mineableYield>
 			<mineableScatterCommonality>1</mineableScatterCommonality>
-			<mineableScatterLumpSizeRange>3~5</mineableScatterLumpSizeRange>
+			<mineableScatterLumpSizeRange>5~8</mineableScatterLumpSizeRange>
 		</building>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_OreBeneficiation">
@@ -2777,7 +3203,46 @@
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteSulfur</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteSulfur</defName>
+		<label>Sulfur stalagmites</label>
+		<graphicData>
+			<color>170,170,106</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>Sulfur</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>Sulfur</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableSaltpeterOre</defName>
@@ -2798,7 +3263,7 @@
 			<mineableThing>Saltpeter</mineableThing>
 			<mineableYield>30</mineableYield>
 			<mineableScatterCommonality>1</mineableScatterCommonality>
-			<mineableScatterLumpSizeRange>3~5</mineableScatterLumpSizeRange>
+			<mineableScatterLumpSizeRange>5~8</mineableScatterLumpSizeRange>
 		</building>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_OreBeneficiation">
@@ -3095,7 +3560,46 @@
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteSaltpeter</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteSaltpeter</defName>
+		<label>Saltpeter stalagmites</label>
+		<graphicData>
+			<color>175,175,175</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>Saltpeter</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>Saltpeter</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="BuildingBase">
 		<defName>SaltCrystal</defName>
 		<label>Salt crystal</label>
@@ -3174,7 +3678,7 @@
 		</comps>
 	</ThingDef>
 	
-	<ThingDef ParentName="ParagonRockBase">
+	<!--<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableMagnesiumOre</defName>
 		<label>Magnesium ore</label>
 		<description>Magnesium rock.</description>
@@ -3241,7 +3745,7 @@
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
 			</li>
 		</modExtensions>
-	</ThingDef>
+	</ThingDef>-->
 	<ThingDef ParentName="ResourceBase">
 		<defName>MagnesiumOre</defName>
 		<label>Magnesium ore</label>
@@ -3269,7 +3773,46 @@
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteMagnesiumOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteMagnesiumOre</defName>
+		<label>Magnesium stalagmites</label>
+		<graphicData>
+			<color>140,120,109</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>MagnesiumOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>MagnesiumOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableIlmeniteOre</defName>
@@ -3290,7 +3833,7 @@
 			<mineableThing>IlmeniteOre</mineableThing>
 			<mineableYield>20</mineableYield>
 			<mineableScatterCommonality>1</mineableScatterCommonality>
-			<mineableScatterLumpSizeRange>2~5</mineableScatterLumpSizeRange>
+			<mineableScatterLumpSizeRange>3~7</mineableScatterLumpSizeRange>
 		</building>
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_OreBeneficiation">
@@ -3362,7 +3905,46 @@
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteIlmeniteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteIlmeniteOre</defName>
+		<label>Ilmenite stalagmites</label>
+		<graphicData>
+			<color>130,113,104</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>IlmeniteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>IlmeniteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 	
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableUraniumOre</defName>
@@ -3380,7 +3962,7 @@
 		</statBases>
 		<building>
 			<isResourceRock>true</isResourceRock>
-			<mineableThing>UraniumOre</mineableThing>
+			<mineableThing>Uranium</mineableThing>
 			<mineableYield>25</mineableYield>
 			<mineableScatterCommonality>0.25</mineableScatterCommonality>
 			<mineableScatterLumpSizeRange>3~5</mineableScatterLumpSizeRange>
@@ -3392,7 +3974,7 @@
 				<destroyMineableThing>true</destroyMineableThing>
 				<extraMiningItems>
 					<li>
-						<thingDef>UraniumOre</thingDef>
+						<thingDef>Uranium</thingDef>
 						<percentByTotalAmount>50</percentByTotalAmount>
 					</li>
 					<li>
@@ -3469,8 +4051,8 @@
 					</li>
 					<li>
 						<biomeDef>Biome_Grassland</biomeDef>
-						<mineableScatterCommonalityMultiplier>1.5</mineableScatterCommonalityMultiplier>
-						<mineableScatterLumpSizeRangeMultiplier>1.5</mineableScatterLumpSizeRangeMultiplier>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+						<mineableScatterLumpSizeRangeMultiplier>0</mineableScatterLumpSizeRangeMultiplier>
 						<oreBeneficationMultipliers>
 							<Normal>100</Normal>
 						</oreBeneficationMultipliers>
@@ -3526,8 +4108,8 @@
 					</li>
 					<li>
 						<biomeDef>Biome_SeaReefs</biomeDef>
-						<mineableScatterCommonalityMultiplier>0.5</mineableScatterCommonalityMultiplier>
-						<mineableScatterLumpSizeRangeMultiplier>0.5</mineableScatterLumpSizeRangeMultiplier>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+						<mineableScatterLumpSizeRangeMultiplier>0</mineableScatterLumpSizeRangeMultiplier>
 						<oreBeneficationMultipliers>
 							<Normal>100</Normal>
 						</oreBeneficationMultipliers>
@@ -3623,20 +4205,121 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-	<ThingDef ParentName="ResourceBase">
-		<defName>UraniumOre</defName>
-		<label>Uranium ore</label>
-		<description>A piece of rock that is a source of radioactive uranium ores.</description>
+	
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteUraniumOre</defName>
+		<label>Uranium stalagmites</label>
 		<graphicData>
-			<texPath>Core/Resources/Mineable/UraniumOre</texPath>
+			<color>100,142,113</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>Uranium</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>Uranium</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	
+	
+	<ThingDef ParentName="ParagonRockBase">
+		<defName>MineableSkutteruditeOre</defName>
+		<label>Skutterudite ore</label>
+		<description>Skutterudite rock.</description>
+		<graphicData>
+			<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(134,144,150)</color>
+			<colorTwo>(118,129,134)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>2600</MaxHitPoints>
+		</statBases>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>SkutteruditeOre</mineableThing>
+			<mineableYield>25</mineableYield>
+			<mineableScatterCommonality>1</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>2~5</mineableScatterLumpSizeRange>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_OreBeneficiation">
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>SkutteruditeOre</thingDef>
+						<percentByTotalAmount>80</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_MineableProps">
+				<hillinessMultipliers>
+					<li>
+						<hilliness>Flat</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>SmallHills</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>LargeHills</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>Mountainous</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+				</hillinessMultipliers>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>SkutteruditeOre</defName>
+		<label>Skutterudite ore</label>
+		<description>A piece of rock that is the source of gold and silver ore.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/SkutteruditeOre</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
 		</graphicData>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
 		<statBases>
-			<MarketValue>5.0</MarketValue>
-			<Mass>0.5</Mass>
-			<OreDepth>200</OreDepth>
+			<MarketValue>2.5</MarketValue>
+			<Mass>0.3</Mass>
+			<OreDepth>180</OreDepth>
 		</statBases>
 		<useHitPoints>false</useHitPoints>
 		<healthAffectsPrice>false</healthAffectsPrice>
@@ -3644,12 +4327,51 @@
 		<thingCategories>
 			<li>ResourcesOres</li>
 		</thingCategories>
-		<deepCommonality>0.25</deepCommonality>
-		<deepCountPerPortion>20</deepCountPerPortion>
-		<deepLumpSizeRange>1~5</deepLumpSizeRange>
+		<deepCommonality>0.4</deepCommonality>
+		<deepCountPerPortion>30</deepCountPerPortion>
+		<deepLumpSizeRange>5~8</deepLumpSizeRange>
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteSkutteruditeOre</stalagmiteDef>
+			</li>
+		</modExtensions>
 	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteSkutteruditeOre</defName>
+		<label>Skutterudite stalagmites</label>
+		<graphicData>
+			<color>116,130,137</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>SkutteruditeOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>SkutteruditeOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
 
 </Defs>

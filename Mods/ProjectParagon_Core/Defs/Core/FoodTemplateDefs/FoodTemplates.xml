@@ -25,7 +25,6 @@
 			</li>
 		</multipliersForSameIngr>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Soup</defName>
 		<!-- Суп -->
@@ -71,6 +70,9 @@
 			<li>Core/Food/Meals/Soup/Soup_d</li>
 			<li>Core/Food/Meals/Soup/Soup_e</li>
 			<li>Core/Food/Meals/Soup/Soup_f</li>
+			<li>Core/Food/Meals/Soup/Soup_g</li>
+			<li>Core/Food/Meals/Soup/Soup_h</li>
+			<li>Core/Food/Meals/Soup/Soup_i</li>
 		</iconPathsList>
 		<extraRecipes>
 			<li>
@@ -133,7 +135,6 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Stew</defName>
 		<!-- Рагу -->
@@ -179,6 +180,7 @@
 			<li>Core/Food/Meals/Stew/Stew_d</li>
 			<li>Core/Food/Meals/Stew/Stew_e</li>
 			<li>Core/Food/Meals/Stew/Stew_f</li>
+			<li>Core/Food/Meals/Stew/Stew_g</li>
 		</iconPathsList>
 		<extraRecipes>
 			<li>
@@ -241,7 +243,6 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Salad</defName>
 		<!-- Салат -->
@@ -326,7 +327,6 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Fried</defName>
 		<!-- Жаренное -->
@@ -418,7 +418,6 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Boiled</defName>
 		<!-- Варенная -->
@@ -463,6 +462,8 @@
 			<li>Core/Food/Meals/Boiled/Boiled_c</li>
 			<li>Core/Food/Meals/Boiled/Boiled_d</li>
 			<li>Core/Food/Meals/Boiled/Boiled_e</li>
+			<li>Core/Food/Meals/Boiled/Boiled_f</li>
+			<li>Core/Food/Meals/Boiled/Boiled_g</li>
 		</iconPathsList>
 		<extraRecipes>
 			<li>
@@ -525,7 +526,6 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Juice</defName>
 		<!-- Сок -->
@@ -537,14 +537,57 @@
 			<li>
 				<foodSlot>Fruit</foodSlot>
 				<count>5</count>
+				<required>true</required>
 			</li>
 			<li>
 				<foodSlot>Fruit</foodSlot>
 				<count>5</count>
 			</li>
+			<li>
+				<foodSlot>Fruit</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Fruit</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Misc</foodSlot>
+				<count>5</count>
+				<filterDefs>
+					<thingDefs>
+						<li>Sugar</li>
+						<li>InsectJelly</li>
+					</thingDefs>
+				</filterDefs>
+			</li>
 		</slots>
+		<multipliersForSameIngr>
+			<li>
+				<foodParam>Flavor</foodParam>
+				<positiveMultiplierCurve>
+					<points>
+						<li>(0, 2.3)</li>
+						<li>(1, 2.3)</li>
+						<li>(2, 1)</li>
+						<li>(3, 0.5)</li>
+						<li>(4, 0.25)</li>
+					</points>
+				</positiveMultiplierCurve>
+				<negativeMultiplierCurve>
+					<points>
+						<li>(0, 2.3)</li>
+						<li>(1, 2.3)</li>
+						<li>(2, 1)</li>
+						<li>(3, 0.8)</li>
+						<li>(4, 0.6)</li>
+					</points>
+				</negativeMultiplierCurve>
+			</li>
+		</multipliersForSameIngr>
 		<recipeUsers>
 			<li>Juicer</li>
+			<li>ElectricTeapot</li>
 		</recipeUsers>
 		<recipeDefTemplate>Recipe_FoodTemplates_MakeJuice</recipeDefTemplate>
 		<resultThingTemplate>FoodTemplate_Juice</resultThingTemplate>
@@ -562,6 +605,7 @@
 			<li>
 				<recipeUsers>
 					<li>Juicer</li>
+					<li>ElectricTeapot</li>
 				</recipeUsers>
 				<adjustedCount>4</adjustedCount>
 				<extraDefModExtensions>
@@ -582,7 +626,6 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>HotDrink</defName>
 		<!-- Горячий напиток -->
@@ -604,6 +647,10 @@
 				<count>5</count>
 			</li>
 			<li>
+				<foodSlot>Medical</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
 				<foodSlot>Misc</foodSlot>
 				<count>5</count>
 			</li>
@@ -613,6 +660,7 @@
 			<li>CookingFurnace</li>
 			<li>FueledStove</li>
 			<li>ElectricStove</li>
+			<li>ElectricTeapot</li>
 		</recipeUsers>
 		<recipeDefTemplate>Recipe_FoodTemplates_MakeHotDrink</recipeDefTemplate>
 		<resultThingTemplate>FoodTemplate_HotDrink</resultThingTemplate>
@@ -622,7 +670,12 @@
 			<li>Core/Food/Meals/HotDrink/HotDrink_b</li>
 			<li>Core/Food/Meals/HotDrink/HotDrink_c</li>
 			<li>Core/Food/Meals/HotDrink/HotDrink_d</li>
+			<li>Core/Food/Meals/HotDrink/HotDrink_e</li>
 			<li>Core/Food/Meals/HotDrink/HotDrink_f</li>
+			<li>Core/Food/Meals/HotDrink/HotDrink_g</li>
+			<li>Core/Food/Meals/HotDrink/HotDrink_h</li>
+			<li>Core/Food/Meals/HotDrink/HotDrink_i</li>
+			<li>Core/Food/Meals/HotDrink/HotDrink_j</li>
 		</iconPathsList>
 		<extraRecipes>
 			<li>
@@ -643,6 +696,7 @@
 					<li>CookingFurnace</li>
 					<li>FueledStove</li>
 					<li>ElectricStove</li>
+					<li>ElectricTeapot</li>
 				</recipeUsers>
 				<adjustedCount>4</adjustedCount>
 				<extraDefModExtensions>
@@ -667,6 +721,7 @@
 					<li>CookingFurnace</li>
 					<li>FueledStove</li>
 					<li>ElectricStove</li>
+					<li>ElectricTeapot</li>
 				</recipeUsers>
 				<adjustedCount>8</adjustedCount>
 				<extraDefModExtensions>
@@ -708,7 +763,6 @@
 			</li>
 		</multipliersForSameIngr>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Bake</defName>
 		<!-- Выпечка -->
@@ -732,6 +786,7 @@
 				<filterDefs>
 					<thingDefs>
 						<li>Milk</li>
+						<li>Chocolate</li>
 					</thingDefs>
 				</filterDefs>
 			</li>
@@ -740,9 +795,6 @@
 				<count>5</count>
 				<required>true</required>
 				<filterDefs>
-					<thingDefs>
-						<li>Honey</li>
-					</thingDefs>
 					<categories>
 						<li>EggsUnfertilized</li>
 						<li>EggsFertilized</li>
@@ -854,7 +906,6 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Preserves</defName>
 		<!-- Консервы -->
@@ -903,6 +954,12 @@
 			<li>Core/Food/Meals/Preserves/Preserves_b</li>
 			<li>Core/Food/Meals/Preserves/Preserves_c</li>
 			<li>Core/Food/Meals/Preserves/Preserves_d</li>
+			<li>Core/Food/Meals/Preserves/Preserves_e</li>
+			<li>Core/Food/Meals/Preserves/Preserves_f</li>
+			<li>Core/Food/Meals/Preserves/Preserves_g</li>
+			<li>Core/Food/Meals/Preserves/Preserves_k</li>
+			<li>Core/Food/Meals/Preserves/Preserves_l</li>
+			<li>Core/Food/Meals/Preserves/Preserves_m</li>
 		</iconPathsList>
 		<requiredResearch>Preserving</requiredResearch>
 		<extraRecipes>
@@ -952,7 +1009,6 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-	
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Decoction</defName>
 		<!-- Отвар -->
@@ -987,6 +1043,7 @@
 			<li>CookingPot</li>
 			<li>FueledStove</li>
 			<li>ElectricStove</li>
+			<li>ElectricTeapot</li>
 		</recipeUsers>
 		<recipeDefTemplate>Recipe_FoodTemplates_MakeDecoction</recipeDefTemplate>
 		<resultThingTemplate>FoodTemplate_Decoction</resultThingTemplate>
@@ -995,6 +1052,10 @@
 			<li>Core/Food/Meals/Decoction/Decoction_b</li>
 			<li>Core/Food/Meals/Decoction/Decoction_c</li>
 			<li>Core/Food/Meals/Decoction/Decoction_d</li>
+			<li>Core/Food/Meals/Decoction/Decoction_e</li>
+			<li>Core/Food/Meals/Decoction/Decoction_f</li>
+			<li>Core/Food/Meals/Decoction/Decoction_g</li>
+			<li>Core/Food/Meals/Decoction/Decoction_h</li>
 		</iconPathsList>
 		<extraRecipes>
 			<li>
@@ -1015,6 +1076,7 @@
 					<li>CookingFurnace</li>
 					<li>FueledStove</li>
 					<li>ElectricStove</li>
+					<li>ElectricTeapot</li>
 				</recipeUsers>
 				<adjustedCount>4</adjustedCount>
 				<extraDefModExtensions>
@@ -1039,6 +1101,7 @@
 					<li>CookingFurnace</li>
 					<li>FueledStove</li>
 					<li>ElectricStove</li>
+					<li>ElectricTeapot</li>
 				</recipeUsers>
 				<adjustedCount>8</adjustedCount>
 				<extraDefModExtensions>
@@ -1056,15 +1119,14 @@
 				</extraDefModExtensions>
 			</li>
 		</extraRecipes>
-		<requiredResearch>CookingI</requiredResearch>
+		<requiredResearch>CookingII</requiredResearch>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-	
 	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
 		<defName>Sushi</defName>
 		<!-- Суши -->
 		<label>Sushi</label>
 		<menuIcon>Core/Food/Meals/Sushi/Sushi_a</menuIcon>
-		<description>A specific type of food in which the fish practically does not undergo thermal processing</description>
+		<description>A specific type of food in which the fish practically does not undergo thermal processing.</description>
 		<recipeDefPrefix>Cook</recipeDefPrefix>
 		<slots>
 			<li>
@@ -1167,5 +1229,283 @@
 			</li>
 		</extraRecipes>
 	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
-
+	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
+		<defName>MealSurvivalPack</defName>
+		<label>Meal survival pack</label>
+		<menuIcon>Core/Food/Meals/MealSurvivalPack/MealSurvivalPack_a</menuIcon>
+		<description>Well packaged packed lunch, filling and nutritious. Able to persist for a long time.</description>
+		<recipeDefPrefix>Cook</recipeDefPrefix>
+		<slots>
+			<li>
+				<foodSlot>Meat</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Meat</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Vegetable</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Vegetable</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Misc</foodSlot>
+				<count>5</count>
+				<filterDefs>
+					<thingDefs>
+						<li>RockSalt</li>
+						<li>Sugar</li>
+					</thingDefs>
+				</filterDefs>
+			</li>
+		</slots>
+		<recipeUsers>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<recipeDefTemplate>Recipe_FoodTemplates_MakeMealSurvivalPack</recipeDefTemplate>
+		<resultThingTemplate>FoodTemplate_MealSurvivalPack</resultThingTemplate>
+		<requiredResearch>CookingIV</requiredResearch>
+		<iconPathsList>
+			<li>Core/Food/Meals/MealSurvivalPack/MealSurvivalPack_a</li>
+			<li>Core/Food/Meals/MealSurvivalPack/MealSurvivalPack_b</li>
+			<li>Core/Food/Meals/MealSurvivalPack/MealSurvivalPack_c</li>
+		</iconPathsList>
+		<extraRecipes>
+			<li>
+				<recipeUsers>
+					<li>FueledStove</li>
+					<li>ElectricStove</li>
+				</recipeUsers>
+				<adjustedCount>4</adjustedCount>
+				<extraDefModExtensions>
+					<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+						<requiredFacilities>
+							<li>
+								<any>true</any>
+								<thingFilter>
+									<thingDefs>
+										<li>SimpleCookingSet</li>
+										<li>AdvancedCookingSet</li>
+									</thingDefs>
+								</thingFilter>
+							</li>
+						</requiredFacilities>
+					</li>
+				</extraDefModExtensions>
+			</li>
+			<li>
+				<recipeUsers>
+					<li>FueledStove</li>
+					<li>ElectricStove</li>
+				</recipeUsers>
+				<adjustedCount>8</adjustedCount>
+				<extraDefModExtensions>
+					<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+						<requiredFacilities>
+							<li>
+								<thingFilter>
+									<thingDefs>
+										<li>AdvancedCookingSet</li>
+									</thingDefs>
+								</thingFilter>
+							</li>
+						</requiredFacilities>
+					</li>
+				</extraDefModExtensions>
+			</li>
+		</extraRecipes>
+	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
+	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
+		<defName>Icecream</defName>
+		<label>Ice cream</label>
+		<menuIcon>Core/Food/Meals/Icecream/Icecream_a</menuIcon>
+		<description>Delicious treat with milk, sugar and fruit.</description>
+		<recipeDefPrefix>Cook</recipeDefPrefix>
+		<slots>
+			<li>
+				<foodSlot>Fruit</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Fruit</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Fruit</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Misc</foodSlot>
+				<count>5</count>
+				<required>true</required>
+				<filterDefs>
+					<thingDefs>
+						<li>Sugar</li>
+					</thingDefs>
+				</filterDefs>
+			</li>
+			<li>
+				<foodSlot>Misc</foodSlot>
+				<count>5</count>
+				<required>true</required>
+				<filterDefs>
+					<thingDefs>
+						<li>Milk</li>
+					</thingDefs>
+				</filterDefs>
+			</li>
+		</slots>
+		<recipeUsers>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<recipeDefTemplate>Recipe_FoodTemplates_MakeIcecream</recipeDefTemplate>
+		<resultThingTemplate>FoodTemplate_Icecream</resultThingTemplate>
+		<requiredResearch>CookingVI</requiredResearch>
+		<iconPathsList>
+			<li>Core/Food/Meals/Icecream/Icecream_a</li>
+			<li>Core/Food/Meals/Icecream/Icecream_b</li>
+		</iconPathsList>
+		<extraRecipes>
+			<li>
+				<recipeUsers>
+					<li>ElectricStove</li>
+				</recipeUsers>
+				<adjustedCount>4</adjustedCount>
+				<extraDefModExtensions>
+					<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+						<requiredFacilities>
+							<li>
+								<any>true</any>
+								<thingFilter>
+									<thingDefs>
+										<li>SimpleCookingSet</li>
+										<li>AdvancedCookingSet</li>
+									</thingDefs>
+								</thingFilter>
+							</li>
+						</requiredFacilities>
+					</li>
+				</extraDefModExtensions>
+			</li>
+			<li>
+				<recipeUsers>
+					<li>ElectricStove</li>
+				</recipeUsers>
+				<adjustedCount>8</adjustedCount>
+				<extraDefModExtensions>
+					<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+						<requiredFacilities>
+							<li>
+								<thingFilter>
+									<thingDefs>
+										<li>AdvancedCookingSet</li>
+									</thingDefs>
+								</thingFilter>
+							</li>
+						</requiredFacilities>
+					</li>
+				</extraDefModExtensions>
+			</li>
+		</extraRecipes>
+	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
+	<ProjectParagon.Core.FoodSystem.FoodTemplateDef ParentName="FoodTemplateBase">
+		<defName>Soda</defName>
+		<label>Soda</label>
+		<menuIcon>Core/Food/Meals/Soda/Soda_a</menuIcon>
+		<description>Sparkling water. Tasty, but not filling.</description>
+		<recipeDefPrefix>Cook</recipeDefPrefix>
+		<slots>
+			<li>
+				<foodSlot>Fruit</foodSlot>
+				<count>5</count>
+				<required>true</required>
+			</li>
+			<li>
+				<foodSlot>Fruit</foodSlot>
+				<count>5</count>
+			</li>
+			<li>
+				<foodSlot>Misc</foodSlot>
+				<count>5</count>
+				<required>true</required>
+				<filterDefs>
+					<thingDefs>
+						<li>Sugar</li>
+					</thingDefs>
+				</filterDefs>
+			</li>
+		</slots>
+		<recipeUsers>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<recipeDefTemplate>Recipe_FoodTemplates_MakeSoda</recipeDefTemplate>
+		<resultThingTemplate>FoodTemplate_Soda</resultThingTemplate>
+		<requiredResearch>CookingVI</requiredResearch>
+		<iconPathsList>
+			<li>Core/Food/Meals/Soda/Soda_a</li>
+			<li>Core/Food/Meals/Soda/Soda_b</li>
+			<li>Core/Food/Meals/Soda/Soda_c</li>
+			<li>Core/Food/Meals/Soda/Soda_d</li>
+			<li>Core/Food/Meals/Soda/Soda_e</li>
+			<li>Core/Food/Meals/Soda/Soda_f</li>
+			<li>Core/Food/Meals/Soda/Soda_g</li>
+			<li>Core/Food/Meals/Soda/Soda_h</li>
+			<li>Core/Food/Meals/Soda/Soda_i</li>
+			<li>Core/Food/Meals/Soda/Soda_j</li>
+			<li>Core/Food/Meals/Soda/Soda_k</li>
+			<li>Core/Food/Meals/Soda/Soda_l</li>
+		</iconPathsList>
+		<basicRecipeBaseCount>4</basicRecipeBaseCount>
+		<extraRecipes>
+			<li>
+				<recipeUsers>
+					<li>ElectricStove</li>
+				</recipeUsers>
+				<baseCount>4</baseCount>
+				<adjustedCount>4</adjustedCount>
+				<extraDefModExtensions>
+					<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+						<requiredFacilities>
+							<li>
+								<any>true</any>
+								<thingFilter>
+									<thingDefs>
+										<li>SimpleCookingSet</li>
+										<li>AdvancedCookingSet</li>
+									</thingDefs>
+								</thingFilter>
+							</li>
+						</requiredFacilities>
+					</li>
+				</extraDefModExtensions>
+			</li>
+			<li>
+				<recipeUsers>
+					<li>ElectricStove</li>
+				</recipeUsers>
+				<baseCount>8</baseCount>
+				<adjustedCount>8</adjustedCount>
+				<extraDefModExtensions>
+					<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+						<requiredFacilities>
+							<li>
+								<any>true</any>
+								<thingFilter>
+									<thingDefs>
+										<li>SimpleCookingSet</li>
+										<li>AdvancedCookingSet</li>
+									</thingDefs>
+								</thingFilter>
+							</li>
+						</requiredFacilities>
+					</li>
+				</extraDefModExtensions>
+			</li>
+		</extraRecipes>
+	</ProjectParagon.Core.FoodSystem.FoodTemplateDef>
 </Defs>

@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+	<!---->
 	<ThingDef ParentName="ApparelBase">
 		<defName>SuicideBelt</defName>
 		<label>Suicide belt</label>
 		<description>A belt filled with explosives, activated by a fuse. Extremely dangerous to others, and its use leads to massive losses.</description>
-		<thingClass>ProjectParagon.Core.Things.Apparel_SuicideBelt</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Apparel_ExplosiveBelt</thingClass>
 		<techLevel>Medieval</techLevel>
 		<comps>
 			<li Class="CompProperties_Reloadable">
@@ -28,7 +29,7 @@
 		</comps>
 		<verbs>
 			<li>
-				<verbClass>ProjectParagon.Core.Things.Verb_SuicideBeltPop</verbClass>
+				<verbClass>ProjectParagon.Core.Things.Verb_ExplosiveBelt</verbClass>
 				<label>boom</label>
 				<violent>true</violent>
 				<hasStandardCommand>true</hasStandardCommand>
@@ -59,6 +60,8 @@
 			<researchPrerequisite>CombustibleMixtures</researchPrerequisite>
 			<recipeUsers>
 				<li>HandTailoringBench</li>
+				<li>ElectricTailoringBench</li>
+				<li>SteamLoom</li>
 			</recipeUsers>
 			<useIngredientsForColor>false</useIngredientsForColor>
 			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -93,4 +96,329 @@
 			</tags>
 		</apparel>
 	</ThingDef>
+	<!---->
+	<ThingDef ParentName="ArmorSmithableBase">
+		<defName>Apparel_SteamPack</defName>
+		<label>Steam pack</label>
+		<description>A satchel for short flights using steam propulsion.</description>
+		<possessionCount>1</possessionCount>
+		<techLevel>Industrial</techLevel>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedMetallicTechArmor</unfinishedThingDef>
+			<researchPrerequisite>SteamJetpack</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>4</Crafting>
+			</skillRequirements>
+			<displayPriority>250</displayPriority>
+			<recipeUsers Inherit="false">
+				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>
+		<graphicData>
+			<texPath>Core/Items/Apparel/SteamPack/SteamPack</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.5</drawSize>
+		</graphicData>
+		<costList>
+			<Cloth>100</Cloth>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismSimple>8</MechanismSimple>
+		</costList>
+		<statBases>
+			<WorkToMake>35000</WorkToMake>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Mass>3</Mass>
+			<StuffEffectMultiplierArmor>0</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+			<EquipDelay>6</EquipDelay>
+			<JumpRange>15</JumpRange>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<tradeTags>
+			<li>IndustrialUtility</li>
+		</tradeTags>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Neck</li>
+				<li>Shoulders</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Belt</li>
+			</layers>
+			<wornGraphicPath>Core/Items/Apparel/SteamPack/SteamPack</wornGraphicPath>
+			<wornGraphicData>
+				<renderUtilityAsPack>true</renderUtilityAsPack>
+				<north>
+					<scale>1.8,1.8</scale>
+				</north>
+				<south>
+					<scale>1.8,1.8</scale>
+				</south>
+				<east>
+					<scale>1.8,1.8</scale>
+				</east>
+				<west>
+					<scale>1.8,1.8</scale>
+				</west>
+			</wornGraphicData>
+			<tags>
+				<li>IndustrialSpecialUtility</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<comps>
+			<li Class="CompProperties_Reloadable">
+				<maxCharges>5</maxCharges>
+				<ammoDef>Coal</ammoDef>
+				<ammoCountPerCharge>20</ammoCountPerCharge>
+				<baseReloadTicks>60</baseReloadTicks>
+				<soundReload>Standard_Reload</soundReload>
+				<hotKey>Misc4</hotKey>
+				<chargeNoun>jump</chargeNoun>
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+			</li>
+		</comps>
+		<verbs>
+			<li>
+				<verbClass>Verb_Jump</verbClass>
+				<label>jump</label>
+				<commandIcon>Things/Pawn/Humanlike/Apparel/JumpPack/JumpPack</commandIcon>
+				<violent>false</violent>
+				<hasStandardCommand>true</hasStandardCommand>
+				<onlyManualCast>True</onlyManualCast>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<warmupTime>0.5</warmupTime>
+				<warmupEffecter>JumpWarmupEffect</warmupEffecter>
+				<flightEffecterDef>JumpFlightEffect</flightEffecterDef>
+				<requireLineOfSight>true</requireLineOfSight>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+					<canTargetPawns>false</canTargetPawns>
+					<canTargetBuildings>false</canTargetBuildings>
+				</targetParams>
+			</li>
+		</verbs>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="ApparelBase">
+		<defName>WorkingExoskeleton</defName>
+		<label>Working exoskeleton</label>
+		<description>Exoskeleton to cushion the stress of heavy work. Equipped with an additional manipulator.</description>
+		<thingClass>Apparel</thingClass>
+		<techLevel>Industrial</techLevel>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+			<researchPrerequisite>WorkingExoskeleton</researchPrerequisite>
+			<recipeUsers>
+				<li>TableMachiningAdvanced</li>
+			</recipeUsers>
+			<useIngredientsForColor>false</useIngredientsForColor>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<costList>
+			<SuperStrongPlates>75</SuperStrongPlates>
+			<Microelectronics>8</Microelectronics>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<MechanismComplex>2</MechanismComplex>
+		</costList>
+		<equippedStatOffsets>
+			<WorkSpeedGlobal>0.25</WorkSpeedGlobal>
+			<CarryWeight>40</CarryWeight>
+		</equippedStatOffsets>
+		<graphicData>
+			<texPath>Core/Items/Apparel/WorkingExoskeleton/WorkingExoskeleton</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToMake>35000</WorkToMake>
+			<Mass>5</Mass>
+			<Flammability>0.2</Flammability>
+			<EquipDelay>8</EquipDelay>
+		</statBases>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<apparel>
+			<wornGraphicPath>Core/Items/Apparel/WorkingExoskeleton/WorkingExoskeleton</wornGraphicPath>
+			<wornGraphicData>
+				<renderUtilityAsPack>true</renderUtilityAsPack>
+				<east>
+					<offset>(-0.35,-0.05)</offset>
+					<thin>
+						<offset>(0.05,0)</offset>
+					</thin>
+					<hulk>
+						<offset>(-0.1,0)</offset>
+					</hulk>
+					<fat>
+						<offset>(-0.15,0)</offset>
+					</fat>
+				</east>
+				<west>
+					<offset>(0.35,-0.05)</offset>
+					<thin>
+						<offset>(-0.05,0)</offset>
+					</thin>
+					<hulk>
+						<offset>(0.1,0)</offset>
+					</hulk>
+					<fat>
+						<offset>(0.15,0)</offset>
+					</fat>
+				</west>
+				<male>
+					<scale>(0.75,0.75)</scale>
+				</male>
+				<female>
+					<scale>(0.75,0.75)</scale>
+				</female>
+				<thin>
+					<scale>(0.7,0.7)</scale>
+				</thin>
+				<hulk>
+					<scale>(0.9,0.9)</scale>
+				</hulk>
+				<fat>
+					<scale>(0.9,0.9)</scale>
+				</fat>
+			</wornGraphicData>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Torso</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Belt</li>
+			</layers>
+		</apparel>
+		<tradeability>All</tradeability>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>4</weight>
+					<only>(173,173,173)</only>
+				</li>
+				<li>
+					<weight>4</weight>
+					<only>(97,97,97)</only>
+				</li>
+				<li>
+					<weight>4</weight>
+					<only>(255,187,41)</only>
+				</li>
+				<li>
+					<weight>4</weight>
+					<only>(189,129,0)</only>
+				</li>
+				<li>
+					<weight>4</weight>
+					<only>(208,194,67)</only>
+				</li>
+				<li>
+					<weight>2</weight>
+					<only>(104,164,158)</only>
+				</li>
+			</options>
+		</colorGenerator>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="ApparelBase">
+		<defName>ShockBelt</defName>
+		<label>Shock belt</label>
+		<description>A belt filled with charged shock crystals. Powered by the carrier to strike an area.</description>
+		<thingClass>ProjectParagon.Core.Things.Apparel_ExplosiveBelt</thingClass>
+		<techLevel>Industrial</techLevel>
+		<comps>
+			<li Class="CompProperties_Reloadable">
+				<maxCharges>1</maxCharges>
+				<chargeNoun>charge</chargeNoun>
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+				<destroyOnEmpty>true</destroyOnEmpty>
+			</li>
+			<li Class="CombatExtended.CompProperties_ExplosiveCE">
+				<damageAmountBase>100</damageAmountBase>
+				<explosiveDamageType>Electrical</explosiveDamageType>
+				<explosiveRadius>4</explosiveRadius>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			</li>
+			<li Class="CompProperties_Explosive">
+				<wickTicks>240</wickTicks>
+				<explosiveRadius>4</explosiveRadius>
+				<explosiveDamageType>Electrical</explosiveDamageType>
+				<chanceNeverExplodeFromDamage>0.05</chanceNeverExplodeFromDamage>
+			</li>
+		</comps>
+		<verbs>
+			<li>
+				<verbClass>ProjectParagon.Core.Things.Verb_ExplosiveBelt</verbClass>
+				<label>boom</label>
+				<violent>true</violent>
+				<hasStandardCommand>true</hasStandardCommand>
+				<targetable>false</targetable>
+				<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+				<onlyManualCast>True</onlyManualCast>
+			</li>
+		</verbs>
+		<costList>
+			<ShockCrystal>20</ShockCrystal>
+			<Microelectronics>1</Microelectronics>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<graphicData>
+			<texPath>Core/Items/Apparel/ShockBelt/ShockBelt</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToMake>40000</WorkToMake>
+			<Mass>5</Mass>
+			<Flammability>0.2</Flammability>
+			<EquipDelay>2</EquipDelay>
+		</statBases>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Torso</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Belt</li>
+			</layers>
+			<tags>
+				<li>ApparelUtilityResonite</li>
+			</tags>
+		</apparel>
+		<tradeability>All</tradeability>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+	</ThingDef>
+	<!---->
 </Defs>

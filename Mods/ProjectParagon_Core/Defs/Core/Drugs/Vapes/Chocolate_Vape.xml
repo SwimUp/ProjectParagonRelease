@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MakeableDrugBase">
+		<defName>ChocolateVape</defName>
+		<label>chocolate vape</label>
+		<description>A vaporizer with delicious chocolate flavor.</description>
+		<graphicData>
+			<texPath>Core/Drugs/Vapes/VapeChocolate</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<WorkToMake>500</WorkToMake>
+			<MarketValue>20</MarketValue>
+			<Mass>0.20</Mass>
+			<Flammability>1</Flammability>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<drugCategory>Social</drugCategory>
+			<joyKind>Vaping</joyKind>
+			<joy>0.35</joy>
+			<baseIngestTicks>450</baseIngestTicks>
+			<ingestSound>Ingest_Smoke</ingestSound>
+			<ingestEffect>Smoke_Joint</ingestEffect>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.27,0,0.08)</offset>
+					<behind>true</behind>
+				</northDefault>
+				<east>
+					<offset>(0.45,0,0.08)</offset>
+				</east>
+				<south>
+					<offset>(0.27,0,0.08)</offset>
+				</south>
+				<west>
+					<offset>(-0.50,0,0.08)</offset>
+					<flip>true</flip>
+				</west>
+			</ingestHoldOffsetStanding>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Inhale {0}</ingestCommandString>
+			<ingestReportString>Inhaling {0}.</ingestReportString>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>ChocolateVapeHigh</hediffDef>
+					<severity>0.75</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker>
+			<researchPrerequisite>FlatscreenTelevision</researchPrerequisite>
+			<recipeUsers>
+				<li>DrugLab</li>
+			</recipeUsers>
+			<productCount>5</productCount>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<costList>
+			<Plastic>10</Plastic>
+			<Sugar>5</Sugar>
+			<SimpleElectronic>1</SimpleElectronic>
+			<Chocolate>10</Chocolate>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1810</listOrder>
+				<addictiveness>0</addictiveness>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef>
+		<defName>ChocolateVapeHigh</defName>
+		<label>chocolate vape</label>
+		<hediffClass>Hediff_High</hediffClass>
+		<description>Chocolate flavored vapor. Very entertaining and relaxing.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
+				<comps>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>30000~180000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_PulmonaryEdema</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Lung</li>
+						</partsToAffect>
+						<countToAffect>2</countToAffect>
+						<letter>true</letter>
+						<chance>0.05</chance>
+						<severityRange>0~1</severityRange>
+					</li>
+					<li>
+						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
+						<intervalTicks>300000~600000</intervalTicks>
+						<hediffDefs>
+							<li>Diseases_HediffDef_Depression</li>
+						</hediffDefs>
+						<partsToAffect>
+							<li>Brain</li>
+						</partsToAffect>
+						<countToAffect>1</countToAffect>
+						<letter>true</letter>
+						<chance>0.2</chance>
+						<severityRange>0.1~1.0</severityRange>
+					</li>
+				</comps>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<painFactor>0.95</painFactor>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.05</offset>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>0.05</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<ThoughtDef>
+		<defName>ChocolateVapeHigh</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>ChocolateVapeHigh</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>high on chocolate vape</label>
+				<description>Man, I love chocolate!</description>
+				<baseMoodEffect>6</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

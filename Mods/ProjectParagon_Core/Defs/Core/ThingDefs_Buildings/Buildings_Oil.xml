@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>OilWell</defName>
+		<label>Oil Well</label>
+		<description>Extracts oil from underground reservoirs, requires a resource console to view the oil fields, and miners to drill the well.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_OilWell</thingClass>
+		<graphicData>
+			<texPath>Rimefeller/Things/Building/OilDerrick</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4,7)</drawSize>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>15000</WorkToBuild>
+			<Flammability>4.0</Flammability>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>250</costStuffCount>
+		<costList>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<MechanismComplex>10</MechanismComplex>
+			<SimplePlates>50</SimplePlates>
+			<StrongPlates>20</StrongPlates>
+		</costList>
+		<researchPrerequisites>
+			<li>OilProduction</li>
+		</researchPrerequisites>
+		<rotatable>false</rotatable>
+		<category>Building</category>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Production_OilProcessing</designatorDropdown>
+		<fillPercent>1.00</fillPercent>
+		<passability>Impassable</passability>
+		<altitudeLayer>Building</altitudeLayer>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<size>(3,3)</size>
+		<tickerType>Normal</tickerType>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>false</castEdgeShadows>
+		<pathCost>60</pathCost>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>ProjectParagon.Core.Things.ManagedCompPowerTrader</compClass>
+				<basePowerConsumption>300</basePowerConsumption>
+				<alwaysDisplayAsUsingPower>true</alwaysDisplayAsUsingPower>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(252,187,113,0)</glowColor>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
+				<pipeTypeDef>Oil</pipeTypeDef>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_OilWell">
+				<drillingSpeedPerDay>0.35</drillingSpeedPerDay>
+				<flowSpeedPerDay>750</flowSpeedPerDay>
+			</li>
+			<li Class="CompProperties_HeatPusher">
+				<heatPerSecond>6</heatPerSecond>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_BuildingStatPart">
+				<workTableOutdoors>false</workTableOutdoors>
+				<workTableTemperature>false</workTableTemperature>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>OilStorage</defName>
+		<label>Crude oil storage</label>
+		<description>Stores crude oil from wells.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_LiquidStorage</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/OilStorage/OilStorage</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4.05,4.05)</drawSize>
+			<damageData>
+				<rect>(0.05,0.05,0.95,0.95)</rect>
+			</damageData>
+			<drawRotated>false</drawRotated>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>15000</WorkToBuild>
+			<Flammability>4.0</Flammability>
+		</statBases>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<MechanismComplex>2</MechanismComplex>
+			<SimplePlates>100</SimplePlates>
+		</costList>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<researchPrerequisites>
+			<li>OilProduction</li>
+		</researchPrerequisites>
+		<rotatable>true</rotatable>
+		<pathCost>180</pathCost>
+		<category>Building</category>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<designationCategory>LWM_DS_Storage</designationCategory>
+		<fillPercent>1.00</fillPercent>
+		<passability>Impassable</passability>
+		<altitudeLayer>Building</altitudeLayer>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<size>(3,3)</size>
+		<tickerType>Normal</tickerType>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>false</castEdgeShadows>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0, 0, -2)</interactionCellOffset>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>10000</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<drainFlowSpeedPerDay>60000</drainFlowSpeedPerDay>
+				<pipeTypeDef>Oil</pipeTypeDef>
+				<canChangePipeType>true</canChangePipeType>
+				<pipeTypeDefsWhitelist>
+					<li>Oil</li>
+					<li>LightOil</li>
+					<li>MediumOil</li>
+					<li>HeavyOil</li>
+					<li>Diesel</li>
+					<li>Naphtha</li>
+					<li>Ethanol</li>
+					<li>RocketFuel</li>
+				</pipeTypeDefsWhitelist>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>15</maxExplosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<damageAmountBase>50</damageAmountBase>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>1</chanceToStartFire>
+				<destroyThingOnExplosionSize>4</destroyThingOnExplosionSize>
+				<startWickHitPointsPercent>0.15</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>0.8~2.0</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+				  <min>500</min>
+				  <max>900</max>
+				</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BenchBase">
+		<defName>DistillationColumnI</defName>
+		<label>Distillation column (stage I)</label>
+		<description>A device used in distillation processes. Allows the processing of crude oil to obtain medium and heavy oil fractions.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamLiquidProcessor</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/DistillationColumnI/DistillationColumnI</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>4.3,4.3</drawSize>
+			<drawOffset>0, 0, 0.45</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>300</costStuffCount>
+		<costList>
+			<ComponentIndustrial>15</ComponentIndustrial>
+			<MechanismComplex>15</MechanismComplex>
+			<StrongPlates>150</StrongPlates>
+			<SimpleElectronic>5</SimpleElectronic>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Cleanliness>-10</Cleanliness>
+			<FuelConsumption>6</FuelConsumption>
+			<HeatingEfficiency>1.0</HeatingEfficiency>
+		</statBases>
+		<size>(3,3)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Production_OilProcessing</designatorDropdown>
+		<passability>Impassable</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>false</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<interactionCellIcon isNull="true"/>
+		<researchPrerequisites>
+			<li>BasicOilProcessing</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>150</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>Oil</pipeTypeDef>
+				<capacity>500</capacity>
+				<canAutoDrain>false</canAutoDrain>
+				<canManualDrain>false</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>1000</capacity>
+				<pipeTypeDef>MediumOil</pipeTypeDef>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>false</drawStorageOverlay>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>HeavyOil</pipeTypeDef>
+				<capacity>1000</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>false</drawStorageOverlay>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>200</WaterStorageCap>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamLiquidProcessor">
+				<sourcePipeTypeDef>Oil</sourcePipeTypeDef>
+				<maxGeneratedSteamPerIteration>15</maxGeneratedSteamPerIteration>
+				<fullEfficiencySteam>0.15</fullEfficiencySteam>
+				<baseProcessSpeedPerDay>3</baseProcessSpeedPerDay>
+				<sourceLiquidCountPerIteration>54</sourceLiquidCountPerIteration>
+				<processResult>
+					<li>
+						<pipeTypeDef>MediumOil</pipeTypeDef>
+						<baseCount>48</baseCount>
+					</li>
+					<li>
+						<pipeTypeDef>HeavyOil</pipeTypeDef>
+						<baseCount>6</baseCount>
+					</li>
+				</processResult>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelCapacity>200.0</fuelCapacity>
+				<startedFuel>WoodLog</startedFuel>
+				<enableHeatPush>true</enableHeatPush>
+				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+						<li>Coal</li>
+						<li>CokeCoal</li>
+						<li>FuelBriquette</li>
+					</thingDefs>
+				</fuelFilter>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>10</maxExplosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>0.7</chanceToStartFire>
+				<startWickHitPointsPercent>0.1</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>1.7~2.5</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+				  <min>70</min>
+				  <max>150</max>
+				</wickTicks>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_BuildingStatPart">
+				<workTableOutdoors>false</workTableOutdoors>
+				<workTableTemperature>true</workTableTemperature>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>DistillationColumnII</defName>
+		<label>Distillation column (stage II)</label>
+		<description>A device used in distillation processes. Allows you to process the middle fraction of oil into useful fuel and light fraction of oil.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamLiquidProcessor</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/DistillationColumnII/DistillationColumnII</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>4.3,4.3</drawSize>
+			<drawOffset>0, 0, 0.45</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>400</costStuffCount>
+		<costList>
+			<ComponentIndustrial>20</ComponentIndustrial>
+			<MechanismComplex>20</MechanismComplex>
+			<StrongPlates>180</StrongPlates>
+			<SimpleElectronic>5</SimpleElectronic>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Cleanliness>-10</Cleanliness>
+			<FuelConsumption>6</FuelConsumption>
+			<HeatingEfficiency>1.0</HeatingEfficiency>
+		</statBases>
+		<size>(3,3)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Production_OilProcessing</designatorDropdown>
+		<passability>Impassable</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>false</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<interactionCellIcon isNull="true"/>
+		<researchPrerequisites>
+			<li>BasicOilProcessing</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>150</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>MediumOil</pipeTypeDef>
+				<capacity>500</capacity>
+				<canAutoDrain>false</canAutoDrain>
+				<canManualDrain>false</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>1000</capacity>
+				<pipeTypeDef>Diesel</pipeTypeDef>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>false</drawStorageOverlay>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>LightOil</pipeTypeDef>
+				<capacity>1000</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>false</drawStorageOverlay>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>200</WaterStorageCap>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamLiquidProcessor">
+				<sourcePipeTypeDef>MediumOil</sourcePipeTypeDef>
+				<maxGeneratedSteamPerIteration>15</maxGeneratedSteamPerIteration>
+				<fullEfficiencySteam>0.15</fullEfficiencySteam>
+				<baseProcessSpeedPerDay>3</baseProcessSpeedPerDay>
+				<sourceLiquidCountPerIteration>48</sourceLiquidCountPerIteration>
+				<processResult>
+					<li>
+						<pipeTypeDef>Diesel</pipeTypeDef>
+						<baseCount>36</baseCount>
+					</li>
+					<li>
+						<pipeTypeDef>LightOil</pipeTypeDef>
+						<baseCount>12</baseCount>
+					</li>
+				</processResult>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelCapacity>200.0</fuelCapacity>
+				<startedFuel>WoodLog</startedFuel>
+				<enableHeatPush>true</enableHeatPush>
+				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+						<li>Coal</li>
+						<li>CokeCoal</li>
+						<li>FuelBriquette</li>
+					</thingDefs>
+				</fuelFilter>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>10</maxExplosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>0.7</chanceToStartFire>
+				<startWickHitPointsPercent>0.1</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>1.7~2.5</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+				  <min>70</min>
+				  <max>150</max>
+				</wickTicks>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_BuildingStatPart">
+				<workTableOutdoors>false</workTableOutdoors>
+				<workTableTemperature>true</workTableTemperature>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>DistillationColumnIII</defName>
+		<label>Distillation column (stage III)</label>
+		<description>A device used in distillation processes. Allows you to process the light fraction of oil into naphtha for further use in petroleum products.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamLiquidProcessor</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/DistillationColumnIII/DistillationColumnIII</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>4.3,4.3</drawSize>
+			<drawOffset>0, 0, 0.45</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>500</costStuffCount>
+		<costList>
+			<ComponentIndustrial>15</ComponentIndustrial>
+			<MechanismComplex>15</MechanismComplex>
+			<StrongPlates>150</StrongPlates>
+			<SimpleElectronic>5</SimpleElectronic>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Cleanliness>-10</Cleanliness>
+			<FuelConsumption>6</FuelConsumption>
+			<HeatingEfficiency>1.0</HeatingEfficiency>
+		</statBases>
+		<size>(3,3)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Production_OilProcessing</designatorDropdown>
+		<passability>Impassable</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>false</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<interactionCellIcon isNull="true"/>
+		<researchPrerequisites>
+			<li>AdvancedOilProcessing</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>150</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>LightOil</pipeTypeDef>
+				<capacity>500</capacity>
+				<canAutoDrain>false</canAutoDrain>
+				<canManualDrain>false</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>Naphtha</pipeTypeDef>
+				<capacity>1000</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>false</drawStorageOverlay>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>200</WaterStorageCap>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamLiquidProcessor">
+				<sourcePipeTypeDef>LightOil</sourcePipeTypeDef>
+				<maxGeneratedSteamPerIteration>15</maxGeneratedSteamPerIteration>
+				<fullEfficiencySteam>0.2</fullEfficiencySteam>
+				<baseProcessSpeedPerDay>1</baseProcessSpeedPerDay>
+				<sourceLiquidCountPerIteration>36</sourceLiquidCountPerIteration>
+				<processResult>
+					<li>
+						<pipeTypeDef>Naphtha</pipeTypeDef>
+						<baseCount>72</baseCount>
+					</li>
+				</processResult>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<fuelCapacity>200.0</fuelCapacity>
+				<startedFuel>WoodLog</startedFuel>
+				<enableHeatPush>true</enableHeatPush>
+				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+						<li>Coal</li>
+						<li>CokeCoal</li>
+						<li>FuelBriquette</li>
+					</thingDefs>
+				</fuelFilter>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>10</maxExplosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>0.7</chanceToStartFire>
+				<startWickHitPointsPercent>0.1</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>1.7~3.5</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+				  <min>70</min>
+				  <max>150</max>
+				</wickTicks>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_BuildingStatPart">
+				<workTableOutdoors>false</workTableOutdoors>
+				<workTableTemperature>true</workTableTemperature>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BenchBase">
+		<defName>OilChemicalStation</defName>
+		<label>Petrochemical synthesizer</label>
+		<description>Synthesizer for processing naphtha into useful petroleum products.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_OilChemicalStation</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/OilChemicalStation/OilChemicalStation</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>3,3</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>300</costStuffCount>
+		<costList>
+			<ComponentIndustrial>20</ComponentIndustrial>
+			<MechanismComplex>10</MechanismComplex>
+			<StrongPlates>100</StrongPlates>
+			<SimpleElectronic>20</SimpleElectronic>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0</Flammability>
+			<Cleanliness>-10</Cleanliness>
+			<FuelConsumption>6</FuelConsumption>
+			<HeatingEfficiency>1.0</HeatingEfficiency>
+		</statBases>
+		<size>(3,3)</size>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Production_OilProcessing</designatorDropdown>
+		<passability>Impassable</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<interactionCellIcon isNull="true"/>
+		<researchPrerequisites>
+			<li>AdvancedOilProcessing</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<rotatable>false</rotatable>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>300</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>Naphtha</pipeTypeDef>
+				<capacity>250</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>true</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<canChangePipeType>false</canChangePipeType>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<barOffset>(0, 0, -1)</barOffset>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>Chlorine</pipeTypeDef>
+				<capacity>250</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<canChangePipeType>false</canChangePipeType>
+				<drawPipeOverlay>true</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<barOffset>(0, 0, 1)</barOffset>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>                                                                                                                                            
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>3</maxExplosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>0.7</chanceToStartFire>
+				<startWickHitPointsPercent>0.1</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>1.7~2.5</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+				  <min>1600</min>
+				  <max>4500</max>
+				</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

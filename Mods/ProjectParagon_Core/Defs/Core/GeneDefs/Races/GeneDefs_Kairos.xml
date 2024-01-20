@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneKairosBase" Abstract="True">
+		<displayCategory>Kairos</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKairosBase">
+		<defName>Kairos</defName>
+		<label>Kairos</label>
+		<labelShortAdj>Kairos</labelShortAdj>
+		<description>Inhabitants of hot deserts.</description>
+		<iconPath>Core/Genes/Kairos</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>0</biostatMet>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKairosBase">
+		<defName>DesertAdaptation</defName>
+		<label>Desert adaptation</label>
+		<labelShortAdj>Desert adaptation</labelShortAdj>
+		<description>The gene allows the wearer to adapt to desert-like conditions by increasing the tolerable maximum and minimum temperatures.</description>
+		<iconPath>Core/Genes/DesertAdaptation</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-3</biostatMet>
+		<statOffsets>
+			<ComfyTemperatureMin>-15</ComfyTemperatureMin>
+			<ComfyTemperatureMax>40</ComfyTemperatureMax>
+		</statOffsets>
+		<prerequisite>Kairos</prerequisite>
+	</GeneDef>
+	<!---->
+</Defs>

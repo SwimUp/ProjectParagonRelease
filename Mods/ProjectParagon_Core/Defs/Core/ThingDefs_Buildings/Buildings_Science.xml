@@ -61,7 +61,6 @@
 		<designatorDropdown>ResearchBenches</designatorDropdown>
 		<surfaceType>Item</surfaceType>
 	</ThingDef>
-
 	<ThingDef ParentName="BuildingBase">
 		<defName>Research_ResourceBox</defName>
 		<label>Resource box</label>
@@ -123,7 +122,6 @@
 		</stuffCategories>
 		<costStuffCount>100</costStuffCount>
 	</ThingDef>
-	
 	<ThingDef ParentName="BenchBase">
 		<defName>ResearchBench</defName>
 		<label>Research bench</label>
@@ -176,7 +174,7 @@
 					<li>ResearchLibrary</li>
 					<li>Globe</li>
 					<li>SimpleScienceSet</li>
-					<li>AdvacedScienceSet</li>
+					<li>AdvancedScienceSet</li>
 				</linkableFacilities>
 			</li>
 		</comps>
@@ -190,5 +188,142 @@
 		<designatorDropdown>ResearchBenches</designatorDropdown>
 		<surfaceType>Item</surfaceType>
 	</ThingDef>
-	
+	<ThingDef ParentName="BenchBase">
+		<defName>LampComputingUnit</defName>
+		<label>Lamp computing unit</label>
+		<description>A self-sufficient computing unit providing low computing power and a small amount of RAM.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ComputerComplex</thingClass>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>300</costStuffCount>
+		<costList>
+			<StrongPlates>200</StrongPlates>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<MechanismComplex>5</MechanismComplex>
+			<SimpleElectronic>10</SimpleElectronic>
+			<Plastic>75</Plastic>
+			<Glass>150</Glass>
+			<Wire>50</Wire>
+		</costList>
+		<graphicData>
+			<texPath>Core/Buildings/LampComputingUnit/LampComputingUnit</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(6.25,6.5)</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<size>(4, 2)</size>
+		<uiIconScale>0.85</uiIconScale>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0.25</staticSunShadowHeight>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>70</pathCost>
+		<researchPrerequisites>
+			<li>TubeComputers</li>
+		</researchPrerequisites>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>35000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ComputerComplex">
+				<baseComputerPerfomance>0.05</baseComputerPerfomance>
+				<baseRAM>1</baseRAM>
+				<pushHeatInterval>60</pushHeatInterval>
+				<basePushHeat>20</basePushHeat>
+				<maxWorkingTemperature>80</maxWorkingTemperature>
+				<minWorkingTemperature>-50</minWorkingTemperature>
+				<componentsHeatingMult>1</componentsHeatingMult>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>250</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<fillPercent>0.5</fillPercent>
+		<hasInteractionCell>false</hasInteractionCell>
+		<designationCategory>Science</designationCategory>
+		<designatorDropdown>ComputingMachines</designatorDropdown>
+		<surfaceType>Item</surfaceType>
+	</ThingDef>
+	<ThingDef ParentName="BenchBase">
+		<defName>ComputerRackUnit</defName>
+		<label>Computer rack unit</label>
+		<description>A rack where processors and memory can be installed to support computing.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ComputerComplex</thingClass>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<costList>
+			<Microelectronics>5</Microelectronics>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<MechanismComplex>10</MechanismComplex>
+			<Plastic>75</Plastic>
+			<Wire>10</Wire>
+		</costList>
+		<graphicData>
+			<texPath>Core/Buildings/ComputerRackUnit/ComputerRackUnit</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>3.5,3.5</drawSize>
+			<drawOffset>0,0,0.1</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<size>(3, 1)</size>
+		<uiIconScale>1</uiIconScale>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0.25</staticSunShadowHeight>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>70</pathCost>
+		<researchPrerequisites>
+			<li>MicroelectronicsBasics</li>
+		</researchPrerequisites>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>45000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_Computer</li>
+		</inspectorTabs>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ComputerComplex">
+				<baseComputerPerfomance>0</baseComputerPerfomance>
+				<baseRAM>0</baseRAM>
+				<slots>6</slots>
+				<pushHeatInterval>60</pushHeatInterval>
+				<basePushHeat>0</basePushHeat>
+				<maxWorkingTemperature>40</maxWorkingTemperature>
+				<minWorkingTemperature>-100</minWorkingTemperature>
+				<componentsHeatingMult>0.8</componentsHeatingMult>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>ProjectParagon.Core.Things.CompPowerTraderParagon</compClass>
+				<basePowerConsumption>50</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<fillPercent>0.5</fillPercent>
+		<hasInteractionCell>false</hasInteractionCell>
+		<designationCategory>Science</designationCategory>
+		<designatorDropdown>ComputingMachines</designatorDropdown>
+		<surfaceType>Item</surfaceType>
+	</ThingDef>
 </Defs>

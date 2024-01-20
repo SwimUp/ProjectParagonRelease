@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AMCArtilleryBase">
+		<defName>M150mmSIG33_Turret</defName>
+		<label>15cm sIG 33</label>
+		<description>Gun: 150mm L11</description>
+		<graphicData>
+			<texPath>Things/Building/M150mmSIG33</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(9,9)</drawSize>
+			<damageData>
+				<rect>(0.2,0.2,0.6,0.6)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+			</damageData>
+			<shadowData>
+				<offset>(0,0,0)</offset>
+				<volume>(2,1.5,2)</volume>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<WorkToBuild>120000</WorkToBuild>
+			<Mass>260</Mass>
+		</statBases>
+		<!--<comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>4.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+      </li>
+    </comps> -->
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<size>(3,3)</size>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<costList>
+			<AdvancedWeaponComponents>45</AdvancedWeaponComponents>
+			<MechanismComplex>25</MechanismComplex>
+			<ComponentIndustrial>25</ComponentIndustrial>
+		</costList>
+		<costStuffCount>600</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<tradeTags>
+			<li>CE_Turret</li>
+		</tradeTags>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<building Inherit="False">
+			<turretGunDef>Turret_M150mmSIG33_Weapon</turretGunDef>
+			<turretTopDrawSize>9</turretTopDrawSize>
+			<turretBurstWarmupTime>2</turretBurstWarmupTime>
+			<turretBurstCooldownTime>2</turretBurstCooldownTime>
+			<buildingTags>
+				<li>Artillery_BaseDestroyer</li>
+				<li>Artillery_MannedMortar</li>
+				<li>Artillery</li>
+			</buildingTags>
+		</building>
+		<designationCategory>Security</designationCategory>
+		<designatorDropdown>Security_Artillery</designatorDropdown>
+		<researchPrerequisites Inherit="False">
+			<li>HeavyArtillery</li>
+		</researchPrerequisites>
+		<uiIconPath>Things/Icons/M150mmSIG33_MenuIcon</uiIconPath>
+		<uiIconScale>0.9</uiIconScale>
+	</ThingDef>
+	<ThingDef ParentName="BaseArtilleryWeapon">
+		<defName>Turret_M150mmSIG33_Weapon</defName>
+		<label>15cm L11</label>
+		<description>Ammo: 150mmSIG33</description>
+		<graphicData>
+			<texPath>Things/Building/M150mmSIG33_Top</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+			<drawRotated>true</drawRotated>
+		</graphicData>
+		<weaponTags>
+			<li>Artillery_MannedMortar</li>
+			<li>Artillery</li>
+		</weaponTags>
+		<statBases>
+			<SightsEfficiency>1</SightsEfficiency>
+			<ShotSpread>0.02</ShotSpread>
+			<SwayFactor>0.9</SwayFactor>
+			<RangedWeapon_Cooldown>25</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootMortarCE</verbClass>
+				<forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_150mmSIG33_HE</defaultProjectile>
+				<warmupTime>1</warmupTime>
+				<minRange>15</minRange>
+				<range>130</range>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Sound_sIG33</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>100</muzzleFlashScale>
+				<circularError>1</circularError>
+				<indirectFirePenalty>0.1</indirectFirePenalty>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Charges">
+				<chargeSpeeds>
+					<li>25</li>
+					<li>45</li>
+					<li>70</li>
+					<li>100</li>
+					<li>135</li>
+				</chargeSpeeds>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<reloadTime>15</reloadTime>
+				<ammoSet>AmmoSet_150mmSIG33_Shells</ammoSet>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

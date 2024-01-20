@@ -16,12 +16,49 @@
 					<designatorDropdown>Structure_Doors</designatorDropdown>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Autodoor"]</xpath>
 				<value>
-					<designatorDropdown>Structure_Doors</designatorDropdown>
+					<ThingDef ParentName="DoorBase">
+						<defName>Autodoor</defName>
+						<label>autodoor</label>
+						<description>Divides rooms. Powered operation allows people to move through the door without slowing down.</description>
+						<statBases>
+							<WorkToBuild>1100</WorkToBuild>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Building/Door/Autodoor_Mover</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<damageData>
+								<!--  no damage marks because they don't move with the door
+							<rect>(0,0.12,1,0.76)</rect>-->
+								<enabled>false</enabled>
+							</damageData>
+						</graphicData>
+						<uiIconPath>Things/Building/Door/Autodoor_MenuIcon</uiIconPath>
+						<costList>
+							<Microelectronics>1</Microelectronics>
+							<MechanismComplex>1</MechanismComplex>
+						</costList>
+						<costStuffCount>50</costStuffCount>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>25</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Breakdownable"/>
+							<li Class="CompProperties_Styleable"/>
+						</comps>
+						<designationHotKey>Misc2</designationHotKey>
+						<researchPrerequisites>
+							<li>MicroelectronicsBasics</li>
+						</researchPrerequisites>
+						<designatorDropdown>Structure_Doors</designatorDropdown>
+						<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+					</ThingDef>
 				</value>
 			</li>
+			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="AnimalFlap"]</xpath>
 				<value>
