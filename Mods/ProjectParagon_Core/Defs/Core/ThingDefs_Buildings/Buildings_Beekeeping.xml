@@ -166,6 +166,7 @@
 		<designationCategory>Production</designationCategory>
 		<designatorDropdown>Farming</designatorDropdown>
 		<tickerType>Normal</tickerType>
+		<rotatable>false</rotatable>
 	</ThingDef>
 	<ThingDef ParentName="ApiaryBase">
 		<defName>Apiary_Medieval</defName>
@@ -187,7 +188,7 @@
 		</graphicData>
 		<statBases>
 			<WorkToBuild>4500</WorkToBuild>
-			<MaxHitPoints>200</MaxHitPoints>
+			<MaxHitPoints>100</MaxHitPoints>
 			<Cleanliness>-10</Cleanliness>
 			<Beauty>-10</Beauty>
 		</statBases>
@@ -217,6 +218,63 @@
 				<basePlantSpeedMultiplier>1.5</basePlantSpeedMultiplier> <!-- Максимальный прирост скорости растений от улья. Мод/макс кол-во трутней * их реальное кол-во  -->
 				<safeTemperatureRange>5~35</safeTemperatureRange> <!-- Безопасная работа улья. Для отключения 999~999 -->
 				<storageCapacity>150</storageCapacity> <!-- вместимость хранилище в ед. -->
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Rooms.DefModExtension_IgnoreGreenhouse"></li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ApiaryBase">
+		<defName>Apiary_Industrial</defName>
+		<label>Industrial apiary</label>
+		<description>Artificial housing for bees adapted for cultivation.</description>
+		<thingClass>ProjectParagon.Core.Bees.Building_Apiary</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Apiary_Industrial/Apiary_Industrial</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(5.5,5.5)</drawSize>
+			<shadowData>
+				<volume>(1.6,0.7,1.2)</volume>
+				<offset>(0,0,-0.4)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.3,0.1,2.4,1.8)</rect>
+			</damageData>
+			<drawOffset>0,0,0.3</drawOffset>
+		</graphicData>
+		<statBases>
+			<WorkToBuild>12000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Cleanliness>-10</Cleanliness>
+			<Beauty>-10</Beauty>
+		</statBases>
+		<costList>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<SimpleElectronic>2</SimpleElectronic>
+		</costList>
+		<stuffCategories>
+			<li>Woody</li>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>200</costStuffCount>
+		<researchPrerequisites>
+			<li>IndustrialApiary</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="ProjectParagon.Core.Bees.CompProperties_Apiary">
+				<compClass>ProjectParagon.Core.Bees.CompApiary</compClass>
+				<beeQueenDefs>
+					<!-- Каких пчел можно поместить -->
+					<li>BeeQueen_Common</li>
+					<li>BeeQueen_Radioactive</li>
+					<li>BeeQueen_Mutated</li>
+					<li>BeeQueen_Cave</li>
+				</beeQueenDefs>
+				<maxBeeWorkers>20</maxBeeWorkers> <!-- максимальное кол-во рабочих -->
+				<effectRadius>8</effectRadius> <!-- радиус работы -->
+				<basePlantSpeedMultiplier>1.75</basePlantSpeedMultiplier> <!-- Максимальный прирост скорости растений от улья. Мод/макс кол-во трутней * их реальное кол-во  -->
+				<safeTemperatureRange>-10~45</safeTemperatureRange> <!-- Безопасная работа улья. Для отключения 999~999 -->
+				<storageCapacity>500</storageCapacity> <!-- вместимость хранилище в ед. -->
 			</li>
 		</comps>
 		<modExtensions>
