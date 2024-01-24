@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/PawnTableDef[defName="Animals"]/columns/li[last()-1]</xpath>
+				<value>
+					<li>MountableByColonists</li>
+					<li MayRequire="Ludeon.RimWorld.Ideology">MountableBySlaves</li>
+				</value>
+			</li>
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/PawnTableDef[defName="Assign"]/columns/li[text()="MedicalCare"]</xpath>
+				<value>
+					<li>AllowedToRide</li>
+				</value>
+			</li>
+			<!-- When a pawn checks to see if they should dismount, one condition is to check if their current job is allowed while mounted. This is the whitelist -->
+			<li Class="PatchOperationAddModExtension">
+				<xpath>Defs/JobDef[defName="Arrest" or 
+					defName="AttackMelee" or  
+					defName="AttackStatic" or  
+					defName="Capture" or  
+					defName="CarryDownedPawnToExit" or  
+					defName="Dismount" or 
+					defName="DropEquipment" or 
+					defName="EjectAmmo" or 
+					defName="EscortPrisonerToBed" or  
+					defName="ExtinguishSelf" or  
+					defName="Flee" or  
+					defName="FleeAndCower" or  
+					defName="Follow" or  
+					defName="FollowClose" or  
+					defName="Goto" or  
+					defName="GotoSafeTemperature" or  
+					defName="GotoWander" or  
+					defName="HaulToCell" or  
+					defName="HaulToContainer" or 
+					defName="HaulToInventory" or 
+					defName="UnloadYourHauledInventory" or 
+					defName="Ignite" or  
+					defName="Insult" or  
+					defName="Kidnap" or  
+					defName="Open" or 
+					defName="PrepareCaravan_CollectAnimals" or 
+					defName="RemoveApparel" or  
+					defName="Rescue" or  
+					defName="ReturnedCaravan_PenAnimals" or 
+					defName="RopeToPen" or  
+					defName="RopeRoamerToUnenclosedPen" or 
+					defName="RopeRoamerToHitchingPost" or 
+					defName="Steal" or 
+					defName="TakeInventory" or  
+					defName="TakeWoundedPrisonerToBed" or  
+					defName="Tame" or 
+					defName="TMCastAbilityVerb" or 
+					defName="TMCastAbilitySelf" or 
+					defName="TMCastIdeoAbility" or 
+					defName="TradeWithPawn" or  
+					defName="UnloadInventory" or  
+					defName="UnloadYourInventory" or  
+					defName="UseArtifact" or  
+					defName="UseVerbOnThing" or  
+					defName="VFEA_UseAbility" or  
+					defName="Vomit" or  
+					defName="Wait" or  
+					defName="Wait_Combat" or  
+					defName="Wait_MaintainPosture" or  
+					defName="Wait_SafeTemperature" or  
+					defName="Wait_Wander" or  
+					defName="Wear"]</xpath>
+				<value>
+					<li Class="GiddyUp.CanDoMounted" />
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>Defs/JobDef[defName="DoBill"]</xpath>
+				<value>
+					<li Class="GiddyUp.CanDoMounted">
+						<checkTargets>true</checkTargets>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<success>Always</success>
+				<xpath>Defs/ThingDef[defName="Ostrich" or 
+					defName="Emu" or 
+					defName="Caribou" or
+					defName="Ibex" or 
+					defName="Cougar" or 
+					defName="Panther" or
+					defName="LabradorRetriever" or 
+					defName="Alpaca" or 
+					defName="Elk" or 
+					defName="Horse" or 
+				defName="Thrumbo"][not(comps)]</xpath>
+				<value>
+					<comps />
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<success>Always</success>
+				<xpath>Defs/ThingDef[defName="AEXP_Alligator" or 
+					defName="AEXP_Anaconda" or 
+					defName="Boomalope" or 
+					defName="Cow" or 
+					defName="AEXP_Crocodile" or 
+					defName="Elk" or 
+					defName="BiomesIslands_Gigantaconda" or 
+					defName="AEXP_Giraffe" or 
+					defName="AEXP_Gorilla" or 
+					defName="AEXP_GreatDane" or 
+					defName="AEXP_Hippopotamus" or 
+					defName="VFEI_Insectoid_Queen" or 
+					defName="AEXP_Kangaroo" or 
+					defName="VFEI_Insectoid_Megapede" or 
+					defName="AEXP_Moose" or 
+					defName="Pig" or 
+					defName="VFEI_Insectoid_RoyalMegaspider" or 
+					defName="Toxalope" or 
+					defName="VFEI_VatGrownGigascorpion" or 
+					defName="VFEI_VatGrownGigawig" or 
+					defName="VFEI_VatGrownMegacricket" or 
+					defName="VFEI_VatGrownMegapede" or 
+					defName="VFEI_VatGrownMilkbeetle" or 
+					defName="VFEI_VatGrownPrincess" or 
+					defName="VFEI_VatGrownTitanbeetle" or 
+					defName="VFEI_VatGrownWargling" or 
+					defName="VFEI_VatGrownWorkerAnt" or 
+					defName="AEXP_Walrus"]</xpath>
+				<value>
+					<li Class="GiddyUp.NotMountable" />
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Ostrich"]/comps</xpath>
+				<value>
+					<li Class="GiddyUp.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataDefault>
+								<texPath>Things/Pawn/Ostrich_overlay_south</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.8</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataDefault>
+						</overlayFront>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Emu"]/comps</xpath>
+				<value>
+					<li Class="GiddyUp.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataDefault>
+								<texPath>Things/Pawn/Emu_overlay_south</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.6</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataDefault>
+						</overlayFront>
+						
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Caribou"]/comps</xpath>
+				<value>
+					<li Class="GiddyUp.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataDefault>
+								<texPath>Things/Pawn/Caribou_overlay_front</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>3.5</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataDefault>
+						</overlayFront>
+						<overlaySide>
+							<graphicDataDefault>
+								<texPath>Things/Pawn/Caribou_overlay_side</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>3.5</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataDefault>
+						</overlaySide>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Ibex"]/comps</xpath>
+				<value>
+					<li Class="GiddyUp.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataMale>
+								<texPath>Things/Pawn/IbexMale_overlay_front</texPath>
+								<color>(136,100,75)</color>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>CutoutComplex</shaderType>
+								<drawSize>1.8</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataMale>
+							<graphicDataFemale>
+								<texPath>Things/Pawn/IbexFemale_overlay_front</texPath>
+								<color>(153,129,113)</color>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>CutoutComplex</shaderType>
+								<drawSize>1.7</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataFemale>
+						</overlayFront>
+						<overlaySide>
+							<graphicDataMale>
+								<texPath>Things/Pawn/IbexMale_overlay_side</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.8</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataMale>
+							<graphicDataFemale>
+								<texPath>Things/Pawn/IbexFemale_overlay_side</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.7</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataFemale>
+						</overlaySide>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Cougar"]/comps</xpath>
+				<value>
+					<li Class="GiddyUp.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataDefault>
+								<texPath>Things/Pawn/Cougar_overlay_south</texPath>
+								<color>(177,136,112)</color>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>2.18</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataDefault>
+						</overlayFront>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Panther"]/comps</xpath>
+				<value>
+					<li Class="GiddyUp.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataDefault>
+								<texPath>Things/Pawn/Cougar_overlay_south</texPath>
+								<color>(60,60,60)</color>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>2.12</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataDefault>
+						</overlayFront>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAddModExtension">
+				<xpath>Defs/ThingDef[defName="Alpaca" or defName="Elk" or defName="Thrumbo"]</xpath>
+				<value>
+					<li Class="GiddyUp.DrawInFront" />
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/StatDef[defName="ArmorRating_Sharp" or defName="ArmorRating_Blunt"]/parts</xpath>
+				<value>
+					<li Class="GiddyUp.StatPart_Armor">
+						<priority>999</priority>
+					</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/StatDef[defName="MoveSpeed"]/parts</xpath>
+				<value>
+					<li Class="GiddyUp.StatPart_Riding"/>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses</xpath>
+				<value>
+					<li>GiddyUpCaravan.Designator_GU_DropAnimal_NPC_Expand</li>
+					<li>GiddyUpCaravan.Designator_GU_DropAnimal_NPC_Clear</li>
+					<li>GiddyUpRideAndRoll.Designator_GU_DropAnimal_Expand</li>
+					<li>GiddyUpRideAndRoll.Designator_GU_DropAnimal_Clear</li>
+					<li>GiddyUpRideAndRoll.Designator_GU_NoMount_Expand</li>
+					<li>GiddyUpRideAndRoll.Designator_GU_NoMount_Clear</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Horse"]/comps</xpath>
+				<value>
+					<li Class="GiddyUp.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataDefault>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>2.1</drawSize>
+								<drawRotated>false</drawRotated>
+							</graphicDataDefault>
+							<allVariants>
+								<li><texPath>Things/Pawn/Horse_overlay_south</texPath></li>
+								<li><texPath>Things/Pawn/Horse1_overlay_south</texPath></li>							
+								<li><texPath>Things/Pawn/Horse2_overlay_south</texPath></li>							
+								<li><texPath>Things/Pawn/Horse3_overlay_south</texPath></li>							
+								<li><texPath>Things/Pawn/Horse4_overlay_south</texPath></li>							
+								<li><texPath>Things/Pawn/Horse5_overlay_south</texPath></li>						
+								<li><texPath>Things/Pawn/Horse6_overlay_south</texPath></li>
+							</allVariants>
+						</overlayFront>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

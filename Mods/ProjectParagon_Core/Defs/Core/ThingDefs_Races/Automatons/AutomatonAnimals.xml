@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+	<!---->
 	<ThingDef ParentName="AnimalThingBase">
 		<defName>IronNanny</defName>
 		<label>Iron Nanny</label>
@@ -14,7 +15,7 @@
 			</li>
 		</modExtensions>
 		<statBases>
-			<MoveSpeed>3</MoveSpeed>
+			<MoveSpeed>4</MoveSpeed>
 			<MarketValue>1500</MarketValue>
 			<ArmorRating_Blunt>12</ArmorRating_Blunt>
 			<ArmorRating_Sharp>8</ArmorRating_Sharp>
@@ -173,7 +174,7 @@
 			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
 			<hediffGiverSets Inherit="false">
 				<li>InorganicGroup</li>
-				<li>InorganicIronNanny</li>
+				<li>InorganicIronAnimalGroup</li>
 			</hediffGiverSets>
 		</race>
 		<tradeTags>
@@ -235,4 +236,183 @@
 			</li>
 		</lifeStages>
 	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>AutomatonCow</defName>
+		<label>Steam cow</label>
+		<description>An ancient mechanical creature created at the same time as the automatons for unknown purposes. The creators of this creature were apparently inspired by its living counterpart - the domestic cow. Steam cows are actively used by fairly developed factions to produce coal: the cows have an algorithm built into them that forces them to process grass and wood into coke coal, taking part of the burned energy as fuel.</description>
+		<statBases>
+			<MoveSpeed>3.2</MoveSpeed>
+			<ComfyTemperatureMin>-30</ComfyTemperatureMin>
+			<MarketValue>700</MarketValue>
+			<FilthRate>16</FilthRate>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<overrideMeatDef>Steel</overrideMeatDef>
+				<bleedMult>0</bleedMult>
+				<tameResearchRequired>LivestockIII</tameResearchRequired>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_Milkable">
+				<milkDef>CokeCoal</milkDef>
+				<milkIntervalDays>1</milkIntervalDays>
+				<milkAmount>20</milkAmount>
+			</li>
+		</comps>
+		<race>
+			<willNeverEat Inherit="false" IsNull="true"></willNeverEat>
+			<needsRest>false</needsRest>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<predator>false</predator>
+			<maxPreyBodySize>2</maxPreyBodySize>
+			<leatherDef>StrongPlates</leatherDef>
+			<specificMeatDef>Steel</specificMeatDef>
+			<foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+			<body>QuadrupedAnimalWithHooves</body>
+			<herdAnimal>true</herdAnimal>
+			<baseBodySize>2.4</baseBodySize>
+			<baseHungerRate>0.5</baseHungerRate>
+			<baseHealthScale>3</baseHealthScale>
+			<wildness>0</wildness>
+			<roamMtbDays>2</roamMtbDays>
+			<trainability>None</trainability>
+			<meatLabel>beef</meatLabel>
+			<gestationPeriodDays>-1</gestationPeriodDays>
+			<lifeExpectancy>2000</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.20</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.3333</minAge>
+					<soundWounded>Pawn_Muffalo_Wounded</soundWounded>
+					<soundDeath>Pawn_Muffalo_Death</soundDeath>
+					<soundCall>Pawn_Muffalo_Call</soundCall>
+					<soundAngry>Pawn_Muffalo_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<hediffGiverSets Inherit="false">
+				<li>InorganicGroup</li>
+				<li>InorganicIronAnimalGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalCommon</li>
+			<li>AnimalFarm</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>4.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>3</armorPenetrationBlunt>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftLeg</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationSharp>0.2</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightLeg</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationSharp>0.2</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>AutomatonCow</defName>
+		<label>Steam cow</label>
+		<race>AutomatonCow</race>
+		<combatPower>75</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<canArriveManhunter>false</canArriveManhunter>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/AutomatonCow/AutomatonCow</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/AutomatonCow/AutomatonCow_east</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/AutomatonCow/AutomatonCow</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/AutomatonCow/AutomatonCow_east</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/AutomatonCow/AutomatonCow</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4,0.4,0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/AutomatonCow/AutomatonCow_east</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+	<!---->
 </Defs>
