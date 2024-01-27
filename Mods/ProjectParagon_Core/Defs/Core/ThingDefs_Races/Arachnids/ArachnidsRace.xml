@@ -22,6 +22,7 @@
 			<MeleeDodgeChance>0.14</MeleeDodgeChance>
 			<MeleeCritChance>0.02</MeleeCritChance>
 			<NightVisionEfficiency>1</NightVisionEfficiency>
+			<Suppressability>2</Suppressability>
 		</statBases>
 		<tools>
 			<li Class="CombatExtended.ToolCE">
@@ -98,10 +99,6 @@
 					<li>SkinColor</li>
 					<li>HairColor</li>
 				</blackGeneTags>
-				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
-				<whiteXenotypeList>
-					<li>ArachnidRace</li>
-				</whiteXenotypeList>
 			</raceRestriction>
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
@@ -272,7 +269,7 @@
 			<baseHealthScale>0.85</baseHealthScale>
 			<baseHungerRate>0.85</baseHungerRate>
 			<foodType>OmnivoreHuman</foodType>
-			<gestationPeriodDays>100</gestationPeriodDays>
+			<gestationPeriodDays>-1</gestationPeriodDays>
 			<litterSizeCurve>
 				<points>
 					<li>(0.5, 0)</li>
@@ -285,10 +282,38 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>0.01</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>0.02</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>0.03</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
 				</li>
 				<li>
 					<def>HumanlikeAdult</def>
-					<minAge>0.1</minAge>
+					<minAge>0.05</minAge>
 					<soundWounded>Pawn_Bear_Injured</soundWounded>
 					<soundDeath>Pawn_Bear_Death</soundDeath>
 					<soundCall>Pawn_Bear_Call</soundCall>
@@ -377,7 +402,7 @@
 			<Mass>85</Mass>
 			<MoveSpeed>4.5</MoveSpeed>
 			<Flammability>2</Flammability>
-			<MeatAmount>55</MeatAmount>
+			<MeatAmount>60</MeatAmount>
 			<LeatherAmount>12</LeatherAmount>
 			<CarryingCapacity>70</CarryingCapacity>
 			<MiningSpeed>1.25</MiningSpeed>
@@ -387,6 +412,7 @@
 			<MeleeCritChance>0.25</MeleeCritChance>
 			<MeleeParryChance>0.17</MeleeParryChance>
 			<NightVisionEfficiency>1</NightVisionEfficiency>
+			<Suppressability>1</Suppressability>
 		</statBases>
 		<tools>
 			<li Class="CombatExtended.ToolCE">
@@ -476,19 +502,14 @@
 		<alienRace>
 			<raceRestriction>
 				<apparelList>
-					<li>Apparel_Loincloth</li>
-					<li>CE_Apparel_Backpack</li>
-					<li>CE_Apparel_TribalBackpack</li>
+					<li>SuicideBelt</li>
+					<li>ShockBelt</li>
 				</apparelList>
 				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
 				<blackGeneTags>
 					<li>SkinColor</li>
 					<li>HairColor</li>
 				</blackGeneTags>
-				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
-				<whiteXenotypeList>
-					<li>ArachnidRace</li>
-				</whiteXenotypeList>
 			</raceRestriction>
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
@@ -642,6 +663,20 @@
 			<thoughtSettings>
 				<cannotReceiveThoughts>
 					<li>EnvironmentDark</li>
+					<li>AnyBodyPartCovered_Disapproved_Male</li>
+					<li>AnyBodyPartCovered_Disapproved_Female</li>
+					<li>AnyBodyPartCovered_Disapproved_Memory</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Male</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Female</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Memory</li>
+					<li>GroinUncovered_Disapproved_Male</li>
+					<li>GroinUncovered_Disapproved_Female</li>
+					<li>GroinOrChestUncovered_Disapproved_Male</li>
+					<li>GroinOrChestUncovered_Disapproved_Female</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Male</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Female</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Male</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Female</li>
 				</cannotReceiveThoughts>
 			</thoughtSettings>
 		</alienRace>
@@ -660,7 +695,7 @@
 			<baseHealthScale>1.25</baseHealthScale>
 			<baseHungerRate>1.25</baseHungerRate>
 			<foodType>OmnivoreHuman</foodType>
-			<gestationPeriodDays>100</gestationPeriodDays>
+			<gestationPeriodDays>-1</gestationPeriodDays>
 			<litterSizeCurve>
 				<points>
 					<li>(0.5, 0)</li>
@@ -673,10 +708,38 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>0.01</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>0.02</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>0.03</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
 				</li>
 				<li>
 					<def>HumanlikeAdult</def>
-					<minAge>0.1</minAge>
+					<minAge>0.05</minAge>
 					<soundWounded>Pawn_Bear_Injured</soundWounded>
 					<soundDeath>Pawn_Bear_Death</soundDeath>
 					<soundCall>Pawn_Bear_Call</soundCall>
@@ -763,7 +826,7 @@
 			<Mass>150</Mass>
 			<MoveSpeed>4</MoveSpeed>
 			<Flammability>2</Flammability>
-			<MeatAmount>75</MeatAmount>
+			<MeatAmount>80</MeatAmount>
 			<LeatherAmount>15</LeatherAmount>
 			<CarryingCapacity>100</CarryingCapacity>
 			<MiningSpeed>1.25</MiningSpeed>
@@ -773,6 +836,7 @@
 			<MeleeCritChance>0.25</MeleeCritChance>
 			<MeleeParryChance>0.17</MeleeParryChance>
 			<NightVisionEfficiency>1</NightVisionEfficiency>
+			<Suppressability>0.8</Suppressability>
 		</statBases>
 		<tools>
 			<li Class="CombatExtended.ToolCE">
@@ -879,19 +943,14 @@
 		<alienRace>
 			<raceRestriction>
 				<apparelList>
-					<li>Apparel_Loincloth</li>
-					<li>CE_Apparel_Backpack</li>
-					<li>CE_Apparel_TribalBackpack</li>
+					<li>SuicideBelt</li>
+					<li>ShockBelt</li>
 				</apparelList>
 				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
 				<blackGeneTags>
 					<li>SkinColor</li>
 					<li>HairColor</li>
 				</blackGeneTags>
-				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
-				<whiteXenotypeList>
-					<li>ArachnidRace</li>
-				</whiteXenotypeList>
 			</raceRestriction>
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
@@ -1051,6 +1110,20 @@
 			<thoughtSettings>
 				<cannotReceiveThoughts>
 					<li>EnvironmentDark</li>
+					<li>AnyBodyPartCovered_Disapproved_Male</li>
+					<li>AnyBodyPartCovered_Disapproved_Female</li>
+					<li>AnyBodyPartCovered_Disapproved_Memory</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Male</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Female</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Memory</li>
+					<li>GroinUncovered_Disapproved_Male</li>
+					<li>GroinUncovered_Disapproved_Female</li>
+					<li>GroinOrChestUncovered_Disapproved_Male</li>
+					<li>GroinOrChestUncovered_Disapproved_Female</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Male</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Female</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Male</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Female</li>
 				</cannotReceiveThoughts>
 			</thoughtSettings>
 		</alienRace>
@@ -1068,7 +1141,7 @@
 			<baseHealthScale>2</baseHealthScale>
 			<baseHungerRate>1.5</baseHungerRate>
 			<foodType>OmnivoreHuman</foodType>
-			<gestationPeriodDays>100</gestationPeriodDays>
+			<gestationPeriodDays>-1</gestationPeriodDays>
 			<litterSizeCurve>
 				<points>
 					<li>(0.5, 0)</li>
@@ -1081,10 +1154,38 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>0.01</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>0.02</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>0.03</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
 				</li>
 				<li>
 					<def>HumanlikeAdult</def>
-					<minAge>0.1</minAge>
+					<minAge>0.05</minAge>
 					<soundWounded>Pawn_Bear_Injured</soundWounded>
 					<soundDeath>Pawn_Bear_Death</soundDeath>
 					<soundCall>Pawn_Bear_Call</soundCall>
@@ -1168,7 +1269,7 @@
 			<Mass>60</Mass>
 			<MoveSpeed>3.5</MoveSpeed>
 			<Flammability>2</Flammability>
-			<MeatAmount>30</MeatAmount>
+			<MeatAmount>40</MeatAmount>
 			<LeatherAmount>10</LeatherAmount>
 			<CarryingCapacity>40</CarryingCapacity>
 			<MiningSpeed>0.25</MiningSpeed>
@@ -1178,6 +1279,7 @@
 			<MeleeCritChance>0.05</MeleeCritChance>
 			<NightVisionEfficiency>1</NightVisionEfficiency>
 			<MaxNutrition>2</MaxNutrition>
+			<Suppressability>2</Suppressability>
 		</statBases>
 		<tools>
 			<li Class="CombatExtended.ToolCE">
@@ -1229,19 +1331,14 @@
 		<alienRace>
 			<raceRestriction>
 				<apparelList>
-					<li>Apparel_Loincloth</li>
-					<li>CE_Apparel_Backpack</li>
-					<li>CE_Apparel_TribalBackpack</li>
+					<li>SuicideBelt</li>
+					<li>ShockBelt</li>
 				</apparelList>
 				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
 				<blackGeneTags>
 					<li>SkinColor</li>
 					<li>HairColor</li>
 				</blackGeneTags>
-				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
-				<whiteXenotypeList>
-					<li>ArachnidRace</li>
-				</whiteXenotypeList>
 			</raceRestriction>
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
@@ -1370,6 +1467,20 @@
 			<thoughtSettings>
 				<cannotReceiveThoughts>
 					<li>EnvironmentDark</li>
+					<li>AnyBodyPartCovered_Disapproved_Male</li>
+					<li>AnyBodyPartCovered_Disapproved_Female</li>
+					<li>AnyBodyPartCovered_Disapproved_Memory</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Male</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Female</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Memory</li>
+					<li>GroinUncovered_Disapproved_Male</li>
+					<li>GroinUncovered_Disapproved_Female</li>
+					<li>GroinOrChestUncovered_Disapproved_Male</li>
+					<li>GroinOrChestUncovered_Disapproved_Female</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Male</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Female</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Male</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Female</li>
 				</cannotReceiveThoughts>
 			</thoughtSettings>
 		</alienRace>
@@ -1388,7 +1499,7 @@
 			<baseHealthScale>0.5</baseHealthScale>
 			<baseHungerRate>2.5</baseHungerRate>
 			<foodType>OmnivoreHuman</foodType>
-			<gestationPeriodDays>100</gestationPeriodDays>
+			<gestationPeriodDays>-1</gestationPeriodDays>
 			<litterSizeCurve>
 				<points>
 					<li>(0.5, 0)</li>
@@ -1401,10 +1512,38 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>0.01</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>0.02</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>0.03</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
 				</li>
 				<li>
 					<def>HumanlikeAdult</def>
-					<minAge>0.1</minAge>
+					<minAge>0.05</minAge>
 					<soundWounded>Pawn_Bear_Injured</soundWounded>
 					<soundDeath>Pawn_Bear_Death</soundDeath>
 					<soundCall>Pawn_Bear_Call</soundCall>
@@ -1491,16 +1630,16 @@
 			<Mass>125</Mass>
 			<MoveSpeed>3.8</MoveSpeed>
 			<Flammability>2</Flammability>
-			<MeatAmount>45</MeatAmount>
+			<MeatAmount>120</MeatAmount>
 			<LeatherAmount>25</LeatherAmount>
 			<CarryingCapacity>50</CarryingCapacity>
 			<MiningSpeed>0.25</MiningSpeed>
-			<ArmorRating_Blunt>2</ArmorRating_Blunt>
-			<ArmorRating_Sharp>1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
 			<MeleeDodgeChance>0.05</MeleeDodgeChance>
 			<MeleeCritChance>0.05</MeleeCritChance>
 			<NightVisionEfficiency>1</NightVisionEfficiency>
-			<MaxNutrition>2</MaxNutrition>
+			<Suppressability>0.8</Suppressability>
 		</statBases>
 		<tools>
 			<li Class="CombatExtended.ToolCE">
@@ -1553,19 +1692,14 @@
 		<alienRace>
 			<raceRestriction>
 				<apparelList>
-					<li>Apparel_Loincloth</li>
-					<li>CE_Apparel_Backpack</li>
-					<li>CE_Apparel_TribalBackpack</li>
+					<li>SuicideBelt</li>
+					<li>ShockBelt</li>
 				</apparelList>
 				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
 				<blackGeneTags>
 					<li>SkinColor</li>
 					<li>HairColor</li>
 				</blackGeneTags>
-				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
-				<whiteXenotypeList>
-					<li>ArachnidRace</li>
-				</whiteXenotypeList>
 			</raceRestriction>
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
@@ -1704,6 +1838,20 @@
 			<thoughtSettings>
 				<cannotReceiveThoughts>
 					<li>EnvironmentDark</li>
+					<li>AnyBodyPartCovered_Disapproved_Male</li>
+					<li>AnyBodyPartCovered_Disapproved_Female</li>
+					<li>AnyBodyPartCovered_Disapproved_Memory</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Male</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Female</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Memory</li>
+					<li>GroinUncovered_Disapproved_Male</li>
+					<li>GroinUncovered_Disapproved_Female</li>
+					<li>GroinOrChestUncovered_Disapproved_Male</li>
+					<li>GroinOrChestUncovered_Disapproved_Female</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Male</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Female</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Male</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Female</li>
 				</cannotReceiveThoughts>
 			</thoughtSettings>
 		</alienRace>
@@ -1718,11 +1866,11 @@
 			<leatherDef>Thick_Leather</leatherDef>
 			<nameCategory>HumanStandard</nameCategory>
 			<body>ArachnidBombardier</body>
-			<baseBodySize>1.0</baseBodySize>
+			<baseBodySize>3</baseBodySize>
 			<baseHealthScale>1.3</baseHealthScale>
 			<baseHungerRate>2</baseHungerRate>
 			<foodType>OmnivoreHuman</foodType>
-			<gestationPeriodDays>100</gestationPeriodDays>
+			<gestationPeriodDays>-1</gestationPeriodDays>
 			<litterSizeCurve>
 				<points>
 					<li>(0.5, 0)</li>
@@ -1735,10 +1883,38 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>0.01</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>0.02</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>0.03</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
 				</li>
 				<li>
 					<def>HumanlikeAdult</def>
-					<minAge>0.1</minAge>
+					<minAge>0.05</minAge>
 					<soundWounded>Pawn_Bear_Injured</soundWounded>
 					<soundDeath>Pawn_Bear_Death</soundDeath>
 					<soundCall>Pawn_Bear_Call</soundCall>
@@ -1797,7 +1973,6 @@
 			<li Class="CombatExtended.CompProperties_Suppressable"/>
 			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnParagon"/>
 			<li Class="ProjectParagon.Core.Things.CompProperties_ArachnidBombardier">
-				<acidPerSecond>0.0005</acidPerSecond>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_GiveAbility">
 				<abilitiesCount>1</abilitiesCount>
@@ -1834,7 +2009,7 @@
 			<Mass>300</Mass>
 			<MoveSpeed>4</MoveSpeed>
 			<Flammability>2</Flammability>
-			<MeatAmount>70</MeatAmount>
+			<MeatAmount>150</MeatAmount>
 			<LeatherAmount>35</LeatherAmount>
 			<CarryingCapacity>80</CarryingCapacity>
 			<MiningSpeed>0.25</MiningSpeed>
@@ -1843,7 +2018,7 @@
 			<MeleeDodgeChance>0.05</MeleeDodgeChance>
 			<MeleeCritChance>0.05</MeleeCritChance>
 			<NightVisionEfficiency>1</NightVisionEfficiency>
-			<MaxNutrition>3</MaxNutrition>
+			<Suppressability>0</Suppressability>
 		</statBases>
 		<tools>
 			<li Class="CombatExtended.ToolCE">
@@ -1896,19 +2071,14 @@
 		<alienRace>
 			<raceRestriction>
 				<apparelList>
-					<li>Apparel_Loincloth</li>
-					<li>CE_Apparel_Backpack</li>
-					<li>CE_Apparel_TribalBackpack</li>
+					<li>SuicideBelt</li>
+					<li>ShockBelt</li>
 				</apparelList>
 				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
 				<blackGeneTags>
 					<li>SkinColor</li>
 					<li>HairColor</li>
 				</blackGeneTags>
-				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
-				<whiteXenotypeList>
-					<li>ArachnidRace</li>
-				</whiteXenotypeList>
 			</raceRestriction>
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
@@ -2048,6 +2218,20 @@
 			<thoughtSettings>
 				<cannotReceiveThoughts>
 					<li>EnvironmentDark</li>
+					<li>AnyBodyPartCovered_Disapproved_Male</li>
+					<li>AnyBodyPartCovered_Disapproved_Female</li>
+					<li>AnyBodyPartCovered_Disapproved_Memory</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Male</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Female</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Memory</li>
+					<li>GroinUncovered_Disapproved_Male</li>
+					<li>GroinUncovered_Disapproved_Female</li>
+					<li>GroinOrChestUncovered_Disapproved_Male</li>
+					<li>GroinOrChestUncovered_Disapproved_Female</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Male</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Female</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Male</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Female</li>
 				</cannotReceiveThoughts>
 			</thoughtSettings>
 		</alienRace>
@@ -2062,11 +2246,11 @@
 			<leatherDef>Thick_Leather</leatherDef>
 			<nameCategory>HumanStandard</nameCategory>
 			<body>ArachnidRam</body>
-			<baseBodySize>1.0</baseBodySize>
+			<baseBodySize>3</baseBodySize>
 			<baseHealthScale>3.25</baseHealthScale>
 			<baseHungerRate>2</baseHungerRate>
 			<foodType>OmnivoreHuman</foodType>
-			<gestationPeriodDays>100</gestationPeriodDays>
+			<gestationPeriodDays>-1</gestationPeriodDays>
 			<litterSizeCurve>
 				<points>
 					<li>(0.5, 0)</li>
@@ -2079,10 +2263,38 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>0.01</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>0.02</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>0.03</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
 				</li>
 				<li>
 					<def>HumanlikeAdult</def>
-					<minAge>0.1</minAge>
+					<minAge>0.05</minAge>
 					<soundWounded>Pawn_Bear_Injured</soundWounded>
 					<soundDeath>Pawn_Bear_Death</soundDeath>
 					<soundCall>Pawn_Bear_Call</soundCall>
@@ -2164,7 +2376,7 @@
 			<Mass>90</Mass>
 			<MoveSpeed>5</MoveSpeed>
 			<Flammability>2</Flammability>
-			<MeatAmount>60</MeatAmount>
+			<MeatAmount>70</MeatAmount>
 			<LeatherAmount>10</LeatherAmount>
 			<CarryingCapacity>50</CarryingCapacity>
 			<MiningSpeed>1.5</MiningSpeed>
@@ -2174,6 +2386,7 @@
 			<MeleeCritChance>0.02</MeleeCritChance>
 			<NightVisionEfficiency>1</NightVisionEfficiency>
 			<MaxNutrition>10</MaxNutrition>
+			<Suppressability>2</Suppressability>
 		</statBases>
 		<tools>
 			<li Class="CombatExtended.ToolCE">
@@ -2250,10 +2463,6 @@
 					<li>SkinColor</li>
 					<li>HairColor</li>
 				</blackGeneTags>
-				<onlyUseRaceRestrictedXenotypes>true</onlyUseRaceRestrictedXenotypes>
-				<whiteXenotypeList>
-					<li>ArachnidRace</li>
-				</whiteXenotypeList>
 			</raceRestriction>
 			<generalSettings>
 				<humanRecipeImport>true</humanRecipeImport>
@@ -2422,6 +2631,20 @@
 					<li>AteNutrientPasteMeal</li>
 					<li>AteVeneratedAnimalMeat</li>
 					<li>AteFoodInappropriateForTitle</li>
+					<li>AnyBodyPartCovered_Disapproved_Male</li>
+					<li>AnyBodyPartCovered_Disapproved_Female</li>
+					<li>AnyBodyPartCovered_Disapproved_Memory</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Male</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Female</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Memory</li>
+					<li>GroinUncovered_Disapproved_Male</li>
+					<li>GroinUncovered_Disapproved_Female</li>
+					<li>GroinOrChestUncovered_Disapproved_Male</li>
+					<li>GroinOrChestUncovered_Disapproved_Female</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Male</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Female</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Male</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Female</li>
 				</cannotReceiveThoughts>
 			</thoughtSettings>
 		</alienRace>
@@ -2440,7 +2663,7 @@
 			<baseHealthScale>0.75</baseHealthScale>
 			<baseHungerRate>0.5</baseHungerRate>
 			<foodType>OmnivoreHuman</foodType>
-			<gestationPeriodDays>100</gestationPeriodDays>
+			<gestationPeriodDays>-1</gestationPeriodDays>
 			<litterSizeCurve>
 				<points>
 					<li>(0.5, 0)</li>
@@ -2453,10 +2676,38 @@
 				<li>
 					<def>HumanlikeBaby</def>
 					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>0.01</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>0.02</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>0.03</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
 				</li>
 				<li>
 					<def>HumanlikeAdult</def>
-					<minAge>0.1</minAge>
+					<minAge>0.05</minAge>
 					<soundWounded>Pawn_Bear_Injured</soundWounded>
 					<soundDeath>Pawn_Bear_Death</soundDeath>
 					<soundCall>Pawn_Bear_Call</soundCall>

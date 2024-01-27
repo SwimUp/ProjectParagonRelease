@@ -1,0 +1,96 @@
+<Defs>
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>NS_NomadRifle</defName>
+		<label>nomad rifle</label>
+		<description>Those who believe the Archotechs to be divine often make their way to the most barren landscapes in search of lost technology, artifacts, and the coveted digital-psychic “soul transfiguration”.\nThis charge rifle was broken long ago, found, and given a new life. Either jailbroken to circumvent biocoding or repaired to a semi-functional state. It is a rite of passage for caravan guards to complete and field their own Nomad Rifles. The passing down of one is seen as a great honor among Archotech seekers. Within a caravan-tribe, the chief guard will often be seen wielding one as a symbol of their rank.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>Weapon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_ChargeRifle</soundInteract>
+		<statBases>
+			<WorkToMake>9000</WorkToMake>
+			<MaxHitPoints>200</MaxHitPoints>
+			<SightsEfficiency>0.4</SightsEfficiency>
+			<ShotSpread>1.4</ShotSpread>
+			<SwayFactor>1.7</SwayFactor>
+			<Bulk>2.5</Bulk>
+			<Mass>3.0</Mass>
+			<RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<tradeability>Sellable</tradeability>
+		<weaponTags>
+			<li>DesertScavengers_RangeGun</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<WoodLog>80</WoodLog>
+			<ComponentSimple>4</ComponentSimple>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>1.2</reloadTime>
+				<ammoSet>AmmoSet_5x35mmCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>False</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>AssaultRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_5x35mmCharged</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>28</range>
+				<soundCast>Shot_ChargeRifle</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilAmount>0.4</recoilAmount>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>bayonet</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>2</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>5.8</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>shaft</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>13</power>
+				<cooldownTime>2.3</cooldownTime>
+				<armorPenetrationBlunt>2.3</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2.0</cooldownTime>
+				<armorPenetrationBlunt>1.4</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+		</tools>
+	</ThingDef>
+</Defs>

@@ -107,9 +107,9 @@
 		<letterLabel>Snow avalanche</letterLabel>
 		<letterText>An avalanche descends from one of the snowy mountains</letterText>
 		<letterDef>NeutralEvent</letterDef>
-		<baseChance>1.4</baseChance>
+		<baseChance>0.5</baseChance>
 		<earliestDay>5</earliestDay>
-		<minRefireDays>80</minRefireDays>
+		<minRefireDays>100</minRefireDays>
 	</IncidentDef>
 	<IncidentDef>
 		<defName>HarvestSeason</defName>
@@ -425,7 +425,7 @@
 		</targetTags>
 		<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_RarityDealer</workerClass>
 		<minRefireDays>120</minRefireDays>
-		<baseChance>6</baseChance>
+		<baseChance>0.5</baseChance>
 	</IncidentDef>
 	<IncidentDef>
 		<defName>GroupZoologists</defName>
@@ -436,7 +436,7 @@
 		</targetTags>
 		<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_GroupZoologists</workerClass>
 		<minRefireDays>120</minRefireDays>
-		<baseChance>6</baseChance>
+		<baseChance>0.5</baseChance>
 	</IncidentDef>
 	<IncidentDef>
 		<defName>Enlighteners</defName>
@@ -447,7 +447,7 @@
 		</targetTags>
 		<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_Enlighteners</workerClass>
 		<minRefireDays>120</minRefireDays>
-		<baseChance>6</baseChance>
+		<baseChance>0.5</baseChance>
 	</IncidentDef>
 	<IncidentDef>
 		<defName>ArtifactTraders</defName>
@@ -458,7 +458,7 @@
 		</targetTags>
 		<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_ArtifactTraders</workerClass>
 		<minRefireDays>120</minRefireDays>
-		<baseChance>6</baseChance>
+		<baseChance>0.5</baseChance>
 	</IncidentDef>
 	<IncidentDef>
 		<defName>DeadMessenger</defName>
@@ -2759,6 +2759,56 @@
 				<minGameStage>Medieval</minGameStage>
 			</li>
 		</modExtensions>
+	</IncidentDef>
+	
+	<IncidentDef>
+		<defName>RaidEnemy_DesertScavengers</defName>
+		<letterLabel>Desert scavengers!</letterLabel>
+		<description>A group of aggressive desert scavengers has come to your territory. It will take them some time to assess the area before they attack.</description>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_RaidEnemy_DesertScavengers</workerClass>
+		<baseChance>1.5</baseChance>
+		<earliestDay>30</earliestDay>
+		<minRefireDays>35</minRefireDays>
+		<pointsScaleable>true</pointsScaleable>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
+				<minGameStage>Medieval</minGameStage>
+			</li>
+			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_RaidEnemy_DesertScavengers">
+				<allowedBiomes>
+					<li>Biome_Oasis</li>
+					<li>Biome_TemperateDesert</li>
+					<li>Desert</li>
+					<li>ExtremeDesert</li>
+				</allowedBiomes>
+			</li>
+		</modExtensions>
+		<tale>Raid</tale>
+	</IncidentDef>
+	
+	<IncidentDef>
+		<defName>ArachnidInfestation</defName>
+		<label>Arachnids infestation!</label>
+		<description>A group of lost arachnids are breaking into your base! It seems they have entered the wrong tunnel, but they are extremely aggressive!</description>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_ArachnidInfestation</workerClass>
+		<baseChance>0.5</baseChance>
+		<earliestDay>60</earliestDay>
+		<minRefireDays>80</minRefireDays>
+		<pointsScaleable>true</pointsScaleable>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
+				<minGameStage>Medieval</minGameStage>
+			</li>
+		</modExtensions>
+		<tale>Raid</tale>
 	</IncidentDef>
 	
 </Defs>
