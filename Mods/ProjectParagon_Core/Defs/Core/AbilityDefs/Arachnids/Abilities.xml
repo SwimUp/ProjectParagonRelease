@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>Ignition</defName>
+		<label>Cerebral flame</label>
+		<description>Arachnid cerebral creates a mental fireball and launches it towards enemies.</description>
+		<level>1</level>
+		<iconPath>Core/UI/Abilities/Ignition</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<aiCanUse>true</aiCanUse>
+		<statBases>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.5</warmupTime>
+			<range>20</range>
+			<requireLineOfSight>true</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetItems>false</canTargetItems>
+				<canTargetPlants>false</canTargetPlants>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+			<li Class="ProjectParagon.Core.Abilities.CompProperties_AbilityIgnition">
+				<compClass>ProjectParagon.Core.Abilities.CompAbilityEffect_Ignition</compClass>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>Alien_Arachnids_Cerebral</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>Lightning</defName>
+		<label>Psychostatic discharge</label>
+		<description>Powerful psychic attack. The creature gathers psychic energy around itself, then directs it at enemies in the form of lightning, causing damage and causing mental distress. This ability highlights the terrifying power of Cerebral Arachnids.</description>
+		<level>2</level>
+		<iconPath>Core/UI/Abilities/Lightning</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<aiCanUse>true</aiCanUse>
+		<statBases>
+			<Ability_EntropyGain>50</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.5</warmupTime>
+			<range>20</range>
+			<requireLineOfSight>true</requireLineOfSight>
+			<targetParams>
+				<canTargetLocations>true</canTargetLocations>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetAnimals>true</canTargetAnimals>
+				<canTargetItems>false</canTargetItems>
+				<canTargetPlants>false</canTargetPlants>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+			<li Class="ProjectParagon.Core.Abilities.CompProperties_AbilityLightning">
+				<compClass>ProjectParagon.Core.Abilities.CompAbilityEffect_Lightning</compClass>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>Alien_Arachnids_Cerebral</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>MindControl</defName>
+		<label>Subjugation</label>
+		<description>The Cerebral Arachnid's unique psychic power allows it to mentally control a target's brain. The Cerebral Arachnid uses its psionic abilities to send mental commands to a target's brain, altering the chemistry of its neurons and causing the activation of specific receptors. This forces the target to move in a specified direction or perform certain actions, allowing the Cerebral Arachnid to effectively manipulate the behavior of its opponents using unique psychic powers.</description>
+		<level>3</level>
+		<iconPath>Core/UI/Abilities/MindControl</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<aiCanUse>true</aiCanUse>
+		<statBases>
+			<Ability_EntropyGain>30</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.01</Ability_PsyfocusCost>
+			<Ability_Duration>20</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.5</warmupTime>
+			<range>20.0</range>
+			<requireLineOfSight>true</requireLineOfSight>
+			<targetParams>
+				<canTargetAnimals>True</canTargetAnimals>
+				<neverTargetIncapacitated>True</neverTargetIncapacitated>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityForceJob">
+				<compClass>CompAbilityEffect_ForceJob</compClass>
+				<jobDef>Goto</jobDef>
+				<!--<destination>Selected</destination>-->
+				<destination>RandomInRange</destination>
+				<randomRange>40.0~56.0</randomRange>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<psychic>True</psychic>
+				<goodwillImpact>-15</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>Alien_Arachnids_Cerebral</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>PanicScream</defName>
+		<label>Panic scream</label>
+		<description>You let out a terrible, soul-piercing scream that causes the target to flee.</description>
+		<level>4</level>
+		<iconPath>Core/UI/Abilities/PanicScream</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<aiCanUse>true</aiCanUse>
+		<statBases>
+			<Ability_EntropyGain>40</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.07</Ability_PsyfocusCost>
+			<Ability_Duration>30</Ability_Duration>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.25</warmupTime>
+			<range>20</range>
+			<requireLineOfSight>true</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetAnimals>False</canTargetAnimals>
+				<neverTargetIncapacitated>True</neverTargetIncapacitated>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveMentalState">
+				<compClass>CompAbilityEffect_GiveMentalState</compClass>
+				<stateDef>PanicFlee</stateDef>
+				<psychic>True</psychic>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+				<goodwillImpact>-50</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>Alien_Arachnids_Cerebral</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>CerebralCall</defName>
+		<label>Call of the Cerebral</label>
+		<description>The Cerebral Arachnid emits a mental signal that penetrates the minds of nearby wild insects, prompting them to emerge from their underground hiding places. Under the influence of this call, the insects are filled with rage and aggression, attacking all living things around with the goal of destruction.</description>
+		<level>5</level>
+		<iconPath>Core/UI/Abilities/CerebralCall</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<aiCanUse>true</aiCanUse>
+		<statBases>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.2</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>2</warmupTime>
+			<range>15</range>
+			<requireLineOfSight>true</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetBuildings>false</canTargetBuildings>
+				<neverTargetIncapacitated>True</neverTargetIncapacitated>
+				<canTargetLocations>true</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="ProjectParagon.Core.Abilities.CompProperties_AbilityCerebralCall">
+				<compClass>ProjectParagon.Core.Abilities.CompAbilityEffect_CerebralCall</compClass>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>Alien_Arachnids_Cerebral</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>EchoOfPanic</defName>
+		<label>Echo of panic</label>
+		<description>You create frightening vibrations in the air, causing targets in that radius to flee.</description>
+		<level>6</level>
+		<aiCanUse>true</aiCanUse>
+		<iconPath>Core/UI/Abilities/EchoOfPanic</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<statBases>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
+			<Ability_Duration>30</Ability_Duration>
+			<Ability_EffectRadius>3</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<warmupTime>2</warmupTime>
+			<range>15.0</range>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetLocations>True</canTargetLocations>
+				<canTargetAnimals>false</canTargetAnimals>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveMentalState">
+				<compClass>CompAbilityEffect_GiveMentalState</compClass>
+				<stateDef>PanicFlee</stateDef>
+				<psychic>True</psychic>
+				<goodwillImpact>-50</goodwillImpact>
+			</li>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsycastPsychicEffect</fleckDef>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_AbilityDef">
+				<allowedRaces>
+					<li>Alien_Arachnids_Cerebral</li>
+				</allowedRaces>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+	<!---->
+	<!---->
+	<!---->
+	<AbilityDef ParentName="PsycastBase">
+		<defName>SoulCoverCommand</defName>
+		<label>Soul cover</label>
+		<description>The Cerebral Arachnid's ability allows him to create a psionic shield that surrounds allies, providing protection from physical and mental attacks. The shield is formed from an energy field derived from the psionic abilities of the Cerebral Arachnid. This energy field forms a structure that can significantly absorb incoming damage to the target and blur the outline of the target for the enemy, confusing him and making it difficult to hit.</description>
+		<jobDef>CastAbilityOnThing</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<iconPath>Core/UI/Abilities/SoulCover</iconPath>
+		<warmupMoteSocialSymbol>Core/UI/Abilities/SoulCover</warmupMoteSocialSymbol>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<level>4</level>
+		<aiCanUse>true</aiCanUse>
+		<warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+		<statBases>
+			<Ability_Duration>240</Ability_Duration>
+			<Ability_EffectRadius>9.9</Ability_EffectRadius>
+			<Ability_EntropyGain>70</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.1</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.5</warmupTime>
+			<range>9.9</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+				<canTargetPawns>false</canTargetPawns>
+				<canTargetBuildings>false</canTargetBuildings>
+				<canTargetAnimals>false</canTargetAnimals>
+				<canTargetHumans>false</canTargetHumans>
+				<canTargetMechs>false</canTargetMechs>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>SoulCoverCommand</hediffDef>
+				<onlyBrain>True</onlyBrain>
+				<onlyApplyToSelf>True</onlyApplyToSelf>
+				<replaceExisting>true</replaceExisting>
+			</li>
+		</comps>
+	</AbilityDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_SoulCoverCommand</defName>
+		<thingClass>MoteAttached</thingClass>
+		<altitudeLayer>LightingOverlay</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<mote>
+			<solidTime>9999999</solidTime>
+			<needsMaintenance>true</needsMaintenance>
+		</mote>
+		<graphicData>
+			<graphicClass>Graphic_Mote</graphicClass>
+			<texPath>Things/Mote/CombatCommandMask</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<color>(32,0,32)</color>
+			<drawSize>20</drawSize>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="MoteBase">
+		<defName>Mote_SoulCoverCommandLinkLine</defName>
+		<thingClass>MoteDualAttached</thingClass>
+		<altitudeLayer>MoteLow</altitudeLayer>
+		<mote>
+			<fadeInTime>0.1</fadeInTime>
+			<fadeOutTime>0.1</fadeOutTime>
+			<solidTime>999999</solidTime>
+			<needsMaintenance>True</needsMaintenance>
+			<rotateTowardsTarget>True</rotateTowardsTarget>
+			<scaleToConnectTargets>True</scaleToConnectTargets>
+		</mote>
+		<graphicData>
+			<shaderType>MoteGlow</shaderType>
+			<texPath>Core/Motes/Abilities/SoulCoverLinkLine</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<HediffDef ParentName="RoleStatBuff">
+		<defName>SoulCoverCommand</defName>
+		<label>Soul cover</label>
+		<description>Psychic shield arachnid cerebral.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_GiveHediffsInRangeParagon">
+				<range>9.9</range>
+				<mote>Mote_SoulCoverCommand</mote>
+				<hideMoteWhenNotDrafted>true</hideMoteWhenNotDrafted>
+				<targetingParameters>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetAnimals>false</canTargetAnimals>
+					<canTargetMechs>false</canTargetMechs>
+					<onlyTargetColonists>true</onlyTargetColonists>
+				</targetingParameters>
+				<hediff>SoulCoverCommandBuff</hediff>
+			</li>
+		</comps>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<HediffDef ParentName="RoleStatBuff">
+		<defName>SoulCoverCommandBuff</defName>
+		<label>Soul cover</label>
+		<description>Psychic shield arachnid cerebral.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+			<li Class="HediffCompProperties_Link">
+				<requireLinkOnOtherPawn>false</requireLinkOnOtherPawn>
+				<maxDistance>10</maxDistance>
+				<customMote>Mote_SoulCoverCommandLinkLine</customMote>
+			</li>
+		</comps>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<statFactors>
+					<ArmorRating_Blunt>1.5</ArmorRating_Blunt>
+					<ArmorRating_Sharp>1.5</ArmorRating_Sharp>
+					<MeleeDodgeChance>2</MeleeDodgeChance>
+					<PsychicSensitivity>0</PsychicSensitivity>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+</Defs>

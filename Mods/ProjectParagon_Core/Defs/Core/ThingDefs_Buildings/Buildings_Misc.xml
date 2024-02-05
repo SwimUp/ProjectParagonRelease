@@ -468,7 +468,6 @@
 		<tickerType>Normal</tickerType>
 	</ThingDef>
 	<!---->
-	
 	<ThingDef ParentName="BuildingBase">
 		<defName>IceBlockItems</defName>
 		<label>Ice block</label>
@@ -520,7 +519,6 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-	
 	<ThingDef ParentName="BuildingBase">
 		<defName>IceBlockPawnI</defName>
 		<label>Ice block</label>
@@ -581,7 +579,6 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-	
 	<ThingDef ParentName="BuildingBase">
 		<defName>IceBlockPawnII</defName>
 		<label>Ice block</label>
@@ -631,7 +628,6 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-	
 	<ThingDef ParentName="ResourceBase">
 		<defName>MinifiedIceBlock</defName>
 		<label>Ice block</label>
@@ -667,5 +663,66 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-	
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>ArachnidTower</defName>
+		<label>Psychonomicon</label>
+		<description>Large psionic translators that enhance the abilities of psionic arachnids. They are used to organize and direct energy. Such towers require constant replenishment and may die. The destruction or death of a structure will result in the release of a terrifying psionic scream that will incapacitate all psychoactive arachnids. Nearby factions may attempt to destroy the pylons.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ArachnidTower</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/ArachnidTower/ArachnidTower</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(6,6)</drawSize>
+			<drawOffset>0,0,1.5</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<staticSunShadowHeight>0.7</staticSunShadowHeight>
+		<uiIconScale>0.5</uiIconScale>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>Impassable</passability>
+		<category>Building</category>
+		<pathCost>50</pathCost>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>25000</WorkToBuild>
+			<Mass>500</Mass>
+			<Flammability>4</Flammability>
+		</statBases>
+		<size>(2,2)</size>
+		<costList>
+			<Dirt>150</Dirt>
+			<Slag>150</Slag>
+			<YelloriumIngot>250</YelloriumIngot>
+			<InsectJelly>500</InsectJelly>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<designationCategory>Misc</designationCategory>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<comps>
+			<li Class="CompProperties_GiveThoughtToAllMapPawnsOnDestroy">
+				<thought>PsychicalScream</thought>
+				<message>The psychonomicon emits a terrifying death scream.</message>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</associatedRaces>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<!---->
 </Defs>

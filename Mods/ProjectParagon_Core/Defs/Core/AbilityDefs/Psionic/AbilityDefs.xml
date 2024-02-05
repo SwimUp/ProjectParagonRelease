@@ -47,42 +47,6 @@
 	</HediffDef>
 	<!---->
 	<AbilityDef ParentName="PsycastBase">
-		<defName>MindControl</defName>
-		<label>Mind control</label>
-		<description>You can make the target move in a random direction.</description>
-		<level>2</level>
-		<iconPath>Core/UI/Abilities/MindControl</iconPath>
-		<writeCombatLog>True</writeCombatLog>
-		<statBases>
-			<Ability_EntropyGain>30</Ability_EntropyGain>
-			<Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
-			<Ability_Duration>20</Ability_Duration>
-		</statBases>
-		<verbProperties>
-			<warmupTime>0.5</warmupTime>
-			<range>20.0</range>
-			<targetParams>
-				<canTargetAnimals>True</canTargetAnimals>
-				<neverTargetIncapacitated>True</neverTargetIncapacitated>
-			</targetParams>
-		</verbProperties>
-		<comps>
-			<li Class="CompProperties_AbilityForceJob">
-				<compClass>CompAbilityEffect_ForceJob</compClass>
-				<jobDef>Goto</jobDef>
-				<destination>RandomInRange</destination>
-				<randomRange>40.0~56.0</randomRange>
-				<durationMultiplier>PsychicSensitivity</durationMultiplier>
-				<psychic>True</psychic>
-				<goodwillImpact>-15</goodwillImpact>
-			</li>
-			<li Class="CompProperties_AbilityFleckOnTarget">
-				<fleckDef>PsycastPsychicEffect</fleckDef>
-			</li>
-		</comps>
-	</AbilityDef>
-	<!---->
-	<AbilityDef ParentName="PsycastBase">
 		<defName>Concentration</defName>
 		<label>Concentration</label>
 		<description>Activation of neurons in the brain, temporarily increasing the concentration of the psionicist.</description>
@@ -194,40 +158,6 @@
 			</li>
 		</comps>
 	</AbilityDef>-->
-	<AbilityDef ParentName="PsycastBase">
-		<defName>PanicScream</defName>
-		<label>Panic scream</label>
-		<description>You let out a terrible, soul-piercing scream that causes the target to flee.</description>
-		<level>5</level>
-		<iconPath>Core/UI/Abilities/PanicScream</iconPath>
-		<writeCombatLog>True</writeCombatLog>
-		<statBases>
-			<Ability_EntropyGain>40</Ability_EntropyGain>
-			<Ability_PsyfocusCost>0.07</Ability_PsyfocusCost>
-			<Ability_Duration>30</Ability_Duration>
-		</statBases>
-		<verbProperties>
-			<warmupTime>0.25</warmupTime>
-			<range>20</range>
-			<targetParams>
-				<canTargetSelf>False</canTargetSelf>
-				<canTargetAnimals>False</canTargetAnimals>
-				<neverTargetIncapacitated>True</neverTargetIncapacitated>
-			</targetParams>
-		</verbProperties>
-		<comps>
-			<li Class="CompProperties_AbilityGiveMentalState">
-				<compClass>CompAbilityEffect_GiveMentalState</compClass>
-				<stateDef>PanicFlee</stateDef>
-				<psychic>True</psychic>
-				<durationMultiplier>PsychicSensitivity</durationMultiplier>
-				<goodwillImpact>-50</goodwillImpact>
-			</li>
-			<li Class="CompProperties_AbilityFleckOnTarget">
-				<fleckDef>PsycastPsychicEffect</fleckDef>
-			</li>
-		</comps>
-	</AbilityDef>
 	<!---->
 	<AbilityDef ParentName="PsycastBaseSkip">
 		<defName>Shelter</defName>
@@ -322,41 +252,6 @@
 			<li Class="ProjectParagon.Core.Abilities.CompProperties_AbilityTransferPsyfocus">
 				<psychic>True</psychic>
 				<goodwillImpact>-75</goodwillImpact>
-			</li>
-			<li Class="CompProperties_AbilityFleckOnTarget">
-				<fleckDef>PsycastPsychicEffect</fleckDef>
-			</li>
-		</comps>
-	</AbilityDef>
-	<!---->
-	<AbilityDef ParentName="PsycastBase">
-		<defName>EchoOfPanic</defName>
-		<label>Echo of panic</label>
-		<description>You create frightening vibrations in the air, causing targets in that radius to flee.</description>
-		<level>6</level>
-		<iconPath>Core/UI/Abilities/EchoOfPanic</iconPath>
-		<writeCombatLog>True</writeCombatLog>
-		<statBases>
-			<Ability_EntropyGain>60</Ability_EntropyGain>
-			<Ability_PsyfocusCost>0.25</Ability_PsyfocusCost>
-			<Ability_Duration>30</Ability_Duration>
-			<Ability_EffectRadius>3</Ability_EffectRadius>
-		</statBases>
-		<verbProperties>
-			<warmupTime>2</warmupTime>
-			<range>15.0</range>
-			<targetParams>
-				<canTargetSelf>False</canTargetSelf>
-				<canTargetLocations>True</canTargetLocations>
-				<canTargetAnimals>false</canTargetAnimals>
-			</targetParams>
-		</verbProperties>
-		<comps>
-			<li Class="CompProperties_AbilityGiveMentalState">
-				<compClass>CompAbilityEffect_GiveMentalState</compClass>
-				<stateDef>PanicFlee</stateDef>
-				<psychic>True</psychic>
-				<goodwillImpact>-50</goodwillImpact>
 			</li>
 			<li Class="CompProperties_AbilityFleckOnTarget">
 				<fleckDef>PsycastPsychicEffect</fleckDef>

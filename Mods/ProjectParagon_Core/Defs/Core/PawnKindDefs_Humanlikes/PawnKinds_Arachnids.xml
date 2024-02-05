@@ -167,6 +167,30 @@
 			</li>
 		</backstoryFiltersOverride>
 	</PawnKindDef>
+	<PawnKindDef ParentName="BaseArachnidPawnNewborn">
+		<defName>Newborn_Arachnid_Cerebral</defName>
+		<label>Arachnid cerebral</label>
+		<race>Alien_Arachnids_Cerebral</race>
+		<combatPower>150</combatPower>
+		<chemicalAddictionChance>0.0</chemicalAddictionChance>
+		<gearHealthRange>0</gearHealthRange>
+		<techHediffsMoney>0</techHediffsMoney>
+		<techHediffsChance>0.0</techHediffsChance>
+		<defaultFactionType>Arachnids</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+		<invNutrition>0</invNutrition>
+		<invFoodDef>InsectJelly</invFoodDef>
+		<apparelMoney>0~0</apparelMoney>
+		<initialWillRange>0</initialWillRange>
+		<initialResistanceRange>0</initialResistanceRange>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>InsectCerebral</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+	</PawnKindDef>
 	<!---->
 	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Worker" Abstract="True">
 		<race>Alien_Arachnids_Worker</race>
@@ -601,19 +625,6 @@
 			</li>
 		</backstoryFiltersOverride>
 		<modExtensions>
-			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
-				<equipmentGenerationSettings>
-					<weaponSpecializationGenSettings>
-						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
-						<basicXpForSubSpec>0~3000</basicXpForSubSpec>
-						<randomSpecGenCount>0~3</randomSpecGenCount>
-						<maxPassions>
-							<Minor>0~4</Minor>
-							<Major>0~2</Major>
-						</maxPassions>
-					</weaponSpecializationGenSettings>
-				</equipmentGenerationSettings>
-			</li>
 			<li Class="GiddyUp.CustomMounts">
 				<mountChance>80</mountChance>
 				<possibleMounts>
@@ -641,6 +652,67 @@
 		<weaponTags>
 			<li>NeolithicMeleeDecent</li>
 		</weaponTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~3000</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~4</Minor>
+							<Major>0~2</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+		<PawnKindDef ParentName="Arachnid_Ram">
+		<defName>Arachnid_RamReinforced</defName>
+		<label>Arachnid ram</label>
+		<combatPower>250</combatPower>
+		<chemicalAddictionChance>0.05</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.3~1.1</gearHealthRange>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.0</techHediffsChance>
+		<weaponMoney>9999~9999</weaponMoney>
+		<weaponTags>
+			<li>NeolithicMeleeDecent</li>
+		</weaponTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~2</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~3000</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~4</Minor>
+							<Major>0~2</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+				<hediffGenerationSettings>
+					<forcedHediffs>
+						<li>
+							<hediffDef>ShieldSegmentPlate</hediffDef>
+							<severity>1</severity>
+							<count>8</count>
+							<chance>1</chance>
+							<canAffectAnyLivePart>true</canAffectAnyLivePart>
+							<bodyParts>
+								<li>ShieldSegment</li>
+							</bodyParts>
+						</li>
+					</forcedHediffs>
+				</hediffGenerationSettings>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Recycler" Abstract="True">
 		<race>Alien_Arachnids_Recycler</race>
@@ -676,5 +748,58 @@
 			<li>Poor</li>
 		</techHediffsTags>
 		<techHediffsChance>0.05</techHediffsChance>
+	</PawnKindDef>
+	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Cerebral" Abstract="True">
+		<race>Alien_Arachnids_Cerebral</race>
+		<combatPower>150</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>InsectCerebral</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<modExtensions>
+			<li Class="GiddyUp.CustomMounts">
+				<mountChance>80</mountChance>
+				<possibleMounts>
+					<li>
+						<key>HugeSpider</key>
+						<value>100</value>
+					</li>
+				</possibleMounts>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Arachnid_Cerebral">
+		<defName>Arachnid_Cerebral</defName>
+		<label>Arachnid cerebral</label>
+		<combatPower>150</combatPower>
+		<chemicalAddictionChance>0.05</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.3~1.1</gearHealthRange>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.05</techHediffsChance>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<hediffGenerationSettings>
+					<forcedHediffs>
+						<li>
+							<hediffDef>PsychicAmplifier</hediffDef>
+							<severity>1</severity>
+							<count>1</count>
+							<chance>1</chance>
+							<canAffectAnyLivePart>true</canAffectAnyLivePart>
+							<bodyParts>
+								<li>Brain</li>
+							</bodyParts>
+						</li>
+					</forcedHediffs>
+				</hediffGenerationSettings>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 </Defs>

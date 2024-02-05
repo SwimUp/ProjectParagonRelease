@@ -1,6 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<!---->
+	<AbilityDef>
+		<defName>ArachnidStun</defName>
+		<label>Mass stun</label>
+		<description>Apply a mass stun to nearby enemies.</description>
+		<abilityClass>ProjectParagon.Core.Abilities.Ability_ArachnidStun</abilityClass>
+		<iconPath>Core/UI/Special/RamStun</iconPath>
+		<jobDef>CastAbilityOnThingUninterruptible</jobDef>
+		<targetRequired>False</targetRequired>
+		<canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+		<showPsycastEffects>False</showPsycastEffects>
+		<showCastingProgressBar>True</showCastingProgressBar>
+		<warmupMote>Mote_WarmupNeuroquake</warmupMote>
+		<hostile>false</hostile>
+		<aiCanUse>true</aiCanUse>
+		<statBases>
+			<Ability_EffectRadius>3</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>2</warmupTime>
+			<range>3</range>
+			<drawAimPie>False</drawAimPie>
+			<requireLineOfSight>False</requireLineOfSight>
+			<targetParams>
+				<canTargetSelf>True</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class="CompProperties_AbilityFleckOnTarget">
+				<fleckDef>PsychicApplyNeuroquake</fleckDef>
+				<sound>Psycast_Neuroquake_Effect</sound>
+			</li>
+		</comps>
+	</AbilityDef>
+	<!---->
 	<!--<AbilityDef>
 		<defName>OrganicProcessing</defName>
 		<label>Organic processing</label>

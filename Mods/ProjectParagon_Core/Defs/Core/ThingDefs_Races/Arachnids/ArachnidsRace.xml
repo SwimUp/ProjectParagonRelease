@@ -207,6 +207,8 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Cerebral</li>
+					<li>Alien_Arachnids_Recycler</li>
 				</notXenophobistTowards>
 			</generalSettings>
 			<graphicPaths>
@@ -618,6 +620,7 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Cerebral</li>
 					<li>Alien_Arachnids_Recycler</li>
 				</notXenophobistTowards>
 			</generalSettings>
@@ -1065,6 +1068,7 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Cerebral</li>
 					<li>Alien_Arachnids_Recycler</li>
 				</notXenophobistTowards>
 			</generalSettings>
@@ -1422,6 +1426,7 @@
 					<li>Alien_Arachnids_Worker</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Cerebral</li>
 					<li>Alien_Arachnids_Recycler</li>
 				</notXenophobistTowards>
 			</generalSettings>
@@ -1793,6 +1798,7 @@
 					<li>Alien_Arachnids_Worker</li>
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Cerebral</li>
 					<li>Alien_Arachnids_Recycler</li>
 				</notXenophobistTowards>
 			</generalSettings>
@@ -2173,6 +2179,7 @@
 					<li>Alien_Arachnids_Worker</li>
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Cerebral</li>
 					<li>Alien_Arachnids_Recycler</li>
 				</notXenophobistTowards>
 			</generalSettings>
@@ -2332,12 +2339,18 @@
 					<li Class="ProjectParagon.Core.Things.Pawns.Command_DoKeratinization">
 						<safeTemperatureRange>10~20</safeTemperatureRange>
 					</li>
-					<li Class="ProjectParagon.Core.Things.Pawns.Command_RamStun">
-					</li>
+					<!--<li Class="ProjectParagon.Core.Things.Pawns.Command_RamStun">
+					</li>-->
 				</drawCommands>
 			</li>
 			<li>
 				<compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_GiveAbility">
+				<abilitiesCount>1</abilitiesCount>
+				<abilityDefs>
+					<li>ArachnidStun</li>
+				</abilityDefs>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_Seedable">
 				<seedlingPawnKindDef>Newborn_Arachnid_Ram</seedlingPawnKindDef>
@@ -2564,6 +2577,7 @@
 					<li>Alien_Arachnids_Scholary</li>
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Cerebral</li>
 				</notXenophobistTowards>
 			</generalSettings>
 			<graphicPaths>
@@ -2787,6 +2801,384 @@
 					</whiteHediffTagList>
 				</xenosHediffFilter>
 				<defaultRaceLanguage>Xana</defaultRaceLanguage>
+			</li>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Humanoid</bodyShape>
+			</li>
+		</modExtensions>
+	</AlienRace.ThingDef_AlienRace>
+	<AlienRace.ThingDef_AlienRace ParentName="ParagonBasePawn">
+		<defName>Alien_Arachnids_Cerebral</defName>
+		<label>Arachnid cerebral</label>
+		<description>The arachnid cerebral is a rare and unique species in the evolutionary hierarchy of arachnids. Among the mid-sized representatives of its class, this magnificent organism impresses with its striking design and functional adaptations. The head of the cerebral arachnid occupies an astonishing 60% of the total body mass, indicating its phenomenal brain power.
+The psychic abilities of the cerebral arachnid go far beyond ordinary empathy, penetrating the consciousness and emotional state of those around them. With the help of his powerful psychic field, this magnificent arachnid is able to manipulate the thoughts and will of other beings, as if registering and directing streams of consciousness in the desired direction.
+However, despite his incredible abilities, the cerebral arachnid finds himself limited by his gene pool. He is able to strengthen his psychic abilities only if there is a specialized structure in the hive. These biological towers, with a height and power proportional to the importance of the arachnid cerebral, serve as a source of psionic energy that allows one to unleash its potential. If they are destroyed by the invaders, the cerebral arachnid will temporarily feel unbearable torment of mental pain, going into a state of mental blockage.
+However, despite these physiological limitations, the arachnid cerebral remains one of the most powerful and influential members of its organized structure. His outstanding psychic abilities and unwavering commitment to advanced tactics and strategy make him an indispensable leader in battle. Thanks to his phenotypic potential, he can gradually enhance his psionic abilities, adapting to changing conditions and meeting the evolving needs of his hive. Arachnid Cerebral is the true embodiment of the strength and intelligence of the arachnid world.</description>
+		<statBases>
+			<PsychicSensitivity>1.25</PsychicSensitivity>
+			<ComfyTemperatureMin>-30</ComfyTemperatureMin>
+			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+			<ToxicResistance>0.65</ToxicResistance>
+			<MarketValue>2300</MarketValue>
+			<Mass>70</Mass>
+			<MoveSpeed>4</MoveSpeed>
+			<Flammability>2</Flammability>
+			<MeatAmount>75</MeatAmount>
+			<LeatherAmount>25</LeatherAmount>
+			<CarryingCapacity>50</CarryingCapacity>
+			<MiningSpeed>0.25</MiningSpeed>
+			<ArmorRating_Blunt>0</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0</ArmorRating_Sharp>
+			<MeleeDodgeChance>0.05</MeleeDodgeChance>
+			<MeleeCritChance>0.05</MeleeCritChance>
+			<NightVisionEfficiency>1</NightVisionEfficiency>
+			<Suppressability>1.5</Suppressability>
+			<MaxNutrition>3</MaxNutrition>
+			<MentalBreakThreshold>0.45</MentalBreakThreshold>
+		</statBases>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left paw</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right paw</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>1.0</power>
+				<cooldownTime>2.0</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>jaw</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.07</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>3</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<alienRace>
+			<raceRestriction>
+				<apparelList>
+					<li>SuicideBelt</li>
+					<li>ShockBelt</li>
+				</apparelList>
+				<onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+				<blackGeneTags>
+					<li>SkinColor</li>
+					<li>HairColor</li>
+				</blackGeneTags>
+				<whiteWeaponList>
+				</whiteWeaponList>
+				<onlyUseRaceRestrictedWeapons>true</onlyUseRaceRestrictedWeapons>
+			</raceRestriction>
+			<generalSettings>
+				<humanRecipeImport>true</humanRecipeImport>
+				<alienPartGenerator>
+					<customDrawSize>1.7</customDrawSize>
+					<customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+					<headOffset>(0,	-0.3)</headOffset>
+					<bodyTypes>
+						<li>Thin</li>
+					</bodyTypes>
+					<!-- <useGenderedHeads>false</useGenderedHeads>
+					<useGenderedBodies>false</useGenderedBodies> -->
+					<headTypes>
+						<li>Male_AverageNormal</li>
+					</headTypes>
+					<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<li>
+										<weight>15</weight>
+										<only>(126,104,94)</only>
+									</li>
+									<li>
+										<weight>15</weight>
+										<only>(158,153,135)</only>
+									</li>
+									<li>
+										<weight>15</weight>
+										<only>(132,135,132)</only>
+									</li>
+									<li>
+										<weight>1</weight>
+										<only>(85,118,69)</only>
+									</li>
+								</options>
+							</first>
+						</li>
+					</colorChannels>
+				</alienPartGenerator>
+				<maleGenderProbability>1</maleGenderProbability>
+				<forcedRaceTraitEntries>
+					<li>
+						<defName>Undergrounder</defName>
+						<chance>100</chance>
+					</li>
+					<li>
+						<defName>CreepyBreathing</defName>
+						<chance>50</chance>
+					</li>
+				</forcedRaceTraitEntries>
+				<disallowedTraits>
+					<li>
+						<defName>Kind</defName>
+					</li>
+					<li>
+						<defName>Ascetic</defName>
+					</li>
+					<li>
+						<defName>Wimp</defName>
+					</li>
+					<li>
+						<defName>TorturedArtist</defName>
+					</li>
+					<li>
+						<defName>Beauty</defName>
+						<degree>1</degree>
+					</li>
+					<li>
+						<defName>Beauty</defName>
+						<degree>2</degree>
+					</li>
+					<li>
+						<defName>TP_Elegance</defName>
+					</li>
+					<li>
+						<defName>PsychicSensitivity</defName>
+						<degree>-1</degree>
+					</li>
+					<li>
+						<defName>PsychicSensitivity</defName>
+						<degree>-2</degree>
+					</li>
+				</disallowedTraits>
+				<notXenophobistTowards>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Scholary</li>
+				</notXenophobistTowards>
+			</generalSettings>
+			<graphicPaths>
+				<body>
+					<path>Core/Races/Arachnids/Cerebral/Body/</path>
+					<bodytypeGraphics>
+						<Baby>Core/Races/Arachnids/Cerebral/Body/Naked_Thin</Baby>
+						<Child>Core/Races/Arachnids/Cerebral/Body/Naked_Thin</Child>
+						<Thin>Core/Races/Arachnids/Cerebral/Body/Naked_Thin</Thin>
+					</bodytypeGraphics>
+				</body>
+				<head>
+					<path>Core/Races/Arachnids/Cerebral/Head/</path>
+				</head>
+				<skeleton>
+					<path>Core/Races/Arachnids/Cerebral/Body/Naked_Thin_east</path>
+				</skeleton>
+				<skull>
+					<path>Core/Races/Arachnids/Cerebral/Head/Average_Normal_south</path>
+				</skull>
+			</graphicPaths>
+			<styleSettings>
+				<li>
+					<key>HairDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>TattooDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>BeardDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+			</styleSettings>
+			<thoughtSettings>
+				<cannotReceiveThoughts>
+					<li>EnvironmentDark</li>
+					<li>AnyBodyPartCovered_Disapproved_Male</li>
+					<li>AnyBodyPartCovered_Disapproved_Female</li>
+					<li>AnyBodyPartCovered_Disapproved_Memory</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Male</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Female</li>
+					<li>AnyBodyPartButGroinCovered_Disapproved_Memory</li>
+					<li>GroinUncovered_Disapproved_Male</li>
+					<li>GroinUncovered_Disapproved_Female</li>
+					<li>GroinOrChestUncovered_Disapproved_Male</li>
+					<li>GroinOrChestUncovered_Disapproved_Female</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Male</li>
+					<li>GroinChestOrHairUncovered_Disapproved_Female</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Male</li>
+					<li>GroinChestHairOrFaceUncovered_Disapproved_Female</li>
+				</cannotReceiveThoughts>
+			</thoughtSettings>
+		</alienRace>
+		<race>
+			<thinkTreeMain>Humanlike</thinkTreeMain>
+			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<intelligence>Humanlike</intelligence>
+			<makesFootprints>true</makesFootprints>
+			<lifeExpectancy>40</lifeExpectancy>
+			<bloodDef>Filth_Blood</bloodDef>
+			<useMeatFrom>Megaspider</useMeatFrom>
+			<leatherDef>Thick_Leather</leatherDef>
+			<nameCategory>HumanStandard</nameCategory>
+			<body>ArachnidCerebral</body>
+			<baseBodySize>1</baseBodySize>
+			<baseHealthScale>1</baseHealthScale>
+			<baseHungerRate>4</baseHungerRate>
+			<foodType>OmnivoreHuman</foodType>
+			<gestationPeriodDays>-1</gestationPeriodDays>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeBaby</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>0.01</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>0.02</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>0.03</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>0.05</minAge>
+					<soundWounded>Pawn_Bear_Injured</soundWounded>
+					<soundDeath>Pawn_Bear_Death</soundDeath>
+					<soundCall>Pawn_Bear_Call</soundCall>
+					<soundAngry>Pawn_Bear_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<specialShadowData>
+				<volume>(0.3, 0.8, 0.4)</volume>
+				<offset>(0,0,-0.3)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li>(16,0)</li>
+					<li>(20,100)</li>
+					<li>(30,10)</li>
+					<li>(40,0)</li>
+				</points>
+			</ageGenerationCurve>
+			<hediffGiverSets>
+				<li>OrganicInsect</li>
+				<li>OrganicArachnidGroup</li>
+				<li>OrganicHumanlikeGroup</li>
+			</hediffGiverSets>
+		</race>
+		<recipes>
+		</recipes>
+		<butcherProducts>
+		</butcherProducts>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnGizmos">
+				<drawCommands>
+					<li Class="ProjectParagon.Core.Things.Pawns.Command_DoKeratinization">
+						<safeTemperatureRange>10~20</safeTemperatureRange>
+					</li>
+				</drawCommands>
+			</li>
+			<li>
+				<compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Seedable">
+				<seedlingPawnKindDef>Newborn_Arachnid_Cerebral</seedlingPawnKindDef>
+				<forceYears>1</forceYears>
+				<growthSpeedMultiplier>0.5</growthSpeedMultiplier>
+			</li>
+			<li Class="CombatExtended.CompProperties_Suppressable"/>
+			<li Class="ProjectParagon.Core.Things.Pawns.CompProperties_PawnParagon"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ArachnidCerebral"/>
+			<!--<li Class="ProjectParagon.Core.Things.CompProperties_GiveAbility">
+				<abilitiesCount>1</abilitiesCount>
+				<abilityDefs>
+					<li>ArachnidStun</li>
+				</abilityDefs>
+			</li>-->
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<overrideMeatDef>Meat_Human</overrideMeatDef>
+				<xenosHediffFilter>
+					<whiteHediffTagList>
+						<li>ArachnidDisease</li>
+					</whiteHediffTagList>
+				</xenosHediffFilter>
+				<defaultRaceLanguage>Xana</defaultRaceLanguage>
+				<everDrawBodyInBed>true</everDrawBodyInBed>
 			</li>
 			<li Class="CombatExtended.RacePropertiesExtensionCE">
 				<bodyShape>Humanoid</bodyShape>

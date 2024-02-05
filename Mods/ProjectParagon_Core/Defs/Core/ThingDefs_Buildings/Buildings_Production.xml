@@ -704,6 +704,7 @@
 				</fuelFilter>
 				<initialFuelPercent>1</initialFuelPercent>
 				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>10</glowRadius>
@@ -1021,8 +1022,8 @@
 		<statBases>
 			<WorkToBuild>4500</WorkToBuild>
 			<MaxHitPoints>300</MaxHitPoints>
-			<Cleanliness>-20</Cleanliness>
-			<Beauty>-10</Beauty>
+			<Cleanliness>-4</Cleanliness>
+			<Beauty>-4</Beauty>
 			<FuelConsumption>4</FuelConsumption>
 			<HeatingEfficiency>0.15</HeatingEfficiency>
 		</statBases>
@@ -1040,6 +1041,7 @@
 		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
 		<recipes>
 			<li>BurnDrugs</li>
+			<li>CremateCorpse</li>
 		</recipes>
 		<inspectorTabs>
 			<li>ITab_Bills</li>
@@ -1054,6 +1056,7 @@
 						<li>Coal</li>
 						<li>CokeCoal</li>
 						<li>FuelBriquette</li>
+						<li>WoodLog</li>
 					</thingDefs>
 				</fuelFilter>
 				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
@@ -1850,10 +1853,10 @@
 		</statBases>
 		<size>(5,5)</size>
 		<costList>
-			<WoodLog>300</WoodLog>
-			<ComponentSimple>8</ComponentSimple>
-			<MechanismSimple>8</MechanismSimple>
-			<SimplePlates>150</SimplePlates>
+			<WoodLog>250</WoodLog>
+			<ComponentSimple>4</ComponentSimple>
+			<MechanismSimple>4</MechanismSimple>
+			<SimplePlates>50</SimplePlates>
 		</costList>
 		<tickerType>Normal</tickerType>
 		<building>
@@ -1965,11 +1968,10 @@
 		</statBases>
 		<size>(5,5)</size>
 		<costList>
-			<WoodLog>450</WoodLog>
-			<ComponentSimple>15</ComponentSimple>
-			<MechanismSimple>15</MechanismSimple>
-			<SimplePlates>250</SimplePlates>
-			<StrongPlates>100</StrongPlates>
+			<WoodLog>500</WoodLog>
+			<ComponentSimple>10</ComponentSimple>
+			<MechanismSimple>4</MechanismSimple>
+			<StrongPlates>50</StrongPlates>
 		</costList>
 		<tickerType>Normal</tickerType>
 		<building>
@@ -2000,36 +2002,30 @@
 						<reqHeight>50</reqHeight>
 						<items>
 							<WoodLog>50</WoodLog>
-							<ComponentPrimitive>4</ComponentPrimitive>
 						</items>
 					</li>
 					<li>
 						<reqHeight>75</reqHeight>
 						<items>
-							<WoodLog>100</WoodLog>
-							<ComponentSimple>2</ComponentSimple>
+							<WoodLog>75</WoodLog>
 						</items>
 					</li>
 					<li>
 						<reqHeight>100</reqHeight>
 						<items>
 							<WoodLog>150</WoodLog>
-							<SimplePlates>25</SimplePlates>
-							<ComponentSimple>4</ComponentSimple>
 						</items>
 					</li>
 					<li>
 						<reqHeight>150</reqHeight>
 						<items>
-							<SimplePlates>50</SimplePlates>
-							<ComponentSimple>6</ComponentSimple>
+							<StrongPlates>25</StrongPlates>
 						</items>
 					</li>
 					<li>
 						<reqHeight>200</reqHeight>
 						<items>
-							<StrongPlates>75</StrongPlates>
-							<ComponentSimple>8</ComponentSimple>
+							<StrongPlates>50</StrongPlates>
 						</items>
 					</li>
 				</heightLevelReqs>
@@ -2458,6 +2454,7 @@
 						<li>Coal</li>
 						<li>CokeCoal</li>
 						<li>FuelBriquette</li>
+						<li>WoodLog</li>
 					</thingDefs>
 				</fuelFilter>
 				<initialFuelPercent>0</initialFuelPercent>
@@ -2560,6 +2557,7 @@
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
 					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -2577,7 +2575,7 @@
 			<texPath>Core/Buildings/ArachnidMutationHive/ArachnidMutationHive</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>3</drawSize>
-			<drawOffset>0,0,0</drawOffset>
+			<drawOffset>0,0,0.2</drawOffset>
 			<drawRotated>false</drawRotated>
 		</graphicData>
 		<rotatable>false</rotatable>
@@ -2626,6 +2624,7 @@
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
 					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -2729,6 +2728,7 @@
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
 					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -2851,6 +2851,15 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 						<yelloriumConsumePerSecond>0.03</yelloriumConsumePerSecond>
 						<!-- 30 в день, всего 300 -->
 					</li>
+					<li>
+						<pawnKindDef>Newborn_Arachnid_Cerebral</pawnKindDef>
+						<childhood>Backstories_Childhood_NewbornHiverCerebral</childhood>
+						<secondsForGrow>20000</secondsForGrow>
+						<jellyConsumePerSecond>0.15</jellyConsumePerSecond>
+						<!-- 150 в день, всего 3000 -->
+						<yelloriumConsumePerSecond>0.05</yelloriumConsumePerSecond>
+						<!-- 50 в день, всего 1000 -->
+					</li>
 				</arachnidSpawnRecords>
 				<allowedBrainDiseases>
 					<li>Diseases_HediffDef_BipolarDisorder</li>
@@ -2895,6 +2904,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
 					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
@@ -3475,7 +3485,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<description>A workbench that allows you to make more complex mechanisms. Despite the fact that it meets all modern requirements, all work is done manually and requires a lot of attention from the master, which slows down the overall speed of work.</description>
 		<thingClass>Building_WorkTable</thingClass>
 		<graphicData>
-			<texPath>Core/Buildings/MechanicTable/MechanicTable</texPath>
+			<texPath>Core/Buildings/MechanicalWorkbench/MechanicalWorkbench</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(4,2)</drawSize>
 			<shaderType>CutoutComplex</shaderType>
@@ -3495,10 +3505,9 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		</stuffCategories>
 		<costStuffCount>150</costStuffCount>
 		<costList>
-			<StrongPlates>25</StrongPlates>
-			<SimplePlates>75</SimplePlates>
-			<ComponentSimple>10</ComponentSimple>
-			<MechanismSimple>18</MechanismSimple>
+			<SimplePlates>50</SimplePlates>
+			<ComponentSimple>8</ComponentSimple>
+			<MechanismSimple>15</MechanismSimple>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>0.5</fillPercent>
@@ -3619,7 +3628,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<texPath>Core/Buildings/ChemicalStation/ChemicalStation</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
-			<drawSize>(5.65,5.65)</drawSize>
+			<drawSize>(8,8)</drawSize>
 			<shadowData>
 				<volume>(2,0.7,1.2)</volume>
 				<offset>(0,0,-0.4)</offset>
@@ -5665,7 +5674,6 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		</modExtensions>
 	</ThingDef>
 	<!---->
-	
 	<ThingDef ParentName="BasedPower" Class="Rimatomics.RimatomicsThingDef">
 		<defName>SteamBlower</defName>
 		<label>Steam blower</label>
@@ -5756,7 +5764,8 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<barOffset>(0, 0, -0.5)</barOffset>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_SteamBlower">
-				<heatByPower>0.03</heatByPower> <!-- модификатор потребления воды исходя из энергии -->
+				<heatByPower>0.03</heatByPower>
+				<!-- модификатор потребления воды исходя из энергии -->
 				<waterUsageMultiplier>0.27</waterUsageMultiplier>
 				<maxGeneratedSteamPerIteration>500000</maxGeneratedSteamPerIteration>
 			</li>

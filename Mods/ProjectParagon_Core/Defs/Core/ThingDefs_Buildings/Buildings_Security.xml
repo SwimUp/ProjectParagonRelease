@@ -617,8 +617,8 @@
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>Projectile_BeeSwarmBallistaBolt</defaultProjectile>
 				<warmupTime>4</warmupTime>
-				<minRange>3</minRange>
-				<range>40</range>
+				<minRange>6</minRange>
+				<range>45</range>
 				<soundCast>120mm</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>3</muzzleFlashScale>
@@ -638,7 +638,7 @@
 		<comps>
 			<li Class="CombatExtended.CompProperties_AmmoUser">
 				<magazineSize>40</magazineSize>
-				<reloadTime>10</reloadTime>
+				<reloadTime>8</reloadTime>
 				<ammoSet>AmmoSet_BeeSwarmBallistaBolt</ammoSet>
 			</li>
 			<li Class="CombatExtended.CompProperties_FireModes">
@@ -1386,11 +1386,72 @@
 					<li>Alien_Arachnids_Bombardier</li>
 					<li>Alien_Arachnids_Ram</li>
 					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
 				</associatedRaces>
 			</li>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
 			</li>
 		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>RazorWire</defName>
+		<label>Razor wire</label>
+		<description>Classic industrial barricade. Easy to install and prevents enemies from advancing.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_TrapDamagerParagonSelfDamage</thingClass>
+		<category>Building</category>
+		<graphicData>
+			<texPath>Things/Building/Ruins/AncientRazorWire</texPath>
+		  <graphicClass>Graphic_Random</graphicClass>
+		  <drawSize>(1,1)</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<uiIconScale>1</uiIconScale>
+		<altitudeLayer>Building</altitudeLayer>
+		<pathCost>48</pathCost>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.55</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>10</MaxHitPoints>
+			<Beauty>-7</Beauty>
+			<WorkToBuild>300</WorkToBuild>
+			<Flammability>0</Flammability>
+			<TrapMeleeDamage>5</TrapMeleeDamage>
+			<TrapSpringChance>0.2</TrapSpringChance>
+		</statBases>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isInert>true</isInert>
+			<isFence>true</isFence>
+			<blueprintGraphicData>
+				<texPath>Things/Building/Linked/Barricade_Blueprint_Atlas</texPath>
+			</blueprintGraphicData>
+		</building>
+		<costList>
+			<Wire>5</Wire>
+			<ComponentPrimitive>1</ComponentPrimitive>
+		</costList>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<designationCategory>Security</designationCategory>
+		<damageMultipliers>
+			<li>
+				<!-- Бомба -->
+				<damageDef>Bomb</damageDef>
+				<multiplier>6</multiplier>
+			</li>
+		</damageMultipliers>
+		<researchPrerequisites>
+			<li>IEDSII</li>
+		</researchPrerequisites>
+		<designatorDropdown>Barricades</designatorDropdown>
+		<staticSunShadowHeight>0</staticSunShadowHeight>
+		<castEdgeShadows>false</castEdgeShadows>
 	</ThingDef>
 </Defs>
