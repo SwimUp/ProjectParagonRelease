@@ -40,7 +40,6 @@
 			</li>
 		</stages>
 	</RitualBehaviorDef>
-	
 	<RitualBehaviorDef>
 		<defName>TreeGifts</defName>
 		<durationTicks>20000</durationTicks>
@@ -75,6 +74,125 @@
 						<dutyDef>TreeGifts</dutyDef>
 						<customPositions>
 							<li Class="RitualPosition_AnimaLinkingSpot"/>
+						</customPositions>
+					</li>
+				</roleBehaviors>
+			</li>
+		</stages>
+	</RitualBehaviorDef>
+	<RitualBehaviorDef ParentName="SacrificeBehaviorBase">
+		<defName>PsionicSacrifice</defName>
+		<workerClass>RitualBehaviorWorker_PrisonerSacrifice</workerClass>
+		<roles Inherit="false">
+			<li Class="ProjectParagon.Core.Rituals.RitualRole_PsionicSacrificeInitiator">
+				<label>cerebral</label>
+				<id>moralist</id>
+				<required>True</required>
+				<substitutable>false</substitutable>
+				<maxCount>1</maxCount>
+				<countsAsParticipant>False</countsAsParticipant>
+				<mustBeAbleToReachTarget>True</mustBeAbleToReachTarget>
+			</li>
+			<li Class="ProjectParagon.Core.Rituals.RitualRolePrisoner_PsionicSacrifice">
+				<label>xenos sacrifice</label>
+				<missingDesc>a xenos prisoner</missingDesc>
+				<id>prisoner</id>
+				<maxCount>1</maxCount>
+				<required>True</required>
+				<countsAsParticipant>False</countsAsParticipant>
+				<ignoreBleeding>true</ignoreBleeding>
+			</li>
+		</roles>
+		<stages Inherit="False">
+			<li Class="RitualStage_InteractWithPrisoner">
+				<defaultDuty>Spectate</defaultDuty>
+				<endTriggers>
+					<li Class="StageEndTrigger_PawnDeliveredOrNotValid"/>
+				</endTriggers>
+				<failTriggers>
+					<li Class="StageFailTrigger_TargetPawnUnreachable">
+						<takerId>moralist</takerId>
+						<takeeId>prisoner</takeeId>
+						<desc>Prisoner is not reachable.</desc>
+					</li>
+					<li Class="StageFailTrigger_PawnAsleep">
+						<desc>escort asleep</desc>
+						<pawnId>moralist</pawnId>
+					</li>
+				</failTriggers>
+				<roleBehaviors>
+					<li>
+						<roleId>moralist</roleId>
+						<dutyDef>DeliverPawnToAltar</dutyDef>
+					</li>
+					<li>
+						<roleId>prisoner</roleId>
+						<dutyDef>Idle</dutyDef>
+					</li>
+				</roleBehaviors>
+			</li>
+			<li>
+				<defaultDuty>Spectate</defaultDuty>
+				<endTriggers>
+					<li Class="StageEndTrigger_DurationPercentage">
+						<percentage>0.4</percentage>
+					</li>
+				</endTriggers>
+				<roleBehaviors>
+					<li>
+						<roleId>moralist</roleId>
+						<dutyDef>SpeakOnCellFacingSpectators</dutyDef>
+						<speakerInteraction>Speech_Sacrifice</speakerInteraction>
+						<customPositions>
+							<li Class="RitualPosition_Lectern">
+								<maxDistanceToFocus>5</maxDistanceToFocus>
+							</li>
+							<li Class="RitualPosition_OnInteractionCell"/>
+						</customPositions>
+					</li>
+					<li>
+						<roleId>prisoner</roleId>
+						<dutyDef>LayDownAwake</dutyDef>
+					</li>
+				</roleBehaviors>
+			</li>
+			<li Class="RitualStage_InteractWithPrisoner">
+				<defaultDuty>Spectate</defaultDuty>
+				<essential>True</essential>
+				<endTriggers>
+					<li Class="StageEndTrigger_PawnDead">
+						<roleId>prisoner</roleId>
+					</li>
+				</endTriggers>
+				<roleBehaviors>
+					<li>
+						<roleId>moralist</roleId>
+						<dutyDef>Sacrifice</dutyDef>
+						<customPositions>
+							<li Class="RitualPosition_OnInteractionCell"/>
+						</customPositions>
+					</li>
+					<li>
+						<roleId>prisoner</roleId>
+						<dutyDef>LayDownAwake</dutyDef>
+					</li>
+				</roleBehaviors>
+				<visualEffectDef>SacrificePrisoner</visualEffectDef>
+			</li>
+			<li>
+				<defaultDuty>Spectate</defaultDuty>
+				<endTriggers>
+					<li Class="StageEndTrigger_DurationPercentage">
+						<percentage>0.6</percentage>
+					</li>
+				</endTriggers>
+				<roleBehaviors>
+					<li>
+						<roleId>moralist</roleId>
+						<dutyDef>SpeakOnCellFacingSpectators</dutyDef>
+						<speakerInteraction>Speech_Sacrifice</speakerInteraction>
+						<customPositions>
+							<li Class="RitualPosition_OnInteractionCell"/>
 						</customPositions>
 					</li>
 				</roleBehaviors>

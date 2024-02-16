@@ -8,11 +8,15 @@
 			<texPath>Core/Plants/PlantsReadyHarvest/Flora_GrandfatherBeard</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
 		</graphicData>
+		<statBases>
+			<Nutrition>0.15</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
 		<plant>
 			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
 			<dieIfLeafless>false</dieIfLeafless>
 			<harvestedThingDef>Raw_GrandfatherBeard</harvestedThingDef>
-			<harvestYield>5</harvestYield>
+			<harvestYield>15</harvestYield>
 			<sowMinSkill>10</sowMinSkill>
 			<growDays>15</growDays>
 			<fertilitySensitivity>0.0</fertilitySensitivity>
@@ -22,11 +26,12 @@
 			</sowResearchPrerequisites>
 			<growMinGlow>0</growMinGlow>
 			<growOptimalGlow>0.0</growOptimalGlow>
+			<neverBlightable>true</neverBlightable>
 			<immatureGraphicPath>Core/Plants/PlantsRipening/Flora_GrandfatherBeard</immatureGraphicPath>
 			<wildOrder>2</wildOrder>
+			<cavePlantWeight>0</cavePlantWeight>
 			<purpose>Food</purpose>
 			<sowTags>
-				<li>Hydroponic</li>
 				<li>Ground</li>
 			</sowTags>
 		</plant>
@@ -46,11 +51,15 @@
 			<texPath>Core/Plants/PlantsReadyHarvest/Flora_Exidia</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
 		</graphicData>
+		<statBases>
+			<Nutrition>0.15</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
 		<plant>
 			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
 			<dieIfLeafless>false</dieIfLeafless>
 			<harvestedThingDef>Raw_Exidia</harvestedThingDef>
-			<harvestYield>3</harvestYield>
+			<harvestYield>20</harvestYield>
 			<sowMinSkill>6</sowMinSkill>
 			<growDays>20</growDays>
 			<fertilitySensitivity>0.0</fertilitySensitivity>
@@ -60,11 +69,12 @@
 			</sowResearchPrerequisites>
 			<growMinGlow>0</growMinGlow>
 			<growOptimalGlow>0.0</growOptimalGlow>
+			<neverBlightable>true</neverBlightable>
 			<immatureGraphicPath>Core/Plants/PlantsReadyHarvest/Flora_Exidia</immatureGraphicPath>
 			<wildOrder>2</wildOrder>
 			<purpose>Food</purpose>
+			<cavePlantWeight>0</cavePlantWeight>
 			<sowTags>
-				<li>Hydroponic</li>
 				<li>Ground</li>
 			</sowTags>
 		</plant>
@@ -84,11 +94,15 @@
 			<texPath>Core/Plants/PlantsRipening/Flora_Millechnik</texPath>
 			<graphicClass>Graphic_Random</graphicClass>
 		</graphicData>
+		<statBases>
+			<Nutrition>0.15</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
 		<plant>
 			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
 			<dieIfLeafless>false</dieIfLeafless>
 			<harvestedThingDef>Raw_Millechnik</harvestedThingDef>
-			<harvestYield>15</harvestYield>
+			<harvestYield>17</harvestYield>
 			<sowMinSkill>10</sowMinSkill>
 			<growDays>16</growDays>
 			<fertilitySensitivity>0.0</fertilitySensitivity>
@@ -98,15 +112,318 @@
 			</sowResearchPrerequisites>
 			<growMinGlow>0</growMinGlow>
 			<growOptimalGlow>0.0</growOptimalGlow>
+			<neverBlightable>true</neverBlightable>
+			<cavePlantWeight>0</cavePlantWeight>
 			<immatureGraphicPath>Core/Plants/PlantsRipening/Flora_Millechnik</immatureGraphicPath>
 			<wildOrder>2</wildOrder>
 			<purpose>Food</purpose>
 			<sowTags>
-				<li>Hydroponic</li>
 				<li>Ground</li>
 			</sowTags>
 		</plant>
 		<comps>
+			<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+				<beeQueenDefs>
+					<li>BeeQueen_Cave</li>
+				</beeQueenDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="Flora_PlantDef">
+		<defName>Jellycap</defName>
+		<label>Jellycap</label>
+		<description>Slippery mushroom, healthy and tasty. Does not have specific properties.</description>
+		<graphicData>
+			<texPath>Jellycap</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.3, 0.3)</volume>
+				<offset>(-0.2,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Nutrition>1</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
+		<plant>
+			<visualSizeRange>1.0~2.5</visualSizeRange>
+			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
+			<dieIfLeafless>false</dieIfLeafless>
+			<harvestedThingDef>Raw_Jellycap</harvestedThingDef>
+			<harvestYield>36</harvestYield>
+			<sowMinSkill>10</sowMinSkill>
+			<growDays>20</growDays>
+			<fertilitySensitivity>0.0</fertilitySensitivity>
+			<fertilityMin>0.7</fertilityMin>
+			<sowResearchPrerequisites>
+				<li>Agro_MushroomsIII</li>
+			</sowResearchPrerequisites>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<forceIsTree>true</forceIsTree>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<neverBlightable>true</neverBlightable>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0</growOptimalGlow>
+			<cavePlantWeight>0.25</cavePlantWeight>
+		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>3</glowRadius>
+				<glowColor>(130,84,160,0)</glowColor>
+			</li>
+			<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+				<beeQueenDefs>
+					<li>BeeQueen_Cave</li>
+				</beeQueenDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="Flora_PlantDef">
+		<defName>Embrun</defName>
+		<label>Embrun</label>
+		<description>A large, tasty mushroom, oozing liquid and smelling like something rotten.</description>
+		<graphicData>
+			<texPath>Embrun</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.15</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
+		<plant>
+			<visualSizeRange>0.9~1.5</visualSizeRange>
+			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
+			<dieIfLeafless>false</dieIfLeafless>
+			<harvestedThingDef>Raw_Embrun</harvestedThingDef>
+			<harvestYield>18</harvestYield>
+			<sowMinSkill>10</sowMinSkill>
+			<growDays>8</growDays>
+			<fertilitySensitivity>0.0</fertilitySensitivity>
+			<fertilityMin>0.1</fertilityMin>
+			<sowResearchPrerequisites>
+				<li>Agro_MushroomsII</li>
+			</sowResearchPrerequisites>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0.0</growOptimalGlow>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<cavePlantWeight>0</cavePlantWeight>
+			<wildClusterRadius>6</wildClusterRadius>
+			<wildClusterWeight>300</wildClusterWeight>
+			<neverBlightable>true</neverBlightable>
+		</plant>
+		<comps>
+			<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+				<beeQueenDefs>
+					<li>BeeQueen_Cave</li>
+				</beeQueenDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="Flora_PlantDef">
+		<defName>Jellytoll</defName>
+		<label>Jellytoll</label>
+		<description>A large purple mushroom, oozing liquid and smelling of some kind of spice.</description>
+		<graphicData>
+			<texPath>Jellytoll</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.3, 0.3)</volume>
+				<offset>(-0.2,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Nutrition>1</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
+		<plant>
+			<visualSizeRange>1.0~2.5</visualSizeRange>
+			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
+			<dieIfLeafless>false</dieIfLeafless>
+			<harvestedThingDef>Raw_Jellycap</harvestedThingDef>
+			<harvestYield>45</harvestYield>
+			<sowMinSkill>12</sowMinSkill>
+			<growDays>20</growDays>
+			<fertilitySensitivity>0.0</fertilitySensitivity>
+			<fertilityMin>0.7</fertilityMin>
+			<sowResearchPrerequisites>
+				<li>Agro_MushroomsIII</li>
+			</sowResearchPrerequisites>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<forceIsTree>true</forceIsTree>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<cavePlantWeight>0.25</cavePlantWeight>
+			<neverBlightable>true</neverBlightable>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0</growOptimalGlow>
+			<cavePlant>true</cavePlant>
+		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>3</glowRadius>
+				<glowColor>(120,70,125,0)</glowColor>
+			</li>
+			<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+				<beeQueenDefs>
+					<li>BeeQueen_Cave</li>
+				</beeQueenDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="Flora_PlantDef">
+		<defName>Dildius</defName>
+		<label>Dildius</label>
+		<description>An oblong reddish mushroom with an unpleasant taste. Gives off a rotting smell.</description>
+		<graphicData>
+			<texPath>Dildius/Mature</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.15</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
+		<plant>
+			<visualSizeRange>0.9~1.5</visualSizeRange>
+			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
+			<dieIfLeafless>false</dieIfLeafless>
+			<harvestedThingDef>Raw_Dildius</harvestedThingDef>
+			<harvestYield>14</harvestYield>
+			<sowMinSkill>6</sowMinSkill>
+			<growDays>7</growDays>
+			<fertilitySensitivity>0.0</fertilitySensitivity>
+			<fertilityMin>0.1</fertilityMin>
+			<sowResearchPrerequisites>
+				<li>Agro_MushroomsI</li>
+			</sowResearchPrerequisites>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0.0</growOptimalGlow>
+			<immatureGraphicPath>Dildius/Immature</immatureGraphicPath>
+			<wildOrder>2</wildOrder>
+			<cavePlantWeight>0</cavePlantWeight>
+			<purpose>Food</purpose>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<wildClusterRadius>6</wildClusterRadius>
+			<wildClusterWeight>300</wildClusterWeight>
+			<neverBlightable>true</neverBlightable>
+		</plant>
+		<comps>
+			<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+				<beeQueenDefs>
+					<li>BeeQueen_Cave</li>
+				</beeQueenDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="Flora_PlantDef">
+		<defName>Shinecap</defName>
+		<label>Shinecap</label>
+		<description>Tangled legs with a luminous head. It tastes quite good.</description>
+		<graphicData>
+			<texPath>Shinecap</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.3, 0.3)</volume>
+				<offset>(-0.2,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Nutrition>1</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
+		<plant>
+			<visualSizeRange>1.0~2.5</visualSizeRange>
+			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
+			<dieIfLeafless>false</dieIfLeafless>
+			<harvestedThingDef>Raw_Shinecap</harvestedThingDef>
+			<harvestYield>30</harvestYield>
+			<sowMinSkill>12</sowMinSkill>
+			<growDays>15</growDays>
+			<fertilitySensitivity>0.0</fertilitySensitivity>
+			<fertilityMin>0.7</fertilityMin>
+			<sowResearchPrerequisites>
+				<li>Agro_MushroomsII</li>
+			</sowResearchPrerequisites>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<forceIsTree>true</forceIsTree>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<cavePlantWeight>0.05</cavePlantWeight>
+			<neverBlightable>true</neverBlightable>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0</growOptimalGlow>
+			<cavePlant>true</cavePlant>
+		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>3</glowRadius>
+				<glowColor>(200,200,70,0)</glowColor>
+			</li>
+			<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
+				<beeQueenDefs>
+					<li>BeeQueen_Cave</li>
+				</beeQueenDefs>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="Flora_PlantDef">
+		<defName>Jellybron</defName>
+		<label>Jellybron</label>
+		<description>A tall, straight purple mushroom that exudes a spicy aroma.</description>
+		<graphicData>
+			<texPath>Jellybron</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.3, 0.3, 0.3)</volume>
+				<offset>(-0.2,0,-0.38)</offset>
+			</shadowData>
+		</graphicData>
+		<statBases>
+			<Nutrition>1</Nutrition>
+			<FertilityDepletion>20</FertilityDepletion>
+		</statBases>
+		<plant>
+			<visualSizeRange>1.5~3</visualSizeRange>
+			<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
+			<dieIfLeafless>false</dieIfLeafless>
+			<harvestedThingDef>Raw_Jellycap</harvestedThingDef>
+			<harvestYield>50</harvestYield>
+			<sowMinSkill>12</sowMinSkill>
+			<growDays>23</growDays>
+			<fertilitySensitivity>0.0</fertilitySensitivity>
+			<fertilityMin>0.7</fertilityMin>
+			<sowResearchPrerequisites>
+				<li>Agro_MushroomsIII</li>
+			</sowResearchPrerequisites>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<forceIsTree>true</forceIsTree>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<cavePlantWeight>0.25</cavePlantWeight>
+			<neverBlightable>true</neverBlightable>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0</growOptimalGlow>
+			<cavePlant>true</cavePlant>
+		</plant>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>3</glowRadius>
+				<glowColor>(120,70,125,0)</glowColor>
+			</li>
 			<li Class="ProjectParagon.Core.Bees.CompProperties_Pollinated">
 				<beeQueenDefs>
 					<li>BeeQueen_Cave</li>

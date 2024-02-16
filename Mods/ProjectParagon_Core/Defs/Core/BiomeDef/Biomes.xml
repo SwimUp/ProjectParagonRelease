@@ -124,6 +124,7 @@
 			<PoisonousToad>0.05</PoisonousToad>
 			<Gutter>0.05</Gutter>
 			<Garru>0.05</Garru>
+			<Jumper>0.1</Jumper>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -379,6 +380,7 @@
 			<Flora_GrapesTree>0.05</Flora_GrapesTree>
 			<Flora_Poppy>0.15</Flora_Poppy>
 			<Flora_Astrophytum>0.15</Flora_Astrophytum>
+			<Flora_BloomingCactus>0.2</Flora_BloomingCactus>
 			<Flora_Delphinium>0.1</Flora_Delphinium>
 			<Flora_Aloe>0.1</Flora_Aloe>
 			<Plant_Healroot>0.1</Plant_Healroot>
@@ -408,6 +410,7 @@
 			<Parrot>0.05</Parrot>
 			<Ibrex>0.05</Ibrex>
 			<Hamster>0.2</Hamster>
+			<Jumper>0.1</Jumper>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -671,6 +674,7 @@
 			<Kestrel>0.05</Kestrel>
 			<Ferrus>0.05</Ferrus>
 			<Hamster>0.2</Hamster>
+			<Jumper>0.1</Jumper>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -898,6 +902,7 @@
 			<Leviathan>0.1</Leviathan>
 			<Bonegoat>0.25</Bonegoat>
 			<ElephantTurtle>0.1</ElephantTurtle>
+			<BoomMoth>0.5</BoomMoth>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -1367,6 +1372,7 @@
 			<Flora_Bulb_Onions>0.05</Flora_Bulb_Onions>
 			<Plant_Agave>0.1</Plant_Agave>
 			<Flora_Astrophytum>0.12</Flora_Astrophytum>
+			<Flora_BloomingCactus>0.15</Flora_BloomingCactus>
 			<Flora_Armeria>0.08</Flora_Armeria>
 		</wildPlants>
 		<wildAnimals>
@@ -1866,6 +1872,7 @@
 			<Flora_Bulb_Onions>0.05</Flora_Bulb_Onions>
 			<Plant_Agave>0.1</Plant_Agave>
 			<Flora_Astrophytum>0.23</Flora_Astrophytum>
+			<Flora_BloomingCactus>0.2</Flora_BloomingCactus>
 			<Flora_WitherRoot>0.12</Flora_WitherRoot>
 			<Flora_Dionius>0.05</Flora_Dionius>
 		</wildPlants>
@@ -2096,12 +2103,14 @@
 			<SnowHard>4</SnowHard>
 		</baseWeatherCommonalities>
 		<wildPlants>
-			<Flora_CrystalGrass>6</Flora_CrystalGrass>
+			<Flora_CrystalGrass>10</Flora_CrystalGrass>
 			<Flora_Ectocarpus>2</Flora_Ectocarpus>
 			<Flora_CrystalMushroom>2</Flora_CrystalMushroom>
 			<Flora_Anilaris>1</Flora_Anilaris>
 			<Flora_Austalion>1</Flora_Austalion>
 			<Flora_Ectosin>1</Flora_Ectosin>
+			<Flora_CrystalFungus>1</Flora_CrystalFungus>
+			<Flora_Gleamtip>1</Flora_Gleamtip>
 		</wildPlants>
 		<wildAnimals>
 			<Iguana>0.1</Iguana>
@@ -2116,6 +2125,7 @@
 			<Vvardvark>0.2</Vvardvark>
 			<Crystalk>0.5</Crystalk>
 			<Chocobo>0.1</Chocobo>
+			<Crystamole>0.25</Crystamole>
 		</wildAnimals>
 		<allowedPackAnimals>
 			<li>Muffalo</li>
@@ -2860,6 +2870,233 @@
 								<li>SeedsCategory</li>
 							</thingCategoryDefs>
 							<priceBuyMultiplier>3</priceBuyMultiplier>
+							<!-- модификатор когда игрок покупает  -->
+							<priceSellMultiplier>2</priceSellMultiplier>
+							<!-- модификатор когда игрок продает -->
+						</li>
+					</economyList>
+				</biomeEconomySettings>
+			</li>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiBiomeDef"/>
+			</li>
+		</modExtensions>
+	</BiomeDef>
+	<BiomeDef>
+		<defName>Biome_MushroomCaves</defName>
+		<label>Mushroom caves</label>
+		<description>Spacious and dark underground caves, home to a huge number of strange creatures. Mushrooms have taken a dominant position here.</description>
+		<workerClass>ProjectParagon.Core.Biomes.Workers.BiomeWorker_Biome_MushroomCaves</workerClass>
+		<animalDensity>2.3</animalDensity>
+		<plantDensity>0.35</plantDensity>
+		<settlementSelectionWeight>0.8</settlementSelectionWeight>
+		<movementDifficulty>1</movementDifficulty>
+		<forageability>0.8</forageability>
+		<foragedFood>RawFungus</foragedFood>
+		<wildPlantRegrowDays>20</wildPlantRegrowDays>
+		<texture>Core/World/Biomes/MushroomCaves</texture>
+		<soundsAmbient>
+			<li>Ambient_Wind_Desolate</li>
+		</soundsAmbient>
+		<diseaseMtbDays>60</diseaseMtbDays>
+		<diseases>
+			<li>
+				<diseaseInc>Diseases_IncidentDef_Pneumonia</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>Diseases_IncidentDef_CommonCold</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>Diseases_IncidentDef_Tuberculosis</diseaseInc>
+				<commonality>50</commonality>
+			</li>
+			<li>
+				<diseaseInc>Diseases_IncidentDef_Conjunctivitis</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>Diseases_IncidentDef_Otitis</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_Flu</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_Plague</diseaseInc>
+				<commonality>80</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_FibrousMechanites</diseaseInc>
+				<commonality>30</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_SensoryMechanites</diseaseInc>
+				<commonality>30</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_GutWorms</diseaseInc>
+				<commonality>40</commonality>
+			</li>
+			<li>
+				<diseaseInc>Disease_MuscleParasites</diseaseInc>
+				<commonality>40</commonality>
+			</li>
+			<li>
+				<diseaseInc>Carapace_Parasites</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>TreeParasites</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>Anthracnose</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>BacterialLesion</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+			<li>
+				<diseaseInc>BarkBeetles</diseaseInc>
+				<commonality>100</commonality>
+			</li>
+		</diseases>
+		<terrainsByFertility>
+			<li>
+				<terrain>Gravel</terrain>
+				<min>-999</min>
+				<max>0.5</max>
+			</li>
+			<li>
+				<terrain>MossyTerrain</terrain>
+				<min>0.5</min>
+				<max>0.9</max>
+			</li>
+			<li>
+				<terrain>FungalGravel</terrain>
+				<min>0.9</min>
+				<max>999</max>
+			</li>
+		</terrainsByFertility>
+		<terrainPatchMakers>
+			<li>
+				<perlinFrequency>0.020</perlinFrequency>
+				<thresholds>
+					<li>
+						<terrain>Gravel</terrain>
+						<min>0.38</min>
+						<max>0.75</max>
+					</li>
+					<li>
+						<terrain>SoilRich</terrain>
+						<min>0.75</min>
+						<max>0.98</max>
+					</li>
+					<li>
+						<terrain>WaterShallow</terrain>
+						<min>0.98</min>
+						<max>999</max>
+					</li>
+				</thresholds>
+			</li>
+		</terrainPatchMakers>
+		<baseWeatherCommonalities>
+			<Clear>18</Clear>
+			<Fog>4</Fog>
+			<Rain>1</Rain>
+			<DryThunderstorm>4</DryThunderstorm>
+			<RainyThunderstorm>1</RainyThunderstorm>
+			<FoggyRain>0.5</FoggyRain>
+			<SnowGentle>4</SnowGentle>
+			<SnowHard>4</SnowHard>
+		</baseWeatherCommonalities>
+		<wildAnimals>
+			<Megascarab>2</Megascarab>
+			<Megaspider>1</Megaspider>
+			<Spelopede>0.8</Spelopede>
+			<Sectum>1</Sectum>
+			<Slakt>1.5</Slakt>
+			<Tropo>1.5</Tropo>
+			<StoneBeetle>1</StoneBeetle>
+			<BoomMoth>2</BoomMoth>
+			<Jumper>3</Jumper>
+			<CrystalWorm>4</CrystalWorm>
+			<FungalWeevil>4</FungalWeevil>
+		</wildAnimals>
+		<allowedPackAnimals>
+			<li>Muffalo</li>
+			<li>Dromedary</li>
+		</allowedPackAnimals>
+		<wildPlants>
+			<Jellycap>0.5</Jellycap>
+			<Embrun>2</Embrun>
+			<Dildius>2</Dildius>
+			<Shinecap>0.25</Shinecap>
+			<Flora_GreatMushroom>0.5</Flora_GreatMushroom>
+		</wildPlants>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Biomes.BiomeDefDefModExtension">
+				<customMapGeneratorDef>MushroomCaves</customMapGeneratorDef>
+				<oilMultiplier>3</oilMultiplier>
+				<biomeEconomySettings>
+					<economyList>
+						<li>
+							<thingDefs>
+								<li>WoodLog</li>
+							</thingDefs>
+							<thingCategoryDefs>
+								<li>Foods</li>
+							</thingCategoryDefs>
+							<priceBuyMultiplier>1.25</priceBuyMultiplier>
+							<!-- модификатор когда игрок покупает  -->
+							<priceSellMultiplier>1.25</priceSellMultiplier>
+							<!-- модификатор когда игрок продает -->
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Manufactured</li>
+							</thingCategoryDefs>
+							<priceBuyMultiplier>1.25</priceBuyMultiplier>
+							<!-- модификатор когда игрок покупает  -->
+							<priceSellMultiplier>1</priceSellMultiplier>
+							<!-- модификатор когда игрок продает -->
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>ResourcesRaw</li>
+							</thingCategoryDefs>
+							<priceBuyMultiplier>1</priceBuyMultiplier>
+							<!-- модификатор когда игрок покупает  -->
+							<priceSellMultiplier>1</priceSellMultiplier>
+							<!-- модификатор когда игрок продает -->
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Animals</li>
+							</thingCategoryDefs>
+							<priceBuyMultiplier>1</priceBuyMultiplier>
+							<!-- модификатор когда игрок покупает  -->
+							<priceSellMultiplier>1</priceSellMultiplier>
+							<!-- модификатор когда игрок продает -->
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Apparel</li>
+							</thingCategoryDefs>
+							<priceBuyMultiplier>1.25</priceBuyMultiplier>
+							<!-- модификатор когда игрок покупает  -->
+							<priceSellMultiplier>1</priceSellMultiplier>
+							<!-- модификатор когда игрок продает -->
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>SeedsCategory</li>
+							</thingCategoryDefs>
+							<priceBuyMultiplier>2.0</priceBuyMultiplier>
 							<!-- модификатор когда игрок покупает  -->
 							<priceSellMultiplier>2</priceSellMultiplier>
 							<!-- модификатор когда игрок продает -->

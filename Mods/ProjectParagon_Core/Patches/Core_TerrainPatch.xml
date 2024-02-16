@@ -103,6 +103,13 @@
 									</costList>
 									<workAmount>3000</workAmount>
 								</li>
+								<li>
+									<terrainDef>FungalGravel</terrainDef>
+									<costList>
+										<Slag>60</Slag>
+									</costList>
+									<workAmount>3000</workAmount>
+								</li>
 							</childs>
 						</li>
 						<li Class="ProjectParagon.Core.Other.DefExtension_TerrainDef">
@@ -354,6 +361,14 @@
 									<terrainDef>Terrain_DepletedSoil</terrainDef>
 									<costList>
 										<Slag>50</Slag>
+									</costList>
+									<workAmount>2500</workAmount>
+								</li>
+								<li>
+									<terrainDef>FungalGravel</terrainDef>
+									<costList>
+										<Slag>50</Slag>
+										<Biosolids>5</Biosolids>
 									</costList>
 									<workAmount>2500</workAmount>
 								</li>
@@ -1554,6 +1569,83 @@
 					</ThingDef>
 				</value>
 			</li>-->
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName="FungalGravel"]</xpath>
+				<value>
+					<TerrainDef ParentName="NaturalTerrainBase">
+						<defName>FungalGravel</defName>
+						<label>fungal gravel</label>
+						<description>A spreadable form of gravel for growing fungal crops underground. It must be placed under overhead mountain so the dank coolness of the depths can nourish the fungal spores.</description>
+						<texturePath>Terrain/Surfaces/FungalGravel</texturePath>
+						<edgeType>FadeRough</edgeType>
+						<renderPrecedence>320</renderPrecedence>
+						<pathCost>2</pathCost>
+						<fertility>0.7</fertility>
+						<canGenerateDefaultDesignator>true</canGenerateDefaultDesignator>
+						<placeWorkers>
+						  <li>Placeworker_OnlyUnderThickRoof</li>
+						</placeWorkers>
+						<statBases>
+						  <Beauty>-1</Beauty>
+						  <Cleanliness>-1</Cleanliness>
+						</statBases>
+					  </TerrainDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/TerrainDef[defName="FungalGravel"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="ProjectParagon.Core.Other.DefExtension_TerraformTerrainDef">
+							<childs>
+								<li>
+									<terrainDef>Soil</terrainDef>
+									<costList>
+										<Dirt>70</Dirt>
+										<Biosolids>10</Biosolids>
+									</costList>
+									<workAmount>2500</workAmount>
+								</li>
+								<li>
+									<terrainDef>Gravel</terrainDef>
+									<costList>
+										<Slag>50</Slag>
+									</costList>
+									<workAmount>2500</workAmount>
+								</li>
+							</childs>
+						</li>
+						<li Class="ProjectParagon.Core.Other.DefExtension_TerrainDef">
+							<collectedThingDef>Slag</collectedThingDef>
+							<regenRange>40~60</regenRange>
+							<extraDrop>
+								<li>
+									<thingDef>ShardDiamond</thingDef>
+									<countRange>1~2</countRange>
+									<chance>0.01</chance>
+								</li>
+								<li>
+									<thingDef>ShardSapphire</thingDef>
+									<countRange>1~3</countRange>
+									<chance>0.01</chance>
+								</li>
+							</extraDrop>
+							<terrainFertility>
+								<fertilityCount>100</fertilityCount>
+								<downGradeFertilityTerrainDef>Gravel</downGradeFertilityTerrainDef>
+								<fertilityThingDef>IndustrialBiosolids</fertilityThingDef>
+								<fertilityRepairCostPerUnit>0.05</fertilityRepairCostPerUnit>
+							</terrainFertility>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/TerrainDef[defName="FungalGravel"]</xpath>
+				<value>
+					<designationCategory>Terraform</designationCategory>
+				</value>
+			</li>
 		</operations>
 	</Operation>
 </Patch>
