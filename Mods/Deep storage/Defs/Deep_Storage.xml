@@ -1608,4 +1608,68 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 			<li>CookingVII</li>
 		</researchPrerequisites>
 	</ThingDef>
+	
+	<ThingDef ParentName="LWM_DeepStorage">
+		<defName>SeedVault</defName>
+		<label>Seed vault</label>
+		<description>Equipped with small drawers for convenient storage of plant seeds and seedlings.</description>
+		<graphicData>
+			<texPath>skullywag/SeedVault/SeedVault</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			 <drawSize>(2.7,2)</drawSize>
+		</graphicData>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0.15</staticSunShadowHeight>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<WorkToBuild>1000</WorkToBuild>
+			<Flammability>1</Flammability>
+			<Beauty>-4</Beauty>
+			<Mass>10</Mass>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<resourcesFractionWhenDeconstructed>0.5</resourcesFractionWhenDeconstructed>
+		<size>(2,1)</size>
+        <defaultPlacingRot>South</defaultPlacingRot>
+		<stuffCategories>
+			<li>Stony</li>
+			<li>Woody</li>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>75</costStuffCount>
+		<building>
+			<preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+            <defaultStorageSettings>
+                <priority>Important</priority>
+                <filter>
+                    <categories>
+                         <li>SeedsCategory</li>
+                    </categories>
+                </filter>
+            </defaultStorageSettings>
+            <fixedStorageSettings>
+            <filter>
+                <categories>
+                    <li>SeedsCategory</li>
+                </categories>
+            </filter>
+            </fixedStorageSettings>
+		</building>
+		<comps>
+			<li Class="LWM.DeepStorage.Properties">
+				<maxNumberStacks>8</maxNumberStacks>
+				<minNumberStacks>8</minNumberStacks>
+				<minTimeStoringTakes>35</minTimeStoringTakes>
+				<additionalTimeEachStack>5</additionalTimeEachStack>
+				<additionalTimeEachDef>2</additionalTimeEachDef>
+				<overlayType>SumOfAllItems</overlayType>
+				<showContents>false</showContents>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>StoragesI</li>
+		</researchPrerequisites>
+	</ThingDef>
 </Defs>
