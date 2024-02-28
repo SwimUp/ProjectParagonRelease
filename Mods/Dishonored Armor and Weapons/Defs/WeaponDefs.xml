@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Armor -->
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>DishonoredCrossbow</defName>
+		<label>crossbow</label>
+		<description>A silent, exotic weapon crafted from the finest materials, the crossbow is a good choice for the silent assassin.</description>
+		<graphicData>
+			<texPath>Weapons/Crossbow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<soundInteract>Bow_Large</soundInteract>
+		<costList>
+			<Steel>40</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<techLevel>Medieval</techLevel>
+		<tradeability>All</tradeability>
+		<generateCommonality>0</generateCommonality>
+		<generateAllowChance>0</generateAllowChance>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<statBases>
+			<WorkToMake>8500</WorkToMake>
+			<Mass>1.5</Mass>
+			<Bulk>4</Bulk>
+			<SwayFactor>1.2</SwayFactor>
+			<ShotSpread>0.25</ShotSpread>
+			<SightsEfficiency>1.2</SightsEfficiency>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+		</statBases>
+		<equippedStatOffsets>
+			<ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+		</equippedStatOffsets>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Projectile_CrossbowBolt_Steel</defaultProjectile>
+				<warmupTime>1.15</warmupTime>
+				<range>22</range>
+				<soundCast>Bow_Recurve</soundCast>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>1.6</cooldownTime>
+				<armorPenetrationBlunt>0.65</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>LightCrossbows</subWeaponSpecialization>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<reloadTime>3.5</reloadTime>
+				<ammoSet>AmmoSet_CrossbowBolt</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>DishonoredWristbow</defName>
+		<label>wristbow</label>
+		<description>The wristbow is a polyvalent, silent and concealed ranged weapon. It is favored by thugs and assassins in opposition to regular crossbows. It can fire two shots in succession.</description>
+		<graphicData>
+			<texPath>Weapons/Wristbow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<soundInteract>Bow_Large</soundInteract>
+		<costList>
+			<Steel>40</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<statBases>
+			<WorkToMake>1500</WorkToMake>
+			<Mass>1.5</Mass>
+			<SwayFactor>1.2</SwayFactor>
+			<ShotSpread>0.25</ShotSpread>
+			<SightsEfficiency>1.2</SightsEfficiency>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+		</statBases>
+		<techLevel>Medieval</techLevel>
+		<tradeability>All</tradeability>
+		<generateCommonality>0</generateCommonality>
+		<generateAllowChance>0</generateAllowChance>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Projectile_CrossbowBolt_Steel</defaultProjectile>
+				<warmupTime>1.2</warmupTime>
+				<range>23</range>
+				<soundCast>Bow_Recurve</soundCast>
+				<burstShotCount>2</burstShotCount>
+				<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>1.6</cooldownTime>
+				<armorPenetrationBlunt>0.65</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>1</magazineSize>
+				<reloadTime>2.5</reloadTime>
+				<ammoSet>AmmoSet_CrossbowBolt</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>LightCrossbows</subWeaponSpecialization>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+		<defName>DishonoredFoldingBlade</defName>
+		<label>folding blade</label>
+		<description>A great weapon for assasins. Its mechanism is resilient and efficient for both stealthy assassinations and open melee combat..</description>
+		<graphicData>
+			<texPath>Weapons/FoldingBlade</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<tradeability>All</tradeability>
+		<generateCommonality>0</generateCommonality>
+		<generateAllowChance>0</generateAllowChance>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToMake>25000</WorkToMake>
+			<Mass>1.5</Mass>
+			<Bulk>3</Bulk>
+			<MeleeCounterParryBonus>0.6</MeleeCounterParryBonus>
+		</statBases>
+		<equippedStatOffsets>
+			<MeleeCritChance>0.60</MeleeCritChance>
+			<MeleeParryChance>0.60</MeleeParryChance>
+			<MeleeDodgeChance>0.40</MeleeDodgeChance>
+		</equippedStatOffsets>
+		<costStuffCount>80</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>handle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>1.59</cooldownTime>
+				<chanceFactor>0.05</chanceFactor>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>18</power>
+				<cooldownTime>1.2</cooldownTime>
+				<chanceFactor>0.50</chanceFactor>
+				<armorPenetrationBlunt>1.2</armorPenetrationBlunt>
+				<armorPenetrationSharp>4.7</armorPenetrationSharp>
+				<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>16</power>
+				<cooldownTime>1.7</cooldownTime>
+				<chanceFactor>0.45</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>ShortSwords</subWeaponSpecialization>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_SpecialAttacks">
+				<specialAttacks>
+					<li>PowerBlow_Sword</li>
+					<li>SweepingBlow_Sword</li>
+					<li>SlashingBlow_Sword</li>
+				</specialAttacks>
+				<styleAttacks>
+					<li>AntiqueSchool</li>
+					<li>GladiatorStyle</li>
+					<li>LegionnaireStyle</li>
+				</styleAttacks>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+		<defName>DishonoredGangCleaver</defName>
+		<label>gang cleaver</label>
+		<description>A rough cleaver used by bandits. This weapon hacks more than it slashes and is as deadly as it looks.</description>
+		<graphicData>
+			<texPath>Weapons/GangCleaver</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Medieval</techLevel>
+		<tradeability>All</tradeability>
+		<generateCommonality>0</generateCommonality>
+		<generateAllowChance>0</generateAllowChance>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToMake>20000</WorkToMake>
+			<Mass>2</Mass>
+			<Bulk>8</Bulk>
+			<MeleeCounterParryBonus>0.3</MeleeCounterParryBonus>
+		</statBases>
+		<equippedStatOffsets>
+			<MeleeCritChance>0.50</MeleeCritChance>
+			<MeleeParryChance>0.40</MeleeParryChance>
+			<MeleeDodgeChance>0.10</MeleeDodgeChance>
+		</equippedStatOffsets>
+		<costStuffCount>100</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>handle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>1.59</cooldownTime>
+				<chanceFactor>0.05</chanceFactor>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>24</power>
+				<cooldownTime>1.4</cooldownTime>
+				<chanceFactor>0.50</chanceFactor>
+				<armorPenetrationBlunt>1.2</armorPenetrationBlunt>
+				<armorPenetrationSharp>6.5</armorPenetrationSharp>
+				<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>23</power>
+				<cooldownTime>1.7</cooldownTime>
+				<chanceFactor>0.45</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<armorPenetrationSharp>1.5</armorPenetrationSharp>
+				<linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>LongSwords</subWeaponSpecialization>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_SpecialAttacks">
+				<specialAttacks>
+					<li>PowerBlow_Sword</li>
+					<li>SweepingBlow_Sword</li>
+					<li>SlashingBlow_Sword</li>
+				</specialAttacks>
+				<styleAttacks>
+					<li>GladiatorStyle</li>
+					<li>SamuraiPath</li>
+					<li>ShioStyle</li>
+				</styleAttacks>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>
