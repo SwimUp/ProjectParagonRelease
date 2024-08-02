@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+		
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/CreepJoinerFormKindDef[defName="DealMaker"]</xpath>
+				<value>
+					<CreepJoinerFormKindDef ParentName="BaseCreepJoinerKind">
+						<defName>DealMaker</defName>
+						<label>deal maker</label>
+						<weight>1</weight>
+						<letterLabel>A stunningly good-looking stranger is approaching the colony.</letterLabel>
+						<letterPrompt>A stunningly good-looking stranger stands in front of you. {PAWN_possessive} face beams with confidence as {PAWN_pronoun} opens {PAWN_possessive} hands in a gesture of fellowship.\n\n{PAWN_pronoun} says {PAWN_pronoun} is here to make a deal and will help you in exchange for simple hospitality. This is {PAWN_possessive} purpose and {PAWN_pronoun} always fulfills {PAWN_possessive} purpose.</letterPrompt>
+						<minGenerationAge>20</minGenerationAge>
+						<maxGenerationAge>40</maxGenerationAge>
+						<skills>
+							<li>
+								<skill>Social</skill>
+								<range>14~20</range>
+							</li>
+							<li>
+								<skill>Shooting</skill>
+								<range>14~20</range>
+							</li>
+						</skills>
+						<forcedTraits>
+							<Beauty>2</Beauty>
+						</forcedTraits>
+						<apparelTags>
+							<li>IndustrialAdvanced</li>
+						</apparelTags>
+						<apparelRequired>
+							<li MayRequire="Ludeon.RimWorld.Royalty">Apparel_HatTop</li>
+							<li>Apparel_BasicShirt</li>
+							<li>Apparel_Jacket</li>
+							<li>Apparel_Pants</li>
+						</apparelRequired>
+						<itemQuality>Good</itemQuality>
+						<minApparelQuality>Good</minApparelQuality>
+						<maxApparelQuality>Good</maxApparelQuality>
+						<forceNormalGearQuality>false</forceNormalGearQuality>
+						<apparelColor>(156,31,56)</apparelColor>
+						<ignoreIdeoApparelColors>true</ignoreIdeoApparelColors>
+						<favoriteColor>(156,31,56)</favoriteColor>
+						<requires>
+							<li>Joybringer</li>
+							<li>PerfectHuman</li>
+							<li>BodyMastery</li>
+						</requires>
+					</CreepJoinerFormKindDef>
+				</value>
+			</li>
+		
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/CreepJoinerFormKindDef[defName="Blindhealer"]</xpath>
+				<value>
+					<CreepJoinerFormKindDef ParentName="BaseCreepJoinerKind">
+						<defName>Blindhealer</defName>
+						<label>blind healer</label>
+						<weight>1</weight>
+						<letterLabel>A blind healer is approaching the colony.</letterLabel>
+						<letterPrompt>A small, withered {PAWN_genderNoun} stands in front of you. Where {PAWN_possessive} eyes should be, there are only scar-crusted holes in {PAWN_possessive} flesh. Yet, even without eyes, {PAWN_pronoun} somehow looks at you with kindness. {PAWN_pronoun} says that {PAWN_pronoun} knows that {PAWN_possessive} skills are needed here and wants to stay for a while.</letterPrompt>
+						<minGenerationAge>55</minGenerationAge>
+						<maxGenerationAge>80</maxGenerationAge>
+						<missingParts>
+							<li>
+								<bodyPart>Eye</bodyPart>
+							</li>
+							<li>
+								<bodyPart>Eye</bodyPart>
+							</li>
+						</missingParts>
+						<forcedHair>Bald</forcedHair>
+						<fixedInventory>
+							<MeleeWeapon_Knife>
+								<stuff>Steel</stuff>
+								<quality>Poor</quality>
+							</MeleeWeapon_Knife>
+							<Apparel_BasicShirt>
+								<stuff>Light_Leather</stuff>
+								<quality>Poor</quality>
+							</Apparel_BasicShirt>
+							<Apparel_Pants>
+								<stuff>Light_Leather</stuff>
+								<quality>Poor</quality>
+							</Apparel_Pants>
+						</fixedInventory>
+						<requires>
+							<li>UnnaturalHealing</li>
+						</requires>
+					</CreepJoinerFormKindDef>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/CreepJoinerFormKindDef[defName="LeatheryStranger"]</xpath>
+				<value>
+					<CreepJoinerFormKindDef ParentName="BaseCreepJoinerKind">
+						<defName>LeatheryStranger</defName>
+						<label>leathery stranger</label>
+						<weight>1</weight>
+						<letterLabel>A ragged stranger with leathery skin is approaching your colony.</letterLabel>
+						<letterPrompt>The leathery stranger stares into space and speaks in a monotone, as though {PAWN_pronoun} hardly sees anyone or anything. {PAWN_pronoun} refuses to leave, insisting {PAWN_pronoun} is only interested in your colony. {PAWN_pronoun} says that {PAWN_pronoun} can help.</letterPrompt>
+						<minGenerationAge>35</minGenerationAge>
+						<maxGenerationAge>70</maxGenerationAge>
+						<bodyTypeGraphicPaths>
+							<Male>Things/Pawn/Humanlike/Bodies/Leathery_Male</Male>
+							<Female>Things/Pawn/Humanlike/Bodies/Leathery_Female</Female>
+							<Hulk>Things/Pawn/Humanlike/Bodies/Leathery_Hulk</Hulk>
+							<Fat>Things/Pawn/Humanlike/Bodies/Leathery_Fat</Fat>
+							<Thin>Things/Pawn/Humanlike/Bodies/Leathery_Thin</Thin>
+						</bodyTypeGraphicPaths>
+						<forcedHeadTypes>
+							<li>Leathery_Female</li>
+							<li>Leathery_Male</li>
+						</forcedHeadTypes>
+						<beardTagFilter>
+							<whitelist>true</whitelist>
+							<tags>
+								<li>NoBeard</li>
+							</tags>
+						</beardTagFilter>
+						<fixedInventory>
+							<Apparel_BasicShirt>
+								<stuff>Regular_Wool</stuff>
+								<quality>Poor</quality>
+							</Apparel_BasicShirt>
+							<Apparel_Duster>
+								<stuff>Regular_Wool</stuff>
+								<quality>Poor</quality>
+							</Apparel_Duster>
+							<Apparel_Pants>
+								<stuff>Regular_Wool</stuff>
+								<quality>Poor</quality>
+							</Apparel_Pants>
+						</fixedInventory>
+					</CreepJoinerFormKindDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

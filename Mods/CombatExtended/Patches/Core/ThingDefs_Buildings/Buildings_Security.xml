@@ -266,19 +266,33 @@
 	</Operation>
 
 	<Operation Class="PatchOperationRemove">
-		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/comps/li[@Class = "CompProperties_Refuelable"]</xpath>
+		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/comps/li[@Class="CompProperties_Refuelable"]</xpath>
 	</Operation>
 
 	<Operation Class="PatchOperationRemove">
-		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/comps/li[@Class = "CompProperties_Activable"]</xpath>
-	</Operation>
-
-	<Operation Class="PatchOperationRemove">
-		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/costList/Chemfuel</xpath>
+		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/comps/li[@Class="CompProperties_Interactable"]</xpath>
 	</Operation>
 
 	<Operation Class="PatchOperationRemove">
 		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/placeWorkers/li[.="PlaceWorker_ShowTurretRadius"]</xpath>
+	</Operation>
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/comps/li[@Class="CompProperties_Stunnable"]/affectedDamageDefs/li[.="Stun"]</xpath>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/statBases/MaxHitPoints</xpath>
+		<value>
+			<MaxHitPoints>300</MaxHitPoints>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/statBases/WorkToBuild</xpath>
+		<value>
+			<WorkToBuild>25000</WorkToBuild>
+		</value>
 	</Operation>
 
 	<Operation Class="PatchOperationReplace">
@@ -296,23 +310,34 @@
 	</Operation>
 
 	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/building/turretBurstCooldownTime</xpath>
+		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/building/turretBurstCooldownTime</xpath>
 		<value>
 			<turretBurstCooldownTime>4.2</turretBurstCooldownTime>
 		</value>
 	</Operation>
 
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/costList</xpath>
+		<value>
+			<costList>
+				<Steel>300</Steel>
+				<Plasteel>30</Plasteel>
+				<ComponentIndustrial>5</ComponentIndustrial>
+			</costList>
+		</value>
+	</Operation>
+
 	<Operation Class="PatchOperationRemove">
-		<xpath>Defs/ThingDef[defName="Gun_RocketswarmLauncher"]/statBases/AccuracyTouch 
+		<xpath>Defs/ThingDef[defName="Gun_RocketswarmLauncher"]/statBases/AccuracyTouch
 			| Defs/ThingDef[defName="Gun_RocketswarmLauncher"]/statBases/AccuracyShort
 			| Defs/ThingDef[defName="Gun_RocketswarmLauncher"]/statBases/AccuracyMedium
-			| Defs/ThingDef[defName="Gun_RocketswarmLauncher"]/statBases/AccuracyLong</xpath>
+			| Defs/ThingDef[defName="Gun_RocketswarmLauncher"]/statBases/AccuracyLong </xpath>
 	</Operation>
 
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="Gun_RocketswarmLauncher"]/comps</xpath>
+		<xpath>Defs/ThingDef[defName="Gun_RocketswarmLauncher"]/comps</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="Gun_RocketswarmLauncher"]</xpath>
+			<xpath>Defs/ThingDef[defName="Gun_RocketswarmLauncher"]</xpath>
 			<value>
 				<comps />
 			</value>
@@ -328,14 +353,14 @@
 					<li>30</li>
 					<li>40</li>
 					<li>50</li>
-					<li>60</li>			
+					<li>60</li>
 				</chargeSpeeds>
 			</li>
 			<li Class="CombatExtended.CompProperties_AmmoUser">
 				<magazineSize>12</magazineSize>
 				<reloadTime>6.5</reloadTime>
 				<ammoSet>AmmoSet_50mmRocket</ammoSet>
-			</li>								
+			</li>
 		</value>
 	</Operation>
 

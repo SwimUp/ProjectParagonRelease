@@ -24,6 +24,8 @@
 					<li>AeronesRace</li>
 					<li>AeronixRace</li>
 				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+				<genepackGenerated>false</genepackGenerated>
 			</li>
 		</modExtensions>
 	</GeneDef>
@@ -45,6 +47,16 @@
 			<li>NaturalSkin</li>
 		</exclusionTags>
 		<prerequisite>Aeron</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>AeronRace</li>
+					<li>AeronesRace</li>
+					<li>AeronixRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
 	</GeneDef>
 	<!---->
 	<GeneDef ParentName="GeneAeronBase">
@@ -52,6 +64,7 @@
 		<label>Carapace armor</label>
 		<labelShortAdj>Carapace armor</labelShortAdj>
 		<description>The wearer possesses durable carapace armor that aids in survival.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
 		<iconPath>Core/Genes/CarapaceArmor</iconPath>
 		<displayOrderInCategory>20</displayOrderInCategory>
 		<biostatCpx>1</biostatCpx>
@@ -62,6 +75,51 @@
 			<MoveSpeed>-0.5</MoveSpeed>
 		</statOffsets>
 		<prerequisite>Aeron</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<hediffDef>AeronArmor</hediffDef>
+					<severity>0.001~1</severity>
+				</props>
+				<relatedRaces>
+					<li>AeronRace</li>
+					<li>AeronesRace</li>
+					<li>AeronixRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneAeronBase">
+		<defName>AeronClaws</defName>
+		<label>Crab claws</label>
+		<description>The owner of the gene has sharp claws with great grip force instead of forelimbs.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/AeronClaws</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Aeron</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>HediffDef_AeronClaw</hediffDef>
+					<bodyParts>
+						<li>Shoulder</li>
+					</bodyParts>
+					<count>2</count>
+					<severity>0.001~1</severity>
+				</props>
+				<relatedRaces>
+					<li>AeronRace</li>
+					<li>AeronesRace</li>
+					<li>AeronixRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
 	</GeneDef>
 	<!---->
 </Defs>

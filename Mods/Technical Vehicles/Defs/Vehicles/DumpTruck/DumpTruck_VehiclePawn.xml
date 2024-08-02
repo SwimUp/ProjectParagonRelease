@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>	
+	<Vehicles.VehicleDef ParentName="TC_BaseVehicle">
+		<defName>TC_DumpTruck</defName>
+		<label>DumpTruck</label>
+		<description>Terror incarnation, car accident disclaimer, otherworldly portal - you can call it whatever you want, but in reality it's just a less useful mud truck</description>
+		
+		<graphicData>
+			<texPath>Vehicles/DumpTruck/DumpTruck</texPath>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<drawSize>(3,6)</drawSize>
+			<color>(130, 130, 130)</color>
+			<colorTwo>(130, 30, 30)</colorTwo>
+			<colorThree>(30, 15, 20)</colorThree>
+		</graphicData>
+		
+		<fillPercent>1</fillPercent>
+		
+		<buildDef>DumpTruck_Blueprint</buildDef>
+		
+		<size>(2,5)</size>
+		
+		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
+		<vehicleCategory>Transport</vehicleCategory>
+		<techLevel>Industrial</techLevel>
+		<vehicleType>Land</vehicleType>
+		
+		<statBases>
+			<ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.38</ArmorRating_Sharp>
+			<ArmorRating_Heat>1.0</ArmorRating_Heat>
+			<Flammability>0.5</Flammability>
+			<MarketValue>8500</MarketValue>
+		</statBases>
+		
+		<vehicleStats>
+			<Mass>1600</Mass>
+			<MoveSpeed>7</MoveSpeed>
+			<CargoCapacity>2500</CargoCapacity>
+			<RepairRate>0.5</RepairRate>
+		</vehicleStats>
+		
+
+		<race>
+			<baseBodySize>3.5</baseBodySize>
+		</race>
+		
+		<properties>
+			<worldSpeedMultiplier>1.2</worldSpeedMultiplier>
+			<winterSpeedMultiplier>3.25</winterSpeedMultiplier>
+			
+			<customRoadCosts AssignDefaults = "0.3"/>
+			
+			<roles>
+				<li>
+					<key>driver</key>
+					<label>Driver</label>
+					<slots>1</slots>
+					<slotsToOperate>1</slotsToOperate>
+					
+					<handlingTypes>
+						<li>Movement</li>
+					</handlingTypes>
+				</li>
+				<li>
+					<key>passenger</key>
+					<label>Passenger</label>
+					<slots>1</slots>
+				</li>
+			</roles>
+		</properties>
+		
+			<!-- Internal mobile Part 內部驅動部件-->
+								<components>
+			<li><!-- Engine 100-->
+				<key>Engine</key>
+				<label>Engine</label>
+				<health>100</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<categories><li>MoveSpeed</li></categories>	
+				<depth>Internal</depth>		
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<radius>3</radius>
+						<damageDef>Bomb</damageDef>
+					</li>
+				</reactors>		
+				<hitbox>
+					<cells>
+						<li>(0, 1)</li>
+						<li>(0, 0)</li>
+					</cells>
+				</hitbox>						
+			</li>
+			<li><!-- LeftFrontSuspension 40-->
+				<key>LeftFrontSuspension</key>
+				<label>left front Suspension</label>
+				<health>40</health>
+				<depth>Internal</depth>			
+				<hitbox>
+					<cells>
+						<li>(0, 2)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<li><!-- RightFrontSuspension 40-->
+				<key>RightFrontSuspension</key>
+				<label>right front suspension</label>
+				<health>40</health>
+				<depth>Internal</depth>
+				<hitbox>
+					<cells>
+						<li>(1, 2)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<li><!-- LeftRearSuspension 40-->
+				<key>LeftRearSuspension</key>
+				<label>left rear suspension</label>
+				<health>40</health>
+				<depth>Internal</depth>
+				<hitbox>
+					<cells>
+						<li>(0, -1)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<li><!-- RightRearSuspension 40-->
+				<key>RightRearSuspension</key>
+				<label>right rear suspension</label>
+				<health>40</health>
+				<depth>Internal</depth>
+				<hitbox>
+					<cells>
+						<li>(1, -1)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<li><!-- Gearbox 45-->
+				<key>Gearbox</key>
+				<label>gear box</label>
+				<health>45</health>
+				<depth>Internal</depth>
+				<hitbox>
+					<cells>
+						<li>(0, 1)</li>
+						<li>(1, 1)</li>
+					</cells>
+				</hitbox>
+				<categories><li>MoveSpeed</li></categories>
+			</li>
+			<li><!-- FuelTank 40-->
+				<key>FuelTank</key>
+				<label>fuel tank</label>
+				<health>40</health>
+				<depth>Internal</depth>			
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+				</reactors>			
+				<hitbox>
+					<cells>
+						<li>(0, 0)</li>
+						<li>(1, 0)</li>
+					</cells>
+				</hitbox>
+			</li>
+		<!-- External mobile Part 外部驅動部件-->
+			<li><!-- LeftFrontWheel 30-->
+				<key>LeftFrontWheel</key>
+				<label>left front Wheel</label>
+				<health>30</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>
+				<tags><li>Wheel</li></tags>	
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>			
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(0, 2)</li>
+					</cells>
+				</hitbox>			
+			</li>
+			<li><!-- RightFrontWheel 30-->
+				<key>RightFrontWheel</key>
+				<label>right front Wheel</label>
+				<health>30</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>
+				<tags><li>Wheel</li></tags>	
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(1, 2)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li><!-- LeftRearWheel	30-->
+				<key>LeftRearWheel</key>
+				<label>left rear wheel</label>
+				<health>30</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>
+				<tags><li>Wheel</li></tags>	
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(0, -1)</li>
+					</cells>
+				</hitbox>
+			</li>
+			<li><!-- RightRearWheel 30-->
+				<key>RightRearWheel</key>
+				<label>right rear Wheel</label>
+				<health>30</health>
+				<depth>External</depth>
+				<categories><li>MoveSpeed</li></categories>
+				<tags><li>Wheel</li></tags>
+				<armor>
+					<ArmorRating_Blunt>0</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0</ArmorRating_Sharp>
+				</armor>
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(1, -1)</li>
+					</cells>
+				</hitbox>
+			</li>
+		<!-- External Shell Part 外殼部件-->
+			<li><!-- EngineHood 40-->
+				<key>EngineHood</key>
+				<label>engine hood</label>
+				<health>60</health>
+				<depth>External</depth>
+			</li>
+			<li><!-- Roof 40-->
+				<key>Roof</key>
+				<label>roof</label>
+				<health>60</health>
+				<depth>External</depth>
+			</li>
+			<li><!-- LeftDoorPanel 40-->
+				<key>LeftDoorPanel</key>
+				<label>left door panel</label>
+				<health>60</health>
+				<depth>External</depth>			
+				<hitbox><side>Left</side></hitbox>
+			</li>
+			<li><!-- RightDoorPanel 40-->
+				<key>RightDoorPanel</key>
+				<label>right door panel</label>
+				<health>60</health>
+				<depth>External</depth>
+				<hitbox><side>Right</side></hitbox>
+			</li>
+			<li><!-- BackupTire 30-->
+				<key>BackupTire</key>
+				<label>backup tyre</label>
+				<health>30</health>
+				<depth>External</depth>
+				<hitbox><side>Left</side></hitbox>
+			</li>
+			<li><!-- FrontBumper 30-->
+				<key>FrontBumper</key>
+				<label>front bumper</label>
+				<health>30</health>
+				<depth>External</depth>
+				<hitbox><side>Front</side></hitbox>
+			</li>
+			<li><!-- RearBumper 25-->
+				<key>RearBumper</key>
+				<label>rear bumper</label>
+				<health>30</health>
+				<depth>External</depth>
+				<hitbox><side>Back</side></hitbox>
+			</li>
+			
+		<!-- Internal Shell Part 內裝部件-->
+			<li><!-- Interior 30-->
+				<key>Interior</key>
+				<label>interior</label>
+				<health>30</health>
+				<depth>Internal</depth>
+			</li>
+			<li><!-- Dashboard 30-->
+				<key>Dashboard</key>
+				<label>dashboard</label>
+				<health>30</health>
+				<depth>Internal</depth>
+			</li>
+			<li><!-- SteeringWheel 20-->
+				<key>SteeringWheel</key>
+				<label>steering wheel</label>
+				<health>20</health>
+				<depth>Internal</depth>
+			</li>
+		</components>
+		<comps>
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Canister_Diesel</fuelType>
+				<fuelConsumptionRate>40</fuelConsumptionRate>
+				<fuelConsumptionWorldMultiplier>1.6</fuelConsumptionWorldMultiplier>
+				<fuelCapacity>200</fuelCapacity>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+</Defs>

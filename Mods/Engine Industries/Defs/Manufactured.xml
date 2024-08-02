@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef Name="HeavyItemBase" Abstract="True">
+		<category>Item</category>
+		<techLevel>Industrial</techLevel>
+		<thingClass>ThingWithComps</thingClass>
+		<altitudeLayer>Item</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.50</fillPercent>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<BeautyOutdoors>0</BeautyOutdoors>
+			<Flammability>0</Flammability>
+			<Beauty>-10</Beauty>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<rotateInShelves>false</rotateInShelves>
+		<selectable>true</selectable>
+		<pathCost>42</pathCost>
+		<pathCostIgnoreRepeat>true</pathCostIgnoreRepeat>
+		<drawerType>MapMeshOnly</drawerType>
+		<saveCompressible>true</saveCompressible>
+		<stackLimit>1</stackLimit>
+		<tradeability>All</tradeability>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<intricate>true</intricate>
+		<possessionCount>2</possessionCount>
+		<alwaysHaulable>true</alwaysHaulable>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<rotatable>false</rotatable>
+		<allowedArchonexusCount>1</allowedArchonexusCount>
+		<resourceReadoutPriority>Middle</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+	</ThingDef>
+	<!--<ThingDef ParentName="HeavyItemBase">
+		<defName>ComponentCastingmold</defName>
+		<label>casting mold</label>
+		<description>a mold case for casting metal parts. the mold shape is engraving at art table and place in a wooden box filled with sand.</description>
+		<graphicData>
+			<texPath>Parts/CastingMold</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<descriptionHyperlinks>
+			<RecipeDef>CastFromMold</RecipeDef>
+		</descriptionHyperlinks>
+		<costStuffCount>25</costStuffCount>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<recipeMaker>
+			<recipeUsers>
+				<li>TableSculpting</li>
+			</recipeUsers>
+			<workAmount>10000</workAmount>
+			<researchPrerequisite>MoldCasting</researchPrerequisite>
+			<unfinishedThingDef>UnfinishedSculpture</unfinishedThingDef>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<MarketValue>40</MarketValue>
+			<Mass>15</Mass>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>Unfinished</li>
+		</thingCategories>
+	</ThingDef>-->
+	<ThingDef ParentName="HeavyItemBase">
+		<defName>ComponentHeavyCasting</defName>
+		<label>heavy casting</label>
+		<description>large metal parts such as cylinders, cranks, manifolds and turbine blades that cannot be simply processed by smithing.</description>
+		<graphicData>
+			<texPath>Parts/HeavyComp</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<randomizeRotationOnSpawn>true</randomizeRotationOnSpawn>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<MarketValue>30</MarketValue>
+			<Mass>10</Mass>
+			<Bulk>2</Bulk>
+		</statBases>
+		<tradeability>All</tradeability>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+		</thingSetMakerTags>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<thingCategories>
+			<li>MechanicalEngineeringComponents</li>
+		</thingCategories>
+	</ThingDef>
+	<ThingDef ParentName="UnfinishedBase">
+		<defName>UnfinishedEngine</defName>
+		<label>unfinished engine</label>
+		<description>An unfinished / in-disassemble engine of some kind.</description>
+		<statBases>
+			<Flammability>0.1</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>Parts/EngineUnfinished</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stuffCategories Inherit="false"/>
+	</ThingDef>
+	
+	<ThingDef Name="EngineBase" ParentName="HeavyItemBase" Abstract="True">
+		<tradeability>All</tradeability>
+		<statBases>
+			<SellPriceFactor>1</SellPriceFactor>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardCore</li>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<tradeTags>
+			<li>ExoticMisc</li>
+			<li>Artifact</li>
+		</tradeTags>
+		<thingCategories>
+			<li>MechanicalEngineeringComponents</li>
+		</thingCategories>
+	</ThingDef>
+	<ThingDef ParentName="EngineBase">
+		<defName>EngineLight</defName>
+		<label>light engine</label>
+		<description>two-stroke cycle engine,it is simple and produce a large torque, but the fuel consumption is relatively higher.</description>
+		<graphicData>
+			<texPath>Parts/EngineLight</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<MarketValue>250</MarketValue>
+			<Mass>15</Mass>
+			<Bulk>5</Bulk>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EngineBase">
+		<defName>EngineMedium</defName>
+		<label>engine</label>
+		<description>a Four-stroke engine with optimum fuel conversion, it is the heart of an industrial world.</description>
+		<graphicData>
+			<texPath>Parts/EngineMedium</texPath>
+			<drawSize>(1.1,1.1)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.85, 0.3, 0.85)</volume>
+				<offset>(0, 0, 0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconScale>0.8</uiIconScale>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<MarketValue>500</MarketValue>
+			<Mass>140</Mass>
+			<Bulk>10</Bulk>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EngineBase">
+		<defName>EngineHeavy</defName>
+		<label>heavy engine</label>
+		<description>an six cylender distel engine with powerful torque, it is commonly used by heavy vehicles and ships.</description>
+		<graphicData>
+			<texPath>Parts/EngineHeavy</texPath>
+			<drawSize>(1.5,1.5)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.85, 0.3, 0.85)</volume>
+				<offset>(0, 0, 0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconScale>0.8</uiIconScale>
+		<fillPercent>0.75</fillPercent>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<MarketValue>1000</MarketValue>
+			<Mass>200</Mass>
+			<Bulk>25</Bulk>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EngineBase">
+		<defName>EngineJet</defName>
+		<label>turbojet</label>
+		<description>an airbreathing jet engine which is typically used in aircraft, consists of a gas turbine with a propelling nozzle.</description>
+		<graphicData>
+			<texPath>Parts/EngineJet</texPath>
+			<drawSize>(1.75,1.75)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.85, 0.3, 0.85)</volume>
+				<offset>(0, 0, 0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconScale>0.75</uiIconScale>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<MarketValue>1250</MarketValue>
+			<Mass>180</Mass>
+			<Bulk>25</Bulk>
+		</statBases>
+	</ThingDef>
+	<!--<ThingDef ParentName="EngineBase">
+		<defName>EngineTurbine</defName>
+		<label>turbine engine</label>
+		<description>An engine powered by gas expansion driving turbine blades, but fuel consumption is quite high. widely used in pre-spacer jets and military vehicles.</description>
+		<graphicData>
+			<texPath>Parts/EngineTurbine</texPath>
+			<drawSize>(1.75,1.75)</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shadowData>
+				<volume>(0.85, 0.3, 0.85)</volume>
+				<offset>(0, 0, 0)</offset>
+			</shadowData>
+		</graphicData>
+		<uiIconScale>0.75</uiIconScale>
+		<descriptionHyperlinks>
+			<RecipeDef>Make_EngineAssemble_Turbine</RecipeDef>
+		</descriptionHyperlinks>
+		<smeltProducts>
+			<Steel>500</Steel>
+			<Plasteel>8</Plasteel>
+			<Gold>2</Gold>
+		</smeltProducts>
+		<butcherProducts>
+			<ComponentSpacer>1</ComponentSpacer>
+			<ComponentHeavyCasting>2</ComponentHeavyCasting>
+			<ComponentIndustrial>14</ComponentIndustrial>
+			<ChunkSlagSteel>5</ChunkSlagSteel>
+		</butcherProducts>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<MarketValue>2500</MarketValue>
+			<Mass>225</Mass>
+		</statBases>
+	</ThingDef>-->
+</Defs>

@@ -2772,4 +2772,51 @@
 		<tale>Raid</tale>
 	</IncidentDef>
 	
+	<IncidentDef>
+		<defName>SpaceOreMeteorite</defName>
+		<label>Strange meteorite</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>World</li>
+		</targetTags>
+		<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_SpaceOreMeteorite</workerClass>
+		<letterLabel>Strange meteorite</letterLabel>
+		<letterText>A strange meteorite flies in the sky, the trail it leaves is unlike anything else. Could it be a meteorite with extraterrestrial metals?</letterText>
+		<letterDef>NeutralEvent</letterDef>
+		<baseChance>3.5</baseChance>
+		<earliestDay>240</earliestDay>
+		<minRefireDays>60</minRefireDays>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
+				<minGameStage>Space</minGameStage>
+			</li>
+			<li Class="ProjectParagon.Core.WorldObjects.DefModExtension_SpaceOreMeteorite">
+				<oreDefs>
+					<MineableAdamantiumOre>50</MineableAdamantiumOre>
+					<MineableVibraniumOre>30</MineableVibraniumOre>
+				</oreDefs>
+			</li>
+		</modExtensions>
+	</IncidentDef>
+	
+	<IncidentDef>
+		<defName>StalinInvasion</defName>
+		<label>Stalin invasion</label>
+		<letterLabel>Stalin invasion</letterLabel>
+		<letterText>A combat robot emerges from under the water. He seems to be motivated only by hatred.</letterText>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>ProjectParagon.Core.IncidentWorkers.IncidentWorker_Stalin</workerClass>
+		<baseChance>0.005</baseChance>
+		<minRefireDays>300</minRefireDays>
+		<earliestDay>300</earliestDay>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.IncidentWorkers.DefModExtension_IncidentParagon">
+				<minGameStage>Space</minGameStage>
+			</li>
+		</modExtensions>
+	</IncidentDef>
+	
 </Defs>

@@ -3,18 +3,6 @@
 	<Operation Class="PatchOperationSequence">
 		<success>Normal</success>
 		<operations>
-			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[@Name="StandingLampBase"]/comps</xpath>
-				<value>
-					<comps>
-						<li Class="CompProperties_Power">
-							<compClass>CompPowerTrader</compClass>
-							<basePowerConsumption>30</basePowerConsumption>
-						</li>
-						<li Class="CompProperties_Styleable"/>
-					</comps>
-				</value>
-			</li>
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="MegascreenTelevision"]</xpath>
 				<value>
@@ -22,7 +10,7 @@
 				</value>
 			</li>
 			<li Class="PatchOperationRemove">
-				<xpath>*/ThingDef[defName="ShelfSmall"]/building/relatedBuildCommands</xpath>
+				<xpath>*/ThingDef[defName="ShelfSmall"]</xpath>
 			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Bed"]</xpath>
@@ -290,7 +278,7 @@
 							<Mass>5</Mass>
 							<Flammability>1.0</Flammability>
 							<Beauty>8</Beauty>
-							<Comfort>0.70</Comfort>
+							<Comfort>0.85</Comfort>
 							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
 						</statBases>
 						<socialPropernessMatters>true</socialPropernessMatters>
@@ -298,7 +286,11 @@
 							<li>Metallic</li>
 							<li>Woody</li>
 						</stuffCategories>
-						<costStuffCount>45</costStuffCount>
+						<costStuffCount>55</costStuffCount>
+						<costList>
+							<ComponentIndustrial>2</ComponentIndustrial>
+							<Plastic>25</Plastic>
+						</costList>
 						<pathCost>30</pathCost>
 						<designationHotKey>Misc7</designationHotKey>
 						<fillPercent>0.35</fillPercent>
@@ -352,7 +344,7 @@
 							<Mass>18</Mass>
 							<Flammability>1.0</Flammability>
 							<Beauty>4</Beauty>
-							<Comfort>0.8</Comfort>
+							<Comfort>0.95</Comfort>
 						</statBases>
 						<socialPropernessMatters>true</socialPropernessMatters>
 						<stuffCategories>
@@ -363,6 +355,10 @@
 							<li>ComplexFurniture</li>
 						</researchPrerequisites>
 						<costStuffCount>110</costStuffCount>
+						<costList>
+							<ComponentIndustrial>3</ComponentIndustrial>
+							<Plastic>25</Plastic>
+						</costList>
 						<pathCost>30</pathCost>
 						<fillPercent>0.40</fillPercent>
 						<designationHotKey>Misc8</designationHotKey>
@@ -370,6 +366,74 @@
 						<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
 						<building>
 							<isSittable>true</isSittable>
+							<destroySound>BuildingDestroyed_Soft_Small</destroySound>
+						</building>
+						<designatorDropdown>Seating</designatorDropdown>
+						<comps>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<Comfort>0.03</Comfort>
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Couch"]</xpath>
+				<value>
+					<ThingDef ParentName="FurnitureWithQualityBase">
+						<defName>Couch</defName>
+						<label>couch</label>
+						<description>A large double-wide seat which is cushioned for maximum comfort. Perfect for a luxurious rec room or a homey reading nook.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Couch</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3,3)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+							<shadowData>
+								<volume>(0.3, 0.33, 0.3)</volume>
+							</shadowData>
+						</graphicData>
+						<uiIconScale>0.9</uiIconScale>
+						<altitudeLayer>Building</altitudeLayer>
+						<statBases>
+							<MaxHitPoints>160</MaxHitPoints>
+							<WorkToBuild>24000</WorkToBuild>
+							<Mass>70</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>8</Beauty>
+							<Comfort>0.85</Comfort>
+						</statBases>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<stuffCategories>
+							<li>Fabric</li>
+							<li>Leathery</li>
+						</stuffCategories>
+						<researchPrerequisites>
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<costStuffCount>110</costStuffCount>
+						<costList>
+							<ComponentIndustrial>3</ComponentIndustrial>
+							<Plastic>25</Plastic>
+						</costList>
+						<pathCost>30</pathCost>
+						<fillPercent>0.40</fillPercent>
+						<size>(2,1)</size>
+						<designationHotKey>Misc8</designationHotKey>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+						<uiOrder>2430</uiOrder>
+						<building>
+							<isSittable>true</isSittable>
+							<multiSittable>true</multiSittable>
 							<destroySound>BuildingDestroyed_Soft_Small</destroySound>
 						</building>
 						<designatorDropdown>Seating</designatorDropdown>
@@ -623,7 +687,7 @@
 				<value>
 					<statBases>
 						<HeatingEfficiency>0.01</HeatingEfficiency>
-						<FuelConsumption>5</FuelConsumption>
+						<FuelConsumption>2.5</FuelConsumption>
 					</statBases>
 				</value>
 			</li>
@@ -759,6 +823,9 @@
 				</value>
 			</li>
 			-->
+			<li Class="PatchOperationRemove">
+				<xpath>*/ThingDef[@Name="TorchBase"]/comps/*[@Class="CompProperties_Refuelable"]</xpath>
+			</li>
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="TorchLamp"]</xpath>
 				<value>
@@ -769,7 +836,7 @@
 				<xpath>*/ThingDef[defName="TorchLamp"]/statBases</xpath>
 				<value>
 					<HeatingEfficiency>0.01</HeatingEfficiency>
-					<FuelConsumption>1.5</FuelConsumption>
+					<FuelConsumption>1.0</FuelConsumption>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -827,13 +894,104 @@
 					</comps>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TorchWallLamp"]</xpath>
+				<value>
+					<designatorDropdown>Lighting</designatorDropdown>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="TorchWallLamp"]/statBases</xpath>
+				<value>
+					<HeatingEfficiency>0.01</HeatingEfficiency>
+					<FuelConsumption>1.0</FuelConsumption>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="TorchWallLamp"]/comps</xpath>
+				<value>
+					<comps>
+						<!--<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+							<fuelCapacity>20.0</fuelCapacity>
+							<fuelConsumptionPerTickInRain>0.0006</fuelConsumptionPerTickInRain>
+							<enableHeatPush>true</enableHeatPush>
+							<fuelFilter>
+								<thingDefs>
+									<li>WoodLog</li>
+								</thingDefs>
+							</fuelFilter>
+							<initialFuelPercent>1</initialFuelPercent>
+							<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+							<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+						</li>-->
+						<li Class="CompProperties_Glower">
+							<glowRadius>9</glowRadius>
+							<glowColor>(184,136,83,0)</glowColor>
+						</li>
+						<li Class="CompProperties_FireOverlay">
+							<fireSize>0.4</fireSize>
+							<offsetNorth>(0,0,0)</offsetNorth>
+							<offsetSouth>(0,0,0.55)</offsetSouth>
+							<offsetWest>(0.45,0,0.35)</offsetWest>
+							<offsetEast>(-0.45,0,0.35)</offsetEast>
+						</li>
+						<li Class="CompProperties_Styleable"/>
+						<li Class="CompProperties_HeatPusher">
+							<compClass>CompHeatPusherPowered</compClass>
+							<heatPerSecond>3.5</heatPerSecond>
+							<heatPushMaxTemperature>23</heatPushMaxTemperature>
+						</li>
+						<li Class="CompProperties_MeditationFocus">
+							<statDef>MeditationFocusStrength</statDef>
+							<focusTypes>
+								<li>Flame</li>
+							</focusTypes>
+							<offsets>
+								<li Class="FocusStrengthOffset_Lit">
+									<offset>0.1</offset>
+								</li>
+								<li Class="FocusStrengthOffset_BuildingDefsLit">
+									<defs>
+										<li>Campfire</li>
+										<li>TorchLamp</li>
+										<li>TorchWallLamp</li>
+										<li MayRequire="Ludeon.RimWorld.Royalty">Brazier</li>
+										<li MayRequire="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Ideology">DarklightBrazier</li>
+										<li MayRequire="Ludeon.RimWorld.Ideology">Darktorch</li>
+										<li MayRequire="Ludeon.RimWorld.Ideology">DarktorchFungus</li>
+									</defs>
+									<offsetPerBuilding>0.01</offsetPerBuilding>
+									<radius>9.9</radius>
+									<maxBuildings>8</maxBuildings>
+									<explanationKey>MeditationFocusPerFlame</explanationKey>
+									<explanationKeyAbstract>MeditationFocusPerFlameAbstract</explanationKeyAbstract>
+									<drawRingRadius>false</drawRingRadius>
+								</li>
+							</offsets>
+						</li>
+					</comps>
+				</value>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="StandingLamp"]</xpath>
 				<value>
-					<ThingDef ParentName="StandingLampBase">
+					<ThingDef ParentName="LampBase">
 						<defName>StandingLamp</defName>
 						<label>standing lamp</label>
 						<description>An electrical standing lamp that lights an area. People need light to move and work at full speed.</description>
+						<designationHotKey>Misc11</designationHotKey>
+						<graphicData>
+							<texPath>Things/Building/Furniture/LampStanding</texPath>
+							<shadowData>
+								<volume>(0.3, 0.6, 0.3)</volume>
+								<offset>(0,0,-0.1)</offset>
+							</shadowData>
+						</graphicData>
+						<statBases>
+							<Mass>4</Mass>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+						</statBases>
+						<uiOrder>2990</uiOrder>
 						<comps>
 							<li Class="CompProperties_Glower">
 								<glowRadius>12</glowRadius>
@@ -841,12 +999,127 @@
 								<colorPickerEnabled>true</colorPickerEnabled>
 								<darklightToggle>true</darklightToggle>
 							</li>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>30</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Styleable"/>
 						</comps>
 						<designatorDropdown>Lighting</designatorDropdown>
 						<costList Inherit="false">
 							<ComponentIndustrial>2</ComponentIndustrial>
 							<SimpleElectronic>1</SimpleElectronic>
 						</costList>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="WallLamp"]</xpath>
+				<value>
+					<ThingDef ParentName="LampBase">
+						<defName>WallLamp</defName>
+						<label>wall lamp</label>
+						<description>A wall-mounted lamp that lights an area using electricity. It is less powerful than a standing lamp, but can be mounted on walls.</description>
+						<rotatable>true</rotatable>
+						<graphicData>
+							<texPath>Things/Building/Furniture/WallLamp/WallLamp</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+							<drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
+							<drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
+							<drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+							<damageData>
+								<enabled>false</enabled>
+							</damageData>
+						</graphicData>
+						<uiIconPath>Things/Building/Furniture/WallLamp/WallLamp_MenuIcon</uiIconPath>
+						<altitudeLayer>BuildingOnTop</altitudeLayer>
+						<designatorDropdown>Lighting</designatorDropdown>
+						<costList Inherit="false">
+							<ComponentIndustrial>2</ComponentIndustrial>
+							<SimpleElectronic>1</SimpleElectronic>
+						</costList>
+						<statBases>
+							<WorkToBuild>330</WorkToBuild>
+							<MaxHitPoints>35</MaxHitPoints>
+							<Mass>2</Mass>
+						</statBases>
+						<uiOrder>2991</uiOrder>
+						<passability>Standable</passability>
+						<terrainAffordanceNeeded IsNull="True"/>
+						<pathCost>0</pathCost>
+						<overrideMinifiedRot>North</overrideMinifiedRot>
+						<minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset>
+						<building>
+							<isEdifice>false</isEdifice>
+							<isAttachment>true</isAttachment>
+						</building>
+						<placeWorkers>
+							<li>Placeworker_AttachedToWall</li>
+						</placeWorkers>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>30</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Styleable"/>
+							<li Class="CompProperties_Glower">
+								<glowRadius>11</glowRadius>
+								<glowColor>(214,148,94,0)</glowColor>
+								<colorPickerEnabled>true</colorPickerEnabled>
+								<darklightToggle>true</darklightToggle>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="FloodLight"]</xpath>
+				<value>
+					<ThingDef ParentName="LampBase">
+						<defName>FloodLight</defName>
+						<label>flood light</label>
+						<description>A high-intensity light that's good for large outdoor spaces.</description>
+						<graphicData>
+							<texPath>Things/Building/Furniture/FloodLight</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>2.5</drawSize>
+							<addTopAltitudeBias>true</addTopAltitudeBias>
+							<shadowData>
+								<volume>(0.2, 0.7, 0.2)</volume>
+								<offset>(0, 0, -0.2)</offset>
+							</shadowData>
+						</graphicData>
+						<uiIconScale>0.75</uiIconScale>
+						<costList Inherit="false">
+							<ComponentIndustrial>2</ComponentIndustrial>
+							<Microelectronics>2</Microelectronics>
+							<Plastic>75</Plastic>
+						</costList>
+						<researchPrerequisites Inherit="false">
+							<li>ComplexFurnitureIII</li>
+						</researchPrerequisites>
+						<statBases>
+							<MaxHitPoints>120</MaxHitPoints>
+							<WorkToBuild>2000</WorkToBuild>
+							<Flammability>0</Flammability>
+							<Mass>10</Mass>
+							<Beauty>-5</Beauty>
+						</statBases>
+						<uiOrder>2992</uiOrder>
+						<designatorDropdown>Lighting</designatorDropdown>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>150</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Glower">
+								<glowRadius>24</glowRadius>
+								<glowColor>(214,148,94,0)</glowColor>
+								<colorPickerEnabled>true</colorPickerEnabled>
+								<darklightToggle>true</darklightToggle>
+							</li>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>
@@ -1000,8 +1273,8 @@
 						<pathCost>42</pathCost>
 						<defaultPlacingRot>South</defaultPlacingRot>
 						<costList>
-							<MechanismComplex>4</MechanismComplex>
-							<ComponentIndustrial>2</ComponentIndustrial>
+							<MechanismComplex>2</MechanismComplex>
+							<ComponentIndustrial>1</ComponentIndustrial>
 						</costList>
 						<stuffCategories>
 							<li>Woody</li>
@@ -1299,6 +1572,486 @@
 						<tradeTags>
 							<li>Television</li>
 						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ToyBox"]</xpath>
+				<value>
+					<ThingDef ParentName="FurnitureBase">
+						<defName>ToyBox</defName>
+						<label>toy box</label>
+						<description>A toy box containing many small toys. Toy boxes can be used to play with babies, satisfying their need for play.</description>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.30</fillPercent>
+						<rotatable>false</rotatable>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>1200</WorkToBuild>
+							<Mass>15</Mass>
+							<Flammability>1.0</Flammability>
+							<BabyPlayGainFactor>1.25</BabyPlayGainFactor>
+							<JoyGainFactor>1.25</JoyGainFactor>
+						</statBases>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Stony</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>80</costStuffCount>
+						<costList>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<canOverlapZones>true</canOverlapZones>
+						<pathCost>30</pathCost>
+						<size>(1,1)</size>
+						<designatorDropdown>ChildFurniture</designatorDropdown>
+						<designationCategory>Furniture</designationCategory>
+						<researchPrerequisites>
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+						<graphicData>
+							<texPath>Things/Building/Childcare/ToyBox</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<shadowData>
+								<volume>(0.8,0.15,0.8)</volume>
+							</shadowData>
+						</graphicData>
+						<building>
+							<paintable>true</paintable>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SchoolDesk"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>SchoolDesk</defName>
+						<label>school desk</label>
+						<description>A desk where adults can teach lessons to children.</description>
+						<graphicData>
+							<texPath>Things/Building/Childcare/LessonDesk/LessonDesk</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(4,3)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<castEdgeShadows>true</castEdgeShadows>
+						<staticSunShadowHeight>0.15</staticSunShadowHeight>
+						<altitudeLayer>Building</altitudeLayer>
+						<uiIconScale>0.8</uiIconScale>
+						<designationCategory>Furniture</designationCategory>
+						<uiOrder>2305</uiOrder>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<interactionCellIcon>DiningChair</interactionCellIcon>
+						<designatorDropdown>ChildFurniture</designatorDropdown>
+						<multipleInteractionCellOffsets>
+							<li>(1,0,-1)</li>
+							<li>(0,0,-1)</li>
+						</multipleInteractionCellOffsets>
+						<descriptionHyperlinks>
+							<ThingDef>Blackboard</ThingDef>
+						</descriptionHyperlinks>
+						<thingCategories>
+							<li>BuildingsFurniture</li>
+						</thingCategories>
+						<passability>PassThroughOnly</passability>
+						<canOverlapZones>false</canOverlapZones>
+						<pathCost>50</pathCost>
+						<fillPercent>0.5</fillPercent>
+						<statBases>
+							<MaxHitPoints>75</MaxHitPoints>
+							<WorkToBuild>750</WorkToBuild>
+							<Mass>5</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>0.5</Beauty>
+						</statBases>
+						<size>(2,1)</size>
+						<researchPrerequisites>
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+						<costList>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<costStuffCount>75</costStuffCount>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Stony</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<placeWorkers>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<building>
+							<paintable>true</paintable>
+						</building>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>Blackboard</li>
+								</linkableFacilities>
+							</li>
+							<li Class="CompProperties_StatEntry">
+								<compClass>CompStatEntrySchoolDesk</compClass>
+								<statCategoryDef>Building</statCategoryDef>
+								<statLabel>Learning rate bonus</statLabel>
+								<reportText>A multiplier on how quickly children learn during lessons which are assisted by this.</reportText>
+								<displayPriorityInCategory>300</displayPriorityInCategory>
+							</li>
+							<li Class="CompProperties_InspectString">
+								<compClass>CompInspectStringSchooldesk</compClass>
+								<inspectString>Learning rate bonus</inspectString>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BabyDecoration"]</xpath>
+				<value>
+					<ThingDef ParentName="FurnitureBase">
+						<defName>BabyDecoration</defName>
+						<label>baby decoration</label>
+						<description>A decoration for babies. Baby decorations increase the rate at which babies fill their play need when an adult plays with them. Place these around your child play areas.</description>
+						<designationCategory>Furniture</designationCategory>
+						<designatorDropdown>ChildFurniture</designatorDropdown>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.30</fillPercent>
+						<rotatable>false</rotatable>
+						<graphicData>
+							<texPath>Things/Building/Childcare/BabyDecoration</texPath>
+							<graphicClass>Graphic_Random</graphicClass>
+							<shadowData>
+								<volume>(0.55, 0.35, 0.55)</volume>
+							</shadowData>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>30</MaxHitPoints>
+							<WorkToBuild>800</WorkToBuild>
+							<Mass>10</Mass>
+							<Flammability>1.0</Flammability>
+							<BabyPlayGainFactor>1.1</BabyPlayGainFactor>
+						</statBases>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Stony</li>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>60</costStuffCount>
+						<canOverlapZones>true</canOverlapZones>
+						<pathCost>30</pathCost>
+						<size>(1,1)</size>
+						<researchPrerequisites>
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+						<costList>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<building>
+							<paintable>true</paintable>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BabySleepingSpot"]</xpath>
+				<value>
+					<ThingDef ParentName="SleepingSpotBase">
+						<defName>BabySleepingSpot</defName>
+						<label>baby sleeping spot</label>
+						<description>Designates a spot on the ground where people should leave a baby. Not comfortable.</description>
+						<graphicData>
+							<texPath>Things/Building/Childcare/BabySleepSpot</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(2,2)</drawSize>
+						</graphicData>
+						<size>(1,1)</size>
+						<building>
+							<bed_maxBodySize>0.25</bed_maxBodySize>
+							<!-- Larger than HumanlikeBaby.BodySizeFactor but less than HumanlikeChild.BodySizeFactor. -->
+							<bed_DisplayOwnerType>false</bed_DisplayOwnerType>
+						</building>
+						<designatorDropdown>ChildFurniture</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Crib"]</xpath>
+				<value>
+					<ThingDef ParentName="SansComfortBedBase">
+						<defName>Crib</defName>
+						<label>crib</label>
+						<description>A cozy bed with safe latticed sides, perfect for a sleepy baby. A high quality crib will make a baby happy. Multiple cribs can be placed in a bedroom without turning it into a barracks.</description>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+						<graphicData>
+							<texPath>Things/Building/Childcare/Crib/Crib</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>2.2</drawSize>
+							<shadowData>
+								<volume>(0.8,0.4,0.9)</volume>
+							</shadowData>
+						</graphicData>
+						<staticSunShadowHeight>0</staticSunShadowHeight>
+						<statBases>
+							<BirthRitualQualityOffset MayRequire="Ludeon.RimWorld.Biotech">0</BirthRitualQualityOffset>
+							<MaxHitPoints>70</MaxHitPoints>
+							<Beauty>1</Beauty>
+							<WorkToBuild>400</WorkToBuild>
+							<Mass>15</Mass>
+							<BedRestEffectiveness>1.1</BedRestEffectiveness>
+						</statBases>
+						<size>(1,1)</size>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<ComponentSimple>2</ComponentSimple>
+						</costList>
+						<uiOrder>2022</uiOrder>
+						<building>
+							<bed_maxBodySize>0.25</bed_maxBodySize>
+							<!-- Larger than HumanlikeBaby.BodySizeFactor but less than HumanlikeChild.BodySizeFactor. -->
+							<bed_showSleeperBody>True</bed_showSleeperBody>
+							<bed_emptyCountsForBarracks>false</bed_emptyCountsForBarracks>
+							<bed_crib>True</bed_crib>
+							<bed_pawnDrawOffset>-0.15</bed_pawnDrawOffset>
+							<bed_DisplayOwnerType>false</bed_DisplayOwnerType>
+							<paintable>true</paintable>
+						</building>
+						<researchPrerequisites Inherit="False">
+							<li>ComplexFurniture</li>
+						</researchPrerequisites>
+						<designatorDropdown>ChildFurniture</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Blackboard"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>Blackboard</defName>
+						<label>blackboard</label>
+						<description>A flat stone-like surface for writing on with chalk. Placed near a lesson desk, blackboards increase childrens' learning rate during lessons. Up to three blackboards can be used at a time.</description>
+						<graphicData>
+							<texPath>Things/Building/Childcare/Blackboard/Blackboard</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>1.9</drawSize>
+							<damageData>
+								<rectN>(0.1, 0.3, 1.8, 0.5)</rectN>
+								<rectS>(0.1, 0.3, 1.8, 0.5)</rectS>
+								<rectE>(0.45, 0, 0.2, 1)</rectE>
+								<rectW>(0.55, 0, 0.2, 1)</rectW>
+							</damageData>
+							<shadowData>
+								<volume>(2, 0.5, 0.2)</volume>
+							</shadowData>
+						</graphicData>
+						<descriptionHyperlinks>
+							<ThingDef>SchoolDesk</ThingDef>
+						</descriptionHyperlinks>
+						<altitudeLayer>Building</altitudeLayer>
+						<designationCategory>Furniture</designationCategory>
+						<designatorDropdown>ChildFurniture</designatorDropdown>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<thingCategories>
+							<li>BuildingsFurniture</li>
+						</thingCategories>
+						<passability>PassThroughOnly</passability>
+						<canOverlapZones>false</canOverlapZones>
+						<pathCost>50</pathCost>
+						<fillPercent>0.5</fillPercent>
+						<statBases>
+							<MaxHitPoints>60</MaxHitPoints>
+							<WorkToBuild>1000</WorkToBuild>
+							<Mass>7</Mass>
+							<Flammability>1.0</Flammability>
+							<Beauty>2</Beauty>
+						</statBases>
+						<size>(2,1)</size>
+						<researchPrerequisites>
+							<li>FurnitureI</li>
+						</researchPrerequisites>
+						<costStuffCount>50</costStuffCount>
+						<costList>
+							<ComponentPrimitive>2</ComponentPrimitive>
+						</costList>
+						<stuffCategories>
+							<li>Woody</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<building>
+							<paintable>true</paintable>
+						</building>
+						<comps>
+							<li Class="CompProperties_Facility">
+								<maxSimultaneous>6</maxSimultaneous>
+								<maxDistance>6</maxDistance>
+							</li>
+							<li Class="CompProperties_StatEntry">
+								<statCategoryDef>Building</statCategoryDef>
+								<statLabel>Learning rate bonus</statLabel>
+								<reportText>When near a desk where a lesson is taking place, this building increases the student's learning rate. This effect can stack up to three times.</reportText>
+								<valueString>+20%</valueString>
+								<!-- Must be kept in sync with the actual effect -->
+								<displayPriorityInCategory>300</displayPriorityInCategory>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Bookcase"]</xpath>
+				<value>
+					<ThingDef ParentName="BookcaseBase">
+						<defName>Bookcase</defName>
+						<label>bookcase</label>
+						<description>A wide bookcase for storing and displaying up to ten books. Books stored here will passively enhance academic work done nearby, and increase the beauty of the bookcase. The stored books will never deteriorate.</description>
+						<thingClass>ProjectParagon.Core.Things.Building_BookcaseParagon</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bookcase/Bookcase</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3,2)</drawSize>
+						</graphicData>
+						<researchPrerequisites Inherit="false">
+							<li>ProductionII</li>
+						</researchPrerequisites>
+						<techLevel>Medieval</techLevel>
+						<stuffCategories Inherit="false">
+							<li>Woody</li>
+							<li>Metallic</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>100</costStuffCount>
+						<costList>
+							<WoodPlanks>50</WoodPlanks>
+							<ComponentSimple>4</ComponentSimple>
+							<Book>15</Book>
+						</costList>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<comps>
+							<li Class="CompProperties_Facility">
+								<compClass>ProjectParagon.Core.Things.CompFacilityBook</compClass>
+								<maxSimultaneous>2</maxSimultaneous>
+							</li>
+						</comps>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>4000</WorkToBuild>
+							<Flammability>0.8</Flammability>
+							<Beauty>4</Beauty>
+							<Mass>30</Mass>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">6</StyleDominance>
+						</statBases>
+						<size>(2,1)</size>
+						<building>
+							<bookendGraphicEast>
+								<texPath>Things/Building/Furniture/Bookcase/Bookcase_Bookend_east</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<addTopAltitudeBias>true</addTopAltitudeBias>
+								<drawSize>(2,3)</drawSize>
+							</bookendGraphicEast>
+							<bookendGraphicNorth>
+								<texPath>Things/Building/Furniture/Bookcase/Bookcase_Bookend_north</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<addTopAltitudeBias>true</addTopAltitudeBias>
+								<drawSize>(3,2)</drawSize>
+							</bookendGraphicNorth>
+							<relatedBuildCommands>
+								<li>BookcaseSmall</li>
+							</relatedBuildCommands>
+						</building>
+						<designationCategory>Science</designationCategory>
+						<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+						<designatorDropdown>Science_Utility</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BookcaseSmall"]</xpath>
+				<value>
+					<ThingDef ParentName="BookcaseBase">
+						<defName>BookcaseSmall</defName>
+						<label>small bookcase</label>
+						<description>A narrow bookcase for storing and displaying up to five books. Books stored here will passively enhance academic work done nearby, and increase the beauty of the bookcase. The stored books will never deteriorate.</description>
+						<thingClass>ProjectParagon.Core.Things.Building_BookcaseParagon</thingClass>
+						<graphicData>
+							<texPath>Things/Building/Furniture/Bookcase/BookcaseSmall</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(2,2)</drawSize>
+						</graphicData>
+						<uiIconScale>0.5</uiIconScale>
+						<researchPrerequisites Inherit="false">
+							<li>Alchemy</li>
+						</researchPrerequisites>
+						<techLevel>Medieval</techLevel>
+						<stuffCategories Inherit="false">
+							<li>Woody</li>
+							<li>Metallic</li>
+							<li>Stony</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<WoodPlanks>25</WoodPlanks>
+							<ComponentPrimitive>8</ComponentPrimitive>
+							<Book>15</Book>
+						</costList>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<comps>
+							<li Class="CompProperties_Facility">
+								<compClass>ProjectParagon.Core.Things.CompFacilityBook</compClass>
+								<maxSimultaneous>2</maxSimultaneous>
+							</li>
+						</comps>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>2000</WorkToBuild>
+							<Flammability>0.8</Flammability>
+							<Beauty>2</Beauty>
+							<Mass>30</Mass>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">4</StyleDominance>
+						</statBases>
+						<size>(1,1)</size>
+						<building>
+							<bookendGraphicEast>
+								<texPath>Things/Building/Furniture/Bookcase/BookcaseSmall_Bookend_east</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<addTopAltitudeBias>true</addTopAltitudeBias>
+								<drawSize>(2,2)</drawSize>
+							</bookendGraphicEast>
+							<bookendGraphicNorth>
+								<texPath>Things/Building/Furniture/Bookcase/BookcaseSmall_Bookend_north</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<addTopAltitudeBias>true</addTopAltitudeBias>
+								<drawSize>(2,2)</drawSize>
+							</bookendGraphicNorth>
+							<relatedBuildCommands>
+								<li>Bookcase</li>
+							</relatedBuildCommands>
+						</building>
+						<designationCategory>Science</designationCategory>
+						<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+						<designatorDropdown>Science_Utility</designatorDropdown>
 					</ThingDef>
 				</value>
 			</li>

@@ -149,6 +149,8 @@ namespace Proton
                 ignored = true;
             if (temp.Contains("heatstroke"))
                 ignored = true;
+            if (temp.Contains("needresearchproject"))
+                ignored = true;
         }
     }
 }

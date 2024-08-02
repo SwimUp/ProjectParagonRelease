@@ -31,6 +31,7 @@
 		<rotatable>false</rotatable>
 		<pathCost>15</pathCost>
 		<tradeTags>
+			<li>CE_AmmoInjector</li>
 			<li>CE_Ammo</li>
 		</tradeTags>
 		<tradeability>None</tradeability>
@@ -41,24 +42,30 @@
 		<cookOffTailSound>GunTail_Medium</cookOffTailSound>
 		<techLevel>Industrial</techLevel>
 	</ThingDef>
+	
 	<ThingDef Class="CombatExtended.AmmoDef" Name="SmallAmmoBase" ParentName="AmmoBase" Abstract="True">
 		<smallVolume>true</smallVolume>
 		<statBases>
 			<MaxHitPoints>75</MaxHitPoints>
 		</statBases>
 	</ThingDef>
+	
 	<ThingDef Class="CombatExtended.AmmoDef" Name="NeolithicAmmoBase" ParentName="AmmoBase" Abstract="True">
 		<techLevel>Neolithic</techLevel>
 	</ThingDef>
+	
 	<ThingDef Class="CombatExtended.AmmoDef" Name="SpacerSmallAmmoBase" ParentName="SmallAmmoBase" Abstract="True">
 		<techLevel>Spacer</techLevel>
 	</ThingDef>
+	
 	<ThingDef Class="CombatExtended.AmmoDef" Name="HeavyAmmoBase" ParentName="AmmoBase" Abstract="True">
 		<tradeTags inherit="false">
 			<li>CE_HeavyAmmo</li>
 		</tradeTags>
 	</ThingDef>
+	
 	<!-- ================== Projectiles ================== -->
+	
 	<ThingDef Class="CombatExtended.AmmoDef" Name="BaseBullet" Abstract="True">
 		<category>Projectile</category>
 		<tickerType>Normal</tickerType>
@@ -79,7 +86,16 @@
 			<alwaysFreeIntercept>true</alwaysFreeIntercept>
 		</projectile>
 	</ThingDef>
+	
+	<ThingDef Name="BaseExplosiveBullet" ParentName="BaseBullet" Abstract="True">
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<suppressionFactor>3.0</suppressionFactor>
+			<dangerFactor>2.0</dangerFactor>
+		</projectile>
+	</ThingDef>
+	
 	<!-- ==================== Recipes ========================== -->
+	
 	<RecipeDef Name="AmmoRecipeBase" Abstract="true">
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Cook</effectWorking>
@@ -94,15 +110,19 @@
 		<conceptLearned>CE_AmmoCrafting</conceptLearned>
 		<unfinishedThingDef>UnfinishedAmmo</unfinishedThingDef>
 	</RecipeDef>
+	
 	<RecipeDef Name="AdvancedAmmoRecipeBase" ParentName="AmmoRecipeBase" Abstract="true">
 		<researchPrerequisite>CE_AdvancedAmmo</researchPrerequisite>
 	</RecipeDef>
+	
 	<RecipeDef Name="LauncherAmmoRecipeBase" ParentName="AmmoRecipeBase" Abstract="true">
 		<researchPrerequisite>CE_Launchers</researchPrerequisite>
 	</RecipeDef>
+	
 	<RecipeDef Name="ChargeAmmoRecipeBase" ParentName="AmmoRecipeBase" Abstract="true">
 		<researchPrerequisite>ChargedShot</researchPrerequisite>
 	</RecipeDef>
+	
 	<RecipeDef Name="AmmoRecipeNeolithicBase" Abstract="true">
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Cook</effectWorking>
@@ -113,6 +133,7 @@
 		<targetCountAdjustment>20</targetCountAdjustment>
 		<unfinishedThingDef>UnfinishedArrows</unfinishedThingDef>
 	</RecipeDef>
+	
 	<!-- Base for hand grenades -->
 	<RecipeDef ParentName="AmmoRecipeBase" Name="GrenadeRecipeBase" Abstract="true">
 		<recipeUsers>

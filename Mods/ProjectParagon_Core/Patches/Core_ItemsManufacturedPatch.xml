@@ -170,6 +170,7 @@
 							<workSkill>Intellectual</workSkill>
 							<recipeUsers Inherit="false">
 								<li>DrugLab</li>
+								<li>Nanosynthesizer</li>
 							</recipeUsers>
 							<researchPrerequisite>MedicineProduction</researchPrerequisite>
 							<skillRequirements>
@@ -249,6 +250,7 @@
 							<workSkill>Intellectual</workSkill>
 							<recipeUsers Inherit="false">
 								<li>DrugLab</li>
+								<li>Nanosynthesizer</li>
 							</recipeUsers>
 							<researchPrerequisite>MedicineProduction</researchPrerequisite>
 							<skillRequirements>
@@ -257,6 +259,90 @@
 							</skillRequirements>
 							<productCount>4</productCount>
 						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[@Name="SubcoreBase"]</xpath>
+				<value>
+					<ThingDef Name="SubcoreBase" ParentName="ResourceBase" Abstract="True">
+						<soundInteract>Metal_Drop</soundInteract>
+						<soundDrop>Standard_Drop</soundDrop>
+						<stackLimit>10</stackLimit>
+						<graphicData>
+							<drawSize>0.85</drawSize>
+						</graphicData>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<MarketValue>250</MarketValue>
+							<Mass>1</Mass>
+							<Flammability>0.6</Flammability>
+							<DeteriorationRate>2.0</DeteriorationRate>
+						</statBases>
+						<intricate>true</intricate>
+						<thingCategories>
+							<li>RobotComponents</li>
+						</thingCategories>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SubcoreBasic"]</xpath>
+				<value>
+					<ThingDef ParentName="SubcoreBase">
+						<defName>SubcoreBasic</defName>
+						<label>basic subcore</label>
+						<description>The simplest possible mechanoid brain, this is a tiny psychodynamic substrate unit housing a dull subpersona. Since this is only a basic-tier subcore, it can only drive the simplest of mechanoids.\n\nLike all mechanoid subcores, it contains a subpersona with a psychic presence, albeit a very faint one.</description>
+						<graphicData>
+							<texPath>Things/Item/Resource/SubcoreBasic</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<techHediffsTags>
+							<li>SubcoreBasic</li>
+						</techHediffsTags>
+						<statBases>
+							<WorkToMake>6000</WorkToMake>
+						</statBases>
+						<recipeMaker>
+							<researchPrerequisite>BasicMechtech</researchPrerequisite>
+							<workSpeedStat>SubcoreEncodingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<recipeUsers>
+								<li>SubcoreEncoder</li>
+							</recipeUsers>
+							<mechanitorOnlyRecipe>true</mechanitorOnlyRecipe>
+							<unfinishedThingDef>UnfinishedSubcore</unfinishedThingDef>
+							<soundWorking>SubcoreEncoder_Working</soundWorking>
+						</recipeMaker>
+						<costList>
+							<MechanismSpacer>3</MechanismSpacer>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Wire>10</Wire>
+						</costList>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[@Name="MechResourceBase"]</xpath>
+				<value>
+					<ThingDef Name="MechResourceBase" ParentName="ResourceBase" Abstract="True">
+						<soundInteract>Metal_Drop</soundInteract>
+						<soundDrop>Standard_Drop</soundDrop>
+						<stackLimit>10</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+						  <MaxHitPoints>100</MaxHitPoints>
+						  <MarketValue>500</MarketValue>
+						  <Mass>1</Mass>
+						  <Flammability>0.25</Flammability>
+						  <DeteriorationRate>2.0</DeteriorationRate>
+						</statBases>
+						<intricate>true</intricate>
+						<thingCategories>
+						  <li>RobotComponents</li>
+						</thingCategories>
+						<isTechHediff>true</isTechHediff>
 					</ThingDef>
 				</value>
 			</li>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="DubsDirtyBathtubBase">
+		<defName>RoyalBath</defName>
+		<label>royal bath</label>
+		<description>Luxury bath that slow to use, but very comfortable and beautiful. Can be heated by placing an adjacent campfire or log boiler, or via plumbed hot water tanks. Does not require a sewage outlet.\n190L per wash</description>
+		<graphicData>
+			<drawSize>(2,3)</drawSize>
+			<texPath>Things/Building/RoyalBaths/bath</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>8000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>50</Beauty>
+			<Comfort>1.5</Comfort>
+			<JoyGainFactor>1</JoyGainFactor>
+			<Mass>50</Mass>
+		</statBases>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<fillPercent>0.15</fillPercent>
+		<size>(1, 2)</size>
+		<passability>PassThroughOnly</passability>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<pathCost>8</pathCost>
+		<rotatable>true</rotatable>
+		<researchPrerequisites Inherit="False">
+			<li>HiTechBathroom</li>
+		</researchPrerequisites>
+		<tickerType>Normal</tickerType>
+		<modExtensions>
+			<li Class="DubsBadHygiene.BathHeaterExt">
+				<HeatSources>
+					<li>Campfire</li>
+					<li MayRequire="dbhlitemode">LogBoiler</li>
+					<li>GasBoiler</li>
+					<li>LiquidBoiler</li>
+				</HeatSources>
+			</li>
+		</modExtensions>
+		<castEdgeShadows>True</castEdgeShadows>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<ComponentSpacer>3</ComponentSpacer>
+			<MechanismComplex>3</MechanismComplex>
+			<SimpleElectronic>2</SimpleElectronic>
+			<Microelectronics>2</Microelectronics>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef ParentName="AdvTerletBase">
+		<defName>RoyalToilet</defName>
+		<label>royal toilet</label>
+		<description>Luxury sanitation fixture used for the disposal of human urine and faeces. High comfort, very attractive - real throne.\n14L per use</description>
+		<graphicData>
+			<drawSize>(2,2)</drawSize>
+			<texPath>Things/Building/RoyalToilet/toilet</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<researchPrerequisites Inherit="False">
+			<li>HiTechBathroom</li>
+		</researchPrerequisites>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>5000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>25</Beauty>
+			<Comfort>0.8</Comfort>
+			<Mass>20</Mass>
+		</statBases>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>80</costStuffCount>
+		<costList>
+			<ComponentSpacer>4</ComponentSpacer>
+			<MechanismComplex>2</MechanismComplex>
+			<SimpleElectronic>4</SimpleElectronic>
+			<Microelectronics>2</Microelectronics>
+		</costList>
+	</ThingDef>
+	
+	<ThingDef ParentName="DubsDirtyBasinBase">
+		<defName>RoyalBasin</defName>
+		<label>royal basin</label>
+		<description>Luxury clean bathroom basin for keeping your hands clean after using the toilet. High comfort, very attractive.\n14L per use</description>
+		<graphicData>
+			<drawSize>(2,2)</drawSize>
+			<texPath>Things/Building/RoyalSink/basin</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<uiIconPath>Things/Building/RoyalSink/basinUI</uiIconPath>
+		<researchPrerequisites Inherit="False">
+			<li>HiTechBathroom</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>2500</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>50</Beauty>
+			<Mass>20</Mass>
+		</statBases>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>60</costStuffCount>
+		<costList>
+			<ComponentSpacer>4</ComponentSpacer>
+			<MechanismComplex>2</MechanismComplex>
+			<SimpleElectronic>1</SimpleElectronic>
+			<Microelectronics>1</Microelectronics>
+		</costList>
+	</ThingDef>
+</Defs>

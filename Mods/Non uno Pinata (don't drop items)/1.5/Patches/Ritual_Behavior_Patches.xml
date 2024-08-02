@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>Defs/RitualBehaviorDef[defName="GladiatorDuel"]/stages/li/roleBehaviors/li[roleId="duelist2" and dutyDef="DropWeapon"]</xpath>
+			</li>
+			<li Class="PatchOperationInsert">
+				<xpath>Defs/RitualBehaviorDef[defName="GladiatorDuel"]/stages/li/roleBehaviors/li[roleId="duelist2" and dutyDef="DropWeapon"]</xpath>
+				<value>
+					<li>
+						<roleId>escorte1</roleId>
+						<dutyDef>NonUnoPinata_StripDuelEquipment</dutyDef>
+					</li>
+					<li>
+						<roleId>escorte2</roleId>
+						<dutyDef>NonUnoPinata_StripDuelEquipment</dutyDef>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

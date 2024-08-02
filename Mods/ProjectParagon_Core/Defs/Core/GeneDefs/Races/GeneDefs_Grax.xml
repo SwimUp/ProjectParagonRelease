@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneGraxBase" Abstract="True">
+		<displayCategory>Grax</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneGraxBase">
+		<defName>Grax</defName>
+		<label>Grax</label>
+		<description>Silicon life form with a special metabolism.</description>
+		<iconPath>Core/Genes/Grax</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>0</biostatMet>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneGraxBase">
+		<defName>SulfurNeed</defName>
+		<label>Sulfur need</label>
+		<description>The creature requires the consumption of sulfur for digestion.</description>
+		<iconPath>Core/Genes/SulfurNeed</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<prerequisite>Grax</prerequisite>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>5</biostatMet>
+		<causesNeed>Need_Sulfur</causesNeed>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneGraxBase">
+		<defName>ThermalMetabolism</defName>
+		<label>Thermal metabolism</label>
+		<description>Being in a hot place can partially reduce the wearer's need for sunlight.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/ThermalMetabolism</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>SunRequirement</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>ThermalMetabolism</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.41</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneGraxBase" Name="CrystallineGrowths" Abstract="true">
+		<description>Crystals of precious stones grow on the creature's body.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
+		<displayOrderInCategory>100</displayOrderInCategory>
+		<iconPath>Core/Genes/CrystallineGrowths</iconPath>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Grax</prerequisite>
+		<displayCategory>Excretion</displayCategory>
+		<exclusionTags>
+			<li>Excretion</li>
+		</exclusionTags>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="CrystallineGrowths">
+		<defName>CrystallineGrowths_Diamond</defName>
+		<label>Diamond crystals</label>
+		<iconColor>108,190,240</iconColor>
+		<displayOrderInCategory>100</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>CrystallineGrowths_Diamond</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.001~0.8</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="CrystallineGrowths">
+		<defName>CrystallineGrowths_Sapphire</defName>
+		<label>Sapphire crystals</label>
+		<iconColor>75,90,235</iconColor>
+		<displayOrderInCategory>110</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>CrystallineGrowths_Sapphire</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.001~0.8</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="CrystallineGrowths">
+		<defName>CrystallineGrowths_Emerald</defName>
+		<label>Emerald crystals</label>
+		<iconColor>80,150,57</iconColor>
+		<displayOrderInCategory>120</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>CrystallineGrowths_Emerald</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.001~0.8</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="CrystallineGrowths">
+		<defName>CrystallineGrowths_Ruby</defName>
+		<label>Ruby crystals</label>
+		<iconColor>140,45,65</iconColor>
+		<displayOrderInCategory>130</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>CrystallineGrowths_Ruby</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.001~0.8</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="CrystallineGrowths">
+		<defName>CrystallineGrowths_Alexandrite</defName>
+		<label>Alexandrite crystals</label>
+		<iconColor>180,80,145</iconColor>
+		<displayOrderInCategory>140</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>CrystallineGrowths_Alexandrite</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.001~0.8</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="CrystallineGrowths">
+		<defName>CrystallineGrowths_Topaz</defName>
+		<label>Topaz crystals</label>
+		<iconColor>180,160,80</iconColor>
+		<displayOrderInCategory>150</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>CrystallineGrowths_Topaz</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.001~0.8</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="CrystallineGrowths">
+		<defName>CrystallineGrowths_Amethyst</defName>
+		<label>Amethyst crystals</label>
+		<iconColor>130,84,170</iconColor>
+		<displayOrderInCategory>160</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>CrystallineGrowths_Amethyst</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.001~0.8</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>GraxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+</Defs>

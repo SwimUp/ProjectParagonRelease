@@ -725,4 +725,106 @@
 		</modExtensions>
 	</ThingDef>
 	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SynopticLink</defName>
+		<label>Synoptic link</label>
+		<description>Large AI link for communication and maintaining basic robot models in obedience. Unconnected robots operate according to instructions and cannot be controlled.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SynopticLink</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SynopticLink/SynopticLink</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(8,8)</drawSize>
+			<drawOffset>0,0,0.25</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<staticSunShadowHeight>0.5</staticSunShadowHeight>
+		<uiIconScale>1</uiIconScale>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<category>Building</category>
+		<pathCost>60</pathCost>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>75000</WorkToBuild>
+			<Mass>500</Mass>
+			<Flammability>4</Flammability>
+		</statBases>
+		<size>(4,4)</size>
+		<costList>
+			<SuperStrongPlates>100</SuperStrongPlates>
+			<Supermagnet>50</Supermagnet>
+			<ComponentSpacer>6</ComponentSpacer>
+			<Nanoelectronics>2</Nanoelectronics>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<designationCategory>Misc</designationCategory>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_SynopticLink</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>SynopticLink</scheme>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>2500</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>RobotAssembly</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SynopticNode</defName>
+		<label>Synoptic node</label>
+		<description>Thinking center associated with the synoptic channel. Capable of supporting one of the robots. The nodes work in synergy and fail when one of them is damaged.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SynopticNode</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SynopticNode/SynopticNode</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+			<drawOffset>0,0,0.3</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<staticSunShadowHeight>0.5</staticSunShadowHeight>
+		<uiIconScale>0.8</uiIconScale>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<category>Building</category>
+		<pathCost>40</pathCost>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>25000</WorkToBuild>
+			<Mass>500</Mass>
+			<Flammability>4</Flammability>
+		</statBases>
+		<costList>
+			<Biosynthetics>100</Biosynthetics>
+			<BulletproofGlass>50</BulletproofGlass>
+			<SuperStrongPlates>50</SuperStrongPlates>
+			<ComponentSpacer>2</ComponentSpacer>
+			<SubcoreHigh>1</SubcoreHigh>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<designationCategory>Misc</designationCategory>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<size>(2,2)</size>
+		<researchPrerequisites>
+			<li>RobotAssembly</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<!---->
 </Defs>

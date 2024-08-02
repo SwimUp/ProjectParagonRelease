@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<Vehicles.VehicleBuildDef ParentName="RT_BaseVehicleBuild">
+		<defName>RT_C130_Vehicle_Blueprint</defName>
+		<label>C130 Hercules</label>
+		<description>A four-engine transport aircraft that requires longer runways to land and take off due to its massive size, but has unparalleled cargo capacity, also has superior range and speed.</description>
+		<designationCategory>VF_Vehicles</designationCategory>
+		
+		<graphicData>
+			<texPath>C130/C130</texPath>
+			<drawSize>(25, 21)</drawSize>
+		</graphicData>
+		
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>150000</WorkToBuild>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		
+		<size>(9, 13)</size>
+		
+		<constructionSkillPrerequisite>18</constructionSkillPrerequisite>
+		<costList>
+			<EngineJet>4</EngineJet>
+			<ComponentHeavyCasting>80</ComponentHeavyCasting>
+			<ComponentWheelTire>4</ComponentWheelTire>
+			<SimplePlates>250</SimplePlates>
+			<StrongPlates>40</StrongPlates>
+		</costList>
+		
+		<researchPrerequisites>
+			<li>AdvancedAircraftIndustry</li>
+		</researchPrerequisites>
+		
+		<thingToSpawn>RT_C130_Vehicle</thingToSpawn>
+
+	</Vehicles.VehicleBuildDef>
+	
+	<Vehicles.VehicleDef ParentName="RT_BaseVehicle">
+		<defName>RT_C130_Vehicle</defName>
+		<label>C130 Hercules</label>
+		<description>A four-engine transport aircraft that requires longer runways to land and take off due to its massive size, but has unparalleled cargo capacity, also has superior range and speed.</description>
+		
+		<graphicData>
+			<texPath>C130/C130</texPath>
+			<drawSize>(25, 21)</drawSize>
+		</graphicData>
+		
+		<fillPercent>0.7</fillPercent>
+		
+		<buildDef>RT_C130_Vehicle_Blueprint</buildDef>
+		
+		<size>(9, 13)</size>
+		
+		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
+		<canCaravan LockSetting = "True">false</canCaravan>
+		<vehicleCategory>Transport</vehicleCategory>
+		<techLevel>Industrial</techLevel>
+		<vehicleType>Air</vehicleType>
+		
+		<statBases>
+			<ArmorRating_Blunt>40</ArmorRating_Blunt>
+			<ArmorRating_Sharp>10</ArmorRating_Sharp>
+			<Flammability>0</Flammability>
+			<MarketValue>25000</MarketValue>
+		</statBases>
+		
+		<vehicleStats>
+			<Mass>30000</Mass>
+			<MoveSpeed>1.5</MoveSpeed>
+			<CargoCapacity>15000</CargoCapacity>
+			<RepairRate>0.5</RepairRate>
+			<FlightSpeed>25</FlightSpeed>
+		</vehicleStats>
+		
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start>
+				<stop>IgnitionOff</stop>
+				<value>VVE_VehicleRotorAirplane</value>
+			</li>
+			<li>
+				<start>AerialVehicleLaunch</start>
+				<stop>AerialVehicleLeftMap</stop>
+				<value>VVE_VehicleRotorAirplane</value>
+			</li>
+			<li>
+				<start>AerialVehicleLanding</start>
+				<stop>Spawned</stop>
+				<value>VVE_VehicleRotorAirplane</value>
+			</li>
+			<li>
+				<start>AerialVehicleCrashLanding</start>
+				<stop>Spawned</stop>
+				<value>VVE_VehicleRotorAirplane</value>
+			</li>
+		</soundSustainersOnEvent>
+
+		<soundOneShotsOnEvent Inherit = "False">
+			<li>
+				<key>PawnEntered</key>
+				<value>VVE_VehicleEnter</value>
+			</li>
+			<li>
+				<key>PawnExited</key>
+				<value>VVE_VehicleEnter</value>
+			</li>
+			<li>
+				<key>IgnitionOn</key>
+				<value>VVE_VehicleStart</value>
+			</li>
+			<li>
+				<key>IgnitionOff</key>
+				<value>VVE_VehicleStart</value>
+			</li>
+		</soundOneShotsOnEvent>
+		
+		<race>
+			<baseBodySize>5.5</baseBodySize>
+		</race>
+		
+		<properties>
+			<defaultBiomesImpassable>true</defaultBiomesImpassable>
+			
+			<vehicleJobLimitations>
+				<li>(RepairVehicle, 8)</li>
+			</vehicleJobLimitations>
+
+			<roles>
+				<li>
+					<key>pilot</key>
+					<label>Pilot</label>
+					<slots>2</slots>
+					<slotsToOperate>2</slotsToOperate>
+					
+					<handlingTypes>
+						<li>Movement</li>
+					</handlingTypes>
+					
+					<hitbox>
+						<cells>
+							<li>(0, 6)</li>
+							<li>(1, 6)</li>
+							<li>(-1, 6)</li>
+						</cells>
+					</hitbox>
+				</li>
+				<li>
+					<key>passenger</key>
+					<label>Passenger</label>
+					<slots>16</slots>
+					
+					<hitbox>
+						<cells>
+							<li>(0, 1)</li>
+							<li>(-1, 1)</li>
+							<li>(1, 1)</li>
+							<li>(0, 2)</li>
+							<li>(-1, 2)</li>
+							<li>(1, 2)</li>
+							<li>(0, 3)</li>
+							<li>(-1, 3)</li>
+							<li>(1, 3)</li>
+						</cells>
+					</hitbox>
+				</li>
+			</roles>
+		</properties>
+		
+		<components>
+			<li>
+				<key>Engine1</key>
+				<label>Engine 1</label>
+				<health>120</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<maxHealth>0.2</maxHealth>
+						<radius>3</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(-4, 4)</li>
+						<li>(-4, 3)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+					<li>FlightControl</li>
+					<li>FlightSpeed</li>
+				</categories>
+			</li>
+
+			<li>
+				<key>Engine2</key>
+				<label>Engine 2</label>
+				<health>120</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<maxHealth>0.2</maxHealth>
+						<radius>3</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(-2, 4)</li>
+						<li>(-2, 3)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+					<li>FlightControl</li>
+					<li>FlightSpeed</li>
+				</categories>
+			</li>
+
+			<li>
+				<key>Engine3</key>
+				<label>Engine 3</label>
+				<health>120</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<maxHealth>0.2</maxHealth>
+						<radius>3</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(2, 4)</li>
+						<li>(2, 3)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+					<li>FlightControl</li>
+					<li>FlightSpeed</li>
+				</categories>
+			</li>
+
+			<li>
+				<key>Engine4</key>
+				<label>Engine 4</label>
+				<health>120</health>
+				<priorityStatEfficiency>true</priorityStatEfficiency>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<maxHealth>0.2</maxHealth>
+						<radius>3</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>
+				
+				<hitbox>
+					<cells>
+						<li>(4, 4)</li>
+						<li>(4, 3)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+					<li>FlightControl</li>
+					<li>FlightSpeed</li>
+				</categories>
+			</li>
+
+			<li>
+				<key>Engine1Cover</key>
+				<label>Engine 1 Cover</label>
+				<health>240</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(-4, 4)</li>
+						<li>(-4, 3)</li>
+					</cells>
+				</hitbox>
+			</li>
+
+			<li>
+				<key>Engine2Cover</key>
+				<label>Engine 2 Cover</label>
+				<health>240</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(-2, 4)</li>
+						<li>(-2, 3)</li>
+					</cells>
+				</hitbox>
+			</li>
+
+			<li>
+				<key>Engine3Cover</key>
+				<label>Engine 3 Cover</label>
+				<health>240</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(2, 4)</li>
+						<li>(2, 3)</li>
+					</cells>
+				</hitbox>
+			</li>
+
+			<li>
+				<key>Engine4Cover</key>
+				<label>Engine 4 Cover</label>
+				<health>240</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(4, 4)</li>
+						<li>(4, 3)</li>
+					</cells>
+				</hitbox>
+			</li>
+
+			<li>
+				<key>LeftLandingWheel</key>
+				<label>Left Landing Wheel</label>
+				<health>160</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+				</armor>
+				
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(-1, 0)</li>
+						<li>(-1, 1)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightLandingWheel</key>
+				<label>Right Landing Wheel</label>
+				<health>160</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+				</armor>
+				
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(1, 0)</li>
+						<li>(1, 1)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			
+			<li>
+				<key>CentralLandingWheel</key>
+				<label>Central Landing Wheel</label>
+				<health>80</health>
+				<depth>External</depth>
+				
+				<armor>
+					<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+					<ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+				</armor>
+				
+				<tags>
+					<li>Wheel</li>
+				</tags>
+				
+				<hitbox>
+					<fallthrough>false</fallthrough>
+					<cells>
+						<li>(0, 6)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>MoveSpeed</li>
+				</categories>
+			</li>
+			
+			<li>
+				<key>LeftHorizontalStabilizer</key>
+				<label>Left Horizontal Stabilizer</label>
+				<health>160</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(-1, -6)</li>
+						<li>(-2, -6)</li>
+						<li>(-3, -6)</li>
+						<li>(-4, -6)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightHorizontalStabilizer</key>
+				<label>Right Horizontal Stabilizer</label>
+				<health>160</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(1, -6)</li>
+						<li>(2, -6)</li>
+						<li>(3, -6)</li>
+						<li>(4, -6)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+			<li>
+				<key>Rudder</key>
+				<label>Rudder</label>
+				<health>160</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(0, -6)</li>
+						<li>(0, -5)</li>
+						<li>(0, -4)</li>
+						<li>(0, -3)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+
+			<li>
+				<key>Fuselage</key>
+				<label>Fuselage</label>
+				<health>1200</health>
+				<depth>External</depth>
+			</li>
+
+			<li>
+				<key>Chemtank</key>
+				<label>Chemtank</label>
+				<health>400</health>
+				<depth>Internal</depth>
+				
+				<reactors>
+					<li Class = "Vehicles.Reactor_FuelLeak"/>
+					<li Class = "Vehicles.Reactor_Explosive">
+						<indicator>VF_Explosive</indicator>
+						<chance>0.25</chance>
+						<maxHealth>0.2</maxHealth>
+						<radius>3</radius>
+						<damageDef>Flame</damageDef>
+					</li>
+				</reactors>
+			</li>
+
+			<li>
+				<key>LeftWing</key>
+				<label>Left Wing</label>
+				<health>800</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(-1, 3)</li>
+						<li>(-1, 2)</li>
+						<li>(-1, 1)</li>
+						<li>(-2, 3)</li>
+						<li>(-2, 2)</li>
+						<li>(-2, 1)</li>
+						<li>(-3, 3)</li>
+						<li>(-3, 2)</li>
+						<li>(-3, 1)</li>
+						<li>(-4, 3)</li>
+						<li>(-4, 2)</li>
+						<li>(-4, 1)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+			<li>
+				<key>RightWing</key>
+				<label>Right Wing</label>
+				<health>800</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(1, 3)</li>
+						<li>(1, 2)</li>
+						<li>(1, 1)</li>
+						<li>(2, 3)</li>
+						<li>(2, 2)</li>
+						<li>(2, 1)</li>
+						<li>(3, 3)</li>
+						<li>(3, 2)</li>
+						<li>(3, 1)</li>
+						<li>(4, 3)</li>
+						<li>(4, 2)</li>
+						<li>(4, 1)</li>
+					</cells>
+				</hitbox>
+				
+				<categories>
+					<li>FlightControl</li>
+				</categories>
+			</li>
+
+			<li>
+				<key>LeftAileron</key>
+				<label>Left Aileron</label>
+				<health>200</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(-2, 1)</li>
+						<li>(-3, 1)</li>
+						<li>(-4, 1)</li>
+					</cells>
+				</hitbox>
+			</li>
+
+			<li>
+				<key>RightAileron</key>
+				<label>Right Aileron</label>
+				<health>200</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(2, 1)</li>
+						<li>(3, 1)</li>
+						<li>(4, 1)</li>
+					</cells>
+				</hitbox>
+			</li>
+
+			<li>
+				<key>LeftFlap</key>
+				<label>Left Flap</label>
+				<health>100</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(-2, 1)</li>
+						<li>(-3, 1)</li>
+						<li>(-4, 1)</li>
+					</cells>
+				</hitbox>
+			</li>
+
+			<li>
+				<key>RightFlap</key>
+				<label>Right Flap</label>
+				<health>100</health>
+				<depth>External</depth>
+				
+				<hitbox>
+					<cells>
+						<li>(2, 1)</li>
+						<li>(3, 1)</li>
+						<li>(4, 1)</li>
+					</cells>
+				</hitbox>
+			</li>
+
+			<li>
+				<key>Upholstery</key>
+				<label>Upholstery</label>
+				<health>100</health>
+				<depth>Internal</depth>
+				<hitWeight>5</hitWeight>
+			</li>
+			<li>
+				<key>Dashboard</key>
+				<label>Dashboard</label>
+				<health>100</health>
+				<depth>Internal</depth>
+				<hitWeight>2</hitWeight>
+			</li>
+			<li>
+				<key>Servos</key>
+				<label>Servos</label>
+				<health>100</health>
+				<depth>Internal</depth>
+				<hitWeight>4</hitWeight>
+			</li>
+		</components>
+		
+		<comps>	
+			<li Class="Vehicles.CompProperties_FueledTravel">
+				<fuelType>Canister_Diesel</fuelType>
+				<fuelConsumptionRate>170</fuelConsumptionRate>
+				<fuelCapacity>1000</fuelCapacity>
+			</li>
+			<li Class="Vehicles.CompProperties_VehicleLauncher">
+				<fuelConsumptionWorldMultiplier>40</fuelConsumptionWorldMultiplier>
+				<launchProtocol Class="Vehicles.DirectionalTakeoff">
+					<launchProperties>
+						<horizontal>
+							<maxTicks>600</maxTicks>
+						
+							<flipHorizontal>West</flipHorizontal>
+							<flipRotation>West</flipRotation>
+							
+							<lockShadowZ>true</lockShadowZ>
+							
+							<restriction Class = "Vehicles.LaunchRestriction_Runway">
+								<width>(-5, 50)</width>
+								<height>(-5, 5)</height>
+								
+								<fillPercent>0.21</fillPercent>
+							</restriction>
+							
+							<rotationCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0.2, 0)</li>
+									<li>(0.68, 0)</li>
+									<li>(0.63, -9)</li>
+									<li>(1, -8)</li>
+								</points>
+							</rotationCurve>
+							
+							<xPositionCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 0)</li>
+									<li>(0.25, 0)</li>
+									<li>(0.35, 15)</li>
+									<li>(0.5, 60)</li>
+									<li>(0.6, 130)</li>
+									<li>(0.8, 160)</li>
+									<li>(1, 250)</li>
+								</points>
+							</xPositionCurve>
+							
+							<zPositionCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0.15, 0)</li>
+									<li>(0.8, 0)</li>
+									<li>(0.95, 0)</li>
+									<li>(0.95, 0)</li>
+									<li>(0.95, 40)</li>
+								</points>
+							</zPositionCurve>
+							
+							<shadowAlphaCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 0)</li>
+									<li>(0.15, 0)</li>
+									<li>(0.2, 0)</li>
+									<li>(0.25, 1)</li>
+								</points>
+							</shadowAlphaCurve>
+						</horizontal>
+						
+						<vertical>
+							<maxTicks>600</maxTicks>
+							
+							<flipVertical>South</flipVertical>
+							
+							<lockShadowZ>true</lockShadowZ>
+							
+							<restriction Class = "Vehicles.LaunchRestriction_Runway">
+								<width>(-5, 5)</width>
+								<height>(-5, 50)</height>
+								
+								<fillPercent>0.21</fillPercent>
+							</restriction>
+							
+							<zPositionCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 0)</li>
+									<li>(0.25, 0)</li>
+									<li>(0.35, 0)</li>
+									<li>(0.5, 0)</li>
+									<li>(0.65, 100)</li>
+									<li>(0.8, 100)</li>
+									<li>(1, 250)</li>
+								</points>
+							</zPositionCurve>
+
+							<shadowAlphaCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 0)</li>
+									<li>(0, 0)</li>
+									<li>(0, 0)</li>
+									<li>(0, 0)</li>
+								</points>
+							</shadowAlphaCurve>
+		
+						</vertical>
+					</launchProperties>
+					
+					<landingProperties>
+						<horizontal>
+							<maxTicks>600</maxTicks>
+							
+							<flipHorizontal>West</flipHorizontal>
+							<flipRotation>West</flipRotation>
+							
+							<lockShadowZ>true</lockShadowZ>
+							
+							<restriction Class = "Vehicles.LaunchRestriction_Runway">
+								<width>(-50, 5)</width>
+								<height>(-5, 5)</height>
+								
+								<fillPercent>0.21</fillPercent>
+							</restriction>
+							
+							<rotationCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0.4, -5)</li>
+									<li>(0.6, 0)</li>
+									<li>(0.7, 0)</li>
+									<li>(0.8, 0)</li>
+								</points>
+							</rotationCurve>
+							
+							<xPositionCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, -225)</li>
+									<li>(0.15, -160)</li>
+									<li>(0.41, -120)</li>
+									<li>(0.51, -40)</li>
+									<li>(0.75, 0)</li>
+									<li>(0.85, 0)</li>
+									<li>(1, 0)</li>
+								</points>
+							</xPositionCurve>
+							
+							<zPositionCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 5)</li>
+									<li>(0.2, 0)</li>
+									<li>(0.3, 0)</li>
+									<li>(0.6, 0)</li>
+								</points>
+							</zPositionCurve>
+							
+							<shadowAlphaCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0.8, 1)</li>
+									<li>(0.85, 1)</li>
+									<li>(0.9, 1)</li>
+									<li>(1, 0)</li>
+								</points>
+							</shadowAlphaCurve>
+						</horizontal>
+						
+						<vertical>
+							<maxTicks>600</maxTicks>
+							
+							<flipVertical>South</flipVertical>
+							
+							<lockShadowZ>true</lockShadowZ>
+							
+							<restriction Class = "Vehicles.LaunchRestriction_Runway">
+								<width>(-5, 5)</width>
+								<height>(-50, 5)</height>
+								
+								<fillPercent>0.21</fillPercent>
+							</restriction>
+							
+							<zPositionCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, -225)</li>
+									<li>(0.15, -160)</li>
+									<li>(0.41, -120)</li>
+									<li>(0.51, -40)</li>
+									<li>(0.75, 0)</li>
+									<li>(0.85, 0)</li>
+									<li>(1, 0)</li>
+								</points>
+							</zPositionCurve>
+
+							<shadowAlphaCurve Class="SmashTools.BezierCurve">
+								<points>
+									<li>(0, 0)</li>
+									<li>(0, 0)</li>
+									<li>(0, 0)</li>
+									<li>(0, 0)</li>
+								</points>
+							</shadowAlphaCurve>
+						</vertical>
+					</landingProperties>
+				</launchProtocol>
+			</li>
+		</comps>
+	</Vehicles.VehicleDef>
+</Defs>

@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RulePackDef>
+		<defName>NamerRobots</defName>
+		<include>
+			<li>NamerWorld</li>
+			<li>ArtNameUtility</li>
+		</include>
+		<rulePack>
+			<rulesStrings>
+				<li>r_name->[union] [RomanNumeral]</li>
+				<li>r_name->[union] [RomanNumeral].[RomanNumeral]</li>
+				<li>r_name->The [Color] [union]</li>
+				<li>union->Unit</li>
+				<li>union->Block</li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
+	<RulePackDef>
+		<defName>NamerSettlementRobots</defName>
+		<include>
+			<li>NamerWorld</li>
+			<li>ArtNameUtility</li>
+		</include>
+		<rulePack>
+			<rulesStrings>
+				<li>r_name->[union] [RomanNumeral]</li>
+				<li>r_name->[union] [RomanNumeral].[RomanNumeral]</li>
+				<li>r_name->[union] [RomanNumeral].[RomanNumeral].[RomanNumeral]</li>
+				<li>union->Production unit</li>
+				<li>union->Production block</li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
+	<ThingSetMakerDef>
+		<defName>RobotLootMaker</defName>
+		<root Class="ThingSetMaker_MarketValue">
+			<fixedParams>
+				<filter>
+					<thingDefs>
+						<li>RepairKit</li>
+					</thingDefs>
+				</filter>
+			</fixedParams>
+		</root>
+	</ThingSetMakerDef>
+	<FactionDef ParentName="FactionBase">
+		<defName>Robots</defName>
+		<label>Robots</label>
+		<description>A block of robots under the guidance of some kind of AI, which is probably distributed across various robot models, or central nodes. The AI ​​is guided by unknown goals, but is aggressive towards organics..</description>
+		<pawnSingular>Robot</pawnSingular>
+		<pawnsPlural>Robots</pawnsPlural>
+		<listOrderPriority>100</listOrderPriority>
+		<settlementGenerationWeight>1</settlementGenerationWeight>
+		<requiredCountAtGameStart>0</requiredCountAtGameStart>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<canMakeRandomly>true</canMakeRandomly>
+		<canSiege>true</canSiege>
+		<canStageAttacks>true</canStageAttacks>
+		<leaderTitle>AI node</leaderTitle>
+		<permanentEnemy>true</permanentEnemy>
+		<naturalEnemy>true</naturalEnemy>
+		<basicMemberKind>Newborn_Robot_Sparky</basicMemberKind>
+		<allowedCultures>
+			<li>Astropolitan</li>
+		</allowedCultures>
+		<autoFlee>false</autoFlee>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<RobotRace>999</RobotRace>
+			</xenotypeChances>
+		</xenotypeSet>
+		<structureMemeWeights>
+			<Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Archist>
+		</structureMemeWeights>
+		<allowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Structure_Archist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">HumanPrimacy</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Loyalist</li>
+		</allowedMemes>
+		<requiredMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Structure_Archist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">HumanPrimacy</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Loyalist</li>
+		</requiredMemes>
+		<factionIconPath>Core/World/Factions/Robots/Robots</factionIconPath>
+		<colorSpectrum>
+			<li>58, 78, 127</li>
+			<li>63, 90, 154</li>
+		</colorSpectrum>
+		<factionNameMaker>NamerRobots</factionNameMaker>
+		<settlementNameMaker>NamerSettlementRobots</settlementNameMaker>
+		<techLevel>Spacer</techLevel>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Pirate</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedArrivalTemperatureRange>-100~70</allowedArrivalTemperatureRange>
+		<raidLootMaker>RobotLootMaker</raidLootMaker>
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,1000)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
+		<pawnGroupMakers>
+			<li>
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<Robot_Ghost>10</Robot_Ghost>
+					<Robot_Corsair>10</Robot_Corsair>
+				</options>
+			</li>
+			<li>
+				<kindDef>Peaceful</kindDef>
+				<options>
+					<Robot_Sparky>40</Robot_Sparky>
+					<Robot_Ghost>40</Robot_Ghost>
+					<Robot_Mantis>20</Robot_Mantis>
+					<Robot_Wisp>5</Robot_Wisp>
+					<Robot_Fabricator>10</Robot_Fabricator>
+					<Robot_Planter>10</Robot_Planter>
+					<Robot_Loyalist>10</Robot_Loyalist>
+					<Robot_Percival>3</Robot_Percival>
+					<Robot_Corsair>20</Robot_Corsair>
+				</options>
+			</li>
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<Robot_Percival>1</Robot_Percival>
+				</traders>
+				<carriers>
+					<Muffalo>6</Muffalo>
+					<Dromedary>5</Dromedary>
+					<Alpaca>2.5</Alpaca>
+					<Elephant>2</Elephant>
+				</carriers>
+				<guards>
+					<Robot_Sparky>40</Robot_Sparky>
+					<Robot_Ghost>40</Robot_Ghost>
+					<Robot_Mantis>20</Robot_Mantis>
+					<Robot_Wisp>5</Robot_Wisp>
+					<Robot_Fabricator>10</Robot_Fabricator>
+					<Robot_Planter>10</Robot_Planter>
+					<Robot_Loyalist>10</Robot_Loyalist>
+					<Robot_Percival>3</Robot_Percival>
+					<Robot_Corsair>20</Robot_Corsair>
+				</guards>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<Robot_Sparky>80</Robot_Sparky>
+					<Robot_Fabricator>20</Robot_Fabricator>
+					<Robot_Planter>20</Robot_Planter>
+					
+					<Robot_Ghost>40</Robot_Ghost>
+					<Robot_Corsair>20</Robot_Corsair>
+					
+					<Robot_Mantis>20</Robot_Mantis>
+					<Robot_Loyalist>10</Robot_Loyalist>
+					
+					<Robot_Percival>5</Robot_Percival>
+					<Robot_Wisp>10</Robot_Wisp>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+		<caravanTraderKinds>
+			<li>RobotTrader</li>
+		</caravanTraderKinds>
+		<visitorTraderKinds>
+			<li>RobotVisitor</li>
+		</visitorTraderKinds>
+		<baseTraderKinds>
+			<li>RobotTrader</li>
+		</baseTraderKinds>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<questGenerationSettings>
+					<minPlayerGameStage>Space</minPlayerGameStage>
+				</questGenerationSettings>
+				<factionNuclearSettings>
+					<isNuclearFaction>false</isNuclearFaction>
+					<preventPlayerNuclearProgram>false</preventPlayerNuclearProgram>
+					<couldStartNuclearWar>false</couldStartNuclearWar>
+				</factionNuclearSettings>
+				<factionCaravanAISettings>
+					<maxCaravanPower>4500</maxCaravanPower>
+					<minCaravanPower>800</minCaravanPower>
+					<totalPowerMultiplier>1</totalPowerMultiplier>
+					<powerMultiplierByCaravansCount>
+						<points>
+							<li>(0, 1)</li>
+							<li>(8, 1)</li>
+							<li>(15, 0.7)</li>
+							<li>(20, 0.3)</li>
+							<li>(50, 0)</li>
+						</points>
+					</powerMultiplierByCaravansCount>
+					<powerByTechLevel>
+						<Animal>300</Animal>
+						<Neolithic>500</Neolithic>
+						<Medieval>1000</Medieval>
+						<Industrial>1500</Industrial>
+						<Spacer>2500</Spacer>
+						<Ultra>4000</Ultra>
+						<Archotech>6000</Archotech>
+					</powerByTechLevel>
+					<powerMultiplierByTechLevel>
+						<Animal>1</Animal>
+						<Neolithic>1.1</Neolithic>
+						<Medieval>1.25</Medieval>
+						<Industrial>1.5</Industrial>
+						<Spacer>2</Spacer>
+						<Ultra>2.5</Ultra>
+						<Archotech>3</Archotech>
+					</powerMultiplierByTechLevel>
+				</factionCaravanAISettings>
+				<raidGenerationSettings>
+					<minPlayerGameStage>Space</minPlayerGameStage>
+					<maxRaidDistance>100</maxRaidDistance>
+				</raidGenerationSettings>
+				<factionOrdersSettings>
+					<orders>
+						<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+							<checkIntervalDays>1.2~1.8</checkIntervalDays>
+							<buildiableWorldObjects>
+								<li>
+									<worldObjectDef>WatchTower</worldObjectDef>
+									<minThreat>1500</minThreat>
+									<priority>1</priority>
+									<maxCount>8</maxCount>
+									<maxCountForEachSettlement>1</maxCountForEachSettlement>
+									<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+												</worker>
+								</li>
+							</buildiableWorldObjects>
+						</li>
+						<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+							<mtbDays>1</mtbDays>
+							<excludeSettlementSpecialization>
+								<li>SlaveOwners</li>
+								<li>Breeders</li>
+								<li>Traders</li>
+								<li>SlaveOwners</li>
+							</excludeSettlementSpecialization>
+							<caravans>
+								<li>
+									<commonality>50</commonality>
+									<caravanPower>900~1400</caravanPower>
+									<maxTotalCaravans>6</maxTotalCaravans>
+									<wealthRequired>500</wealthRequired>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>30</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>TravelingGroup</caravanTypeDef>
+									<wealthCost>80</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+								</li>
+								<li>
+									<commonality>120</commonality>
+									<caravanPower>1500~2000</caravanPower>
+									<maxTotalCaravans>6</maxTotalCaravans>
+									<wealthRequired>700</wealthRequired>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 5.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<wealthCostMultiplierByCaravanPowerCurve>
+										<points>
+											<li>(100, 1)</li>
+											<li>(1500, 3)</li>
+										</points>
+									</wealthCostMultiplierByCaravanPowerCurve>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>30</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>Trade</caravanTypeDef>
+									<wealthCost>150</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+									<minSettlementMoney>200</minSettlementMoney>
+									<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+									<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+									<exceptSettlementSpecializtions>
+										<li>SlaveOwners</li>
+									</exceptSettlementSpecializtions>
+								</li>
+								<li>
+									<commonality>80</commonality>
+									<caravanPower>1500~2000</caravanPower>
+									<maxTotalCaravans>3</maxTotalCaravans>
+									<wealthRequired>600</wealthRequired>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 4.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<caravanThingSetMakerProps>
+										<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+										<thingSetMakerParams>
+											<countRange>300~800</countRange>
+										</thingSetMakerParams>
+										<countRangeMultiplierByWealthCurve>
+											<points>
+												<li>(200, 1)</li>
+												<li>(20000, 4.0)</li>
+											</points>
+										</countRangeMultiplierByWealthCurve>
+									</caravanThingSetMakerProps>
+									<wealthCostMultiplierByCaravanPowerCurve>
+										<points>
+											<li>(100, 1)</li>
+											<li>(1500, 4)</li>
+										</points>
+									</wealthCostMultiplierByCaravanPowerCurve>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>30</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>TransportCaravan</caravanTypeDef>
+									<wealthCost>120</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+								</li>
+								<li>
+									<commonality>100</commonality>
+									<caravanPower>1500~2500</caravanPower>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 3.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<maxTotalCaravans>6</maxTotalCaravans>
+									<wealthRequired>1000</wealthRequired>
+									<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+									<caravanTypeDef>Battle</caravanTypeDef>
+									<wealthCost>300</wealthCost>
+								</li>
+							</caravans>
+						</li>
+					</orders>
+				</factionOrdersSettings>
+				<settlementGlobalSettings>
+					<threatRadius>20</threatRadius>
+					<startedSilver>800~1200</startedSilver>
+					<silverMultiplierByWealth>
+						<points>
+							<li>(200, 1)</li>
+							<li>(500, 1.25)</li>
+							<li>(1000, 2)</li>
+							<li>(2000, 3)</li>
+							<li>(5000, 5)</li>
+							<li>(10000, 10)</li>
+							<li>(20000, 15)</li>
+						</points>
+					</silverMultiplierByWealth>
+					<maxSilverPerSettlement>10000</maxSilverPerSettlement>
+					<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+					<cultureForDestroySettlementsByWealth>
+						<points>
+							<li>(0, 50)</li>
+							<li>(20000, 700)</li>
+						</points>
+					</cultureForDestroySettlementsByWealth>
+				</settlementGlobalSettings>
+				<factionEconomySettings>
+					<economyList>
+						<li>
+							<thingCategoryDefs>
+								<li>Foods</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.8</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Manufactured</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.8</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>ResourcesRaw</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.5</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>2</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Weapons</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.1</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Apparel</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>0.8</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.5</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Animals</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.5</priceSellMultiplier>
+						</li>
+					</economyList>
+					<successTradeMultiplierRange>1.1~1.35</successTradeMultiplierRange>
+				</factionEconomySettings>
+			</li>
+			<li Class="GiddyUp.FactionRestrictions">
+				<mountChance>10</mountChance>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<TraderKindDef>
+		<defName>RobotTrader</defName>
+		<stockGenerators>
+		</stockGenerators>
+	</TraderKindDef>
+	<TraderKindDef>
+		<defName>RobotVisitor</defName>
+		<label>trader</label>
+		<stockGenerators>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>250~400</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>RepairKit</thingDef>
+				<countRange>2~5</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MechanismSpacer</thingDef>
+				<countRange>2~7</countRange>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+</Defs>

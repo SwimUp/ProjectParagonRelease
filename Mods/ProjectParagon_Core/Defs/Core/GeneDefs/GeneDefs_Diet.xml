@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneDietBase" Abstract="True">
+		<displayCategory>Needs</displayCategory>
+		<exclusionTags>
+			<li>Diet</li>
+		</exclusionTags>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneDietBase">
+		<defName>Diet_OnlyRawFood</defName>
+		<label>Only raw food</label>
+		<description>The carrier of the gene digests raw food well, but does not digest prepared food well.</description>
+		<iconPath>Core/Genes/OnlyRawFood</iconPath>
+		<displayOrderInCategory>300</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>0</biostatMet>
+		<dontMindRawFood>true</dontMindRawFood>
+		<statFactors>
+			<RawNutritionFactor>1.8</RawNutritionFactor>
+			<ProcessedNutritionFactor>0.2</ProcessedNutritionFactor>
+		</statFactors>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneDietBase">
+		<defName>Diet_OnlyProcessedFood</defName>
+		<label>Only processed food</label>
+		<description>The carrier of the gene has great difficulty digesting raw food.</description>
+		<iconPath>Core/Genes/OnlyProcessedFood</iconPath>
+		<displayOrderInCategory>320</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>2</biostatMet>
+		<statFactors>
+			<RawNutritionFactor>0.2</RawNutritionFactor>
+		</statFactors>
+	</GeneDef>
+	<!---->
+</Defs>

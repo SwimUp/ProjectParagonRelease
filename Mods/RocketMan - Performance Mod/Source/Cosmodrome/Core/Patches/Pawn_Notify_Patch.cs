@@ -72,12 +72,26 @@ namespace RocketMan.Patches
         {
             public static IEnumerable<MethodBase> TargetMethods()
             {
-                yield return AccessTools.Method(typeof(Pawn_HealthTracker), nameof(Pawn_HealthTracker.Notify_HediffChanged));
                 yield return AccessTools.Method(typeof(Pawn_HealthTracker), nameof(Pawn_HealthTracker.Notify_UsedVerb));
             }
 
             [HarmonyPriority(int.MaxValue)]
             public static void Postfix(Pawn_HealthTracker __instance)
+            {
+                __instance.pawn.Notify_Dirty();
+            }
+        }
+        
+        [RocketPatch()]
+        public static class Pawn_HediffSet_Dirty
+        {
+            public static IEnumerable<MethodBase> TargetMethods()
+            {
+                yield return AccessTools.Method(typeof(HediffSet), nameof(HediffSet.DirtyCache));
+            }
+
+            [HarmonyPriority(int.MaxValue)]
+            public static void Postfix(HediffSet __instance)
             {
                 __instance.pawn.Notify_Dirty();
             }

@@ -194,7 +194,16 @@
 	<!---->
 	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Worker" Abstract="True">
 		<race>Alien_Arachnids_Worker</race>
-		<combatPower>50</combatPower>
+		<label>Arachnid worker</label>
+		<combatPower>70</combatPower>
+		<chemicalAddictionChance>0.05</chemicalAddictionChance>
+		<itemQuality>Poor</itemQuality>
+		<gearHealthRange>0.3~1.1</gearHealthRange>
+		<techHediffsMoney>35~60</techHediffsMoney>
+		<techHediffsTags>
+			<li>Poor</li>
+		</techHediffsTags>
+		<techHediffsChance>0.05</techHediffsChance>
 		<backstoryFiltersOverride>
 			<li>
 				<categories>
@@ -202,6 +211,55 @@
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Arachnid_Worker">
+		<defName>Arachnid_WorkerFarmer</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Growing</li>
+						<li>Animals</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Hibernation_SeasonHibernationWinter>50</Hibernation_SeasonHibernationWinter>
+								<Hibernation_SeasonHibernationFall>50</Hibernation_SeasonHibernationFall>
+								<Hibernation_SeasonHibernationSpring>25</Hibernation_SeasonHibernationSpring>
+								<Hibernation_SeasonHibernationSummer>25</Hibernation_SeasonHibernationSummer>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Plants>50</AptitudeRemarkable_Plants>
+								<AptitudeStrong_Plants>50</AptitudeStrong_Plants>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Animals>50</AptitudeRemarkable_Animals>
+								<AptitudeStrong_Animals>50</AptitudeStrong_Animals>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Arachnid_Worker">
+		<defName>Arachnid_WorkerBuilder</defName>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
 				<pawnSkillGenerationSettings>
@@ -212,24 +270,384 @@
 						<li>Mining</li>
 					</allowedTags>
 				</pawnSkillGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Construction>50</AptitudeRemarkable_Construction>
+								<AptitudeStrong_Construction>50</AptitudeStrong_Construction>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Mining>50</AptitudeRemarkable_Mining>
+								<AptitudeStrong_Mining>50</AptitudeStrong_Mining>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Animals>50</AptitudeTerrible_Animals>
+								<AptitudePoor_Animals>50</AptitudePoor_Animals>
+								<AptitudeTerrible_Plants>50</AptitudeTerrible_Plants>
+								<AptitudePoor_Plants>50</AptitudePoor_Plants>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Crafting>50</AptitudeTerrible_Crafting>
+								<AptitudePoor_Crafting>50</AptitudePoor_Crafting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Cooking>50</AptitudeTerrible_Cooking>
+								<AptitudePoor_Cooking>50</AptitudePoor_Cooking>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 		</modExtensions>
 	</PawnKindDef>
 	<PawnKindDef ParentName="Arachnid_Worker">
-		<defName>Arachnid_WorkerCommon</defName>
-		<label>Arachnid worker</label>
-		<combatPower>70</combatPower>
-		<chemicalAddictionChance>0.05</chemicalAddictionChance>
-		<itemQuality>Poor</itemQuality>
-		<gearHealthRange>0.3~1.1</gearHealthRange>
-		<apparelRequired>
-			<li>Apparel_Loincloth</li>
-		</apparelRequired>
-		<techHediffsMoney>35~60</techHediffsMoney>
-		<techHediffsTags>
-			<li>Poor</li>
-		</techHediffsTags>
-		<techHediffsChance>0.05</techHediffsChance>
+		<defName>Arachnid_WorkerNurse</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Cooking</li>
+						<li>Crafting</li>
+						<li>Medicine</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Medicine>50</AptitudeRemarkable_Medicine>
+								<AptitudeStrong_Medicine>50</AptitudeStrong_Medicine>
+								<AptitudeRemarkable_Cooking>50</AptitudeRemarkable_Cooking>
+								<AptitudeStrong_Cooking>50</AptitudeStrong_Cooking>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Crafting>50</AptitudeRemarkable_Crafting>
+								<AptitudeStrong_Crafting>50</AptitudeStrong_Crafting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Animals>50</AptitudeTerrible_Animals>
+								<AptitudePoor_Animals>50</AptitudePoor_Animals>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Plants>50</AptitudeTerrible_Plants>
+								<AptitudePoor_Plants>50</AptitudePoor_Plants>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Construction>50</AptitudeTerrible_Construction>
+								<AptitudePoor_Construction>50</AptitudePoor_Construction>
+								<AptitudeTerrible_Mining>50</AptitudeTerrible_Mining>
+								<AptitudePoor_Mining>50</AptitudePoor_Mining>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<KindInstinct>50</KindInstinct>
+							</geneDefs>
+							<chance>0.85</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Sterile>50</Sterile>
+							</geneDefs>
+							<chance>0.85</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Arachnid_Worker">
+		<defName>Arachnid_WorkerProducer</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Cooking</li>
+						<li>Growing</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Ability_JellyExcretion>75</Ability_JellyExcretion>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Hibernation_SeasonHibernationWinter>50</Hibernation_SeasonHibernationWinter>
+								<Hibernation_SeasonHibernationFall>50</Hibernation_SeasonHibernationFall>
+								<Hibernation_SeasonHibernationSpring>25</Hibernation_SeasonHibernationSpring>
+								<Hibernation_SeasonHibernationSummer>25</Hibernation_SeasonHibernationSummer>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<MaxNutrition_EnlargedStomach>50</MaxNutrition_EnlargedStomach>
+								<MaxNutrition_BigStomach>75</MaxNutrition_BigStomach>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeStrong_Cooking>50</AptitudeStrong_Cooking>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeStrong_Plants>50</AptitudeStrong_Plants>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Mood_Sanguine>50</Mood_Sanguine>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Delicate>50</Delicate>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Arachnid_Worker">
+		<defName>Arachnid_WorkerChemist</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Crafting</li>
+						<li>Medicine</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Ability_ChemfuelExcretion>50</Ability_ChemfuelExcretion>
+								<Ability_OilExcretion>50</Ability_OilExcretion>
+								<Ability_DieselExcretion>50</Ability_DieselExcretion>
+								<Ability_NaphthaExcretion>50</Ability_NaphthaExcretion>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<WeakMusculature>50</WeakMusculature>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Nearsighted>50</Nearsighted>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<DisableComfort>50</DisableComfort>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<RobustDigestion>50</RobustDigestion>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<MaxNutrition_BigStomach>50</MaxNutrition_BigStomach>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Suppressability_VeryFearfull>50</Suppressability_VeryFearfull>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Sleepy>50</Sleepy>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Beauty_Ugly>50</Beauty_Ugly>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Bioluminescence_Structure_Auburn>50</Bioluminescence_Structure_Auburn>
+								<Bioluminescence_Structure_Scarlet>50</Bioluminescence_Structure_Scarlet>
+								<Bioluminescence_Structure_Mustard>50</Bioluminescence_Structure_Mustard>
+								<Bioluminescence_Structure_Orange>50</Bioluminescence_Structure_Orange>
+								<Bioluminescence_Structure_YellowPastel>50</Bioluminescence_Structure_YellowPastel>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<StrongStomach>50</StrongStomach>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Inbred>50</Inbred>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Construction>50</AptitudeTerrible_Construction>
+								<AptitudePoor_Construction>25</AptitudePoor_Construction>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Mining>50</AptitudeTerrible_Mining>
+								<AptitudePoor_Mining>25</AptitudePoor_Mining>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Plants>50</AptitudeTerrible_Plants>
+								<AptitudePoor_Plants>25</AptitudePoor_Plants>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Animals>50</AptitudeTerrible_Animals>
+								<AptitudePoor_Animals>25</AptitudePoor_Animals>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Cooking>25</AptitudeRemarkable_Cooking>
+								<AptitudeStrong_Cooking>50</AptitudeStrong_Cooking>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Crafting>25</AptitudeRemarkable_Crafting>
+								<AptitudeStrong_Crafting>50</AptitudeStrong_Crafting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Medicine>25</AptitudeRemarkable_Medicine>
+								<AptitudeStrong_Medicine>50</AptitudeStrong_Medicine>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<SenseOrgans_Silence>50</SenseOrgans_Silence>
+								<Mood_Pessimist>50</Mood_Pessimist>
+								<Learning_Slow>50</Learning_Slow>
+								<Instability_Mild>50</Instability_Mild>
+							</geneDefs>
+							<chance>0.33</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 	<PawnKindDef ParentName="BaseArachnidPawn" Name="Arachnid_Scholary" Abstract="True">
 		<race>Alien_Arachnids_Scholary</race>
@@ -241,18 +659,6 @@
 				</categories>
 			</li>
 		</backstoryFiltersOverride>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
-				<pawnSkillGenerationSettings>
-					<skillChance>0.25</skillChance>
-					<skillsCount>0~2</skillsCount>
-					<allowedTags>
-						<li>Research</li>
-						<li>Social</li>
-					</allowedTags>
-				</pawnSkillGenerationSettings>
-			</li>
-		</modExtensions>
 	</PawnKindDef>
 	<PawnKindDef ParentName="Arachnid_Scholary">
 		<defName>Arachnid_Scholary</defName>
@@ -266,6 +672,76 @@
 			<li>Poor</li>
 		</techHediffsTags>
 		<techHediffsChance>0.05</techHediffsChance>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~2</skillsCount>
+					<allowedTags>
+						<li>Research</li>
+						<li>Social</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Social>50</AptitudeRemarkable_Social>
+								<AptitudeStrong_Social>50</AptitudeStrong_Social>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Intellectual>50</AptitudeRemarkable_Intellectual>
+								<AptitudeStrong_Intellectual>50</AptitudeStrong_Intellectual>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Genius>50</Genius>
+								<Learning_Fast>50</Learning_Fast>
+							</geneDefs>
+							<chance>0.33</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Religiosity_Doubting>50</Religiosity_Doubting>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<WeakMusculature>50</WeakMusculature>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Nearsighted>50</Nearsighted>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Pain_Extra>50</Pain_Extra>
+								<Delicate>50</Delicate>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 	<PawnKindDef ParentName="BaseArachnidPawnNewborn">
 		<defName>Newborn_Arachnid_Scholary</defName>
@@ -302,26 +778,6 @@
 			</li>
 		</backstoryFiltersOverride>
 		<modExtensions>
-			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
-				<pawnSkillGenerationSettings>
-					<skillChance>0.25</skillChance>
-					<skillsCount>0~1</skillsCount>
-					<allowedTags>
-						<li>Melee</li>
-					</allowedTags>
-				</pawnSkillGenerationSettings>
-				<equipmentGenerationSettings>
-					<weaponSpecializationGenSettings>
-						<subSpecRangeFromEquipment>1~3</subSpecRangeFromEquipment>
-						<basicXpForSubSpec>0~2500</basicXpForSubSpec>
-						<randomSpecGenCount>0~3</randomSpecGenCount>
-						<maxPassions>
-							<Minor>0~4</Minor>
-							<Major>0~2</Major>
-						</maxPassions>
-					</weaponSpecializationGenSettings>
-				</equipmentGenerationSettings>
-			</li>
 			<li Class="GiddyUp.CustomMounts">
 				<mountChance>50</mountChance>
 				<possibleMounts>
@@ -357,6 +813,85 @@
 		<weaponTags>
 			<li>NeolithicMeleeDecent</li>
 		</weaponTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~1</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~3</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~2500</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~4</Minor>
+							<Major>0~2</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Aggression_HyperAggressive>50</Aggression_HyperAggressive>
+								<Aggression_Aggressive>50</Aggression_Aggressive>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- +2~+3 -->
+						</li>
+						<li>
+							<geneDefs>
+								<Beauty_Ugly>50</Beauty_Ugly>
+								<Beauty_VeryUgly>50</Beauty_VeryUgly>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+							<!-- +1~+2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<StrongMusculature>50</StrongMusculature>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+							<!-- -2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<MeleeDamage_Strong>50</MeleeDamage_Strong>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+							<!-- -2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Shooting>50</AptitudeTerrible_Shooting>
+								<AptitudePoor_Shooting>50</AptitudePoor_Shooting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- +1~+2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Melee>50</AptitudeRemarkable_Melee>
+								<AptitudeStrong_Melee>50</AptitudeStrong_Melee>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- -3~-1 -->
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
+			</li>
+		</modExtensions>
 	</PawnKindDef>
 	<PawnKindDef ParentName="Arachnid_Soldier">
 		<defName>Arachnid_SoldierShooter</defName>
@@ -375,11 +910,88 @@
 		<techHediffsTags>
 			<li>Poor</li>
 		</techHediffsTags>
-		<disallowedTraits>
+		<disallowedTraitsWithDegree>
 			<li>Brawler</li>
-		</disallowedTraits>
+		</disallowedTraitsWithDegree>
 		<techHediffsChance>0.05</techHediffsChance>
 		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0.25</skillChance>
+					<skillsCount>0~1</skillsCount>
+					<allowedTags>
+						<li>Melee</li>
+					</allowedTags>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>1~3</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~2500</basicXpForSubSpec>
+						<randomSpecGenCount>0~3</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0~4</Minor>
+							<Major>0~2</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Aggression_HyperAggressive>50</Aggression_HyperAggressive>
+								<Aggression_Aggressive>50</Aggression_Aggressive>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- +2~+3 -->
+						</li>
+						<li>
+							<geneDefs>
+								<Beauty_Ugly>50</Beauty_Ugly>
+								<Beauty_VeryUgly>50</Beauty_VeryUgly>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+							<!-- +1~+2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<StrongMusculature>50</StrongMusculature>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+							<!-- -2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<MeleeDamage_Strong>50</MeleeDamage_Strong>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+							<!-- -2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeTerrible_Melee>50</AptitudeTerrible_Melee>
+								<AptitudePoor_Melee>50</AptitudePoor_Melee>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- +1~+2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Shooting>50</AptitudeRemarkable_Shooting>
+								<AptitudeStrong_Shooting>50</AptitudeStrong_Shooting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- -3~-1 -->
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
+			</li>
 			<li Class="CombatExtended.LoadoutPropertiesExtension">
 				<primaryMagazineCount>
 					<min>20</min>
@@ -429,6 +1041,92 @@
 						</maxPassions>
 					</weaponSpecializationGenSettings>
 				</equipmentGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Aggression_HyperAggressive>50</Aggression_HyperAggressive>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- +3 -->
+						</li>
+						<li>
+							<geneDefs>
+								<PsychicAbility_Deaf>50</PsychicAbility_Deaf>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- +2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<StrongMusculature>50</StrongMusculature>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- -2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Melee>50</AptitudeRemarkable_Melee>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- -3 -->
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeStrong_Shooting>50</AptitudeStrong_Shooting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- -1 -->
+						</li>
+						<li>
+							<geneDefs>
+								<Beauty_VeryUgly>50</Beauty_VeryUgly>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- +2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<Pain_Reduced>50</Pain_Reduced>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- -1 -->
+						</li>
+						<li>
+							<geneDefs>
+								<MeleeDamage_Strong>50</MeleeDamage_Strong>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+							<!-- -2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<KillThirst>50</KillThirst>
+								<Learning_Slow>50</Learning_Slow>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+							<!-- +3~+2 -->
+						</li>
+						<li>
+							<geneDefs>
+								<Barbarian>50</Barbarian>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+							<!-- -2 -->
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 			<li Class="GiddyUp.CustomMounts">
 				<mountChance>40</mountChance>
@@ -499,9 +1197,9 @@
 		<techHediffsTags>
 			<li>Poor</li>
 		</techHediffsTags>
-		<disallowedTraits>
+		<disallowedTraitsWithDegree>
 			<li>Brawler</li>
-		</disallowedTraits>
+		</disallowedTraitsWithDegree>
 		<techHediffsChance>0.05</techHediffsChance>
 		<modExtensions>
 			<li Class="CombatExtended.LoadoutPropertiesExtension">
@@ -564,6 +1262,39 @@
 						</maxPassions>
 					</weaponSpecializationGenSettings>
 				</equipmentGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<MeleeDamage_Weak>50</MeleeDamage_Weak>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeRemarkable_Shooting>50</AptitudeRemarkable_Shooting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudePoor_Melee>50</AptitudePoor_Melee>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<WeakMusculature>50</WeakMusculature>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 			<li Class="GiddyUp.CustomMounts">
 				<mountChance>80</mountChance>
@@ -665,6 +1396,82 @@
 						</maxPassions>
 					</weaponSpecializationGenSettings>
 				</equipmentGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Aggression_Aggressive>50</Aggression_Aggressive>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Robust>50</Robust>
+								<Unstoppable>50</Unstoppable>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Pain_Reduced>50</Pain_Reduced>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Beauty_Ugly>50</Beauty_Ugly>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Learning_Slow>50</Learning_Slow>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Nearsighted>50</Nearsighted>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudePoor_Shooting>50</AptitudePoor_Shooting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeStrong_Melee>50</AptitudeStrong_Melee>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<StrongMusculature>50</StrongMusculature>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AntiqueSchool>50</AntiqueSchool>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 		</modExtensions>
 	</PawnKindDef>
@@ -711,6 +1518,81 @@
 						</li>
 					</forcedHediffs>
 				</hediffGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Aggression_Aggressive>50</Aggression_Aggressive>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Unstoppable>50</Unstoppable>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Pain_Reduced>50</Pain_Reduced>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Beauty_Ugly>50</Beauty_Ugly>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Learning_Slow>50</Learning_Slow>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Nearsighted>50</Nearsighted>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudePoor_Shooting>50</AptitudePoor_Shooting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeStrong_Melee>50</AptitudeStrong_Melee>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<StrongMusculature>50</StrongMusculature>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Robust>50</Robust>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 		</modExtensions>
 	</PawnKindDef>
@@ -733,6 +1615,84 @@
 						<li>Cooking</li>
 					</allowedTags>
 				</pawnSkillGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<FireTerror>50</FireTerror>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<MeleeDamage_Weak>50</MeleeDamage_Weak>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Delicate>50</Delicate>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<RobustDigestion>50</RobustDigestion>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<WeakMusculature>50</WeakMusculature>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<DisableProteins>50</DisableProteins>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<DisableFat>50</DisableFat>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<DisableCarbohydrates>50</DisableCarbohydrates>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<DisableVitamins>50</DisableVitamins>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Ability_ChemfuelExcretion>50</Ability_ChemfuelExcretion>
+								<Ability_OilExcretion>50</Ability_OilExcretion>
+								<Ability_DieselExcretion>50</Ability_DieselExcretion>
+								<Ability_NaphthaExcretion>50</Ability_NaphthaExcretion>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 		</modExtensions>
 	</PawnKindDef>
@@ -799,6 +1759,74 @@
 						</li>
 					</forcedHediffs>
 				</hediffGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>ArachnidRace</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<PsychicAbility_Extreme>50</PsychicAbility_Extreme>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<MeleeDamage_Weak>50</MeleeDamage_Weak>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Pain_Extra>50</Pain_Extra>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Beauty_VeryUgly>50</Beauty_VeryUgly>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Instability_Mild>50</Instability_Mild>
+							</geneDefs>
+							<chance>0.75</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudePoor_Melee>50</AptitudePoor_Melee>
+							</geneDefs>
+							<chance>0.75</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<AptitudeStrong_Shooting>50</AptitudeStrong_Shooting>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<Genius>50</Genius>
+							</geneDefs>
+							<chance>0.5</chance>
+							<xenogene>true</xenogene>
+						</li>
+						<li>
+							<geneDefs>
+								<WeakMusculature>50</WeakMusculature>
+							</geneDefs>
+							<chance>1</chance>
+							<xenogene>true</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 		</modExtensions>
 	</PawnKindDef>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<Vehicles.VehicleBuildDef Name="RT_BaseVehicleBuild" ParentName="VehicleBaseBuildable" Abstract="True">
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+		</graphicData>
+		<designationCategory>VF_Vehicles</designationCategory>	
+		<researchPrerequisites>
+			<li>Machining</li>
+		</researchPrerequisites>		
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>	
+	</Vehicles.VehicleBuildDef>
+
+	<Vehicles.VehicleDef Name="RT_BaseVehicle" ParentName="BaseVehiclePawn" Abstract="True">
+		<graphicData>
+			<graphicClass>Vehicles.Graphic_Vehicle</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+			<color>(155, 155, 155)</color>
+			<colorTwo>(65, 75, 80)</colorTwo>
+			<colorThree>(45, 50, 45)</colorThree>
+		</graphicData>
+		<techLevel>Industrial</techLevel>
+		<vehicleType>Land</vehicleType>
+		<vehicleMovementPermissions>DriverNeeded</vehicleMovementPermissions>
+		<soundOneShotsOnEvent Inherit = "False">
+			<li>
+				<key>PawnEntered</key>
+				<value>VVE_VehicleEnter</value>
+			</li>
+			<li>
+				<key>PawnExited</key>
+				<value>VVE_VehicleEnter</value>
+			</li>
+			<li>
+				<key>IgnitionOn</key>
+				<value>VVE_VehicleStart</value>
+			</li>
+			<li>
+				<key>IgnitionOff</key>
+				<value>VVE_VehicleStart</value>
+			</li>
+		</soundOneShotsOnEvent>
+		
+		<soundSustainersOnEvent>
+			<li>
+				<start>IgnitionOn</start>
+				<stop>IgnitionOff</stop>
+				<value>VVE_VehicleEngineHeavy</value>
+			</li>
+		</soundSustainersOnEvent>
+		
+		
+		<statBases>
+			<ArmorRating_Heat>0.8</ArmorRating_Heat>
+		</statBases>
+	</Vehicles.VehicleDef>
+
+	<Vehicles.VehicleTurretDef Name="RT_BaseTurret" ParentName="VehicleTurretBase" Abstract="True">
+		<turretType>Rotatable</turretType>
+		<graphicData>
+			<graphicClass>Vehicles.Graphic_Turret</graphicClass>
+			<shaderType>CutoutComplexPattern</shaderType>
+		</graphicData>
+		<!-- 目標相關的，別動它 -->	
+		<hitFlags>IntendedTarget</hitFlags>		
+		<autoSnapTargeting>false</autoSnapTargeting>	<!-- 自動瞄準 -->	
+		<!-- <attachProjectileFlag>VVE_Tank</attachProjectileFlag> 不知道幹啥的，先註解掉 -->
+	</Vehicles.VehicleTurretDef>
+</Defs>

@@ -9,7 +9,6 @@
 					<designatorDropdown>Structure_Walls</designatorDropdown>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="Door"]</xpath>
 				<value>
@@ -58,7 +57,6 @@
 					</ThingDef>
 				</value>
 			</li>
-			
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="AnimalFlap"]</xpath>
 				<value>
@@ -99,6 +97,155 @@
 							</blueprintGraphicData>
 						</building>
 						<designatorDropdown>Structure_Doors</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="OrnateDoor"]</xpath>
+				<value>
+					<ThingDef ParentName="DoorBase">
+						<defName>OrnateDoor</defName>
+						<label>ornate door</label>
+						<description>Divides rooms. An intricately-carved door, decorated with gold. This large, heavy door requires adjacent walls to function.</description>
+						<thingClass>Building_MultiTileDoor</thingClass>
+						<statBases>
+							<WorkToBuild>15000</WorkToBuild>
+							<MaxHitPoints>250</MaxHitPoints>
+							<Beauty>30</Beauty>
+						</statBases>
+						<graphicData>
+							<texPath>Things/Building/OrnateDoor/OrnateDoor2x1_Mover</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<damageData>
+								<enabled>false</enabled>
+							</damageData>
+						</graphicData>
+						<uiIconPath>Things/Building/OrnateDoor/OrnateDoor_MenuIcon_south</uiIconPath>
+						<useBlueprintGraphicAsGhost>true</useBlueprintGraphicAsGhost>
+						<size>(2, 1)</size>
+						<rotatable>true</rotatable>
+						<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+						<costStuffCount>100</costStuffCount>
+						<costList>
+							<GoldIngot>50</GoldIngot>
+							<ComponentSimple>6</ComponentSimple>
+						</costList>
+						<building>
+							<blueprintClass>Blueprint_Build</blueprintClass>
+							<blueprintGraphicData>
+								<texPath>Things/Building/OrnateDoor/OrnateDoor_MenuIcon</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<shaderType>EdgeDetect</shaderType>
+								<drawSize>(2.6, 3.1)</drawSize>
+							</blueprintGraphicData>
+							<doorTopGraphic>
+								<texPath>Things/Building/OrnateDoor/OrnateDoor2x1_Top</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<drawSize>(3.1, 2.3)</drawSize>
+							</doorTopGraphic>
+							<doorSupportGraphic>
+								<texPath>Things/Building/OrnateDoor/OrnateDoor2x1_Support</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<drawSize>(3.1, 2.3)</drawSize>
+							</doorSupportGraphic>
+						</building>
+						<researchPrerequisites>
+							<li>ExquisiteFurniture</li>
+						</researchPrerequisites>
+						<designationHotKey>Misc3</designationHotKey>
+						<placeWorkers>
+							<li>PlaceWorker_MultiCellDoor</li>
+						</placeWorkers>
+						<designatorDropdown>Structure_Doors</designatorDropdown>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="SecurityDoor"]</xpath>
+				<value>
+					<ThingDef ParentName="DoorBase">
+						<defName>SecurityDoor</defName>
+						<label>security door</label>
+						<description>A heavily reinforced door. It is slow to open and requires electricity, but is very strong. It's a good choice if you want to keep something dangerous out - or in. The door requires walls on either side to function.</description>
+						<thingClass>Building_MultiTileDoor</thingClass>
+						<statBases>
+							<WorkToBuild>8000</WorkToBuild>
+							<MaxHitPoints>800</MaxHitPoints>
+							<Flammability>0</Flammability>
+						</statBases>
+						<size>(2, 1)</size>
+						<rotatable>true</rotatable>
+						<graphicData>
+							<texPath>Things/Building/SecurityDoor/SecurityDoor2x1_Underlayer_Mover</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<damageData>
+								<!--  no damage marks because they don't move with the door -->
+								<enabled>false</enabled>
+							</damageData>
+							<color>(105,105,105)</color>
+						</graphicData>
+						<uiIconPath>Things/Building/SecurityDoor/SecurityDoor_MenuIcon_south</uiIconPath>
+						<uiIconColor>(105,105,105)</uiIconColor>
+						<useBlueprintGraphicAsGhost>true</useBlueprintGraphicAsGhost>
+						<costList>
+							<StrongPlates>100</StrongPlates>
+							<SimpleElectronic>2</SimpleElectronic>
+							<MechanismComplex>2</MechanismComplex>
+						</costList>
+						<stuffCategories Inherit="False"/>
+						<useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<building>
+							<poweredDoorOpenSpeedFactor>4</poweredDoorOpenSpeedFactor>
+							<unpoweredDoorOpenSpeedFactor>2</unpoweredDoorOpenSpeedFactor>
+							<unpoweredDoorCloseSpeedFactor>2</unpoweredDoorCloseSpeedFactor>
+							<blueprintClass>Blueprint_Build</blueprintClass>
+							<blueprintGraphicData>
+								<texPath>Things/Building/SecurityDoor/SecurityDoor_MenuIcon</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<shaderType>EdgeDetect</shaderType>
+								<drawSize>(2.6, 3.1)</drawSize>
+							</blueprintGraphicData>
+							<doorTopGraphic>
+								<texPath>Things/Building/SecurityDoor/SecurityDoor2x1_Top</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<drawSize>(3,2.4)</drawSize>
+								<color>(105,105,105)</color>
+							</doorTopGraphic>
+							<doorSupportGraphic>
+								<texPath>Things/Building/SecurityDoor/SecurityDoor2x1_Support</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<drawSize>(3,2.4)</drawSize>
+								<color>(105,105,105)</color>
+							</doorSupportGraphic>
+							<upperMoverGraphic>
+								<texPath>Things/Building/SecurityDoor/SecurityDoor2x1_Upper_Mover</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<color>(105,105,105)</color>
+							</upperMoverGraphic>
+							<soundDoorOpenPowered>SecurityDoor_Open</soundDoorOpenPowered>
+							<soundDoorClosePowered>SecurityDoor_BeginClosing</soundDoorClosePowered>
+							<soundDoorOpenManual>SecurityDoor_Open</soundDoorOpenManual>
+							<soundDoorCloseManual>SecurityDoor_BeginClosing</soundDoorCloseManual>
+							<soundDoorCloseEnd>SecurityDoor_EndClosing</soundDoorCloseEnd>
+						</building>
+						<designationHotKey>Misc2</designationHotKey>
+						<researchPrerequisites>
+							<li>ForgingPress</li>
+						</researchPrerequisites>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+						<placeWorkers>
+							<li>PlaceWorker_MultiCellDoor</li>
+						</placeWorkers>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>50</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Breakdownable"/>
+							<li Class="CompProperties_Styleable"/>
+						</comps>
 					</ThingDef>
 				</value>
 			</li>

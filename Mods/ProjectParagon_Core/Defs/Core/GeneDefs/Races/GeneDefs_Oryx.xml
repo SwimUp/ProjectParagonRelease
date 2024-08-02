@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneOryxBase" Abstract="True">
+		<displayCategory>Oryx</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>Oryx</defName>
+		<label>Oryx</label>
+		<labelShortAdj>Oryx</labelShortAdj>
+		<description>A feathered xenos capable of making short leaps to fly.</description>
+		<iconPath>Core/Genes/Oryx</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>0</biostatMet>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<forcedTraits>
+			<li>
+				<def>Greedy</def>
+			</li>
+		</forcedTraits>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>BeautifulFeathers</defName>
+		<label>Beautiful feathers</label>
+		<description>The carrier of the gene has a set of lush and beautiful feathers.</description>
+		<iconPath>Core/Genes/BeautifulFeathers</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<statOffsets>
+			<Beauty>1</Beauty>
+		</statOffsets>
+		<prerequisite>Oryx</prerequisite>
+		<renderNodeProperties>
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+				<parentTagDef>Head</parentTagDef>
+				<colorType>Hair</colorType>
+				<useRottenColor>true</useRottenColor>
+				<useSkinShader>true</useSkinShader>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<texPaths>
+					<li>Things/Pawn/Humanlike/HeadAttachments/FaceFeathers/FaceFeathersA</li>
+					<li>Things/Pawn/Humanlike/HeadAttachments/FaceFeathers/FaceFeathersB</li>
+				</texPaths>
+				<baseLayer>51</baseLayer>
+			</li>
+		</renderNodeProperties>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>BirdsFeet</defName>
+		<label>Bird's feet</label>
+		<description>The carrier of the gene has special clawed feet, which are less efficient in fine motor skills.</description>
+		<iconPath>Core/Genes/BirdsFeet</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<statFactors>
+			<WorkSpeedGlobal>0.85</WorkSpeedGlobal>
+		</statFactors>
+		<prerequisite>Oryx</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>HollowBones</defName>
+		<label>Hollow bones</label>
+		<description>The bones of the gene carrier are hollow, which makes them very fragile, but at the same time light.</description>
+		<iconPath>Core/Genes/HollowBones</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>5</biostatMet>
+		<statFactors>
+			<IncomingDamageFactor>2</IncomingDamageFactor>
+		</statFactors>
+		<prerequisite>Oryx</prerequisite>
+		<exclusionTags>
+			<li>Toughness</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>AirBags</defName>
+		<label>Air bags</label>
+		<description>The lungs of the gene carrier are rebuilt; they do not contain alveoli, like in mammals, but consist of millions of thin parabronchi, connected at the ends with dorsobronchi and ventobronchi.</description>
+		<iconPath>Core/Genes/AirBags</iconPath>
+		<displayOrderInCategory>40</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<capMods>
+			<li>
+				<capacity>Breathing</capacity>
+				<postFactor>2</postFactor>
+			</li>
+		</capMods>
+		<prerequisite>Oryx</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>BirdWings</defName>
+		<label>Bird's wings</label>
+		<description>The carrier of the gene has beautiful and lush wings, which allow them to rise into the air for a short time.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/BirdWings</iconPath>
+		<displayOrderInCategory>50</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>HollowBones</prerequisite>
+		<exclusionTags>
+			<li>Wings</li>
+		</exclusionTags>
+		<abilities>
+			<li>OryxFlight</li>
+		</abilities>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>OryxWing</hediffDef>
+					<canAffectAnyLivePart>true</canAffectAnyLivePart>
+					<severity>1</severity>
+					<count>2</count>
+					<bodyParts>
+						<li>Shoulder</li>
+					</bodyParts>
+				</props>
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+		<!--<renderNodeProperties>
+			<li>
+				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+				<texPath>Things/Pawn/Humanlike/Wings/Old/Wings</texPath>
+				<drawSize>1.15</drawSize>
+				<parentTagDef>Body</parentTagDef>
+				<color>(255, 255, 255)</color>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<colorType>Skin</colorType>
+				<drawData>
+					<defaultData>
+						<layer>49</layer>
+					</defaultData>
+					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+					<dataNorth>
+						<offset>(0, 0.3, -0.18)</offset>
+						<layer>49</layer>
+					</dataNorth>
+					<dataSouth>
+						<offset>(0, -0.2, -0.05)</offset>
+						<layer>49</layer>
+					</dataSouth>
+					<dataEast>
+						<offset>(-0.13, 0.0, -0.1)</offset>
+						<layer>49</layer>
+					</dataEast>
+				</drawData>
+			</li>
+		</renderNodeProperties>-->
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>BirdTail</defName>
+		<label>Bird's tail</label>
+		<description>The carrier of the gene has a large bird's tail, which looks beautiful and helps regulate flight.</description>
+		<iconPath>Core/Genes/BirdTail</iconPath>
+		<displayOrderInCategory>60</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Oryx</prerequisite>
+		<exclusionTags>
+			<li>Tail</li>
+		</exclusionTags>
+		<renderNodeProperties>
+			<li>
+				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+				<texPaths>
+					<li>Things/Pawn/Humanlike/Wings/BirdTailA</li>
+					<li>Things/Pawn/Humanlike/Wings/BirdTailB</li>
+					<li>Things/Pawn/Humanlike/Wings/BirdTailC</li>
+				</texPaths>
+				<!--<texPath>Things/Pawn/Humanlike/Wings/BirdTail</texPath>-->
+				<drawSize>1</drawSize>
+				<parentTagDef>Body</parentTagDef>
+				<color>(255, 255, 255)</color>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<colorType>Hair</colorType>
+				<drawData>
+					<defaultData>
+						<layer>48</layer>
+					</defaultData>
+					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+					<dataNorth>
+						<offset>(0, 0, -0.7)</offset>
+						<layer>51</layer>
+					</dataNorth>
+					<dataWest>
+						<offset>(0.2, 0, 0)</offset>
+						<layer>48</layer>
+					</dataWest>
+					<dataEast>
+						<offset>(-0.2, 0, 0)</offset>
+						<layer>48</layer>
+					</dataEast>
+				</drawData>
+			</li>
+		</renderNodeProperties>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>BirdBeak</defName>
+		<label>Bird's beak</label>
+		<description>Carriers of the gene have a beak, which makes food consumption quite inefficient.</description>
+		<iconPath>Core/Genes/BirdBeak</iconPath>
+		<displayOrderInCategory>70</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<prerequisite>Oryx</prerequisite>
+		<statFactors>
+			<EatingSpeed>0.75</EatingSpeed>
+		</statFactors>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneOryxBase">
+		<defName>ReproductionByEggs</defName>
+		<label>Reproduction by eggs</label>
+		<description>Carriers of the gene spread their species by laying eggs and maintaining them intact.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ReproductionByEggs</geneClass>
+		<iconPath>Core/Genes/ReproductionByEggs</iconPath>
+		<displayOrderInCategory>80</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<prerequisite>Oryx</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>OryxRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+</Defs>

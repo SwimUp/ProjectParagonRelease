@@ -539,6 +539,60 @@
 					</RecipeDef>
 				</value>
 			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>*/RecipeDef[defName="Make_ComponentSpacer"]</xpath>
+			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="SmeltOrDestroyThing"]</xpath>
+				<value>
+					<RecipeDef>
+						<defName>SmeltOrDestroyThing</defName>
+						<label>smelt or destroy thing</label>
+						<description>Use heat and strong electromagnets to break down metallic things like weapons and armor into useful resources, or destroy them if they are not smeltable.</description>
+						<jobString>Smelting/destroying things.</jobString>
+						<workAmount>400</workAmount>
+						<smeltingWorkAmount>1600</smeltingWorkAmount>
+						<workSpeedStat>SmeltingSpeed</workSpeedStat>
+						<effectWorking>Smelt</effectWorking>
+						<soundWorking>Recipe_Smelt</soundWorking>
+						<specialProducts>
+							<li>Smelted</li>
+						</specialProducts>
+						<ingredients>
+							<li>
+								<filter>
+									<categories>
+										<li>Weapons</li>
+										<li>Apparel</li>
+									</categories>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<categories>
+								<li>Weapons</li>
+								<li>Apparel</li>
+							</categories>
+						</fixedIngredientFilter>
+						<defaultIngredientFilter>
+							<categories>
+								<li>Weapons</li>
+								<li>Apparel</li>
+							</categories>
+							<disallowedThingDefs>
+							<!--	<li>Gun_DoomsdayRocket</li>
+								<li>Gun_TripleRocket</li> -->
+								<li>TornadoGenerator</li>
+								<li>OrbitalTargeterPowerBeam</li>
+								<li>OrbitalTargeterBombardment</li>
+							</disallowedThingDefs>
+						</defaultIngredientFilter>
+					</RecipeDef>
+				</value>
+			</li>
+			
 		</operations>
 	</Operation>
 </Patch>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GeneAssembler"]</xpath>
+				<value>
+					<ThingDef ParentName="GeneBuildingBase">
+						<defName>GeneAssembler</defName>
+						<label>gene assembler</label>
+						<description>A workbench for creating implantable xenogerms from genepacks stored in nearby gene banks. Genepacks are not consumed in this process and can be reused.</description>
+						<thingClass>Building_GeneAssembler</thingClass>
+						<passability>PassThroughOnly</passability>
+						<castEdgeShadows>true</castEdgeShadows>
+						<fillPercent>0.4</fillPercent>
+						<graphicData>
+							<texPath>Things/Building/Misc/GeneAssembler/GeneAssembler</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3, 2)</drawSize>
+							<shadowData>
+								<volume>(2.55, 0.75, 1.7)</volume>
+							</shadowData>
+						</graphicData>
+						<descriptionHyperlinks>
+							<ThingDef>GeneBank</ThingDef>
+							<ThingDef>GeneProcessor</ThingDef>
+							<ThingDef>Genepack</ThingDef>
+							<ThingDef>Xenogerm</ThingDef>
+						</descriptionHyperlinks>
+						<tickerType>Normal</tickerType>
+						<size>(3, 2)</size>
+						<hasInteractionCell>true</hasInteractionCell>
+						<interactionCellOffset>(0, 0, 2)</interactionCellOffset>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<canOverlapZones>false</canOverlapZones>
+						<statBases>
+							<MaxHitPoints>500</MaxHitPoints>
+							<WorkToBuild>25000</WorkToBuild>
+							<Mass>35</Mass>
+							<Flammability>0.5</Flammability>
+							<AssemblySpeedFactor>1.0</AssemblySpeedFactor>
+						</statBases>
+						<costList>
+							<StrongPlates>150</StrongPlates>
+							<MechanismSpacer>4</MechanismSpacer>
+							<RobotParts>20</RobotParts>
+							<Nanoelectronics>2</Nanoelectronics>
+						</costList>
+						<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>300</basePowerConsumption>
+								<idlePowerDraw>100</idlePowerDraw>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>GeneBank</li>
+									<li>GeneProcessor</li>
+								</linkableFacilities>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GeneBank"]</xpath>
+				<value>
+					<ThingDef ParentName="GeneBuildingBase">
+						<defName>GeneBank</defName>
+						<label>gene bank</label>
+						<description>This building can store genepacks and make them usable to create new xenogerms, when placed near a gene assembler. Large gene libraries require many gene banks.\n\nWhen powered, gene banks prevent genepacks from deteriorating and will slowly repair deterioration.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/Genebank/Genebank</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(2, 1)</drawSize>
+						</graphicData>
+						<uiOrder>2154</uiOrder>
+						<castEdgeShadows>true</castEdgeShadows>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<tickerType>Rare</tickerType>
+						<passability>PassThroughOnly</passability>
+						<canOverlapZones>false</canOverlapZones>
+						<size>(2, 1)</size>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<WorkToBuild>5000</WorkToBuild>
+							<Mass>20</Mass>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<thingCategories>
+							<li>BuildingsProduction</li>
+						</thingCategories>
+						<inspectorTabs>
+							<li>ITab_ContentsGenepackHolder</li>
+						</inspectorTabs>
+						<costList>
+							<StrongPlates>125</StrongPlates>
+							<Biosynthetics>100</Biosynthetics>
+							<Supermagnet>10</Supermagnet>
+							<RobotParts>4</RobotParts>
+							<Nanoelectronics>1</Nanoelectronics>
+						</costList>
+						<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+						<descriptionHyperlinks>
+							<ThingDef>Genepack</ThingDef>
+							<ThingDef>GeneAssembler</ThingDef>
+						</descriptionHyperlinks>
+						<comps>
+							<li Class="CompProperties_GenepackContainer">
+								<maxCapacity>4</maxCapacity>
+							</li>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>150</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Facility">
+								<maxSimultaneous>100</maxSimultaneous>
+								<maxDistance>12.9</maxDistance>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GeneExtractor"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>GeneExtractor</defName>
+						<label>gene extractor</label>
+						<description>An automated surgery machine that can extract a person's genes and create a genepack from them. The extracted genes will be randomly selected from the person's xenogenes and germline genes. You can force someone into the machine, but they won't like it.\n\nExtracting a person's genes while their genes are currently regrowing will kill them. Otherwise, gene extraction causes no lasting harm.\n\nGenes that require archite capsules are too complex to be extracted.</description>
+						<thingClass>Building_GeneExtractor</thingClass>
+						<containedPawnsSelectable>true</containedPawnsSelectable>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.4</fillPercent>
+						<castEdgeShadows>true</castEdgeShadows>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<tickerType>Normal</tickerType>
+						<graphicData>
+							<texPath>Things/Building/Misc/GeneExtractor/GeneExtractor</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(2, 2)</drawSize>
+							<shadowData>
+								<volume>(1.7, 0.8, 1.7)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(2, 2)</size>
+						<canOverlapZones>false</canOverlapZones>
+						<hasInteractionCell>true</hasInteractionCell>
+						<interactionCellOffset>(1, 0, 2)</interactionCellOffset>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<designationCategory>Biotech</designationCategory>
+						<uiOrder>2100</uiOrder>
+						<researchPrerequisites>
+							<li>Xenogermination</li>
+						</researchPrerequisites>
+						<building>
+							<buildingTags>
+								<li>Biotech</li>
+							</buildingTags>
+						</building>
+						<statBases>
+							<MaxHitPoints>350</MaxHitPoints>
+							<WorkToBuild>9000</WorkToBuild>
+							<Mass>85</Mass>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<costList>
+							<StrongPlates>200</StrongPlates>
+							<Supermagnet>25</Supermagnet>
+							<RobotParts>16</RobotParts>
+							<Nanoelectronics>4</Nanoelectronics>
+						</costList>
+						<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>500</basePowerConsumption>
+								<idlePowerDraw>250</idlePowerDraw>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GrowthVat"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>GrowthVat</defName>
+						<label>growth vat</label>
+						<description>A vat of fluid which can gestate an embryo or accelerate a child's growth.\n\nWhile growing or gestating, the vat must be fed with a constant supply of nutrition to provide the feedstock for growth. Gestating an embryo takes twice the nutrition of accelerating a child's growth.\n\nEmbryos are gestated for 9 days before a baby is formed. There is a risk of health complications.\n\nChild growth can only be accelerated up to age 18, but not beyond. While growing, a child's skills will slowly increase. Children raised in growth vats will have lower skills and gain fewer passions than normal.\n\nThe device uses chemical injections, electrical stimulation, and simple mechanite treatments to push the body to grow. Growth vats are often used to quickly manufacture engineered workers or warriors.</description>
+						<thingClass>Building_GrowthVat</thingClass>
+						<containedPawnsSelectable>true</containedPawnsSelectable>
+						<tickerType>Normal</tickerType>
+						<graphicData>
+							<texPath>Things/Building/Misc/GrowthVat/GrowthVat</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(1,2)</drawSize>
+							<shadowData>
+								<volume>(0.85, 0.3, 1.7)</volume>
+							</shadowData>
+						</graphicData>
+						<castEdgeShadows>true</castEdgeShadows>
+						<defaultPlacingRot>East</defaultPlacingRot>
+						<size>(1,2)</size>
+						<statBases>
+							<MaxHitPoints>500</MaxHitPoints>
+							<WorkToBuild>8000</WorkToBuild>
+							<Mass>30</Mass>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<costList>
+							<StrongPlates>125</StrongPlates>
+							<Biosynthetics>250</Biosynthetics>
+							<Supermagnet>50</Supermagnet>
+							<ComponentSpacer>2</ComponentSpacer>
+							<Nanoelectronics>2</Nanoelectronics>
+						</costList>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>42</pathCost>
+						<blockWind>true</blockWind>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<fillPercent>0.5</fillPercent>
+						<canOverlapZones>false</canOverlapZones>
+						<designationCategory>Biotech</designationCategory>
+						<uiOrder>2200</uiOrder>
+						<hasInteractionCell>true</hasInteractionCell>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<inspectorTabs>
+							<li>ITab_BiosculpterNutritionStorage</li>
+							<li>ITab_Genes</li>
+						</inspectorTabs>
+						<researchPrerequisites>
+							<li>GrowthVats</li>
+						</researchPrerequisites>
+						<building>
+							<ai_chillDestination>false</ai_chillDestination>
+							<haulToContainerDuration>120</haulToContainerDuration>
+							<buildingTags>
+								<li>Biotech</li>
+							</buildingTags>
+							<fixedStorageSettings>
+								<filter>
+									<categories>
+										<li>Foods</li>
+									</categories>
+									<specialFiltersToDisallow>
+										<li>AllowPlantFood</li>
+									</specialFiltersToDisallow>
+								</filter>
+							</fixedStorageSettings>
+							<defaultStorageSettings>
+								<filter>
+									<categories>
+										<li>Foods</li>
+									</categories>
+									<disallowedThingDefs>
+										<li>HemogenPack</li>
+									</disallowedThingDefs>
+								</filter>
+							</defaultStorageSettings>
+						</building>
+						<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>200</basePowerConsumption>
+								<idlePowerDraw>80</idlePowerDraw>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="GeneProcessor"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>GeneProcessor</defName>
+						<label>gene processor</label>
+						<description>A genetic analysis and processing system. Placed near a gene assembler, it increases the maximum genetic complexity of the xenogerms you can assemble. Building multiple gene processors will increase the genetic complexity limit further.</description>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.4</fillPercent>
+						<pathCost>14</pathCost>
+						<rotatable>false</rotatable>
+						<graphicData>
+							<texPath>Things/Building/Misc/GeneProcessor</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(2, 2)</drawSize>
+							<shadowData>
+								<volume>(1.5, 0.4, 1.5)</volume>
+							</shadowData>
+						</graphicData>
+						<size>(2, 2)</size>
+						<canOverlapZones>false</canOverlapZones>
+						<defaultPlacingRot>North</defaultPlacingRot>
+						<designationCategory>Biotech</designationCategory>
+						<uiOrder>2100</uiOrder>
+						<researchPrerequisites>
+							<li>GeneProcessor</li>
+						</researchPrerequisites>
+						<descriptionHyperlinks>
+							<ThingDef>GeneAssembler</ThingDef>
+							<ThingDef>GeneBank</ThingDef>
+							<ThingDef>Genepack</ThingDef>
+							<ThingDef>Xenogerm</ThingDef>
+						</descriptionHyperlinks>
+						<statBases>
+							<MaxHitPoints>350</MaxHitPoints>
+							<WorkToBuild>9000</WorkToBuild>
+							<Mass>85</Mass>
+							<Flammability>0.5</Flammability>
+							<GeneticComplexityIncrease>2</GeneticComplexityIncrease>
+						</statBases>
+						<costList>
+							<StrongPlates>100</StrongPlates>
+							<Supermagnet>15</Supermagnet>
+							<ComponentSpacer>2</ComponentSpacer>
+							<Nanoelectronics>1</Nanoelectronics>
+						</costList>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+						<building>
+							<buildingTags>
+								<li>Biotech</li>
+							</buildingTags>
+						</building>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>125</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Facility">
+								<maxSimultaneous>100</maxSimultaneous>
+								<maxDistance>12.9</maxDistance>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

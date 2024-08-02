@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!---->
+	<PawnKindDef Name="BaseRobotPawn" Abstract="True">
+		<defaultFactionType>Robots</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+		<invNutrition>2</invNutrition>
+		<invFoodDef>Coal</invFoodDef>
+		<apparelMoney>9999~9999</apparelMoney>
+		<initialWillRange>0~1</initialWillRange>
+		<initialResistanceRange>7~12</initialResistanceRange>
+		<apparelColor>110,110,110</apparelColor>
+		<xenotypeSet>
+			<xenotypeChances>
+				<RobotRace>100</RobotRace>
+			</xenotypeChances>
+		</xenotypeSet>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Sparky" Abstract="True">
+		<race>Robot_Sparky</race>
+		<combatPower>100</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Sparky</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Sparky">
+		<defName>Newborn_Robot_Sparky</defName>
+		<label>Robot «Sparky»</label>
+		<combatPower>100</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Sparky">
+		<defName>Robot_Sparky</defName>
+		<label>Robot «Sparky»</label>
+		<combatPower>100</combatPower>
+		<apparelTags>
+			<li>Backpack</li>
+		</apparelTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>0</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>0</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Ghost" Abstract="True">
+		<race>Robot_Ghost</race>
+		<combatPower>200</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Ghost</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Ghost">
+		<defName>Newborn_Robot_Ghost</defName>
+		<label>Robot «Ghost»</label>
+		<combatPower>200</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Ghost">
+		<defName>Robot_Ghost</defName>
+		<label>Robot «Ghost»</label>
+		<combatPower>200</combatPower>
+		<apparelTags>
+			<li>EFT_ArmorClass1</li>
+			<li>EFT_ArmorClass2</li>
+			<li>EFT_Headgear_ArmorClass1</li>
+			<li>EFT_Headgear_ArmorClass2</li>
+			<li>EFT_ChestRig_NoArmor_I</li>
+			<li>IndustrialMilitaryBasic</li>
+			<li>IndustrialMilitaryAdvanced</li>
+			<li>BeltDefensePop</li>
+		</apparelTags>
+		<weaponMoney>500~1000</weaponMoney>
+		<weaponTags>
+			<li>Weapon_SMG_TierI</li>
+			<li>Weapon_Shotgun_TierI</li>
+			<li>Weapon_Pistol_TierI</li>
+			<li>Weapon_Revolver_TierI</li>
+		</weaponTags>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>3</min>
+					<max>5</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<generateChance>1</generateChance>
+						<sidearmMoney>
+							<min>500</min>
+							<max>700</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>CE_Sidearm_Melee</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+					<skillsCount>0</skillsCount>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>1~7</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Mantis" Abstract="True">
+		<race>Robot_Mantis</race>
+		<combatPower>100</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Mantis</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Mantis">
+		<defName>Newborn_Robot_Mantis</defName>
+		<label>Robot «Mantis»</label>
+		<combatPower>100</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Mantis">
+		<defName>Robot_Mantis</defName>
+		<label>Robot «Mantis»</label>
+		<combatPower>100</combatPower>
+		<apparelTags>
+			<li>EFT_ArmorClass1</li>
+			<li>EFT_ArmorClass2</li>
+			<li>EFT_Headgear_ArmorClass1</li>
+			<li>EFT_Headgear_ArmorClass2</li>
+			<li>EFT_ChestRig_NoArmor_I</li>
+			<li>IndustrialMilitaryBasic</li>
+			<li>IndustrialMilitaryAdvanced</li>
+			<li>BeltDefensePop</li>
+		</apparelTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>0</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>0</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Wisp" Abstract="True">
+		<race>Robot_Wisp</race>
+		<combatPower>100</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Wisp</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Wisp">
+		<defName>Newborn_Robot_Wisp</defName>
+		<label>Robot «Wisp»</label>
+		<combatPower>100</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Wisp">
+		<defName>Robot_Wisp</defName>
+		<label>Robot «Wisp»</label>
+		<combatPower>100</combatPower>
+		<apparelTags>
+			<li>Backpack</li>
+		</apparelTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>0</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>0</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Fabricator" Abstract="True">
+		<race>Robot_Fabricator</race>
+		<combatPower>150</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Fabricator</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<invFoodDef>Canister_Diesel</invFoodDef>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Fabricator">
+		<defName>Newborn_Robot_Fabricator</defName>
+		<label>Robot «Fabricator»</label>
+		<combatPower>150</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Fabricator">
+		<defName>Robot_Fabricator</defName>
+		<label>Robot «Fabricator»</label>
+		<combatPower>150</combatPower>
+		<apparelTags>
+			<li>Backpack</li>
+		</apparelTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>0</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>0</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Planter" Abstract="True">
+		<race>Robot_Planter</race>
+		<combatPower>150</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Planter</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<invFoodDef>Canister_Diesel</invFoodDef>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Planter">
+		<defName>Newborn_Robot_Planter</defName>
+		<label>Robot «Planter»</label>
+		<combatPower>150</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Planter">
+		<defName>Robot_Planter</defName>
+		<label>Robot «Planter»</label>
+		<combatPower>150</combatPower>
+		<apparelTags>
+			<li>Backpack</li>
+		</apparelTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>0</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>0</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Loyalist" Abstract="True">
+		<race>Robot_Loyalist</race>
+		<combatPower>150</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Loyalist</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<invFoodDef>Canister_Diesel</invFoodDef>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Loyalist">
+		<defName>Newborn_Robot_Loyalist</defName>
+		<label>Robot «Loyalist»</label>
+		<combatPower>150</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Loyalist">
+		<defName>Robot_Loyalist</defName>
+		<label>Robot «Loyalist»</label>
+		<combatPower>150</combatPower>
+		<apparelTags>
+			<li>EFT_ArmorClass2</li>
+			<li>EFT_ArmorClass3</li>
+			<li>EFT_Headgear_ArmorClass2</li>
+			<li>EFT_Headgear_ArmorClass3</li>
+			<li>EFT_ChestRig_NoArmor_I</li>
+			<li>EFT_ChestRig_NoArmor_II</li>
+			<li>IndustrialMilitaryBasic</li>
+			<li>IndustrialMilitaryAdvanced</li>
+			<li>BeltDefensePop</li>
+		</apparelTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>0</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>0</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Percival" Abstract="True">
+		<race>Robot_Percival</race>
+		<combatPower>150</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Percival</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<invFoodDef>Canister_Diesel</invFoodDef>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Percival">
+		<defName>Newborn_Robot_Percival</defName>
+		<label>Robot «Percival»</label>
+		<combatPower>150</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Percival">
+		<defName>Robot_Percival</defName>
+		<label>Robot «Percival»</label>
+		<combatPower>150</combatPower>
+		<apparelTags>
+			<li>Backpack</li>
+		</apparelTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>0</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>0</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn" Name="Robot_Corsair" Abstract="True">
+		<race>Robot_Corsair</race>
+		<combatPower>300</combatPower>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Corsair</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<invFoodDef>Canister_Diesel</invFoodDef>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Corsair">
+		<defName>Newborn_Robot_Corsair</defName>
+		<label>Robot «Corsair»</label>
+		<combatPower>300</combatPower>
+		<invNutrition>0</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Normal</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<weaponMoney>0</weaponMoney>
+		<minGenerationAge>20</minGenerationAge>
+	</PawnKindDef>
+	<PawnKindDef ParentName="Robot_Corsair">
+		<defName>Robot_Corsair</defName>
+		<label>Robot «Corsair»</label>
+		<combatPower>300</combatPower>
+		<apparelTags>
+			<li>EFT_ArmorClass2</li>
+			<li>EFT_ArmorClass3</li>
+			<li>EFT_Headgear_ArmorClass2</li>
+			<li>EFT_Headgear_ArmorClass3</li>
+			<li>EFT_ChestRig_NoArmor_I</li>
+			<li>EFT_ChestRig_NoArmor_II</li>
+			<li>IndustrialMilitaryBasic</li>
+			<li>IndustrialMilitaryAdvanced</li>
+			<li>BeltDefensePop</li>
+		</apparelTags>
+		<factionLeader>true</factionLeader>
+		<weaponMoney>1300~1500</weaponMoney>
+		<weaponTags>
+			<li>Weapon_MachineGuns_TierI</li>
+			<li>Weapon_AssaultRifle_TierI</li>
+			<li>Weapon_AssaultRifle_TierII</li>
+		</weaponTags>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>4</min>
+					<max>7</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<generateChance>1</generateChance>
+						<sidearmMoney>
+							<min>500</min>
+							<max>700</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>CE_Sidearm_Melee</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
+				<pawnSkillGenerationSettings>
+					<skillChance>0</skillChance>
+					<skillsCount>0</skillsCount>
+				</pawnSkillGenerationSettings>
+				<equipmentGenerationSettings>
+					<weaponSpecializationGenSettings>
+						<subSpecRangeFromEquipment>3~4</subSpecRangeFromEquipment>
+						<basicXpForSubSpec>0~30000</basicXpForSubSpec>
+						<randomSpecGenCount>1~7</randomSpecGenCount>
+						<maxPassions>
+							<Minor>0</Minor>
+							<Major>0</Major>
+						</maxPassions>
+					</weaponSpecializationGenSettings>
+				</equipmentGenerationSettings>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<PawnKindDef ParentName="BaseRobotPawn">
+		<defName>Robot_Stalin</defName>
+		<label>Robot «Iosif Stalin»</label>
+		<race>Robot_Stalin</race>
+		<combatPower>700</combatPower>
+		<apparelColor>110,110,110</apparelColor>
+		<weaponMoney>99999</weaponMoney>
+		<weaponTags>
+			<li>StalinGun</li>
+		</weaponTags>
+		<apparelRequired>
+			<li>Apparel_WarmCoat</li>
+			<li>Apparel_IndustrialGloves</li>
+			<li>Apparel_IndustrialBoots</li>
+			<li>Apparel_WorkerPants</li>
+			<li>Apparel_AuthorityCap</li>
+			<li>Apparel_ShirtRuffle</li>
+		</apparelRequired>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>Robot</li>
+					<li>Robot_Stalin</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+		<invFoodDef>UraniumPellets</invFoodDef>
+		<invNutrition>5</invNutrition>
+		<chemicalAddictionChance>0</chemicalAddictionChance>
+		<itemQuality>Good</itemQuality>
+		<gearHealthRange>1</gearHealthRange>
+		<techHediffsChance>0</techHediffsChance>
+		<factionLeader>false</factionLeader>
+		<apparelMoney>0</apparelMoney>
+		<minGenerationAge>20</minGenerationAge>
+		<initialWillRange>1000</initialWillRange>
+		<initialResistanceRange>1000</initialResistanceRange>
+		<modExtensions>
+			<li Class="CombatExtended.LoadoutPropertiesExtension">
+				<primaryMagazineCount>
+					<min>5</min>
+					<max>10</max>
+				</primaryMagazineCount>
+				<sidearms>
+					<li>
+						<generateChance>1</generateChance>
+						<sidearmMoney>
+							<min>9999</min>
+							<max>9999</max>
+						</sidearmMoney>
+						<weaponTags>
+							<li>StalinWeapon</li>
+						</weaponTags>
+					</li>
+				</sidearms>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+</Defs>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/GeneDef[defName="RobustDigestion"]</xpath>
+				<value>
+					<GeneDef ParentName="GeneDietBase">
+						<defName>RobustDigestion</defName>
+						<label>Raw foodist</label>
+						<description>The carrier of the gene is able to easily digest raw food.</description>
+						<iconPath>Core/Genes/RawFoodist</iconPath>
+						<displayOrderInCategory>310</displayOrderInCategory>
+						<biostatCpx>1</biostatCpx>
+						<biostatMet>-2</biostatMet>
+						<dontMindRawFood>true</dontMindRawFood>
+						<statFactors>
+							<RawNutritionFactor>1.8</RawNutritionFactor>
+						</statFactors>
+					</GeneDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/GeneDef[defName="Nearsighted"]</xpath>
+				<value>
+					<GeneDef>
+						<defName>Nearsighted</defName>
+						<label>nearsighted</label>
+						<iconPath>UI/Icons/Genes/Gene_Nearsighted</iconPath>
+						<description>Carriers of this gene have difficulty seeing at a distance. Their shooting accuracy at long ranges is reduced.</description>
+						<displayCategory>Healing</displayCategory>
+						<displayOrderInCategory>702</displayOrderInCategory>
+						<statFactors>
+							<ShootingAccuracyFactor_Long>0.25</ShootingAccuracyFactor_Long>
+							<ShootingAccuracyFactor_Medium>0.5</ShootingAccuracyFactor_Medium>
+						</statFactors>
+						<biostatMet>2</biostatMet>
+						<exclusionTags>
+							<li>ShootingAccuracy</li>
+							<li>Sight</li>
+						</exclusionTags>
+						<symbolPack>
+							<prefixSymbols>
+								<li>
+									<symbol>blind</symbol>
+								</li>
+								<li>
+									<symbol>blur</symbol>
+								</li>
+								<li>
+									<symbol>squint</symbol>
+								</li>
+								<li>
+									<symbol>peek</symbol>
+								</li>
+								<li>
+									<symbol>cross</symbol>
+								</li>
+							</prefixSymbols>
+							<suffixSymbols>
+								<li>
+									<symbol>sighter</symbol>
+								</li>
+								<li>
+									<symbol>peeker</symbol>
+								</li>
+							</suffixSymbols>
+						</symbolPack>
+					</GeneDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/GeneDef[defName="DarkVision"]</xpath>
+				<value>
+					<GeneDef>
+						<defName>DarkVision</defName>
+						<label>dark vision</label>
+						<description>Carriers of this gene see well in low light and are unaffected by mood penalties related to darkness. They have a reflective layer behind the retina that amplifies their ability to see in the dark.</description>
+						<iconPath>UI/Icons/Genes/Gene_Darkvision</iconPath>
+						<ignoreDarkness>true</ignoreDarkness>
+						<displayCategory>Healing</displayCategory>
+						<displayOrderInCategory>703</displayOrderInCategory>
+						<biostatMet>-1</biostatMet>
+						<symbolPack>
+							<prefixSymbols>
+								<li>
+									<symbol>dark</symbol>
+								</li>
+								<li>
+									<symbol>night</symbol>
+								</li>
+								<li>
+									<symbol>dim</symbol>
+								</li>
+								<li>
+									<symbol>gloom</symbol>
+								</li>
+								<li>
+									<symbol>murk</symbol>
+								</li>
+								<li>
+									<symbol>deep</symbol>
+								</li>
+								<li>
+									<symbol>umbra</symbol>
+								</li>
+							</prefixSymbols>
+							<suffixSymbols>
+								<li>
+									<symbol>shadow</symbol>
+								</li>
+							</suffixSymbols>
+						</symbolPack>
+						<exclusionTags>
+							<li>Sight</li>
+						</exclusionTags>
+					</GeneDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/GeneDef[defName="Learning_Slow"]</xpath>
+				<value>
+					<GeneDef ParentName="GeneLearningBase">
+						<defName>Learning_Slow</defName>
+						<label>slow study</label>
+						<description>Carriers of this gene have deficient long-term memories and don't understand new ideas quickly. They are slow at learning new skills and knowledge.</description>
+						<iconPath>UI/Icons/Genes/Gene_SlowLearning</iconPath>
+						<displayOrderInCategory>60</displayOrderInCategory>
+						<displayCategory>Learning</displayCategory>
+						<statFactors>
+							<GlobalLearningFactor>0.5</GlobalLearningFactor>
+						</statFactors>
+						<biostatMet>2</biostatMet>
+						<symbolPack>
+							<prefixSymbols>
+								<li>
+									<symbol>thag</symbol>
+								</li>
+								<li>
+									<symbol>grunt</symbol>
+								</li>
+								<li>
+									<symbol>slow</symbol>
+								</li>
+								<li>
+									<symbol>dull</symbol>
+								</li>
+								<li>
+									<symbol>dumb</symbol>
+								</li>
+							</prefixSymbols>
+							<suffixSymbols>
+								<li>
+									<symbol>grunt</symbol>
+								</li>
+							</suffixSymbols>
+						</symbolPack>
+					</GeneDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/GeneDef[defName="Learning_Fast"]</xpath>
+				<value>
+					<GeneDef ParentName="GeneLearningBase">
+						<defName>Learning_Fast</defName>
+						<label>quick study</label>
+						<description>Carriers of this gene have excellent memories and grasp new ideas quickly. They learn faster than others.</description>
+						<iconPath>UI/Icons/Genes/Gene_FastLearning</iconPath>
+						<displayOrderInCategory>70</displayOrderInCategory>
+						<displayCategory>Learning</displayCategory>
+						<statOffsets>
+							<GlobalLearningFactor>0.5</GlobalLearningFactor>
+						</statOffsets>
+						<biostatCpx>2</biostatCpx>
+						<biostatMet>-3</biostatMet>
+						<symbolPack>
+							<prefixSymbols>
+								<li>
+									<symbol>brain</symbol>
+								</li>
+								<li>
+									<symbol>nerd</symbol>
+								</li>
+								<li>
+									<symbol>smart</symbol>
+								</li>
+								<li>
+									<symbol>corti</symbol>
+								</li>
+								<li>
+									<symbol>neuro</symbol>
+								</li>
+								<li>
+									<symbol>mnemo</symbol>
+								</li>
+							</prefixSymbols>
+							<suffixSymbols>
+								<li>
+									<symbol>nerd</symbol>
+								</li>
+								<li>
+									<symbol>brain</symbol>
+								</li>
+							</suffixSymbols>
+						</symbolPack>
+					</GeneDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/GeneDef[defName="Aggression_DeadCalm"]</xpath>
+				<value>
+					<exclusionTags>
+						<li>Suppressability</li>
+					</exclusionTags>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/GeneDef[defName="ViolenceDisabled"]/exclusionTags</xpath>
+				<value>
+					<li>Aptitude_Shooting</li>
+					<li>Aptitude_Melee</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

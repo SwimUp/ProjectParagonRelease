@@ -311,7 +311,7 @@
 				<xpath>*/ThingDef[@Name="BodyPartBionicBase"]/graphicData</xpath>
 				<value>
 					<graphicData>
-						<texPath>Core/Items/Prostheses/T3</texPath>
+						<texPath>Core/Items/Prostheses/T4</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
 					</graphicData>
 				</value>
@@ -399,6 +399,7 @@
 								<li>MechanicalWorkbench</li>
 								<li>TableMachining</li>
 								<li>TableMachiningAdvanced</li>
+								<li>Bioprinter</li>
 							</recipeUsers>
 							<unfinishedThingDef>ProstheticParagon_T2_</unfinishedThingDef>
 						</recipeMaker>
@@ -517,6 +518,7 @@
 								<li>MechanicalWorkbench</li>
 								<li>TableMachining</li>
 								<li>TableMachiningAdvanced</li>
+								<li>Bioprinter</li>
 							</recipeUsers>
 							<unfinishedThingDef>ProstheticParagon_T2_</unfinishedThingDef>
 						</recipeMaker>
@@ -651,6 +653,7 @@
 								<li>MechanicalWorkbench</li>
 								<li>TableMachining</li>
 								<li>TableMachiningAdvanced</li>
+								<li>Bioprinter</li>
 							</recipeUsers>
 							<unfinishedThingDef>ProstheticParagon_T2_</unfinishedThingDef>
 						</recipeMaker>
@@ -747,6 +750,7 @@
 							<recipeUsers>
 								<li>TableMachining</li>
 								<li>TableMachiningAdvanced</li>
+								<li>Bioprinter</li>
 							</recipeUsers>
 							<unfinishedThingDef>ProstheticParagon_T3_</unfinishedThingDef>
 						</recipeMaker>
@@ -843,6 +847,7 @@
 							<recipeUsers>
 								<li>TableMachining</li>
 								<li>TableMachiningAdvanced</li>
+								<li>Bioprinter</li>
 							</recipeUsers>
 							<unfinishedThingDef>ProstheticParagon_T3_</unfinishedThingDef>
 						</recipeMaker>
@@ -948,6 +953,7 @@
 							<recipeUsers>
 								<li>TableMachining</li>
 								<li>TableMachiningAdvanced</li>
+								<li>Bioprinter</li>
 							</recipeUsers>
 							<unfinishedThingDef>ProstheticParagon_T3_</unfinishedThingDef>
 						</recipeMaker>
@@ -1050,6 +1056,7 @@
 							<recipeUsers>
 								<li>TableMachining</li>
 								<li>TableMachiningAdvanced</li>
+								<li>Bioprinter</li>
 							</recipeUsers>
 							<unfinishedThingDef>ProstheticParagon_T3_</unfinishedThingDef>
 						</recipeMaker>
@@ -1087,6 +1094,2597 @@
 							<li>Ear</li>
 						</appliedOnFixedBodyParts>
 						<addsHediff>CochlearImplant</addsHediff>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicEye"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicEye</defName>
+						<label>bionic eye</label>
+						<labelNoun>a bionic eye</labelNoun>
+						<description>An installed bionic eye.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicEye</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>BionicEye</spawnThingOnRemoved>
+						<woundAnchorRange>0</woundAnchorRange>
+						<displayWound>true</displayWound>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<renderNodeProperties>
+						  <li Class="PawnRenderNodeProperties_Eye">
+							<workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+							<texPath>Things/Pawn/Wounds/BionicEye</texPath>
+							<parentTagDef>Head</parentTagDef>
+							<drawSize>0.15</drawSize>
+							<drawData>
+							  <defaultData>
+								<layer>56</layer>
+								<offset>(0, 0, -0.25)</offset>
+							  </defaultData>
+							  <dataWest>
+								<flip>true</flip>
+							  </dataWest>
+							</drawData>
+						  </li>
+						</renderNodeProperties>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicEye"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicEye</defName>
+						<label>bionic eye</label>
+						<description>An advanced artificial eye. With its biogel nerve-link, internal signal pre-processor, and wide-spectrum sensors, it is better than a biological eye in almost every way. A lattice-dust healing system allows it to recover from damage.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicEye</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>50</Synthread>
+							<Biosynthetics>100</Biosynthetics>
+						</costList>
+						<thingSetMakerTags>
+							<li>RewardStandardMidFreq</li>
+						</thingSetMakerTags>
+						<statBases>
+							<Mass>0.3</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicEye"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicEye</defName>
+						<label>install bionic eye</label>
+						<description>Install a bionic eye.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicEye</ThingDef>
+							<HediffDef>BionicEye</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing bionic eye.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicEye</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicEye</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Eye</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicEye</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicArm"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicArm</defName>
+						<label>bionic arm</label>
+						<labelNoun>a bionic arm</labelNoun>
+						<description>An installed bionic arm.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicArm</ThingDef>
+						</descriptionHyperlinks>
+						<comps>
+							<li Class="HediffCompProperties_VerbGiver">
+								<tools>
+									<li Class="CombatExtended.ToolCE">
+										<label>fist</label>
+										<capacities>
+											<li>Blunt</li>
+										</capacities>
+										<power>4</power>
+										<cooldownTime>2</cooldownTime>
+										<armorPenetrationBlunt>1</armorPenetrationBlunt>
+									</li>
+								</tools>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<spawnThingOnRemoved>BionicArm</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicArm"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicArm</defName>
+						<label>bionic arm</label>
+						<description>An advanced artificial arm. Silenced mini-servos give great strength, while the biogel nerve-link gives exquisite control. A lattice-dust healing system allows it to recover from damage. It is better than a biological arm in almost every way.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicArm</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>4</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<thingSetMakerTags>
+							<li>RewardStandardMidFreq</li>
+						</thingSetMakerTags>
+						<statBases>
+							<Mass>5</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicArm"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicArm</defName>
+						<label>install bionic arm</label>
+						<description>Install a bionic arm.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicArm</ThingDef>
+							<HediffDef>BionicArm</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing bionic arm.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicArm</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicArm</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Shoulder</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicArm</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicLeg"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicLeg</defName>
+						<label>bionic leg</label>
+						<labelNoun>a bionic leg</labelNoun>
+						<description>An installed bionic leg.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicLeg</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>BionicLeg</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicLeg"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicLeg</defName>
+						<label>bionic leg</label>
+						<description>An advanced artificial leg. With its biogel nerve-link, powerful mini-servos, and lattice-dust healing system, it is better than a biological leg in almost every way.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicLeg</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>4</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<thingSetMakerTags>
+							<li>RewardStandardMidFreq</li>
+						</thingSetMakerTags>
+						<statBases>
+							<Mass>8</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicLeg"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicLeg</defName>
+						<label>install bionic leg</label>
+						<description>Install a bionic leg.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicLeg</ThingDef>
+							<HediffDef>BionicLeg</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing bionic leg.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicLeg</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicLeg</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Leg</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicLeg</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicSpine"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicSpine</defName>
+						<label>bionic spine</label>
+						<labelNoun>a bionic spine</labelNoun>
+						<description>An installed bionic spine.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicSpine</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>BionicSpine</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<betterThanNatural>true</betterThanNatural>
+							<partEfficiency>1.25</partEfficiency>
+						</addedPartProps>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicSpine"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicSpine</defName>
+						<label>bionic spine</label>
+						<description>An advanced artificial spine. A biogel nerve bundle runs down an articulated plasteel core, surrounded by a lattice-dust healing system. It matches the performance of a biological spine.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicSpine</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>6</MechanismComplex>
+							<Nanoelectronics>2</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<statBases>
+							<Mass>2</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicSpine"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicSpine</defName>
+						<label>install bionic spine</label>
+						<description>Install a bionic spine.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicSpine</ThingDef>
+							<HediffDef>BionicSpine</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing bionic spine.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicSpine</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicSpine</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Spine</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicSpine</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicHeart"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicHeart</defName>
+						<label>bionic heart</label>
+						<labelNoun>a bionic heart</labelNoun>
+						<description>An installed bionic heart.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicHeart</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>BionicHeart</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicHeart"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicHeart</defName>
+						<label>bionic heart</label>
+						<description>An advanced artificial heart. It has synthetic muscle fibers for a realistic heartbeat, plus a high-flow pump for rapid circulation during high stress. It is better than a biological heart in almost every way.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicHeart</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>4</MechanismComplex>
+							<Nanoelectronics>2</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<statBases>
+							<Mass>2</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicHeart"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicHeart</defName>
+						<label>install bionic heart</label>
+						<description>Install a bionic heart.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicHeart</ThingDef>
+							<HediffDef>BionicHeart</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing bionic heart.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicHeart</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicHeart</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Heart</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicHeart</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicStomach"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicStomach</defName>
+						<label>bionic stomach</label>
+						<labelNoun>a bionic stomach</labelNoun>
+						<description>An installed bionic stomach.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicStomach</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>BionicStomach</spawnThingOnRemoved>
+						<stages>
+							<li>
+								<makeImmuneTo>
+									<li>GutWorms</li>
+								</makeImmuneTo>
+							</li>
+						</stages>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicStomach"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicStomach</defName>
+						<label>bionic stomach</label>
+						<description>An advanced artificial stomach. A set of sensors and chemical synthesizers efficiently digest nearly any energy-bearing foodstuff. An integrated lattice-dust healing system automatically repairs any damage caused by the powerful acids. It is better than a biological stomach in almost every way.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicStomach</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<statBases>
+							<Mass>2</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicStomach"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicStomach</defName>
+						<label>install bionic stomach</label>
+						<description>Install a bionic stomach.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicStomach</ThingDef>
+							<HediffDef>BionicStomach</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing bionic stomach.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicStomach</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicStomach</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Stomach</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicStomach</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicEar"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicEar</defName>
+						<label>bionic ear</label>
+						<labelNoun>a bionic ear</labelNoun>
+						<description>An installed bionic ear.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicEar</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>BionicEar</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicEar"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicEar</defName>
+						<label>bionic ear</label>
+						<description>An advanced artificial ear implant. A collection of invisible subdermal microphones capture sound and transmit it to a biogel nerve interface that links directly with the auditory nerve. It's sensitive enough to hear a cat before you see it, can't be damaged by loud noise, and automatically tunes itself to pick out meaningful sounds in noisy environments.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicEar</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>50</Synthread>
+							<Biosynthetics>100</Biosynthetics>
+						</costList>
+						<statBases>
+							<Mass>2</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicEar"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicEar</defName>
+						<label>install bionic ear</label>
+						<description>Install a bionic ear.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicEar</ThingDef>
+							<HediffDef>BionicEar</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing bionic ear.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicEar</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicEar</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Ear</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicEar</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicTongue"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicTongue</defName>
+						<label>bionic tongue</label>
+						<labelNoun>a bionic tongue</labelNoun>
+						<description>An installed bionic tongue.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicTongue</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>BionicTongue</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicTongue"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicTongue</defName>
+						<label>bionic tongue</label>
+						<description>An artificial tongue replacement. Made of synthetic smooth-fibers and connected through a neurogel interface, it can match the performance of a natural tongue in speaking, eating, and tasting.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicTongue</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>20</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>20</Synthread>
+							<Biosynthetics>50</Biosynthetics>
+						</costList>
+						<statBases>
+							<Mass>1</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicTongue"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicTongue</defName>
+						<label>install bionic tongue</label>
+						<description>Install a bionic tongue.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicTongue</ThingDef>
+							<HediffDef>BionicTongue</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing bionic tongue.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicTongue</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicTongue</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Tongue</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicTongue</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Mindscrew"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>Mindscrew</defName>
+						<label>mindscrew</label>
+						<description>Inflicts continuous pain on the user. Mindscrews are used by some authorities as a long-term punishment. Some even install them voluntarily as a demonstration of ideological or religious devotion.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallMindscrew</RecipeDef>
+						</descriptionHyperlinks>
+						<techHediffsTags>
+							<li>PainCauser</li>
+						</techHediffsTags>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Biosynthetics>25</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="DrillArm"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>DrillArm</defName>
+						<label>drill arm</label>
+						<description>A mechanical arm replacement for speeding up mining. It has a built-in snake drill, which allows the miner to rapidly find and exploit weak lines in the rock. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallDrillArm</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>3</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>50</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<techHediffsTags>
+							<li>DrillArm</li>
+						</techHediffsTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="DrillArm"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>DrillArm</defName>
+						<label>drill arm</label>
+						<labelNoun>a drill arm</labelNoun>
+						<description>An installed drill arm.</description>
+						<descriptionHyperlinks>
+							<ThingDef>DrillArm</ThingDef>
+						</descriptionHyperlinks>
+						<stages>
+							<li>
+								<statOffsets>
+									<MiningSpeed>1.60</MiningSpeed>
+									<DeepDrillingSpeed>0.7</DeepDrillingSpeed>
+								</statOffsets>
+								<capMods>
+									<li>
+										<capacity>Moving</capacity>
+										<offset>-0.08</offset>
+									</li>
+								</capMods>
+							</li>
+						</stages>
+						<comps>
+							<li Class="HediffCompProperties_VerbGiver">
+								<tools>
+									<li Class="CombatExtended.ToolCE">
+										<label>fist</label>
+										<capacities>
+											<li>Stab</li>
+										</capacities>
+										<power>5</power>
+										<cooldownTime>2</cooldownTime>
+										<armorPenetrationBlunt>1</armorPenetrationBlunt>
+									</li>
+								</tools>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.0</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+						<spawnThingOnRemoved>DrillArm</spawnThingOnRemoved>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallDrillArm"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+						<defName>InstallDrillArm</defName>
+						<label>install drill arm</label>
+						<description>Install a drill arm.</description>
+						<descriptionHyperlinks>
+							<ThingDef>DrillArm</ThingDef>
+							<HediffDef>DrillArm</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing drill arm.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>DrillArm</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>DrillArm</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Arm</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>DrillArm</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="FieldHand"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>FieldHand</defName>
+						<label>field hand</label>
+						<description>This mechanical hand replacement is made to speed up the sowing and harvesting tasks of a farmer. Multiple telescoping finger-like protrusions can simultaneously harvest from several points on the same plant, or precisely sow several holes at once. It also has a general-purpose manipulator. It is somewhat ungainly, which slows down movement slightly.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallFieldHand</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>3</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>50</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<techHediffsTags>
+							<li>FieldHand</li>
+						</techHediffsTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="FieldHand"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>FieldHand</defName>
+						<label>field hand</label>
+						<labelNoun>a field hand</labelNoun>
+						<description>An installed field hand.</description>
+						<descriptionHyperlinks>
+							<ThingDef>FieldHand</ThingDef>
+						</descriptionHyperlinks>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.0</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<stages>
+							<li>
+								<statOffsets>
+									<PlantWorkSpeed>1.60</PlantWorkSpeed>
+								</statOffsets>
+								<capMods>
+									<li>
+										<capacity>Moving</capacity>
+										<offset>-0.08</offset>
+									</li>
+								</capMods>
+							</li>
+						</stages>
+						<comps>
+							<li Class="HediffCompProperties_VerbGiver">
+								<tools>
+									<li Class="CombatExtended.ToolCE">
+										<label>fist</label>
+										<capacities>
+											<li>Blunt</li>
+										</capacities>
+										<power>5</power>
+										<cooldownTime>2</cooldownTime>
+										<armorPenetrationBlunt>1</armorPenetrationBlunt>
+									</li>
+								</tools>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+						<spawnThingOnRemoved>FieldHand</spawnThingOnRemoved>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallFieldHand"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+						<defName>InstallFieldHand</defName>
+						<label>install field hand</label>
+						<description>Install a field hand.</description>
+						<descriptionHyperlinks>
+							<ThingDef>FieldHand</ThingDef>
+							<HediffDef>FieldHand</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing field hand.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>FieldHand</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>FieldHand</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Hand</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>FieldHand</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="HandTalon"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>HandTalon</defName>
+						<label>hand talon</label>
+						<description>A razor-sharp talon which extends from a hidden opening between the middle and ring fingers. The talon is longer than the palm, but it becomes flexible upon retracting, allowing the user to curl it up and conceal it inside the hand. It can perform rapid slashing attacks, but is poor at penetrating armor.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallHandTalon</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>25</Synthread>
+							<Biosynthetics>75</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<violentTechHediff>true</violentTechHediff>
+						<techHediffsTags>
+							<li>AdvancedWeapon</li>
+						</techHediffsTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="HandTalon"]</xpath>
+				<value>
+					<HediffDef ParentName="ImplantHediffBase">
+						<defName>HandTalon</defName>
+						<label>hand talon</label>
+						<labelNoun>a hand talon</labelNoun>
+						<description>An installed hand talon.</description>
+						<descriptionHyperlinks>
+							<ThingDef>HandTalon</ThingDef>
+						</descriptionHyperlinks>
+						<addedPartProps>
+							<solid>true</solid>
+						</addedPartProps>
+						<comps>
+							<li Class="HediffCompProperties_VerbGiver">
+								<tools>
+									<li Class="CombatExtended.ToolCE">
+										<label>fist</label>
+										<capacities>
+											<li>Scratch</li>
+										</capacities>
+										<power>8</power>
+										<cooldownTime>2</cooldownTime>
+										<armorPenetrationBlunt>1</armorPenetrationBlunt>
+									</li>
+								</tools>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+						<spawnThingOnRemoved>HandTalon</spawnThingOnRemoved>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallHandTalon"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallImplantBase">
+						<defName>InstallHandTalon</defName>
+						<label>install hand talon</label>
+						<description>Install a hand talon.</description>
+						<descriptionHyperlinks>
+							<ThingDef>HandTalon</ThingDef>
+							<HediffDef>HandTalon</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing hand talon.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>HandTalon</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>HandTalon</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Hand</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>HandTalon</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ElbowBlade"]</xpath>
+				<value>
+					<ThingDef ParentName="BodyPartProstheticImperialBase">
+						<defName>ElbowBlade</defName>
+						<label>elbow blade</label>
+						<description>A razor-sharp blade that extends at will from a hidden opening at the end of the ulna. Appearing without warning, it can be used for devastating slice attacks.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallElbowBlade</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>25</Synthread>
+							<Biosynthetics>75</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<violentTechHediff>true</violentTechHediff>
+						<techHediffsTags>
+							<li>AdvancedWeapon</li>
+						</techHediffsTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="ElbowBlade"]</xpath>
+				<value>
+					<HediffDef ParentName="ImplantHediffBase">
+						<defName>ElbowBlade</defName>
+						<label>elbow blade</label>
+						<labelNoun>an elbow blade</labelNoun>
+						<description>An installed elbow blade.</description>
+						<descriptionHyperlinks>
+							<ThingDef>ElbowBlade</ThingDef>
+						</descriptionHyperlinks>
+						<addedPartProps>
+							<solid>true</solid>
+						</addedPartProps>
+						<comps>
+							<li Class="HediffCompProperties_VerbGiver">
+								<tools>
+									<li Class="CombatExtended.ToolCE">
+										<label>fist</label>
+										<capacities>
+											<li>Scratch</li>
+										</capacities>
+										<power>9</power>
+										<cooldownTime>2</cooldownTime>
+										<armorPenetrationBlunt>1</armorPenetrationBlunt>
+									</li>
+								</tools>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+						<spawnThingOnRemoved>ElbowBlade</spawnThingOnRemoved>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallElbowBlade"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallImplantBase">
+						<defName>InstallElbowBlade</defName>
+						<label>install elbow blade</label>
+						<description>Install an elbow blade.</description>
+						<descriptionHyperlinks>
+							<ThingDef>ElbowBlade</ThingDef>
+							<HediffDef>ElbowBlade</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing elbow blade.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ElbowBlade</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ElbowBlade</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Arm</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>ElbowBlade</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="KneeSpike"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>KneeSpike</defName>
+						<label>knee spike</label>
+						<description>A spike that extends at will from a hidden opening on the front of the knee. Appearing without warning, it can be used for devastating stabbing attacks which penetrate even thick armor.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallKneeSpike</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>50</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>25</Synthread>
+							<Biosynthetics>75</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<violentTechHediff>true</violentTechHediff>
+						<techHediffsTags>
+							<li>AdvancedWeapon</li>
+						</techHediffsTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="KneeSpike"]</xpath>
+				<value>
+					<HediffDef ParentName="ImplantHediffBase">
+						<defName>KneeSpike</defName>
+						<label>knee spike</label>
+						<labelNoun>a knee spike</labelNoun>
+						<description>An installed knee spike.</description>
+						<descriptionHyperlinks>
+							<ThingDef>KneeSpike</ThingDef>
+						</descriptionHyperlinks>
+						<addedPartProps>
+							<solid>true</solid>
+						</addedPartProps>
+						<comps>
+							<li Class="HediffCompProperties_VerbGiver">
+								<tools>
+									<li Class="CombatExtended.ToolCE">
+										<label>fist</label>
+										<capacities>
+											<li>Scratch</li>
+										</capacities>
+										<power>8</power>
+										<cooldownTime>2</cooldownTime>
+										<armorPenetrationBlunt>1</armorPenetrationBlunt>
+									</li>
+								</tools>
+							</li>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+						<spawnThingOnRemoved>KneeSpike</spawnThingOnRemoved>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallKneeSpike"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallImplantBase">
+						<defName>InstallKneeSpike</defName>
+						<label>install knee spike</label>
+						<description>Install a knee spike.</description>
+						<descriptionHyperlinks>
+							<ThingDef>KneeSpike</ThingDef>
+							<HediffDef>KneeSpike</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing knee spike.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>KneeSpike</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>KneeSpike</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Leg</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>KneeSpike</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="VenomFangs"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>VenomFangs</defName>
+						<label>venom fangs</label>
+						<description>A pair of injectors implanted through the canine teeth, connected to a venom pump. The user can bite an enemy, extend the injectors, and pump venom into the target.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallVenomFangs</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<costList>
+							<MechanismComplex>4</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>25</Synthread>
+							<Biosynthetics>50</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<violentTechHediff>true</violentTechHediff>
+						<techHediffsTags>
+							<li>AdvancedWeapon</li>
+						</techHediffsTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="VenomFangs"]</xpath>
+				<value>
+					<HediffDef ParentName="ImplantHediffBase">
+						<defName>VenomFangs</defName>
+						<label>venom fangs</label>
+						<labelNoun>a set of venom fangs</labelNoun>
+						<description>An installed set of venom fangs.</description>
+						<descriptionHyperlinks>
+							<ThingDef>VenomFangs</ThingDef>
+						</descriptionHyperlinks>
+						<addedPartProps>
+							<solid>true</solid>
+						</addedPartProps>
+						<comps>
+							<li Class="HediffCompProperties_VerbGiver">
+								<tools>
+									<li Class="CombatExtended.ToolCE">
+										<label>venom fangs</label>
+										<capacities>
+											<li>ToxicBite</li>
+										</capacities>
+										<power>7</power>
+										<cooldownTime>2</cooldownTime>
+										<armorPenetrationBlunt>3</armorPenetrationBlunt>
+									</li>
+								</tools>
+							</li>
+						</comps>
+						<spawnThingOnRemoved>VenomFangs</spawnThingOnRemoved>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallVenomFangs"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallImplantBase">
+						<defName>InstallVenomFangs</defName>
+						<label>install venom fangs</label>
+						<description>Install venom fangs.</description>
+						<descriptionHyperlinks>
+							<ThingDef>VenomFangs</ThingDef>
+							<HediffDef>VenomFangs</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing venom fangs.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>VenomFangs</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>VenomFangs</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyPartGroups>
+							<li>Teeth</li>
+						</appliedOnFixedBodyPartGroups>
+						<addsHediff>VenomFangs</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="VenomTalon"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>VenomTalon</defName>
+						<label>venom talon</label>
+						<description>A retractable finger talon connected to a venom pump in the lower arm. The user can scratch an enemy while squirting venom into the wound. The talon is designed to be installed in the middle finger. It's fast, but poor at penetrating armor.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallVenomTalon</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<costList>
+							<MechanismComplex>3</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>25</Synthread>
+							<Biosynthetics>50</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<violentTechHediff>true</violentTechHediff>
+						<techHediffsTags>
+							<li>AdvancedWeapon</li>
+						</techHediffsTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="VenomTalon"]</xpath>
+				<value>
+					<HediffDef ParentName="ImplantHediffBase">
+						<defName>VenomTalon</defName>
+						<label>venom talon</label>
+						<labelNoun>a venom talon</labelNoun>
+						<description>An installed venom talon.</description>
+						<descriptionHyperlinks>
+							<ThingDef>VenomTalon</ThingDef>
+						</descriptionHyperlinks>
+						<comps>
+							<li Class="HediffCompProperties_VerbGiver">
+								<tools>
+									<li Class="CombatExtended.ToolCE">
+										<label>venom talon</label>
+										<capacities>
+											<li>ToxicBite</li>
+										</capacities>
+										<power>6</power>
+										<cooldownTime>2</cooldownTime>
+										<armorPenetrationBlunt>3</armorPenetrationBlunt>
+									</li>
+								</tools>
+							</li>
+						</comps>
+						<spawnThingOnRemoved>VenomTalon</spawnThingOnRemoved>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallVenomTalon"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallImplantBase">
+						<defName>InstallVenomTalon</defName>
+						<label>install venom talon</label>
+						<description>Install a venom talon.</description>
+						<descriptionHyperlinks>
+							<ThingDef>VenomTalon</ThingDef>
+							<HediffDef>VenomTalon</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing venom talon.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>VenomTalon</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>VenomTalon</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyPartGroups>
+							<li>MiddleFingers</li>
+						</appliedOnFixedBodyPartGroups>
+						<addsHediff>VenomTalon</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="RemoteRepairer"]</xpath>
+				<value>
+					<ThingDef ParentName="MechanitorImplantCraftableBase">
+						<defName>RemoteRepairer</defName>
+						<label>remote repairer</label>
+						<description>A mechlink upgrade which allows the mechanitor to repair mechs from a distance. The user links with the mechanoid and uses their own brain to psychically guide its self-repair mechanites.\n\nThis implant can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its range.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<descriptionHyperlinks>
+							<HediffDef>RemoteRepairerImplant</HediffDef>
+						</descriptionHyperlinks>
+						<costList>
+							<PowerfocusChip>1</PowerfocusChip>
+							<ComponentSpacer>4</ComponentSpacer>
+							<Nanoelectronics>4</Nanoelectronics>
+							<RobotParts>25</RobotParts>
+						</costList>
+						<statBases>
+							<MaxInstallCount>3</MaxInstallCount>
+						</statBases>
+						<recipeMaker>
+							<researchPrerequisite>HighMechtech</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<comps>
+							<li Class="CompProperties_Usable">
+								<compClass>CompUsableImplant</compClass>
+								<useJob>UseItem</useJob>
+								<useLabel>Implant {0_label}</useLabel>
+								<userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+							</li>
+							<li Class="CompProperties_UseEffectInstallImplant">
+								<hediffDef>RemoteRepairerImplant</hediffDef>
+								<bodyPart>Brain</bodyPart>
+								<canUpgrade>true</canUpgrade>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MechFormfeeder"]</xpath>
+				<value>
+					<ThingDef ParentName="MechanitorImplantCraftableBase">
+						<defName>MechFormfeeder</defName>
+						<label>mech gestation processor</label>
+						<description>An implant which increases the speed at which a mechanitor can produce mechs in a mech gestator. The processor optimizes the behavior of the mechanites in the mech forming tank.\n\nThis implant can be self-installed in the same way as the mechlink.\n\nThis implant can be installed up to 6 times to increase its effect.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<descriptionHyperlinks>
+							<HediffDef>MechFormfeederImplant</HediffDef>
+						</descriptionHyperlinks>
+						<costList>
+							<SignalChip>1</SignalChip>
+							<ComponentSpacer>2</ComponentSpacer>
+							<Nanoelectronics>2</Nanoelectronics>
+							<Biosynthetics>50</Biosynthetics>
+						</costList>
+						<statBases>
+							<MaxInstallCount>6</MaxInstallCount>
+						</statBases>
+						<recipeMaker>
+							<researchPrerequisite>StandardMechtech</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<comps>
+							<li Class="CompProperties_Usable">
+								<compClass>CompUsableImplant</compClass>
+								<useJob>UseItem</useJob>
+								<useLabel>Implant {0_label}</useLabel>
+								<userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+							</li>
+							<li Class="CompProperties_UseEffectInstallImplant">
+								<hediffDef>MechFormfeederImplant</hediffDef>
+								<bodyPart>Brain</bodyPart>
+								<canUpgrade>true</canUpgrade>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="RemoteShielder"]</xpath>
+				<value>
+					<ThingDef ParentName="MechanitorImplantCraftableBase">
+						<defName>RemoteShielder</defName>
+						<label>remote shielder</label>
+						<description>An implant which allows the mechanitor to place a personal defense shield on a mech. The mechanitor must continuously focus on the mech in order to maintain the shield.\n\nPlacing a shield at a distance requires a substantial amount of focused energy. It can be used to save a mech at a critical moment.\n\nThis implant can be self-installed in the same way as the mechlink.\n\nThis implant can be installed up to 3 times to increase its range and shield energy.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<descriptionHyperlinks>
+							<HediffDef>RemoteShielderImplant</HediffDef>
+						</descriptionHyperlinks>
+						<costList>
+							<PowerfocusChip>1</PowerfocusChip>
+							<MechanismSpacer>4</MechanismSpacer>
+							<Nanoelectronics>4</Nanoelectronics>
+							<Supermagnet>50</Supermagnet>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>HighMechtech</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<statBases>
+							<MaxInstallCount>3</MaxInstallCount>
+						</statBases>
+						<comps>
+							<li Class="CompProperties_Usable">
+								<compClass>CompUsableImplant</compClass>
+								<useJob>UseItem</useJob>
+								<useLabel>Implant {0_label}</useLabel>
+								<userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+							</li>
+							<li Class="CompProperties_UseEffectInstallImplant">
+								<hediffDef>RemoteShielderImplant</hediffDef>
+								<bodyPart>Brain</bodyPart>
+								<canUpgrade>true</canUpgrade>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ControlSublink"]</xpath>
+				<value>
+					<ThingDef ParentName="ControlSublinkBase">
+						<defName>ControlSublink</defName>
+						<label>control sublink (standard)</label>
+						<description>A neural implant which gives a mechanitor an additional control group. Additionally, the sublink slightly increases the work speed of any mechanoids controlled by the mechanitor.\n\nThis standard-tier sublink can only increase the control group count up to 3. To go higher, a higher-tier sublink implant must be used.\n\nIt can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<costList>
+							<SignalChip>1</SignalChip>
+							<Biosynthetics>25</Biosynthetics>
+							<Supermagnet>15</Supermagnet>
+							<Nanoelectronics>2</Nanoelectronics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>StandardMechtech</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+						</recipeMaker>
+						<comps>
+							<li Class="CompProperties_Usable">
+								<compClass>CompUsableImplant</compClass>
+								<useJob>UseItem</useJob>
+								<useLabel>Implant sublink</useLabel>
+								<userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+							</li>
+							<li Class="CompProperties_UseEffectInstallImplant">
+								<hediffDef>ControlSublinkImplant</hediffDef>
+								<bodyPart>Brain</bodyPart>
+								<canUpgrade>true</canUpgrade>
+								<maxSeverity>3</maxSeverity>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ControlSublinkHigh"]</xpath>
+				<value>
+					<ThingDef ParentName="ControlSublinkBase">
+						<defName>ControlSublinkHigh</defName>
+						<label>control sublink (high)</label>
+						<description>A neural implant which gives a mechanitor an additional control group. Additionally, the sublink slightly increases the work speed of any mechanoids controlled by the mechanitor.\n\nThis high-tier implant can increase the control group count up to 6.\n\nIt can be self-installed without surgery.\n\nThis implant can be installed up to 3 times to increase its effect.</description>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<costList>
+							<PowerfocusChip>1</PowerfocusChip>
+							<Biosynthetics>75</Biosynthetics>
+							<Supermagnet>50</Supermagnet>
+							<Nanoelectronics>5</Nanoelectronics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>HighMechtech</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+						</recipeMaker>
+						<comps>
+							<li Class="CompProperties_Usable">
+								<compClass>CompUsableImplant</compClass>
+								<useJob>UseItem</useJob>
+								<useLabel>Implant high sublink</useLabel>
+								<userMustHaveHediff>MechlinkImplant</userMustHaveHediff>
+							</li>
+							<li Class="CompProperties_UseEffectInstallImplant">
+								<hediffDef>ControlSublinkImplant</hediffDef>
+								<bodyPart>Brain</bodyPart>
+								<canUpgrade>true</canUpgrade>
+								<requiresExistingHediff>true</requiresExistingHediff>
+								<minSeverity>3</minSeverity>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="DetoxifierStomach"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>DetoxifierStomach</defName>
+						<label>sterilizing stomach</label>
+						<description>An artificial stomach replacement with a broad-spectrum filtration and sterilization system. It allows the user to eat almost anything without ever worrying about food poisoning.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallDetoxifierStomach</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>2</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="DetoxifierStomach"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>DetoxifierStomach</defName>
+						<label>sterilizing stomach</label>
+						<labelNoun>a sterilizing stomach</labelNoun>
+						<description>An installed sterilizing stomach.</description>
+						<descriptionHyperlinks>
+							<ThingDef>DetoxifierStomach</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>DetoxifierStomach</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<stages>
+							<li>
+								<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+							</li>
+						</stages>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+							<li Class="HediffCompProperties_ReactOnDamage">
+								<damageDefIncoming>EMP</damageDefIncoming>
+								<vomit>true</vomit>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallDetoxifierStomach"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallDetoxifierStomach</defName>
+						<label>install sterilizing stomach</label>
+						<description>Install a sterilizing stomach.</description>
+						<descriptionHyperlinks>
+							<ThingDef>DetoxifierStomach</ThingDef>
+							<HediffDef>DetoxifierStomach</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing sterilizing stomach.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>DetoxifierStomach</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>DetoxifierStomach</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Stomach</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>DetoxifierStomach</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="ReprocessorStomach"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>ReprocessorStomach</defName>
+						<label>reprocessor stomach</label>
+						<description>An advanced chemical processing system breaks down nutrients the body could normally never use, leading to increased efficiency.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallReprocessorStomach</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>2</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="ReprocessorStomach"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>ReprocessorStomach</defName>
+						<label>reprocessor stomach</label>
+						<labelNoun>a reprocessor stomach</labelNoun>
+						<description>An installed reprocessor stomach.</description>
+						<descriptionHyperlinks>
+							<ThingDef>ReprocessorStomach</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>ReprocessorStomach</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<stages>
+							<li>
+								<hungerRateFactor>0.75</hungerRateFactor>
+							</li>
+						</stages>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+							<li Class="HediffCompProperties_ReactOnDamage">
+								<damageDefIncoming>EMP</damageDefIncoming>
+								<vomit>true</vomit>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallReprocessorStomach"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallReprocessorStomach</defName>
+						<label>install reprocessor stomach</label>
+						<description>Install a reprocessor stomach.</description>
+						<descriptionHyperlinks>
+							<ThingDef>ReprocessorStomach</ThingDef>
+							<HediffDef>ReprocessorStomach</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing reprocessor stomach.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ReprocessorStomach</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ReprocessorStomach</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Stomach</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>ReprocessorStomach</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="NuclearStomach"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>NuclearStomach</defName>
+						<label>nuclear stomach</label>
+						<description>A micro-nuclear reactor combined with complex chemical synthesis replaces the body's need for food energy. Food is required only to replace matter lost from the body, reducing the user's intake needs significantly. This artificial stomach cannot get food poisoning. However, there is little room to shield the reactor, so the radiation increases the risk of cancer.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallNuclearStomach</RecipeDef>
+						</descriptionHyperlinks>
+						<thingSetMakerTags>
+							<li>RewardStandardLowFreq</li>
+						</thingSetMakerTags>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<UraniumPowder>20</UraniumPowder>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="NuclearStomach"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>NuclearStomach</defName>
+						<label>nuclear stomach</label>
+						<labelNoun>a nuclear stomach</labelNoun>
+						<description>An installed nuclear stomach.</description>
+						<descriptionHyperlinks>
+							<ThingDef>NuclearStomach</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>NuclearStomach</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<hediffGivers>
+							<li Class="HediffGiver_Random">
+								<mtbDays>120</mtbDays>
+								<hediff>Carcinoma</hediff>
+								<partsToAffect>
+									<li>Torso</li>
+								</partsToAffect>
+							</li>
+						</hediffGivers>
+						<stages>
+							<li>
+								<hungerRateFactor>0.25</hungerRateFactor>
+								<foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+							</li>
+						</stages>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+							<li Class="HediffCompProperties_ReactOnDamage">
+								<damageDefIncoming>EMP</damageDefIncoming>
+								<vomit>true</vomit>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallNuclearStomach"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallNuclearStomach</defName>
+						<label>install nuclear stomach</label>
+						<description>Install a nuclear stomach.</description>
+						<descriptionHyperlinks>
+							<ThingDef>NuclearStomach</ThingDef>
+							<HediffDef>NuclearStomach</HediffDef>
+						</descriptionHyperlinks>
+						<workerClass>Recipe_InstallArtificialBodyPart</workerClass>
+						<jobString>Installing nuclear stomach.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>NuclearStomach</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>NuclearStomach</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Stomach</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>NuclearStomach</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="DetoxifierLung"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>DetoxifierLung</defName>
+						<label>detoxifier lung</label>
+						<description>An advanced artificial lung that uses microfilters to reduce the intake of environmental toxins, allowing the user to survive longer in polluted environments. Additionally, it negates the irritation of acidic smog and prevents lung rot in this lung.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallDetoxifierLung</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="DetoxifierLung"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>DetoxifierLung</defName>
+						<label>detoxifier lung</label>
+						<labelNoun>a detoxifier lung</labelNoun>
+						<description>An installed detoxifier lung. Prevents lung rot in this lung and negates the irritation of acidic smog.\n\nNote that the detoxifier lung does not prevent the irritating effect of tox gas.</description>
+						<preventsLungRot>true</preventsLungRot>
+						<descriptionHyperlinks>
+							<ThingDef>DetoxifierLung</ThingDef>
+							<HediffDef>LungRot</HediffDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>DetoxifierLung</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.1</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<stages>
+							<li>
+								<statOffsets>
+									<ToxicEnvironmentResistance>0.6</ToxicEnvironmentResistance>
+								</statOffsets>
+							</li>
+						</stages>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallDetoxifierLung"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallDetoxifierLung</defName>
+						<label>install detoxifier lung</label>
+						<description>Install a detoxifier lung.</description>
+						<descriptionHyperlinks>
+							<ThingDef>DetoxifierLung</ThingDef>
+							<HediffDef>DetoxifierLung</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing detoxifier lung.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>DetoxifierLung</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>DetoxifierLung</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Lung</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>DetoxifierLung</addsHediff>
+						<deathOnFailedSurgeryChance>0</deathOnFailedSurgeryChance>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="DetoxifierKidney"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>DetoxifierKidney</defName>
+						<label>detoxifier kidney</label>
+						<description>An advanced artificial kidney. Using a series of nanofilters, it can rapidly remove a vast range of toxins from the blood, making it effective against environmental toxins, venoms, and injected poisons.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallDetoxifierKidney</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<texPath>Core/Items/Prostheses/T4</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<color>255,255,255</color>
+						</graphicData>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Synthread>75</Synthread>
+							<Biosynthetics>150</Biosynthetics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="DetoxifierKidney"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>DetoxifierKidney</defName>
+						<label>detoxifier kidney</label>
+						<labelNoun>a detoxifier kidney</labelNoun>
+						<description>An installed detoxifier kidney.</description>
+						<descriptionHyperlinks>
+							<ThingDef>DetoxifierKidney</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>DetoxifierKidney</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.1</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<stages>
+							<li>
+								<statOffsets>
+									<ToxicResistance>0.5</ToxicResistance>
+								</statOffsets>
+							</li>
+						</stages>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallDetoxifierKidney"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallDetoxifierKidney</defName>
+						<label>install detoxifier kidney</label>
+						<description>Install a detoxifier kidney.</description>
+						<descriptionHyperlinks>
+							<ThingDef>DetoxifierKidney</ThingDef>
+							<HediffDef>DetoxifierKidney</HediffDef>
+						</descriptionHyperlinks>
+						<jobString>Installing detoxifier kidney.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>DetoxifierKidney</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>DetoxifierKidney</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Kidney</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>DetoxifierKidney</addsHediff>
+						<deathOnFailedSurgeryChance>0</deathOnFailedSurgeryChance>
+						<researchPrerequisite>Bionics</researchPrerequisite>
 					</RecipeDef>
 				</value>
 			</li>

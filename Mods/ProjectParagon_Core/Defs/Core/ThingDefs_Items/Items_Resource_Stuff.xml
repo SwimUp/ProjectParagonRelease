@@ -196,7 +196,7 @@
 		<graphicData>
 			<texPath>Core/Resources/Mineable/Powder</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
-			<color>(80,86,177)</color>
+			<color>(109,171,168)</color>
 		</graphicData>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
@@ -215,6 +215,33 @@
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<techLevel>Industrial</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>TungstenPowder</defName>
+		<label>Tungsten powder</label>
+		<description>Crushed ore powder. Used for the production of alloys.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/Powder</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<color>(139,110,90)</color>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<statBases>
+			<MarketValue>2</MarketValue>
+			<Mass>0.4</Mass>
+			<Bulk>0.02</Bulk>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<slagDef>ChunkSlagSteel</slagDef>
+		<thingCategories>
+			<li>OrePowders</li>
+		</thingCategories>
+		<burnableByRecipe>false</burnableByRecipe>
+		<!-- <smeltable>true</smeltable> -->
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<techLevel>Spacer</techLevel>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>LeadPowder</defName>
@@ -420,7 +447,14 @@
 			<MarketValue>3</MarketValue>
 			<Mass>0.25</Mass>
 			<Bulk>0.01</Bulk>
+			<Nutrition>0.01</Nutrition>
 		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<foodType>OmnivoreHuman</foodType>
+			<optimalityOffsetHumanlikes>2</optimalityOffsetHumanlikes>
+		</ingestible>
 		<useHitPoints>false</useHitPoints>
 		<healthAffectsPrice>false</healthAffectsPrice>
 		<slagDef>ChunkSlagSteel</slagDef>
@@ -471,7 +505,8 @@
 			<commonality>0.1</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(149,102,73)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -605,7 +640,8 @@
 			<commonality>0.05</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(180,97,54)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -739,7 +775,8 @@
 			<commonality>0.01</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(145,150,152)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -873,7 +910,8 @@
 			<commonality>0.05</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(122,135,133)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -1007,7 +1045,8 @@
 			<commonality>0.01</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(117,121,118)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -1141,11 +1180,12 @@
 			<commonality>0.01</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(94,132,151)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
-				<MaxHitPoints>6</MaxHitPoints>
+				<MaxHitPoints>5.5</MaxHitPoints>
 				<Beauty>1</Beauty>
 				<Flammability>0.0</Flammability>
 				<BedRestEffectiveness>0.85</BedRestEffectiveness>
@@ -1236,6 +1276,551 @@
 			</li>
 		</comps>
 	</ThingDef>
+	
+	<ThingDef ParentName="ResourceBase">
+		<defName>NichromeIngot</defName>
+		<label>Nichrome alloy</label>
+		<description>Ingot of nano material. It has excellent resistance to thermal radiation, has high ductility, but is not so durable.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/Ingots</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<color>(112,139,90)</color>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<statBases>
+			<MarketValue>8.0</MarketValue>
+			<Mass>2.1</Mass>
+			<Bulk>0.018</Bulk>
+			<StuffPower_Armor_Sharp>1.95</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>1.8</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>2</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>2</StuffPower_Insulation_Heat>
+			<SharpDamageMultiplier>1.85</SharpDamageMultiplier>
+			<BluntDamageMultiplier>1.85</BluntDamageMultiplier>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<thingCategories>
+			<li>Alloys_Nano</li>
+		</thingCategories>
+		<burnableByRecipe>false</burnableByRecipe>
+		<smeltable>false</smeltable>
+		<techLevel>Spacer</techLevel>
+		<stuffProps>
+			<categories>
+				<li>Metallic</li>
+				<li>Metallic_Weapon</li>
+			</categories>
+			<commonality>0.01</commonality>
+			<constructEffect>ConstructMetal</constructEffect>
+			<color>(112,139,90)</color>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
+			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+			<statFactors>
+				<MaxHitPoints>5</MaxHitPoints>
+				<Beauty>1.1</Beauty>
+				<Flammability>0.0</Flammability>
+				<BedRestEffectiveness>0.85</BedRestEffectiveness>
+				<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
+				<WorkTableWorkSpeedFactor>1.05</WorkTableWorkSpeedFactor>
+				<MeleePenetrationFactor>1</MeleePenetrationFactor>
+				<ProsthesisEfficiency>1.05</ProsthesisEfficiency>
+			</statFactors>
+		</stuffProps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RequiredTech">
+				<reqResearch>NanoAlloys</reqResearch>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StuffProperties">
+				<damageMultipliers>
+					<li>
+						<!-- Бомба -->
+						<damageDef>Bomb</damageDef>
+						<multiplier>1.0</multiplier>
+					</li>
+					<li>
+						<!-- Укус -->
+						<damageDef>Bite</damageDef>
+						<multiplier>0.2</multiplier>
+					</li>
+					<li>
+						<!-- Удар -->
+						<damageDef>Blunt</damageDef>
+						<multiplier>0.75</multiplier>
+					</li>
+					<li>
+						<!-- Давка -->
+						<damageDef>Crush</damageDef>
+						<multiplier>0.3</multiplier>
+					</li>
+					<li>
+						<!-- Порез -->
+						<damageDef>Cut</damageDef>
+						<multiplier>0.6</multiplier>
+					</li>
+					<li>
+						<!-- Тычок -->
+						<damageDef>Poke</damageDef>
+						<multiplier>0.4</multiplier>
+					</li>
+					<li>
+						<!-- Рваная рана -->
+						<damageDef>Scratch</damageDef>
+						<multiplier>0.5</multiplier>
+					</li>
+					<li>
+						<!-- Рана с ядом -->
+						<damageDef>ScratchToxic</damageDef>
+						<multiplier>0.5</multiplier>
+					</li>
+					<li>
+						<!-- Укол -->
+						<damageDef>Stab</damageDef>
+						<multiplier>0.5</multiplier>
+					</li>
+					<li>
+						<!-- Ядовитый укус -->
+						<damageDef>ToxicBite</damageDef>
+						<multiplier>0.2</multiplier>
+					</li>
+					<li>
+						<!-- Стрела -->
+						<damageDef>Arrow</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Стрела (выс.скорость) -->
+						<damageDef>ArrowHighVelocity</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Пуля -->
+						<damageDef>Bullet</damageDef>
+						<multiplier>1.0</multiplier>
+					</li>
+					<li>
+						<!-- Укол (дальний бой) -->
+						<damageDef>RangedStab</damageDef>
+						<multiplier>0.4</multiplier>
+					</li>
+				</damageMultipliers>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>TungstenIngot</defName>
+		<label>Tungsten alloy</label>
+		<description>Ingot of nano material. It has high strength and technical properties.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/Ingots</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<color>(139,110,90)</color>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<statBases>
+			<MarketValue>9.5</MarketValue>
+			<Mass>2.5</Mass>
+			<Bulk>0.03</Bulk>
+			<StuffPower_Armor_Sharp>2.75</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>2.75</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>0.5</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>2</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>2</StuffPower_Insulation_Heat>
+			<SharpDamageMultiplier>1.75</SharpDamageMultiplier>
+			<BluntDamageMultiplier>2</BluntDamageMultiplier>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<thingCategories>
+			<li>Alloys_Nano</li>
+		</thingCategories>
+		<burnableByRecipe>false</burnableByRecipe>
+		<smeltable>false</smeltable>
+		<techLevel>Spacer</techLevel>
+		<stuffProps>
+			<categories>
+				<li>Metallic</li>
+				<li>Metallic_Weapon</li>
+			</categories>
+			<commonality>0.01</commonality>
+			<constructEffect>ConstructMetal</constructEffect>
+			<color>(139,110,90)</color>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
+			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+			<statFactors>
+				<MaxHitPoints>6.5</MaxHitPoints>
+				<Beauty>1</Beauty>
+				<Flammability>0.0</Flammability>
+				<BedRestEffectiveness>0.85</BedRestEffectiveness>
+				<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
+				<WorkTableWorkSpeedFactor>1.0</WorkTableWorkSpeedFactor>
+				<MeleePenetrationFactor>1.3</MeleePenetrationFactor>
+				<ProsthesisEfficiency>1.05</ProsthesisEfficiency>
+			</statFactors>
+		</stuffProps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RequiredTech">
+				<reqResearch>NanoAlloys</reqResearch>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StuffProperties">
+				<damageMultipliers>
+					<li>
+						<!-- Бомба -->
+						<damageDef>Bomb</damageDef>
+						<multiplier>1.0</multiplier>
+					</li>
+					<li>
+						<!-- Укус -->
+						<damageDef>Bite</damageDef>
+						<multiplier>0.2</multiplier>
+					</li>
+					<li>
+						<!-- Удар -->
+						<damageDef>Blunt</damageDef>
+						<multiplier>0.75</multiplier>
+					</li>
+					<li>
+						<!-- Давка -->
+						<damageDef>Crush</damageDef>
+						<multiplier>0.3</multiplier>
+					</li>
+					<li>
+						<!-- Порез -->
+						<damageDef>Cut</damageDef>
+						<multiplier>0.6</multiplier>
+					</li>
+					<li>
+						<!-- Тычок -->
+						<damageDef>Poke</damageDef>
+						<multiplier>0.4</multiplier>
+					</li>
+					<li>
+						<!-- Рваная рана -->
+						<damageDef>Scratch</damageDef>
+						<multiplier>0.5</multiplier>
+					</li>
+					<li>
+						<!-- Рана с ядом -->
+						<damageDef>ScratchToxic</damageDef>
+						<multiplier>0.5</multiplier>
+					</li>
+					<li>
+						<!-- Укол -->
+						<damageDef>Stab</damageDef>
+						<multiplier>0.5</multiplier>
+					</li>
+					<li>
+						<!-- Ядовитый укус -->
+						<damageDef>ToxicBite</damageDef>
+						<multiplier>0.2</multiplier>
+					</li>
+					<li>
+						<!-- Стрела -->
+						<damageDef>Arrow</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Стрела (выс.скорость) -->
+						<damageDef>ArrowHighVelocity</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Пуля -->
+						<damageDef>Bullet</damageDef>
+						<multiplier>1.0</multiplier>
+					</li>
+					<li>
+						<!-- Укол (дальний бой) -->
+						<damageDef>RangedStab</damageDef>
+						<multiplier>0.4</multiplier>
+					</li>
+				</damageMultipliers>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>AdamantiumIngot</defName>
+		<label>Adamantium alloy</label>
+		<description>An ingot of extraterrestrial material. A red, shiny metal that is virtually impossible to melt by conventional methods. Its molecular structure is extremely stable, making this material very durable.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/Ingots</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<color>(165, 59, 52)</color>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<statBases>
+			<MarketValue>80.0</MarketValue>
+			<Mass>3.5</Mass>
+			<Bulk>0.05</Bulk>
+			<StuffPower_Armor_Sharp>5</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>5</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>4</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>2</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>4</StuffPower_Insulation_Heat>
+			<SharpDamageMultiplier>4</SharpDamageMultiplier>
+			<BluntDamageMultiplier>4</BluntDamageMultiplier>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<thingCategories>
+			<li>Alloys_Uncommon</li>
+		</thingCategories>
+		<burnableByRecipe>false</burnableByRecipe>
+		<smeltable>false</smeltable>
+		<techLevel>Spacer</techLevel>
+		<stuffProps>
+			<categories>
+				<li>Metallic</li>
+				<li>Metallic_Weapon</li>
+			</categories>
+			<commonality>0.0000001</commonality>
+			<constructEffect>ConstructMetal</constructEffect>
+			<color>(229,52,14)</color>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
+			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+			<statFactors>
+				<MaxHitPoints>12</MaxHitPoints>
+				<Beauty>0</Beauty>
+				<Flammability>0.0</Flammability>
+				<BedRestEffectiveness>0.5</BedRestEffectiveness>
+				<ImmunityGainSpeedFactor>0.5</ImmunityGainSpeedFactor>
+				<WorkTableWorkSpeedFactor>1.2</WorkTableWorkSpeedFactor>
+				<MeleePenetrationFactor>1.7</MeleePenetrationFactor>
+				<ProsthesisEfficiency>2.0</ProsthesisEfficiency>
+				<WorkToMake>6.0</WorkToMake>
+				<WorkToBuild>6.0</WorkToBuild>
+			</statFactors>
+		</stuffProps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RequiredTech">
+				<reqResearch>Adamantium</reqResearch>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StuffProperties">
+				<damageMultipliers>
+					<li>
+						<!-- Бомба -->
+						<damageDef>Bomb</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Укус -->
+						<damageDef>Bite</damageDef>
+						<multiplier>0.01</multiplier>
+					</li>
+					<li>
+						<!-- Удар -->
+						<damageDef>Blunt</damageDef>
+						<multiplier>0.3</multiplier>
+					</li>
+					<li>
+						<!-- Давка -->
+						<damageDef>Crush</damageDef>
+						<multiplier>0.1</multiplier>
+					</li>
+					<li>
+						<!-- Порез -->
+						<damageDef>Cut</damageDef>
+						<multiplier>0.2</multiplier>
+					</li>
+					<li>
+						<!-- Тычок -->
+						<damageDef>Poke</damageDef>
+						<multiplier>0.1</multiplier>
+					</li>
+					<li>
+						<!-- Рваная рана -->
+						<damageDef>Scratch</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Рана с ядом -->
+						<damageDef>ScratchToxic</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Укол -->
+						<damageDef>Stab</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Ядовитый укус -->
+						<damageDef>ToxicBite</damageDef>
+						<multiplier>0.05</multiplier>
+					</li>
+					<li>
+						<!-- Стрела -->
+						<damageDef>Arrow</damageDef>
+						<multiplier>0.02</multiplier>
+					</li>
+					<li>
+						<!-- Стрела (выс.скорость) -->
+						<damageDef>ArrowHighVelocity</damageDef>
+						<multiplier>0.02</multiplier>
+					</li>
+					<li>
+						<!-- Пуля -->
+						<damageDef>Bullet</damageDef>
+						<multiplier>0.7</multiplier>
+					</li>
+					<li>
+						<!-- Укол (дальний бой) -->
+						<damageDef>RangedStab</damageDef>
+						<multiplier>0.1</multiplier>
+					</li>
+				</damageMultipliers>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>VibraniumIngot</defName>
+		<label>Vibranium alloy</label>
+		<description>An ingot of extraterrestrial material. White material with hints of grey. A special molecular structure absorbs directed kinetic energy, the speed of which is above a certain threshold, so objects and buildings made from it are practically invulnerable to explosions and bullet shots, but at the same time vulnerable to melee attacks.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/Ingots</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<color>(221,221,221)</color>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<statBases>
+			<MarketValue>75.0</MarketValue>
+			<Mass>2.5</Mass>
+			<Bulk>0.05</Bulk>
+			<StuffPower_Armor_Sharp>3.5</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>6.5</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>0.8</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>2</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>2</StuffPower_Insulation_Heat>
+			<SharpDamageMultiplier>6</SharpDamageMultiplier>
+			<BluntDamageMultiplier>5</BluntDamageMultiplier>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<thingCategories>
+			<li>Alloys_Uncommon</li>
+		</thingCategories>
+		<burnableByRecipe>false</burnableByRecipe>
+		<smeltable>false</smeltable>
+		<techLevel>Spacer</techLevel>
+		<stuffProps>
+			<categories>
+				<li>Metallic</li>
+				<li>Metallic_Weapon</li>
+			</categories>
+			<commonality>0.0000001</commonality>
+			<constructEffect>ConstructMetal</constructEffect>
+			<color>(221,221,221)</color>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
+			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+			<statFactors>
+				<MaxHitPoints>10</MaxHitPoints>
+				<Beauty>0</Beauty>
+				<Flammability>0.0</Flammability>
+				<BedRestEffectiveness>1.3</BedRestEffectiveness>
+				<ImmunityGainSpeedFactor>1.3</ImmunityGainSpeedFactor>
+				<WorkTableWorkSpeedFactor>1.6</WorkTableWorkSpeedFactor>
+				<MeleePenetrationFactor>1.5</MeleePenetrationFactor>
+				<ProsthesisEfficiency>1.4</ProsthesisEfficiency>
+				<WorkToMake>2.0</WorkToMake>
+				<WorkToBuild>2.0</WorkToBuild>
+			</statFactors>
+		</stuffProps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RequiredTech">
+				<reqResearch>Vibranium</reqResearch>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StuffProperties">
+				<damageMultipliers>
+					<li>
+						<!-- Бомба -->
+						<damageDef>Bomb</damageDef>
+						<multiplier>0.01</multiplier>
+					</li>
+					<li>
+						<!-- Укус -->
+						<damageDef>Bite</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Удар -->
+						<damageDef>Blunt</damageDef>
+						<multiplier>0.6</multiplier>
+					</li>
+					<li>
+						<!-- Давка -->
+						<damageDef>Crush</damageDef>
+						<multiplier>0.01</multiplier>
+					</li>
+					<li>
+						<!-- Порез -->
+						<damageDef>Cut</damageDef>
+						<multiplier>0.45</multiplier>
+					</li>
+					<li>
+						<!-- Тычок -->
+						<damageDef>Poke</damageDef>
+						<multiplier>0.3</multiplier>
+					</li>
+					<li>
+						<!-- Рваная рана -->
+						<damageDef>Scratch</damageDef>
+						<multiplier>0.4</multiplier>
+					</li>
+					<li>
+						<!-- Рана с ядом -->
+						<damageDef>ScratchToxic</damageDef>
+						<multiplier>0.4</multiplier>
+					</li>
+					<li>
+						<!-- Укол -->
+						<damageDef>Stab</damageDef>
+						<multiplier>0.4</multiplier>
+					</li>
+					<li>
+						<!-- Ядовитый укус -->
+						<damageDef>ToxicBite</damageDef>
+						<multiplier>0.15</multiplier>
+					</li>
+					<li>
+						<!-- Стрела -->
+						<damageDef>Arrow</damageDef>
+						<multiplier>0.10</multiplier>
+					</li>
+					<li>
+						<!-- Стрела (выс.скорость) -->
+						<damageDef>ArrowHighVelocity</damageDef>
+						<multiplier>0.10</multiplier>
+					</li>
+					<li>
+						<!-- Пуля -->
+						<damageDef>Bullet</damageDef>
+						<multiplier>0.5</multiplier>
+					</li>
+					<li>
+						<!-- Укол (дальний бой) -->
+						<damageDef>RangedStab</damageDef>
+						<multiplier>0.2</multiplier>
+					</li>
+				</damageMultipliers>
+			</li>
+		</comps>
+	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>LeadIngot</defName>
 		<label>Lead alloy</label>
@@ -1275,7 +1860,8 @@
 			<commonality>0.4</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(94,97,95)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -1409,7 +1995,8 @@
 			<commonality>0.02</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(187,158,63)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -1545,7 +2132,8 @@
 			<commonality>0.01</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(198,205,80)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -1680,7 +2268,8 @@
 			<commonality>0.01</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(159,166,162)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -1814,7 +2403,8 @@
 			<commonality>0.07</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(165,104,38)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -1948,7 +2538,8 @@
 			<commonality>0.1</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(122,145,116)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -2084,7 +2675,8 @@
 			<commonality>0.1</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(127,110,94)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -2218,7 +2810,8 @@
 			<commonality>0.04</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(127,87,120)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -2352,7 +2945,8 @@
 			<commonality>0.001</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(142,53,47)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -2538,7 +3132,15 @@
 		</graphicData>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<optimalityOffsetHumanlikes>10</optimalityOffsetHumanlikes>
+		</ingestible>
+		<socialPropernessMatters>true</socialPropernessMatters>
 		<statBases>
+			<Nutrition>0.015</Nutrition>
 			<MarketValue>0.15</MarketValue>
 			<Mass>0.25</Mass>
 			<Bulk>0.01</Bulk>
@@ -2735,7 +3337,16 @@
 		</graphicData>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<optimalityOffsetHumanlikes>12</optimalityOffsetHumanlikes>
+		</ingestible>
+		<socialPropernessMatters>true</socialPropernessMatters>
 		<statBases>
+			<Nutrition>0.03</Nutrition>
+			<Flavor>-2</Flavor>
 			<MarketValue>0.25</MarketValue>
 			<Mass>0.3</Mass>
 			<Bulk>0.01</Bulk>
@@ -2837,7 +3448,15 @@
 		</graphicData>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<optimalityOffsetHumanlikes>15</optimalityOffsetHumanlikes>
+		</ingestible>
+		<socialPropernessMatters>true</socialPropernessMatters>
 		<statBases>
+			<Nutrition>0.05</Nutrition>
 			<MarketValue>0.3</MarketValue>
 			<Mass>0.5</Mass>
 			<Bulk>0.03</Bulk>
@@ -3723,7 +4342,8 @@
 			<commonality>0.00000001</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(125,106,21)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -3954,6 +4574,31 @@
 		</comps>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
+		<defName>NitricAcid</defName>
+		<label>Nitric acid</label>
+		<description>A strong chemical inorganic acid corresponding to the highest degree of nitrogen oxidation. Under standard conditions, nitric acid is a monobasic acid; in its pure form, it is a colorless liquid with a sharp, suffocating odor.</description>
+		<graphicData>
+			<texPath>Core/Items/Acids</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<color>(201, 180, 120)</color>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>5</MaxHitPoints>
+			<MarketValue>11</MarketValue>
+			<Mass>0.4</Mass>
+			<Flammability>0</Flammability>
+			<DeteriorationRate>0</DeteriorationRate>
+		</statBases>
+		<burnableByRecipe>false</burnableByRecipe>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<techLevel>Spacer</techLevel>
+		<thingCategories>
+			<li>StrongAcids</li>
+		</thingCategories>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
 		<defName>SulphuricAcid</defName>
 		<label>Sulphuric acid</label>
 		<description>Heavy oily liquid, colorless and odorless, with a strongly acidic "copper" taste. It is a very strong acid.</description>
@@ -4120,10 +4765,13 @@
 		<useHitPoints>true</useHitPoints>
 		<statBases>
 			<MaxHitPoints>20</MaxHitPoints>
-			<Mass>0.4</Mass>
+			<Mass>0.2</Mass>
 			<MarketValue>1.9</MarketValue>
 			<Flammability>0</Flammability>
 			<DeteriorationRate>0</DeteriorationRate>
+			<StuffPower_Armor_Sharp>0.1</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.25</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>0.0</StuffPower_Armor_Heat>
 		</statBases>
 		<burnableByRecipe>false</burnableByRecipe>
 		<smeltable>false</smeltable>
@@ -4138,7 +4786,8 @@
 			<commonality>1</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(160,160,160)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -4277,7 +4926,15 @@
 		<thingCategories>
 			<li>ResourcesOther</li>
 		</thingCategories>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<optimalityOffsetHumanlikes>20</optimalityOffsetHumanlikes>
+		</ingestible>
 		<statBases>
+			<Nutrition>0.2</Nutrition>
 			<MaxHitPoints>30</MaxHitPoints>
 			<Mass>0.25</Mass>
 			<MarketValue>6</MarketValue>
@@ -4285,5 +4942,90 @@
 			<DeteriorationRate>0</DeteriorationRate>
 		</statBases>
 		<techLevel>Industrial</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>Graphene</defName>
+		<label>Graphene</label>
+		<description>Graphene has irreplaceable properties for nanoelectronics.</description>
+		<graphicData>
+			<texPath>Core/Items/Graphene</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>NanoMaterials</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<Mass>0.1</Mass>
+			<MarketValue>10</MarketValue>
+			<Flammability>2</Flammability>
+			<DeteriorationRate>4</DeteriorationRate>
+		</statBases>
+		<techLevel>Spacer</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>CarbonNanotubes</defName>
+		<label>Carbon nanotubes</label>
+		<description>An allotropic modification of carbon, which is a hollow cylindrical structure with a diameter from tenths to several tens of nanometers and a length from one micrometer to several centimeters, consisting of one or several graphene planes rolled into a tube.</description>
+		<graphicData>
+			<texPath>Core/Items/CarbonNanotubes</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>1.3,1.3</drawSize>
+		</graphicData>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>NanoMaterials</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<Mass>0.05</Mass>
+			<MarketValue>25</MarketValue>
+			<Flammability>2</Flammability>
+			<DeteriorationRate>4</DeteriorationRate>
+		</statBases>
+		<techLevel>Spacer</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>Biosynthetics</defName>
+		<label>Biosynthetics</label>
+		<description>A special synthetic material that is not rejected by the immune system and plays the role of connective tissue.</description>
+		<graphicData>
+			<texPath>Core/Items/Biosynthetics</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>NanoMaterials</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<Mass>0.25</Mass>
+			<MarketValue>7.5</MarketValue>
+			<Flammability>4</Flammability>
+			<DeteriorationRate>4</DeteriorationRate>
+		</statBases>
+		<techLevel>Spacer</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>Supermagnet</defName>
+		<label>Supermagnet</label>
+		<description>Powerful magnetic material used in innovative industry.</description>
+		<graphicData>
+			<texPath>Core/Items/Supermagnet/Supermagnet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<useHitPoints>true</useHitPoints>
+		<thingCategories>
+			<li>NanoMaterials</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>20</MaxHitPoints>
+			<Mass>0.5</Mass>
+			<MarketValue>20</MarketValue>
+			<Flammability>0</Flammability>
+			<DeteriorationRate>4</DeteriorationRate>
+		</statBases>
+		<techLevel>Spacer</techLevel>
 	</ThingDef>
 </Defs>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TraitDef[defName="ShootingAccuracy"]</xpath>
+				<value>
+					<TraitDef>
+						<defName>ShootingAccuracy</defName>
+						<commonality>2</commonality>
+						<degreeDatas>
+							<li>
+								<label>careful shooter</label>
+								<description>[PAWN_nameDef] takes more time to aim when shooting. [PAWN_pronoun] shoots less often than others, but with more accuracy.</description>
+								<degree>1</degree>
+								<statOffsets>
+									<AimingDelayFactor>0.25</AimingDelayFactor>
+									<ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+								</statOffsets>
+								<!--<possessions>
+									<Gun_BoltActionRifle/>
+								</possessions>-->
+							</li>
+							<li>
+								<label>trigger-happy</label>
+								<description>Pew! Pew! Pew! [PAWN_nameDef] just likes pulling the trigger. [PAWN_pronoun] shoots faster than others, but less accurately.</description>
+								<degree>-1</degree>
+								<statOffsets>
+									<AimingDelayFactor>-0.5</AimingDelayFactor>
+									<ShootingAccuracyPawn>-5</ShootingAccuracyPawn>
+								</statOffsets>
+								<!--<possessions>
+									<Gun_Autopistol/>
+								</possessions>-->
+							</li>
+						</degreeDatas>
+						<conflictingTraits>
+							<li>Brawler</li>
+						</conflictingTraits>
+						<requiredWorkTags>
+							<li>Violent</li>
+						</requiredWorkTags>
+					</TraitDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TraitDef[defName="GreatMemory"]</xpath>
+				<value>
+					<TraitDef>
+						<defName>GreatMemory</defName>
+						<commonality>1.1</commonality>
+						<degreeDatas>
+							<li>
+								<label>great memory</label>
+								<description>{PAWN_nameDef} has a fantastic memory for detail. {PAWN_pronoun} will lose unused skills at half the rate of other people.</description>
+								<statFactors>
+									<MemoryFactor>0.5</MemoryFactor>
+								</statFactors>
+							</li>
+						</degreeDatas>
+						<exclusionTags>
+							<li>Memory</li>
+						</exclusionTags>
+					</TraitDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TraitDef[defName="PerfectMemory"]</xpath>
+				<value>
+					<TraitDef>
+						<defName>PerfectMemory</defName>
+						<commonality>0.25</commonality>
+						<degreeDatas>
+							<li>
+								<label>perfect memory</label>
+								<description>{PAWN_nameDef} has outstanding memory, both in terms of retaining information but also muscle memory. {PAWN_possessive} skills will never decay.</description>
+								<statFactors>
+									<MemoryFactor>0</MemoryFactor>
+								</statFactors>
+							</li>
+						</degreeDatas>
+						<exclusionTags>
+							<li>Memory</li>
+						</exclusionTags>
+					</TraitDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

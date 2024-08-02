@@ -17,11 +17,120 @@
 		<exclusionTags>
 			<li>Race</li>
 		</exclusionTags>
+		<forcedHeadTypes>
+			<li>BovineMaleAverageHeadNormal</li>
+			<li>BovineMaleAverageHeadWide</li>
+			<li>BovineMaleAverageHeadPointy</li>
+			<li>BovineFemaleAverageHeadNormal</li>
+			<li>BovineFemaleAverageHeadWide</li>
+			<li>BovineFemaleAverageHeadPointy</li>
+			<li>Furskin_BovineMaleAverageHeadNormal</li>
+			<li>Furskin_BovineMaleAverageHeadWide</li>
+			<li>Furskin_BovineMaleAverageHeadPointy</li>
+			<li>Furskin_BovineFemaleAverageHeadNormal</li>
+			<li>Furskin_BovineFemaleAverageHeadWide</li>
+			<li>Furskin_BovineFemaleAverageHeadPointy</li>
+		</forcedHeadTypes>
+		<renderNodeProperties>
+			<li>
+				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+				<texPath>Things/Pawn/Humanlike/BodyAttachments/Tails/BovineTail</texPath>
+				<colorType>Skin</colorType>
+				<overrideMeshSize>(1, 1)</overrideMeshSize>
+				<parentTagDef>Body</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<drawData>
+					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+					<defaultData>
+						<layer>-3</layer>
+					</defaultData>
+					<dataNorth>
+						<offset>(0.1, 0, -0.35)</offset>
+						<layer>90</layer>
+					</dataNorth>
+					<dataSouth>
+						<offset>(-0.1, 0, -0.25)</offset>
+					</dataSouth>
+					<dataEast>
+						<offset>(-0.5, 0, -0.15)</offset>
+					</dataEast>
+					<dataWest>
+						<offset>(0.5, 0, -0.15)</offset>
+					</dataWest>
+				</drawData>
+			</li>
+			<li>
+				<workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+				<texPath>Things/Pawn/Humanlike/BodyAttachments/Tails/BovineTailTuft</texPath>
+				<colorType>Hair</colorType>
+				<overrideMeshSize>(1, 1)</overrideMeshSize>
+				<parentTagDef>Body</parentTagDef>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<drawData>
+					<scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+					<defaultData>
+						<layer>-2</layer>
+					</defaultData>
+					<dataNorth>
+						<offset>(0.1, -0, -0.35)</offset>
+						<layer>180</layer>
+					</dataNorth>
+					<dataSouth>
+						<offset>(-0.1, 0, -0.25)</offset>
+					</dataSouth>
+					<dataEast>
+						<offset>(-0.5, 0, -0.15)</offset>
+					</dataEast>
+					<dataWest>
+						<offset>(0.5, 0, -0.15)</offset>
+					</dataWest>
+				</drawData>
+			</li>
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+				<texPath>Things/Pawn/Humanlike/HeadAttachments/BovineEars/BovineEars</texPath>
+				<colorType>Skin</colorType>
+				<parentTagDef>Head</parentTagDef>
+				<useSkinShader>true</useSkinShader>
+				<useRottenColor>true</useRottenColor>
+				<rotDrawMode>Fresh, Rotting</rotDrawMode>
+				<drawData>
+					<defaultData>
+						<layer>80</layer>
+					</defaultData>
+				</drawData>
+			</li>
+			<li>
+				<nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+				<workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+				<texPaths>
+					<li>Things/Pawn/Humanlike/HeadAttachments/Horns/Horns1</li>
+					<li>Things/Pawn/Humanlike/HeadAttachments/Horns/Horns2</li>
+					<li>Things/Pawn/Humanlike/HeadAttachments/Horns/Horns3</li>
+					<li>Things/Pawn/Humanlike/HeadAttachments/Horns/Horns4</li>
+					<li>Things/Pawn/Humanlike/HeadAttachments/Horns/Horns5</li>
+					<li>Things/Pawn/Humanlike/HeadAttachments/Horns/Horns6</li>
+				</texPaths>
+				<color>(255, 255, 255)</color>
+				<parentTagDef>Head</parentTagDef>
+				<drawData>
+					<defaultData>
+						<layer>70</layer>
+					</defaultData>
+					<dataNorth>
+						<layer>5</layer>
+					</dataNorth>
+				</drawData>
+			</li>
+		</renderNodeProperties>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
 				<relatedRaces>
 					<li>TaurusRace</li>
 				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+				<genepackGenerated>false</genepackGenerated>
 			</li>
 		</modExtensions>
 	</GeneDef>
@@ -44,6 +153,14 @@
 			<li>NaturalSkin</li>
 		</exclusionTags>
 		<prerequisite>Taurus</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>TaurusRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
 	</GeneDef>
 	<!---->
 	<GeneDef ParentName="GeneTaurusBase">
@@ -61,6 +178,14 @@
 			<MuscleBuilding>1.3</MuscleBuilding>
 		</statOffsets>
 		<prerequisite>Taurus</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>TaurusRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
 	</GeneDef>
 	<!---->
 	<GeneDef ParentName="GeneTaurusBase">
@@ -74,6 +199,14 @@
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>-2</biostatMet>
 		<prerequisite>Taurus</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>TaurusRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
 	</GeneDef>
 	<!---->
 </Defs>

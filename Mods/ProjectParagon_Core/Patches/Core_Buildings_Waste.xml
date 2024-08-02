@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="WastepackAtomizer"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>WastepackAtomizer</defName>
+						<label>wastepack atomizer</label>
+						<description>A glittertech device that deconstructs toxic wastepacks into inert gases using advanced molecular processes. The process requires considerable amounts of power.</description>
+						<thingClass>Building_WastepackAtomizer</thingClass>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<tickerType>Normal</tickerType>
+						<graphicData>
+							<texPath>Things/Building/Misc/WastepackAtomizer</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(3,2)</drawSize>
+							<shadowData>
+								<volume>(3, 0.35, 2)</volume>
+							</shadowData>
+						</graphicData>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<canOverlapZones>false</canOverlapZones>
+						<pathCost>42</pathCost>
+						<blockWind>true</blockWind>
+						<fillPercent>0.5</fillPercent>
+						<building>
+							<buildingTags>
+								<li>Biotech</li>
+							</buildingTags>
+							<ai_chillDestination>false</ai_chillDestination>
+							<wastepackAtomizerBottomGraphic>
+								<texPath>Things/Building/Misc/WastepackAtomizer_BottomLayer</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<drawSize>(3,2)</drawSize>
+							</wastepackAtomizerBottomGraphic>
+							<wastepackAtomizerWindowGraphic>
+								<texPath>Things/Building/Misc/WastepackAtomizerWindow</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<drawSize>(3,2)</drawSize>
+							</wastepackAtomizerWindowGraphic>
+							<wastepackAtomizerOperationEffecter>WastepackAtomizer_Operating</wastepackAtomizerOperationEffecter>
+						</building>
+						<designationCategory>Production</designationCategory>
+						<hasInteractionCell>true</hasInteractionCell>
+						<interactionCellOffset>(0, 0, -1)</interactionCellOffset>
+						<statBases>
+							<MaxHitPoints>500</MaxHitPoints>
+							<WorkToBuild>45000</WorkToBuild>
+							<Mass>80</Mass>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<size>(3,2)</size>
+						<designatorDropdown>Chemistry</designatorDropdown>
+						<costList>
+							<StrongPlates>150</StrongPlates>
+							<MechanismSpacer>4</MechanismSpacer>
+							<RobotParts>10</RobotParts>
+							<Nanoelectronics>2</Nanoelectronics>
+							<NanostructuringChip>1</NanostructuringChip>
+						</costList>
+						<researchPrerequisites>
+							<li>WastepackAtomizer</li>
+						</researchPrerequisites>
+						<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>1000</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Atomizer">
+								<thingDef>Wastepack</thingDef>
+								<stackLimit>10</stackLimit>
+								<drawContainedThing>false</drawContainedThing>
+								<ticksPerAtomize>30000</ticksPerAtomize>
+								<resolveEffecter>AtomizerResolve</resolveEffecter>
+								<workingEffecter>WastepackAtomizer_Working</workingEffecter>
+								<materialsAddedSound>WastepackAtomizer_MaterialInserted</materialsAddedSound>
+								<contentsDrawOffset>(0.05, 0, 0.2)</contentsDrawOffset>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="PollutionPump"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>PollutionPump</defName>
+						<label>pollution pump</label>
+						<description>A groundwater-filtering pump which slowly cleans polluted terrain. The extracted pollution is formed into toxic wastepacks which must be hauled away.</description>
+						<tickerType>Normal</tickerType>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<graphicData>
+							<texPath>Things/Building/Production/PollutionPump</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(1,1)</drawSize>
+						</graphicData>
+						<uiIconScale>0.85</uiIconScale>
+						<rotatable>false</rotatable>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<fillPercent>0.2</fillPercent>
+						<building>
+							<ai_chillDestination>false</ai_chillDestination>
+							<buildingTags>
+								<li>Biotech</li>
+							</buildingTags>
+						</building>
+						<constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+						<designationCategory>Biotech</designationCategory>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<WorkToBuild>12000</WorkToBuild>
+							<Mass>15</Mass>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<size>(1,1)</size>
+						<costList>
+							<StrongPlates>50</StrongPlates>
+							<MechanismSpacer>4</MechanismSpacer>
+							<Nanoelectronics>1</Nanoelectronics>
+						</costList>
+						<researchPrerequisites>
+							<li>WastepackAtomizer</li>
+						</researchPrerequisites>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>200</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_PollutionPump">
+								<radius>10.9</radius>
+								<pumpEffecterDef>PollutionPumped</pumpEffecterDef>
+								<pumpsPerWastepack>6</pumpsPerWastepack>
+								<intervalTicks>15000</intervalTicks>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_PollutionPump</li>
+						</placeWorkers>
+						<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

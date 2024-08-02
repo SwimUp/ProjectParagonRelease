@@ -112,7 +112,7 @@
 							</wornGraphicData>
 						</apparel>
 						<comps>
-							<li Class="CompProperties_Reloadable">
+							<li Class="CompProperties_ApparelReloadable">
 								<maxCharges>1</maxCharges>
 								<soundReload>Standard_Reload</soundReload>
 								<chargeNoun>tox pack</chargeNoun>
@@ -126,7 +126,7 @@
 								<gasType>ToxGas</gasType>
 								<cellsToFill>45</cellsToFill>
 								<durationSeconds>12.75</durationSeconds>
-								<effecterReleasing>GasReleasing</effecterReleasing>
+								<effecterReleasing>ToxGasReleasing</effecterReleasing>
 							</li>
 							<li Class="CompProperties_AIUSablePack">
 								<compClass>CompToxPack</compClass>
@@ -140,7 +140,7 @@
 								<violent>false</violent>
 								<hasStandardCommand>true</hasStandardCommand>
 								<targetable>false</targetable>
-								<soundCast>ToxPack_Deploy</soundCast>
+								<soundCast>GasPack_Deploy</soundCast>
 								<nonInterruptingSelfCast>true</nonInterruptingSelfCast>
 							</li>
 						</verbs>
@@ -180,13 +180,14 @@
 							<unfinishedThingDef>UnfinishedMask</unfinishedThingDef>
 							<recipeUsers Inherit="False">
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 							<displayPriority>215</displayPriority>
 						</recipeMaker>
 						<costList>
 							<Cloth>75</Cloth>
-							<Steel>25</Steel>
+							<ComponentIndustrial>2</ComponentIndustrial>
 						</costList>
 						<apparel>
 							<countsAsClothingForNudity>false</countsAsClothingForNudity>
@@ -196,7 +197,6 @@
 								<li>FullHead</li>
 							</bodyPartGroups>
 							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/GasMask/GasMask</wornGraphicPath>
-							<hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
 							<layers>
 								<li>Overhead</li>
 							</layers>
@@ -248,9 +248,7 @@
 								<li>Mouth</li>
 							</bodyPartGroups>
 							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/ClothMask/ClothMask</wornGraphicPath>
-							<hatRenderedFrontOfFace>true</hatRenderedFrontOfFace>
 							<countsAsClothingForNudity>false</countsAsClothingForNudity>
-							<coversHeadMiddle>true</coversHeadMiddle>
 							<layers>
 								<li>Overhead</li>
 							</layers>
@@ -260,6 +258,7 @@
 							<recipeUsers Inherit="false">
 								<li>HandTailoringBench</li>
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 							<displayPriority>165</displayPriority>
@@ -299,6 +298,7 @@
 							<recipeUsers Inherit="false">
 								<li>HandTailoringBench</li>
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 							<skillRequirements>
@@ -379,6 +379,7 @@
 							<recipeUsers Inherit="false">
 								<li>HandTailoringBench</li>
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 						</recipeMaker>
@@ -427,6 +428,7 @@
 							<recipeUsers Inherit="false">
 								<li>HandTailoringBench</li>
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 						</recipeMaker>
@@ -473,6 +475,7 @@
 							<recipeUsers Inherit="false">
 								<li>HandTailoringBench</li>
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 						</recipeMaker>
@@ -529,6 +532,7 @@
 							<recipeUsers>
 								<li>HandTailoringBench</li>
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 							<researchPrerequisite>TribalClothing</researchPrerequisite>
@@ -578,6 +582,7 @@
 							<recipeUsers>
 								<li>HandTailoringBench</li>
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 							<researchPrerequisite>TribalClothing</researchPrerequisite>
@@ -704,6 +709,7 @@
 							<recipeUsers Inherit="false">
 								<li>HandTailoringBench</li>
 								<li>ElectricTailoringBench</li>
+								<li>RoboticTailoringBench</li>
 								<li>SteamLoom</li>
 							</recipeUsers>
 							<skillRequirements>
@@ -736,6 +742,492 @@
 						<tradeTags>
 							<li>Armor</li>
 						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_AirwireHeadset"]</xpath>
+				<value>
+					<ThingDef ParentName="MechanitorHeadsetBase">
+						<defName>Apparel_AirwireHeadset</defName>
+						<label>airwire headset</label>
+						<description>A simple head-mounted comms computer that slightly enhances a mechanitor's control bandwidth. This allows them to control more mechs.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/AirwireHeadset/AirwireHeadset</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<costList>
+							<Supermagnet>15</Supermagnet>
+							<ComponentSpacer>2</ComponentSpacer>
+							<Nanoelectronics>1</Nanoelectronics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>BasicMechtech</researchPrerequisite>
+							<skillRequirements>
+								<Crafting>4</Crafting>
+							</skillRequirements>
+							<recipeUsers Inherit="false">
+								<li>RoboticBench</li>
+							</recipeUsers>
+						</recipeMaker>
+						<statBases>
+							<WorkToMake>5000</WorkToMake>
+							<MaxHitPoints>60</MaxHitPoints>
+							<Mass>0.08</Mass>
+							<EquipDelay>2</EquipDelay>
+						</statBases>
+						<equippedStatOffsets>
+							<MechBandwidth>3</MechBandwidth>
+						</equippedStatOffsets>
+						<apparel>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/AirwireHeadset/AirwireHeadset</wornGraphicPath>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<bodyPartGroups>
+								<li>UpperHead</li>
+							</bodyPartGroups>
+							<layers>
+								<li>Overhead</li>
+							</layers>
+							<scoreOffset>4</scoreOffset>
+							<mechanitorApparel>true</mechanitorApparel>
+						</apparel>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_PackControl"]</xpath>
+				<value>
+					<ThingDef ParentName="MechanitorPackBase">
+						<defName>Apparel_PackControl</defName>
+						<label>control pack</label>
+						<description>A backpack containing mech control assist computers. It allows a mechanitor to control one additional control group.</description>
+						<techLevel>Spacer</techLevel>
+						<recipeMaker>
+							<unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+							<researchPrerequisite>BasicMechtech</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>RoboticBench</li>
+							</recipeUsers>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smith</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<skillRequirements>
+								<Crafting>4</Crafting>
+							</skillRequirements>
+						</recipeMaker>
+						<costList>
+							<StrongPlates>25</StrongPlates>
+							<ComponentSpacer>2</ComponentSpacer>
+							<Nanoelectronics>1</Nanoelectronics>
+						</costList>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/ControlPack/ControlPack</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<tickerType>Normal</tickerType>
+						<statBases>
+							<WorkToMake>3200</WorkToMake>
+							<Mass>3</Mass>
+							<Flammability>0.4</Flammability>
+							<EquipDelay>2</EquipDelay>
+						</statBases>
+						<thingCategories>
+							<li>ApparelUtility</li>
+						</thingCategories>
+						<equippedStatOffsets>
+							<MechControlGroups>1</MechControlGroups>
+						</equippedStatOffsets>
+						<apparel>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<scoreOffset>4</scoreOffset>
+							<mechanitorApparel>true</mechanitorApparel>
+							<careIfWornByCorpse>false</careIfWornByCorpse>
+							<careIfDamaged>false</careIfDamaged>
+							<wearPerDay>0</wearPerDay>
+							<bodyPartGroups>
+								<li>Waist</li>
+							</bodyPartGroups>
+							<layers>
+								<li>Belt</li>
+							</layers>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/ControlPack/ControlPack</wornGraphicPath>
+							<useWornGraphicMask>true</useWornGraphicMask>
+							<wornGraphicData>
+								<renderUtilityAsPack>true</renderUtilityAsPack>
+								<north>
+									<offset>(0,-0.15)</offset>
+								</north>
+								<south>
+									<offset>(0,-0.15)</offset>
+								</south>
+								<east>
+									<offset>(-0.35,-0.1)</offset>
+									<thin>
+										<offset>(0.05,0)</offset>
+									</thin>
+									<hulk>
+										<offset>(-0.15,0)</offset>
+									</hulk>
+									<fat>
+										<offset>(-0.20,0)</offset>
+									</fat>
+								</east>
+								<west>
+									<offset>(0.35,-0.1)</offset>
+									<thin>
+										<offset>(-0.05,0)</offset>
+									</thin>
+									<hulk>
+										<offset>(0.15,0)</offset>
+									</hulk>
+									<fat>
+										<offset>(0.20,0)</offset>
+									</fat>
+								</west>
+								<male>
+									<scale>(0.75,0.75)</scale>
+								</male>
+								<female>
+									<scale>(0.75,0.75)</scale>
+								</female>
+								<thin>
+									<scale>(0.7,0.7)</scale>
+								</thin>
+								<hulk>
+									<scale>(0.9,0.9)</scale>
+								</hulk>
+								<fat>
+									<scale>(0.9,0.9)</scale>
+								</fat>
+							</wornGraphicData>
+						</apparel>
+						<tradeTags>
+							<li>ExoticMisc</li>
+							<li>Clothing</li>
+						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_ArrayHeadset"]</xpath>
+				<value>
+					<ThingDef ParentName="MechanitorHeadsetBase">
+						<defName>Apparel_ArrayHeadset</defName>
+						<label>array headset</label>
+						<description>A head-mounted computer and signaling array that enhances a mechanitor's control bandwidth. This allows them to control more mechs.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/ArrayHeadset/ArrayHeadset</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<costList>
+							<ComponentSpacer>4</ComponentSpacer>
+							<Supermagnet>50</Supermagnet>
+							<Nanoelectronics>4</Nanoelectronics>
+						</costList>
+						<recipeMaker>
+							<researchPrerequisite>StandardMechtech</researchPrerequisite>
+							<skillRequirements>
+								<Crafting>5</Crafting>
+							</skillRequirements>
+							<recipeUsers Inherit="false">
+								<li>RoboticBench</li>
+							</recipeUsers>
+						</recipeMaker>
+						<statBases>
+							<WorkToMake>8000</WorkToMake>
+							<MaxHitPoints>60</MaxHitPoints>
+							<Mass>0.08</Mass>
+							<EquipDelay>2</EquipDelay>
+						</statBases>
+						<equippedStatOffsets>
+							<MechBandwidth>6</MechBandwidth>
+						</equippedStatOffsets>
+						<apparel>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/ArrayHeadset/ArrayHeadset</wornGraphicPath>
+							<useWornGraphicMask>true</useWornGraphicMask>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<bodyPartGroups>
+								<li>UpperHead</li>
+							</bodyPartGroups>
+							<layers>
+								<li>Overhead</li>
+							</layers>
+							<scoreOffset>4</scoreOffset>
+							<mechanitorApparel>true</mechanitorApparel>
+						</apparel>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_PackBandwidth"]</xpath>
+				<value>
+					<ThingDef ParentName="MechanitorPackBase">
+						<defName>Apparel_PackBandwidth</defName>
+						<label>bandwidth pack</label>
+						<description>A backpack containing bandwidth-expansion computer and antenna. It can increase a mechanitor's maximum total bandwidth.</description>
+						<techLevel>Spacer</techLevel>
+						<recipeMaker>
+							<unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+							<researchPrerequisite>StandardMechtech</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>RoboticBench</li>
+							</recipeUsers>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smith</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<skillRequirements>
+								<Crafting>4</Crafting>
+							</skillRequirements>
+						</recipeMaker>
+						<costList>
+							<SignalChip>2</SignalChip>
+							<StrongPlates>50</StrongPlates>
+							<ComponentSpacer>4</ComponentSpacer>
+							<Supermagnet>25</Supermagnet>
+							<Nanoelectronics>4</Nanoelectronics>
+						</costList>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/BandwidthPack/BandwidthPack</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(0.7,0.7)</drawSize>
+						</graphicData>
+						<tickerType>Normal</tickerType>
+						<statBases>
+							<WorkToMake>3200</WorkToMake>
+							<Mass>3</Mass>
+							<Flammability>0.4</Flammability>
+							<EquipDelay>2</EquipDelay>
+						</statBases>
+						<thingCategories>
+							<li>ApparelUtility</li>
+						</thingCategories>
+						<equippedStatOffsets>
+							<MechBandwidth>9</MechBandwidth>
+						</equippedStatOffsets>
+						<apparel>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<scoreOffset>4</scoreOffset>
+							<mechanitorApparel>true</mechanitorApparel>
+							<careIfWornByCorpse>false</careIfWornByCorpse>
+							<useWornGraphicMask>true</useWornGraphicMask>
+							<careIfDamaged>false</careIfDamaged>
+							<wearPerDay>0</wearPerDay>
+							<bodyPartGroups>
+								<li>Waist</li>
+							</bodyPartGroups>
+							<layers>
+								<li>Belt</li>
+							</layers>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/BandwidthPack/BandwidthPack</wornGraphicPath>
+							<wornGraphicData>
+								<renderUtilityAsPack>true</renderUtilityAsPack>
+								<north>
+									<offset>(0,-0.15)</offset>
+								</north>
+								<south>
+									<offset>(0,-0.15)</offset>
+								</south>
+								<east>
+									<offset>(-0.35,-0.1)</offset>
+									<thin>
+										<offset>(0.05,0)</offset>
+									</thin>
+									<hulk>
+										<offset>(-0.15,0)</offset>
+									</hulk>
+									<fat>
+										<offset>(-0.20,0)</offset>
+									</fat>
+								</east>
+								<west>
+									<offset>(0.35,-0.1)</offset>
+									<thin>
+										<offset>(-0.05,0)</offset>
+									</thin>
+									<hulk>
+										<offset>(0.15,0)</offset>
+									</hulk>
+									<fat>
+										<offset>(0.20,0)</offset>
+									</fat>
+								</west>
+								<male>
+									<scale>(0.75,0.75)</scale>
+								</male>
+								<female>
+									<scale>(0.75,0.75)</scale>
+								</female>
+								<thin>
+									<scale>(0.7,0.7)</scale>
+								</thin>
+								<hulk>
+									<scale>(0.9,0.9)</scale>
+								</hulk>
+								<fat>
+									<scale>(0.9,0.9)</scale>
+								</fat>
+							</wornGraphicData>
+						</apparel>
+						<tradeTags>
+							<li>ExoticMisc</li>
+						</tradeTags>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_ArmorHelmetMechCommander"]</xpath>
+				<value>
+					<ThingDef ParentName="ApparelArmorHelmetMechanitorBase">
+						<defName>Apparel_ArmorHelmetMechCommander</defName>
+						<label>mechcommander helmet</label>
+						<description>A plasteel-weave combat helmet designed for battle mechanitors. It is embedded with computers and signal enhancers that moderately increase the wearer's maximum control bandwidth. This allows the mechanitor to control more mechs.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/MechcommanderHelmet/MechcommanderHelmet</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>150</MaxHitPoints>
+							<ArmorRating_Sharp>0.69</ArmorRating_Sharp>
+							<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+							<ArmorRating_Heat>0.345</ArmorRating_Heat>
+							<Insulation_Cold>3</Insulation_Cold>
+							<Insulation_Heat>1.5</Insulation_Heat>
+						</statBases>
+						<equippedStatOffsets>
+							<MechBandwidth>6</MechBandwidth>
+						</equippedStatOffsets>
+						<recipeMaker Inherit="False">
+							<researchPrerequisite>StandardMechtech</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>RoboticBench</li>
+							</recipeUsers>
+							<workSkill>Crafting</workSkill>
+							<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+							<skillRequirements>
+								<Crafting>6</Crafting>
+							</skillRequirements>
+							<displayPriority>710</displayPriority>
+						</recipeMaker>
+						<costList Inherit="False">
+							<SignalChip>1</SignalChip>
+							<RobotParts>10</RobotParts>
+							<Biosynthetics>50</Biosynthetics>
+							<Nanoelectronics>4</Nanoelectronics>
+						</costList>
+						<apparel>
+							<scoreOffset>4</scoreOffset>
+							<mechanitorApparel>true</mechanitorApparel>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/MechcommanderHelmet/MechcommanderHelmet</wornGraphicPath>
+							<useWornGraphicMask>true</useWornGraphicMask>
+						</apparel>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_IntegratorHeadset"]</xpath>
+				<value>
+					<ThingDef ParentName="ApparelArmorHelmetMechanitorBase">
+						<defName>Apparel_IntegratorHeadset</defName>
+						<label>integrator headset</label>
+						<description>An advanced head-mounted computer and signaling array that dramatically enhances a mechanitor's control bandwidth. This allows the wearer to control many more mechanoids at once.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/IntegratorHeadset/IntegratorHeadset</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.6</drawSize>
+						</graphicData>
+						<equippedStatOffsets>
+							<MechBandwidth>9</MechBandwidth>
+						</equippedStatOffsets>
+						<statBases>
+							<ArmorRating_Sharp>0</ArmorRating_Sharp>
+							<ArmorRating_Blunt>0</ArmorRating_Blunt>
+							<ArmorRating_Heat>0</ArmorRating_Heat>
+							<Insulation_Cold>0</Insulation_Cold>
+							<Insulation_Heat>0</Insulation_Heat>
+						</statBases>
+						<recipeMaker>
+							<researchPrerequisite>HighMechtech</researchPrerequisite>
+							<displayPriority>510</displayPriority>
+							<recipeUsers Inherit="false">
+								<li>RoboticBench</li>
+							</recipeUsers>
+						</recipeMaker>
+						<costList Inherit="false">
+							<ComponentSpacer>10</ComponentSpacer>
+							<Supermagnet>75</Supermagnet>
+							<Nanoelectronics>8</Nanoelectronics>
+							<PowerfocusChip>1</PowerfocusChip>
+						</costList>
+						<apparel>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/IntegratorHeadset/IntegratorHeadset</wornGraphicPath>
+							<countsAsClothingForNudity>false</countsAsClothingForNudity>
+							<bodyPartGroups Inherit="False">
+								<li>UpperHead</li>
+							</bodyPartGroups>
+						</apparel>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Apparel_ArmorHelmetMechlordHelmet"]</xpath>
+				<value>
+					<ThingDef ParentName="ApparelArmorHelmetMechanitorBase">
+						<defName>Apparel_ArmorHelmetMechlordHelmet</defName>
+						<label>mechlord helmet</label>
+						<description>A heavy plasteel-weave helmet packed with mechanitor-assistance gear. The mechlord helmet dramatically amplifies a mechanitor's bandwidth, but is somewhat less protective than dedicated heavy armor.</description>
+						<graphicData>
+							<texPath>Things/Pawn/Humanlike/Apparel/MechlordHelmet/MechlordHelmet</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>240</MaxHitPoints>
+						</statBases>
+						<equippedStatOffsets>
+							<MechBandwidth>12</MechBandwidth>
+							<ShootingAccuracyPawn>-5</ShootingAccuracyPawn>
+							<MeleeHitChance>-0.5</MeleeHitChance>
+						</equippedStatOffsets>
+						<recipeMaker Inherit="False">
+							<researchPrerequisite>UltraMechtech</researchPrerequisite>
+							<recipeUsers>
+								<li>FabricationBench</li>
+							</recipeUsers>
+							<workSkill>Crafting</workSkill>
+							<unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+							<skillRequirements>
+								<Crafting>7</Crafting>
+							</skillRequirements>
+							<displayPriority>520</displayPriority>
+						</recipeMaker>
+						<costList Inherit="False">
+							<Plasteel>120</Plasteel>
+							<ComponentSpacer>6</ComponentSpacer>
+							<NanostructuringChip>2</NanostructuringChip>
+						</costList>
+						<apparel>
+							<tags>
+								<li>RoyalTier7</li>
+								<li>Mechlord</li>
+							</tags>
+							<scoreOffset>4</scoreOffset>
+							<mechanitorApparel>true</mechanitorApparel>
+							<wornGraphicPath>Things/Pawn/Humanlike/Apparel/MechlordHelmet/MechlordHelmet</wornGraphicPath>
+							<useWornGraphicMask>true</useWornGraphicMask>
+							<forceEyesVisibleForRotations>
+								<li>1</li>
+								<li>2</li>
+								<li>3</li>
+							</forceEyesVisibleForRotations>
+						</apparel>
 					</ThingDef>
 				</value>
 			</li>

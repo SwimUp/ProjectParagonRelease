@@ -44,10 +44,11 @@
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
 					<li>Research_ResourceBox</li>
-					<li>SmallLibrary</li>
-					<li>ResearchLibrary</li>
+					<li>BookcaseSmall</li>
+					<li>Bookcase</li>
 					<li>Globe</li>
 					<li>SimpleScienceSet</li>
+					<li>WorkingManipulator</li>
 				</linkableFacilities>
 			</li>
 			<li Class="ProjectParagon.Core.ResearchSystem.CompProperties_ResearchBench">
@@ -173,11 +174,12 @@
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
 					<li>Research_ResourceBox</li>
-					<li>SmallLibrary</li>
-					<li>ResearchLibrary</li>
+					<li>BookcaseSmall</li>
+					<li>Bookcase</li>
 					<li>Globe</li>
 					<li>SimpleScienceSet</li>
 					<li>AdvancedScienceSet</li>
+					<li>WorkingManipulator</li>
 				</linkableFacilities>
 			</li>
 			<li Class="ProjectParagon.Core.ResearchSystem.CompProperties_ResearchBench">
@@ -331,5 +333,246 @@
 		<designationCategory>Science</designationCategory>
 		<designatorDropdown>ComputingMachines</designatorDropdown>
 		<surfaceType>Item</surfaceType>
+	</ThingDef>
+	<ThingDef ParentName="BenchBase">
+		<defName>DigitalStation</defName>
+		<label>Digital station</label>
+		<description>Advanced rack for placing components for computing.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_ComputerComplex</thingClass>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>200</costStuffCount>
+		<costList>
+			<Nanoelectronics>4</Nanoelectronics>
+			<ComponentSpacer>4</ComponentSpacer>
+			<MechanismSpacer>6</MechanismSpacer>
+			<Wire>40</Wire>
+		</costList>
+		<graphicData>
+			<texPath>Core/Buildings/DigitalStation/DigitalStation</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>4.5,4.5</drawSize>
+			<drawOffset>0,0,0</drawOffset>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<size>(2,2)</size>
+		<uiIconScale>1</uiIconScale>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0.25</staticSunShadowHeight>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>70</pathCost>
+		<researchPrerequisites>
+			<li>DigitalComputing</li>
+		</researchPrerequisites>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<WorkToBuild>55000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_Computer</li>
+		</inspectorTabs>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ComputerComplex">
+				<baseComputerPerfomance>0</baseComputerPerfomance>
+				<baseRAM>0</baseRAM>
+				<slots>10</slots>
+				<pushHeatInterval>70</pushHeatInterval>
+				<basePushHeat>0</basePushHeat>
+				<maxWorkingTemperature>40</maxWorkingTemperature>
+				<minWorkingTemperature>-100</minWorkingTemperature>
+				<componentsHeatingMult>0.8</componentsHeatingMult>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>ProjectParagon.Core.Things.CompPowerTraderParagon</compClass>
+				<basePowerConsumption>500</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<fillPercent>0.5</fillPercent>
+		<hasInteractionCell>false</hasInteractionCell>
+		<designationCategory>Science</designationCategory>
+		<designatorDropdown>ComputingMachines</designatorDropdown>
+		<surfaceType>Item</surfaceType>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>HadronColliderCore</defName>
+		<label>Hadron Collider (Core)</label>
+		<description>The core of the hadron collider, which is used to launch and study particles.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_HadronColliderCore</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/HadronCollider/HadronColliderCore</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3.3,3.3)</drawSize>
+			<drawRotated>false</drawRotated>
+			<shadowData>
+				<volume>(2,1,2)</volume>
+				<offset>(0,0,-0.4)</offset>
+			</shadowData>
+			<damageData>
+				<rect>(0.3,0.1,2.4,1.8)</rect>
+			</damageData>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>500</costStuffCount>
+		<costList>
+			<Nanoelectronics>5</Nanoelectronics>
+			<ComponentSpacer>10</ComponentSpacer>
+			<MechanismSpacer>10</MechanismSpacer>
+			<SuperStrongPlates>200</SuperStrongPlates>
+			<CinderBlock>250</CinderBlock>
+		</costList>
+		<altitudeLayer>BuildingBelowTop</altitudeLayer>
+		<useHitPoints>True</useHitPoints>
+		<drawerType>RealtimeOnly</drawerType>
+		<statBases>
+			<WorkToBuild>75000</WorkToBuild>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Beauty>-4</Beauty>
+		</statBases>
+		<size>(3,3)</size>
+		<rotatable>true</rotatable>
+		<designationCategory>Science</designationCategory>
+		<fillPercent>1</fillPercent>
+		<passability>Impassable</passability>
+		<surfaceType>Item</surfaceType>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>14</constructionSkillPrerequisite>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<interactionCellIcon>DiningChair</interactionCellIcon>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+			<forceShowRoomStats>true</forceShowRoomStats>
+			<buildingTags>
+				<li>Production</li>
+			</buildingTags>
+		</building>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>ProjectParagon.Core.Things.CompPowerTraderParagon</compClass>
+				<basePowerConsumption>5000</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>HadronCollider</scheme>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<researchPrerequisites>
+			<li>HadronCollider</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>HadronColliderComponent</defName>
+		<label>Hadron Collider (Component)</label>
+		<description>The particle trapping component of the Hadron Collider.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_BaseModularBuildingPart</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/HadronCollider/HadronColliderComponent/HadronColliderComponent</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+			<drawSize>(3.5,3.5)</drawSize>
+			<drawOffset>0,0,0.2</drawOffset>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>300</costStuffCount>
+		<costList>
+			<Nanoelectronics>2</Nanoelectronics>
+			<ComponentSpacer>6</ComponentSpacer>
+			<Supermagnet>20</Supermagnet>
+			<SuperStrongPlates>75</SuperStrongPlates>
+			<CinderBlock>200</CinderBlock>
+		</costList>
+		<altitudeLayer>BuildingBelowTop</altitudeLayer>
+		<useHitPoints>True</useHitPoints>
+		<drawerType>RealtimeOnly</drawerType>
+		<statBases>
+			<WorkToBuild>55000</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Beauty>-4</Beauty>
+		</statBases>
+		<size>(3,3)</size>
+		<rotatable>false</rotatable>
+		<designationCategory>Science</designationCategory>
+		<fillPercent>1</fillPercent>
+		<passability>Impassable</passability>
+		<hasInteractionCell>false</hasInteractionCell>
+		<surfaceType>Item</surfaceType>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>HadronCollider</li>
+		</researchPrerequisites>
+	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>HadroneColliderTube</defName>
+		<label>Hadron Collider (Tube)</label>
+		<description>The particle accelerating component of the Hadron Collider.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_BaseModularBuildingPart</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/HadronCollider/HadroneColliderTube/HadroneColliderTube</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,1)</drawSize>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<Nanoelectronics>1</Nanoelectronics>
+			<Supermagnet>4</Supermagnet>
+			<SuperStrongPlates>50</SuperStrongPlates>
+			<CinderBlock>75</CinderBlock>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<useHitPoints>True</useHitPoints>
+		<drawerType>RealtimeOnly</drawerType>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+			<Beauty>-4</Beauty>
+		</statBases>
+		<size>(3,1)</size>
+		<rotatable>true</rotatable>
+		<designationCategory>Science</designationCategory>
+		<fillPercent>1</fillPercent>
+		<passability>PassThroughOnly</passability>
+		<hasInteractionCell>false</hasInteractionCell>
+		<surfaceType>Item</surfaceType>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>HadronCollider</li>
+		</researchPrerequisites>
 	</ThingDef>
 </Defs>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Vehicles Expanded</li>
+		</mods>
+		
+		<match Class="PatchOperationSequence">
+			<operations>
+			
+				<li Class="PatchOperationAttributeSet">
+					<xpath>Defs/Vehicles.VehicleDef[defName="AncientJeep"]</xpath>
+					<attribute>ParentName</attribute>
+					<value>VehiclePawn_Mechanical</value>
+				</li>
+				<li Class="PatchOperationReplace">
+				<xpath>Defs/Vehicles.VehicleBuildDef[defName="AncientJeep_Blueprint"]/costList</xpath>
+					<value>
+						<costList>
+							<VVE_EngineBlock>1</VVE_EngineBlock>
+							<VVE_CarAlternator>1</VVE_CarAlternator>
+							<VVE_CarExhaust>2</VVE_CarExhaust>
+							<VVE_CarSuspension>8</VVE_CarSuspension>
+							<VVE_CarWheel>4</VVE_CarWheel>
+							<Steel>350</Steel>
+							<ComponentIndustrial>8</ComponentIndustrial>
+						</costList>
+					</value>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>Defs/ThingDef[defName="HumveeEngine"]</xpath>
+				</li>
+				<li Class="PatchOperationReplace">
+				<xpath>Defs/Vehicles.VehicleBuildDef[defName="AncientJeep_Blueprint"]/researchPrerequisites</xpath>
+					<value>
+						<researchPrerequisites>
+							<li>VVE_BasicVehicles</li>
+							<!-- <li>PrecisionRifling</li> -->
+						</researchPrerequisites>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+</Patch>

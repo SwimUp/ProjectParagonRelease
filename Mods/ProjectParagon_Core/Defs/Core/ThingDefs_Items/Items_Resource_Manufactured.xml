@@ -113,6 +113,62 @@
 		<techLevel>Industrial</techLevel>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
+		<defName>MechanismSpacer</defName>
+		<label>Spacer mechanism</label>
+		<description>Ultra-precise instruments and mechanisms for setting up and assembling various mechanisms.</description>
+		<graphicData>
+			<texPath>Core/Resources/Misc/MechanismSpacer/MechanismSpacer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>50</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<MarketValue>125</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.5</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>Mechanisms</li>
+		</thingCategories>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<techLevel>Spacer</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>RobotParts</defName>
+		<label>Robot parts</label>
+		<description>Advanced robotic parts for assembling robots.</description>
+		<graphicData>
+			<texPath>Core/Resources/Misc/RobotParts/RobotParts</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>50</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<MarketValue>125</MarketValue>
+			<Mass>0.5</Mass>
+			<Flammability>0.5</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>RobotComponents</li>
+		</thingCategories>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<techLevel>Spacer</techLevel>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
 		<defName>Book</defName>
 		<label>Book</label>
 		<description>By itself is not of interest, but the knowledge that you can sharpen inside...</description>
@@ -511,7 +567,8 @@
 			<commonality>0.00001</commonality>
 			<constructEffect>ConstructMetal</constructEffect>
 			<color>(159,166,162)</color>
-			<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+			<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+			<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 			<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 			<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 			<statFactors>
@@ -685,7 +742,7 @@
 			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
 			<workSkill>Intellectual</workSkill>
 			<recipeUsers>
-				<li>DrugLab</li>
+				<li>DrugLab</li><li>Nanosynthesizer</li>
 				<li>ChemicalStation</li>
 				<li>AlchemyStance</li>
 			</recipeUsers>
@@ -725,10 +782,10 @@
 			<workSkill>Intellectual</workSkill>
 			<recipeUsers>
 				<li>HandTailoringBench</li>
-				<li>ElectricTailoringBench</li>
+				<li>ElectricTailoringBench</li><li>RoboticTailoringBench</li>
 				<li>SteamLoom</li>
 				<li>AlchemyStance</li>
-				<li>DrugLab</li>
+				<li>DrugLab</li><li>Nanosynthesizer</li>
 				<li>ChemicalStation</li>
 			</recipeUsers>
 			<researchPrerequisite>BasicHealthCare</researchPrerequisite>
@@ -817,6 +874,31 @@
 		<thingSetMakerTags>
 			<li>RewardStandardLowFreq</li>
 		</thingSetMakerTags>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>Nanoelectronics</defName>
+		<label>Nanoelectronics</label>
+		<description>Ultra-small computing elements using quantum effects.</description>
+		<graphicData>
+			<texPath>Core/Resources/Misc/Nanoelectronics</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>50</stackLimit>
+		<techLevel>Spacer</techLevel>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>15</MaxHitPoints>
+			<MarketValue>150</MarketValue>
+			<Mass>0.05</Mass>
+			<Flammability>0.5</Flammability>
+			<DeteriorationRate>4</DeteriorationRate>
+		</statBases>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>Electronics</li>
+		</thingCategories>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>SimpleWeaponComponents</defName>
@@ -1000,7 +1082,14 @@
 			<DeteriorationRate>0.7</DeteriorationRate>
 			<CalorificValue>41.0</CalorificValue>
 			<BurnoutRate>20.0</BurnoutRate>
+			<Nutrition>0.4</Nutrition>
 		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<foodType>OmnivoreHuman</foodType>
+			<optimalityOffsetHumanlikes>20</optimalityOffsetHumanlikes>
+		</ingestible>
 		<thingCategories>
 			<li>Canisters</li>
 		</thingCategories>
@@ -1042,7 +1131,14 @@
 			<DeteriorationRate>0.6</DeteriorationRate>
 			<CalorificValue>49.0</CalorificValue>
 			<BurnoutRate>24.0</BurnoutRate>
+			<Nutrition>0.48</Nutrition>
 		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<foodType>OmnivoreHuman</foodType>
+			<optimalityOffsetHumanlikes>22</optimalityOffsetHumanlikes>
+		</ingestible>
 		<thingCategories>
 			<li>Canisters</li>
 		</thingCategories>
@@ -1084,7 +1180,14 @@
 			<DeteriorationRate>0.8</DeteriorationRate>
 			<CalorificValue>42.0</CalorificValue>
 			<BurnoutRate>22.0</BurnoutRate>
+			<Nutrition>0.43</Nutrition>
 		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<foodType>OmnivoreHuman</foodType>
+			<optimalityOffsetHumanlikes>22</optimalityOffsetHumanlikes>
+		</ingestible>
 		<thingCategories>
 			<li>Canisters</li>
 		</thingCategories>
@@ -1126,7 +1229,14 @@
 			<DeteriorationRate>0.8</DeteriorationRate>
 			<CalorificValue>34.0</CalorificValue>
 			<BurnoutRate>16.0</BurnoutRate>
+			<Nutrition>0.35</Nutrition>
 		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<foodType>OmnivoreHuman</foodType>
+			<optimalityOffsetHumanlikes>21</optimalityOffsetHumanlikes>
+		</ingestible>
 		<thingCategories>
 			<li>Canisters</li>
 		</thingCategories>
@@ -1168,7 +1278,14 @@
 			<DeteriorationRate>0.8</DeteriorationRate>
 			<CalorificValue>47.0</CalorificValue>
 			<BurnoutRate>14.5</BurnoutRate>
+			<Nutrition>0.6</Nutrition>
 		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<foodType>OmnivoreHuman</foodType>
+			<optimalityOffsetHumanlikes>27</optimalityOffsetHumanlikes>
+		</ingestible>
 		<thingCategories>
 			<li>Canisters</li>
 		</thingCategories>
@@ -1210,7 +1327,14 @@
 			<DeteriorationRate>0.8</DeteriorationRate>
 			<CalorificValue>38.0</CalorificValue>
 			<BurnoutRate>15.0</BurnoutRate>
+			<Nutrition>0.37</Nutrition>
 		</statBases>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<foodType>OmnivoreHuman</foodType>
+			<optimalityOffsetHumanlikes>22</optimalityOffsetHumanlikes>
+		</ingestible>
 		<thingCategories>
 			<li>Canisters</li>
 		</thingCategories>

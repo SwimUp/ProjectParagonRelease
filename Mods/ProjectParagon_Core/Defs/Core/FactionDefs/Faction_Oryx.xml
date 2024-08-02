@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RulePackDef>
+		<defName>NamerOryx</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>name->[Name]</li>
+			</rulesStrings>
+			<rulesRaw>
+				<li Class="Rule_File">
+					<keyword>Name</keyword>
+					<path>Oryx/OryxFactions</path>
+				</li>
+			</rulesRaw>
+		</rulePack>
+	</RulePackDef>
+	<RulePackDef>
+		<defName>NamerSettlementOryx</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>name->[Name]</li>
+			</rulesStrings>
+			<rulesRaw>
+				<li Class="Rule_File">
+					<keyword>Name</keyword>
+					<path>Oryx/OryxFactions</path>
+				</li>
+			</rulesRaw>
+		</rulePack>
+	</RulePackDef>
+	<ThingSetMakerDef>
+		<defName>OryxLootMaker</defName>
+		<root Class="ThingSetMaker_MarketValue">
+			<fixedParams>
+				<filter>
+					<thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+			</fixedParams>
+		</root>
+	</ThingSetMakerDef>
+	<FactionDef ParentName="FactionBase">
+		<defName>Oryx</defName>
+		<label>Oryx</label>
+		<description>A society of winged xenos that prefer to settle in deep forests. Oryx rarely lead a sedentary lifestyle, preferring to look for food in neighboring forests.</description>
+		<pawnSingular>Oryx</pawnSingular>
+		<pawnsPlural>Oryx</pawnsPlural>
+		<listOrderPriority>100</listOrderPriority>
+		<settlementGenerationWeight>1</settlementGenerationWeight>
+		<requiredCountAtGameStart>0</requiredCountAtGameStart>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<canMakeRandomly>true</canMakeRandomly>
+		<canSiege>true</canSiege>
+		<canStageAttacks>true</canStageAttacks>
+		<leaderTitle>Ortix</leaderTitle>
+		<permanentEnemy>false</permanentEnemy>
+		<naturalEnemy>true</naturalEnemy>
+		<basicMemberKind>Oryx_Peasant</basicMemberKind>
+		<allowedCultures>
+			<li>Rustican</li>
+		</allowedCultures>
+		<autoFlee>true</autoFlee>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<OryxRace>999</OryxRace>
+			</xenotypeChances>
+		</xenotypeSet>
+		<structureMemeWeights>
+			<Structure_Animist MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Animist>
+		</structureMemeWeights>
+		<allowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Collectivist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">NaturePrimacy</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">AnimalPersonhood</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+		</allowedMemes>
+		<factionIconPath>Core/World/Factions/Oryx/Oryx</factionIconPath>
+		<colorSpectrum>
+			<li>141, 78, 157</li>
+			<li>123, 82, 133</li>
+		</colorSpectrum>
+		<factionNameMaker>NamerOryx</factionNameMaker>
+		<settlementNameMaker>NamerSettlementOryx</settlementNameMaker>
+		<techLevel>Medieval</techLevel>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Tribal</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedArrivalTemperatureRange>-50~50</allowedArrivalTemperatureRange>
+		<raidLootMaker>OryxLootMaker</raidLootMaker>
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,1000)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
+		<pawnGroupMakers>
+			<li>
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<Oryx_Knight>10</Oryx_Knight>
+					<Oryx_HeavyKnight>5</Oryx_HeavyKnight>
+					<Oryx_Shooter>10</Oryx_Shooter>
+					<Oryx_Archer>20</Oryx_Archer>
+					<Oryx_Leader>1</Oryx_Leader>
+				</options>
+			</li>
+			<li>
+				<kindDef>Peaceful</kindDef>
+				<options>
+					<Oryx_Knight>10</Oryx_Knight>
+					<Oryx_Priest>5</Oryx_Priest>
+					<Oryx_Scribe>5</Oryx_Scribe>
+					<Oryx_Collector>5</Oryx_Collector>
+					<Oryx_HeavyKnight>10</Oryx_HeavyKnight>
+					<Oryx_Peasant>30</Oryx_Peasant>
+					<Oryx_Shooter>20</Oryx_Shooter>
+					<Oryx_Archer>10</Oryx_Archer>
+				</options>
+			</li>
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<Oryx_Priest>10</Oryx_Priest>
+					<Oryx_Scribe>10</Oryx_Scribe>
+					<Oryx_Collector>10</Oryx_Collector>
+				</traders>
+				<carriers>
+					<Muffalo>6</Muffalo>
+					<Dromedary>5</Dromedary>
+					<Alpaca>2.5</Alpaca>
+					<Elephant>2</Elephant>
+				</carriers>
+				<guards>
+					<Oryx_Knight>5</Oryx_Knight>
+					<Oryx_Priest>5</Oryx_Priest>
+					<Oryx_Scribe>5</Oryx_Scribe>
+					<Oryx_Collector>10</Oryx_Collector>
+					<Oryx_HeavyKnight>10</Oryx_HeavyKnight>
+					<Oryx_Peasant>30</Oryx_Peasant>
+					<Oryx_Shooter>20</Oryx_Shooter>
+					<Oryx_Archer>10</Oryx_Archer>
+				</guards>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<Oryx_Knight>15</Oryx_Knight>
+					<Oryx_Priest>10</Oryx_Priest>
+					<Oryx_Scribe>10</Oryx_Scribe>
+					<Oryx_Collector>10</Oryx_Collector>
+					<Oryx_HeavyKnight>10</Oryx_HeavyKnight>
+					<Oryx_Peasant>50</Oryx_Peasant>
+					<Oryx_Shooter>20</Oryx_Shooter>
+					<Oryx_Archer>10</Oryx_Archer>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+		<caravanTraderKinds>
+			<li>OryxTrader</li>
+		</caravanTraderKinds>
+		<visitorTraderKinds>
+			<li>OryxVisitor</li>
+		</visitorTraderKinds>
+		<baseTraderKinds>
+			<li>OryxTrader</li>
+		</baseTraderKinds>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<questGenerationSettings>
+					<minPlayerGameStage>Medieval</minPlayerGameStage>
+				</questGenerationSettings>
+				<factionNuclearSettings>
+					<isNuclearFaction>false</isNuclearFaction>
+					<preventPlayerNuclearProgram>false</preventPlayerNuclearProgram>
+					<couldStartNuclearWar>false</couldStartNuclearWar>
+				</factionNuclearSettings>
+				<settlementGenerationSettings>
+					<allowedBiomes>
+						<li>TemperateForest</li>
+						<li>TropicalRainforest</li>
+					</allowedBiomes>
+				</settlementGenerationSettings>
+				<factionCaravanAISettings>
+					<maxCaravanPower>2500</maxCaravanPower>
+					<minCaravanPower>501</minCaravanPower>
+					<totalPowerMultiplier>1</totalPowerMultiplier>
+					<powerMultiplierByCaravansCount>
+						<points>
+							<li>(0, 1)</li>
+							<li>(10, 1)</li>
+							<li>(15, 0.7)</li>
+							<li>(20, 0.3)</li>
+							<li>(50, 0)</li>
+						</points>
+					</powerMultiplierByCaravansCount>
+					<powerByTechLevel>
+						<Animal>300</Animal>
+						<Neolithic>300</Neolithic>
+						<Medieval>500</Medieval>
+						<Industrial>800</Industrial>
+						<Spacer>1200</Spacer>
+						<Ultra>1500</Ultra>
+						<Archotech>2000</Archotech>
+					</powerByTechLevel>
+					<powerMultiplierByTechLevel>
+						<Animal>1</Animal>
+						<Neolithic>1</Neolithic>
+						<Medieval>1.25</Medieval>
+						<Industrial>1.5</Industrial>
+						<Spacer>2</Spacer>
+						<Ultra>2.5</Ultra>
+						<Archotech>3</Archotech>
+					</powerMultiplierByTechLevel>
+				</factionCaravanAISettings>
+				<raidGenerationSettings>
+					<minPlayerGameStage>Tribe</minPlayerGameStage>
+					<maxRaidDistance>100</maxRaidDistance>
+				</raidGenerationSettings>
+				<factionOrdersSettings>
+					<orders>
+						<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_BuildSomething">
+							<checkIntervalDays>2~3</checkIntervalDays>
+							<buildiableWorldObjects>
+								<li>
+									<worldObjectDef>WatchTower</worldObjectDef>
+									<minThreat>800</minThreat>
+									<priority>1</priority>
+									<maxCount>4</maxCount>
+									<maxCountForEachSettlement>1</maxCountForEachSettlement>
+									<worker Class="ProjectParagon.Core.WorldObjects.SettlementWorldObjectWorker_WatchTower">
+									</worker>
+								</li>
+							</buildiableWorldObjects>
+						</li>
+						<li Class="ProjectParagon.Core.FactionControl.Orders.FactionOrderProperties_SendCaravan">
+							<mtbDays>1</mtbDays>
+							<excludeSettlementSpecialization>
+								<li>SlaveOwners</li>
+								<li>Breeders</li>
+								<li>Traders</li>
+							</excludeSettlementSpecialization>
+							<caravans>
+								<li>
+									<commonality>20</commonality>
+									<caravanPower>500~1000</caravanPower>
+									<maxTotalCaravans>5</maxTotalCaravans>
+									<wealthRequired>500</wealthRequired>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>40</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>TravelingGroup</caravanTypeDef>
+									<wealthCost>70</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+								</li>
+								<li>
+									<commonality>20</commonality>
+									<caravanPower>600~1200</caravanPower>
+									<maxTotalCaravans>4</maxTotalCaravans>
+									<wealthRequired>800</wealthRequired>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 5.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<wealthCostMultiplierByCaravanPowerCurve>
+										<points>
+											<li>(100, 1)</li>
+											<li>(1500, 3)</li>
+										</points>
+									</wealthCostMultiplierByCaravanPowerCurve>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>20</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>Trade</caravanTypeDef>
+									<wealthCost>150</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoTradeWithOtherSettlement</caravanArrivalClass>
+									<minSettlementMoney>200</minSettlementMoney>
+									<minMarketStockPriceWithoutSilver>1000</minMarketStockPriceWithoutSilver>
+									<worker Class="ProjectParagon.Core.FactionControl.Orders.SendCaravanOrderWorker_Trader"/>
+									<exceptSettlementSpecializtions>
+										<li>SlaveOwners</li>
+									</exceptSettlementSpecializtions>
+								</li>
+								<li>
+									<commonality>100</commonality>
+									<caravanPower>1000~1500</caravanPower>
+									<maxTotalCaravans>2</maxTotalCaravans>
+									<wealthRequired>600</wealthRequired>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 4.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<caravanThingSetMakerProps>
+										<thingSetMakerDef>FactionOrder_TransportCaravan</thingSetMakerDef>
+										<thingSetMakerParams>
+											<countRange>300~600</countRange>
+										</thingSetMakerParams>
+										<countRangeMultiplierByWealthCurve>
+											<points>
+												<li>(200, 1)</li>
+												<li>(20000, 4.0)</li>
+											</points>
+										</countRangeMultiplierByWealthCurve>
+									</caravanThingSetMakerProps>
+									<wealthCostMultiplierByCaravanPowerCurve>
+										<points>
+											<li>(100, 1)</li>
+											<li>(1500, 4)</li>
+										</points>
+									</wealthCostMultiplierByCaravanPowerCurve>
+									<targetParams>
+										<allowedSelfFaction>true</allowedSelfFaction>
+										<allowedNeutral>true</allowedNeutral>
+										<maxDistance>20</maxDistance>
+									</targetParams>
+									<caravanAIDef>CaravanAI_Basic</caravanAIDef>
+									<caravanTypeDef>TransportCaravan</caravanTypeDef>
+									<wealthCost>150</wealthCost>
+									<caravanArrivalClass>ProjectParagon.Core.WorldObjects.Caravans.Actions.CaravanArrivalAction_AIGoToWorldObject</caravanArrivalClass>
+								</li>
+								<li>
+									<commonality>200</commonality>
+									<caravanPower>500~1200</caravanPower>
+									<caravanPowerScaleByWealth>
+										<points>
+											<li>(100, 1)</li>
+											<li>(20000, 3.0)</li>
+										</points>
+									</caravanPowerScaleByWealth>
+									<maxTotalCaravans>5</maxTotalCaravans>
+									<wealthRequired>500</wealthRequired>
+									<caravanAIDef>CaravanAI_SettlementScouts</caravanAIDef>
+									<caravanTypeDef>Battle</caravanTypeDef>
+									<wealthCost>200</wealthCost>
+								</li>
+							</caravans>
+						</li>
+					</orders>
+				</factionOrdersSettings>
+				<settlementGlobalSettings>
+					<threatRadius>25</threatRadius>
+					<startedSilver>300~400</startedSilver>
+					<silverMultiplierByWealth>
+						<points>
+							<li>(200, 1)</li>
+							<li>(500, 1.25)</li>
+							<li>(1000, 2)</li>
+							<li>(2000, 3)</li>
+							<li>(5000, 5)</li>
+							<li>(10000, 10)</li>
+							<li>(20000, 15)</li>
+						</points>
+					</silverMultiplierByWealth>
+					<maxSilverPerSettlement>6000</maxSilverPerSettlement>
+					<maxSilverRandomMultiplier>0.5~1.5</maxSilverRandomMultiplier>
+					<cultureForDestroySettlementsByWealth>
+						<points>
+							<li>(0, 40)</li>
+							<li>(20000, 400)</li>
+						</points>
+					</cultureForDestroySettlementsByWealth>
+				</settlementGlobalSettings>
+				<factionEconomySettings>
+					<economyList>
+						<li>
+							<thingCategoryDefs>
+								<li>Foods</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.25</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.15</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Manufactured</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.15</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.15</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>ResourcesRaw</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>0.75</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Weapons</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>2</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>2</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Apparel</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1.25</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1.25</priceSellMultiplier>
+						</li>
+						<li>
+							<thingCategoryDefs>
+								<li>Animals</li>
+							</thingCategoryDefs>
+							<!-- модификатор когда игрок покупает  -->
+							<priceBuyMultiplier>1</priceBuyMultiplier>
+							<!-- модификатор когда игрок продает -->
+							<priceSellMultiplier>1</priceSellMultiplier>
+						</li>
+					</economyList>
+					<successTradeMultiplierRange>1.0~1.2</successTradeMultiplierRange>
+				</factionEconomySettings>
+			</li>
+			<li Class="GiddyUp.FactionRestrictions">
+				<mountChance>25</mountChance>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<TraderKindDef>
+		<defName>OryxTrader</defName>
+		<stockGenerators>
+		</stockGenerators>
+	</TraderKindDef>
+	<TraderKindDef>
+		<defName>OryxVisitor</defName>
+		<label>trader</label>
+		<stockGenerators>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>100~200</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>1~4</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>RoastedMeat</thingDef>
+				<countRange>2~5</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Book</thingDef>
+				<countRange>1~4</countRange>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+</Defs>

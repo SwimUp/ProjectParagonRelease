@@ -1,6 +1,144 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<!---->
+	<GeneDef Name="GeneNutrientsBase" Abstract="True">
+		<displayCategory>Needs</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNutrientsBase">
+		<defName>DisableProteins</defName>
+		<label>Disable proteins</label>
+		<description>The gene carrier does not lack proteins.</description>
+		<iconPath>Core/Genes/DisableProteins</iconPath>
+		<displayCategory>Needs</displayCategory>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<disablesNeeds>
+			<li>Food_Protein</li>
+		</disablesNeeds>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<exclusionTags>
+			<li>Proteins</li>
+		</exclusionTags>
+	</GeneDef>
+	<GeneDef ParentName="GeneNutrientsBase">
+		<defName>IncreasedConsumptionProteins</defName>
+		<label>Increased proteins consumption</label>
+		<description>The gene carrier does not lack proteins.</description>
+		<iconPath>Core/Genes/IncreasedConsumptionProteins</iconPath>
+		<displayCategory>Needs</displayCategory>
+		<displayOrderInCategory>1</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<statFactors>
+			<Food_ProteinFactor>1.5</Food_ProteinFactor>
+		</statFactors>
+		<exclusionTags>
+			<li>Proteins</li>
+		</exclusionTags>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNutrientsBase">
+		<defName>DisableFat</defName>
+		<label>Disable fat</label>
+		<description>The gene carrier does not lack fat.</description>
+		<iconPath>Core/Genes/DisableFat</iconPath>
+		<displayCategory>Needs</displayCategory>
+		<displayOrderInCategory>2</displayOrderInCategory>
+		<disablesNeeds>
+			<li>Food_Fat</li>
+		</disablesNeeds>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<exclusionTags>
+			<li>Fat</li>
+		</exclusionTags>
+	</GeneDef>
+	<GeneDef ParentName="GeneNutrientsBase">
+		<defName>IncreasedConsumptionFat</defName>
+		<label>Increased fat consumption</label>
+		<description>The gene carrier does not lack fat.</description>
+		<iconPath>Core/Genes/IncreasedConsumptionFat</iconPath>
+		<displayCategory>Needs</displayCategory>
+		<displayOrderInCategory>3</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<statFactors>
+			<Food_FatFactor>1.5</Food_FatFactor>
+		</statFactors>
+		<exclusionTags>
+			<li>Fat</li>
+		</exclusionTags>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNutrientsBase">
+		<defName>DisableCarbohydrates</defName>
+		<label>Disable carbohydrates</label>
+		<description>The gene carrier does not lack carbohydrates.</description>
+		<iconPath>Core/Genes/DisableCarbohydrates</iconPath>
+		<displayCategory>Needs</displayCategory>
+		<displayOrderInCategory>4</displayOrderInCategory>
+		<disablesNeeds>
+			<li>Food_Carbohydrates</li>
+		</disablesNeeds>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<exclusionTags>
+			<li>Carbohydrates</li>
+		</exclusionTags>
+	</GeneDef>
+	<GeneDef ParentName="GeneNutrientsBase">
+		<defName>IncreasedConsumptionCarbohydrates</defName>
+		<label>Increased carbohydrates consumption</label>
+		<description>The gene carrier does not lack carbohydrates.</description>
+		<iconPath>Core/Genes/IncreasedConsumptionCarbohydrates</iconPath>
+		<displayCategory>Needs</displayCategory>
+		<displayOrderInCategory>5</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<statFactors>
+			<Food_CarbohydratesFactor>1.5</Food_CarbohydratesFactor>
+		</statFactors>
+		<exclusionTags>
+			<li>Carbohydrates</li>
+		</exclusionTags>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNutrientsBase">
+		<defName>DisableVitamins</defName>
+		<label>Disable vitamins</label>
+		<description>The gene carrier does not lack vitamins.</description>
+		<iconPath>Core/Genes/DisableVitamins</iconPath>
+		<displayCategory>Needs</displayCategory>
+		<displayOrderInCategory>6</displayOrderInCategory>
+		<disablesNeeds>
+			<li>Food_Vitamins</li>
+		</disablesNeeds>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<exclusionTags>
+			<li>Vitamins</li>
+		</exclusionTags>
+	</GeneDef>
+	<GeneDef ParentName="GeneNutrientsBase">
+		<defName>IncreasedConsumptionVitamins</defName>
+		<label>Increased vitamins consumption</label>
+		<description>The gene carrier does not lack vitamins.</description>
+		<iconPath>Core/Genes/IncreasedConsumptionVitamins</iconPath>
+		<displayCategory>Needs</displayCategory>
+		<displayOrderInCategory>7</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<statFactors>
+			<Food_VitaminsFactor>1.5</Food_VitaminsFactor>
+		</statFactors>
+		<exclusionTags>
+			<li>Vitamins</li>
+		</exclusionTags>
+	</GeneDef>
+	<!---->
+	<!---->
+	<!---->
 	<GeneDef>
 		<defName>DisableMood</defName>
 		<label>Disable mood</label>
@@ -56,6 +194,35 @@
 		</disablesNeeds>
 		<biostatCpx>1</biostatCpx>
 		<biostatMet>-2</biostatMet>
+	</GeneDef>
+	<!---->
+	<GeneDef>
+		<defName>SunRequirement</defName>
+		<label>Sun requirement</label>
+		<labelShortAdj>Sun requirement</labelShortAdj>
+		<description>The creature cannot live long without direct sunlight.</description>
+		<iconPath>Core/Genes/SunRequirement</iconPath>
+		<displayOrderInCategory>600</displayOrderInCategory>
+		<displayCategory>Needs</displayCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>3</biostatMet>
+		<causesNeed>Need_Sun</causesNeed>
+	</GeneDef>
+	<!---->
+	<GeneDef>
+		<defName>Empathy</defName>
+		<label>Empathy</label>
+		<description>The carrier of the gene depends on the society. His mood drops significantly when alone.</description>
+		<iconPath>Core/Genes/Empathy</iconPath>
+		<displayOrderInCategory>610</displayOrderInCategory>
+		<displayCategory>Needs</displayCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<forcedTraits>
+			<li>
+				<def>Empath</def>
+			</li>
+		</forcedTraits>
 	</GeneDef>
 	<!---->
 </Defs>

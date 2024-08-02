@@ -5,7 +5,7 @@
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>PassThroughOnly</passability>
 		<castEdgeShadows>false</castEdgeShadows>
-		<staticSunShadowHeight>0.35</staticSunShadowHeight>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<fillPercent>0.5</fillPercent>
 		<canOverlapZones>false</canOverlapZones>
 		<pathCost>42</pathCost>
@@ -52,7 +52,7 @@
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>PassThroughOnly</passability>
 		<castEdgeShadows>false</castEdgeShadows>
-		<staticSunShadowHeight>0.35</staticSunShadowHeight>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
 		<fillPercent>0.5</fillPercent>
 		<canOverlapZones>false</canOverlapZones>
 		<pathCost>42</pathCost>
@@ -79,6 +79,53 @@
 			<li Class="CompProperties_Facility">
 				<statOffsets>
 					<WorkTableWorkSpeedFactor>0.1</WorkTableWorkSpeedFactor>
+				</statOffsets>
+				<maxSimultaneous>2</maxSimultaneous>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<graphicData>
+			<texPath>Things/Building/Misc/ToolCabinet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(2,2)</drawSize>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase" Abstract = "true" Name="SpacerSetBase">
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>42</pathCost>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>25000</WorkToBuild>
+			<Mass>15</Mass>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<researchPrerequisites>
+			<li>BasicsRobotics</li>
+		</researchPrerequisites>
+		<designationCategory>Outbuildings</designationCategory>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<WorkTableWorkSpeedFactor>0.15</WorkTableWorkSpeedFactor>
 				</statOffsets>
 				<maxSimultaneous>2</maxSimultaneous>
 			</li>
@@ -320,6 +367,31 @@
 			</li>
 		</comps>
 		<designatorDropdown>Extensions_Medicine</designatorDropdown>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="SpacerSetBase">
+		<defName>WorkingManipulator</defName>
+		<label>Working manipulator</label>
+		<description>Robotic manipulator to assist in working at the machine.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_BaseModularBuildingPart</thingClass>
+		<altitudeLayer>BuildingBelowTop</altitudeLayer>
+		<graphicData>
+			<texPath>Core/Buildings/WorkingManipulator/WorkingManipulator</texPath>
+			<drawRotated>true</drawRotated>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>7,7</drawSize>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<rotatable>true</rotatable>
+		<uiIconScale>0.4</uiIconScale>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<MechanismSpacer>2</MechanismSpacer>
+			<ComponentSpacer>4</ComponentSpacer>
+		</costList>
 	</ThingDef>
 	<!---->
 </Defs>

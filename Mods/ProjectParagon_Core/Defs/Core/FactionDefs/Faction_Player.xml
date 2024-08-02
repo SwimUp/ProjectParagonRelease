@@ -97,7 +97,6 @@
 			<xenotypeChances>
 				<AeronRace>999</AeronRace>
 			</xenotypeChances>
-			<warnIfTotalAbove1>false</warnIfTotalAbove1>
 		</xenotypeSet>
 		<basicMemberKind>Aeron_Peasant</basicMemberKind>
 		<modExtensions>
@@ -140,13 +139,16 @@
 			<xenotypeChances>
 				<ArachnidRace>999</ArachnidRace>
 			</xenotypeChances>
-			<warnIfTotalAbove1>false</warnIfTotalAbove1>
 		</xenotypeSet>
-		<basicMemberKind>Arachnid_WorkerCommon</basicMemberKind>
+		<basicMemberKind>Arachnid_WorkerBuilder</basicMemberKind>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
 				<basicMemberKinds>
-					<Arachnid_WorkerCommon>60</Arachnid_WorkerCommon>
+					<Arachnid_WorkerBuilder>20</Arachnid_WorkerBuilder>
+					<Arachnid_WorkerNurse>20</Arachnid_WorkerNurse>
+					<Arachnid_WorkerFarmer>20</Arachnid_WorkerFarmer>
+					<Arachnid_WorkerProducer>10</Arachnid_WorkerProducer>
+					<Arachnid_WorkerChemist>10</Arachnid_WorkerChemist>
 					<Arachnid_SoldierMelee>20</Arachnid_SoldierMelee>
 					<Arachnid_WarriorMelee>10</Arachnid_WarriorMelee>
 					<Arachnid_Bombardier>10</Arachnid_Bombardier>
@@ -188,7 +190,6 @@
 			<xenotypeChances>
 				<KairosRace>999</KairosRace>
 			</xenotypeChances>
-			<warnIfTotalAbove1>false</warnIfTotalAbove1>
 		</xenotypeSet>
 		<basicMemberKind>KairosSoldier_Soldier</basicMemberKind>
 		<modExtensions>
@@ -227,7 +228,6 @@
 			<xenotypeChances>
 				<ShekRace>999</ShekRace>
 			</xenotypeChances>
-			<warnIfTotalAbove1>false</warnIfTotalAbove1>
 		</xenotypeSet>
 		<startingResearchTags>
 			<li>LostSheks</li>
@@ -277,7 +277,6 @@
 			<xenotypeChances>
 				<LivingTree>999</LivingTree>
 			</xenotypeChances>
-			<warnIfTotalAbove1>false</warnIfTotalAbove1>
 		</xenotypeSet>
 		<basicMemberKind>Treant</basicMemberKind>
 		<modExtensions>
@@ -315,6 +314,11 @@
 		<startingResearchTags>
 			<li>ShardOfTheHorde</li>
 		</startingResearchTags>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<TaurusRace>999</TaurusRace>
+			</xenotypeChances>
+		</xenotypeSet>
 		<basicMemberKind>Taurus_Warrior</basicMemberKind>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
@@ -356,7 +360,6 @@
 			<xenotypeChances>
 				<ZorgRace>999</ZorgRace>
 			</xenotypeChances>
-			<warnIfTotalAbove1>false</warnIfTotalAbove1>
 		</xenotypeSet>
 		<basicMemberKind>Zorg_Warrior</basicMemberKind>
 		<modExtensions>
@@ -399,7 +402,6 @@
 			<xenotypeChances>
 				<AutomatonRace>999</AutomatonRace>
 			</xenotypeChances>
-			<warnIfTotalAbove1>false</warnIfTotalAbove1>
 		</xenotypeSet>
 		<basicMemberKind>Automaton_Aristocrat</basicMemberKind>
 		<modExtensions>
@@ -478,6 +480,11 @@
 		<startingResearchTags>
 			<li>Resonites</li>
 		</startingResearchTags>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<ResoniteRace>999</ResoniteRace>
+			</xenotypeChances>
+		</xenotypeSet>
 		<basicMemberKind>Resonite_Settler</basicMemberKind>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
@@ -488,6 +495,127 @@
 			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
 				<factionOtherSettings>
 					<strangerInBlackKindDef>Resonite_StrangerInBlack</strangerInBlackKindDef>
+				</factionOtherSettings>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerOryxes</defName>
+		<label>Expelled oryxes</label>
+		<description>A group of oryx who lost their home.</description>
+		<techLevel>Medieval</techLevel>
+		<factionIconPath>Core/World/Factions/Oryx/Oryx</factionIconPath>
+		<factionNameMaker>NamerOryx</factionNameMaker>
+		<settlementNameMaker>NamerSettlementOryx</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Tribal</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedCultures>
+			<li>Rustican</li>
+		</allowedCultures>
+		<startingResearchTags>
+			<li>ExpelledFromNest</li>
+		</startingResearchTags>
+		<basicMemberKind>Oryx_Peasant</basicMemberKind>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<OryxRace>999</OryxRace>
+			</xenotypeChances>
+		</xenotypeSet>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Oryx_Peasant>100</Oryx_Peasant>
+					<Oryx_Archer>50</Oryx_Archer>
+				</basicMemberKinds>
+			</li>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<factionOtherSettings>
+					<strangerInBlackKindDef>Oryx_StrangerInBlack</strangerInBlackKindDef>
+				</factionOtherSettings>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerLithur</defName>
+		<label>Lithur colonization</label>
+		<description>A group of lithurs sent for relocation.</description>
+		<techLevel>Industrial</techLevel>
+		<factionIconPath>Core/World/Factions/Lithur/Lithurs</factionIconPath>
+		<factionNameMaker>NamerLithurs</factionNameMaker>
+		<settlementNameMaker>NamerSettlementLithurs</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Pirate</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedCultures>
+			<li>Astropolitan</li>
+		</allowedCultures>
+		<startingResearchTags>
+			<li>Lithur</li>
+		</startingResearchTags>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<LithurRace>999</LithurRace>
+			</xenotypeChances>
+		</xenotypeSet>
+		<basicMemberKind>Lithur_Settler</basicMemberKind>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Lithur_Settler>10</Lithur_Settler>
+				</basicMemberKinds>
+			</li>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<factionOtherSettings>
+					<strangerInBlackKindDef>Lithur_StrangerInBlack</strangerInBlackKindDef>
+				</factionOtherSettings>
+			</li>
+		</modExtensions>
+	</FactionDef>
+	<FactionDef ParentName="PlayerFactionParagonBase">
+		<defName>PlayerGrax</defName>
+		<label>Grax group</label>
+		<description>A group of Graxs awakened from their sleep.</description>
+		<techLevel>Industrial</techLevel>
+		<factionIconPath>Core/World/Factions/Grax/Grax</factionIconPath>
+		<factionNameMaker>NamerPersonGrax</factionNameMaker>
+		<settlementNameMaker>NamerPersonGrax</settlementNameMaker>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>Grax</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<allowedCultures>
+			<li>Rustican</li>
+		</allowedCultures>
+		<startingResearchTags>
+			<li>Grax</li>
+		</startingResearchTags>
+		<xenotypeSet Inherit="False">
+			<xenotypeChances>
+				<GraxRace>999</GraxRace>
+			</xenotypeChances>
+		</xenotypeSet>
+		<basicMemberKind>Newborn_Grax</basicMemberKind>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefExtension_PlayerFaction">
+				<basicMemberKinds>
+					<Newborn_Grax>10</Newborn_Grax>
+				</basicMemberKinds>
+			</li>
+			<li Class="ProjectParagon.Core.FactionControl.FactionManagerDefExtension">
+				<factionOtherSettings>
+					<strangerInBlackKindDef>Grax_StrangerInBlack</strangerInBlackKindDef>
 				</factionOtherSettings>
 			</li>
 		</modExtensions>

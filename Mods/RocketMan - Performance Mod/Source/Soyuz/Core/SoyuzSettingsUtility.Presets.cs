@@ -81,7 +81,6 @@ namespace Soyuz
                 {
                     JobDefOf.DeliverFood,
                     JobDefOf.FeedPatient,
-                    JobDefOf.SocialRelax,
                     JobDefOf.TakeInventory,
                     JobDefOf.Capture,
                     JobDefOf.AttackMelee,

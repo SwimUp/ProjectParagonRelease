@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef ParentName="AddedBodyPartBase">
+		<defName>BionicLung</defName>
+		<label>Bionic lung</label>
+		<labelNoun>a bionic lung</labelNoun>
+		<description>A simple lung prosthesis made from bionic components and gears.</description>
+		<spawnThingOnRemoved>BionicLung</spawnThingOnRemoved>
+		<addedPartProps>
+			<solid>true</solid>
+			<partEfficiency>1.25</partEfficiency>
+		</addedPartProps>
+		<priceImpact>true</priceImpact>
+		<countsAsAddedPartOrImplant>true</countsAsAddedPartOrImplant>
+		<comps>
+			<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+				<multiplier>1.25</multiplier>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+			</li>
+		</modExtensions>
+	</HediffDef>
+	<ThingDef ParentName="ProsthesisSpacerBase">
+		<defName>BionicLung</defName>
+		<label>Bionic lung</label>
+		<description>A prosthesis made from bionic components and gears.</description>
+		<graphicData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>4.0</Mass>
+		</statBases>
+		<recipeMaker>
+			<workSpeedStat>SmeltingSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smelt</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<researchPrerequisite>Bionics</researchPrerequisite>
+			<recipeUsers>
+				<li>Bioprinter</li>
+			</recipeUsers>
+			<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+		</recipeMaker>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Plastic</li>
+		</stuffCategories>
+		<costStuffCount>75</costStuffCount>
+		<costList>
+			<MechanismComplex>2</MechanismComplex>
+			<Nanoelectronics>1</Nanoelectronics>
+			<Synthread>75</Synthread>
+			<Biosynthetics>150</Biosynthetics>
+		</costList>
+	</ThingDef>
+	<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+		<defName>BionicLung</defName>
+		<label>install bionic lung</label>
+		<description>Install a bionic lung.</description>
+		<jobString>Installing bionic lung.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BionicLung</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BionicLung</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Lung</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>BionicLung</addsHediff>
+		<researchPrerequisite>Bionics</researchPrerequisite>
+	</RecipeDef>
+</Defs>

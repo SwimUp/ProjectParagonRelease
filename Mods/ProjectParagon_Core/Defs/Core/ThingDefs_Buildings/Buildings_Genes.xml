@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!---->
+	<ThingDef ParentName="GeneBuildingBase">
+		<defName>GeneBankLarge</defName>
+		<label>large gene bank</label>
+		<description>This building can store genepacks and make them usable to create new xenogerms, when placed near a gene assembler. Large gene libraries require many gene banks.\n\nWhen powered, gene banks prevent genepacks from deteriorating and will slowly repair deterioration. Have 10 slots for genes.</description>
+		<graphicData>
+			<texPath>Core/Buildings/GeneBankLarge/GeneBankLarge</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2, 2)</drawSize>
+		</graphicData>
+		<uiOrder>2155</uiOrder>
+		<castEdgeShadows>true</castEdgeShadows>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<tickerType>Rare</tickerType>
+		<passability>PassThroughOnly</passability>
+		<canOverlapZones>false</canOverlapZones>
+		<size>(2, 2)</size>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>10000</WorkToBuild>
+			<Mass>40</Mass>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<thingCategories>
+			<li>BuildingsProduction</li>
+		</thingCategories>
+		<inspectorTabs>
+			<li>ITab_ContentsGenepackHolder</li>
+		</inspectorTabs>
+		<costList>
+			<StrongPlates>250</StrongPlates>
+			<Biosynthetics>200</Biosynthetics>
+			<Supermagnet>20</Supermagnet>
+			<RobotParts>8</RobotParts>
+			<Nanoelectronics>2</Nanoelectronics>
+		</costList>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<descriptionHyperlinks>
+			<ThingDef>Genepack</ThingDef>
+			<ThingDef>GeneAssembler</ThingDef>
+		</descriptionHyperlinks>
+		<rotatable>false</rotatable>
+		<comps>
+			<li Class="CompProperties_GenepackContainer">
+				<maxCapacity>10</maxCapacity>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>400</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Facility">
+				<maxSimultaneous>100</maxSimultaneous>
+				<maxDistance>12.9</maxDistance>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>GeneSeparator</defName>
+		<label>genepack reprocessor</label>
+		<description>A workbench for creating new genepacks from existing packs banked nearby.</description>
+		<altitudeLayer>Building</altitudeLayer>
+		<designationCategory>Biotech</designationCategory>
+		<uiOrder>2100</uiOrder>
+		<pathCost>42</pathCost>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<buildingTags>
+				<li>Biotech</li>
+			</buildingTags>
+		</building>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<thingClass>ProjectParagon.Core.Things.Genes.Building_GeneSeparator</thingClass>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.4</fillPercent>
+		<graphicData>
+			<texPath>Core/Buildings/GeneSeparator/GeneSeparator</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3, 3)</drawSize>
+			<shadowData>
+				<volume>(2.55, 0.75, 1.7)</volume>
+			</shadowData>
+		</graphicData>
+		<descriptionHyperlinks>
+			<ThingDef>GeneBank</ThingDef>
+			<ThingDef>Genepack</ThingDef>
+		</descriptionHyperlinks>
+		<tickerType>Normal</tickerType>
+		<size>(3, 3)</size>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0, 0, 2)</interactionCellOffset>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>35000</WorkToBuild>
+			<Mass>30</Mass>
+			<Flammability>0.5</Flammability>
+			<AssemblySpeedFactor>1.0</AssemblySpeedFactor>
+		</statBases>
+		<costList>
+			<StrongPlates>125</StrongPlates>
+			<Biosynthetics>125</Biosynthetics>
+			<Supermagnet>50</Supermagnet>
+			<RobotParts>20</RobotParts>
+			<Nanoelectronics>2</Nanoelectronics>
+		</costList>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>GeneBank</li>
+				</linkableFacilities>
+			</li>
+		</comps>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsProduction</li>
+		</thingCategories>
+		<researchPrerequisites>
+			<li>GeneSeparator</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="LWM_DeepStorage">
+		<defName>GenePrintStorage</defName>
+		<label>Gene print bank</label>
+		<description>Specialized storage for accessing genetic data.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_GenePrintStorage</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/GenePrintStorage/GenePrintStorage</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>1,1</drawSize>
+		</graphicData>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
+		<castEdgeShadows>false</castEdgeShadows>
+		<rotatable>false</rotatable>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_GenePrintStorage</li>
+		</inspectorTabs>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>5000</WorkToBuild>
+			<Flammability>2</Flammability>
+			<Beauty>-4</Beauty>
+			<Mass>20</Mass>
+		</statBases>
+		<size>(1,1)</size>
+		<costList>
+			<StrongPlates>75</StrongPlates>
+			<Biosynthetics>25</Biosynthetics>
+			<ComponentSpacer>1</ComponentSpacer>
+			<Nanoelectronics>1</Nanoelectronics>
+		</costList>
+		<building>
+			<fixedStorageSettings>
+				<filter>
+					<thingDefs>
+						<li>GeneticPrint</li>
+					</thingDefs>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<filter>
+					<thingDefs>
+						<li>GeneticPrint</li>
+					</thingDefs>
+				</filter>
+			</defaultStorageSettings>
+		</building>
+		<defaultPlacingRot>North</defaultPlacingRot>
+		<researchPrerequisites>
+			<li>GeneticLibrary</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="LWM.DeepStorage.Properties">
+				<maxNumberStacks>10</maxNumberStacks>
+				<minTimeStoringTakes>35</minTimeStoringTakes>
+				<additionalTimeEachStack>5</additionalTimeEachStack>
+				<additionalTimeEachDef>2</additionalTimeEachDef>
+				<overlayType>SumOfItemsPerCell</overlayType>
+				<showContents>false</showContents>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StorageParagon">
+				<thingsRotMultiplier>1</thingsRotMultiplier>
+			</li>
+			<li Class="CompProperties_Facility">
+				<compClass>ProjectParagon.Core.Things.CompFacilityParagon</compClass>
+				<maxSimultaneous>999</maxSimultaneous>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>GeneticLaboratory</defName>
+		<label>Genetic laboratory</label>
+		<description>A station for analyzing and editing genome sequences for the purpose of producing gene packages.</description>
+		<altitudeLayer>Building</altitudeLayer>
+		<designationCategory>Biotech</designationCategory>
+		<uiOrder>2100</uiOrder>
+		<pathCost>42</pathCost>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<buildingTags>
+				<li>Biotech</li>
+			</buildingTags>
+		</building>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<thingClass>ProjectParagon.Core.Things.Building_GeneticLaboratory</thingClass>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.4</fillPercent>
+		<graphicData>
+			<texPath>Core/Buildings/GeneticLaboratory/GeneticLaboratory</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(7,7)</drawSize>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+		<descriptionHyperlinks>
+			<ThingDef>GenePrintStorage</ThingDef>
+		</descriptionHyperlinks>
+		<tickerType>Normal</tickerType>
+		<size>(5,5)</size>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0, 0, -3)</interactionCellOffset>
+		<defaultPlacingRot>North</defaultPlacingRot>
+		<canOverlapZones>false</canOverlapZones>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>45000</WorkToBuild>
+			<Mass>250</Mass>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<costList>
+			<StrongPlates>250</StrongPlates>
+			<ComponentSpacer>4</ComponentSpacer>
+			<RobotParts>30</RobotParts>
+			<Nanoelectronics>6</Nanoelectronics>
+		</costList>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<researchPrerequisites>
+			<li>GeneticLibrary</li>
+		</researchPrerequisites>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+			<li>ProjectParagon.Core.ITabs.ITab_GenePrintLibrary</li>
+		</inspectorTabs>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>GeneticLaboratory</scheme>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>2500</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>Plasma</pipeTypeDef>
+				<capacity>500</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>true</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<canChangePipeType>false</canChangePipeType>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<barOffset>(0, 0, -1)</barOffset>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>Naphtha</pipeTypeDef>
+				<capacity>500</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<drawPipeOverlay>true</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<canChangePipeType>false</canChangePipeType>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<barOffset>(0, 0, 0)</barOffset>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<pipeTypeDef>Ethanol</pipeTypeDef>
+				<capacity>500</capacity>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<canChangePipeType>false</canChangePipeType>
+				<drawPipeOverlay>true</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<barOffset>(0, 0, 1)</barOffset>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExplosiveLiquidStorage">
+				<maxExplosiveRadius>3</maxExplosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<postExplosionSpawnChance>1</postExplosionSpawnChance>
+				<chanceToStartFire>0.7</chanceToStartFire>
+				<startWickHitPointsPercent>0.1</startWickHitPointsPercent>
+				<explosiveRadiusRandomMutiplierRange>1.7~2.5</explosiveRadiusRandomMutiplierRange>
+				<wickTicks>
+					<min>1600</min>
+					<max>4500</max>
+				</wickTicks>
+			</li>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>WorkingManipulator</li>
+					<li>GenePrintStorage</li>
+				</linkableFacilities>
+			</li>
+		</comps>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsProduction</li>
+		</thingCategories>
+	</ThingDef>
+	<!---->
+</Defs>

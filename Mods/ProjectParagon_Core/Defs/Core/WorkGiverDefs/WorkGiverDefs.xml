@@ -140,7 +140,7 @@
 		<label>Fertilize</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_Fertilize</giverClass>
 		<workType>Growing</workType>
-		<priorityInType>50</priorityInType>
+		<priorityInType>200</priorityInType>
 	</WorkGiverDef>
 	<WorkGiverDef>
 		<defName>DoBills_RepairTable</defName>
@@ -164,7 +164,7 @@
 		<defName>DoBills_Examine</defName>
 		<label>Examine</label>
 		<giverClass>WorkGiver_DoBill</giverClass>
-		<workType>Crafting</workType>
+		<workType>Research</workType>
 		<priorityInType>160</priorityInType>
 		<fixedBillGiverDefs>
 			<li>ArcheologyTable</li>
@@ -463,6 +463,13 @@
 			<li>OilChemicalStation</li>
 			<li>ArcSmelter</li>
 			<li>ManualConcreteMixer</li>
+			<li>VacuumSmelter</li>
+			<li>Nanosynthesizer</li>
+			<li>Bioprinter</li>
+			<li>HadronColliderCore</li>
+			<li>RobotAssembler</li>
+			<li>Nanoshredder</li>
+			<li>GeneticLaboratory</li>
 		</fixedBillGiverDefs>
 		<verb>craft</verb>
 		<gerund>crafting at</gerund>
@@ -492,9 +499,8 @@
 		<gerund>draining</gerund>
 		<canBeDoneWhileDrafted>true</canBeDoneWhileDrafted>
 		<priorityInType>600</priorityInType>
-   </WorkGiverDef>
-   
-   <WorkGiverDef>
+	</WorkGiverDef>
+	<WorkGiverDef>
 		<defName>HaulResourcesToGasProcessor</defName>
 		<label>haul resources to gas processor</label>
 		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_GasProcessor</giverClass>
@@ -503,8 +509,7 @@
 		<gerund>hauling resources</gerund>
 		<canBeDoneWhileDrafted>true</canBeDoneWhileDrafted>
 		<priorityInType>100</priorityInType>
-   </WorkGiverDef>
-   
+	</WorkGiverDef>
 	<WorkGiverDef>
 		<defName>WorkInQuarry</defName>
 		<label>Work in quarry</label>
@@ -517,7 +522,6 @@
 			<li>Manipulation</li>
 		</requiredCapacities>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>FillYelloriumConsumer</defName>
 		<label>fill yellorium consumers</label>
@@ -534,7 +538,6 @@
 			<li>ArachnidBroodCocoon</li>
 		</fixedBillGiverDefs>
 	</WorkGiverDef>
-	
 	<WorkGiverDef>
 		<defName>FillJellyConsumer</defName>
 		<label>fill jelly consumers</label>
@@ -552,5 +555,35 @@
 			<li>StasisCocoon</li>
 			<li>ArachnidMutationHive</li>
 		</fixedBillGiverDefs>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>SeparateGenepack</defName>
+		<label>create genepacks</label>
+		<giverClass>ProjectParagon.Core.Things.Genes.WorkGiver_SeparateGenepack</giverClass>
+		<workType>Research</workType>
+		<verb>create genepacks</verb>
+		<gerund>creating genepacks at</gerund>
+		<priorityInType>115</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<canBeDoneByMechs>false</canBeDoneByMechs>
+	</WorkGiverDef>
+	<WorkGiverDef>
+		<defName>DoBills_WriterTable</defName>
+		<label>write a book</label>
+		<giverClass>ProjectParagon.Core.AI.WorkGivers.WorkGiver_DoBillExtended</giverClass>
+		<workType>Research</workType>
+		<priorityInType>50</priorityInType>
+		<fixedBillGiverDefs>
+			<li>WriterTable</li>
+		</fixedBillGiverDefs>
+		<verb>write a book</verb>
+		<gerund>writing a book</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+			<li>Sight</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
 	</WorkGiverDef>
 </Defs>

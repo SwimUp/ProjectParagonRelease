@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="TextBook"]</xpath>
+				<value>
+					<ThingDef ParentName="BookBase">
+						<defName>TextBook</defName>
+						<label>textbook</label>
+						<description>A book which focuses on teaching skills.</description>
+						<thingClass>ProjectParagon.Core.Things.BookParagon</thingClass>
+						<graphicData>
+							<texPath>Things/Item/Book/Textbook/Textbook</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.8</drawSize>
+						</graphicData>
+						<uiIconPath>Things/Item/Book/Textbook/Textbook</uiIconPath>
+						<statBases>
+							<MarketValue>200</MarketValue>
+						</statBases>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
+								<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
+								<hasLanguage>true</hasLanguage>
+								<nameMaker>Namer_TextBook</nameMaker>
+								<descriptionMaker>Description_SkillBook</descriptionMaker>
+								<ageYearsRange>100~200</ageYearsRange>
+								<openGraphic>
+									<texPath>Things/Item/Book/Textbook/Textbook_Open</texPath>
+									<graphicClass>Graphic_Multi</graphicClass>
+									<drawSize>0.7</drawSize>
+								</openGraphic>
+								<verticalGraphic>
+									<texPath>Things/Item/Book/Textbook/Textbook_Vertical</texPath>
+									<graphicClass>Graphic_Multi</graphicClass>
+									<addTopAltitudeBias>true</addTopAltitudeBias>
+								</verticalGraphic>
+								<doers>
+									<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainSkillExpParagon"/>
+								</doers>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Schematic"]</xpath>
+				<value>
+					<ThingDef ParentName="BookBase">
+						<defName>Schematic</defName>
+						<label>schematic</label>
+						<description>A book which describes technology and methods for using it. Reading schematics can help unlock new technologies.</description>
+						<thingClass>ProjectParagon.Core.Things.BookParagon</thingClass>
+						<graphicData>
+							<texPath>Things/Item/Book/Schematic/Schematic</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.8</drawSize>
+						</graphicData>
+						<uiIconPath>Things/Item/Book/Schematic/Schematic</uiIconPath>
+						<statBases>
+							<MarketValue>250</MarketValue>
+						</statBases>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
+								<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
+								<hasLanguage>true</hasLanguage>
+								<nameMaker>Namer_Schematic</nameMaker>
+								<descriptionMaker>Description_Schematic</descriptionMaker>
+								<ageYearsRange>100~200</ageYearsRange>
+								<openGraphic>
+									<texPath>Things/Item/Book/Schematic/Schematic_Open</texPath>
+									<graphicClass>Graphic_Multi</graphicClass>
+									<drawSize>0.7</drawSize>
+								</openGraphic>
+								<verticalGraphic>
+									<texPath>Things/Item/Book/Schematic/Schematic_Vertical</texPath>
+									<graphicClass>Graphic_Multi</graphicClass>
+									<addTopAltitudeBias>true</addTopAltitudeBias>
+								</verticalGraphic>
+								<doers>
+									<li Class="BookOutcomeProperties_GainResearch">
+										<tabs>
+											<Main/>
+										</tabs>
+										<exclude>
+											<BasicMechtech MayRequire="Ludeon.RimWorld.Biotech"/>
+											<StandardMechtech MayRequire="Ludeon.RimWorld.Biotech"/>
+											<HighMechtech MayRequire="Ludeon.RimWorld.Biotech"/>
+										</exclude>
+									</li>
+								</doers>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Novel"]</xpath>
+				<value>
+					<ThingDef ParentName="BookBase">
+						<defName>Novel</defName>
+						<label>novel</label>
+						<description>A book containing fictional or true stories for the pleasure and edification of the reader.</description>
+						<thingClass>ProjectParagon.Core.Things.BookParagon</thingClass>
+						<graphicData>
+							<texPath>Things/Item/Book/Novel/Novel</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.8</drawSize>
+						</graphicData>
+						<uiIconPath>Things/Item/Book/Novel/Novel</uiIconPath>
+						<statBases>
+							<MarketValue>200</MarketValue>
+						</statBases>
+						<comps>
+							<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
+								<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
+								<hasLanguage>true</hasLanguage>
+								<nameMaker>Namer_Novel</nameMaker>
+								<descriptionMaker>Description_Novel</descriptionMaker>
+								<ageYearsRange>100~200</ageYearsRange>
+								<openGraphic>
+									<texPath>Things/Item/Book/Novel/Novel_Open</texPath>
+									<graphicClass>Graphic_Multi</graphicClass>
+									<drawSize>0.7</drawSize>
+								</openGraphic>
+								<verticalGraphic>
+									<texPath>Things/Item/Book/Novel/Novel_Vertical</texPath>
+									<graphicClass>Graphic_Multi</graphicClass>
+									<addTopAltitudeBias>true</addTopAltitudeBias>
+								</verticalGraphic>
+								<doers>
+									<li Class="BookOutcomeProperties_JoyFactorModifier"/>
+								</doers>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

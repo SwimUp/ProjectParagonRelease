@@ -248,6 +248,7 @@
 			<li>TribeSavage</li>
 			<li>Pirate</li>
 			<li>Empire</li>
+			<li>Robots</li>
 		</excludeFactions>
 	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
 	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
@@ -393,6 +394,7 @@
 			<li>TribeSavage</li>
 			<li>Pirate</li>
 			<li>Empire</li>
+			<li>Robots</li>
 		</excludeFactions>
 	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
 	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
@@ -548,8 +550,8 @@
 				<!-- грибной биом -->
 			</biomeSlavesCountMultiplier>
 			<regenerateVariantsDays>10</regenerateVariantsDays>
-			<priceBuyMultiplier>0.75~0.95</priceBuyMultiplier>
-			<priceSellMultiplier>0.5~0.75</priceSellMultiplier>
+			<priceBuyMultiplier>1.25~2</priceBuyMultiplier>
+			<priceSellMultiplier>0.85~1</priceSellMultiplier>
 			<wantsToBuy>
 				<categories>
 					<li>ResourcesRaw</li>
@@ -587,6 +589,7 @@
 		</excludeSpecs>
 		<excludeFactions>
 			<li>TreantForestUnion</li>
+			<li>Robots</li>
 		</excludeFactions>
 	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
 	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
@@ -650,6 +653,7 @@
 			<li>ZorgBloodyHost</li>
 			<li>Pirate</li>
 			<li>Empire</li>
+			<li>Robots</li>
 		</excludeFactions>
 		<excludeSpecs>
 			<li>MiningSettlement</li>
@@ -1033,6 +1037,7 @@
 			<li>TribeSavage</li>
 			<li>Pirate</li>
 			<li>Empire</li>
+			<li>Robots</li>
 		</excludeFactions>
 	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
 	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
@@ -1514,6 +1519,7 @@
 			<li>TreantForestUnion</li>
 			<li>ZorgBloodyHost</li>
 			<li>Pirate</li>
+			<li>Robots</li>
 		</excludeFactions>
 		<excludeSpecs>
 			<li>MiningSettlement</li>
@@ -1532,7 +1538,6 @@
 		<thingSetMakerDef>SettlementSpec_Basic_StackCount</thingSetMakerDef>
 		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
 			<minFactionTechLevel>Medieval</minFactionTechLevel>
-			<maxFactionTechLevel>Medieval</maxFactionTechLevel>
 			<commonalityByHilliness>
 				<points>
 					<li>(0, 0)</li>
@@ -1679,6 +1684,7 @@
 			<li>TribeRough</li>
 			<li>TribeSavage</li>
 			<li>Pirate</li>
+			<li>Robots</li>
 		</excludeFactions>
 		<excludeSpecs>
 			<li>Growers</li>
@@ -1812,6 +1818,7 @@
 			<li>Pirate</li>
 			<li>Empire</li>
 			<li>ZorgBloodyHost</li>
+			<li>Robots</li>
 		</excludeFactions>
 		<excludeSpecs>
 			<li>ScientificComplex</li>
@@ -2216,6 +2223,194 @@
 			<li>TribeCivil</li>
 			<li>TribeRough</li>
 			<li>TribeSavage</li>
+		</excludeFactions>
+		<excludeSpecs>
+			<li>MiningSettlement</li>
+			<li>Growers</li>
+			<li>Breeders</li>
+			<li>SlaveOwners</li>
+			<li>FishingSettlement</li>
+			<li>Quarry</li>
+			<li>Beekeepers</li>
+			<li>Cooks</li>
+		</excludeSpecs>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>AutoMechanics</defName>
+		<label>Auto mechanics</label>
+		<description>The settlement assembles cars, as well as a full range of spare parts for maintenance.</description>
+		<generationPriority>40</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_AutoMechanics</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Industrial</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li>
+					<!-- Undefined -->
+					<li>(1, 80)</li>
+					<!-- Flat -->
+					<li>(2, 60)</li>
+					<!-- SmallHills -->
+					<li>(3, 30)</li>
+					<!-- LargeHills -->
+					<li>(4, 25)</li>
+					<!-- Mountainous -->
+					<li>(5, 0)</li>
+					<!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-60, 1)</li>
+					<li>(60, 1)</li>
+				</points>
+			</commonalityMultByTemperature>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.AutoMechanicsProps">
+			<thingFilter>
+				<categories>
+					<li>RepairKits</li>
+					<li>MechanicalEngineeringComponents</li>
+				</categories>
+				<thingDefs>
+					<li>Canister_Diesel</li>
+				</thingDefs>
+			</thingFilter>
+			<baseMarketValue>4000~5000</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(200, 1)</li>
+					<li>(500, 1.25)</li>
+					<li>(900, 1.5)</li>
+					<li>(2500, 2)</li>
+					<li>(5000, 3)</li>
+					<li>(20000, 4)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+			<wantsToBuy>
+				<categories>
+					<li>Manufactured</li>
+					<li>ResourcesRaw</li>
+					<li>Weapons</li>
+					<li>Items</li>
+					<li>Apparel</li>
+					<li>Foods</li>
+				</categories>
+			</wantsToBuy>
+			<priceMultiplierRangeWantsToBuy>1.1~1.25</priceMultiplierRangeWantsToBuy>
+			<willBuy>
+				<categories>
+					<li>Buildings</li>
+					<li>Animals</li>
+					<li>Plants</li>
+					<li>Pawns</li>
+				</categories>
+			</willBuy>
+			<priceMultiplierRangeWillBuy>0.5~0.75</priceMultiplierRangeWillBuy>
+		</props>
+		<excludeFactions>
+			<li>Arachnids</li>
+			<li>Automatons</li>
+			<li>ShekTribalUnion</li>
+			<li>TreantForestUnion</li>
+			<li>ZorgBloodyHost</li>
+			<li>TribeCivil</li>
+			<li>TribeRough</li>
+			<li>TribeSavage</li>
+		</excludeFactions>
+		<excludeSpecs>
+			<li>MiningSettlement</li>
+			<li>Growers</li>
+			<li>Breeders</li>
+			<li>SlaveOwners</li>
+			<li>FishingSettlement</li>
+			<li>Quarry</li>
+			<li>Beekeepers</li>
+			<li>Cooks</li>
+		</excludeSpecs>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>Genetics</defName>
+		<label>Genetics</label>
+		<description>The settlement is engaged in genetic experiments and is ready to provide you with the results of its work.</description>
+		<generationPriority>30</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_Genetics</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Spacer</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li>
+					<!-- Undefined -->
+					<li>(1, 80)</li>
+					<!-- Flat -->
+					<li>(2, 60)</li>
+					<!-- SmallHills -->
+					<li>(3, 25)</li>
+					<!-- LargeHills -->
+					<li>(4, 5)</li>
+					<!-- Mountainous -->
+					<li>(5, 0)</li>
+					<!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-60, 1)</li>
+					<li>(60, 1)</li>
+				</points>
+			</commonalityMultByTemperature>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.GeneticsProps">
+			<thingFilter>
+				<thingDefs>
+					<li>Genepack</li>
+					<li>ArchiteCapsule</li>
+				</thingDefs>
+			</thingFilter>
+			<baseMarketValue>1200~2000</baseMarketValue>
+			<marketValueMultiplierByWealth>
+				<points>
+					<li>(200, 1)</li>
+					<li>(500, 1.25)</li>
+					<li>(900, 1.5)</li>
+					<li>(2500, 2)</li>
+					<li>(5000, 3)</li>
+					<li>(20000, 4)</li>
+				</points>
+			</marketValueMultiplierByWealth>
+			<wantsToBuy>
+				<categories>
+					<li>Manufactured</li>
+					<li>ResourcesRaw</li>
+					<li>Weapons</li>
+					<li>Apparel</li>
+					<li>Foods</li>
+				</categories>
+			</wantsToBuy>
+			<priceMultiplierRangeWantsToBuy>1.1~1.25</priceMultiplierRangeWantsToBuy>
+			<willBuy>
+				<categories>
+					<li>Buildings</li>
+					<li>Animals</li>
+					<li>Plants</li>
+					<li>Pawns</li>
+					<li>Items</li>
+				</categories>
+			</willBuy>
+			<priceMultiplierRangeWillBuy>0.5~0.75</priceMultiplierRangeWillBuy>
+		</props>
+		<excludeFactions>
+			<li>Arachnids</li>
+			<li>ShekTribalUnion</li>
+			<li>TreantForestUnion</li>
+			<li>ZorgBloodyHost</li>
+			<li>TribeCivil</li>
+			<li>TribeRough</li>
+			<li>TribeSavage</li>
+			<li>Robots</li>
+			<li>Automatons</li>
 		</excludeFactions>
 		<excludeSpecs>
 			<li>MiningSettlement</li>

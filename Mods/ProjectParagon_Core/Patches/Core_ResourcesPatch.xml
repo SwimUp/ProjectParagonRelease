@@ -46,7 +46,8 @@
 							<color>(133,97,67)</color>
 							<constructEffect>ConstructWood</constructEffect>
 							<appearance>Planks</appearance>
-							<soundImpactStuff>BulletImpact_Wood</soundImpactStuff>
+							<soundImpactMelee>BulletImpact_Wood</soundImpactMelee>
+							<soundImpactBullet>BulletImpact_Wood</soundImpactBullet>
 							<soundMeleeHitSharp>MeleeHit_Wood</soundMeleeHitSharp>
 							<soundMeleeHitBlunt>MeleeHit_Wood</soundMeleeHitBlunt>
 							<statFactors>
@@ -208,7 +209,8 @@
 							<commonality>1.00</commonality>
 							<constructEffect>ConstructMetal</constructEffect>
 							<color>(105,105,105)</color>
-							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+							<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 							<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 							<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 							<statFactors>
@@ -351,7 +353,7 @@
 							<color>(180,173,150)</color>
 							<commonality>0.05</commonality>
 							<constructEffect>ConstructMetal</constructEffect>
-							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundImpactMelee>BulletImpact_Metal</soundImpactMelee><soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 							<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 							<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 							<statOffsets>
@@ -413,7 +415,7 @@
 							<commonality>0.02</commonality>
 							<color>(255,235,122)</color>
 							<constructEffect>ConstructMetal</constructEffect>
-							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundImpactMelee>BulletImpact_Metal</soundImpactMelee><soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 							<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
 							<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
 							<statOffsets>
@@ -510,7 +512,8 @@
 							<commonality>0.05</commonality>
 							<color>(85,118,69)</color>
 							<constructEffect>ConstructMetal</constructEffect>
-							<soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
+							<soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+							<soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
 							<soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
 							<soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
 							<statOffsets>
@@ -773,6 +776,14 @@
 											<thingDef>Slag</thingDef>
 											<countRange>6~6</countRange>
 										</li>
+										<li>
+											<thingDef>Slag</thingDef>
+											<countRange>4~8</countRange>
+											<billGiverDefs>
+												<li>IndustrialCrusher</li>
+												<li>Nanoshredder</li>
+											</billGiverDefs>
+										</li>
 									</products>
 								</li>
 							</specialProducts>
@@ -849,15 +860,21 @@
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="Plasteel"]/deepCommonality</xpath>
+				<xpath>*/ThingDef[defName="Plasteel"]/label</xpath>
 				<value>
-					<deepCommonality>0</deepCommonality>
+					<label>Pobedite alloy</label>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="Plasteel"]/deepCountPerPortion</xpath>
+				<xpath>*/ThingDef[defName="Plasteel"]/description</xpath>
 				<value>
-					<deepCountPerPortion>0</deepCountPerPortion>
+					<description>Ingot of nano material. It has incredible strength and can withstand colossal overloads.</description>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/deepCommonality</xpath>
+				<value>
+					<deepCommonality>0</deepCommonality>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -866,20 +883,183 @@
 					<deepLumpSizeRange>0</deepLumpSizeRange>
 				</value>
 			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/graphicData</xpath>
+				<value>
+					<graphicData>
+						<texPath>Core/Resources/Mineable/Ingots</texPath>
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<color>(136,93,94)</color>
+					</graphicData>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/thingCategories</xpath>
+				<value>
+					<thingCategories>
+						<li>Alloys_Nano</li>
+					</thingCategories>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/statBases</xpath>
+				<value>
+					<statBases>
+						<MarketValue>11.0</MarketValue>
+						<Mass>2.5</Mass>
+						<Bulk>0.03</Bulk>
+						<StuffPower_Armor_Sharp>3</StuffPower_Armor_Sharp>
+						<StuffPower_Armor_Blunt>3</StuffPower_Armor_Blunt>
+						<StuffPower_Armor_Heat>0.12</StuffPower_Armor_Heat>
+						<StuffPower_Insulation_Cold>2</StuffPower_Insulation_Cold>
+						<StuffPower_Insulation_Heat>2</StuffPower_Insulation_Heat>
+						<SharpDamageMultiplier>2.5</SharpDamageMultiplier>
+						<BluntDamageMultiplier>2.5</BluntDamageMultiplier>
+					</statBases>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plasteel"]/stuffProps/categories</xpath>
+				<value>
+					<li>Metallic_Weapon</li>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/stuffProps/commonality</xpath>
+				<value>
+					<commonality>0.01</commonality>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/stuffProps/color</xpath>
+				<value>
+					<color>(136,93,94)</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/stuffProps/statFactors</xpath>
+				<value>
+					<statFactors>
+						<MaxHitPoints>8</MaxHitPoints>
+						<Beauty>1.1</Beauty>
+						<Flammability>0.0</Flammability>
+						<BedRestEffectiveness>0.85</BedRestEffectiveness>
+						<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
+						<WorkTableWorkSpeedFactor>1.05</WorkTableWorkSpeedFactor>
+						<MeleePenetrationFactor>1.5</MeleePenetrationFactor>
+						<ProsthesisEfficiency>1.0</ProsthesisEfficiency>
+					</statFactors>
+				</value>
+			</li>
+			<!--<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plasteel"]/stuffProps/statFactors</xpath>
+				<value>
+					<stuffProps>
+						<categories>
+							<li>Metallic</li>
+							<li>Metallic_Weapon</li>
+						</categories>
+						<commonality>0.01</commonality>
+						<constructEffect>ConstructMetal</constructEffect>
+						<color>(136,93,126)</color>
+						<soundImpactMelee>BulletImpact_Metal</soundImpactMelee><soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
+						<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+						<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+						<statFactors>
+							<MaxHitPoints>8</MaxHitPoints>
+							<Beauty>1.1</Beauty>
+							<Flammability>0.0</Flammability>
+							<BedRestEffectiveness>0.85</BedRestEffectiveness>
+							<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
+							<WorkTableWorkSpeedFactor>1.05</WorkTableWorkSpeedFactor>
+							<MeleePenetrationFactor>1.5</MeleePenetrationFactor>
+							<ProsthesisEfficiency>1.0</ProsthesisEfficiency>
+						</statFactors>
+					</stuffProps>
+				</value>
+			</li>-->
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="Plasteel"]</xpath>
 				<value>
 					<comps>
 						<li Class="ProjectParagon.Core.Things.CompProperties_RequiredTech">
-							<reqResearch>MultiAnalyzer</reqResearch>
+							<reqResearch>NanoAlloys</reqResearch>
+						</li>
+						<li Class="ProjectParagon.Core.Things.CompProperties_StuffProperties">
+							<damageMultipliers>
+								<li>
+									<!-- Бомба -->
+									<damageDef>Bomb</damageDef>
+									<multiplier>1.0</multiplier>
+								</li>
+								<li>
+									<!-- Укус -->
+									<damageDef>Bite</damageDef>
+									<multiplier>0.1</multiplier>
+								</li>
+								<li>
+									<!-- Удар -->
+									<damageDef>Blunt</damageDef>
+									<multiplier>0.5</multiplier>
+								</li>
+								<li>
+									<!-- Давка -->
+									<damageDef>Crush</damageDef>
+									<multiplier>0.2</multiplier>
+								</li>
+								<li>
+									<!-- Порез -->
+									<damageDef>Cut</damageDef>
+									<multiplier>0.5</multiplier>
+								</li>
+								<li>
+									<!-- Тычок -->
+									<damageDef>Poke</damageDef>
+									<multiplier>0.1</multiplier>
+								</li>
+								<li>
+									<!-- Рваная рана -->
+									<damageDef>Scratch</damageDef>
+									<multiplier>0.3</multiplier>
+								</li>
+								<li>
+									<!-- Рана с ядом -->
+									<damageDef>ScratchToxic</damageDef>
+									<multiplier>0.3</multiplier>
+								</li>
+								<li>
+									<!-- Укол -->
+									<damageDef>Stab</damageDef>
+									<multiplier>0.3</multiplier>
+								</li>
+								<li>
+									<!-- Ядовитый укус -->
+									<damageDef>ToxicBite</damageDef>
+									<multiplier>0.1</multiplier>
+								</li>
+								<li>
+									<!-- Стрела -->
+									<damageDef>Arrow</damageDef>
+									<multiplier>0.1</multiplier>
+								</li>
+								<li>
+									<!-- Стрела (выс.скорость) -->
+									<damageDef>ArrowHighVelocity</damageDef>
+									<multiplier>0.1</multiplier>
+								</li>
+								<li>
+									<!-- Пуля -->
+									<damageDef>Bullet</damageDef>
+									<multiplier>1.0</multiplier>
+								</li>
+								<li>
+									<!-- Укол (дальний бой) -->
+									<damageDef>RangedStab</damageDef>
+									<multiplier>0.3</multiplier>
+								</li>
+							</damageMultipliers>
 						</li>
 					</comps>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="Plasteel"]</xpath>
-				<value>
-					<techLevel>Spacer</techLevel>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -901,7 +1081,7 @@
 						<stackLimit>50</stackLimit>
 						<healthAffectsPrice>false</healthAffectsPrice>
 						<statBases>
-							<MaxHitPoints>70</MaxHitPoints>
+							<MaxHitPoints>50</MaxHitPoints>
 							<MarketValue>32</MarketValue>
 							<Mass>0.6</Mass>
 							<Flammability>0.6</Flammability>
@@ -915,10 +1095,41 @@
 					</ThingDef>
 				</value>
 			</li>
-			<li Class="PatchOperationAdd">
+			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="ComponentSpacer"]</xpath>
 				<value>
-					<techLevel>Spacer</techLevel>
+					<ThingDef ParentName="ResourceBase">
+						<defName>ComponentSpacer</defName>
+						<label>advanced component</label>
+						<description>Advanced computing and energy-directing machinery, miniaturized and hardened for the most demanding applications.</description>
+						<graphicData>
+							<texPath>Things/Item/Resource/ComponentSpacer</texPath>
+							<graphicClass>Graphic_StackCount</graphicClass>
+						</graphicData>
+						<soundInteract>Metal_Drop</soundInteract>
+						<soundDrop>Standard_Drop</soundDrop>
+						<stackLimit>50</stackLimit>
+						<healthAffectsPrice>false</healthAffectsPrice>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<MarketValue>100</MarketValue>
+							<Mass>0.5</Mass>
+							<Flammability>0.5</Flammability>
+							<DeteriorationRate>2.0</DeteriorationRate>
+						</statBases>
+						<intricate>true</intricate>
+						<thingCategories>
+							<li>Components</li>
+						</thingCategories>
+						<tradeTags>
+							<li>ExoticMisc</li>
+						</tradeTags>
+						<thingSetMakerTags>
+							<li>RewardStandardCore</li>
+						</thingSetMakerTags>
+						<allowedArchonexusCount>5</allowedArchonexusCount>
+						<techLevel>Spacer</techLevel>
+					</ThingDef>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -946,7 +1157,14 @@
 							<DeteriorationRate>0.8</DeteriorationRate>
 							<CalorificValue>30.0</CalorificValue>
 							<BurnoutRate>12.0</BurnoutRate>
+							<Nutrition>0.25</Nutrition>
 						</statBases>
+						<socialPropernessMatters>true</socialPropernessMatters>
+						<ingestible>
+							<preferability>MealSimple</preferability>
+							<foodType>OmnivoreHuman</foodType>
+							<optimalityOffsetHumanlikes>16</optimalityOffsetHumanlikes>
+						</ingestible>
 						<thingCategories>
 							<li>Canisters</li>
 						</thingCategories>

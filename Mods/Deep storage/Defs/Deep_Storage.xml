@@ -1529,6 +1529,7 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 				<filter>
 					<categories>
 						<li>Foods</li>
+						<li>FoodMeals</li>
 					</categories>
 				</filter>
 			</fixedStorageSettings>
@@ -1639,8 +1640,8 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 		</stuffCategories>
 		<costStuffCount>75</costStuffCount>
 		<building>
-			<preventDeteriorationOnTop>false</preventDeteriorationOnTop>
-            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
             <defaultStorageSettings>
                 <priority>Important</priority>
                 <filter>
@@ -1671,5 +1672,69 @@ Note: tossing large amounts of steel in willy-nilly means that it takes a while 
 		<researchPrerequisites>
 			<li>StoragesI</li>
 		</researchPrerequisites>
+	</ThingDef>
+	<ThingDef ParentName="LWM_DeepStorage">
+		<defName>ArachnidStorageCapsule</defName>
+		<label>Storage capsule</label>
+		<description>A special capsule of arachnids to maintain the safety of food.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_StorageParagon</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/ArachnidStorageCapsule/ArachnidStorageCapsule</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(1.6,1.6)</drawSize>
+		</graphicData>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
+		<castEdgeShadows>false</castEdgeShadows>
+		<rotatable>false</rotatable>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>2000</WorkToBuild>
+			<Flammability>2</Flammability>
+			<Beauty>-4</Beauty>
+			<Mass>10</Mass>
+		</statBases>
+		<size>(1,1)</size>
+		<costList>
+			<Dirt>75</Dirt>
+			<Clay>100</Clay>
+			<InsectJelly>200</InsectJelly>
+			<YelloriumIngot>50</YelloriumIngot>
+		</costList>
+		<building>
+			<fixedStorageSettings>
+				<filter>
+					<categories>
+						<li>Foods</li>
+					</categories>
+				</filter>
+			</fixedStorageSettings>
+		</building>
+		<comps>
+			<li Class="LWM.DeepStorage.Properties">
+				<maxNumberStacks>4</maxNumberStacks>
+				<minTimeStoringTakes>35</minTimeStoringTakes>
+				<additionalTimeEachStack>5</additionalTimeEachStack>
+				<additionalTimeEachDef>2</additionalTimeEachDef>
+				<overlayType>SumOfItemsPerCell</overlayType>
+				<showContents>false</showContents>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_StorageParagon">
+				<thingsRotMultiplier>0.8</thingsRotMultiplier>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.DefModExtension_RequirementBlueprint">
+				<associatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</associatedRaces>
+			</li>
+		</modExtensions>
 	</ThingDef>
 </Defs>

@@ -29,7 +29,7 @@
       <effectWorking>Tailor</effectWorking>
       <soundWorking>Recipe_Tailor</soundWorking>
       <recipeUsers>
-        <li>ElectricTailoringBench</li>
+        <li>ElectricTailoringBench</li><li>RoboticTailoringBench</li>
         <li>HandTailoringBench</li>
 		<li>SteamLoom</li>
       </recipeUsers>
@@ -249,7 +249,7 @@
       <recipeUsers>
         <li>CraftingSpot</li>
         <li>HandTailoringBench</li>
-        <li>ElectricTailoringBench</li>
+        <li>ElectricTailoringBench</li><li>RoboticTailoringBench</li>
 		<li>SteamLoom</li>
       </recipeUsers>
     </recipeMaker>
@@ -374,5 +374,113 @@
       <li>Clothing</li>
     </tradeTags>
   </ThingDef>-->
+  
+	<ThingDef ParentName="ApparelCarryGearBase">
+		<defName>CE_Apparel_RadioPack</defName>
+		<label>radio pack</label>
+		<description>A long range radio pack, allowing a spotter to call in accurate, long range fire support from afar. Works in conjunction with binoculars.</description>
+		<graphicData>
+			<texPath>Things/Apparel/RadioPack/CE_RadioPack</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<recipeMaker Inherit="false" IsNull="true" />
+		<tradeability>None</tradeability>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<WorkToMake>28500</WorkToMake>
+			<Mass>7</Mass>
+			<Bulk>8</Bulk>
+		</statBases>
+		<smeltable>false</smeltable>
+		<generateCommonality>0</generateCommonality>
+		<generateAllowChance>0</generateAllowChance>
+		<apparel>
+			<countsAsClothingForNudity>false</countsAsClothingForNudity>
+			<careIfDamaged>false</careIfDamaged>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<bodyPartGroups>
+				<li>Shoulders</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Backpack</li>
+			</layers>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+			<wornGraphicPath>Things/Apparel/RadioPack/CE_RadioPack</wornGraphicPath>
+			<canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+			<wornGraphicData>
+				<renderUtilityAsPack>true</renderUtilityAsPack>
+				<east>
+					<offset>(0.05,0)</offset>
+					<thin>
+						<offset>(0.2,0)</offset>
+					</thin>
+					<hulk>
+						<offset>(0,0)</offset>
+					</hulk>
+					<fat>
+						<offset>(0,0)</offset>
+					</fat>
+					<male>
+						<offset>(0.125,0)</offset>
+					</male>
+					<female>
+						<offset>(0.125,0)</offset>
+					</female>
+				</east>
+				<west>
+					<offset>(-0.05,0)</offset>
+					<thin>
+						<offset>(-0.2,0)</offset>
+					</thin>
+					<hulk>
+						<offset>(0,0)</offset>
+					</hulk>
+					<fat>
+						<offset>(0,0)</offset>
+					</fat>
+					<male>
+						<offset>(-0.125,0)</offset>
+					</male>
+					<female>
+						<offset>(-0.125,0)</offset>
+					</female>
+				</west>
+				<north>
+					<offset>(0,-0.1)</offset>
+					<thin>
+						<offset>(0,0)</offset>
+					</thin>
+					<hulk>
+						<offset>(0,-0.05)</offset>
+					</hulk>
+					<fat>
+						<offset>(0,-0.05)</offset>
+					</fat>
+				</north>
+				<male>
+					<scale>(1,1)</scale>
+				</male>
+				<female>
+					<scale>(1,1)</scale>
+				</female>
+				<thin>
+					<scale>(1,1)</scale>
+				</thin>
+				<hulk>
+					<scale>(1,1)</scale>
+				</hulk>
+				<fat>
+					<scale>(1,1)</scale>
+				</fat>
+			</wornGraphicData>
+		</apparel>
+		<modExtensions>
+			<li Class="CombatExtended.ApparelDefExtension">
+				<isRadioPack>true</isRadioPack>
+			</li>
+		</modExtensions>
+	</ThingDef>
 
 </Defs>

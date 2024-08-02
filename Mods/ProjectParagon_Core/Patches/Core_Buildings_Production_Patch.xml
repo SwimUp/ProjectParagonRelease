@@ -57,12 +57,12 @@
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
 									<li>Research_ResourceBox</li>
-									<li>SmallLibrary</li>
-									<li>ResearchLibrary</li>
+									<li>BookcaseSmall</li>
+									<li>Bookcase</li>
 									<li>ScientificMonitor</li>
 									<li>Globe</li>
 									<li>SimpleScienceSet</li>
-									<li>AdvancedScienceSet</li>
+									<li>AdvancedScienceSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 							<li Class="ProjectParagon.Core.ResearchSystem.CompProperties_ResearchBench">
@@ -89,10 +89,10 @@
 						<stuffCategories>
 							<li>Metallic</li>
 						</stuffCategories>
-						<costStuffCount>150</costStuffCount>
+						<costStuffCount>200</costStuffCount>
 						<costList>
-							<Steel>100</Steel>
-							<ComponentIndustrial>10</ComponentIndustrial>
+							<Microelectronics>5</Microelectronics>
+							<ComponentIndustrial>8</ComponentIndustrial>
 						</costList>
 						<graphicData>
 							<texPath>Things/Building/Production/ResearchBenchHiTech</texPath>
@@ -113,7 +113,7 @@
 						<pathCost>50</pathCost>
 						<statBases>
 							<MaxHitPoints>250</MaxHitPoints>
-							<WorkToBuild>5000</WorkToBuild>
+							<WorkToBuild>15000</WorkToBuild>
 							<Flammability>1.0</Flammability>
 							<ResearchSpeedFactor>1.0</ResearchSpeedFactor>
 						</statBases>
@@ -142,18 +142,175 @@
 								<linkableFacilities>
 									<li>MultiAnalyzer</li>
 									<li>Research_ResourceBox</li>
-									<li>SmallLibrary</li>
-									<li>ResearchLibrary</li>
+									<li>BookcaseSmall</li>
+									<li>Bookcase</li>
 									<li>ScientificMonitor</li>
 									<li>Globe</li>
 									<li>SimpleScienceSet</li>
-									<li>AdvancedScienceSet</li>
+									<li>AdvancedScienceSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 							<li Class="ProjectParagon.Core.ResearchSystem.CompProperties_ResearchBench">
 								<researchBuildingLevel>3</researchBuildingLevel>
 							</li>
 						</comps>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="MultiAnalyzer"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>MultiAnalyzer</defName>
+						<label>multi-analyzer</label>
+						<description>Increases research speed when placed near hi-tech research bench and unlocks new research projects. Each research bench can only use one multi-analyzer.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/MultiAnalyzer</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>2.46875</drawSize>
+						</graphicData>
+						<uiIconScale>0.85</uiIconScale>
+						<researchPrerequisites>
+							<li>MultiAnalyzer</li>
+						</researchPrerequisites>
+						<size>(2,2)</size>
+						<rotatable>false</rotatable>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<castEdgeShadows>true</castEdgeShadows>
+						<fillPercent>0.5</fillPercent>
+						<designationHotKey>Misc4</designationHotKey>
+						<designationCategory>Science</designationCategory>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<canOverlapZones>false</canOverlapZones>
+						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+						<designatorDropdown>Science_Utility</designatorDropdown>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<statBases>
+							<MaxHitPoints>200</MaxHitPoints>
+							<WorkToBuild>50000</WorkToBuild>
+							<Mass>60</Mass>
+							<Flammability>1.0</Flammability>
+						</statBases>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>400</costStuffCount>
+						<costList>
+							<MechanismComplex>15</MechanismComplex>
+							<Microelectronics>15</Microelectronics>
+							<SuperStrongPlates>150</SuperStrongPlates>
+						</costList>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+						</building>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<shortCircuitInRain>true</shortCircuitInRain>
+								<basePowerConsumption>200</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Facility">
+								<statOffsets>
+									<ResearchSpeedFactor>0.1</ResearchSpeedFactor>
+								</statOffsets>
+								<maxSimultaneous>1</maxSimultaneous>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+						</placeWorkers>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="FabricationBench"]</xpath>
+				<value>
+					<ThingDef ParentName="BenchBase">
+						<defName>FabricationBench</defName>
+						<label>fabrication bench</label>
+						<description>A workbench equipped with advanced tools for producing technological marvels from simpler materials.</description>
+						<thingClass>Building_WorkTable</thingClass>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>50</pathCost>
+						<statBases>
+							<MaxHitPoints>300</MaxHitPoints>
+							<WorkToBuild>40000</WorkToBuild>
+							<Flammability>0.5</Flammability>
+						</statBases>
+						<minifiedDef/>
+						<thingCategories Inherit="false"/>
+						<size>(5,2)</size>
+						<recipes>
+							<li>ButcherCorpseMechanoid</li>
+						</recipes>
+						<stuffCategories>
+							<li>Metallic</li>
+						</stuffCategories>
+						<costStuffCount>400</costStuffCount>
+						<costList>
+							<Microelectronics>10</Microelectronics>
+							<ComponentIndustrial>15</ComponentIndustrial>
+							<SuperStrongPlates>150</SuperStrongPlates>
+							<CinderBlock>150</CinderBlock>
+						</costList>
+						<comps>
+							<li Class="CompProperties_AffectedByFacilities">
+								<linkableFacilities>
+									<li>AdvancedBlacksmithSet</li><li>WorkingManipulator</li>
+								</linkableFacilities>
+							</li>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>750</basePowerConsumption>
+								<shortCircuitInRain>true</shortCircuitInRain>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_Breakdownable"/>
+						</comps>
+						<graphicData>
+							<texPath>Things/Building/Production/FabricationBench</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shaderType>CutoutComplex</shaderType>
+							<drawSize>(7,4)</drawSize>
+							<damageData>
+								<cornerTL>Damage/Corner</cornerTL>
+								<cornerTR>Damage/Corner</cornerTR>
+								<cornerBL>Damage/Corner</cornerBL>
+								<cornerBR>Damage/Corner</cornerBR>
+							</damageData>
+						</graphicData>
+						<castEdgeShadows>true</castEdgeShadows>
+						<staticSunShadowHeight>0.20</staticSunShadowHeight>
+						<inspectorTabs>
+							<li>ITab_Bills</li>
+						</inspectorTabs>
+						<building>
+							<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+						</building>
+						<fillPercent>0.5</fillPercent>
+						<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+						<hasInteractionCell>true</hasInteractionCell>
+						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<designationCategory>Production</designationCategory>
+						<designatorDropdown>Smithy</designatorDropdown>
+						<uiOrder>2530</uiOrder>
+						<surfaceType>Item</surfaceType>
+						<designationHotKey>Misc12</designationHotKey>
+						<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+						<placeWorkers>
+							<li>PlaceWorker_ShowFacilitiesConnections</li>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+						<researchPrerequisites>
+							<li>Fabrication</li>
+						</researchPrerequisites>
 					</ThingDef>
 				</value>
 			</li>
@@ -215,7 +372,7 @@
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
 									<li>SimpleStonecutterSet</li>
-									<li>AdvancedBlacksmithSet</li>
+									<li>AdvancedBlacksmithSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -290,7 +447,7 @@
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
 									<li>SimpleStonecutterSet</li>
-									<li>AdvancedBlacksmithSet</li>
+									<li>AdvancedBlacksmithSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -359,7 +516,7 @@
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
 									<li>SimpleSewingSet</li>
-									<li>AdvancedSewingSet</li>
+									<li>AdvancedSewingSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -837,7 +994,7 @@
 								<linkableFacilities>
 									<li>ToolCabinet</li>
 									<li>SimpleCookingSet</li>
-									<li>AdvancedCookingSet</li>
+									<li>AdvancedCookingSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -863,12 +1020,6 @@
 				<xpath>*/ThingDef[defName="ButcherSpot"]</xpath>
 				<value>
 					<designatorDropdown>Cooking</designatorDropdown>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
-				<xpath>*/ThingDef[defName="FabricationBench"]</xpath>
-				<value>
-					<designatorDropdown>Workbenches</designatorDropdown>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -928,7 +1079,7 @@
 						<comps>
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
-									<li>AdvancedScienceSet</li>
+									<li>AdvancedScienceSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 							<li Class="DubsBadHygiene.CompProperties_WaterStorage">
@@ -1072,7 +1223,7 @@
 									<li>SimpleScienceSet</li>
 									<li>AdvancedScienceSet</li>
 									<li>SimpleCookingSet</li>
-									<li>AdvancedCookingSet</li>
+									<li>AdvancedCookingSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -1317,7 +1468,7 @@
 							</li>
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
-									<li>AdvancedBlacksmithSet</li>
+									<li>AdvancedBlacksmithSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -1395,7 +1546,7 @@
 						<comps>
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
-									<li>AdvancedCookingSet</li>
+									<li>AdvancedCookingSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 							<li Class="ProjectParagon.Core.Things.CompProperties_SteamWorkbench">
@@ -1480,7 +1631,7 @@
 							<li Class="CompProperties_Flickable"/>
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
-									<li>AdvancedBlacksmithSet</li>
+									<li>AdvancedBlacksmithSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 							<li Class="CompProperties_Breakdownable"/>
@@ -1578,7 +1729,7 @@
 							<li Class="CompProperties_Breakdownable"/>
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
-									<li>AdvancedBlacksmithSet</li>
+									<li>AdvancedBlacksmithSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -1666,7 +1817,7 @@
 							</li>
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
-									<li>AdvancedCookingSet</li>
+									<li>AdvancedCookingSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 							<li Class="DubsBadHygiene.CompProperties_Pipe">
@@ -1768,7 +1919,7 @@
 							<li Class="CompProperties_Breakdownable"/>
 							<li Class="CompProperties_AffectedByFacilities">
 								<linkableFacilities>
-									<li>AdvancedBlacksmithSet</li>
+									<li>AdvancedBlacksmithSet</li><li>WorkingManipulator</li>
 								</linkableFacilities>
 							</li>
 						</comps>
@@ -1790,7 +1941,7 @@
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="DeepDrill"]</xpath>
 				<value>
-					<ThingDef ParentName="BuildingBase">
+					<ThingDef ParentName="BenchBase">
 						<defName>DeepDrill</defName>
 						<label>Deep drill</label>
 						<description>A deep-crust drilling rig for extracting minerals from deep under the surface.</description>
@@ -1826,9 +1977,6 @@
 							</buildingTags>
 							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
 						</building>
-						<thingCategories>
-							<li>BuildingsProduction</li>
-						</thingCategories>
 						<stuffCategories>
 							<li>Metallic</li>
 						</stuffCategories>
@@ -1867,6 +2015,12 @@
 							</li>
 							<li Class="ProjectParagon.Core.Things.CompProperties_GridWatcher"/>
 						</comps>
+						<modExtensions>
+							<li Class="ProjectParagon.Core.Things.DefModExtension_BuildingStatPart">
+								<workTableOutdoors>false</workTableOutdoors>
+								<workTableTemperature>false</workTableTemperature>
+							</li>
+						</modExtensions>
 					</ThingDef>
 				</value>
 			</li>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using RocketMan;
+using Unity.Mathematics;
 using UnityEngine;
 using Verse;
 using Verse.Noise;
@@ -10,10 +11,10 @@ using static RimWorld.FleshTypeDef;
 
 namespace Proton
 {
-    public class GlowGridHelper
+    /*public class GlowGridHelper
     {
-        private ColorInt[] tempGrid1;
-        private ColorInt[] tempGrid2;
+        private Color32[] tempGrid1;
+        private Color32[] tempGrid2;
         private List<Bounds> dirtyBounds = new List<Bounds>();
         private readonly HashSet<GlowerInfo> dirtyGlowers = new HashSet<GlowerInfo>();
 
@@ -34,8 +35,8 @@ namespace Proton
         {            
             if(tempGrid1 == null || tempGrid2 == null)
             {
-                tempGrid1 = new ColorInt[map.cellIndices.NumGridCells];
-                tempGrid2 = new ColorInt[map.cellIndices.NumGridCells];
+                tempGrid1 = new Color32[map.cellIndices.NumGridCells];
+                tempGrid2 = new Color32[map.cellIndices.NumGridCells];
                 for (int i = 0; i < tempGrid1.Length; i++)
                 {
                     tempGrid1[i] = new ColorInt(0, 0, 0, 0);
@@ -72,11 +73,11 @@ namespace Proton
             }
             foreach (GlowerInfo info in dirtyGlowers)
             {
-                map.glowFlooder.AddFloodGlowFor(info.glower, tempGrid1);
+                map.glowFlooder.AddFloodGlowFor(info.glower, tempGrid1, info.glower.parent.Position - new IntVec3((int)math.ceil(info.glower.GlowRadius), 0, (int)math.ceil(info.glower.GlowRadius));
 
                 if (info.glower.parent.def.category != ThingCategory.Plant || !info.glower.parent.def.plant.cavePlant)
                 {
-                    map.glowFlooder.AddFloodGlowFor(info.glower, tempGrid2);
+                    map.glowFlooder.AddFloodGlowFor(info.glower, tempGrid2, info.glower.parent.Position - new IntVec3((int)math.ceil(info.glower.GlowRadius), 0, (int)math.ceil(info.glower.GlowRadius)));
                 }
             }
             foreach (Bounds bounds in dirtyBounds)
@@ -216,6 +217,6 @@ namespace Proton
                 return bounds.Contains(pos.ToVector3());
             }
         }        
-    }
+    }*/
 }
 

@@ -18,6 +18,9 @@
 		</graphicData>
 		<altitudeLayer>Building</altitudeLayer>
 		<passability>Standable</passability>
+		<blockWind>false</blockWind>
+		<fillPercent>0.1</fillPercent>
+		<coversFloor>false</coversFloor>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
 			<Flammability>0</Flammability>
@@ -32,6 +35,7 @@
 			<mineableScatterCommonality>0</mineableScatterCommonality>
 			<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
 			<isResourceRock>true</isResourceRock>
+			<supportsWallAttachments>false</supportsWallAttachments>
 		</building>
 		<holdsRoof>false</holdsRoof>
 		<blockLight>false</blockLight>
@@ -2509,7 +2513,6 @@
 		</comps>
 	</ThingDef>
 	<!---->
-
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableRockSalt</defName>
 		<label>Rock salt</label>
@@ -2854,7 +2857,7 @@
 			<li Class="ProjectParagon.Core.FoodSystem.CompProperties_FoodComponent">
 				<slot>Misc</slot>
 				<!-- Слот еды -->
-				<foodSettings> 
+				<foodSettings>
 					<li>
 						<foodTemplate>Preserves</foodTemplate>
 						<foodParams>
@@ -2886,7 +2889,7 @@
 							<li>
 								<param>Flavor</param>
 								<baseValue>0.0</baseValue>
-								<compatabilityWithOtherFood />
+								<compatabilityWithOtherFood/>
 							</li>
 						</foodParams>
 					</li>
@@ -2921,7 +2924,7 @@
 							<li>
 								<param>Flavor</param>
 								<baseValue>0.0</baseValue>
-								<compatabilityWithOtherFood />
+								<compatabilityWithOtherFood/>
 							</li>
 						</foodParams>
 					</li>
@@ -2963,7 +2966,6 @@
 		</comps>
 	</ThingDef>
 	<!---->
-
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableSulfurOre</defName>
 		<label>Sulfur ore</label>
@@ -3254,6 +3256,7 @@
 	<ThingDef ParentName="ResourceBase">
 		<defName>Sulfur</defName>
 		<label>Sulfur</label>
+		<thingClass>ProjectParagon.Core.Things.Sulfur</thingClass>
 		<description>Yellow crystals of sulfur.</description>
 		<graphicData>
 			<texPath>Core/Resources/Mineable/Sand</texPath>
@@ -3262,7 +3265,16 @@
 		</graphicData>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
+		<ingestible>
+			<foodType>Processed</foodType>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<optimalityOffsetHumanlikes>5</optimalityOffsetHumanlikes>
+		</ingestible>
+		<socialPropernessMatters>true</socialPropernessMatters>
 		<statBases>
+			<Nutrition>0.01</Nutrition>
+			<Flavor>-2</Flavor>
 			<MarketValue>0.9</MarketValue>
 			<Mass>0.05</Mass>
 			<Flammability>1.5</Flammability>
@@ -3321,7 +3333,6 @@
 		</comps>
 	</ThingDef>
 	<!---->
-
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableSaltpeterOre</defName>
 		<label>Saltpeter ore</label>
@@ -3764,8 +3775,7 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
-	<!--<ThingDef ParentName="ParagonRockBase">
+	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableMagnesiumOre</defName>
 		<label>Magnesium ore</label>
 		<description>Magnesium rock.</description>
@@ -3832,11 +3842,11 @@
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
 			</li>
 		</modExtensions>
-	</ThingDef>-->
+	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>MagnesiumOre</defName>
 		<label>Magnesium ore</label>
-		<description>A piece of rock that is the source of gold and silver ore.</description>
+		<description>A piece of rock that is the source of magnesium ore.</description>
 		<graphicData>
 			<texPath>Core/Resources/Mineable/Magnesium_Ore</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
@@ -3900,7 +3910,6 @@
 		</comps>
 	</ThingDef>
 	<!---->
-	
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableIlmeniteOre</defName>
 		<label>Ilmenite ore</label>
@@ -4032,7 +4041,6 @@
 		</comps>
 	</ThingDef>
 	<!---->
-	
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableUraniumOre</defName>
 		<label>Uranium ore</label>
@@ -4300,7 +4308,6 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
-	
 	<ThingDef ParentName="OreStalagmiteBase">
 		<defName>StalagmiteUraniumOre</defName>
 		<label>Uranium stalagmites</label>
@@ -4335,8 +4342,6 @@
 		</comps>
 	</ThingDef>
 	<!---->
-	
-	
 	<ThingDef ParentName="ParagonRockBase">
 		<defName>MineableSkutteruditeOre</defName>
 		<label>Skutterudite ore</label>
@@ -4468,5 +4473,353 @@
 		</comps>
 	</ThingDef>
 	<!---->
-
+	<ThingDef ParentName="ParagonRockBase">
+		<defName>MineableWolframiteOre</defName>
+		<label>Wolframite ore</label>
+		<description>Wolframite rock.</description>
+		<graphicData>
+			<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(111,99,68)</color>
+			<colorTwo>(154,139,100)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>4000</MaxHitPoints>
+		</statBases>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>WolframiteOre</mineableThing>
+			<mineableYield>30</mineableYield>
+			<mineableScatterCommonality>1</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>2~5</mineableScatterLumpSizeRange>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_OreBeneficiation">
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>WolframiteOre</thingDef>
+						<percentByTotalAmount>80</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Slag</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_MineableProps">
+				<hillinessMultipliers>
+					<li>
+						<hilliness>Flat</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>SmallHills</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>LargeHills</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>Mountainous</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+				</hillinessMultipliers>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>WolframiteOre</defName>
+		<label>Wolframite ore</label>
+		<description>A piece of rock that is the source of gold and silver ore.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/WolframiteOre</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<statBases>
+			<MarketValue>4</MarketValue>
+			<Mass>0.5</Mass>
+			<OreDepth>300</OreDepth>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<slagDef>ChunkSlagSteel</slagDef>
+		<thingCategories>
+			<li>ResourcesOres</li>
+		</thingCategories>
+		<deepCommonality>0.5</deepCommonality>
+		<deepCountPerPortion>30</deepCountPerPortion>
+		<deepLumpSizeRange>3~7</deepLumpSizeRange>
+		<burnableByRecipe>false</burnableByRecipe>
+		<!-- <smeltable>true</smeltable> -->
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
+				<stalagmiteDef>StalagmiteWolframiteOre</stalagmiteDef>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="OreStalagmiteBase">
+		<defName>StalagmiteWolframiteOre</defName>
+		<label>Wolframite stalagmites</label>
+		<graphicData>
+			<color>111,99,68</color>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+		</statBases>
+		<building>
+			<mineableThing>WolframiteOre</mineableThing>
+			<mineableYield>10</mineableYield>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>WolframiteOre</thingDef>
+						<percentByTotalAmount>60</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Clay</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Sand</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="ParagonRockBase">
+		<defName>MineableAdamantiumOre</defName>
+		<label>Adamantium ore</label>
+		<description>Adamantium rock.</description>
+		<graphicData>
+			<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(165, 59, 52)</color>
+			<colorTwo>(165, 59, 52)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>20000</MaxHitPoints>
+		</statBases>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>AdamantiumOre</mineableThing>
+			<mineableYield>10</mineableYield>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_OreBeneficiation">
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>AdamantiumOre</thingDef>
+						<percentByTotalAmount>80</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Slag</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_MineableProps">
+				<hillinessMultipliers>
+					<li>
+						<hilliness>Flat</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>SmallHills</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>LargeHills</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>Mountainous</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+				</hillinessMultipliers>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>AdamantiumOre</defName>
+		<label>Adamantium ore</label>
+		<description>Adamantium is a material of cosmic origin. A red, shiny metal that is virtually impossible to melt by conventional methods. Its molecular structure is extremely stable, making this material very durable.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/AdamantiumOre</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<statBases>
+			<MarketValue>40</MarketValue>
+			<Mass>2.5</Mass>
+			<OreDepth>999999</OreDepth>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<slagDef>ChunkSlagSteel</slagDef>
+		<thingCategories>
+			<li>ResourcesOres</li>
+		</thingCategories>
+		<deepCommonality>0</deepCommonality>
+		<deepCountPerPortion>0</deepCountPerPortion>
+		<deepLumpSizeRange>0</deepLumpSizeRange>
+		<burnableByRecipe>false</burnableByRecipe>
+		<!-- <smeltable>true</smeltable> -->
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="ParagonRockBase">
+		<defName>MineableVibraniumOre</defName>
+		<label>Vibranium ore</label>
+		<description>Vibranium rock.</description>
+		<graphicData>
+			<texPath>Things/Building/Linked/RockFlecked_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<color>(221,221,221)</color>
+			<colorTwo>(221,221,221)</colorTwo>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>12000</MaxHitPoints>
+		</statBases>
+		<building>
+			<isResourceRock>true</isResourceRock>
+			<mineableThing>VibraniumOre</mineableThing>
+			<mineableYield>8</mineableYield>
+			<mineableScatterCommonality>0</mineableScatterCommonality>
+			<mineableScatterLumpSizeRange>0</mineableScatterLumpSizeRange>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_OreBeneficiation">
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ExtraMiningItems">
+				<destroyMineableThing>true</destroyMineableThing>
+				<extraMiningItems>
+					<li>
+						<thingDef>VibraniumOre</thingDef>
+						<percentByTotalAmount>80</percentByTotalAmount>
+					</li>
+					<li>
+						<thingDef>Slag</thingDef>
+						<percentByTotalAmount>20</percentByTotalAmount>
+					</li>
+				</extraMiningItems>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_MineableProps">
+				<hillinessMultipliers>
+					<li>
+						<hilliness>Flat</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>SmallHills</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>LargeHills</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+					<li>
+						<hilliness>Mountainous</hilliness>
+						<mineableScatterCommonalityMultiplier>0</mineableScatterCommonalityMultiplier>
+					</li>
+				</hillinessMultipliers>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>VibraniumOre</defName>
+		<label>Vibranium ore</label>
+		<description>Vibranium is a material of cosmic origin. White material with hints of grey. A special molecular structure absorbs directed kinetic energy, the speed of which is above a certain threshold, so objects and buildings made from it are practically invulnerable to explosions and bullet shots, but at the same time vulnerable to melee attacks.</description>
+		<graphicData>
+			<texPath>Core/Resources/Mineable/VibraniumOre</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<statBases>
+			<MarketValue>55</MarketValue>
+			<Mass>1.4</Mass>
+			<OreDepth>999999</OreDepth>
+		</statBases>
+		<useHitPoints>false</useHitPoints>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<slagDef>ChunkSlagSteel</slagDef>
+		<thingCategories>
+			<li>ResourcesOres</li>
+		</thingCategories>
+		<deepCommonality>0</deepCommonality>
+		<deepCountPerPortion>0</deepCountPerPortion>
+		<deepLumpSizeRange>0</deepLumpSizeRange>
+		<burnableByRecipe>false</burnableByRecipe>
+		<!-- <smeltable>true</smeltable> -->
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SleepingGrax</defName>
+		<label>Sleeping Grax</label>
+		<description>An ancient organism resting in eternal sleep.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SleepingGrax</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SleepingGrax/SleepingGrax</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<color>158,153,135</color>
+			<drawSize>3,3</drawSize>
+			<drawOffset>0,0,0.3</drawOffset>
+		</graphicData>
+		<uiIconScale>0.7</uiIconScale>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<category>Building</category>
+		<pathCost>50</pathCost>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>350</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<useHitPoints>true</useHitPoints>
+		<tickerType>Normal</tickerType>
+		<building>
+			<claimable>false</claimable>
+		</building>
+	</ThingDef>
+	<!---->
 </Defs>

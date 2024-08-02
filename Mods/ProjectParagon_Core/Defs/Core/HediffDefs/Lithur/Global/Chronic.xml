@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>LithurSkin</defName>
+		<label>Oily skin</label>
+		<description>This mechanical creature cannot feel pain.</description>
+		<hediffClass>ProjectParagon.Core.Hediffs.Hediff_LithurSkin</hediffClass>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>false</makesSickThought>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<label>withered</label>
+				<naturalHealingFactor>0.1</naturalHealingFactor>
+				<statFactors>
+					<Flammability>3</Flammability>
+				</statFactors>
+			</li>
+			<li>
+				<label>thinned</label>
+				<minSeverity>0.25</minSeverity>
+				<naturalHealingFactor>0.85</naturalHealingFactor>
+				<statFactors>
+					<Flammability>0.85</Flammability>
+				</statFactors>
+			</li>
+			<li>
+				<label>fragmentary</label>
+				<minSeverity>0.5</minSeverity>
+				<statFactors>
+					<Flammability>0.25</Flammability>
+				</statFactors>
+			</li>
+			<li>
+				<label>filled</label>
+				<minSeverity>0.8</minSeverity>
+				<naturalHealingFactor>1.25</naturalHealingFactor>
+				<statFactors>
+					<Flammability>0</Flammability>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>SolarPsionics</defName>
+		<label>Solar psionics</label>
+		<description>The creature has increased psionic potential in the light of the sun and decreases it in darkness.</description>
+		<hediffClass>ProjectParagon.Core.Hediffs.Hediff_SolarPsionics</hediffClass>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<initialSeverity>1</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>false</makesSickThought>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<label>darkness</label>
+				<statFactors>
+					<PsychicSensitivity>0.5</PsychicSensitivity>
+				</statFactors>
+			</li>
+			<li>
+				<label>light</label>
+				<minSeverity>0.5</minSeverity>
+				<statOffsets>
+					<PsychicSensitivity>0.4</PsychicSensitivity>
+					<MeditationFocusGain>0.2</MeditationFocusGain>
+					<PsychicEntropyRecoveryRate>0.2</PsychicEntropyRecoveryRate>
+				</statOffsets>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+</Defs>

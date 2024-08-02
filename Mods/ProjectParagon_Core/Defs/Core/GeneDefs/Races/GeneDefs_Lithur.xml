@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneLithurBase" Abstract="True">
+		<displayCategory>Lithur</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneLithurBase">
+		<defName>Lithur</defName>
+		<label>Lithur</label>
+		<labelShortAdj>Lithur</labelShortAdj>
+		<description>A mysterious xenos with dark skin and glowing eyes.</description>
+		<iconPath>Core/Genes/Lithur</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>2</biostatMet>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>LithurRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+				<genepackGenerated>false</genepackGenerated>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneLithurBase">
+		<defName>OilySkin</defName>
+		<label>Oily skin</label>
+		<description>The carrier of the gene has oily skin, which protects it from the effects of fire, but requires a constant flow of fat into the body.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/OilySkin</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Lithur</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>LithurSkin</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>0.85~1</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>LithurRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneLithurBase">
+		<defName>XRaySight</defName>
+		<label>X-ray sight</label>
+		<description>The carrier of the gene has incredible vision, which allows you to notice the smallest details.</description>
+		<iconPath>Core/Genes/XRaySight</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Lithur</prerequisite>
+		<capMods>
+			<li>
+				<capacity>Sight</capacity>
+				<postFactor>2.5</postFactor>
+			</li>
+		</capMods>
+		<abilities>
+			<li>XRaySight</li>
+		</abilities>
+		<exclusionTags>
+			<li>Sight</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>LithurRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneLithurBase">
+		<defName>PiercingGaze</defName>
+		<label>Piercing gaze</label>
+		<description>The wearer's gaze is extremely expressive. It is usually described as hypnotic and misty.</description>
+		<iconPath>Core/Genes/PiercingGaze</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Lithur</prerequisite>
+		<statFactors>
+			<NegotiationAbility>2</NegotiationAbility>
+			<TrainAnimalChance>1.25</TrainAnimalChance>
+			<TameAnimalChance>1.25</TameAnimalChance>
+		</statFactors>
+		<abilities>
+			<li>PiercingGaze</li>
+		</abilities>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>LithurRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneLithurBase">
+		<defName>SolarPsionics</defName>
+		<label>Solar psionics</label>
+		<description>The carrier of the gene increases its psionic potential when in a well-lit space and decreases its potential in the dark.</description>
+		<geneClass>ProjectParagon.Core.Things.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/SolarPsionics</iconPath>
+		<displayOrderInCategory>40</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<prerequisite>Lithur</prerequisite>
+		<exclusionTags>
+			<li>PsychicAbility</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Things.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Things.Genes.GeneProperties_ForceHediff">
+					<hediffDef>SolarPsionics</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>1</severity>
+					<count>1</count>
+					<interval>60000</interval>
+				</props>
+				<relatedRaces>
+					<li>LithurRace</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+</Defs>

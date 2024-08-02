@@ -280,4 +280,71 @@
 			</li>
 		</comps>
 	</ThingDef>
+	
+	<ThingDef ParentName="BuildingBase">
+		<defName>MagneticPipe</defName>
+		<label>Magnetic Pipeline</label>
+		<description>A pipe in which the transported substance does not come into contact with its walls due to a powerful magnetic field. This allows you to transport any substances.</description>
+		<thingClass>Building</thingClass>
+		<statBases>
+			<MaxHitPoints>120</MaxHitPoints>
+			<WorkToBuild>400</WorkToBuild>
+			<Flammability>0.0</Flammability>
+		</statBases>
+		<graphicData Class="ProjectParagon.Core.Things.PipeGraphicData">
+			<texPath>Rimefeller/Things/Building/oilPipe_Atlas</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<linkType>Basic</linkType>
+			<linkFlags>
+				<li>Custom6</li>
+			</linkFlags>
+			<damageData>
+				<rect>(0,0.35,1,0.3)</rect>
+			</damageData>
+		</graphicData>
+		<costList>
+			<SuperStrongPlates>2</SuperStrongPlates>
+			<Supermagnet>1</Supermagnet>
+		</costList>
+		<category>Building</category>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<selectable>true</selectable>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<altitudeLayer>Conduits</altitudeLayer>
+		<passability>Standable</passability>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<building>
+			<blueprintGraphicData>
+				<texPath>Rimefeller/Things/Building/oilPipe_Atlas_Blueprint</texPath>
+			</blueprintGraphicData>
+			<isInert>true</isInert>
+			<isEdifice>false</isEdifice>
+		</building>
+		<rotatable>false</rotatable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<clearBuildingArea>false</clearBuildingArea>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Miscellaneous</designatorDropdown>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<tickerType>Never</tickerType>
+		<drawerType>MapMeshOnly</drawerType>
+		<uiIconPath>Rimefeller/UI/Plumbing</uiIconPath>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
+				<pipeTypeDef>Plasma</pipeTypeDef>
+				<canChangePipeType>true</canChangePipeType>
+				<pipeTypeDefsWhitelist>
+					<li>Plasma</li>
+				</pipeTypeDefsWhitelist>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>ReceivingPlasma</li>
+		</researchPrerequisites>
+	</ThingDef>
 </Defs>

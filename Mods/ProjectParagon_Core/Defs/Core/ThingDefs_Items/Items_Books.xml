@@ -1,38 +1,358 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-	<ThingDef ParentName="ResourceBase" Name = "ParagonBookBase" Abstract="true">
-		<techLevel>Medieval</techLevel>
-		<thingCategories>
-			<li>Books</li>
-		</thingCategories>
+	<!---->
+	<ThingDef ParentName="BookBase">
+		<defName>BattleBook</defName>
+		<label>Battle book</label>
+		<description>A work written under the impression of a battle or a specific warrior.</description>
+		<thingClass>ProjectParagon.Core.Things.BookParagon</thingClass>
+		<graphicData>
+			<texPath>Core/Items/Book/BattleBook</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+		</graphicData>
+		<uiIconPath>Core/Items/Book/BattleBook</uiIconPath>
+		<statBases>
+			<MarketValue>250</MarketValue>
+		</statBases>
 		<tradeTags>
+			<li>ScientificComplex_Medieval</li>
+			<li>ScientificComplex_Industrial</li>
+			<li>ScientificComplex_Spacer</li>
+			<li>ScientificComplex_Ultra</li>
+			<li>ScientificComplex_Archotech</li>
 			<li>Artifact</li>
 		</tradeTags>
-		<thingSetMakerTags>
-			<li>RewardStandardMidFreq</li>
-		</thingSetMakerTags>
-		<stackLimit>1</stackLimit>
-		<tradeNeverStack>true</tradeNeverStack>
-		<useHitPoints>true</useHitPoints>
-		<relicChance>0</relicChance>
-		<statBases>
-			<MaxHitPoints>80</MaxHitPoints>
-			<Mass>1.5</Mass>
-		</statBases>
-		<drawGUIOverlay>false</drawGUIOverlay>
+		<techLevel>Medieval</techLevel>
 		<comps>
-			<li Class="CompProperties_UseEffectDestroySelf">
-				<compClass>CompUseEffect_DestroySelf</compClass>
-			</li>
-			<li Class="CompProperties_Styleable"/>
-			<li>
-				<compClass>CompQuality</compClass>
+			<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
+				<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
+				<hasLanguage>true</hasLanguage>
+				<nameMaker>Namer_TextBook</nameMaker>
+				<descriptionMaker>Description_Novel</descriptionMaker>
+				<ageYearsRange>100~200</ageYearsRange>
+				<openGraphic>
+					<texPath>Core/Items/Book/BattleBook_Open</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>0.7</drawSize>
+				</openGraphic>
+				<verticalGraphic>
+					<texPath>Core/Items/Book/BattleBook_Vertical</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<addTopAltitudeBias>true</addTopAltitudeBias>
+				</verticalGraphic>
+				<doers>
+					<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainSpecSkillExp">
+					</li>
+					<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainFightingStyleExp">
+					</li>
+				</doers>
 			</li>
 		</comps>
 	</ThingDef>
-
+	<!---->
+	<ThingDef ParentName="BookBase">
+		<defName>WrittenBook</defName>
+		<label>Skill book</label>
+		<description>A work of mental art. Read to be filled with wisdom.</description>
+		<thingClass>ProjectParagon.Core.Things.BookParagon</thingClass>
+		<graphicData>
+			<texPath>Core/Items/Book/WrittenBook</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+		</graphicData>
+		<uiIconPath>Core/Items/Book/WrittenBook</uiIconPath>
+		<statBases>
+			<MarketValue>250</MarketValue>
+		</statBases>
+		<tradeTags>
+			<li>ScientificComplex_Medieval</li>
+			<li>ScientificComplex_Industrial</li>
+			<li>ScientificComplex_Spacer</li>
+			<li>ScientificComplex_Ultra</li>
+			<li>ScientificComplex_Archotech</li>
+			<li>Artifact</li>
+		</tradeTags>
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
+				<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
+				<hasLanguage>true</hasLanguage>
+				<nameMaker>Namer_TextBook</nameMaker>
+				<descriptionMaker>Description_Novel</descriptionMaker>
+				<ageYearsRange>100~200</ageYearsRange>
+				<openGraphic>
+					<texPath>Core/Items/Book/WrittenBook_Open</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>0.7</drawSize>
+				</openGraphic>
+				<verticalGraphic>
+					<texPath>Core/Items/Book/WrittenBook_Vertical</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<addTopAltitudeBias>true</addTopAltitudeBias>
+				</verticalGraphic>
+				<doers>
+					<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainPawnSkillExp">
+					</li>
+				</doers>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BookBase">
+		<defName>LanguageDictionary</defName>
+		<label>Language dictionary</label>
+		<description>A book containing general information about certain aspects of a language.</description>
+		<thingClass>ProjectParagon.Core.Things.BookParagon</thingClass>
+		<graphicData>
+			<texPath>Core/Items/Book/LanguageDictionary</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+		</graphicData>
+		<uiIconPath>Core/Items/Book/LanguageDictionary</uiIconPath>
+		<statBases>
+			<MarketValue>400</MarketValue>
+		</statBases>
+		<tradeTags>
+			<li>ScientificComplex_Medieval</li>
+			<li>ScientificComplex_Industrial</li>
+			<li>ScientificComplex_Spacer</li>
+			<li>ScientificComplex_Ultra</li>
+			<li>ScientificComplex_Archotech</li>
+			<li>Artifact</li>
+		</tradeTags>
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
+				<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
+				<hasLanguage>false</hasLanguage>
+				<nameMaker>Namer_TextBook</nameMaker>
+				<descriptionMaker>Description_Novel</descriptionMaker>
+				<ageYearsRange>100~200</ageYearsRange>
+				<openGraphic>
+					<texPath>Core/Items/Book/LanguageDictionary_Open</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>0.7</drawSize>
+				</openGraphic>
+				<verticalGraphic>
+					<texPath>Core/Items/Book/LanguageDictionary_Vertical</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<addTopAltitudeBias>true</addTopAltitudeBias>
+				</verticalGraphic>
+				<doers>
+					<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainLanguageExp">
+					</li>
+				</doers>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BookBase">
+		<defName>ConstructionBlueprintBook</defName>
+		<label>Construction blueprint book</label>
+		<description>A book containing information about a particular structure that can be explored through reading.</description>
+		<thingClass>ProjectParagon.Core.Things.BookParagon</thingClass>
+		<graphicData>
+			<texPath>Core/Items/Book/BlueprintBook</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+		</graphicData>
+		<uiIconPath>Core/Items/Book/BlueprintBook</uiIconPath>
+		<statBases>
+			<MarketValue>500</MarketValue>
+		</statBases>
+		<tradeTags>
+			<li>ScientificComplex_Medieval</li>
+			<li>ScientificComplex_Industrial</li>
+			<li>ScientificComplex_Spacer</li>
+			<li>ScientificComplex_Ultra</li>
+			<li>ScientificComplex_Archotech</li>
+			<li>Artifact</li>
+		</tradeTags>
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
+				<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
+				<hasLanguage>false</hasLanguage>
+				<nameMaker>Namer_TextBook</nameMaker>
+				<descriptionMaker>Description_Novel</descriptionMaker>
+				<ageYearsRange>100~200</ageYearsRange>
+				<openGraphic>
+					<texPath>Core/Items/Book/BlueprintBook_Open</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>0.7</drawSize>
+				</openGraphic>
+				<verticalGraphic>
+					<texPath>Core/Items/Book/BlueprintBook_Vertical</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<addTopAltitudeBias>true</addTopAltitudeBias>
+				</verticalGraphic>
+				<doers>
+					<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainConstructionBlueprint">
+					</li>
+				</doers>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BookBase">
+		<defName>RecipeBlueprintBook</defName>
+		<label>Recipe blueprint book</label>
+		<description>A book containing information about a particular recipe that can be explored through reading.</description>
+		<thingClass>ProjectParagon.Core.Things.BookParagon</thingClass>
+		<graphicData>
+			<texPath>Core/Items/Book/BlueprintBook</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.8</drawSize>
+		</graphicData>
+		<uiIconPath>Core/Items/Book/BlueprintBook</uiIconPath>
+		<statBases>
+			<MarketValue>500</MarketValue>
+		</statBases>
+		<tradeTags>
+			<li>ScientificComplex_Medieval</li>
+			<li>ScientificComplex_Industrial</li>
+			<li>ScientificComplex_Spacer</li>
+			<li>ScientificComplex_Ultra</li>
+			<li>ScientificComplex_Archotech</li>
+			<li>Artifact</li>
+		</tradeTags>
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
+				<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
+				<hasLanguage>false</hasLanguage>
+				<nameMaker>Namer_TextBook</nameMaker>
+				<descriptionMaker>Description_Novel</descriptionMaker>
+				<ageYearsRange>100~200</ageYearsRange>
+				<openGraphic>
+					<texPath>Core/Items/Book/BlueprintBook_Open</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>0.7</drawSize>
+				</openGraphic>
+				<verticalGraphic>
+					<texPath>Core/Items/Book/BlueprintBook_Vertical</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<addTopAltitudeBias>true</addTopAltitudeBias>
+				</verticalGraphic>
+				<doers>
+					<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainRecipeBlueprint">
+					</li>
+				</doers>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<!--<ThingDef ParentName="ParagonBookBase">
+		<defName>ConstructionBlueprintBook</defName>
+		<label>Construction blueprint book</label>
+		<description>A book containing information about a particular structure that can be explored through reading.</description>
+		<graphicData>
+			<texPath>Core/Items/Book</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<tradeTags>
+			<li>ScientificComplex_Medieval</li>
+			<li>ScientificComplex_Industrial</li>
+			<li>ScientificComplex_Spacer</li>
+			<li>ScientificComplex_Ultra</li>
+			<li>ScientificComplex_Archotech</li>
+		</tradeTags>
+		<statBases>
+			<MarketValue>750</MarketValue>
+			<MaxHitPoints>80</MaxHitPoints>
+			<Mass>1.5</Mass>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">2</StyleDominance>
+		</statBases>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<useJob>UseArtifact</useJob>
+				<useLabel>Read</useLabel>
+				<useDuration>6000</useDuration>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>NamerBooks</nameMaker>
+				<descriptionMaker>TalelessImages</descriptionMaker>
+				<minQualityForArtistic>Awful</minQualityForArtistic>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_UseEffectBook">
+				<compClass>ProjectParagon.Core.Things.Comp_Book</compClass>
+				<qualityCurvePoints>
+					<points>
+						<li>(0, 0.5)</li>
+						<li>(1, 0.8)</li>
+						<li>(2, 1.0)</li>
+						<li>(3, 1.25)</li>
+						<li>(4, 1.5)</li>
+						<li>(5, 2)</li>
+					</points>
+				</qualityCurvePoints>
+				<allowedSkills>
+					<li>Intellectual</li>
+				</allowedSkills>
+				<skillPointsClamp>250~3000</skillPointsClamp>
+				<thingDefBlueprintDefs>
+				</thingDefBlueprintDefs>
+			</li>
+		</comps>
+	</ThingDef>
 	<ThingDef ParentName="ParagonBookBase">
+		<defName>RecipeBlueprintBook</defName>
+		<label>Recipe blueprint book</label>
+		<description>A book containing information about a particular recipe that can be explored through reading.</description>
+		<graphicData>
+			<texPath>Core/Items/Book</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+		</graphicData>
+		<tradeTags>
+			<li>ScientificComplex_Medieval</li>
+			<li>ScientificComplex_Industrial</li>
+			<li>ScientificComplex_Spacer</li>
+			<li>ScientificComplex_Ultra</li>
+			<li>ScientificComplex_Archotech</li>
+		</tradeTags>
+		<statBases>
+			<MarketValue>750</MarketValue>
+			<MaxHitPoints>80</MaxHitPoints>
+			<Mass>1.5</Mass>
+			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">2</StyleDominance>
+		</statBases>
+		<drawGUIOverlay>false</drawGUIOverlay>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<useJob>UseArtifact</useJob>
+				<useLabel>Read</useLabel>
+				<useDuration>6000</useDuration>
+			</li>
+			<li Class="CompProperties_Art">
+				<nameMaker>NamerBooks</nameMaker>
+				<descriptionMaker>TalelessImages</descriptionMaker>
+				<minQualityForArtistic>Awful</minQualityForArtistic>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_UseEffectBook">
+				<compClass>ProjectParagon.Core.Things.Comp_Book</compClass>
+				<qualityCurvePoints>
+					<points>
+						<li>(0, 0.5)</li>
+						<li>(1, 0.8)</li>
+						<li>(2, 1.0)</li>
+						<li>(3, 1.25)</li>
+						<li>(4, 1.5)</li>
+						<li>(5, 2)</li>
+					</points>
+				</qualityCurvePoints>
+				<allowedSkills>
+					<li>Intellectual</li>
+				</allowedSkills>
+				<skillPointsClamp>250~3000</skillPointsClamp>
+				<recipeDefBlueprintDefs>
+				</recipeDefBlueprintDefs>
+			</li>
+		</comps>
+	</ThingDef>-->
+	<!---->
+	<!--<ThingDef ParentName="ParagonBookBase">
 		<defName>WrittenBook</defName>
 		<label>Written book</label>
 		<description>A work of mental art. Read to be filled with wisdom.</description>
@@ -74,12 +394,11 @@
 				<specPointsClamp>250~5000</specPointsClamp>
 				<allowedSkills>
 				</allowedSkills>
-				<!-- null - не будет выдано вообще, пустой - рандомный из датабазы -->
+				<!{1}** null - не будет выдано вообще, пустой - рандомный из датабазы **{1}>
 			</li>
 		</comps>
-	</ThingDef>
-	
-	<ThingDef ParentName="ParagonBookBase">
+	</ThingDef>-->
+	<!--<ThingDef ParentName="ParagonBookBase">
 		<defName>BattleBook</defName>
 		<label>Battle book</label>
 		<description>A work written under the impression of a battle or a specific warrior.</description>
@@ -132,9 +451,8 @@
 				<passionChance>0.2</passionChance>
 			</li>
 		</comps>
-	</ThingDef>
-	
-	<ThingDef ParentName="ParagonBookBase">
+	</ThingDef>-->
+	<!--<ThingDef ParentName="ParagonBookBase">
 		<defName>TechnologyBook</defName>
 		<label>Technology book</label>
 		<description>A book containing some information about technology. May be exhaustively complete or mentioned in passing.</description>
@@ -186,7 +504,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="ParagonBookBase">
 		<defName>RareTechnologyBook</defName>
 		<label>Rare technology book</label>
@@ -242,7 +559,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-
 	<ThingDef ParentName="ParagonBookBase">
 		<defName>ShipLogbook</defName>
 		<label>Ship logbook</label>
@@ -290,7 +606,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="ParagonBookBase" Name="SkillBookBase" Abstract="true">
 		<description>A book containing useful information to improve productivity.</description>
 		<graphicData>
@@ -315,7 +630,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Shooting</defName>
 		<label>Shooting skill book</label>
@@ -361,7 +675,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Melee</defName>
 		<label>Melee skill book</label>
@@ -409,7 +722,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Social</defName>
 		<label>Social skill book</label>
@@ -455,7 +767,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Animals</defName>
 		<label>Animals skill book</label>
@@ -499,7 +810,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Medicine</defName>
 		<label>Medicine skill book</label>
@@ -543,7 +853,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Cooking</defName>
 		<label>Cooking skill book</label>
@@ -588,7 +897,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Construction</defName>
 		<label>Construction skill book</label>
@@ -634,7 +942,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Growing</defName>
 		<label>Growing skill book</label>
@@ -679,7 +986,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Mining</defName>
 		<label>Mining skill book</label>
@@ -722,7 +1028,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Crafting</defName>
 		<label>Crafting skill book</label>
@@ -768,7 +1073,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Intellectual</defName>
 		<label>Intellectual skill book</label>
@@ -810,7 +1114,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="SkillBookBase">
 		<defName>SkillBook_Safety</defName>
 		<label>Safety book</label>
@@ -858,9 +1161,8 @@
 				<fullResearchChance>0.1</fullResearchChance>
 			</li>
 		</comps>
-	</ThingDef>
-	
-	<ThingDef ParentName="ParagonBookBase" Name="LanguageDictionaryBase" Abstract="true">
+	</ThingDef>-->
+	<!--<ThingDef ParentName="ParagonBookBase" Name="LanguageDictionaryBase" Abstract="true">
 		<label>Language dictionary</label>
 		<description>A book containing general information about aspects of the language.</description>
 		<graphicData>
@@ -875,7 +1177,6 @@
 		</statBases>
 		<drawGUIOverlay>false</drawGUIOverlay>
 	</ThingDef>
-	
 	<ThingDef ParentName="LanguageDictionaryBase">
 		<defName>LanguageDictionaryPrimitive</defName>
 		<label>Primitive language dictionary</label>
@@ -930,7 +1231,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="LanguageDictionaryBase">
 		<defName>LanguageDictionaryMedium</defName>
 		<label>Language dictionary</label>
@@ -983,7 +1283,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="LanguageDictionaryBase">
 		<defName>LanguageDictionaryHard</defName>
 		<label>Advanced language dictionary</label>
@@ -1035,7 +1334,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="LanguageDictionaryBase">
 		<defName>LanguageDictionaryMachine</defName>
 		<label>Machine translator</label>
@@ -1084,119 +1382,8 @@
 				<languagePointsClamp>100~700</languagePointsClamp>
 			</li>
 		</comps>
-	</ThingDef>
-	
-	<ThingDef ParentName="ParagonBookBase">
-		<defName>ConstructionBlueprintBook</defName>
-		<label>Construction blueprint book</label>
-		<description>A book containing information about a particular structure that can be explored through reading.</description>
-		<graphicData>
-			<texPath>Core/Items/Book</texPath>
-			<graphicClass>Graphic_Random</graphicClass>
-		</graphicData>
-		<tradeTags>
-			<li>ScientificComplex_Medieval</li>
-			<li>ScientificComplex_Industrial</li>
-			<li>ScientificComplex_Spacer</li>
-			<li>ScientificComplex_Ultra</li>
-			<li>ScientificComplex_Archotech</li>
-		</tradeTags>
-		<statBases>
-			<MarketValue>750</MarketValue>
-			<MaxHitPoints>80</MaxHitPoints>
-			<Mass>1.5</Mass>
-			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">2</StyleDominance>
-		</statBases>
-		<drawGUIOverlay>false</drawGUIOverlay>
-		<comps>
-			<li Class="CompProperties_Usable">
-				<useJob>UseArtifact</useJob>
-				<useLabel>Read</useLabel>
-				<useDuration>6000</useDuration>
-			</li>
-			<li Class="CompProperties_Art">
-				<nameMaker>NamerBooks</nameMaker>
-				<descriptionMaker>TalelessImages</descriptionMaker>
-				<minQualityForArtistic>Awful</minQualityForArtistic>
-			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_UseEffectBook">
-				<compClass>ProjectParagon.Core.Things.Comp_Book</compClass>
-				<qualityCurvePoints>
-					<points>
-						<li>(0, 0.5)</li>
-						<li>(1, 0.8)</li>
-						<li>(2, 1.0)</li>
-						<li>(3, 1.25)</li>
-						<li>(4, 1.5)</li>
-						<li>(5, 2)</li>
-					</points>
-				</qualityCurvePoints>
-				<allowedSkills>
-					<li>Intellectual</li>
-				</allowedSkills>
-				<skillPointsClamp>250~3000</skillPointsClamp>
-				<thingDefBlueprintDefs>
-				</thingDefBlueprintDefs>
-			</li>
-		</comps>
-	</ThingDef>
-	
-	<ThingDef ParentName="ParagonBookBase">
-		<defName>RecipeBlueprintBook</defName>
-		<label>Recipe blueprint book</label>
-		<description>A book containing information about a particular recipe that can be explored through reading.</description>
-		<graphicData>
-			<texPath>Core/Items/Book</texPath>
-			<graphicClass>Graphic_Random</graphicClass>
-		</graphicData>
-		<tradeTags>
-			<li>ScientificComplex_Medieval</li>
-			<li>ScientificComplex_Industrial</li>
-			<li>ScientificComplex_Spacer</li>
-			<li>ScientificComplex_Ultra</li>
-			<li>ScientificComplex_Archotech</li>
-		</tradeTags>
-		<statBases>
-			<MarketValue>750</MarketValue>
-			<MaxHitPoints>80</MaxHitPoints>
-			<Mass>1.5</Mass>
-			<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">2</StyleDominance>
-		</statBases>
-		<drawGUIOverlay>false</drawGUIOverlay>
-		<comps>
-			<li Class="CompProperties_Usable">
-				<useJob>UseArtifact</useJob>
-				<useLabel>Read</useLabel>
-				<useDuration>6000</useDuration>
-			</li>
-			<li Class="CompProperties_Art">
-				<nameMaker>NamerBooks</nameMaker>
-				<descriptionMaker>TalelessImages</descriptionMaker>
-				<minQualityForArtistic>Awful</minQualityForArtistic>
-			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_UseEffectBook">
-				<compClass>ProjectParagon.Core.Things.Comp_Book</compClass>
-				<qualityCurvePoints>
-					<points>
-						<li>(0, 0.5)</li>
-						<li>(1, 0.8)</li>
-						<li>(2, 1.0)</li>
-						<li>(3, 1.25)</li>
-						<li>(4, 1.5)</li>
-						<li>(5, 2)</li>
-					</points>
-				</qualityCurvePoints>
-				<allowedSkills>
-					<li>Intellectual</li>
-				</allowedSkills>
-				<skillPointsClamp>250~3000</skillPointsClamp>
-				<recipeDefBlueprintDefs>
-				</recipeDefBlueprintDefs>
-			</li>
-		</comps>
-	</ThingDef>
-	
-	<ThingDef ParentName="ParagonBookBase">
+	</ThingDef>-->
+	<!--<ThingDef ParentName="ParagonBookBase">
 		<defName>TechnologyBook_LowTier</defName>
 		<label>Technology book</label>
 		<description>A book containing some information about technology. May be exhaustively complete or mentioned in passing.</description>
@@ -1253,7 +1440,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="ParagonBookBase">
 		<defName>TechnologyBook_MidTier</defName>
 		<label>Technology book</label>
@@ -1310,7 +1496,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="ParagonBookBase">
 		<defName>TechnologyBook_HighTier</defName>
 		<label>Technology book</label>
@@ -1368,7 +1553,6 @@
 			</li>
 		</comps>
 	</ThingDef>
-	
 	<ThingDef ParentName="ParagonBookBase">
 		<defName>TechnologyBook_UltraTier</defName>
 		<label>Technology book</label>
@@ -1425,6 +1609,5 @@
 				<skillPointsClamp>650~5500</skillPointsClamp>
 			</li>
 		</comps>
-	</ThingDef>
-	
+	</ThingDef>-->
 </Defs>

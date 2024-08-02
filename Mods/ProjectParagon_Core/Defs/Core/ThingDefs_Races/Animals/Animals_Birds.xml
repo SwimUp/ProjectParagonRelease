@@ -1,0 +1,2615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BigBirdThingBase">
+		<defName>Chocobo</defName>
+		<label>chocobo</label>
+		<description>A large and rather peaceful bird that lives in lands remote from predators.</description>
+		<statBases>
+			<MoveSpeed>6.0</MoveSpeed>
+			<MarketValue>250</MarketValue>
+			<ComfyTemperatureMin>-25</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<FilthRate>3</FilthRate>
+			<CaravanRidingSpeedFactor>1.6</CaravanRidingSpeedFactor>
+			<MeatAmount>95</MeatAmount>
+			<ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockIII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<race>
+			<herdAnimal>true</herdAnimal>
+			<baseBodySize>1.0</baseBodySize>
+			<baseHealthScale>1.0</baseHealthScale>
+			<baseHungerRate>0.42</baseHungerRate>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<wildness>0.60</wildness>
+			<nuzzleMtbHours>12</nuzzleMtbHours>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>30</lifeExpectancy>
+			<packAnimal>true</packAnimal>
+			<leatherDef>Thick_Leather</leatherDef>
+			<useMeatFrom>Chicken</useMeatFrom>
+			<trainability>Intermediate</trainability>
+			<manhunterOnTameFailChance>0.10</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.40</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.1</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2222</minAge>
+				</li>
+			</lifeStageAges>
+		</race>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggChocoboFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>5.0</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>claws</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.3</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.75</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>0.62</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>beak</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+			<li>AnimalExotic</li>
+		</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="BigBirdKindBase">
+		<defName>Chocobo</defName>
+		<label>chocobo</label>
+		<race>Chocobo</race>
+		<combatPower>85</combatPower>
+		<ecoSystemWeight>1.1</ecoSystemWeight>
+		<wildGroupSize>2~4</wildGroupSize>
+		<alternateGraphicChance>0.98</alternateGraphicChance>
+		<alternateGraphics>
+			<li>
+				<color>(131,176,210)</color>
+			</li>
+			<!-- Sky Blue -->
+			<li>
+				<color>(100,129,160)</color>
+			</li>
+			<!-- Seafog Blue -->
+			<li>
+				<color>(135,127,174)</color>
+			</li>
+			<!-- Lavender Purple -->
+			<li>
+				<color>(121,82,106)</color>
+			</li>
+			<!-- Plum Purple -->
+			<li>
+				<color>(220,155,202)</color>
+			</li>
+			<!-- Colibri Pink -->
+			<li>
+				<color>(204,108,94)</color>
+			</li>
+			<!-- Coral Pink -->
+		</alternateGraphics>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Chocobo/chocobochick</texPath>
+					<drawSize>0.8</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Chocobo/Dessicated_chocobochick</texPath>
+					<drawSize>0.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Chocobo/chocobo</texPath>
+					<drawSize>1.0</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.3, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Chocobo/Dessicated_chocobo</texPath>
+					<drawSize>1.0</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Chocobo/chocobo</texPath>
+					<drawSize>2.0</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.4, 0.4, 0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Chocobo/Dessicated_chocobo</texPath>
+					<drawSize>2.0</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggChocoboFertilized</defName>
+		<label>chocobo egg (fert.)</label>
+		<description>A fertilized chocobo egg.</description>
+		<graphicData>
+			<texPath>Core/Food/Raw/ChocoboEgg</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.6</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>7.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>3.5</hatcherDaystoHatch>
+				<hatcherPawn>Chocobo</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Cockatoo</defName>
+		<label>Cockatoo</label>
+		<description>Tropical bird that lives in humid forests.</description>
+		<statBases>
+			<MoveSpeed>2.5</MoveSpeed>
+			<MarketValue>200</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ComfyTemperatureMin>0</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggCockatooUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggCockatooFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<body>Bird</body>
+			<baseHungerRate>0.14</baseHungerRate>
+			<baseBodySize>0.3</baseBodySize>
+			<baseHealthScale>0.35</baseHealthScale>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<trainability>None</trainability>
+			<wildness>0</wildness>
+			<roamMtbDays>7</roamMtbDays>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>6</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.15</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>0.1</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.25</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggCockatooUnfertilized</defName>
+		<label>Cockatoo egg (unfert.)</label>
+		<description>An unfertilized cockatoo egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>12.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggCockatooFertilized</defName>
+		<label>Cockatoo egg (fert.)</label>
+		<description>A fertilized cockatoo egg. If all goes well, it should hatch into a baby cockatoo. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>14.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>7</hatcherDaystoHatch>
+				<hatcherPawn>Cockatoo</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Cockatoo</defName>
+		<label>Cockatoo</label>
+		<race>Cockatoo</race>
+		<combatPower>30</combatPower>
+		<ecoSystemWeight>0.30</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Cockatoo</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Cockatoo</texPath>
+					<drawSize>1.8</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Cockatoo</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Hornbill</defName>
+		<label>Hornbill</label>
+		<description>Tropical bird that lives in humid forests. Good for learning.</description>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>250</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ComfyTemperatureMin>5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggHornbillUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggHornbillFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<body>Bird</body>
+			<baseHungerRate>0.25</baseHungerRate>
+			<baseBodySize>0.3</baseBodySize>
+			<baseHealthScale>0.4</baseHealthScale>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<trainability>None</trainability>
+			<wildness>0</wildness>
+			<roamMtbDays>7</roamMtbDays>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>12</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.15</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>0.15</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.25</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggHornbillUnfertilized</defName>
+		<label>Hornbill egg (unfert.)</label>
+		<description>An unfertilized Hornbill egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>12.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggHornbillFertilized</defName>
+		<label>Hornbill egg (fert.)</label>
+		<description>A fertilized Hornbill egg. If all goes well, it should hatch into a baby Hornbill. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>15.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>7</hatcherDaystoHatch>
+				<hatcherPawn>Hornbill</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Hornbill</defName>
+		<label>Hornbill</label>
+		<race>Hornbill</race>
+		<combatPower>30</combatPower>
+		<ecoSystemWeight>0.30</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Hornbill/Hornbill</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Hornbill/Hornbill</texPath>
+					<drawSize>1.8</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Hornbill/Hornbill</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Toucan</defName>
+		<label>Toucan</label>
+		<description>Tropical bird that lives in humid forests.</description>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>300</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ComfyTemperatureMin>5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggToucanUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggToucanFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<body>Bird</body>
+			<baseHungerRate>0.25</baseHungerRate>
+			<baseBodySize>0.3</baseBodySize>
+			<baseHealthScale>0.4</baseHealthScale>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<trainability>None</trainability>
+			<wildness>0</wildness>
+			<roamMtbDays>7</roamMtbDays>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>12</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.15</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>0.15</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.25</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggToucanUnfertilized</defName>
+		<label>Toucan egg (unfert.)</label>
+		<description>An unfertilized Toucan egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>13.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggToucanFertilized</defName>
+		<label>Toucan egg (fert.)</label>
+		<description>A fertilized Toucan egg. If all goes well, it should hatch into a baby Toucan. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>16.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>8</hatcherDaystoHatch>
+				<hatcherPawn>Toucan</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Toucan</defName>
+		<label>Toucan</label>
+		<race>Toucan</race>
+		<combatPower>30</combatPower>
+		<ecoSystemWeight>0.30</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Toucan/Toucan</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Toucan/Toucan</texPath>
+					<drawSize>1.8</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Toucan/Toucan</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Parrot</defName>
+		<label>Parrot</label>
+		<description>Tropical bird that lives in humid forests.</description>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>300</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ComfyTemperatureMin>5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggParrotUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggParrotFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<body>Bird</body>
+			<baseHungerRate>0.25</baseHungerRate>
+			<baseBodySize>0.3</baseBodySize>
+			<baseHealthScale>0.4</baseHealthScale>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<trainability>None</trainability>
+			<wildness>0</wildness>
+			<roamMtbDays>7</roamMtbDays>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>12</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.15</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>0.1</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.25</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggParrotUnfertilized</defName>
+		<label>Parrot egg (unfert.)</label>
+		<description>An unfertilized Parrot egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>13.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggParrotFertilized</defName>
+		<label>Parrot egg (fert.)</label>
+		<description>A fertilized Parrot egg. If all goes well, it should hatch into a baby Parrot. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>16.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>8</hatcherDaystoHatch>
+				<hatcherPawn>Parrot</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Parrot</defName>
+		<label>Parrot</label>
+		<race>Parrot</race>
+		<combatPower>30</combatPower>
+		<ecoSystemWeight>0.30</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Parrot/Parrot</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Parrot/Parrot</texPath>
+					<drawSize>1.8</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Parrot/Parrot</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Vulture</defName>
+		<label>Vulture</label>
+		<description>A bird of deserts and steppes that eats corpses.</description>
+		<statBases>
+			<MoveSpeed>4</MoveSpeed>
+			<MarketValue>250</MarketValue>
+			<LeatherAmount>25</LeatherAmount>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockIII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggVultureUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggVultureFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<leatherDef>Light_Leather</leatherDef>
+			<body>Bird</body>
+			<baseHungerRate>0.7</baseHungerRate>
+			<baseBodySize>1</baseBodySize>
+			<baseHealthScale>1</baseHealthScale>
+			<foodType>CarnivoreAnimal</foodType>
+			<predator>true</predator>
+			<trainability>None</trainability>
+			<wildness>0.8</wildness>
+			<roamMtbDays>7</roamMtbDays>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>15</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.3</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>0.2</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggVultureUnfertilized</defName>
+		<label>Vulture egg (unfert.)</label>
+		<description>An unfertilized Vulture egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>10.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggVultureFertilized</defName>
+		<label>Vulture egg (fert.)</label>
+		<description>A fertilized Vulture egg. If all goes well, it should hatch into a baby Vulture. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>12.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>7</hatcherDaystoHatch>
+				<hatcherPawn>Vulture</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Vulture</defName>
+		<label>Vulture</label>
+		<race>Vulture</race>
+		<combatPower>50</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Vulture/Vulture</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Vulture/Dessicated_Vulture</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Vulture/Vulture</texPath>
+					<drawSize>1.8</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Vulture/Dessicated_Vulture</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Vulture/Vulture</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Vulture/Dessicated_Vulture</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Owl</defName>
+		<label>Owl</label>
+		<description>Forest hunter eating small animals.</description>
+		<statBases>
+			<MoveSpeed>4</MoveSpeed>
+			<MarketValue>200</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ComfyTemperatureMin>-20</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockIII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggOwlUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggOwlFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<body>Bird</body>
+			<baseHungerRate>0.5</baseHungerRate>
+			<baseBodySize>0.4</baseBodySize>
+			<baseHealthScale>0.8</baseHealthScale>
+			<foodType>CarnivoreAnimal</foodType>
+			<predator>true</predator>
+			<trainability>None</trainability>
+			<wildness>1</wildness>
+			<roamMtbDays>7</roamMtbDays>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>12</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationSharp>0.05</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.15</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>0.2</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.7</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggOwlUnfertilized</defName>
+		<label>Owl egg (unfert.)</label>
+		<description>An unfertilized Owl egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>13.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggOwlFertilized</defName>
+		<label>Owl egg (fert.)</label>
+		<description>A fertilized Owl egg. If all goes well, it should hatch into a baby Owl. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>16.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>8</hatcherDaystoHatch>
+				<hatcherPawn>Owl</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Owl</defName>
+		<label>Owl</label>
+		<race>Owl</race>
+		<combatPower>50</combatPower>
+		<ecoSystemWeight>0.7</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Owl</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Owl</texPath>
+					<drawSize>1.8</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Owl</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Crow</defName>
+		<label>Crow</label>
+		<description>Forest bird eating small animals, worms and seeds.</description>
+		<statBases>
+			<MoveSpeed>4</MoveSpeed>
+			<MarketValue>170</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ComfyTemperatureMin>-30</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggCrowUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggCrowFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<body>Bird</body>
+			<baseHungerRate>0.4</baseHungerRate>
+			<baseBodySize>0.35</baseBodySize>
+			<baseHealthScale>0.6</baseHealthScale>
+			<foodType>CarnivoreAnimal</foodType>
+			<trainability>None</trainability>
+			<wildness>0.7</wildness>
+			<roamMtbDays>7</roamMtbDays>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>7</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalCommon</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.15</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>0.1</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.25</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggCrowUnfertilized</defName>
+		<label>Crow egg (unfert.)</label>
+		<description>An unfertilized Crow egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>8.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggCrowFertilized</defName>
+		<label>Crow egg (fert.)</label>
+		<description>A fertilized Crow egg. If all goes well, it should hatch into a baby Crow. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>11.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>6</hatcherDaystoHatch>
+				<hatcherPawn>Crow</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Crow</defName>
+		<label>Crow</label>
+		<race>Crow</race>
+		<combatPower>30</combatPower>
+		<ecoSystemWeight>0.5</ecoSystemWeight>
+		<wildGroupSize>1~4</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Crow/Crow</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Crow/Crow</texPath>
+					<drawSize>1.8</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Crow/Crow</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Cockatoo/Dessicated_Cockatoo</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>Kestrel</defName>
+		<label>Kestrel</label>
+		<description>A hunter bird that prefers to live in moderately hot regions of the planet.</description>
+		<statBases>
+			<MoveSpeed>4</MoveSpeed>
+			<MarketValue>300</MarketValue>
+			<LeatherAmount>0</LeatherAmount>
+			<ComfyTemperatureMin>-5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>40</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockIII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8</westOffset>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggKestrelUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggKestrelFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<race>
+			<body>Bird</body>
+			<baseHungerRate>0.5</baseHungerRate>
+			<baseBodySize>0.4</baseBodySize>
+			<baseHealthScale>0.8</baseHealthScale>
+			<foodType>CarnivoreAnimal</foodType>
+			<predator>true</predator>
+			<trainability>None</trainability>
+			<wildness>1</wildness>
+			<roamMtbDays>7</roamMtbDays>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>12</lifeExpectancy>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.12</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2</minAge>
+					<soundWounded>Pawn_Chicken_Wounded</soundWounded>
+					<soundDeath>Pawn_Chicken_Death</soundDeath>
+					<soundCall>Pawn_Chicken_Call</soundCall>
+					<soundAngry>Pawn_Chicken_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.15</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>0.2</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.75</armorPenetrationBlunt>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggKestrelUnfertilized</defName>
+		<label>Kestrel egg (unfert.)</label>
+		<description>An unfertilized Kestrel egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>13.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggKestrelFertilized</defName>
+		<label>Kestrel egg (fert.)</label>
+		<description>A fertilized Kestrel egg. If all goes well, it should hatch into a baby Kestrel. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>16.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>8</hatcherDaystoHatch>
+				<hatcherPawn>Kestrel</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Kestrel</defName>
+		<label>Kestrel</label>
+		<race>Kestrel</race>
+		<combatPower>50</combatPower>
+		<ecoSystemWeight>0.7</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Kestrel/Kestrel</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<femaleGraphicData>
+					<texPath>Core/Races/Animals/Kestrel/KestrelFemale</texPath>
+					<drawSize>1.4</drawSize>
+				</femaleGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>1.8</drawSize>
+				</dessicatedBodyGraphicData>
+				<femaleDessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>1.7</drawSize>
+				</femaleDessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Kestrel/Kestrel</texPath>
+					<drawSize>1.8</drawSize>
+				</bodyGraphicData>
+				<femaleGraphicData>
+					<texPath>Core/Races/Animals/Kestrel/KestrelFemale</texPath>
+					<drawSize>1.5</drawSize>
+				</femaleGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>2.2</drawSize>
+				</dessicatedBodyGraphicData>
+				<femaleDessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>1.9</drawSize>
+				</femaleDessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Kestrel/Kestrel</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.4, 0.3)</volume>
+						<offset>(0,0,-0.05)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<femaleGraphicData>
+					<texPath>Core/Races/Animals/Kestrel/KestrelFemale</texPath>
+					<drawSize>1.8</drawSize>
+				</femaleGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+				<femaleDessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Owl/Dessicated_Owl</texPath>
+					<drawSize>2.2</drawSize>
+				</femaleDessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="BigBirdThingBase">
+		<defName>Ibrex</defName>
+		<label>Ibrex</label>
+		<description>A large bird that lives in warm tropical latitudes. It feeds on plant foods and is usually not aggressive.</description>
+		<statBases>
+			<MoveSpeed>5.0</MoveSpeed>
+			<MarketValue>400</MarketValue>
+			<ComfyTemperatureMin>-5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeatAmount>50</MeatAmount>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockIV</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.0)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.0)</westOffset>
+			</li>
+		</modExtensions>
+		<race>
+			<baseBodySize>1.0</baseBodySize>
+			<baseHealthScale>2.0</baseHealthScale>
+			<baseHungerRate>0.45</baseHungerRate>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<wildness>0.60</wildness>
+			<lifeExpectancy>30</lifeExpectancy>
+			<leatherDef>Light_Leather</leatherDef>
+			<useMeatFrom>Chicken</useMeatFrom>
+			<trainability>Intermediate</trainability>
+			<manhunterOnTameFailChance>0.01</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.03</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.1</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2222</minAge>
+				</li>
+			</lifeStageAges>
+		</race>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggIbrexUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggIbrexFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>claws</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>0.62</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>beak</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<armorPenetrationSharp>0.75</armorPenetrationSharp>
+			</li>
+		</tools>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+			<li>AnimalExotic</li>
+		</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="BigBirdKindBase">
+		<defName>Ibrex</defName>
+		<label>Ibrex</label>
+		<race>Ibrex</race>
+		<combatPower>60</combatPower>
+		<ecoSystemWeight>1.0</ecoSystemWeight>
+		<wildGroupSize>1~3</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Ibrex/Ibrex</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Ibrex/Ibrex</texPath>
+					<drawSize>2.5</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.3, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Ibrex/Ibrex</texPath>
+					<drawSize>3</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.4, 0.4, 0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggIbrexUnfertilized</defName>
+		<label>Ibrex egg (unfert.)</label>
+		<description>An unfertilized Ibrex egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>15.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggIbrexFertilized</defName>
+		<label>Ibrex egg (fert.)</label>
+		<description>A fertilized Ibrex egg. If all goes well, it should hatch into a baby Ibrex. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>16.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>12</hatcherDaystoHatch>
+				<hatcherPawn>Ibrex</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BigBirdThingBase">
+		<defName>Rimebeak</defName>
+		<label>Rimebeak</label>
+		<description>A large bird with beautiful and long feathers.</description>
+		<statBases>
+			<MoveSpeed>4.5</MoveSpeed>
+			<MarketValue>500</MarketValue>
+			<ComfyTemperatureMin>-20</ComfyTemperatureMin>
+			<ComfyTemperatureMax>40</ComfyTemperatureMax>
+			<FilthRate>5</FilthRate>
+			<MeatAmount>75</MeatAmount>
+			<ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockIII</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.0)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.0)</westOffset>
+			</li>
+		</modExtensions>
+		<race>
+			<baseBodySize>1.5</baseBodySize>
+			<baseHealthScale>2.0</baseHealthScale>
+			<baseHungerRate>1</baseHungerRate>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<wildness>0.5</wildness>
+			<lifeExpectancy>30</lifeExpectancy>
+			<leatherDef>Light_Leather</leatherDef>
+			<useMeatFrom>Chicken</useMeatFrom>
+			<trainability>Intermediate</trainability>
+			<manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.02</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.1</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2222</minAge>
+				</li>
+			</lifeStageAges>
+		</race>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggUnfertilizedDef>EggRimebeakUnfertilized</eggUnfertilizedDef>
+				<eggFertilizedDef>EggRimebeakFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>1</eggLayIntervalDays>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>claws</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>0.62</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>beak</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<armorPenetrationSharp>0.75</armorPenetrationSharp>
+			</li>
+		</tools>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+			<li>AnimalExotic</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>EggRimebeakUnfertilized</defName>
+		<label>Rimebeak egg (unfert.)</label>
+		<description>An unfertilized rimebeak egg. It can be eaten raw, but it's much, much better cooked.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>12.0</MarketValue>
+		</statBases>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggRimebeakFertilized</defName>
+		<label>Rimebeak egg (fert.)</label>
+		<description>A fertilized rimebeak egg. If all goes well, it should hatch into a baby rimebeak. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(245,245,245)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<Nutrition>0.25</Nutrition>
+			<MarketValue>17.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>10</hatcherDaystoHatch>
+				<hatcherPawn>Rimebeak</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="BigBirdKindBase">
+		<defName>Rimebeak</defName>
+		<label>Rimebeak</label>
+		<race>Rimebeak</race>
+		<combatPower>70</combatPower>
+		<ecoSystemWeight>1.0</ecoSystemWeight>
+		<wildGroupSize>1~3</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Rimebeak/Rimebeak</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Rimebeak/Rimebeak</texPath>
+					<drawSize>2.5</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.3, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Rimebeak/Rimebeak</texPath>
+					<drawSize>3</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.4, 0.4, 0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="BigBirdThingBase">
+		<defName>Penguin</defName>
+		<label>Penguin</label>
+		<description>A large and deceptively clumsy bird that lives on sea ice.</description>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>400</MarketValue>
+			<ComfyTemperatureMin>-70</ComfyTemperatureMin>
+			<ComfyTemperatureMax>20</ComfyTemperatureMax>
+			<FilthRate>3</FilthRate>
+			<MeatAmount>70</MeatAmount>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockII</tameResearchRequired>
+			</li>
+		</modExtensions>
+		<race>
+			<herdAnimal>true</herdAnimal>
+			<baseBodySize>1.5</baseBodySize>
+			<baseHealthScale>1.5</baseHealthScale>
+			<baseHungerRate>0.5</baseHungerRate>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<wildness>0.3</wildness>
+			<nuzzleMtbHours>12</nuzzleMtbHours>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>15</lifeExpectancy>
+			<packAnimal>false</packAnimal>
+			<leatherDef>Light_Leather</leatherDef>
+			<useMeatFrom>Chicken</useMeatFrom>
+			<trainability>Intermediate</trainability>
+			<manhunterOnTameFailChance>0.01</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.03</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.1</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2222</minAge>
+				</li>
+			</lifeStageAges>
+		</race>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggPenguinFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>3</eggFertilizationCountMax>
+				<eggLayIntervalDays>12</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~3</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>claws</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.2</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>0.62</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>beak</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+			<li>AnimalExotic</li>
+		</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="BigBirdKindBase">
+		<defName>Penguin</defName>
+		<label>Penguin</label>
+		<race>Penguin</race>
+		<combatPower>85</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<wildGroupSize>2~8</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Penguin/Penguin</texPath>
+					<drawSize>1</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>1</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Penguin/Penguin</texPath>
+					<drawSize>1.2</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.3, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>1.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Penguin/Penguin</texPath>
+					<drawSize>1.5</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.4, 0.4, 0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>1.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggPenguinFertilized</defName>
+		<label>Penguin egg (fert.)</label>
+		<description>A fertilized penguin egg.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>15.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Penguin</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BigBirdThingBase">
+		<defName>RedBilledPenguin</defName>
+		<label>Red-billed penguin</label>
+		<description>A large and deceptively clumsy bird that lives on sea ice.</description>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>500</MarketValue>
+			<ComfyTemperatureMin>-70</ComfyTemperatureMin>
+			<ComfyTemperatureMax>20</ComfyTemperatureMax>
+			<FilthRate>3</FilthRate>
+			<MeatAmount>80</MeatAmount>
+			<ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.08</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockII</tameResearchRequired>
+			</li>
+		</modExtensions>
+		<race>
+			<herdAnimal>true</herdAnimal>
+			<baseBodySize>1.5</baseBodySize>
+			<baseHealthScale>1.5</baseHealthScale>
+			<baseHungerRate>0.6</baseHungerRate>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<wildness>0.3</wildness>
+			<nuzzleMtbHours>12</nuzzleMtbHours>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>15</lifeExpectancy>
+			<packAnimal>false</packAnimal>
+			<leatherDef>Light_Leather</leatherDef>
+			<useMeatFrom>Chicken</useMeatFrom>
+			<trainability>Intermediate</trainability>
+			<manhunterOnTameFailChance>0.01</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.03</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.1</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2222</minAge>
+				</li>
+			</lifeStageAges>
+		</race>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggRedBilledPenguinFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>3</eggFertilizationCountMax>
+				<eggLayIntervalDays>14</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~4</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>claws</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.2</armorPenetrationSharp>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>0.62</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>beak</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+			<li>AnimalExotic</li>
+		</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="BigBirdKindBase">
+		<defName>RedBilledPenguin</defName>
+		<label>Red-billed penguin</label>
+		<race>RedBilledPenguin</race>
+		<combatPower>85</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<wildGroupSize>2~8</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/RedBilledPenguin/RedBilledPenguin</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>1.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/RedBilledPenguin/RedBilledPenguin</texPath>
+					<drawSize>1.75</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.3, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>1.75</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/RedBilledPenguin/RedBilledPenguin</texPath>
+					<drawSize>2</drawSize>
+					<shaderType>CutoutComplex</shaderType>
+					<shadowData>
+						<volume>(0.4, 0.4, 0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Cassowary/Dessicated_Cassowary_east</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggRedBilledPenguinFertilized</defName>
+		<label>Red-billed penguin egg (fert.)</label>
+		<description>A fertilized red-billed penguin egg.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>17.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>RedBilledPenguin</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BigBirdThingBase">
+		<defName>Dodo</defName>
+		<label>Dodo</label>
+		<description>A large bird with a peaceful character, revived by genetic engineering.</description>
+		<statBases>
+			<MoveSpeed>4.0</MoveSpeed>
+			<MarketValue>500</MarketValue>
+			<ComfyTemperatureMin>0</ComfyTemperatureMin>
+			<ComfyTemperatureMax>40</ComfyTemperatureMax>
+			<FilthRate>3</FilthRate>
+			<CaravanRidingSpeedFactor>1</CaravanRidingSpeedFactor>
+			<MeatAmount>60</MeatAmount>
+			<ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0</ArmorRating_Sharp>
+		</statBases>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>LivestockI</tameResearchRequired>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.4)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.4)</westOffset>
+			</li>
+		</modExtensions>
+		<race>
+			<herdAnimal>true</herdAnimal>
+			<baseBodySize>1.0</baseBodySize>
+			<baseHealthScale>1.0</baseHealthScale>
+			<baseHungerRate>0.35</baseHungerRate>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<wildness>0.60</wildness>
+			<nuzzleMtbHours>12</nuzzleMtbHours>
+			<mateMtbHours>8</mateMtbHours>
+			<lifeExpectancy>10</lifeExpectancy>
+			<packAnimal>false</packAnimal>
+			<leatherDef>Thick_Leather</leatherDef>
+			<useMeatFrom>Chicken</useMeatFrom>
+			<trainability>Intermediate</trainability>
+			<manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Chick_Call</soundWounded>
+					<soundDeath>Pawn_Chick_Call</soundDeath>
+					<soundCall>Pawn_Chick_Call</soundCall>
+					<soundAngry>Pawn_Chick_Call</soundAngry>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.1</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2222</minAge>
+				</li>
+			</lifeStageAges>
+		</race>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggDodoFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>5.0</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>0.62</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+		</tools>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+			<li>AnimalExotic</li>
+		</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="BigBirdKindBase">
+		<defName>Dodo</defName>
+		<label>Dodo</label>
+		<race>Dodo</race>
+		<combatPower>85</combatPower>
+		<ecoSystemWeight>1.1</ecoSystemWeight>
+		<wildGroupSize>2~4</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dodo/Dodo</texPath>
+					<drawSize>1</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dodo/Dessicated_Dodo</texPath>
+					<drawSize>1</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dodo/Dodo</texPath>
+					<drawSize>1.25</drawSize>
+					<shadowData>
+						<volume>(0.3, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dodo/Dessicated_Dodo</texPath>
+					<drawSize>1.25</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dodo/Dodo</texPath>
+					<drawSize>1.5</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.4, 0.4)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dodo/Dessicated_Dodo</texPath>
+					<drawSize>1.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Recipes.DefModExtension_RecipeMakeGeneticPrint"/>
+		</modExtensions>
+	</PawnKindDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggDodoFertilized</defName>
+		<label>Dodo egg (fert.)</label>
+		<description>A fertilized dodo egg.</description>
+		<graphicData>
+			<color>(228,185,135)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>10.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>3.5</hatcherDaystoHatch>
+				<hatcherPawn>Dodo</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

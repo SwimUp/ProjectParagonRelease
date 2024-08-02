@@ -123,7 +123,7 @@
 			<SimpleElectronic>10</SimpleElectronic>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
-		<fillPercent>0.5</fillPercent>
+		<fillPercent>1</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
 			<WorkToBuild>18000</WorkToBuild>
@@ -158,6 +158,10 @@
 						<pipeTypeDef>Nitrogen</pipeTypeDef>
 						<baseCount>10</baseCount>
 					</li>
+					<!--<li>
+						<pipeTypeDef>CarbonDioxide</pipeTypeDef>
+						<baseCount>10</baseCount>
+					</li>-->
 				</processResult>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
@@ -182,6 +186,17 @@
 				<drawStorageOverlay>true</drawStorageOverlay>
 				<barOffset>(-1, 0, 0)</barOffset>
 			</li>
+			<!--<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>500</capacity>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<pipeTypeDef>CarbonDioxide</pipeTypeDef>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<barOffset>(-1, 0, 0)</barOffset>
+			</li>-->
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
@@ -230,6 +245,7 @@
 		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
 		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
 		<interactionCellIcon isNull="true"/>
+		<fillPercent>1.0</fillPercent>
 		<researchPrerequisites>
 			<li>GasIndustryIII</li>
 		</researchPrerequisites>
@@ -311,6 +327,26 @@
 									</thingDefs>
 								</thingFilter>
 								<requiredCount>25</requiredCount>
+							</li>
+						</ingredients>
+					</li>
+					<li>
+						<outStorageTag>OutStorage</outStorageTag>
+						<pipeTypeDef>CarbonDioxide</pipeTypeDef>
+						<reqResearch>MolecularSynthesis</reqResearch>
+						<progressPerDay>8</progressPerDay>
+						<resultCount>50</resultCount>
+						<ingredients>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
+								<waterRequired>50</waterRequired>
+							</li>
+							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Thing">
+								<thingFilter>
+									<thingDefs>
+										<li>Coal</li>
+									</thingDefs>
+								</thingFilter>
+								<requiredCount>50</requiredCount>
 							</li>
 						</ingredients>
 					</li>
@@ -448,6 +484,7 @@
 					<li>FuelGas</li>
 					<li>Diesel</li>
 					<li>RocketFuel</li>
+					<li>CarbonDioxide</li>
 					<li>Hydrogen</li>
 				</pipeTypeDefsWhitelist>
 				<capacity>500</capacity>

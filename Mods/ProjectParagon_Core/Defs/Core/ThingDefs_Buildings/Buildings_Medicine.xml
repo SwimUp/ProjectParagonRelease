@@ -290,11 +290,11 @@
 				<capMods>
 					<li>
 						<capacity>Consciousness</capacity>
-						<offset>0.1</offset>
+						<offset>0.05</offset>
 					</li>
 					<li>
 						<capacity>Breathing</capacity>
-						<offset>0.25</offset>
+						<offset>0.2</offset>
 					</li>
 				</capMods>
 			</li>
@@ -359,6 +359,225 @@
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 		</placeWorkers>
 		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<uiIconScale>0.85</uiIconScale>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>LifeSupportApparatus</defName>
+		<label>Life support apparatus</label>
+		<description>A device for maintaining the patient’s vital signs.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_LifeSupportApparatus</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/LifeSupportApparatus/LifeSupportApparatus</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(1.55,1.55)</drawSize>
+			<drawOffset>0,0,0</drawOffset>
+		</graphicData>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories inherit="false">
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<staticSunShadowHeight>0.15</staticSunShadowHeight>
+		<size>1,1</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<rotatable>true</rotatable>
+		<fillPercent>0.5</fillPercent>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<WorkToBuild>25000</WorkToBuild>
+			<Mass>15</Mass>
+		</statBases>
+		<researchPrerequisites>
+			<li>TechnologicalMedicine</li>
+		</researchPrerequisites>
+		<pathCost>42</pathCost>
+		<receivesSignals>true</receivesSignals>
+		<blockWind>true</blockWind>
+		<passability>PassThroughOnly</passability>
+		<designatorDropdown>Medicine_MedicalWard</designatorDropdown>
+		<designationCategory>Medicine</designationCategory>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<Nanoelectronics>2</Nanoelectronics>
+			<ComponentSpacer>4</ComponentSpacer>
+			<Supermagnet>50</Supermagnet>
+			<Plastic>75</Plastic>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>250</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Facility">
+				<maxSimultaneous>1</maxSimultaneous>
+				<mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+			</li>
+		</comps>
+	</ThingDef>
+	<HediffDef ParentName="InfectionBase">
+		<defName>LifeSupportApparatus</defName>
+		<label>Life support apparatus</label>
+		<description>The effect of a life support apparatus on the body.</description>
+		<defaultLabelColor>(0.6, 0.6, 1.0)</defaultLabelColor>
+		<initialSeverity>0.001</initialSeverity>
+		<maxSeverity>1</maxSeverity>
+		<tendable>false</tendable>
+		<makesSickThought>false</makesSickThought>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-60</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.1</offset>
+					</li>
+					<li>
+						<capacity>Breathing</capacity>
+						<offset>0.25</offset>
+					</li>
+					<li>
+						<capacity>BloodFiltration</capacity>
+						<offset>0.25</offset>
+					</li>
+					<li>
+						<capacity>BloodPumping</capacity>
+						<offset>0.25</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>HologramVitalSigns</defName>
+		<label>Hologram of vital signs</label>
+		<description>A technological device for projecting medical information about a patient.</description>
+		<graphicData>
+			<texPath>Core/Buildings/HologramVitalSigns/HologramVitalSigns</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(3,3)</drawSize>
+			<drawOffset>0,0,0.12</drawOffset>
+		</graphicData>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<researchPrerequisites>
+			<li>TechnologicalMedicine</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.2</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>35000</WorkToBuild>
+			<Mass>20</Mass>
+			<Flammability>0.7</Flammability>
+		</statBases>
+		<size>(2,1)</size>
+		<costList>
+			<Nanoelectronics>4</Nanoelectronics>
+			<BulletproofGlass>25</BulletproofGlass>
+			<Plastic>75</Plastic>
+		</costList>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designatorDropdown>Medicine_MedicalWard</designatorDropdown>
+		<designationCategory>Medicine</designationCategory>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>250</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<MedicalTendQualityOffset>0.1</MedicalTendQualityOffset>
+					<ImmunityGainSpeedFactor>0.05</ImmunityGainSpeedFactor>
+					<!--<SurgerySuccessChanceFactor>0.05</SurgerySuccessChanceFactor>-->
+				</statOffsets>
+				<maxSimultaneous>1</maxSimultaneous>
+				<mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>HologramMedicalComputer</defName>
+		<label>Hologram medical computer</label>
+		<description>A device for analyzing the state of the body, making operations and treatment more productive.</description>
+		<graphicData>
+			<texPath>Core/Buildings/HologramMedicalComputer/HologramMedicalComputer</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>1.95,1.95</drawSize>
+			<drawOffset>0,0,0.2</drawOffset>
+		</graphicData>
+		<staticSunShadowHeight>0.15</staticSunShadowHeight>
+		<researchPrerequisites>
+			<li>TechnologicalMedicine</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.2</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>40000</WorkToBuild>
+			<Mass>20</Mass>
+			<Flammability>0.7</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<costList>
+			<Nanoelectronics>4</Nanoelectronics>
+			<Biosynthetics>50</Biosynthetics>
+			<Plastic>100</Plastic>
+		</costList>
+		<rotatable>true</rotatable>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<designatorDropdown>Medicine_MedicalWard</designatorDropdown>
+		<designationCategory>Medicine</designationCategory>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>250</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Facility">
+				<statOffsets>
+					<MedicalTendQualityOffset>0.1</MedicalTendQualityOffset>
+					<SurgerySuccessChanceFactor>0.15</SurgerySuccessChanceFactor>
+				</statOffsets>
+				<maxSimultaneous>1</maxSimultaneous>
+				<mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 		<uiIconScale>0.85</uiIconScale>
 	</ThingDef>
 	<!---->

@@ -35,7 +35,7 @@
 				<li>BlacksmithFurnace</li>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
-				<li>ElectricSmithy</li>
+				<li>ElectricSmithy</li><li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsI</researchPrerequisite>
 			<skillRequirements>
@@ -112,7 +112,7 @@
 			<recipeUsers>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
-				<li>ElectricSmithy</li>
+				<li>ElectricSmithy</li><li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsII</researchPrerequisite>
 			<skillRequirements>
@@ -190,7 +190,7 @@
 				<li>BlacksmithFurnace</li>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
-				<li>ElectricSmithy</li>
+				<li>ElectricSmithy</li><li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsI</researchPrerequisite>
 			<skillRequirements>
@@ -267,7 +267,7 @@
 			<recipeUsers>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
-				<li>ElectricSmithy</li>
+				<li>ElectricSmithy</li><li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsII</researchPrerequisite>
 			<skillRequirements>
@@ -356,7 +356,7 @@
 				<li>BlacksmithFurnace</li>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
-				<li>ElectricSmithy</li>
+				<li>ElectricSmithy</li><li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsI</researchPrerequisite>
 			<skillRequirements>
@@ -444,7 +444,7 @@
 			<recipeUsers>
 				<li>ForgeWithAnvil</li>
 				<li>FueledSmithy</li>
-				<li>ElectricSmithy</li>
+				<li>ElectricSmithy</li><li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsII</researchPrerequisite>
 			<skillRequirements>
@@ -533,7 +533,7 @@
 		</costList>
 		<recipeMaker>
 			<recipeUsers>
-				<li>ElectricSmithy</li>
+				<li>ElectricSmithy</li><li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsIII</researchPrerequisite>
 			<skillRequirements>
@@ -610,7 +610,7 @@
 		</costList>
 		<recipeMaker>
 			<recipeUsers>
-				<li>ElectricSmithy</li>
+				<li>ElectricSmithy</li><li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 			<researchPrerequisite>InstrumentsIII</researchPrerequisite>
 			<skillRequirements>
@@ -649,6 +649,84 @@
 		<comps>
 			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
 				<subWeaponSpecialization>LightHammers</subWeaponSpecialization>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="FightSystem_Dagger">
+		<defName>WorkingLaserManipulator</defName>
+		<label>Working laser manipulator</label>
+		<description>A universal working tool for advanced civilizations, capable of transforming into a set of projected tools to assist in work.</description>
+		<graphicData>
+			<texPath>Core/Weapons/Melee/WorkingLaserManipulator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<statBases>
+			<WorkToMake>20000</WorkToMake>
+			<Mass>0.5</Mass>
+			<Bulk>1</Bulk>
+			<MeleeCounterParryBonus>1</MeleeCounterParryBonus>
+		</statBases>
+		<equippedStatOffsets>
+			<MiningSpeed>0.75</MiningSpeed>
+			<PlantHarvestYield>0.25</PlantHarvestYield>
+			<PlantWorkSpeed>0.75</PlantWorkSpeed>
+			<ConstructionSpeed>0.75</ConstructionSpeed>
+			<ConstructSuccessChance>0.25</ConstructSuccessChance>
+			<GeneralLaborSpeed>0.25</GeneralLaborSpeed>
+			<MeleeCritChance>0.2</MeleeCritChance>
+			<MeleeParryChance>0.2</MeleeParryChance>
+			<MeleeDodgeChance>0.2</MeleeDodgeChance>
+		</equippedStatOffsets>
+		<costList>
+			<Plastic>75</Plastic>
+			<ComponentSpacer>4</ComponentSpacer>
+			<Nanoelectronics>1</Nanoelectronics>
+			<Supermagnet>10</Supermagnet>
+		</costList>
+		<recipeMaker>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+			<researchPrerequisite>InstrumentsIV</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<weaponTags>
+			<li>IndustrialMelee</li>
+			<li>IndustrialMeleeDaggers</li>
+		</weaponTags>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>handle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>1.29</cooldownTime>
+				<chanceFactor>0.05</chanceFactor>
+				<armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>1.25</cooldownTime>
+				<chanceFactor>0.85</chanceFactor>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Daggers</subWeaponSpecialization>
 			</li>
 		</comps>
 	</ThingDef>
