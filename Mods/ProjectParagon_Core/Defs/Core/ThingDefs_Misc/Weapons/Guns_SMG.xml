@@ -3302,7 +3302,8 @@ In 1999, Heckler and Koch developed the Heckler and Koch UMP, the MP5's successo
 				<Crafting>20</Crafting>
 			</skillRequirements>
 			<recipeUsers Inherit="false">
-				<li>WeaponWorkbench</li><li>RoboticEquipmentWorkbench</li>
+				<li>WeaponWorkbench</li>
+				<li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 		</recipeMaker>
 		<weaponTags>
@@ -3376,6 +3377,124 @@ In 1999, Heckler and Koch developed the Heckler and Koch UMP, the MP5's successo
 			<li Class="CombatExtended.GunDrawExtension">
 				<DrawSize>1.0,1.0</DrawSize>
 				<DrawOffset>0.0,0.03</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>DV_PulseSMG</defName>
+		<label>SPG-1 (Prototype)</label>
+		<description>A prototype submachine gun with a special booster that provides additional momentum, increasing the initial speed of the bullet.</description>
+		<graphicData>
+			<texPath>Things/WeaponRanged/PulseSMG</texPath>
+			<drawSize>1.05</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>2.25</Mass>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.7</SightsEfficiency>
+			<ShotSpread>0.1</ShotSpread>
+			<SwayFactor>0.92</SwayFactor>
+			<Bulk>5.0</Bulk>
+			<WorkToMake>22000</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>25</magazineSize>
+				<reloadTime>2.5</reloadTime>
+				<ammoSet>AmmoSet_300AACBlackoutPulsed</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SMG</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>13</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<HiTechWeaponComponents>10</HiTechWeaponComponents>
+			<MechanismSpacer>10</MechanismSpacer>
+			<ComponentIndustrial>6</ComponentIndustrial>
+			<Plastic>50</Plastic>
+			<Polymers>40</Polymers>
+			<Microelectronics>4</Microelectronics>
+		</costList>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_SMG</li>
+			<li>Weapon_AssaultRifle_TierVII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.98</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_300AACBlackout_FMJ_Pulsed</defaultProjectile>
+				<warmupTime>0.6</warmupTime>
+				<burstShotCount>5</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<range>65</range>
+				<soundCast>Shot_PulseLight</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
 			</li>
 		</modExtensions>
 	</ThingDef>

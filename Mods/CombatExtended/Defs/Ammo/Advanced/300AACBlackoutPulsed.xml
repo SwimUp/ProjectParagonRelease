@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingCategoryDef>
+		<defName>Ammo300AACBlackoutPulsed</defName>
+		<label>.300 AAC Blackout (Pulsed)</label>
+		<parent>AmmoRifles</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_300AACBlackoutPulsed</defName>
+		<label>.300 AAC Blackout (Pulsed)</label>
+		<ammoTypes>
+			<Ammo_300AACBlackout_FMJ_Pulsed>Bullet_300AACBlackout_FMJ_Pulsed</Ammo_300AACBlackout_FMJ_Pulsed>
+			<Ammo_300AACBlackout_AP_Pulsed>Bullet_300AACBlackout_AP_Pulsed</Ammo_300AACBlackout_AP_Pulsed>
+			<Ammo_300AACBlackout_HP_Pulsed>Bullet_300AACBlackout_HP_Pulsed</Ammo_300AACBlackout_HP_Pulsed>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" Name="300AACBlackoutPulsedBase" ParentName="SmallAmmoBase" Abstract="True">
+		<description>Intermediate rifle cartridge that was designed to achieve ballistics similar to 7.62x39mm. This type is made of special materials that increase its strength, and also for interaction with the weapon's acceleration unit.</description>
+		<statBases>
+			<Mass>0.018</Mass>
+			<Bulk>0.02</Bulk>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo300AACBlackoutPulsed</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="300AACBlackoutPulsedBase">
+		<defName>Ammo_300AACBlackout_FMJ_Pulsed</defName>
+		<label>.300 AAC Blackout cartridge (FMJ) (Pulsed)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Rifle/FMJ</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.06</MarketValue>
+		</statBases>
+		<ammoClass>FullMetalJacket</ammoClass>
+		<cookOffProjectile>Bullet_300AACBlackout_FMJ_Pulsed</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="300AACBlackoutPulsedBase">
+		<defName>Ammo_300AACBlackout_AP_Pulsed</defName>
+		<label>.300 AAC Blackout cartridge (AP) (Pulsed)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Rifle/AP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.06</MarketValue>
+		</statBases>
+		<ammoClass>ArmorPiercing</ammoClass>
+		<cookOffProjectile>Bullet_300AACBlackout_AP_Pulsed</cookOffProjectile>
+	</ThingDef>
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="300AACBlackoutPulsedBase">
+		<defName>Ammo_300AACBlackout_HP_Pulsed</defName>
+		<label>.300 AAC Blackout cartridge (HP) (Pulsed)</label>
+		<graphicData>
+			<texPath>Things/Ammo/Rifle/HP</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.06</MarketValue>
+		</statBases>
+		<ammoClass>HollowPoint</ammoClass>
+		<cookOffProjectile>Bullet_300AACBlackout_HP_Pulsed</cookOffProjectile>
+	</ThingDef>
+	<!-- ================== Projectiles ================== -->
+
+	<ThingDef Name="Base300AACBlackoutPulsedBullet" ParentName="BaseBullet" Abstract="true">
+		<thingClass>ProjectParagon.Core.Things.BulletCEParagon</thingClass>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Small</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="ProjectParagon.Core.Things.ProjectilePropertiesCEParagon">
+			<damageDef>Bullet</damageDef>
+			<speed>190</speed>
+			<dropsCasings>true</dropsCasings>
+			<impactMoteDef>PulseBulletImpact</impactMoteDef>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base300AACBlackoutPulsedBullet">
+		<defName>Bullet_300AACBlackout_FMJ_Pulsed</defName>
+		<label>.300 AAC Blackout bullet (FMJ) (Pulsed)</label>
+		<projectile Class="ProjectParagon.Core.Things.ProjectilePropertiesCEParagon">
+			<damageAmountBase>18</damageAmountBase>
+			<armorPenetrationSharp>9.5</armorPenetrationSharp>
+			<armorPenetrationBlunt>55</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base300AACBlackoutPulsedBullet">
+		<defName>Bullet_300AACBlackout_AP_Pulsed</defName>
+		<label>.300 AAC Blackout bullet (AP) (Pulsed)</label>
+		<projectile Class="ProjectParagon.Core.Things.ProjectilePropertiesCEParagon">
+			<damageAmountBase>10</damageAmountBase>
+			<armorPenetrationSharp>14</armorPenetrationSharp>
+			<armorPenetrationBlunt>55</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base300AACBlackoutPulsedBullet">
+		<defName>Bullet_300AACBlackout_HP_Pulsed</defName>
+		<label>.300 AAC Blackout bullet (HP) (Pulsed)</label>
+		<projectile Class="ProjectParagon.Core.Things.ProjectilePropertiesCEParagon">
+			<damageAmountBase>23</damageAmountBase>
+			<armorPenetrationSharp>6</armorPenetrationSharp>
+			<armorPenetrationBlunt>55</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_300AACBlackout_FMJ_Pulsed</defName>
+		<label>make .300 AAC Blackout (FMJ) cartridge x500</label>
+		<description>Craft 500 .300 AAC Blackout (FMJ) cartridges.</description>
+		<jobString>Making .300 AAC Blackout (FMJ) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TungstenIngot</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>82</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>TungstenIngot</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_300AACBlackout_FMJ_Pulsed>150</Ammo_300AACBlackout_FMJ_Pulsed>
+		</products>
+		<workAmount>1400</workAmount>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>ChargedShot</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_300AACBlackout_AP_Pulsed</defName>
+		<label>make .300 AAC Blackout (AP) cartridge x500</label>
+		<description>Craft 500 .300 AAC Blackout (AP) cartridges.</description>
+		<jobString>Making .300 AAC Blackout (AP) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TungstenIngot</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>82</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>TungstenIngot</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_300AACBlackout_AP_Pulsed>100</Ammo_300AACBlackout_AP_Pulsed>
+		</products>
+		<workAmount>1680</workAmount>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>ChargedShot</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_300AACBlackout_HP_Pulsed</defName>
+		<label>make .300 AAC Blackout (HP) cartridge x500</label>
+		<description>Craft 500 .300 AAC Blackout (HP) cartridges.</description>
+		<jobString>Making .300 AAC Blackout (HP) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TungstenIngot</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>72</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>TungstenIngot</li>
+				<li>SmokelessGunpowder</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_300AACBlackout_HP_Pulsed>100</Ammo_300AACBlackout_HP_Pulsed>
+		</products>
+		<workAmount>1400</workAmount>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>ChargedShot</researchPrerequisite>
+	</RecipeDef>
+
+</Defs>

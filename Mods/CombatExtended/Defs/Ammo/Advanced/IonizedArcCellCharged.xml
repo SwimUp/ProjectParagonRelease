@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingCategoryDef>
+		<defName>AmmoIonizedArcCellCharged</defName>
+		<label>Ionized Arc cell Charged</label>
+		<parent>AmmoAdvanced</parent>
+		<iconPath>Things/CEBullets/Eltex/EltexBullet_c</iconPath>
+	</ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_IonizedArcCellCharged</defName>
+		<label>Ionized Arc cell Charged</label>
+		<ammoTypes>
+			<Ammo_IonizedArcCellCharged>Bullet_IonizedArcCellCharged</Ammo_IonizedArcCellCharged>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="IonizedArcCellChargedBase" ParentName="SpacerSmallAmmoBase" Abstract="True">
+		<description>A capsule with a converter storing an arc charge, with an additional ion converter. Used in energy weapons as a source of energy. Extremely expensive to produce, but due to its structure it is a universal ammunition. Due to the ion charge it has excellent penetrating power, but extremely low stopping power, as a result of which the effect on the enemy's body decreases.</description>
+		<statBases>
+			<Mass>0.016</Mass>
+			<Bulk>0.03</Bulk>
+		</statBases>
+		<thingCategories>
+			<li>AmmoIonizedArcCellCharged</li>
+		</thingCategories>
+		<tradeTags>
+			<li>CE_AutoEnableTrade_Sellable</li>
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">CE_AutoEnableCrafting_FabricationBench</li> -->
+		</tradeTags>
+		<stackLimit>500</stackLimit>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="ArcCellChargedBase">
+		<defName>Ammo_IonizedArcCellCharged</defName>
+		<label>Ionized Arc cell Charged cartridge</label>
+		<graphicData>
+			<texPath>Things/CEBullets/Eltex</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.36</MarketValue>
+		</statBases>
+		<ammoClass>Charged</ammoClass>
+	</ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="BaseIonizedArcCellChargedBullet" ParentName="BaseBullet">
+		<defName>Bullet_IonizedArcCellCharged</defName>
+		<label>Ionized Arc cell Charged bullet</label>
+		<graphicData>
+			<texPath>Projectiles/EltexShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>0.60</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+		    <damageDef>Bullet</damageDef>
+			<secondaryDamage>
+				<li>
+					<def>Cut</def>
+					<amount>10</amount>
+				</li>
+				<li>
+					<def>EMP</def>
+					<amount>4</amount>
+				</li>
+			</secondaryDamage>
+			<speed>200</speed>	
+			<damageAmountBase>9</damageAmountBase>
+			<armorPenetrationSharp>26</armorPenetrationSharp>
+			<armorPenetrationBlunt>10</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+	
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="ChargeAmmoRecipeBase">
+		<defName>MakeAmmo_IonizedArcCellCharged</defName>
+		<label>make arc cell Charged cartridge x500</label>
+		<description>Craft 500 arc cell Charged cartridges.</description>
+		<jobString>Making arc cell Charged cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>NitricAcid</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>HydrochloricAcid</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SulphuricAcid</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>UraniumPowder</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>MagnesiumIngot</li>
+				<li>NitricAcid</li>
+				<li>HydrochloricAcid</li>
+				<li>SulphuricAcid</li>
+				<li>UraniumPowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_IonizedArcCellCharged>150</Ammo_IonizedArcCellCharged>
+		</products>
+		<workAmount>3300</workAmount>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>13</Crafting>
+		</skillRequirements>
+		<researchPrerequisite>ChargedShot</researchPrerequisite>
+	</RecipeDef>
+</Defs>

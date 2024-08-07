@@ -3,6 +3,19 @@
 	<Operation Class="PatchOperationSequence">
 		<success>Normal</success>
 		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="BookBase"]</xpath>
+				<value>
+					<tradeTags>
+						<li>ScientificComplex_Medieval</li>
+						<li>ScientificComplex_Industrial</li>
+						<li>ScientificComplex_Spacer</li>
+						<li>ScientificComplex_Ultra</li>
+						<li>ScientificComplex_Archotech</li>
+						<li>Artifact</li>
+					</tradeTags>
+				</value>
+			</li>
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="TextBook"]</xpath>
 				<value>
@@ -20,6 +33,7 @@
 						<statBases>
 							<MarketValue>200</MarketValue>
 						</statBases>
+						<techLevel>Medieval</techLevel>
 						<comps>
 							<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
 								<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
@@ -40,6 +54,10 @@
 								<doers>
 									<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainSkillExpParagon"/>
 								</doers>
+							</li>
+							<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+								<commonality>25</commonality>
+								<forceCount>1</forceCount>
 							</li>
 						</comps>
 					</ThingDef>
@@ -62,6 +80,7 @@
 						<statBases>
 							<MarketValue>250</MarketValue>
 						</statBases>
+						<techLevel>Medieval</techLevel>
 						<comps>
 							<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
 								<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
@@ -80,17 +99,13 @@
 									<addTopAltitudeBias>true</addTopAltitudeBias>
 								</verticalGraphic>
 								<doers>
-									<li Class="BookOutcomeProperties_GainResearch">
-										<tabs>
-											<Main/>
-										</tabs>
-										<exclude>
-											<BasicMechtech MayRequire="Ludeon.RimWorld.Biotech"/>
-											<StandardMechtech MayRequire="Ludeon.RimWorld.Biotech"/>
-											<HighMechtech MayRequire="Ludeon.RimWorld.Biotech"/>
-										</exclude>
+									<li Class="ProjectParagon.Core.Things.BookOutcomeProperties_GainResearchParagon">
 									</li>
 								</doers>
+							</li>
+							<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+								<commonality>25</commonality>
+								<forceCount>1</forceCount>
 							</li>
 						</comps>
 					</ThingDef>
@@ -113,6 +128,7 @@
 						<statBases>
 							<MarketValue>200</MarketValue>
 						</statBases>
+						<techLevel>Medieval</techLevel>
 						<comps>
 							<li Class="ProjectParagon.Core.Things.CompProperties_BookParagon">
 								<compClass>ProjectParagon.Core.Things.CompBookParagon</compClass>
@@ -133,6 +149,10 @@
 								<doers>
 									<li Class="BookOutcomeProperties_JoyFactorModifier"/>
 								</doers>
+							</li>
+							<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+								<commonality>25</commonality>
+								<forceCount>1</forceCount>
 							</li>
 						</comps>
 					</ThingDef>

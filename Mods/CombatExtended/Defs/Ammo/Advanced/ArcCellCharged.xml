@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingCategoryDef>
+		<defName>AmmoArcCellCharged</defName>
+		<label>Arc cell Charged</label>
+		<parent>AmmoAdvanced</parent>
+		<iconPath>Things/CEBullets/Eltex/EltexBullet_c</iconPath>
+	</ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_ArcCellCharged</defName>
+		<label>Arc cell Charged</label>
+		<ammoTypes>
+			<Ammo_ArcCellCharged>Bullet_ArcCellCharged</Ammo_ArcCellCharged>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="ArcCellChargedBase" ParentName="SpacerSmallAmmoBase" Abstract="True">
+		<description>A capsule with a converter that stores an arc charge. It is used in energy weapons as a source of energy. Due to its structure, it is a universal ammunition.</description>
+		<statBases>
+			<Mass>0.015</Mass>
+			<Bulk>0.02</Bulk>
+		</statBases>
+		<thingCategories>
+			<li>AmmoArcCellCharged</li>
+		</thingCategories>
+		<tradeTags>
+			<li>CE_AutoEnableTrade_Sellable</li>
+			<!-- <li MayRequire="Ludeon.RimWorld.Biotech">CE_AutoEnableCrafting_FabricationBench</li> -->
+		</tradeTags>
+		<stackLimit>500</stackLimit>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="ArcCellChargedBase">
+		<defName>Ammo_ArcCellCharged</defName>
+		<label>Arc cell Charged cartridge</label>
+		<graphicData>
+			<texPath>Things/CEBullets/Eltex</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>0.36</MarketValue>
+		</statBases>
+		<ammoClass>Charged</ammoClass>
+	</ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="BaseArcCellChargedBullet" ParentName="BaseBullet">
+		<defName>Bullet_ArcCellCharged</defName>
+		<label>Arc cell Charged bullet</label>
+		<graphicData>
+			<texPath>Projectiles/EltexShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>0.60</drawSize>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+		    <damageDef>Bullet</damageDef>
+			<secondaryDamage>
+				<li>
+					<def>Cut</def>
+					<amount>4</amount>
+				</li>
+			</secondaryDamage>
+			<speed>200</speed>	
+			<damageAmountBase>24</damageAmountBase>
+			<armorPenetrationSharp>17</armorPenetrationSharp>
+			<armorPenetrationBlunt>150</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+	
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="ChargeAmmoRecipeBase">
+		<defName>MakeAmmo_ArcCellCharged</defName>
+		<label>make arc cell Charged cartridge x500</label>
+		<description>Craft 500 arc cell Charged cartridges.</description>
+		<jobString>Making arc cell Charged cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>NitricAcid</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>UraniumPowder</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>NitricAcid</li>
+				<li>UraniumPowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_ArcCellCharged>150</Ammo_ArcCellCharged>
+		</products>
+		<workAmount>2600</workAmount>
+		<skillRequirements>
+			<Crafting>10</Crafting>
+		</skillRequirements>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>ChargedShot</researchPrerequisite>
+	</RecipeDef>
+</Defs>

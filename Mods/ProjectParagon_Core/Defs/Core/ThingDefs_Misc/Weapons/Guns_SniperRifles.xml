@@ -1776,4 +1776,116 @@ The official military designation for the rifle is C14 Timberwolf Medium Range S
 			</li>
 		</modExtensions>
 	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>EW_Gun_EltexLance</defName>
+		<label>Energystic Lance X-1</label>
+		<description>Energystic Lance X-1 is a development in the field of energy weapons, designed to create a model of a sniper rifle based on energy. Classic arc-charge ammunition turned out to be ineffective, so a special type of ammunition was developed specifically for it to defeat well-protected targets.</description>
+		<graphicData>
+			<texPath>Things/Weapons/EltexLance</texPath>
+			<drawSize>1.2</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>EW_PickUpHeavy</soundInteract>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Mass>6.8</Mass>
+			<RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.0</SightsEfficiency>
+			<ShotSpread>0.04</ShotSpread>
+			<SwayFactor>1.4</SwayFactor>
+			<Bulk>11.00</Bulk>
+			<WorkToMake>55000</WorkToMake>
+		</statBases>
+		<costList>
+			<HiTechWeaponComponents>20</HiTechWeaponComponents>
+			<MechanismSpacer>5</MechanismSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Plastic>50</Plastic>
+			<Polymers>100</Polymers>
+			<SimpleElectronic>10</SimpleElectronic>
+			<Microelectronics>10</Microelectronics>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>3.4</reloadTime>
+				<ammoSet>AmmoSet_IonizedArcCellCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>17</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_IonizedArcCellCharged</defaultProjectile>
+				<warmupTime>1.6</warmupTime>
+				<range>100</range>
+				<soundCast>EW_Shot_Heavy</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
 </Defs>

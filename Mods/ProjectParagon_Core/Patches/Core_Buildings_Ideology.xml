@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Normal</success>
+		<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BiosculpterPod"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>BiosculpterPod</defName>
+						<label>biosculpter pod</label>
+						<description>An immersion pod full of bioactive gel. It can perform a variety of biological alterations including age reversal and pleasure-giving.\n\nThe pod biotunes to its user at the end of a cycle. While biotuned, it cannot be used by anyone else, but cycles will complete 25% more quickly. Biotuning resets if the pod is unused for 80 days.\n\nThe pod consumess 200W of power while working, but only 50W on standby.</description>
+						<containedPawnsSelectable>true</containedPawnsSelectable>
+						<graphicData>
+							<texPath>Things/Building/Misc/BiosculpterPod/BiosculpterPod</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shadowData>
+								<volume>(2.9,0.6,1.9)</volume>
+							</shadowData>
+							<drawSize>(3, 2)</drawSize>
+						</graphicData>
+						<drawerType>RealtimeOnly</drawerType>
+						<drawGUIOverlay>true</drawGUIOverlay>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<researchPrerequisites>
+							<li>Biosculpting</li>
+						</researchPrerequisites>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>PassThroughOnly</passability>
+						<pathCost>42</pathCost>
+						<blockWind>true</blockWind>
+						<fillPercent>0.5</fillPercent>
+						<canOverlapZones>false</canOverlapZones>
+						<statBases>
+							<MaxHitPoints>250</MaxHitPoints>
+							<WorkToBuild>28000</WorkToBuild>
+							<Mass>50</Mass>
+							<Flammability>0.5</Flammability>
+							<BiosculpterPodSpeedFactor>1</BiosculpterPodSpeedFactor>
+							<Beauty>-5</Beauty>
+						</statBases>
+						<size>(3,2)</size>
+						<interactionCellOffset>(0,0,2)</interactionCellOffset>
+						<hasInteractionCell>true</hasInteractionCell>
+						<costList>
+							<MechanismSpacer>4</MechanismSpacer>
+							<Nanoelectronics>2</Nanoelectronics>
+							<Biosynthetics>125</Biosynthetics>
+							<StrongPlates>150</StrongPlates>
+						</costList>
+						<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+							<haulToContainerDuration>120</haulToContainerDuration>
+							<uninstallWork>1800</uninstallWork>
+							<fixedStorageSettings>
+								<filter>
+									<categories>
+										<li>Foods</li>
+									</categories>
+									<specialFiltersToDisallow>
+										<li>AllowPlantFood</li>
+									</specialFiltersToDisallow>
+									<disallowedThingDefs>
+										<li>Hay</li>
+									</disallowedThingDefs>
+								</filter>
+							</fixedStorageSettings>
+							<defaultStorageSettings>
+								<filter>
+									<categories>
+										<li>Foods</li>
+									</categories>
+									<disallowedCategories>
+										<li>EggsFertilized</li>
+									</disallowedCategories>
+									<disallowedThingDefs>
+										<li>InsectJelly</li>
+										<li>MealLavish</li>
+										<li>MealLavish_Veg</li>
+										<li>MealLavish_Meat</li>
+										<li>Chocolate</li>
+										<li MayRequire="Ludeon.RimWorld.Biotech">HemogenPack</li>
+									</disallowedThingDefs>
+								</filter>
+							</defaultStorageSettings>
+						</building>
+						<resourcesFractionWhenDeconstructed>0.25</resourcesFractionWhenDeconstructed>
+						<designationCategory>Ideology</designationCategory>
+						<uiOrder>2500</uiOrder>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<tickerType>Normal</tickerType>
+						<inspectorTabs>
+							<li>ITab_BiosculpterNutritionStorage</li>
+						</inspectorTabs>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>200</basePowerConsumption>
+								<idlePowerDraw>50</idlePowerDraw>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_BiosculpterPod">
+								<enterSound>BiosculpterPod_Enter</enterSound>
+								<exitSound>BiosculpterPod_Exit</exitSound>
+								<operatingEffecter>BiosculpterPod_Operating</operatingEffecter>
+								<readyEffecter>BiosculpterPod_Ready</readyEffecter>
+								<selectCycleColor>(0.321, 1, 0.349)</selectCycleColor>
+								<biotunedCycleSpeedFactor>1.25</biotunedCycleSpeedFactor>
+							</li>
+							<li Class="CompProperties_BiosculpterPod_HealingCycle">
+								<compClass>CompBiosculpterPod_MedicCycle</compClass>
+								<key>medic</key>
+								<label>medic</label>
+								<description>Heal all fresh wounds, blood loss, and one random infectious disease.</description>
+								<iconPath>UI/Gizmos/BiosculpterCycleHealing</iconPath>
+								<durationDays>6</durationDays>
+								<operatingColor>(0.554,0.887,1.000)</operatingColor>
+								<conditionsToPossiblyCure>
+									<li>Malaria</li>
+									<li>SleepingSickness</li>
+									<li>Flu</li>
+									<li>Plague</li>
+									<li>GutWorms</li>
+									<li>MuscleParasites</li>
+									<li>WoundInfection</li>
+								</conditionsToPossiblyCure>
+							</li>
+							<li Class="CompProperties_BiosculpterPod_HealingCycle">
+								<compClass>CompBiosculpterPod_RegenerationCycle</compClass>
+								<key>bioregeneration</key>
+								<label>bioregeneration</label>
+								<description>Heal all fresh wounds, heal one random permanent injury, and restore small missing body parts like fingers and toes.</description>
+								<iconPath>UI/Gizmos/BiosculpterCycleBioregeneration</iconPath>
+								<durationDays>25</durationDays>
+								<operatingColor>(0.554,0.887,1.000)</operatingColor>
+								<extraRequiredIngredients>
+									<MedicineUltratech>2</MedicineUltratech>
+								</extraRequiredIngredients>
+								<requiredResearch>
+									<li>Bioregeneration</li>
+								</requiredResearch>
+								<bodyPartsToRestore>
+									<li>Eye</li>
+									<li>Ear</li>
+									<li>Nose</li>
+									<li>Finger</li>
+									<li>Toe</li>
+									<li>Tongue</li>
+								</bodyPartsToRestore>
+								<conditionsToPossiblyCure>
+									<li>Asthma</li>
+									<li>BadBack</li>
+									<li>Cataract</li>
+									<li>Blindness</li>
+									<li>Frail</li>
+									<li>HearingLoss</li>
+									<li>HeartArteryBlockage</li>
+								</conditionsToPossiblyCure>
+							</li>
+							<li Class="CompProperties_BiosculpterPod_AgeReversalCycle">
+								<key>ageReversal</key>
+								<label>age reversal</label>
+								<description>Reverse {DURATION} of aging.</description>
+								<iconPath>UI/Gizmos/BiosculpterCycleAgeReversal</iconPath>
+								<durationDays>8</durationDays>
+								<gainThoughtOnCompletion>AgeReversalReceived</gainThoughtOnCompletion>
+								<operatingColor>(1.000,0.585,0.158)</operatingColor>
+							</li>
+							<li Class="CompProperties_BiosculpterPod_PleasureCycle">
+								<key>pleasure</key>
+								<label>pleasure</label>
+								<description>Temporarily reshape the nervous system to deliver elevated levels of happiness for a time.</description>
+								<iconPath>UI/Gizmos/BiosculpterCyclePleasure</iconPath>
+								<durationDays>4</durationDays>
+								<operatingColor>(1.000,0.918,0.000)</operatingColor>
+							</li>
+						</comps>
+						<placeWorkers>
+							<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+						</placeWorkers>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="NeuralSupercharger"]</xpath>
+				<value>
+					<ThingDef ParentName="BuildingBase">
+						<defName>NeuralSupercharger</defName>
+						<label>neural supercharger</label>
+						<description>A neuron-sensitizing device that can deliver one neural supercharge each day. A person with a neural supercharge will think and learn faster, but will also consume more food. The effect wears off in one day. Neural superchargers consume a lot of electricity.</description>
+						<graphicData>
+							<texPath>Things/Building/Misc/NeuralSupercharger/NeuralSupercharger</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<shadowData>
+								<volume>(0.85, 0.60, 2.5)</volume>
+							</shadowData>
+							<drawSize>(1.05, 3)</drawSize>
+						</graphicData>
+						<researchPrerequisites>
+							<li>NeuralSupercharger</li>
+						</researchPrerequisites>
+						<altitudeLayer>Building</altitudeLayer>
+						<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+						<passability>PassThroughOnly</passability>
+						<pathCost>42</pathCost>
+						<canOverlapZones>false</canOverlapZones>
+						<fillPercent>0.25</fillPercent>
+						<hasInteractionCell>True</hasInteractionCell>
+						<interactionCellOffset>(0, 0, 2)</interactionCellOffset>
+						<defaultPlacingRot>South</defaultPlacingRot>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>6000</WorkToBuild>
+							<Mass>20</Mass>
+							<Flammability>0.3</Flammability>
+						</statBases>
+						<size>(1, 3)</size>
+						<costList>
+							<Nanoelectronics>1</Nanoelectronics>
+							<Supermagnet>50</Supermagnet>
+							<Biosynthetics>100</Biosynthetics>
+							<StrongPlates>125</StrongPlates>
+						</costList>
+						<building>
+							<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+						</building>
+						<canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+						<designationCategory>Ideology</designationCategory>
+						<uiOrder>2520</uiOrder>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<tickerType>Normal</tickerType>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>CompPowerTrader</compClass>
+								<basePowerConsumption>400</basePowerConsumption>
+							</li>
+							<li Class="CompProperties_Flickable"/>
+							<li Class="CompProperties_NeuralSupercharger">
+								<jobString>Get neural supercharge</jobString>
+								<ticksToRecharge>60000</ticksToRecharge>
+								<effectCharged>NeuralSuperchargerCharged</effectCharged>
+								<chargedSoundDef>NeuralSupercharger_Ready</chargedSoundDef>
+							</li>
+						</comps>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

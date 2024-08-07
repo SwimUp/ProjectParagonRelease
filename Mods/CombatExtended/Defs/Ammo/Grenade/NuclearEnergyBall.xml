@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingCategoryDef>
+		<defName>AmmoNuclearEnergyBall</defName>
+		<label>Nuclear energy ball</label>
+		<parent>AmmoGrenades</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberGrenade</iconPath>
+	</ThingCategoryDef>
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_NuclearEnergyBall</defName>
+		<label>Nuclear energy bal</label>
+		<ammoTypes>
+			<Ammo_NuclearEnergyBall>Bullet_NuclearEnergyBall</Ammo_NuclearEnergyBall>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="NuclearEnergyBallBase" ParentName="AmmoBase" Abstract="True">
+		<description>A plutonium-based projectile that, when struck, causes a short but effective nuclear reaction accompanied by high temperatures.</description>
+		<statBases>
+			<Mass>0.36</Mass>
+			<Bulk>0.28</Bulk>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+		</tradeTags>
+		<thingCategories>
+			<li>AmmoNuclearEnergyBall</li>
+		</thingCategories>
+		<stackLimit>500</stackLimit>
+		<cookOffFlashScale>20</cookOffFlashScale>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="NuclearEnergyBallBase">
+		<defName>Ammo_NuclearEnergyBall</defName>
+		<label>Nuclear energy ball</label>
+		<graphicData>
+			<texPath>Things/Ammo/Mortar/Charged</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>(0.5,0.5)</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>12</MarketValue>
+		</statBases>
+		<ammoClass>Plasma</ammoClass>
+		<detonateProjectile>Bullet_NuclearEnergyBall</detonateProjectile>
+	</ThingDef>
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="BaseNuclearEnergyBallBullet" ParentName="BaseBullet" Abstract="true">
+		<thingClass>CombatExtended.ProjectileCE_Explosive</thingClass>
+		<graphicData>
+			<texPath>Things/Projectiles/CombineBall</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<speed>55</speed>
+			<flyOverhead>false</flyOverhead>
+		</projectile>
+	</ThingDef>
+	<ThingDef ParentName="BaseNuclearEnergyBallBullet">
+		<defName>Bullet_NuclearEnergyBall</defName>
+		<label>Nuclear energy ball</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<explosionRadius>2.5</explosionRadius>
+			<damageDef>NuclearEnergyBall</damageDef>
+			<damageAmountBase>150</damageAmountBase>
+			<armorPenetrationSharp>15</armorPenetrationSharp>
+			<armorPenetrationBlunt>250</armorPenetrationBlunt>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+		</projectile>
+	</ThingDef>
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="LauncherAmmoRecipeBase">
+		<defName>MakeAmmo_NuclearEnergyBall</defName>
+		<label>make nuclear energy ball</label>
+		<description>Craft nuclear energy ball.</description>
+		<jobString>Making nuclear energy ball.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plutonium</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BrassIngot</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokelessGunpowder</li>
+					</thingDefs>
+				</filter>
+				<count>40</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>Plutonium</li>
+				<li>SmokelessGunpowder</li>
+				<li>MagnesiumIngot</li>
+				<li>BrassIngot</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<products>
+			<Ammo_NuclearEnergyBall>10</Ammo_NuclearEnergyBall>
+		</products>
+		<workAmount>9500</workAmount>
+		<researchPrerequisite>ChargedShot</researchPrerequisite>
+	</RecipeDef>
+</Defs>

@@ -25,7 +25,8 @@
 				<Crafting>12</Crafting>
 			</skillRequirements>
 			<recipeUsers Inherit="false">
-				<li>WeaponWorkbench</li><li>RoboticEquipmentWorkbench</li>
+				<li>WeaponWorkbench</li>
+				<li>RoboticEquipmentWorkbench</li>
 			</recipeUsers>
 		</recipeMaker>
 		<costList>
@@ -4004,5 +4005,266 @@ In 1964, the M16 entered U.S. military service and the following year was deploy
 		<equippedStatOffsets>
 			<HuntingStealth>0.25</HuntingStealth>
 		</equippedStatOffsets>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>DV_PulseRifle</defName>
+		<label>VPG-1 (Prototype)</label>
+		<description>A multi-functional assault rifle designed to give the class a new development branch. Like its younger brother, the SPG-1 uses a special acceleration unit, but unlike the SPG-1, the caliber was increased, which, with an additional impulse, made it possible to obtain a highly effective projectile.
+
+In addition, a special additional cannon was developed that fires a projectile with an unstable nuclear energy cell, which, upon impact, triggers a destructive but short nuclear reaction, which is accompanied by high temperature and kinetic energy..</description>
+		<graphicData>
+			<texPath>Things/WeaponRanged/PulseRifle</texPath>
+			<drawSize>1.05</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>4</Mass>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.9</SightsEfficiency>
+			<ShotSpread>0.06</ShotSpread>
+			<SwayFactor>1.2</SwayFactor>
+			<Bulk>10.2</Bulk>
+			<WorkToMake>43000</WorkToMake>
+		</statBases>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<HiTechWeaponComponents>15</HiTechWeaponComponents>
+			<MechanismSpacer>12</MechanismSpacer>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<Plastic>60</Plastic>
+			<Polymers>40</Polymers>
+			<Microelectronics>6</Microelectronics>
+			<Plutonium>10</Plutonium>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>25</magazineSize>
+				<reloadTime>3</reloadTime>
+				<ammoSet>AmmoSet_762x51mmNATOPulsed</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+				<aiUseBurstMode>True</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>AssaultRifles</subWeaponSpecialization>
+			</li>
+			<li Class="CombatExtended.CompProperties_UnderBarrel">
+				<propsUnderBarrel>
+					<magazineSize>1</magazineSize>
+					<reloadTime>5</reloadTime>
+					<ammoSet>AmmoSet_NuclearEnergyBall</ammoSet>
+				</propsUnderBarrel>
+				<verbPropsUnderBarrel>
+					<recoilAmount>2.51</recoilAmount>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_NuclearEnergyBall</defaultProjectile>
+					<warmupTime>0.55</warmupTime>
+					<range>35</range>
+					<targetParams>
+						<canTargetLocations>true</canTargetLocations>
+					</targetParams>
+					<soundCast>Shot_Shotgun</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>5</muzzleFlashScale>
+					<burstShotCount>1</burstShotCount>
+				</verbPropsUnderBarrel>
+				<propsFireModesUnderBarrel>
+					<aiUseBurstMode>FALSE</aiUseBurstMode>
+					<aiAimMode>AimedShot</aiAimMode>
+					<aimedBurstShotCount>1</aimedBurstShotCount>
+				</propsFireModesUnderBarrel>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>Weapon_AssaultRifle_TierVII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>2.2</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ_Pulsed</defaultProjectile>
+				<warmupTime>1.15</warmupTime>
+				<range>90</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<soundCast>Shot_PulseMedium</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>EW_Gun_EltexRifle</defName>
+		<label>Energystic SP1</label>
+		<description>An assault rifle that uses energy-based ammunition. It has sufficient ergonomics and reliability, but due to the imperfection of the technology, it has not moved much away from its physical counterparts.</description>
+		<graphicData>
+			<texPath>Things/Weapons/EltexRifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>EW_PickUpHeavy</soundInteract>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>3.3</Mass>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.2</SightsEfficiency>
+			<ShotSpread>0.06</ShotSpread>
+			<SwayFactor>1.0</SwayFactor>
+			<Bulk>7.5</Bulk>
+			<WorkToMake>46000</WorkToMake>
+		</statBases>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<HiTechWeaponComponents>20</HiTechWeaponComponents>
+			<MechanismSpacer>10</MechanismSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Plastic>50</Plastic>
+			<Polymers>120</Polymers>
+			<SimpleElectronic>2</SimpleElectronic>
+			<Microelectronics>15</Microelectronics>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>20</magazineSize>
+				<reloadTime>3</reloadTime>
+				<ammoSet>AmmoSet_ArcCellCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+				<aiUseBurstMode>True</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>AssaultRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>Weapon_AssaultRifle_TierVII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.35</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ArcCellCharged</defaultProjectile>
+				<warmupTime>1.2</warmupTime>
+				<range>80</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<soundCast>EW_Shot_Medium</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
 	</ThingDef>
 </Defs>
