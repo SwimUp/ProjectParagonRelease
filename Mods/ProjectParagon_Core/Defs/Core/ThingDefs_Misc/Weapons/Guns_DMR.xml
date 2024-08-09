@@ -2977,4 +2977,232 @@ The SKS-45 was manufactured at Tula Arsenal from 1949 to 1958 and at Izhevsk Ars
 		</modExtensions>
 	</ThingDef>
 	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>HRK_STALKER_Gauss</defName>
+		<label>Item 62 Mk.I</label>
+		<description>A semi-automatic rifle, a special development in the field of energy weapons, and in fact, the pinnacle of technology of its time. It uses special ammunition for focusing energy, which is accelerated by a special installation.</description>
+		<techLevel>Spacer</techLevel>
+		<graphicData>
+			<texPath>Things/Weapons/HRK_STALKER_Gauss</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>HRK_Interact_STALKER_Gauss</soundInteract>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<WorkToMake>59000</WorkToMake>
+			<Mass>8.5</Mass>
+			<Bulk>13</Bulk>
+			<SwayFactor>1.1</SwayFactor>
+			<ShotSpread>0.02</ShotSpread>
+			<SightsEfficiency>4.5</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<HiTechWeaponComponents>25</HiTechWeaponComponents>
+			<MechanismSpacer>10</MechanismSpacer>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<Plastic>100</Plastic>
+			<Polymers>100</Polymers>
+			<SimpleElectronic>10</SimpleElectronic>
+			<Microelectronics>20</Microelectronics>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>20</magazineSize>
+				<reloadTime>3.3</reloadTime>
+				<ammoSet>AmmoSet_GaussBattery</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+                <aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>DMR</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_DMR_TierVIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_GaussBattery_Charged</defaultProjectile>
+				<warmupTime>0.8</warmupTime>
+				<range>110</range>
+				<soundCast>HRK_Shot_STALKER_Gauss</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>HRK_STALKER_Gauss_Sniper</defName>
+		<label>Item 62 Mk.II</label>
+		<description>A semi-automatic rifle, a special development in the field of energy weapons, and in fact, the pinnacle of technology of its time. It uses special ammunition for focusing energy, which is accelerated by a special installation.
+		
+An improved version with advanced electronics that increase the weapon's effectiveness.</description>
+		<graphicData>
+			<texPath>Things/Weapons/HRK_STALKER_Gauss_Sniper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.0</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>HRK_Interact_STALKER_Gauss</soundInteract>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToMake>65000</WorkToMake>
+			<Mass>8.9</Mass>
+			<Bulk>14</Bulk>
+			<SwayFactor>0.6</SwayFactor>
+			<ShotSpread>0.02</ShotSpread>
+			<SightsEfficiency>4.5</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<HRK_STALKER_Gauss>1</HRK_STALKER_Gauss>
+			<SimpleElectronic>5</SimpleElectronic>
+			<UpgradeWeaponParts>15</UpgradeWeaponParts>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>20</magazineSize>
+				<reloadTime>2.8</reloadTime>
+				<ammoSet>AmmoSet_GaussBattery</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+                <aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>DMR</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>18</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_DMR_TierVIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_GaussBattery_Charged</defaultProjectile>
+				<warmupTime>0.8</warmupTime>
+				<range>110</range>
+				<soundCast>HRK_Shot_STALKER_Gauss</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
 </Defs>

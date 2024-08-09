@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- ==================== homemade battery, industrial battery, charged battery, batteries, GaussBattery ========================== -->
+
+    <ThingCategoryDef>
+        <defName>AmmoGaussBattery</defName>
+        <label>Gauss Battery</label>
+        <parent>AmmoAdvanced</parent>
+        <iconPath>Things/Ammo/Item62/Charged/Charged_a</iconPath>
+    </ThingCategoryDef>
+
+    <!-- ==================== AmmoSet ========================== -->
+
+    <CombatExtended.AmmoSetDef>
+        <defName>AmmoSet_GaussBattery</defName>
+        <label>Gauss Battery</label>
+        <ammoTypes>
+            <Ammo_GaussBattery_Charged>Bullet_GaussBattery_Charged</Ammo_GaussBattery_Charged>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- ==================== Ammo ========================== -->
+
+    <ThingDef Class="CombatExtended.AmmoDef" Name="GaussBatteryBase" ParentName="SpacerSmallAmmoBase" Abstract="True">
+        <description>An energy battery that contains a powerful charge of energy that can be focused by a weapon. It has excellent penetration and damage.</description>
+        <statBases>
+            <Mass>0.018</Mass>
+            <Bulk>0.01</Bulk>
+        </statBases>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+        </tradeTags>
+        <thingCategories>
+            <li>AmmoGaussBattery</li>
+        </thingCategories>
+        <stackLimit>500</stackLimit>
+    </ThingDef>
+
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="GaussBatteryBase">
+        <defName>Ammo_GaussBattery_Charged</defName>
+        <label>Gauss Battery (Charged)</label>
+        <graphicData>
+            <texPath>Things/Ammo/Item62/Charged</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <statBases>
+            <MarketValue>1.4</MarketValue>
+        </statBases>
+        <ammoClass>Charged</ammoClass>
+    </ThingDef>
+
+    <!-- ================== Projectiles ================== -->
+
+    <ThingDef Name="BaseGaussBatteryBullet" ParentName="BaseBullet" Abstract="true">
+        <graphicData>
+            <texPath>Things/Projectile/ChargeLanceShot</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <speed>180</speed>
+            <dropsCasings>false</dropsCasings>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseGaussBatteryBullet">
+        <defName>Bullet_GaussBattery_Charged</defName>
+        <label>Gauss Battery (Charged)</label>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageAmountBase>24</damageAmountBase>
+            <secondaryDamage>
+                <li>
+                    <def>EMP</def>
+                    <amount>10</amount>
+                </li>
+            </secondaryDamage>
+            <armorPenetrationSharp>23</armorPenetrationSharp>
+            <armorPenetrationBlunt>200</armorPenetrationBlunt>
+            <empShieldBreakChance>0.3</empShieldBreakChance>
+        </projectile>
+    </ThingDef>
+
+    <!-- ==================== Recipes ========================== -->
+    <RecipeDef ParentName="ChargeAmmoRecipeBase">
+        <defName>MakeAmmo_GaussBattery_Charged</defName>
+        <label>make Gauss batteries (Charged) x500</label>
+        <description>Craft 500 Gauss batteries (Charged).</description>
+        <jobString>Making Gauss batteries (Charged).</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plutonium</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>NitricAcid</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>UraniumPowder</li>
+					</thingDefs>
+				</filter>
+				<count>30</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>Plutonium</li>
+				<li>MagnesiumIngot</li>
+				<li>NitricAcid</li>
+				<li>UraniumPowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_GaussBattery_Charged>100</Ammo_GaussBattery_Charged>
+		</products>
+		<workAmount>3800</workAmount>
+		<skillRequirements>
+			<Crafting>13</Crafting>
+		</skillRequirements>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>ChargedShot</researchPrerequisite>
+    </RecipeDef>
+
+</Defs>

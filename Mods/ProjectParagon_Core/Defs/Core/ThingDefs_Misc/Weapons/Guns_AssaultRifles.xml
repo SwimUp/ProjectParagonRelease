@@ -4267,4 +4267,119 @@ In addition, a special additional cannon was developed that fires a projectile w
 			</li>
 		</modExtensions>
 	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>DV_Gun_PhaseRifle</defName>
+		<label>Phase saw</label>
+		<description>A weapon that creates a swirling vortex of energy. It consumes much more ammunition per shot, and the vortex itself has minimal damage to armored targets, but ruptures living tissue.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/PhaseSaw</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>PhaseGun_Pickup</soundInteract>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Mass>9.4</Mass>
+			<RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.2</SightsEfficiency>
+			<ShotSpread>0.04</ShotSpread>
+			<SwayFactor>1.0</SwayFactor>
+			<Bulk>12</Bulk>
+			<WorkToMake>50000</WorkToMake>
+		</statBases>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<HiTechWeaponComponents>15</HiTechWeaponComponents>
+			<MechanismSpacer>10</MechanismSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Plastic>50</Plastic>
+			<Polymers>100</Polymers>
+			<SimpleElectronic>5</SimpleElectronic>
+			<Microelectronics>15</Microelectronics>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>4</magazineSize>
+				<reloadTime>3</reloadTime>
+				<ammoSet>AmmoSet_OverloadedArcCellCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>2</aimedBurstShotCount>
+				<aiUseBurstMode>True</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>AssaultRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>Weapon_AssaultRifle_TierVII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.8</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_ArcCellCharged</defaultProjectile>
+				<warmupTime>1.5</warmupTime>
+				<range>70</range>
+				<burstShotCount>4</burstShotCount>
+				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+				<soundCast>DV_Shot_Phasegun</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
 </Defs>
