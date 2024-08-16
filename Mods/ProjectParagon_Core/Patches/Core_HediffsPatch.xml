@@ -1118,21 +1118,21 @@
 							<betterThanNatural>true</betterThanNatural>
 						</addedPartProps>
 						<renderNodeProperties>
-						  <li Class="PawnRenderNodeProperties_Eye">
-							<workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
-							<texPath>Things/Pawn/Wounds/BionicEye</texPath>
-							<parentTagDef>Head</parentTagDef>
-							<drawSize>0.15</drawSize>
-							<drawData>
-							  <defaultData>
-								<layer>56</layer>
-								<offset>(0, 0, -0.25)</offset>
-							  </defaultData>
-							  <dataWest>
-								<flip>true</flip>
-							  </dataWest>
-							</drawData>
-						  </li>
+							<li Class="PawnRenderNodeProperties_Eye">
+								<workerClass>PawnRenderNodeWorker_HediffEye</workerClass>
+								<texPath>Things/Pawn/Wounds/BionicEye</texPath>
+								<parentTagDef>Head</parentTagDef>
+								<drawSize>0.15</drawSize>
+								<drawData>
+									<defaultData>
+										<layer>56</layer>
+										<offset>(0, 0, -0.25)</offset>
+									</defaultData>
+									<dataWest>
+										<flip>true</flip>
+									</dataWest>
+								</drawData>
+							</li>
 						</renderNodeProperties>
 						<comps>
 							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
@@ -1345,6 +1345,111 @@
 							<li>Shoulder</li>
 						</appliedOnFixedBodyParts>
 						<addsHediff>BionicArm</addsHediff>
+						<researchPrerequisite>Bionics</researchPrerequisite>
+					</RecipeDef>
+				</value>
+			</li>
+			<!---->
+			<li Class="PatchOperationReplace">
+				<xpath>*/HediffDef[defName="BionicJaw"]</xpath>
+				<value>
+					<HediffDef ParentName="AddedBodyPartBase">
+						<defName>BionicJaw</defName>
+						<label>bionic jaw</label>
+						<labelNoun>a bionic jaw</labelNoun>
+						<description>An installed bionic jaw. Made out of biosynthetic bone, with plasteel tooth replacements and a set of micro servomotors for the full range of motion.</description>
+						<descriptionHyperlinks>
+							<ThingDef>BionicJaw</ThingDef>
+						</descriptionHyperlinks>
+						<spawnThingOnRemoved>BionicJaw</spawnThingOnRemoved>
+						<addedPartProps>
+							<solid>true</solid>
+							<partEfficiency>1.25</partEfficiency>
+							<betterThanNatural>true</betterThanNatural>
+						</addedPartProps>
+						<comps>
+							<li Class="ProjectParagon.Core.Hediffs.HediffCompProperties_PartHitPoints">
+								<multiplier>1.25</multiplier>
+							</li>
+						</comps>
+						<modExtensions>
+							<li Class="ParagonWiki.Other.DefExtension_Wiki">
+								<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+							</li>
+						</modExtensions>
+					</HediffDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="BionicJaw"]</xpath>
+				<value>
+					<ThingDef ParentName="ProsthesisSpacerBase">
+						<defName>BionicJaw</defName>
+						<label>bionic jaw</label>
+						<description>An artificial jaw replacement. Made out of biosynthetic bone, with plasteel tooth replacements and a set of micro servomotors for the full range of motion.</description>
+						<descriptionHyperlinks>
+							<RecipeDef>InstallBionicJaw</RecipeDef>
+						</descriptionHyperlinks>
+						<graphicData>
+							<shaderType>CutoutComplex</shaderType>
+						</graphicData>
+						<recipeMaker>
+							<workSpeedStat>SmeltingSpeed</workSpeedStat>
+							<workSkill>Crafting</workSkill>
+							<effectWorking>Smelt</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<researchPrerequisite>Bionics</researchPrerequisite>
+							<recipeUsers Inherit="false">
+								<li>Bioprinter</li>
+							</recipeUsers>
+							<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+						</recipeMaker>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Plastic</li>
+						</stuffCategories>
+						<costStuffCount>75</costStuffCount>
+						<costList>
+							<MechanismComplex>2</MechanismComplex>
+							<Synthread>50</Synthread>
+							<Biosynthetics>75</Biosynthetics>
+						</costList>
+						<thingSetMakerTags>
+							<li>RewardStandardMidFreq</li>
+						</thingSetMakerTags>
+						<statBases>
+							<Mass>5</Mass>
+						</statBases>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/RecipeDef[defName="InstallBionicJaw"]</xpath>
+				<value>
+					<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+						<defName>InstallBionicJaw</defName>
+						<label>Install bionic jaw</label>
+						<description>Install bionic jaw.</description>
+						<jobString>Installing bionic jaw.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BionicJaw</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BionicJaw</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<appliedOnFixedBodyParts>
+							<li>Jaw</li>
+						</appliedOnFixedBodyParts>
+						<addsHediff>BionicJaw</addsHediff>
 						<researchPrerequisite>Bionics</researchPrerequisite>
 					</RecipeDef>
 				</value>

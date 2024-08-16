@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<!-- FlameThrower  -->
+	<ThingDef ParentName="DS_Weapon">
+		<defName>DS_FlameThrower</defName>
+		<label>PFM-100 flame thrower</label>
+		<description>PFM-100 Hydrazine Torch Flamethrower was originally designed to project a liquid hydrazine flame of 500 to 4,000 degrees Celsius onto the layers of ice that trapped valuable ores within comets.</description>
+		<graphicData>
+			<texPath>Things/Weapons/FlameThrower</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			 <drawSize>1.1</drawSize>
+		</graphicData>
+		<soundInteract>DS_Interact_Rifle</soundInteract>
+		<statBases>
+			<WorkToMake>27000</WorkToMake>
+			<Mass>6.6</Mass>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.1</SightsEfficiency>
+			<ShotSpread>0.09</ShotSpread>
+			<SwayFactor>0.7</SwayFactor>
+			<Bulk>7.8</Bulk>
+		</statBases>
+		<costList>
+			<HiTechWeaponComponents>20</HiTechWeaponComponents>
+			<MechanismSpacer>15</MechanismSpacer>
+			<ComponentIndustrial>15</ComponentIndustrial>
+			<Plastic>10</Plastic>
+			<Polymers>180</Polymers>
+			<SimpleElectronic>5</SimpleElectronic>
+		</costList>
+		<verbs>
+			<li Class="EquipmentEx.CE.VerbProperties_SectorExplosion">
+				<verbClass>EquipmentEx.CE.Verb_SectorExplosion</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<warmupTime>1.5</warmupTime>
+				<range>22</range>
+				<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+				<burstShotCount>10</burstShotCount>
+				<soundCast>DS_Shot_FlameThrower</soundCast>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<sprayEffecterDef>DS_Effecter_FireSpewLong</sprayEffecterDef>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<damageAmount>3</damageAmount>
+				<damageDef>Flame</damageDef>
+				<angle>20</angle>
+				<ammoComsume>2</ammoComsume>
+				<doEffect>false</doEffect>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>HeavyGuns</subWeaponSpecialization>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>100</magazineSize>
+				<reloadTime>5</reloadTime>
+				<ammoSet>DS_AmmoSet_Flamethrower</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+				<aimedBurstShotCount>5</aimedBurstShotCount>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>-0.08,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<SoundDef>
+		<defName>DS_Shot_FlameThrower</defName>
+		<context>MapOnly</context>
+		<eventNames/>
+		<maxSimultaneous>10</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Weapons/FlameThrower</clipPath>
+					</li>
+				</grains>
+				<pitchRange>
+					<min>1</min>
+					<max>1.112391</max>
+				</pitchRange>
+				<paramMappings>
+					<li>
+						<inParam Class="SoundParamSource_CameraAltitude"/>
+						<outParam Class="SoundParamTarget_PropertyLowPass">
+							<filterProperty>Cutoff</filterProperty>
+						</outParam>
+						<paramUpdateMode>Constant</paramUpdateMode>
+						<curve>
+							<points>
+								<li>
+									<loc>
+										<x>17.08957</x>
+										<y>21001.8</y>
+									</loc>
+								</li>
+								<li>
+									<loc>
+										<x>24.77761</x>
+										<y>12701.95</y>
+									</loc>
+								</li>
+								<li>
+									<loc>
+										<x>32.786</x>
+										<y>7168.717</y>
+									</loc>
+								</li>
+								<li>
+									<loc>
+										<x>45.91975</x>
+										<y>4270.358</y>
+									</loc>
+								</li>
+								<li>
+									<loc>
+										<x>66.10088</x>
+										<y>2557.69</y>
+									</loc>
+								</li>
+							</points>
+						</curve>
+					</li>
+				</paramMappings>
+				<filters>
+					<li Class="SoundFilterLowPass">
+						<cutoffFrequency>10000</cutoffFrequency>
+						<lowpassResonaceQ>1</lowpassResonaceQ>
+					</li>
+				</filters>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<!-- effect -->
+	<EffecterDef>
+		<defName>DS_Effecter_FireSpewLong</defName>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<positionRadius>0.15</positionRadius>
+				<fleckDef>DS_Fleck_FireSpew</fleckDef>
+				<chancePerTick>0.9</chancePerTick>
+				<speed>14</speed>
+				<scale>0.8~1.2</scale>
+				<angle>-12~12</angle>
+				<positionLerpFactor>0.8</positionLerpFactor>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<positionRadius>0.1</positionRadius>
+				<fleckDef>DS_Fleck_FireSpew</fleckDef>
+				<chancePerTick>0.1</chancePerTick>
+				<speed>2</speed>
+				<scale>0.65</scale>
+				<angle>-9~9</angle>
+				<positionLerpFactor>0.6</positionLerpFactor>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<positionRadius>0.1</positionRadius>
+				<moteDef>Mote_SparkThrownFast</moteDef>
+				<chancePerTick>0.5</chancePerTick>
+				<speed>3.3~5</speed>
+				<scale>0.1~0.2</scale>
+				<angle>-12~12</angle>
+				<positionLerpFactor>0.8</positionLerpFactor>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<positionRadius>0.2</positionRadius>
+				<fleckDef>DS_Fleck_FireSpew_Glow</fleckDef>
+				<chancePerTick>0.16</chancePerTick>
+				<positionLerpFactor>0.65</positionLerpFactor>
+				<scale>0.8</scale>
+			</li>
+		</children>
+	</EffecterDef>
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>DS_Fleck_FireSpew</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.2</fadeInTime>
+		<solidTime>0.4</solidTime>
+		<fadeOutTime>0.2</fadeOutTime>
+		<rotateTowardsMoveDirection>true</rotateTowardsMoveDirection>
+		<rotateTowardsMoveDirectionExtraAngle>-90</rotateTowardsMoveDirectionExtraAngle>
+		<graphicData>
+			<graphicClass>Graphic_FleckPulse</graphicClass>
+			<shaderType>GlowAnimated</shaderType>
+			<texPath>Things/Mote/LiquidHydrazineFlame</texPath>
+			<shaderParameters>
+				<_NumFrames>5</_NumFrames>
+				<_FramesPerSec>7</_FramesPerSec>
+			</shaderParameters>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+	</FleckDef>
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>DS_Fleck_FireSpew_Glow</defName>
+		<altitudeLayer>LightingOverlay</altitudeLayer>
+		<fadeInTime>0.1</fadeInTime>
+		<solidTime>0.105</solidTime>
+		<fadeOutTime>0.3</fadeOutTime>
+		<graphicData>
+			<graphicClass>Graphic_Fleck</graphicClass>
+			<texPath>Things/Mote/FireGlow</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>7</drawSize>
+			<color>(1, 1, 1, 0.75)</color>
+		</graphicData>
+	</FleckDef>
+</Defs>

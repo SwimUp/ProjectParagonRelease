@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<!-- FlameThrower  -->
+	<ThingDef ParentName="DS_Weapon">
+		<defName>DS_ForceGun</defName>
+		<label>Handheld Graviton Accelerator</label>
+		<description>The Handheld Graviton Accelerator, commonly referred to as the Force Gun, is a short-range kinetic booster device.</description>
+		<graphicData>
+			<texPath>Things/Weapons/ForceGun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>DS_Interact_Rifle</soundInteract>
+		<statBases>
+			<WorkToMake>44000</WorkToMake>
+			<Mass>6.3</Mass>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.1</SightsEfficiency>
+			<ShotSpread>0.09</ShotSpread>
+			<SwayFactor>0.7</SwayFactor>
+			<Bulk>8.4</Bulk>
+		</statBases>
+		<costList>
+			<HiTechWeaponComponents>25</HiTechWeaponComponents>
+			<MechanismSpacer>20</MechanismSpacer>
+			<ComponentIndustrial>15</ComponentIndustrial>
+			<Plastic>100</Plastic>
+			<Polymers>100</Polymers>
+			<SimpleElectronic>5</SimpleElectronic>
+			<Microelectronics>10</Microelectronics>
+			<Nanoelectronics>5</Nanoelectronics>
+			<Supermagnet>30</Supermagnet>
+		</costList>
+		<verbs>
+			<li Class="EquipmentEx.CE.VerbProperties_SectorExplosion">
+				<verbClass>EquipmentEx.CE.Verb_SectorExplosion</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<warmupTime>0.8</warmupTime>
+				<range>9</range>
+				<soundCast>DS_Shot_ForceGun</soundCast>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<sprayEffecterDef>DS_Effecter_ForceExplosion</sprayEffecterDef>
+				<damageAmount>36</damageAmount>
+				<damageDef>DS_Damage_ForecExplosion</damageDef>
+				<angle>45</angle>
+				<ammoComsume>1</ammoComsume>
+				<doEffect>true</doEffect>
+				<armorPenetration>100</armorPenetration>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>HeavyGuns</subWeaponSpecialization>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>4</reloadTime>
+				<ammoSet>DS_AmmoSet_ForceGun</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<SoundDef>
+		<defName>DS_Shot_ForceGun</defName>
+		<context>MapOnly</context>
+		<eventNames/>
+		<maxSimultaneous>10</maxSimultaneous>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Weapons/GravitonAccelerator</clipPath>
+					</li>
+				</grains>
+				<pitchRange>
+					<min>1</min>
+					<max>1.112391</max>
+				</pitchRange>
+				<paramMappings>
+					<li>
+						<inParam Class="SoundParamSource_CameraAltitude"/>
+						<outParam Class="SoundParamTarget_PropertyLowPass">
+							<filterProperty>Cutoff</filterProperty>
+						</outParam>
+						<paramUpdateMode>Constant</paramUpdateMode>
+						<curve>
+							<points>
+								<li>
+									<loc>
+										<x>17.08957</x>
+										<y>21001.8</y>
+									</loc>
+								</li>
+								<li>
+									<loc>
+										<x>24.77761</x>
+										<y>12701.95</y>
+									</loc>
+								</li>
+								<li>
+									<loc>
+										<x>32.786</x>
+										<y>7168.717</y>
+									</loc>
+								</li>
+								<li>
+									<loc>
+										<x>45.91975</x>
+										<y>4270.358</y>
+									</loc>
+								</li>
+								<li>
+									<loc>
+										<x>66.10088</x>
+										<y>2557.69</y>
+									</loc>
+								</li>
+							</points>
+						</curve>
+					</li>
+				</paramMappings>
+				<filters>
+					<li Class="SoundFilterLowPass">
+						<cutoffFrequency>10000</cutoffFrequency>
+						<lowpassResonaceQ>1</lowpassResonaceQ>
+					</li>
+				</filters>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<DamageDef ParentName="Bomb">
+		<defName>DS_Damage_ForecExplosion</defName>
+		<workerClass>EquipmentEx.DamageWorker_AddInjuryNoEffect</workerClass>
+		<defaultDamage>42</defaultDamage>
+		<defaultStoppingPower>2.0</defaultStoppingPower>
+		<explosionColorCenter>(1, 1, 1)</explosionColorCenter>
+		<explosionColorEdge>(0.8, 0.9, 1)</explosionColorEdge>
+		<explosionHeatEnergyPerCell>0</explosionHeatEnergyPerCell>
+	</DamageDef>
+	<EffecterDef>
+		<defName>DS_Effecter_ForceExplosion</defName>
+		<children>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<positionRadius>0.15</positionRadius>
+				<fleckDef>DS_Fleck_SpeedTrail</fleckDef>
+				<chancePerTick>0.9</chancePerTick>
+				<speed>60</speed>
+				<scale>0.8~1.2</scale>
+				<angle>-22~22</angle>
+				<positionLerpFactor>0.8</positionLerpFactor>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+			</li>
+			<li>
+				<subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+				<positionRadius>0.1</positionRadius>
+				<fleckDef>DS_Fleck_SpeedTrail</fleckDef>
+				<chancePerTick>0.1</chancePerTick>
+				<speed>45</speed>
+				<scale>0.65</scale>
+				<angle>-19~19</angle>
+				<positionLerpFactor>0.6</positionLerpFactor>
+				<fleckUsesAngleForVelocity>true</fleckUsesAngleForVelocity>
+			</li>
+		</children>
+	</EffecterDef>
+	<FleckDef ParentName="FleckBase_Thrown">
+		<defName>DS_Fleck_SpeedTrail</defName>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<fadeInTime>0.03</fadeInTime>
+		<solidTime>0.05</solidTime>
+		<fadeOutTime>0.05</fadeOutTime>
+		<rotateTowardsMoveDirection>true</rotateTowardsMoveDirection>
+		<rotateTowardsMoveDirectionExtraAngle>-90</rotateTowardsMoveDirectionExtraAngle>
+		<graphicData>
+			<graphicClass>Graphic_FleckPulse</graphicClass>
+			<shaderType>GlowAnimated</shaderType>
+			<texPath>Things/Mote/SpeedTrail</texPath>
+			<shaderParameters>
+				<_NumFrames>5</_NumFrames>
+				<_FramesPerSec>7</_FramesPerSec>
+			</shaderParameters>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+	</FleckDef>
+</Defs>

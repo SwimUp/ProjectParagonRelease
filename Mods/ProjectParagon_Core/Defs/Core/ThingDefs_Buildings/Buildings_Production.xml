@@ -2403,13 +2403,20 @@
 						<produceTicks>420000</produceTicks>
 						<outputCount>50</outputCount>
 					</li>
+					<li>
+						<thingDef>Hay</thingDef>
+						<outputDef>Biosolids</outputDef>
+						<count>250</count>
+						<produceTicks>600000</produceTicks>
+						<outputCount>25</outputCount>
+					</li>
 				</production>
 			</li>
 		</comps>
 		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
 		<pathCost>14</pathCost>
 		<designationCategory>Production</designationCategory>
-		<designatorDropdown>Miscellaneous</designatorDropdown>
+		<designatorDropdown>Chemistry</designatorDropdown>
 		<researchPrerequisites>
 			<li>SewageSludgeComposting</li>
 		</researchPrerequisites>
@@ -3696,7 +3703,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<MechanismSimple>10</MechanismSimple>
 			<Glass>250</Glass>
 		</costList>
-		<altitudeLayer>Building</altitudeLayer>
+		<altitudeLayer>BuildingBelowTop</altitudeLayer>
 		<fillPercent>0.5</fillPercent>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
@@ -6940,7 +6947,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>RoboticEquipmentWorkbench</defName>
 		<label>Robotic equipment workbench</label>
 		<description>Workplace for creating complex weapons.</description>
-		<thingClass>Building_WorkTable</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithLiquids</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/RoboticEquipmentWorkbench/RoboticEquipmentWorkbench</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -6998,12 +7005,24 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<basePowerConsumption>800</basePowerConsumption>
 				<shortCircuitInRain>true</shortCircuitInRain>
 			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<capacity>100</capacity>
+				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+				<pipeTypeDef>Plasma</pipeTypeDef>
+				<canAutoDrain>true</canAutoDrain>
+				<canManualDrain>true</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<drawPipeOverlay>false</drawPipeOverlay>
+				<drawStorageOverlay>true</drawStorageOverlay>
+				<barOffset>(-1, 0, 0)</barOffset>
+			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
 		</placeWorkers>
 		<researchPrerequisites>
 			<li>FutureEquipment</li>

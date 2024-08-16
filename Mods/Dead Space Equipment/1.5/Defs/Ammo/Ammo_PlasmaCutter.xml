@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingCategoryDef>
+        <defName>DS_Category_PlasmaEnergy</defName>
+        <label>plasma energy cell</label>
+        <parent>AmmoAdvanced</parent>
+        <iconPath>Things/Ammo/PlasmaEnergy</iconPath>
+    </ThingCategoryDef>
+
+    <CombatExtended.AmmoSetDef>
+        <defName>DS_AmmoSet_PlasmaCutter</defName>
+        <label>Plasma cutter cell</label>
+        <ammoTypes>
+            <DS_Ammo_PlasmaEnergy>DS_CE_Bullet_PlasmaCutter</DS_Ammo_PlasmaEnergy>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DS_CE_Bullet_PlasmaCutter</defName>
+        <label>plasma energy</label>
+        <graphicData>
+            <texPath>Things/Projectiles/PlasmaTrail</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(0.7,0.7)</drawSize>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <speed>200</speed>
+            <damageDef>Cut</damageDef>
+            <damageAmountBase>21</damageAmountBase>
+            <armorPenetrationSharp>23</armorPenetrationSharp>
+            <armorPenetrationBlunt>2</armorPenetrationBlunt>
+            <dropsCasings>false</dropsCasings>
+            <secondaryDamage>
+                <li>
+                    <def>Flame_Secondary</def>
+                    <amount>9</amount>
+                </li>
+            </secondaryDamage>
+        </projectile>
+    </ThingDef>
+
+    <!-- ammo: plasma engergy-->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>DS_Ammo_PlasmaEnergy</defName>
+        <label>plasma energy cell</label>
+        <description>Energy cell of the plasma cutter.</description>
+        <statBases>
+            <Mass>0.024</Mass>
+            <Bulk>0.02</Bulk>
+            <MarketValue>0.9</MarketValue>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Ammo/PlasmaEnergy</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+        </tradeTags>
+        <stackLimit>500</stackLimit>
+        <ammoClass>Charged</ammoClass>
+        <thingCategories>
+            <li>DS_Category_PlasmaEnergy</li>
+        </thingCategories>
+    </ThingDef>
+
+    <!-- recipe-->
+
+    <RecipeDef ParentName="AmmoRecipeBase" Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+        <defName>MakeDS_Ammo_PlasmaEnergy</defName>
+        <label>make plasma energy cell x200</label>
+        <description>Make plasma energy cell x200.</description>
+        <jobString>Making plasma energy cell.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Supermagnet</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>UraniumPowder</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Liquid">
+				<pipeTypeDef>Plasma</pipeTypeDef>
+				<count>15</count>
+			</li>
+		</abstractIngredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>UraniumPowder</li>
+				<li>Supermagnet</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<DS_Ammo_PlasmaEnergy>150</DS_Ammo_PlasmaEnergy>
+		</products>
+		<workAmount>2200</workAmount>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>12</Crafting>
+		</skillRequirements>
+		<researchPrerequisite>EnergyWeapons</researchPrerequisite>
+    </RecipeDef>
+
+</Defs>

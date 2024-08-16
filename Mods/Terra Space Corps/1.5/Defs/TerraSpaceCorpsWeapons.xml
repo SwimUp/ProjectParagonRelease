@@ -1,0 +1,860 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>FTF_SMG</defName>
+		<label>FTF 23 SMG</label>
+		<description>The FTF 23 SMG your go to CQC weapon fast firing SMG will never fail you</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/FTF_SMG</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<uiIconScale>1.4</uiIconScale>
+		<soundInteract>Interact_SMG</soundInteract>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_SMG</li>
+			<li>Weapon_SMG_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<techLevel>Industrial</techLevel>
+		<tradeability>All</tradeability>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>2.0</Mass>
+			<RangedWeapon_Cooldown>0.6</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.05</ShotSpread>
+			<SwayFactor>0.45</SwayFactor>
+			<Bulk>5.6</Bulk>
+			<WorkToMake>15000</WorkToMake>
+		</statBases>
+		<costList>
+			<SimpleWeaponComponents>14</SimpleWeaponComponents>
+			<AdvancedWeaponComponents>18</AdvancedWeaponComponents>
+			<MechanismComplex>5</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Plastic>70</Plastic>
+			<Polymers>15</Polymers>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>35</magazineSize>
+				<reloadTime>2.2</reloadTime>
+				<ammoSet>AmmoSet_45ACP</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SMG</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.2</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_45ACP_FMJ</defaultProjectile>
+				<warmupTime>0.35</warmupTime>
+				<range>40</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<soundCast>SMG_shot</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.1,1.3</DrawSize>
+				<DrawOffset>-0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>Arc_Pistol</defName>
+		<label>Arc 9</label>
+		<description>An automatic three round burst pistol.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Arc_Pistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<techLevel>Industrial</techLevel>
+		<tradeability>All</tradeability>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_Sidearm</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>Weapon_Pistol_TierIV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToMake>9000</WorkToMake>
+			<Mass>1.8</Mass>
+			<RangedWeapon_Cooldown>0.43</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.70</SightsEfficiency>
+			<ShotSpread>0.22</ShotSpread>
+			<SwayFactor>1.12</SwayFactor>
+			<Bulk>3.0</Bulk>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>1.5</reloadTime>
+				<ammoSet>AmmoSet_45ACP</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Pistols</subWeaponSpecialization>
+			</li>
+		</comps>
+		<costList>
+			<AdvancedWeaponComponents>5</AdvancedWeaponComponents>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Plastic>20</Plastic>
+			<Polymers>5</Polymers>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_45ACP_FMJ</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<range>28</range>
+				<soundCast>Arc_shot</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>-0.08,0.12</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>LMG_FSK</defName>
+		<label>FSK MG 34</label>
+		<description>Slow down the hoard with the FSK MG 34</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/LMG_FSK</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<techLevel>Industrial</techLevel>
+		<tradeability>All</tradeability>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>8.5</Mass>
+			<RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.3</SightsEfficiency>
+			<ShotSpread>0.14</ShotSpread>
+			<SwayFactor>1.0</SwayFactor>
+			<Bulk>13.5</Bulk>
+			<WorkToMake>58000</WorkToMake>
+		</statBases>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<costList>
+			<AdvancedWeaponComponents>28</AdvancedWeaponComponents>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>15</ComponentIndustrial>
+			<Plastic>40</Plastic>
+			<Polymers>35</Polymers>
+			<UpgradeWeaponParts>26</UpgradeWeaponParts>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>200</magazineSize>
+				<reloadTime>8.5</reloadTime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>8</aimedBurstShotCount>
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>SuppressFire</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>MachineGuns</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_MachineGun</li>
+			<li>CE_AI_LMG</li>
+			<li>Weapon_MachineGuns_TierV</li>
+		</weaponTags>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.65</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<warmupTime>1.3</warmupTime>
+				<range>85</range>
+				<burstShotCount>15</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<soundCast>LMG_shot</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.2,1.2</DrawSize>
+				<DrawOffset>-0.05,0.02</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>PPT_Shotgun</defName>
+		<label>PPT 25 Shotgun</label>
+		<description>Double firing Shotgun the PPT 25 is there for all your Bug killing needs!</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/PPT_Shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Shotgun</soundInteract>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>Weapon_Shotgun_TierV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>ShortShots</li>
+		</weaponClasses>
+		<techLevel>Industrial</techLevel>
+		<tradeability>All</tradeability>
+		<statBases>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Mass>4.2</Mass>
+			<RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+			<SightsEfficiency>0.9</SightsEfficiency>
+			<ShotSpread>0.18</ShotSpread>
+			<SwayFactor>1.14</SwayFactor>
+			<Bulk>8.07</Bulk>
+			<WorkToMake>33500</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>8</magazineSize>
+				<reloadOneAtATime>true</reloadOneAtATime>
+				<reloadTime>0.85</reloadTime>
+				<ammoSet>AmmoSet_12Gauge</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Shotguns</subWeaponSpecialization>
+			</li>
+		</comps>
+		<costList>
+			<AdvancedWeaponComponents>12</AdvancedWeaponComponents>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<UpgradeWeaponParts>3</UpgradeWeaponParts>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_12Gauge_Buck</defaultProjectile>
+				<warmupTime>0.45</warmupTime>
+				<range>32</range>
+				<soundCast>SG_shot</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>Lar_Rifle</defName>
+		<label>L75 Assault Rifle</label>
+		<description>The L75 Assault Rifle standard issued ot all TSC Trooper's and marine's alike.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Lar_Rifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.15</drawSize>
+		</graphicData>
+		<techLevel>Industrial</techLevel>
+		<tradeability>All</tradeability>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>3.7</Mass>
+			<RangedWeapon_Cooldown>1.15</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.2</SightsEfficiency>
+			<ShotSpread>0.11</ShotSpread>
+			<SwayFactor>1.1</SwayFactor>
+			<Bulk>8.5</Bulk>
+			<WorkToMake>34000</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>20</AdvancedWeaponComponents>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Plastic>40</Plastic>
+			<Polymers>45</Polymers>
+			<UpgradeWeaponParts>16</UpgradeWeaponParts>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>30</magazineSize>
+				<reloadTime>3.0</reloadTime>
+				<ammoSet>AmmoSet_556x45mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aimedBurstShotCount>4</aimedBurstShotCount>
+				<aiUseBurstMode>True</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>AssaultRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>Weapon_AssaultRifle_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.15</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_556x45mmNATO_FMJ</defaultProjectile>
+				<warmupTime>0.95</warmupTime>
+				<range>78</range>
+				<burstShotCount>8</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<soundCast>SAR_shot</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.15,1.15</DrawSize>
+				<DrawOffset>-0.04,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>BattleRifle</defName>
+		<label>VS 92 Battle Rifle</label>
+		<description>The VS 92 Battle Rifle, a heavy hiting rifle use to put down more beefer enemys.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/BattleRifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.2</drawSize>
+		</graphicData>
+		<techLevel>Industrial</techLevel>
+		<tradeability>All</tradeability>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<WorkToMake>34000</WorkToMake>
+			<Mass>3.4</Mass>
+			<RangedWeapon_Cooldown>0.95</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.5</SightsEfficiency>
+			<ShotSpread>0.11</ShotSpread>
+			<SwayFactor>1.25</SwayFactor>
+			<Bulk>8.2</Bulk>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>25</magazineSize>
+				<reloadTime>3.1</reloadTime>
+				<ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>TRUE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>AssaultRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>Weapon_AssaultRifle_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+		</weaponClasses>
+		<costList>
+			<AdvancedWeaponComponents>35</AdvancedWeaponComponents>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Plastic>40</Plastic>
+			<Polymers>35</Polymers>
+			<UpgradeWeaponParts>28</UpgradeWeaponParts>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.7</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<warmupTime>0.95</warmupTime>
+				<range>86</range>
+				<soundCast>Battle_shot</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.2,1.2</DrawSize>
+				<DrawOffset>0.1,-0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>Mark_Charge</defName>
+		<label>Mark 223 Charge Rifle</label>
+		<description>The Mark 223 A Terra charged-based assault rifle. Created to combat the growiwng Mechanoid threat and pick up where standared rifles failed at.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Mark_Charge</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.15</drawSize>
+		</graphicData>
+		<techLevel>Industrial</techLevel>
+		<tradeability>All</tradeability>
+		<soundInteract>Interact_ChargeRifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+            <SightsEfficiency>1.6</SightsEfficiency>
+            <ShotSpread>0.16</ShotSpread>
+            <SwayFactor>0.6</SwayFactor>
+            <Bulk>6.8</Bulk>
+            <Mass>4.1</Mass>
+            <RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+			<WorkToMake>33000</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>35</magazineSize>
+				<reloadTime>2.6</reloadTime>
+				<ammoSet>AmmoSet_300AACBlackout</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+				<aimedBurstShotCount>4</aimedBurstShotCount>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SMG</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_SMG</li>
+			<li>Weapon_SMG_TierVII</li>
+		</weaponTags>
+		<equippedStatOffsets>
+			<HuntingStealth>0.25</HuntingStealth>
+		</equippedStatOffsets>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<SimpleWeaponComponents>25</SimpleWeaponComponents>
+			<AdvancedWeaponComponents>30</AdvancedWeaponComponents>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Plastic>30</Plastic>
+			<Polymers>20</Polymers>
+			<UpgradeWeaponParts>6</UpgradeWeaponParts>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.9</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_300AACBlackout_FMJ</defaultProjectile>
+				<warmupTime>0.45</warmupTime>
+				<burstShotCount>8</burstShotCount>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<range>55</range>
+				<soundCast>TChagre_shot</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.05,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseGunWithQuality">
+		<defName>ARS_SniperRifle</defName>
+		<label>ARS 12 Sniper</label>
+		<description>ARS 12 Sniper will put down even or cripple most living them it hits</description>
+		<possessionCount>1</possessionCount>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/ARS_SniperRifle</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.25</drawSize>
+		</graphicData>
+		<techLevel>Industrial</techLevel>
+		<tradeability>All</tradeability>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<statBases>
+			<MaxHitPoints>450</MaxHitPoints>
+			<Mass>11.4</Mass>
+			<RangedWeapon_Cooldown>1.28</RangedWeapon_Cooldown>
+			<SightsEfficiency>2.0</SightsEfficiency>
+			<ShotSpread>0.05</ShotSpread>
+			<SwayFactor>1.2</SwayFactor>
+			<Bulk>12.2</Bulk>
+			<WorkToMake>55000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_SniperRifles_TierIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>LongShots</li>
+		</weaponClasses>
+		<equippedStatOffsets>
+			<HuntingStealth>0.15</HuntingStealth>
+		</equippedStatOffsets>
+		<costList>
+			<AdvancedWeaponComponents>16</AdvancedWeaponComponents>
+			<MechanismComplex>6</MechanismComplex>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<UpgradeWeaponParts>18</UpgradeWeaponParts>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>3.6</reloadTime>
+				<ammoSet>AmmoSet_50BMG</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SniperRifles</subWeaponSpecialization>
+			</li>
+		</comps>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_50BMG_FMJ</defaultProjectile>
+				<warmupTime>1.45</warmupTime>
+				<range>85</range>
+				<soundCast>Bolt_shot</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.25,1.25</DrawSize>
+				<DrawOffset>0.05,0.1</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+</Defs>

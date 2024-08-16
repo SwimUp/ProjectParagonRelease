@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Plasmacutter  -->
+    <ThingDef ParentName="DS_Weapon">
+        <defName>DS_PlasmaCutter</defName>
+        <label>211-V plasma cutter</label>
+        <description>211-V plasma cutter is a high-energy mineral cutter, it delivers a cohesive plasma-stream when fired.</description>
+        <graphicData>
+            <texPath>Things/Weapons/PlasmaCutter</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>DS_Interact_Cutter</soundInteract>
+        <statBases>
+			<WorkToMake>22000</WorkToMake>
+			<Mass>3</Mass>
+			<RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.02</ShotSpread>
+			<SwayFactor>0.5</SwayFactor>
+			<Bulk>3</Bulk>
+        </statBases>
+        <equippedStatOffsets>
+            <MiningSpeed>0.5</MiningSpeed>
+        </equippedStatOffsets>
+        <costList>
+            <Steel>60</Steel>
+            <Plasteel>30</Plasteel>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>DS_CE_Bullet_PlasmaCutter</defaultProjectile>
+				<warmupTime>0.6</warmupTime>
+				<range>45</range>
+				<soundCast>DS_Shot_PlasmaCutter</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Pistols</subWeaponSpecialization>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>10</magazineSize>
+				<reloadTime>2</reloadTime>
+				<ammoSet>DS_AmmoSet_PlasmaCutter</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+				<DrawOffset>0.0,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+    </ThingDef>
+
+    <SoundDef>
+        <defName>DS_Shot_PlasmaCutter</defName>
+        <context>MapOnly</context>
+        <eventNames />
+        <maxSimultaneous>10</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Weapons/PlasmaCutter</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>
+                    <min>1</min>
+                    <max>1.112391</max>
+                </pitchRange>
+                <paramMappings>
+                    <li>
+                        <inParam Class="SoundParamSource_CameraAltitude" />
+                        <outParam Class="SoundParamTarget_PropertyLowPass">
+                            <filterProperty>Cutoff</filterProperty>
+                        </outParam>
+                        <paramUpdateMode>Constant</paramUpdateMode>
+                        <curve>
+                            <points>
+                                <li>
+                                    <loc>
+                                        <x>17.08957</x>
+                                        <y>21001.8</y>
+                                    </loc>
+                                </li>
+                                <li>
+                                    <loc>
+                                        <x>24.77761</x>
+                                        <y>12701.95</y>
+                                    </loc>
+                                </li>
+                                <li>
+                                    <loc>
+                                        <x>32.786</x>
+                                        <y>7168.717</y>
+                                    </loc>
+                                </li>
+                                <li>
+                                    <loc>
+                                        <x>45.91975</x>
+                                        <y>4270.358</y>
+                                    </loc>
+                                </li>
+                                <li>
+                                    <loc>
+                                        <x>66.10088</x>
+                                        <y>2557.69</y>
+                                    </loc>
+                                </li>
+                            </points>
+                        </curve>
+                    </li>
+                </paramMappings>
+                <filters>
+                    <li Class="SoundFilterLowPass">
+                        <cutoffFrequency>10000</cutoffFrequency>
+                        <lowpassResonaceQ>1</lowpassResonaceQ>
+                    </li>
+                </filters>  
+                <sustainLoop>False</sustainLoop>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

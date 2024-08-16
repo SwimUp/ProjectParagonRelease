@@ -222,7 +222,7 @@
 								<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
 								<WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
 								<MeleePenetrationFactor>1.0</MeleePenetrationFactor>
-								<ProsthesisEfficiency>1</ProsthesisEfficiency>
+								<ProsthesisEfficiency>0.95</ProsthesisEfficiency>
 							</statFactors>
 						</stuffProps>
 						<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -682,6 +682,7 @@
 						<useHitPoints>false</useHitPoints>
 						<tradeability>Buyable</tradeability>
 						<statBases>
+							<Nutrition>0.03</Nutrition>
 							<MaxHitPoints>200</MaxHitPoints>
 							<MarketValue>0.9</MarketValue>
 							<SharpDamageMultiplier>0.6</SharpDamageMultiplier>
@@ -718,6 +719,13 @@
 							</statFactors>
 						</stuffProps>
 						<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+						<ingestible>
+							<foodType>Processed</foodType>
+							<preferability>MealSimple</preferability>
+							<ingestSound>Meal_Eat</ingestSound>
+							<optimalityOffsetHumanlikes>25</optimalityOffsetHumanlikes>
+						</ingestible>
+						<socialPropernessMatters>true</socialPropernessMatters>
 					</ThingDef>
 				</value>
 			</li>
@@ -948,37 +956,10 @@
 						<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
 						<WorkTableWorkSpeedFactor>1.05</WorkTableWorkSpeedFactor>
 						<MeleePenetrationFactor>1.5</MeleePenetrationFactor>
-						<ProsthesisEfficiency>1.0</ProsthesisEfficiency>
+						<ProsthesisEfficiency>0.95</ProsthesisEfficiency>
 					</statFactors>
 				</value>
 			</li>
-			<!--<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="Plasteel"]/stuffProps/statFactors</xpath>
-				<value>
-					<stuffProps>
-						<categories>
-							<li>Metallic</li>
-							<li>Metallic_Weapon</li>
-						</categories>
-						<commonality>0.01</commonality>
-						<constructEffect>ConstructMetal</constructEffect>
-						<color>(136,93,126)</color>
-						<soundImpactMelee>BulletImpact_Metal</soundImpactMelee><soundImpactBullet>BulletImpact_Metal</soundImpactBullet>
-						<soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
-						<soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
-						<statFactors>
-							<MaxHitPoints>8</MaxHitPoints>
-							<Beauty>1.1</Beauty>
-							<Flammability>0.0</Flammability>
-							<BedRestEffectiveness>0.85</BedRestEffectiveness>
-							<ImmunityGainSpeedFactor>0.85</ImmunityGainSpeedFactor>
-							<WorkTableWorkSpeedFactor>1.05</WorkTableWorkSpeedFactor>
-							<MeleePenetrationFactor>1.5</MeleePenetrationFactor>
-							<ProsthesisEfficiency>1.0</ProsthesisEfficiency>
-						</statFactors>
-					</stuffProps>
-				</value>
-			</li>-->
 			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="Plasteel"]</xpath>
 				<value>

@@ -2985,7 +2985,7 @@ The SKS-45 was manufactured at Tula Arsenal from 1949 to 1958 and at Izhevsk Ars
 		<graphicData>
 			<texPath>Things/Weapons/HRK_STALKER_Gauss</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>1.0</drawSize>
+			<drawSize>1.1</drawSize>
 		</graphicData>
 		<equippedAngleOffset>45</equippedAngleOffset>
 		<soundInteract>HRK_Interact_STALKER_Gauss</soundInteract>
@@ -3087,8 +3087,8 @@ The SKS-45 was manufactured at Tula Arsenal from 1949 to 1958 and at Izhevsk Ars
 		</tools>
 		<modExtensions>
 			<li Class="CombatExtended.GunDrawExtension">
-				<DrawSize>1.0,1.0</DrawSize>
-				<DrawOffset>0.0,0.0</DrawOffset>
+				<DrawSize>1.1,1.1</DrawSize>
+				<DrawOffset>0.0,-0.05</DrawOffset>
 			</li>
 		</modExtensions>
 	</ThingDef>
@@ -3102,7 +3102,7 @@ An improved version with advanced electronics that increase the weapon's effecti
 		<graphicData>
 			<texPath>Things/Weapons/HRK_STALKER_Gauss_Sniper</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>1.0</drawSize>
+			<drawSize>1.1</drawSize>
 		</graphicData>
 		<equippedAngleOffset>45</equippedAngleOffset>
 		<soundInteract>HRK_Interact_STALKER_Gauss</soundInteract>
@@ -3158,9 +3158,239 @@ An improved version with advanced electronics that increase the weapon's effecti
 				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
 				<hasStandardCommand>true</hasStandardCommand>
 				<defaultProjectile>Bullet_GaussBattery_Charged</defaultProjectile>
-				<warmupTime>0.8</warmupTime>
+				<warmupTime>0.9</warmupTime>
 				<range>110</range>
 				<soundCast>HRK_Shot_STALKER_Gauss</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.1,1.1</DrawSize>
+				<DrawOffset>0.0,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>NS08_Shortbow</defName>
+		<label>AM08 Shortbow</label>
+		<description>.</description>
+		<graphicData>
+			<texPath>NSX/NSOBlackMarket/PS2_NS_08_Shortbow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToMake>55000</WorkToMake>
+			<Mass>6.9</Mass>
+			<Bulk>8.10</Bulk>
+			<SwayFactor>1.1</SwayFactor>
+			<ShotSpread>0.04</ShotSpread>
+			<SightsEfficiency>1.6</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<HiTechWeaponComponents>25</HiTechWeaponComponents>
+			<MechanismSpacer>8</MechanismSpacer>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<Plastic>60</Plastic>
+			<Polymers>100</Polymers>
+			<SimpleElectronic>10</SimpleElectronic>
+			<Microelectronics>10</Microelectronics>
+			<Nanoelectronics>12</Nanoelectronics>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadTime>2.8</reloadTime>
+				<ammoSet>AmmoSet_6x22mmCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+                <aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>DMR</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_DMR_TierVIIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_6x22mmCharged</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>110</range>
+				<soundCast>SHOOT_NS7NS8_START</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>NSX_Kuwa_Assault_rifle</defName>
+		<label>NSX Kuwa</label>
+		<description>.</description>
+		<graphicData>
+			<texPath>NSX/NSOBlackMarket/PS2_NSX_Kuwa</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToMake>57000</WorkToMake>
+			<Mass>5.9</Mass>
+			<Bulk>6.2</Bulk>
+			<SwayFactor>0.8</SwayFactor>
+			<ShotSpread>0.055</ShotSpread>
+			<SightsEfficiency>1.6</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<HiTechWeaponComponents>28</HiTechWeaponComponents>
+			<MechanismSpacer>8</MechanismSpacer>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Plastic>80</Plastic>
+			<Polymers>120</Polymers>
+			<SimpleElectronic>10</SimpleElectronic>
+			<Microelectronics>10</Microelectronics>
+			<Nanoelectronics>10</Nanoelectronics>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>20</magazineSize>
+				<reloadTime>3.3</reloadTime>
+				<ammoSet>AmmoSet_5x35mmCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+                <aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>DMR</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>16</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_DMR_TierVIIII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_5x35mmCharged</defaultProjectile>
+				<warmupTime>1.0</warmupTime>
+				<range>85</range>
+				<soundCast>NS_shot_SHOOT_NSX_Yumi_START</soundCast>
 				<soundCastTail>GunTail_Heavy</soundCastTail>
 				<muzzleFlashScale>9</muzzleFlashScale>
 			</li>

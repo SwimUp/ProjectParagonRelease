@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingCategoryDef>
+        <defName>DS_Category_PulseRounds</defName>
+        <label>pulse rounds</label>
+        <parent>AmmoAdvanced</parent>
+        <iconPath>Things/Ammo/PulseRound</iconPath>
+    </ThingCategoryDef>
+
+    <CombatExtended.AmmoSetDef>
+        <defName>DS_AmmoSet_PulseRifle</defName>
+        <label>pulse round</label>
+        <ammoTypes>
+            <DS_Ammo_PulseRound>DS_CE_Bullet_PulseRifle</DS_Ammo_PulseRound>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>DS_CE_Bullet_PulseRifle</defName>
+        <label>pulse round</label>
+        <graphicData>
+            <texPath>Things/Projectiles/PulseRifleTrail</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>29</damageAmountBase>
+            <armorPenetrationSharp>21</armorPenetrationSharp>
+            <armorPenetrationBlunt>180</armorPenetrationBlunt>
+            <speed>160</speed>
+        </projectile>
+    </ThingDef>
+
+    <!-- ammo: pulse round -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>DS_Ammo_PulseRound</defName>
+        <label>pulse rounds</label>
+        <description>Ultra-low caliber rounds at hypersonic speeds.</description>
+        <statBases>
+            <Mass>0.008</Mass>
+			<Bulk>0.006</Bulk>
+            <MarketValue>0.08</MarketValue>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Ammo/PulseRound</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <tradeTags>
+            <li>CE_AutoEnableTrade</li>
+        </tradeTags>
+        <thingCategories>
+            <li>DS_Category_PulseRounds</li>
+        </thingCategories>
+        <ammoClass>ArmorPiercing</ammoClass>
+    </ThingDef>
+
+    <!--recipe: pulse round x500 -->
+    <RecipeDef ParentName="AmmoRecipeBase" Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+        <defName>MakeDS_Ammo_PulseRound</defName>
+        <label>make pulse rounds x500</label>
+        <description>Make pulse rounds.</description>
+        <jobString>Making pulse rounds.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SulphuricAcid</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Supermagnet</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>UraniumPowder</li>
+					</thingDefs>
+				</filter>
+				<count>60</count>
+			</li>
+		</ingredients>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Liquid">
+				<pipeTypeDef>Plasma</pipeTypeDef>
+				<count>5</count>
+			</li>
+		</abstractIngredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>MagnesiumIngot</li>
+				<li>UraniumPowder</li>
+				<li>Supermagnet</li>
+				<li>SulphuricAcid</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<DS_Ammo_PulseRound>150</DS_Ammo_PulseRound>
+		</products>
+		<workAmount>2900</workAmount>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>12</Crafting>
+		</skillRequirements>
+		<researchPrerequisite>EnergyWeapons</researchPrerequisite>
+    </RecipeDef>
+
+</Defs>

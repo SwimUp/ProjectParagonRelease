@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="DS_Weapon">
+        <defName>DS_ContactBeam</defName>
+        <label>C99 Contact Beam</label>
+        <description>The C99 Supercollider Contact Beam is an energy projector that utilizes kinetic energy.</description>
+        <graphicData>
+            <texPath>Things/Weapons/ContactBeam</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>1.18</drawSize>
+        </graphicData>
+        <soundInteract>DS_Interact_Rifle</soundInteract>
+        <statBases>
+			<WorkToMake>35000</WorkToMake>
+			<Mass>8</Mass>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.2</SightsEfficiency>
+			<ShotSpread>0.03</ShotSpread>
+			<SwayFactor>1</SwayFactor>
+			<Bulk>9.3</Bulk>
+        </statBases>
+        <costList>
+			<HiTechWeaponComponents>30</HiTechWeaponComponents>
+			<MechanismSpacer>15</MechanismSpacer>
+			<ComponentIndustrial>15</ComponentIndustrial>
+			<Plastic>100</Plastic>
+			<Polymers>100</Polymers>
+			<SimpleElectronic>10</SimpleElectronic>
+			<Microelectronics>10</Microelectronics>
+			<Supermagnet>10</Supermagnet>
+        </costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>DS_CE_Bullet_ContactBeam</defaultProjectile>
+				<warmupTime>1.8</warmupTime>
+				<range>75</range>
+				<soundCast>DS_Shot_ContactBeam</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>16</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>DMR</subWeaponSpecialization>
+			</li>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>5</reloadTime>
+				<ammoSet>DS_AmmoSet_ContactBeam</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.18,1.18</DrawSize>
+				<DrawOffset>-0.1,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+    </ThingDef>
+
+    <SoundDef>
+        <defName>DS_Shot_ContactBeam</defName>
+        <context>MapOnly</context>
+        <eventNames />
+        <maxSimultaneous>10</maxSimultaneous>
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>Weapons/ContactBeam</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>
+                    <min>1</min>
+                    <max>1.112391</max>
+                </pitchRange>
+                <paramMappings>
+                    <li>
+                        <inParam Class="SoundParamSource_CameraAltitude" />
+                        <outParam Class="SoundParamTarget_PropertyLowPass">
+                            <filterProperty>Cutoff</filterProperty>
+                        </outParam>
+                        <paramUpdateMode>Constant</paramUpdateMode>
+                        <curve>
+                            <points>
+                                <li>
+                                    <loc>
+                                        <x>17.08957</x>
+                                        <y>21001.8</y>
+                                    </loc>
+                                </li>
+                                <li>
+                                    <loc>
+                                        <x>24.77761</x>
+                                        <y>12701.95</y>
+                                    </loc>
+                                </li>
+                                <li>
+                                    <loc>
+                                        <x>32.786</x>
+                                        <y>7168.717</y>
+                                    </loc>
+                                </li>
+                                <li>
+                                    <loc>
+                                        <x>45.91975</x>
+                                        <y>4270.358</y>
+                                    </loc>
+                                </li>
+                                <li>
+                                    <loc>
+                                        <x>66.10088</x>
+                                        <y>2557.69</y>
+                                    </loc>
+                                </li>
+                            </points>
+                        </curve>
+                    </li>
+                </paramMappings>
+                <filters>
+                    <li Class="SoundFilterLowPass">
+                        <cutoffFrequency>10000</cutoffFrequency>
+                        <lowpassResonaceQ>1</lowpassResonaceQ>
+                    </li>
+                </filters>  
+                <sustainLoop>False</sustainLoop>
+            </li>
+        </subSounds>
+    </SoundDef>
+</Defs>

@@ -826,4 +826,110 @@ Now discontinued, the Colt Python was intended for the premium revolver market s
 			</li>
 		</modExtensions>
 	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>NS_44_Commissioner</defName>
+		<label>NS-44 Commissioner</label>
+		<description>The awe-inspiring stopping power of the accurate NS-44 Commissioner revolver can put down even mid-range targets with a few well-placed shots. All factions can use this weapon.</description>
+		<graphicData>
+			<texPath>NSX/NS_Range/PS2_NS_44</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>2.0</Mass>
+			<RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.12</ShotSpread>
+			<SwayFactor>1.06</SwayFactor>
+			<Bulk>2.6</Bulk>
+			<WorkToMake>22000</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>1.0</reloadTime>
+				<ammoSet>AmmoSet_5x35mmCharged</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Revolvers</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>CE_Sidearm</li>
+			<li>Weapon_Revolver_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<HiTechWeaponComponents>8</HiTechWeaponComponents>
+			<MechanismSpacer>4</MechanismSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Plastic>30</Plastic>
+			<Polymers>40</Polymers>
+			<SimpleElectronic>2</SimpleElectronic>
+			<Microelectronics>2</Microelectronics>
+			<Nanoelectronics>1</Nanoelectronics>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisite>EnergyWeapons</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>14</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_5x35mmCharged</defaultProjectile>
+				<warmupTime>0.55</warmupTime>
+				<range>42</range>
+				<soundCast>NS_shot_SHOOT_PISTOL_START</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilPattern>Regular</recoilPattern>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
 </Defs>

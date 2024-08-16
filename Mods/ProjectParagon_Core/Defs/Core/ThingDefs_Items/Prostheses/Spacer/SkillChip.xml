@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<HediffDef ParentName="ImplantHediffBase" Name="SkillChipHediffBase" Abstract="true">
+		<description>A skill chip that enhances the owner's abilities through the power of technology.</description>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+			</li>
+		</modExtensions>
+	</HediffDef>
+	<ThingDef ParentName="ProsthesisSpacerBase" Name="SkillChipThingBase" Abstract="true">
+		<description>A skill chip that enhances the owner's abilities through the power of technology.</description>
+		<graphicData>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Mass>1</Mass>
+			<MarketValue>500</MarketValue>
+		</statBases>
+		<recipeMaker>
+			<workSpeedStat>SmeltingSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smelt</effectWorking>
+			<soundWorking>Recipe_Machining</soundWorking>
+			<researchPrerequisite>SkillChips</researchPrerequisite>
+			<recipeUsers>
+				<li>Bioprinter</li>
+			</recipeUsers>
+			<unfinishedThingDef>ProstheticParagon_T4_</unfinishedThingDef>
+			<skillRequirements>
+				<Crafting>10</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<costList>
+			<Nanoelectronics>2</Nanoelectronics>
+			<Synthread>25</Synthread>
+			<Plastic>50</Plastic>
+			<Biosynthetics>50</Biosynthetics>
+		</costList>
+		<comps Inherit="false">
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+	</ThingDef>
+	<RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase" Name="SkillChipRecipeBase" Abstract="true">
+		<description>Install a skill chip.</description>
+		<jobString>Installing skill chip.</jobString>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
+		<researchPrerequisite>SkillChips</researchPrerequisite>
+	</RecipeDef>
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Melee</defName>
+		<label>Skill chip (Melee)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Melee>4</Melee>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Melee</defName>
+		<label>Skill chip (Melee)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Melee</defName>
+		<label>install skill chip (Melee)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Melee</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Melee</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Melee</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Shooting</defName>
+		<label>Skill chip (Shooting)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Shooting>4</Shooting>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Shooting</defName>
+		<label>Skill chip (Shooting)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Shooting</defName>
+		<label>install skill chip (Shooting)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Shooting</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Shooting</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Shooting</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Construction</defName>
+		<label>Skill chip (Construction)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Construction>4</Construction>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Construction</defName>
+		<label>Skill chip (Construction)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Construction</defName>
+		<label>install skill chip (Construction)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Construction</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Construction</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Construction</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Mining</defName>
+		<label>Skill chip (Mining)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Mining>4</Mining>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Mining</defName>
+		<label>Skill chip (Mining)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Mining</defName>
+		<label>install skill chip (Mining)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Mining</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Mining</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Mining</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Cooking</defName>
+		<label>Skill chip (Cooking)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Cooking>4</Cooking>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Cooking</defName>
+		<label>Skill chip (Cooking)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Cooking</defName>
+		<label>install skill chip (Cooking)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Cooking</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Cooking</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Cooking</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Plants</defName>
+		<label>Skill chip (Plants)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Plants>4</Plants>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Plants</defName>
+		<label>Skill chip (Plants)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Plants</defName>
+		<label>install skill chip (Plants)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Plants</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Plants</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Plants</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Animals</defName>
+		<label>Skill chip (Animals)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Animals>4</Animals>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Animals</defName>
+		<label>Skill chip (Animals)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Animals</defName>
+		<label>install skill chip (Animals)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Animals</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Animals</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Animals</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Crafting</defName>
+		<label>Skill chip (Crafting)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Crafting>4</Crafting>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Crafting</defName>
+		<label>Skill chip (Crafting)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Crafting</defName>
+		<label>install skill chip (Crafting)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Crafting</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Crafting</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Crafting</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Artistic</defName>
+		<label>Skill chip (Artistic)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Artistic>4</Artistic>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Artistic</defName>
+		<label>Skill chip (Artistic)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Artistic</defName>
+		<label>install skill chip (Artistic)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Artistic</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Artistic</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Artistic</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Medicine</defName>
+		<label>Skill chip (Medicine)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Medicine>4</Medicine>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Medicine</defName>
+		<label>Skill chip (Medicine)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Medicine</defName>
+		<label>install skill chip (Medicine)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Medicine</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Medicine</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Medicine</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Social</defName>
+		<label>Skill chip (Social)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Social>4</Social>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Social</defName>
+		<label>Skill chip (Social)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Social</defName>
+		<label>install skill chip (Social)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Social</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Social</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Social</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+	<HediffDef ParentName="SkillChipHediffBase">
+		<defName>SkillChip_Intellectual</defName>
+		<label>Skill chip (Intellectual)</label>
+		<labelNoun>a death acidifier</labelNoun>
+		<spawnThingOnRemoved>DeathAcidifier</spawnThingOnRemoved>
+		<aptitudes>
+			<Intellectual>4</Intellectual>
+		</aptitudes>
+	</HediffDef>
+	<!---->
+	<ThingDef ParentName="SkillChipThingBase">
+		<defName>SkillChip_Intellectual</defName>
+		<label>Skill chip (Intellectual)</label>
+	</ThingDef>
+	<!---->
+	<RecipeDef ParentName="SkillChipRecipeBase">
+		<defName>SkillChip_Intellectual</defName>
+		<label>install skill chip (Intellectual)</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SkillChip_Intellectual</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>SkillChip_Intellectual</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SkillChip_Intellectual</addsHediff>
+	</RecipeDef>
+	<!---->
+	<!---->
+	<!---->
+</Defs>

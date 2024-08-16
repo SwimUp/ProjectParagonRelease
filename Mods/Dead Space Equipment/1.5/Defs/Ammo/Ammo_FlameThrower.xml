@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingCategoryDef>
+        <defName>DS_Category_HydrazineFuel</defName>
+        <label>hydrazine fuel</label>
+        <parent>AmmoAdvanced</parent>
+        <iconPath>Things/Ammo/HydrazineFuel</iconPath>
+    </ThingCategoryDef>
+
+    <CombatExtended.AmmoSetDef>
+        <defName>DS_AmmoSet_Flamethrower</defName>
+        <label>flamethrower fuel</label>
+        <ammoTypes>
+            <DS_Ammo_HydrazineFuel>Bullet_Flamethrower_Prometheum</DS_Ammo_HydrazineFuel>
+        </ammoTypes>
+    </CombatExtended.AmmoSetDef>
+
+    <!-- ammo: Hydrazine Fuel -->
+    <ThingDef Class="CombatExtended.AmmoDef" ParentName="SpacerSmallAmmoBase">
+        <defName>DS_Ammo_HydrazineFuel</defName>
+        <label>hydrazine fuel</label>
+        <graphicData>
+            <texPath>Things/Ammo/HydrazineFuel</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+        <statBases>
+            <MarketValue>0.3</MarketValue>
+            <MaxHitPoints>70</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Mass>0.05</Mass>
+            <Bulk>0.1</Bulk>
+        </statBases>
+        <tradeTags>
+			<li>CE_AutoEnableTrade</li>
+		</tradeTags>
+        <ammoClass>ThermobaricFuel</ammoClass>
+        <comps>
+            <li Class="CombatExtended.CompProperties_ExplosiveCE">
+                <damageAmountBase>3</damageAmountBase>
+                <explosiveDamageType>Flame</explosiveDamageType>
+                <explosiveRadius>1</explosiveRadius>
+                <preExplosionSpawnThingDef>Filth_Diesel</preExplosionSpawnThingDef>
+                <preExplosionSpawnChance>1</preExplosionSpawnChance>
+            </li>
+        </comps>
+        <stackLimit>500</stackLimit>
+        <thingCategories>
+            <li>DS_Category_HydrazineFuel</li>
+        </thingCategories>
+    </ThingDef>
+
+    <RecipeDef ParentName="AmmoRecipeBase">
+        <defName>MakeDS_Ammo_HydrazineFuel</defName>
+        <label>make hydrazine fuel x100</label>
+        <description>Craft 100 units of hydrazine fuel.</description>
+        <jobString>Making hydrazine fuel.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Strong</li>
+						<li>Alloys_Superalloys</li>
+					</categories>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SulphuricAcid</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Canister_HeavyOil</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Canister_MediumOil</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Canister_LightOil</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Canister_Diesel</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Strong</li>
+				<li>Alloys_Superalloys</li>
+			</categories>
+			<thingDefs>
+				<li>MagnesiumIngot</li>
+				<li>SulphuricAcid</li>
+				<li>Canister_HeavyOil</li>
+				<li>Canister_MediumOil</li>
+				<li>Canister_LightOil</li>
+				<li>Canister_Diesel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<DS_Ammo_HydrazineFuel>150</DS_Ammo_HydrazineFuel>
+			<Canister_Empty>16</Canister_Empty>
+		</products>
+		<workAmount>2800</workAmount>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Crafting>10</Crafting>
+		</skillRequirements>
+		<researchPrerequisite>EnergyWeapons</researchPrerequisite>
+    </RecipeDef>
+</Defs>

@@ -1,123 +1,143 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-  <ThingCategoryDef>
-    <defName>Ammo5x35mmCharged</defName>
-    <label>5x35mm Charged</label>
-    <parent>AmmoAdvanced</parent>
-    <iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
-  </ThingCategoryDef>
-
-  <!-- ==================== AmmoSet ========================== -->
-
-  <CombatExtended.AmmoSetDef>
-    <defName>AmmoSet_5x35mmCharged</defName>
-    <label>5x35mm Charged</label>
-    <ammoTypes>
-      <Ammo_5x35mmCharged>Bullet_5x35mmCharged</Ammo_5x35mmCharged>
-    </ammoTypes>
-  </CombatExtended.AmmoSetDef>
-
-  <!-- ==================== Ammo ========================== -->
-
-  <ThingDef Class="CombatExtended.AmmoDef" Name="5x35mmChargedBase" ParentName="SpacerSmallAmmoBase" Abstract="True">
-    <description>Mechanoid-built charged shot ammo designed for high-velocity fire and armor penetration.</description>
-    <statBases>
-      <Mass>0.013</Mass>
-      <Bulk>0.01</Bulk>
-    </statBases>
-    <thingCategories>
-      <li>Ammo5x35mmCharged</li>
-    </thingCategories>
-    <tradeTags>
-      <li>CE_AutoEnableTrade_Sellable</li>
-      <li MayRequire="Ludeon.RimWorld.Biotech">CE_AutoEnableCrafting_FabricationBench</li>
-    </tradeTags>
-    <stackLimit>5000</stackLimit>	
-  </ThingDef>
-
-  <ThingDef Class="CombatExtended.AmmoDef" ParentName="5x35mmChargedBase">
-    <defName>Ammo_5x35mmCharged</defName>
-    <label>5x35mm Charged cartridge</label>
-    <graphicData>
-      <texPath>Things/Ammo/Charged/MediumMech</texPath>
-      <graphicClass>Graphic_StackCount</graphicClass>
-    </graphicData>
-    <statBases>
-      <MarketValue>0.36</MarketValue>
-    </statBases>
-    <ammoClass>Charged</ammoClass>
-  </ThingDef>
-
-  <!-- ================== Projectiles ================== -->
-
-  <ThingDef Name="Base5x35mmChargedBullet" ParentName="BaseBullet">
-    <defName>Bullet_5x35mmCharged</defName>
-    <label>5x35mm Charged bullet</label>
-    <graphicData>
-      <texPath>Things/Projectile/Charged/ChargeLanceShot</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>TransparentPostLight</shaderType>
-    </graphicData>
-    <projectile Class="CombatExtended.ProjectilePropertiesCE">
-      <damageDef>Bullet</damageDef>
-      <damageAmountBase>11</damageAmountBase>
-      <speed>200</speed>
-      <secondaryDamage>
-        <li>
-          <def>Bomb_Secondary</def>
-          <amount>2</amount>
-        </li>
-      </secondaryDamage>
-      <armorPenetrationSharp>30</armorPenetrationSharp>
-      <armorPenetrationBlunt>40</armorPenetrationBlunt>
-    </projectile>
-  </ThingDef>
-
-  <!-- ==================== Recipes ========================== -->
-
-  <RecipeDef ParentName="ChargeAmmoRecipeBase" MayRequire="Ludeon.RimWorld.Biotech">
-    <defName>MakeAmmo_5x35mmCharged</defName>
-    <label>make 5x35mm Charged cartridge x500</label>
-    <description>Craft 500 5x35mm Charged cartridges.</description>
-    <jobString>Making 5x35mm Charged cartridges.</jobString>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>Plasteel</li>
-          </thingDefs>
-        </filter>
-        <count>8</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>Steel</li>
-          </thingDefs>
-        </filter>
-        <count>10</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>ComponentIndustrial</li>
-          </thingDefs>
-        </filter>
-        <count>8</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Plasteel</li>
-        <li>Steel</li>
-        <li>ComponentIndustrial</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <Ammo_5x35mmCharged>500</Ammo_5x35mmCharged>
-    </products>
-    <workAmount>9900</workAmount>  <!-- 10% more work -->
-  </RecipeDef>
-
+	<ThingCategoryDef>
+		<defName>Ammo5x35mmCharged</defName>
+		<label>5x35mm Charged</label>
+		<parent>AmmoAdvanced</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
+	</ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_5x35mmCharged</defName>
+		<label>5x35mm Charged</label>
+		<ammoTypes>
+			<Ammo_5x35mmCharged>Bullet_5x35mmCharged</Ammo_5x35mmCharged>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+	<ThingDef Class="CombatExtended.AmmoDef" Name="5x35mmChargedBase" ParentName="SpacerSmallAmmoBase" Abstract="True">
+		<description>Mechanoid-built charged shot ammo designed for high-velocity fire and armor penetration.</description>
+		<statBases>
+			<Mass>0.013</Mass>
+			<Bulk>0.01</Bulk>
+		</statBases>
+		<thingCategories>
+			<li>Ammo5x35mmCharged</li>
+		</thingCategories>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+		</tradeTags>
+		<stackLimit>500</stackLimit>
+	</ThingDef>
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="5x35mmChargedBase">
+		<defName>Ammo_5x35mmCharged</defName>
+		<label>5x35mm Charged cartridge</label>
+		<graphicData>
+			<texPath>Things/Ammo/Charged/MediumMech</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>1.23</MarketValue>
+		</statBases>
+		<ammoClass>Charged</ammoClass>
+	</ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+	<ThingDef Name="Base5x35mmChargedBullet" ParentName="BaseBullet">
+		<defName>Bullet_5x35mmCharged</defName>
+		<label>5x35mm Charged bullet</label>
+		<graphicData>
+			<texPath>Things/Projectile/Charged/ChargeLanceShot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>11</damageAmountBase>
+			<speed>200</speed>
+			<secondaryDamage>
+				<li>
+					<def>Bomb_Secondary</def>
+					<amount>2</amount>
+				</li>
+			</secondaryDamage>
+			<armorPenetrationSharp>26.5</armorPenetrationSharp>
+			<armorPenetrationBlunt>80</armorPenetrationBlunt>
+		</projectile>
+	</ThingDef>
+	
+	<!-- ==================== Recipes ========================== -->
+	<RecipeDef ParentName="ChargeAmmoRecipeBase" MayRequire="Ludeon.RimWorld.Biotech">
+		<defName>MakeAmmo_5x35mmCharged</defName>
+		<label>make 5x35mm Charged cartridge x500</label>
+		<description>Craft 500 5x35mm Charged cartridges.</description>
+		<jobString>Making 5x35mm Charged cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Alloys_Superalloys</li>
+						<li>Alloys_Nano</li>
+					</categories>
+				</filter>
+				<count>15</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plutonium</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MagnesiumIngot</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>NitricAcid</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>UraniumPowder</li>
+					</thingDefs>
+				</filter>
+				<count>45</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Alloys_Nano</li>
+			</categories>
+			<thingDefs>
+				<li>Plutonium</li>
+				<li>NitricAcid</li>
+				<li>MagnesiumIngot</li>
+				<li>UraniumPowder</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_5x35mmCharged>150</Ammo_5x35mmCharged>
+		</products>
+		<workAmount>3300</workAmount>
+		<skillRequirements>
+			<Crafting>15</Crafting>
+		</skillRequirements>
+		<recipeUsers Inherit="false">
+			<li>RoboticEquipmentWorkbench</li>
+		</recipeUsers>
+		<researchPrerequisite>ChargedShot</researchPrerequisite>
+	</RecipeDef>
 </Defs>

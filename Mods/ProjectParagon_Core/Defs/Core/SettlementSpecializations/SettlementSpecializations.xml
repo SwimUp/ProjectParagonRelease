@@ -2423,4 +2423,113 @@
 			<li>Cooks</li>
 		</excludeSpecs>
 	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>AutomatonFactory</defName>
+		<label>Automaton factory</label>
+		<description>A dangerous factory for the production of automata for battles and work.</description>
+		<generationPriority>50</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_AutomatonFactory</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_MarketValue</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<minFactionTechLevel>Industrial</minFactionTechLevel>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li>
+					<!-- Undefined -->
+					<li>(1, 80)</li>
+					<!-- Flat -->
+					<li>(2, 60)</li>
+					<!-- SmallHills -->
+					<li>(3, 25)</li>
+					<!-- LargeHills -->
+					<li>(4, 5)</li>
+					<!-- Mountainous -->
+					<li>(5, 0)</li>
+					<!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-60, 1)</li>
+					<li>(60, 1)</li>
+				</points>
+			</commonalityMultByTemperature>
+		</validator>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.AutomatonFactoryProps">
+			<itemsThingSetMaker>SettlementSpec_Basic_StackCount</itemsThingSetMaker>
+			<animalsThingSetMaker>SettlementSpec_AutomatonAnimals</animalsThingSetMaker>
+			<animalsCountRange>3~8</animalsCountRange>
+			<itemsCountRange>120~300</itemsCountRange>
+			<itemsCountRangeByWealth>
+				<points>
+					<li>(200, 1)</li>
+					<li>(500, 2)</li>
+					<li>(900, 3)</li>
+					<li>(2500, 4)</li>
+					<li>(5000, 5)</li>
+					<li>(20000, 6)</li>
+				</points>
+			</itemsCountRangeByWealth>
+			<thingFilter>
+				<categories>
+					<li>Components</li>
+					<li>Mechanisms</li>
+					<li>RobotComponents</li>
+					<li>RepairKits</li>
+				</categories>
+				<thingDefs>
+					<li>Coal</li>
+					<li>CokeCoal</li>
+				</thingDefs>
+			</thingFilter>
+			<wantsToBuy>
+				<categories>
+					<li>Manufactured</li>
+					<li>ResourcesRaw</li>
+					<li>Apparel</li>
+					<li>Plants</li>
+				</categories>
+			</wantsToBuy>
+			<priceMultiplierRangeWantsToBuy>1.1~1.25</priceMultiplierRangeWantsToBuy>
+			<willBuy>
+				<categories>
+					<li>Weapons</li>
+					<li>Foods</li>
+					<li>Buildings</li>
+					<li>Animals</li>
+					<li>Items</li>
+					<li>Pawns</li>
+				</categories>
+			</willBuy>
+			<priceMultiplierRangeWillBuy>0.5~0.75</priceMultiplierRangeWillBuy>
+		</props>
+		<excludeFactions>
+			<li>OutlanderCivil</li>
+			<li>OutlanderRough</li>
+			<li>Pirate</li>
+			<li>Empire</li>
+			<li>Lithur</li>
+			<li>Resonites</li>
+			<li>Robots</li>
+			<li>PirateWaster</li>
+		</excludeFactions>
+		<excludeSpecs>
+			<li>MiningSettlement</li>
+			<li>Growers</li>
+			<li>Breeders</li>
+			<li>ScientificComplex</li>
+			<li>SlaveOwners</li>
+			<li>FishingSettlement</li>
+			<li>Quarry</li>
+			<li>Militarists</li>
+			<li>Beekeepers</li>
+			<li>Joiners</li>
+			<li>SpinningWorkshop</li>
+			<li>Biologists</li>
+			<li>Archaeologists</li>
+			<li>Cooks</li>
+			<li>SewingWorkshop</li>
+			<li>Jewelers</li>
+		</excludeSpecs>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
 </Defs>

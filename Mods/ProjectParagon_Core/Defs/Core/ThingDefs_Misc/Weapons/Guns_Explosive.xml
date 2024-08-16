@@ -472,4 +472,125 @@ It uses an automatic infrared guidance that allows the user to seek cover immedi
 			</li>
 		</comps>
 	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>NS03_Thumper</defName>
+		<label>NS-03 Thumper</label>
+		<description>.</description>
+		<graphicData>
+			<texPath>NSX/NS_Range/PS2_NS_03_Thumper</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Spacer</techLevel>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Mass>11.6</Mass>
+			<RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.00</SightsEfficiency>
+			<ShotSpread>0.14</ShotSpread>
+			<SwayFactor>1.05</SwayFactor>
+			<Bulk>7.1</Bulk>
+			<WorkToMake>72000</WorkToMake>
+		</statBases>
+		<weaponTags>
+			<li>GunHeavy</li>
+			<li>GunSingleUse</li>
+			<li>RN_M79</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<recipeMaker>
+			<researchPrerequisite>ChargedShot</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>13</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<HiTechWeaponComponents>25</HiTechWeaponComponents>
+			<MechanismSpacer>10</MechanismSpacer>
+			<ComponentIndustrial>5</ComponentIndustrial>
+			<Plastic>80</Plastic>
+			<Polymers>100</Polymers>
+			<SimpleElectronic>2</SimpleElectronic>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>True</hasStandardCommand>
+				<defaultProjectile>Bullet_40x46mmGrenade_HE</defaultProjectile>
+				<warmupTime>1.2</warmupTime>
+				<range>45</range>
+				<minRange>5</minRange>
+				<burstShotCount>3</burstShotCount>
+				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilAmount>3.15</recoilAmount>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>1.0</reloadTime>
+				<ammoSet>AmmoSet_40x46mmGrenade</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>SuppressFire</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>HeavyGuns</subWeaponSpecialization>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.0,1.0</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
 </Defs>
