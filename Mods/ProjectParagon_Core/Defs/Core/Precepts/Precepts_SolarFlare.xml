@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>SolarFlare</defName>
+		<label>Solar flare</label>
+		<iconPath>Core/UI/Issues/SolarFlare</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>SolarFlare_Frightening</defName>
+		<issue>SolarFlare</issue>
+		<label>Frightening</label>
+		<description>The sun is raging, everyone take shelter!</description>
+		<impact>Low</impact>
+		<requiredMemes>
+			<li>Darkness</li>
+		</requiredMemes>
+		<associatedMemes>
+			<li>Darkness</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SolarFlare_Frightening</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>SolarFlare_Frightening</defName>
+		<thoughtClass>Thought_Situational</thoughtClass>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_SolarFlare</workerClass>
+		<stages>
+			<li>
+				<label>frightening solar flare</label>
+				<description>The sun is raging, everyone take shelter!</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Pyromaniac</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>SolarFlare_Beautiful</defName>
+		<issue>SolarFlare</issue>
+		<label>Beautiful</label>
+		<description>The sun is unusually beautiful today!</description>
+		<impact>Low</impact>
+		<requiredMemes>
+			<li>SunCult</li>
+		</requiredMemes>
+		<associatedMemes>
+			<li>SunCult</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SolarFlare_Beautiful</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>SolarFlare</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 30</li>
+						<!-- Племя -->
+						<li>1, 40</li>
+						<!-- Средневековье -->
+						<li>2, 50</li>
+						<!-- Индастриал -->
+						<li>3, 60</li>
+						<!-- Космос -->
+						<li>4, 70</li>
+						<!-- Ультра -->
+						<li>5, 80</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>SolarFlare_Beautiful</defName>
+		<thoughtClass>Thought_Situational</thoughtClass>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_SolarFlare</workerClass>
+		<stages>
+			<li>
+				<label>beautiful solar flare</label>
+				<description>The sun is unusually beautiful today!</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>NightOwl</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+</Defs>

@@ -1424,7 +1424,6 @@
 			<li>FueledStove</li>
 			<li>ElectricStove</li>
 		</recipeUsers>
-		<researchPrerequisite>BeekeepingBasics</researchPrerequisite>
 		<modExtensions>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
@@ -1466,10 +1465,10 @@
 		</defaultIngredientFilter>
 		<workSkill>Cooking</workSkill>
 		<recipeUsers>
+			<li>CookingFurnace</li>
 			<li>FueledStove</li>
 			<li>ElectricStove</li>
 		</recipeUsers>
-		<researchPrerequisite>BeekeepingBasics</researchPrerequisite>
 		<modExtensions>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
@@ -1527,7 +1526,6 @@
 			<li>FueledStove</li>
 			<li>ElectricStove</li>
 		</recipeUsers>
-		<researchPrerequisite>BeekeepingBasics</researchPrerequisite>
 		<modExtensions>
 			<li Class="ParagonWiki.Other.DefExtension_Wiki">
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
@@ -4312,7 +4310,7 @@
 						<li>Flora_RawRye</li>
 					</thingDefs>
 				</filter>
-				<count>30</count>
+				<count>25</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -4321,7 +4319,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<RyeFlour>15</RyeFlour>
+			<RyeFlour>50</RyeFlour>
 		</products>
 		<researchPrerequisite>CookingIII</researchPrerequisite>
 		<skillRequirements>
@@ -4350,7 +4348,7 @@
 						<li>Flora_RawRye</li>
 					</thingDefs>
 				</filter>
-				<count>120</count>
+				<count>100</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -4359,7 +4357,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<RyeFlour>60</RyeFlour>
+			<RyeFlour>200</RyeFlour>
 		</products>
 		<researchPrerequisite>CookingIII</researchPrerequisite>
 		<skillRequirements>
@@ -4407,7 +4405,7 @@
 						<li>Flora_RawWheat</li>
 					</thingDefs>
 				</filter>
-				<count>30</count>
+				<count>25</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -4416,7 +4414,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<WheatFlour>10</WheatFlour>
+			<WheatFlour>50</WheatFlour>
 		</products>
 		<researchPrerequisite>CookingIII</researchPrerequisite>
 		<skillRequirements>
@@ -4445,7 +4443,7 @@
 						<li>Flora_RawWheat</li>
 					</thingDefs>
 				</filter>
-				<count>120</count>
+				<count>100</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -4454,7 +4452,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<WheatFlour>40</WheatFlour>
+			<WheatFlour>200</WheatFlour>
 		</products>
 		<researchPrerequisite>CookingIII</researchPrerequisite>
 		<skillRequirements>
@@ -4581,7 +4579,7 @@
 			<li>IndustrialCrusher</li>
 		</recipeUsers>
 	</RecipeDef>
-	<RecipeDef>
+	<!--<RecipeDef>
 		<defName>Make_DriedFruits</defName>
 		<label>make dried fruits</label>
 		<description>Make dried fruits.</description>
@@ -4746,7 +4744,7 @@
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
 			</li>
 		</modExtensions>
-	</RecipeDef>
+	</RecipeDef>-->
 	<!---->
 	<RecipeDef>
 		<defName>Make_Crabsburger</defName>
@@ -5101,6 +5099,315 @@
 		</recipeUsers>
 		<products>
 			<Crabsburger>8</Crabsburger>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+								<li>WorkingManipulator</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<!---->
+	<RecipeDef>
+		<defName>Make_Kibble_Bulk</defName>
+		<label>make kibble x4</label>
+		<description>Make animal kibble by combining raw meat and plants.</description>
+		<jobString>Making kibble.</jobString>
+		<workAmount>1800</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<displayPriority>100</displayPriority>
+		<ingredients>
+			<li>
+				<filter>
+					<customSummary>protein</customSummary>
+					<categories>
+						<li>MeatRaw</li>
+						<li>AnimalProductRaw</li>
+					</categories>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<customSummary>greens</customSummary>
+					<categories>
+						<li>PlantFoodRaw</li>
+					</categories>
+					<thingDefs>
+						<li>Hay</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<products>
+			<Kibble>200</Kibble>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+			<thingDefs>
+				<li>Hay</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>Foods</li>
+			</categories>
+			<disallowedCategories>
+				<li>EggsFertilized</li>
+			</disallowedCategories>
+			<disallowedThingDefs>
+				<li>InsectJelly</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+		<recipeUsers>
+			<li>ButcherSpot</li>
+			<li>TableButcher</li>
+		</recipeUsers>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>SimpleCookingSet</li>
+								<li>AdvancedCookingSet</li>
+								<li>WorkingManipulator</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<!---->
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_SoyMilk</defName>
+		<label>make soy milk</label>
+		<description>Make soy milk.</description>
+		<jobString>Making soy milk.</jobString>
+		<workAmount>1000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<researchPrerequisite>CookingII</researchPrerequisite>
+		<skillRequirements>
+			<Cooking>4</Cooking>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawBeans</li>
+						<li>Raw_Millechnik</li>
+						<li>Flora_RawAlmond</li>
+						<li>RawRice</li>
+					</thingDefs>
+				</filter>
+				<count>30</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawBeans</li>
+				<li>Raw_Millechnik</li>
+				<li>Flora_RawAlmond</li>
+				<li>RawRice</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawBeans</li>
+				<li>Raw_Millechnik</li>
+				<li>Flora_RawAlmond</li>
+				<li>RawRice</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
+				<count>5</count>
+			</li>
+		</abstractIngredients>
+		<recipeUsers>
+			<li>CookingFurnace</li>
+			<li>BigCoookingFurnace</li>
+			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<products>
+			<Milk>20</Milk>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_SoyMilk_Bulk</defName>
+		<label>make soy milk x4</label>
+		<description>Make soy milk.</description>
+		<jobString>Making soy milk.</jobString>
+		<workAmount>4000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<researchPrerequisite>CookingII</researchPrerequisite>
+		<skillRequirements>
+			<Cooking>4</Cooking>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawBeans</li>
+						<li>Raw_Millechnik</li>
+						<li>Flora_RawAlmond</li>
+						<li>RawRice</li>
+					</thingDefs>
+				</filter>
+				<count>120</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawBeans</li>
+				<li>Raw_Millechnik</li>
+				<li>Flora_RawAlmond</li>
+				<li>RawRice</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawBeans</li>
+				<li>Raw_Millechnik</li>
+				<li>Flora_RawAlmond</li>
+				<li>RawRice</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
+				<count>20</count>
+			</li>
+		</abstractIngredients>
+		<recipeUsers>
+			<li>CookingFurnace</li>
+			<li>BigCoookingFurnace</li>
+			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<products>
+			<Milk>80</Milk>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiRecipeDef"/>
+			</li>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RecipeDef">
+				<requiredFacilities>
+					<li>
+						<any>true</any>
+						<thingFilter>
+							<thingDefs>
+								<li>AdvancedCookingSet</li>
+								<li>WorkingManipulator</li>
+							</thingDefs>
+						</thingFilter>
+					</li>
+				</requiredFacilities>
+			</li>
+		</modExtensions>
+	</RecipeDef>
+	<RecipeDef Class="ProjectParagon.Core.Recipes.ExtendedRecipeDef">
+		<defName>Make_SoyMilk_x8Bulk</defName>
+		<label>make soy milk x8</label>
+		<description>Make soy milk.</description>
+		<jobString>Making soy milk.</jobString>
+		<workAmount>8000</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<researchPrerequisite>CookingII</researchPrerequisite>
+		<skillRequirements>
+			<Cooking>4</Cooking>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Flora_RawBeans</li>
+						<li>Raw_Millechnik</li>
+						<li>Flora_RawAlmond</li>
+						<li>RawRice</li>
+					</thingDefs>
+				</filter>
+				<count>240</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawBeans</li>
+				<li>Raw_Millechnik</li>
+				<li>Flora_RawAlmond</li>
+				<li>RawRice</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>Flora_RawBeans</li>
+				<li>Raw_Millechnik</li>
+				<li>Flora_RawAlmond</li>
+				<li>RawRice</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<abstractIngredients>
+			<li Class="ProjectParagon.Core.Recipes.IngredientCountParagon_Water">
+				<count>40</count>
+			</li>
+		</abstractIngredients>
+		<recipeUsers>
+			<li>CookingFurnace</li>
+			<li>BigCoookingFurnace</li>
+			<li>CookingPot</li>
+			<li>FueledStove</li>
+			<li>ElectricStove</li>
+		</recipeUsers>
+		<products>
+			<Milk>160</Milk>
 		</products>
 		<workSkill>Cooking</workSkill>
 		<modExtensions>

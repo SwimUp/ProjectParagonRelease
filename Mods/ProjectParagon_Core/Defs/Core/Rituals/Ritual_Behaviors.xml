@@ -199,4 +199,35 @@
 			</li>
 		</stages>
 	</RitualBehaviorDef>
+	<RitualBehaviorDef ParentName="DateRitualBehavior">
+		<defName>Banquet</defName>
+		<durationTicks>7500</durationTicks>
+		<roles Inherit="False"/>
+		<spectatorsLabel>Participants</spectatorsLabel>
+		<spectatorGerund>participate</spectatorGerund>
+		<stages Inherit="False">
+			<li>
+				<defaultDuty>EatAtBanquetDish</defaultDuty>
+				<endTriggers>
+					<li Class="StageEndTrigger_DurationPercentage">
+						<percentage>1.0</percentage>
+					</li>
+				</endTriggers>
+			</li>
+		</stages>
+	</RitualBehaviorDef>
+	<DutyDef>
+		<defName>EatAtBanquetDish</defName>
+		<hook>HighPriority</hook>
+		<thinkNode Class="ThinkNode_Priority">
+			<subNodes>
+				<li Class="ProjectParagon.Core.AI.JobGivers.JobGiver_EatAtBanquetDish"/>
+			</subNodes>
+		</thinkNode>
+	</DutyDef>
+	<JobDef>
+		<defName>EatAtBanquetDish</defName>
+		<driverClass>ProjectParagon.Core.AI.Jobs.JobDriver_EatAtBanquetDish</driverClass>
+		<reportString>eating at TargetA.</reportString>
+	</JobDef>
 </Defs>

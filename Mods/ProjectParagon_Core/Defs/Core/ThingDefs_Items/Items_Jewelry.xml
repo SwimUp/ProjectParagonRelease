@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingDef ParentName="ResourceBase">
+	<ThingDef Name="ApparelRingBase" ParentName="ApparelMakeableBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>GemstoneProcessing</researchPrerequisite>
+		</recipeMaker>
+		<apparel>
+			<bodyPartGroups>
+				<li>MiddleFingers</li>
+			</bodyPartGroups>
+			<layers>
+				<li>OnSkin</li>
+			</layers>
+			<tags>
+				<li>Royal</li>
+				<li>RoyalJewerly</li>
+			</tags>
+			<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+			<canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+			<canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_StandardApparel"/>
+	</ThingDef>
+	<ThingDef ParentName="ApparelRingBase">
 		<defName>GoldRing</defName>
 		<label>gold ring</label>
 		<description>Small and elegant gold finger ring with a large gemstone. Always valued in the jewelry market.</description>
@@ -19,6 +40,7 @@
 			<Flammability>0</Flammability>
 			<DeteriorationRate>0</DeteriorationRate>
 			<WorkToMake>15000</WorkToMake>
+			<Beauty>15</Beauty>
 		</statBases>
 		<techLevel>Medieval</techLevel>
 		<intricate>true</intricate>
@@ -40,7 +62,7 @@
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>
-			<recipeUsers>
+			<recipeUsers Inherit="false">
 				<li>JewelryTable</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
@@ -55,9 +77,17 @@
 				<descriptionMaker>TalelessImages</descriptionMaker>
 				<minQualityForArtistic>Awful</minQualityForArtistic>
 			</li>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+				<commonality>3</commonality>
+				<forceCount>1</forceCount>
+			</li>
 		</comps>
+		<equippedStatOffsets>
+			<Beauty>2</Beauty>
+			<SocialImpact>0.25</SocialImpact>
+		</equippedStatOffsets>
 	</ThingDef>
-	<ThingDef ParentName="ResourceBase">
+	<ThingDef ParentName="ApparelRingBase">
 		<defName>SilverRing</defName>
 		<label>silver ring</label>
 		<description>Small and elegant silver finger ring with a large gemstone. Always valued in the jewelry market.</description>
@@ -76,6 +106,7 @@
 			<Flammability>0</Flammability>
 			<DeteriorationRate>0</DeteriorationRate>
 			<WorkToMake>10000</WorkToMake>
+			<Beauty>8</Beauty>
 		</statBases>
 		<techLevel>Medieval</techLevel>
 		<intricate>true</intricate>
@@ -97,7 +128,7 @@
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>
-			<recipeUsers>
+			<recipeUsers Inherit="false">
 				<li>JewelryTable</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
@@ -112,9 +143,40 @@
 				<descriptionMaker>TalelessImages</descriptionMaker>
 				<minQualityForArtistic>Awful</minQualityForArtistic>
 			</li>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+				<commonality>5</commonality>
+				<forceCount>1</forceCount>
+			</li>
 		</comps>
+		<equippedStatOffsets>
+			<Beauty>1</Beauty>
+			<SocialImpact>0.1</SocialImpact>
+		</equippedStatOffsets>
 	</ThingDef>
-	<ThingDef ParentName="ResourceBase">
+	<!---->
+	<ThingDef Name="ApparelNecklaceBase" ParentName="ApparelMakeableBase" Abstract="True">
+		<recipeMaker>
+			<researchPrerequisite>GemstoneProcessing</researchPrerequisite>
+		</recipeMaker>
+		<apparel>
+			<bodyPartGroups>
+				<li>Neck</li>
+			</bodyPartGroups>
+			<layers>
+				<li>OnSkin</li>
+			</layers>
+			<tags>
+				<li>Royal</li>
+				<li>RoyalJewerly</li>
+			</tags>
+			<canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+			<canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+			<canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+			<gender>Female</gender>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_StandardApparel"/>
+	</ThingDef>
+	<ThingDef ParentName="ApparelNecklaceBase">
 		<defName>GoldNecklace</defName>
 		<label>gold necklace</label>
 		<description>Large necklace of gold chains with a large precious stone in the center.</description>
@@ -133,6 +195,7 @@
 			<Flammability>0</Flammability>
 			<DeteriorationRate>0</DeteriorationRate>
 			<WorkToMake>30000</WorkToMake>
+			<Beauty>20</Beauty>
 		</statBases>
 		<techLevel>Medieval</techLevel>
 		<intricate>true</intricate>
@@ -154,7 +217,7 @@
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>
-			<recipeUsers>
+			<recipeUsers Inherit="false">
 				<li>JewelryTable</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
@@ -169,9 +232,17 @@
 				<descriptionMaker>TalelessImages</descriptionMaker>
 				<minQualityForArtistic>Awful</minQualityForArtistic>
 			</li>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+				<commonality>3</commonality>
+				<forceCount>1</forceCount>
+			</li>
 		</comps>
+		<equippedStatOffsets>
+			<Beauty>2</Beauty>
+			<SocialImpact>0.4</SocialImpact>
+		</equippedStatOffsets>
 	</ThingDef>
-	<ThingDef ParentName="ResourceBase">
+	<ThingDef ParentName="ApparelNecklaceBase">
 		<defName>SilverNecklace</defName>
 		<label>silver necklace</label>
 		<description>Large necklace of silver chains with a large precious stone in the center.</description>
@@ -191,6 +262,7 @@
 			<Flammability>0</Flammability>
 			<DeteriorationRate>0</DeteriorationRate>
 			<WorkToMake>20000</WorkToMake>
+			<Beauty>10</Beauty>
 		</statBases>
 		<intricate>true</intricate>
 		<thingCategories>
@@ -211,7 +283,7 @@
 			<workSkill>Crafting</workSkill>
 			<effectWorking>Smith</effectWorking>
 			<soundWorking>Recipe_Smith</soundWorking>
-			<recipeUsers>
+			<recipeUsers Inherit="false">
 				<li>JewelryTable</li>
 			</recipeUsers>
 			<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
@@ -226,31 +298,60 @@
 				<descriptionMaker>TalelessImages</descriptionMaker>
 				<minQualityForArtistic>Awful</minQualityForArtistic>
 			</li>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+				<commonality>5</commonality>
+				<forceCount>1</forceCount>
+			</li>
 		</comps>
+		<equippedStatOffsets>
+			<Beauty>1</Beauty>
+			<SocialImpact>0.2</SocialImpact>
+		</equippedStatOffsets>
 	</ThingDef>
-	<ThingDef ParentName="ResourceBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>GoldCup</defName>
 		<label>Gold cup</label>
 		<description>Cup of pure gold. Dishes for kings.</description>
 		<graphicData>
 			<texPath>Core/Items/GoldCup</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawRotated>false</drawRotated>
 		</graphicData>
-		<soundInteract>Metal_Drop</soundInteract>
-		<soundDrop>Standard_Drop</soundDrop>
-		<stackLimit>10</stackLimit>
-		<healthAffectsPrice>true</healthAffectsPrice>
+		<category>Building</category>
+		<rotatable>false</rotatable>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>8</pathCost>
+		<constructEffect>ConstructMetal</constructEffect>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
 		<statBases>
 			<MaxHitPoints>80</MaxHitPoints>
 			<Mass>0.25</Mass>
 			<Flammability>0</Flammability>
 			<DeteriorationRate>0</DeteriorationRate>
-			<WorkToMake>10000</WorkToMake>
+			<WorkToBuild>500</WorkToBuild>
+			<Beauty>16</Beauty>
 		</statBases>
+		<selectable>true</selectable>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<clearBuildingArea>false</clearBuildingArea>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<designationCategory>Furniture</designationCategory>
+		<researchPrerequisites>
+			<li>GemstoneProcessing</li>
+		</researchPrerequisites>
+		<designatorDropdown>Decorations</designatorDropdown>
 		<techLevel>Medieval</techLevel>
 		<intricate>true</intricate>
 		<thingCategories>
-			<li>Jewerly</li>
+			<li>Treasure</li>
 		</thingCategories>
 		<thingSetMakerTags>
 			<li>RewardStandardHighFreq</li>
@@ -258,42 +359,115 @@
 		<costList>
 			<GoldIngot>5</GoldIngot>
 		</costList>
-		<recipeMaker>
-			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-			<workSkill>Crafting</workSkill>
-			<effectWorking>Smith</effectWorking>
-			<soundWorking>Recipe_Smith</soundWorking>
-			<recipeUsers>
-				<li>JewelryTable</li>
-			</recipeUsers>
-			<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-			<researchPrerequisite>GemstoneProcessing</researchPrerequisite>
-			<bulkRecipeCount>4</bulkRecipeCount>
-		</recipeMaker>
+		<comps>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+				<commonality>5</commonality>
+				<forceCount>1~5</forceCount>
+			</li>
+		</comps>
 	</ThingDef>
-	<ThingDef ParentName="ResourceBase">
+	<ThingDef ParentName="BuildingBase">
+		<defName>GoldBowl</defName>
+		<label>Gold bowl</label>
+		<description>Bowl of pure gold. Dishes for kings.</description>
+		<graphicData>
+			<texPath>Core/Items/GoldBowl/GoldBowl</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<category>Building</category>
+		<rotatable>false</rotatable>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>8</pathCost>
+		<constructEffect>ConstructMetal</constructEffect>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Mass>0.5</Mass>
+			<Flammability>0</Flammability>
+			<DeteriorationRate>0</DeteriorationRate>
+			<WorkToBuild>750</WorkToBuild>
+			<Beauty>25</Beauty>
+		</statBases>
+		<selectable>true</selectable>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<clearBuildingArea>false</clearBuildingArea>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<designationCategory>Furniture</designationCategory>
+		<researchPrerequisites>
+			<li>GemstoneProcessing</li>
+		</researchPrerequisites>
+		<designatorDropdown>Decorations</designatorDropdown>
+		<techLevel>Medieval</techLevel>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>Treasure</li>
+		</thingCategories>
+		<thingSetMakerTags>
+			<li>RewardStandardHighFreq</li>
+		</thingSetMakerTags>
+		<costList>
+			<GoldIngot>10</GoldIngot>
+		</costList>
+		<comps>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+				<commonality>5</commonality>
+				<forceCount>1~5</forceCount>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
 		<defName>SilverCup</defName>
 		<label>Silver cup</label>
 		<description>Cup of silver. A common type of dishes for the nobility.</description>
 		<graphicData>
 			<texPath>Core/Items/SilverCup</texPath>
-			<graphicClass>Graphic_StackCount</graphicClass>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawRotated>false</drawRotated>
 		</graphicData>
-		<soundInteract>Metal_Drop</soundInteract>
-		<soundDrop>Standard_Drop</soundDrop>
-		<stackLimit>10</stackLimit>
-		<healthAffectsPrice>true</healthAffectsPrice>
+		<category>Building</category>
+		<rotatable>false</rotatable>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>8</pathCost>
+		<constructEffect>ConstructMetal</constructEffect>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
 		<statBases>
 			<MaxHitPoints>80</MaxHitPoints>
 			<Mass>0.25</Mass>
 			<Flammability>0</Flammability>
 			<DeteriorationRate>0</DeteriorationRate>
-			<WorkToMake>8000</WorkToMake>
+			<WorkToBuild>500</WorkToBuild>
+			<Beauty>10</Beauty>
 		</statBases>
+		<selectable>true</selectable>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<clearBuildingArea>false</clearBuildingArea>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<designationCategory>Furniture</designationCategory>
+		<researchPrerequisites>
+			<li>GemstoneProcessing</li>
+		</researchPrerequisites>
+		<designatorDropdown>Decorations</designatorDropdown>
 		<techLevel>Medieval</techLevel>
 		<intricate>true</intricate>
 		<thingCategories>
-			<li>Jewerly</li>
+			<li>Treasure</li>
 		</thingCategories>
 		<thingSetMakerTags>
 			<li>RewardStandardHighFreq</li>
@@ -301,17 +475,69 @@
 		<costList>
 			<SilverIngot>5</SilverIngot>
 		</costList>
-		<recipeMaker>
-			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-			<workSkill>Crafting</workSkill>
-			<effectWorking>Smith</effectWorking>
-			<soundWorking>Recipe_Smith</soundWorking>
-			<recipeUsers>
-				<li>JewelryTable</li>
-			</recipeUsers>
-			<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-			<researchPrerequisite>GemstoneProcessing</researchPrerequisite>
-			<bulkRecipeCount>4</bulkRecipeCount>
-		</recipeMaker>
+		<comps>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+				<commonality>10</commonality>
+				<forceCount>1~5</forceCount>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="BuildingBase">
+		<defName>SilverBowl</defName>
+		<label>Silver bowl</label>
+		<description>Bowl of silver. A common type of dishes for the nobility.</description>
+		<graphicData>
+			<texPath>Core/Items/SilverBowl/SilverBowl</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>Transparent</shaderType>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<category>Building</category>
+		<rotatable>false</rotatable>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>8</pathCost>
+		<constructEffect>ConstructMetal</constructEffect>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<fillPercent>0.15</fillPercent>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Mass>0.5</Mass>
+			<Flammability>0</Flammability>
+			<DeteriorationRate>0</DeteriorationRate>
+			<WorkToBuild>750</WorkToBuild>
+			<Beauty>20</Beauty>
+		</statBases>
+		<selectable>true</selectable>
+		<soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
+		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+		<clearBuildingArea>false</clearBuildingArea>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<building>
+			<isEdifice>false</isEdifice>
+		</building>
+		<designationCategory>Furniture</designationCategory>
+		<researchPrerequisites>
+			<li>GemstoneProcessing</li>
+		</researchPrerequisites>
+		<designatorDropdown>Decorations</designatorDropdown>
+		<techLevel>Medieval</techLevel>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>Treasure</li>
+		</thingCategories>
+		<thingSetMakerTags>
+			<li>RewardStandardHighFreq</li>
+		</thingSetMakerTags>
+		<costList>
+			<SilverIngot>10</SilverIngot>
+		</costList>
+		<comps>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.CompProperties_ArcheologyItem">
+				<commonality>10</commonality>
+				<forceCount>1~5</forceCount>
+			</li>
+		</comps>
 	</ThingDef>
 </Defs>

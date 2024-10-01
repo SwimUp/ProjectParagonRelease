@@ -100,9 +100,6 @@
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>50000</WaterStorageCap>
-			</li>
 			<li Class="Rimatomics.CompProperties_Pipe">
 				<mode>Cooling</mode>
 			</li>
@@ -112,25 +109,13 @@
 			<li Class="Rimatomics.CompProperties_Pipe">
 				<mode>ColdWater</mode>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<tag>Output</tag>
 				<pipeTypeDef>UltraHighPressureSteam</pipeTypeDef>
-				<capacity>5000</capacity>
 				<pipeTypeDefsWhitelist>
 					<li>UltraHighPressureSteam</li>
 				</pipeTypeDefsWhitelist>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>500000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<showStorageInfo>false</showStorageInfo>
-				<barOffset>(0, 0, -0.5)</barOffset>
-			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_ReactorCore">
-				<!-- модификатор потребления воды исходя из энергии -->
-				<waterUsageMultiplier>0.0282485</waterUsageMultiplier>
-				<maxGeneratedSteamPerIteration>500000</maxGeneratedSteamPerIteration>
 			</li>
 			
 			<!--
@@ -224,6 +209,26 @@
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
 		<designationCategory>Rimatomics</designationCategory>
 		<designatorDropdown>Power_Reactors</designatorDropdown>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ReactorCore">
+				<!-- модификатор потребления воды исходя из энергии -->
+				<waterUsageMultiplier>0.011</waterUsageMultiplier>
+				<presureEfficiencyCurve>
+					<points>
+						<li>0, 0</li>
+						<li>500, 200</li>
+						<li>1000, 500</li>
+						<li>1275, 7500</li>
+						<li>1500, 9000</li> <!-- Сталь -->
+						<li>3750, 15000</li> <!-- Титан -->
+						<li>4125, 18000</li> <!-- Стеллит -->
+						<li>4875, 24000</li> <!-- Вольфрам -->
+						<li>6000, 30000</li> <!-- Победит -->
+						<li>10000, 55000</li>
+					</points>
+				</presureEfficiencyCurve>
+			</li>
+		</comps>
 	</ThingDef>
 	<ThingDef ParentName="BaseReactor" Class="Rimatomics.RimatomicsThingDef">
 		<defName>ReactorCoreB</defName>
@@ -258,6 +263,26 @@
 		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
 		<designationCategory>Rimatomics</designationCategory>
 		<designatorDropdown>Power_Reactors</designatorDropdown>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ReactorCore">
+				<!-- модификатор потребления воды исходя из энергии -->
+				<waterUsageMultiplier>0.011</waterUsageMultiplier>
+				<presureEfficiencyCurve>
+					<points>
+						<li>0, 0</li>
+						<li>500, 500</li>
+						<li>1000, 2000</li>
+						<li>1275, 4000</li>
+						<li>2100, 8000</li> <!-- Сталь -->
+						<li>5250, 28000</li> <!-- Титан -->
+						<li>5775, 33000</li> <!-- Стеллит -->
+						<li>6825, 40000</li> <!-- Вольфрам -->
+						<li>8400, 55000</li> <!-- Победит -->
+						<li>10000, 80000</li>
+					</points>
+				</presureEfficiencyCurve>
+			</li>
+		</comps>
 	</ThingDef>
 	<ThingDef ParentName="BaseReactor" Class="Rimatomics.RimatomicsThingDef">
 		<defName>ReactorCoreC</defName>
@@ -293,6 +318,26 @@
 		<constructionSkillPrerequisite>15</constructionSkillPrerequisite>
 		<designationCategory>Rimatomics</designationCategory>
 		<designatorDropdown>Power_Reactors</designatorDropdown>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ReactorCore">
+				<!-- модификатор потребления воды исходя из энергии -->
+				<waterUsageMultiplier>0.011</waterUsageMultiplier>
+				<presureEfficiencyCurve>
+					<points>
+						<li>0, 0</li>
+						<li>500, 500</li>
+						<li>1000, 2000</li>
+						<li>1275, 4000</li>
+						<li>4800, 10000</li> <!-- Сталь -->
+						<li>12000, 70000</li> <!-- Титан -->
+						<li>13200, 80000</li> <!-- Стеллит -->
+						<li>15600, 95000</li> <!-- Вольфрам -->
+						<li>19200, 120000</li> <!-- Победит -->
+						<li>10000, 170000</li>
+					</points>
+				</presureEfficiencyCurve>
+			</li>
+		</comps>
 	</ThingDef>
 	<!-- HEAT EXCHANGE -->
 	<!--<ThingDef ParentName="BasedPower" Class="Rimatomics.RimatomicsThingDef">
@@ -408,6 +453,9 @@
 			<CinderBlock>200</CinderBlock>
 		</costList>
 		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_AtomicSteamEngine">
+				<useSteamPerIteration>35</useSteamPerIteration>
+			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
 				<tag>SourceStorage</tag>
 				<pipeTypeDef>HighPressureSteam</pipeTypeDef>
@@ -415,9 +463,7 @@
 					<li>HighPressureSteam</li>
 				</pipeTypeDefsWhitelist>
 				<capacity>2000</capacity>
-				<canAutoDrain>true</canAutoDrain>
 				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>50000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
 				<drawStorageOverlay>true</drawStorageOverlay>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
@@ -488,6 +534,10 @@
 			<CinderBlock>300</CinderBlock>
 		</costList>
 		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_AtomicSteamEngine">
+				<useSteamPerIteration>160</useSteamPerIteration>
+				<generatedSteamPerIteration>80</generatedSteamPerIteration>
+			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
 				<tag>SourceStorage</tag>
 				<pipeTypeDef>UltraHighPressureSteam</pipeTypeDef>
@@ -495,30 +545,22 @@
 					<li>UltraHighPressureSteam</li>
 				</pipeTypeDefsWhitelist>
 				<capacity>3000</capacity>
-				<canAutoDrain>true</canAutoDrain>
 				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>50000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
 				<drawStorageOverlay>true</drawStorageOverlay>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
 				<barOffset>(0, 0, 1)</barOffset>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<tag>OutStorage</tag>
 				<pipeTypeDef>HighPressureSteam</pipeTypeDef>
 				<pipeTypeDefsWhitelist>
 					<li>HighPressureSteam</li>
 				</pipeTypeDefsWhitelist>
-				<capacity>3000</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>50000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
-				<barOffset>(0, 0, -1)</barOffset>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>ProjectParagon.Core.Things.CompSteamTurbinePowerPlant</compClass>
@@ -602,11 +644,7 @@
 				<initialFuelPercent>0</initialFuelPercent>
 				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<capacity>500</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>250</drainFlowSpeedPerDay>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Refrigerant</pipeTypeDef>
 				<canChangePipeType>false</canChangePipeType>
 				<linkToPossiblePipes>false</linkToPossiblePipes>

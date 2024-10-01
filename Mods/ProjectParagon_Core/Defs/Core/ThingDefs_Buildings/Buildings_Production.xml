@@ -233,6 +233,7 @@
 			<Beauty>-10</Beauty>
 			<FuelConsumption>6</FuelConsumption>
 			<HeatingEfficiency>0.75</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(3,3)</size>
 		<designationCategory>Production</designationCategory>
@@ -297,6 +298,9 @@
 					<li>WorkingManipulator</li>
 				</linkableFacilities>
 			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableHeatPush</compClass>
+			</li>
 		</comps>
 		<building>
 			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
@@ -349,6 +353,7 @@
 			<Beauty>-10</Beauty>
 			<FuelConsumption>6</FuelConsumption>
 			<HeatingEfficiency>0.75</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(3,3)</size>
 		<designationCategory>Production</designationCategory>
@@ -411,6 +416,9 @@
 					<li>AdvancedBlacksmithSet</li>
 					<li>WorkingManipulator</li>
 				</linkableFacilities>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableHeatPush</compClass>
 			</li>
 		</comps>
 		<building>
@@ -574,6 +582,9 @@
 					</damageData>
 				</graphicData>
 			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableHeatPush</compClass>
+			</li>
 		</comps>
 		<placeWorkers>
 			<li>PlaceWorker_ShowFacilitiesConnections</li>
@@ -646,7 +657,7 @@
 		<defName>CookingPot</defName>
 		<label>cooking pot</label>
 		<description>Hinged boiler with which you can cook food.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater_HeatPush</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<category>Building</category>
 		<graphicData>
 			<texPath>Core/Buildings/CookingPot/CookingPot</texPath>
@@ -679,6 +690,7 @@
 			<WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
 			<FuelConsumption>2</FuelConsumption>
 			<HeatingEfficiency>0.15</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<selectable>true</selectable>
 		<costStuffCount>120</costStuffCount>
@@ -740,6 +752,9 @@
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>true</canManualFill>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableHeatPush</compClass>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -857,6 +872,7 @@
 			<WorkTableWorkSpeedFactor>0.8</WorkTableWorkSpeedFactor>
 			<FuelConsumption>4</FuelConsumption>
 			<HeatingEfficiency>0.2</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(2,2)</size>
 		<designationCategory>Production</designationCategory>
@@ -911,11 +927,11 @@
 					</damageData>
 				</graphicData>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>30</WaterStorageCap>
-			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
-				<mode>Sewage</mode>
+				<mode>Water</mode>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>50</WaterStorageCap>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>true</canManualFill>
@@ -1036,6 +1052,7 @@
 			<Beauty>-4</Beauty>
 			<FuelConsumption>4</FuelConsumption>
 			<HeatingEfficiency>0.15</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(3,2)</size>
 		<designationCategory>Production</designationCategory>
@@ -1101,10 +1118,10 @@
 				</linkableFacilities>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
-				<mode>Sewage</mode>
+				<mode>Water</mode>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>50</WaterStorageCap>
+				<WaterStorageCap>30</WaterStorageCap>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>true</canManualFill>
@@ -1222,6 +1239,7 @@
 		<blockWind>true</blockWind>
 		<drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
 		<pathCost>42</pathCost>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
 			<WorkToBuild>10000</WorkToBuild>
@@ -1292,6 +1310,7 @@
 		</inspectorTabs>
 		<placeWorkers>
 			<li>ProjectParagon.Core.Things.PlaceWorker_WindMill</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ItemRecycler</li>
 		</placeWorkers>
 		<researchPrerequisites>
 			<li>MechanicalMills</li>
@@ -1402,6 +1421,7 @@
 		</inspectorTabs>
 		<placeWorkers>
 			<li>ProjectParagon.Core.Things.PlaceWorker_WaterMill</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ItemRecycler</li>
 		</placeWorkers>
 		<researchPrerequisites>
 			<li>MechanicalMills</li>
@@ -1459,7 +1479,7 @@
 		<building>
 			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
 		</building>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<researchPrerequisites>
 			<li>WorldAndYou</li>
 		</researchPrerequisites>
@@ -1530,7 +1550,7 @@
 		<building>
 			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
 		</building>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<researchPrerequisites>
 			<li>Architecture</li>
 		</researchPrerequisites>
@@ -1591,7 +1611,7 @@
 		<building>
 			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
 		</building>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<researchPrerequisites>
 			<li>AdvancedDesign</li>
 		</researchPrerequisites>
@@ -2058,7 +2078,7 @@
 		<defName>OreWashingMachine</defName>
 		<label>Ore washing machine</label>
 		<description>A simple mechanized ore washing plant.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/OreWashingMachine/OreWashingMachine</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -2136,7 +2156,7 @@
 		<defName>Juicer</defName>
 		<label>Juicer</label>
 		<description>A primitive manual juicer for juicing fruits and berries.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/Juicer/Juicer</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -2437,7 +2457,7 @@
 		<defName>BigCoookingFurnace</defName>
 		<label>Large cook oven</label>
 		<description>An oven with a huge boiler for cooking on an industrial scale.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<category>Building</category>
 		<graphicData>
 			<texPath>Core/Buildings/BigCookingFurnace/BigCookingFurnace</texPath>
@@ -2459,6 +2479,7 @@
 			<WorkTableWorkSpeedFactor>0.75</WorkTableWorkSpeedFactor>
 			<FuelConsumption>4</FuelConsumption>
 			<HeatingEfficiency>0.25</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<selectable>true</selectable>
 		<costStuffCount>250</costStuffCount>
@@ -2508,7 +2529,7 @@
 				</linkableFacilities>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
-				<mode>Sewage</mode>
+				<mode>Water</mode>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
 				<WaterStorageCap>100</WaterStorageCap>
@@ -2725,6 +2746,7 @@
 					</categories>
 					<disallowedCategories>
 						<li>CorpsesMechanoid</li>
+						<li>CorpsesRobots</li>
 					</disallowedCategories>
 				</filter>
 			</fixedStorageSettings>
@@ -2734,6 +2756,10 @@
 					<categories>
 						<li>Corpses</li>
 					</categories>
+					<disallowedCategories>
+						<li>CorpsesMechanoid</li>
+						<li>CorpsesRobots</li>
+					</disallowedCategories>
 					<specialFiltersToDisallow>
 						<li>AllowRotten</li>
 					</specialFiltersToDisallow>
@@ -3299,13 +3325,17 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
 			</li>
 		</modExtensions>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<inspectorTabs>
 			<li>ProjectParagon.Core.ITabs.ITab_ItemRecycler</li>
 		</inspectorTabs>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ItemRecycler</li>
+		</placeWorkers>
 		<researchPrerequisites>
 			<li>Silk</li>
 		</researchPrerequisites>
+		<rotatable>false</rotatable>
 		<designationCategory>Production</designationCategory>
 		<designatorDropdown>Mechanisms</designatorDropdown>
 		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
@@ -3444,7 +3474,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>ManualConcreteMixer</defName>
 		<label>Manual concrete mixer</label>
 		<description>Manual concrete mixer for the production of concrete and mixing other materials. Not the most practical solution.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<category>Building</category>
 		<graphicData>
 			<texPath>Core/Buildings/ManualConcreteMixer/ManualConcreteMixer</texPath>
@@ -3729,14 +3759,11 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
 		</building>
 		<comps>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>150</WaterStorageCap>
-			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
-				<canManualFill>true</canManualFill>
+				<canManualFill>false</canManualFill>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
 				<scheme>ChemicalStation</scheme>
@@ -3828,6 +3855,105 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			</li>
 		</comps>
 	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SteamAutoLoom</defName>
+		<label>Steam auto loom</label>
+		<description>A machine for the autonomous production of simple fabrics from plant materials.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_AutoLoom</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/SteamAutoLoom/SteamAutoLoom</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>5.9, 5.9</drawSize>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>42</pathCost>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>10000</WorkToBuild>
+			<Mass>150</Mass>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<size>(3,3)</size>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>200</costStuffCount>
+		<costList>
+			<ComponentSimple>2</ComponentSimple>
+			<MechanismSimple>10</MechanismSimple>
+			<SimplePlates>75</SimplePlates>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_AutoLoom">
+				<storageDef>LWM_ProductionPallet</storageDef>
+				<production>
+					<li>
+						<sourceDef>Flora_RawCotton</sourceDef>
+						<outputDef>Cloth</outputDef>
+						<countPerPortion>25</countPerPortion>
+						<outputCount>25</outputCount>
+						<produceTicks>5000</produceTicks>
+					</li>
+					<li>
+						<sourceDef>Flora_RawFlax</sourceDef>
+						<outputDef>LinenCloth</outputDef>
+						<countPerPortion>30</countPerPortion>
+						<outputCount>25</outputCount>
+						<produceTicks>6000</produceTicks>
+					</li>
+					<li>
+						<sourceDef>Flora_Devilstrand</sourceDef>
+						<outputDef>DevilstrandCloth</outputDef>
+						<countPerPortion>40</countPerPortion>
+						<outputCount>20</outputCount>
+						<produceTicks>7500</produceTicks>
+					</li>
+				</production>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompItemRecyclerWithSteam</compClass>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamWorkbench">
+				<steamUsagePerTick>0.01</steamUsagePerTick>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_ItemRecycler</li>
+		</inspectorTabs>
+		<researchPrerequisites>
+			<li>Steammechanics</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ItemRecycler</li>
+		</placeWorkers>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Tailoring</designatorDropdown>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<hasInteractionCell>false</hasInteractionCell>
+	</ThingDef>
+	<!---->
 	<ThingDef ParentName="BenchBase">
 		<defName>SteamFormingMachine</defName>
 		<label>Steam forming machine</label>
@@ -4299,9 +4425,6 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>150</WaterStorageCap>
-			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>false</canManualFill>
 			</li>
@@ -4370,9 +4493,6 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
-			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>150</WaterStorageCap>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>false</canManualFill>
@@ -4464,10 +4584,13 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<workTableTemperature>false</workTableTemperature>
 			</li>
 		</modExtensions>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
 		<inspectorTabs>
 			<li>ProjectParagon.Core.ITabs.ITab_ItemRecycler</li>
 		</inspectorTabs>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ItemRecycler</li>
+		</placeWorkers>
 		<researchPrerequisites>
 			<li>Steammechanics</li>
 		</researchPrerequisites>
@@ -4557,7 +4680,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>IndustrialCrusher</defName>
 		<label>Industrial crusher</label>
 		<description>A large electric machine for crushing ore into dust, which is later used for smelting.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater_HeatPush</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/IndustrialCrusher/IndustrialCrusher</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -4631,11 +4754,11 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>150</WaterStorageCap>
-			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>false</canManualFill>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableHeatPush</compClass>
 			</li>
 		</comps>
 	</ThingDef>
@@ -4644,7 +4767,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>ElectrolysisBath</defName>
 		<label>Electrolysis bath</label>
 		<description>A small bath in which the electrolysis process is carried out to reduce metals.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater_Animated</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/ElectrolysisBath/ElectrolysisBath</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -4705,9 +4828,6 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
-			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>100</WaterStorageCap>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>false</canManualFill>
@@ -4807,7 +4927,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>ElectricTeapot</defName>
 		<label>Electric teapot</label>
 		<description>A multifunctional device that can brew coffee and squeeze fruit juice.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/ElectricTeapot/ElectricTeapot</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -4972,9 +5092,6 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 					</li>
 				</processResult>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>300</WaterStorageCap>
-			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
 			</li>
@@ -4985,19 +5102,14 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<basePowerConsumption>300</basePowerConsumption>
 				<shortCircuitInRain>true</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<tag>OutStorage</tag>
-				<capacity>300</capacity>
-				<drainFlowSpeedPerDay>250</drainFlowSpeedPerDay>
 				<pipeTypeDef>LiquidFertilizer</pipeTypeDef>
 				<pipeTypeDefsWhitelist>
 					<li>LiquidFertilizer</li>
 				</pipeTypeDefsWhitelist>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>false</drawStorageOverlay>
 			</li>
 		</comps>
 	</ThingDef>
@@ -5343,7 +5455,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>ArcSmelter</defName>
 		<label>Arc smelter</label>
 		<description>An electric melting furnace that uses the thermal effect of an electric arc to melt metals and other materials.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithLiquids</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/ArcSmelter/ArcSmelter</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -5403,16 +5515,13 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
 		</placeWorkers>
 		<comps>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Hydrogen</pipeTypeDef>
-				<capacity>250</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>250</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
 				<linkToPossiblePipes>true</linkToPossiblePipes>
-				<barOffset>(0, 0, 0)</barOffset>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableWithLiquids</compClass>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -5500,16 +5609,10 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="ProjectParagon.Core.Things.CompProperties_FertilityGridWatcher"/>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>LiquidFertilizer</pipeTypeDef>
-				<capacity>300</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>250</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
 				<linkToPossiblePipes>true</linkToPossiblePipes>
-				<barOffset>(0, 0, 0)</barOffset>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -5584,7 +5687,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>300</basePowerConsumption>
+				<basePowerConsumption>400</basePowerConsumption>
 				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
@@ -5600,8 +5703,80 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				</availableFoodTemplates>
 				<workAmountMultiplier>4</workAmountMultiplier>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>200</WaterStorageCap>
+			<li Class="DubsBadHygiene.CompProperties_Pipe">
+				<mode>Sewage</mode>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>AutoConservator</defName>
+		<label>Auto-conservator</label>
+		<description>Autonomous device for food preservation.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_AutoChef</thingClass>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Core/Buildings/AutoConservator/AutoConservator</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>4,3</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+			<shadowData>
+				<volume>(0.75, 0.35, 0.33)</volume>
+			</shadowData>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<costStuffCount>150</costStuffCount>
+		<costList>
+			<Microelectronics>1</Microelectronics>
+			<MechanismComplex>2</MechanismComplex>
+			<StrongPlates>25</StrongPlates>
+			<SimplePlates>50</SimplePlates>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>18000</WorkToBuild>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<Cleanliness>-3</Cleanliness>
+		</statBases>
+		<size>(2,1)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Cooking</designatorDropdown>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>false</hasInteractionCell>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>CookingVII</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>200</basePowerConsumption>
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>AutoConservator</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_AutoChef">
+				<availableFoodTemplates>
+					<li>Preserves</li>
+				</availableFoodTemplates>
+				<workAmountMultiplier>4</workAmountMultiplier>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
@@ -5756,102 +5931,6 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		</modExtensions>
 	</ThingDef>
 	<!---->
-	<!--
-	<ThingDef ParentName="BasedPower" Class="Rimatomics.RimatomicsThingDef">
-		<defName>SteamBlower</defName>
-		<label>Steam blower</label>
-		<description>Device for converting saturated steam into ultra-high pressure steam.</description>
-		<TurbineCapacityWatts>100000</TurbineCapacityWatts>
-		<thingClass>ProjectParagon.Core.Things.Building_SteamBlower</thingClass>
-		<graphicData>
-			<texPath>Core/Buildings/SteamBlower/SteamBlower</texPath>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<shaderType>CutoutComplex</shaderType>
-			<drawSize>(5.1,5.1)</drawSize>
-			<drawRotated>false</drawRotated>
-		</graphicData>
-		<altitudeLayer>Building</altitudeLayer>
-		<passability>PassThroughOnly</passability>
-		<blockWind>true</blockWind>
-		<castEdgeShadows>true</castEdgeShadows>
-		<fillPercent>1</fillPercent>
-		<pathCost>250</pathCost>
-		<blockLight>false</blockLight>
-		<holdsRoof>true</holdsRoof>
-		<canOverlapZones>false</canOverlapZones>
-		<staticSunShadowHeight>0.3</staticSunShadowHeight>
-		<designationCategory>Rimatomics</designationCategory>
-		<designatorDropdown>Power_Reactors</designatorDropdown>
-		<statBases>
-			<MaxHitPoints>500</MaxHitPoints>
-			<WorkToBuild>30000</WorkToBuild>
-			<Flammability>0</Flammability>
-			<Beauty>-40</Beauty>
-		</statBases>
-		<tickerType>Normal</tickerType>
-		<size>(5,5)</size>
-		<stuffCategories>
-			<li>Metallic</li>
-		</stuffCategories>
-		<costStuffCount>300</costStuffCount>
-		<costList>
-			<ComponentIndustrial>8</ComponentIndustrial>
-			<MechanismComplex>8</MechanismComplex>
-			<Microelectronics>12</Microelectronics>
-			<SuperStrongPlates>200</SuperStrongPlates>
-			<CinderBlock>300</CinderBlock>
-		</costList>
-		<comps>
-			<li Class="Rimatomics.CompProperties_Pipe">
-				<mode>Steam</mode>
-			</li>
-			<li Class="Rimatomics.CompProperties_Pipe">
-				<mode>ColdWater</mode>
-			</li>
-			<li Class="Rimatomics.CompProperties_Pipe">
-				<mode>Cooling</mode>
-			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>5000</WaterStorageCap>
-			</li>
-			<li Class="DubsBadHygiene.CompProperties_Pipe">
-				<mode>Sewage</mode>
-			</li>
-			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Breakdownable"/>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<pipeTypeDef>UltraHighPressureSteam</pipeTypeDef>
-				<capacity>1000</capacity>
-				<pipeTypeDefsWhitelist>
-					<li>UltraHighPressureSteam</li>
-				</pipeTypeDefsWhitelist>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>50000</drainFlowSpeedPerDay>
-				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<showStorageInfo>false</showStorageInfo>
-				<barOffset>(0, 0, -0.5)</barOffset>
-			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_SteamBlower">
-				<heatByPower>0.03</heatByPower>
-				<waterUsageMultiplier>0.27</waterUsageMultiplier>
-				<maxGeneratedSteamPerIteration>500000</maxGeneratedSteamPerIteration>
-			</li>
-			<li Class="Rimatomics.CompProperties_Upgradable"/>
-		</comps>
-		<rotatable>true</rotatable>
-		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<placeWorkers>
-			<li>Rimatomics.PlaceWorker_ResearchStage</li>
-		</placeWorkers>
-		<researchPrerequisites>
-			<li>RimatomicsActivate</li>
-		</researchPrerequisites>
-		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
-	</ThingDef>
-	-->
 	<!---->
 	<ThingDef ParentName="BuildingBase">
 		<defName>PrintingPress</defName>
@@ -5925,10 +6004,13 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
 			</li>
 		</modExtensions>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<inspectorTabs>
 			<li>ProjectParagon.Core.ITabs.ITab_ItemRecycler</li>
 		</inspectorTabs>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ItemRecycler</li>
+		</placeWorkers>
 		<researchPrerequisites>
 			<li>PrintingPress</li>
 		</researchPrerequisites>
@@ -6005,7 +6087,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
 			</li>
 		</modExtensions>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<researchPrerequisites>
 			<li>VeterinaryStation</li>
 		</researchPrerequisites>
@@ -6069,15 +6151,9 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<comps>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>HydrogenSulfide</pipeTypeDef>
-				<capacity>100</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<showStorageInfo>true</showStorageInfo>
 				<linkToPossiblePipes>true</linkToPossiblePipes>
 			</li>
 			<li Class="CompProperties_Power">
@@ -6094,7 +6170,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
 			</li>
 		</modExtensions>
-		<terrainAffordanceNeeded/>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<researchPrerequisites>
 			<li>GasIndustryIII</li>
 		</researchPrerequisites>
@@ -6112,7 +6188,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>VacuumSmelter</defName>
 		<label>Vacuum smelter</label>
 		<description>A technological melting chamber capable of maintaining a given temperature and producing high-quality alloys.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithLiquids</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/VacuumSmelter/VacuumSmelter</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -6175,25 +6251,20 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
 				<capacity>200</capacity>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<pipeTypeDef>UltraHighPressureSteam</pipeTypeDef>
-				<canAutoDrain>true</canAutoDrain>
 				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<drawPipeOverlay>false</drawPipeOverlay>
 				<drawStorageOverlay>true</drawStorageOverlay>
 				<barOffset>(1, 0, 0)</barOffset>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<capacity>100</capacity>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Plasma</pipeTypeDef>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(-1, 0, 0)</barOffset>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableWithLiquids</compClass>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -6391,7 +6462,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>Nanosynthesizer</defName>
 		<label>Nanosynthesizer</label>
 		<description>An autonomous robotic gas synthesizer capable of performing delicate work with matter.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWaterAndLiquids</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/Nanosynthesizer/Nanosynthesizer</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -6450,41 +6521,23 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<basePowerConsumption>1500</basePowerConsumption>
 				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Hydrogen</pipeTypeDef>
-				<capacity>300</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
 				<canChangePipeType>false</canChangePipeType>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<barOffset>(0, 0, -1)</barOffset>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Nitrogen</pipeTypeDef>
-				<capacity>300</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<canChangePipeType>false</canChangePipeType>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(0, 0, 0)</barOffset>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>CarbonDioxide</pipeTypeDef>
-				<capacity>300</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<canChangePipeType>false</canChangePipeType>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(0, 0, 1)</barOffset>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
@@ -6505,11 +6558,14 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 					<li>WorkingManipulator</li>
 				</linkableFacilities>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>300</WaterStorageCap>
-			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
+				<canManualFill>false</canManualFill>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableWithLiquids</compClass>
 			</li>
 		</comps>
 	</ThingDef>
@@ -6578,29 +6634,23 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<basePowerConsumption>2000</basePowerConsumption>
 				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Nitrogen</pipeTypeDef>
-				<capacity>800</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
 				<canChangePipeType>false</canChangePipeType>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<barOffset>(0, 0, -1)</barOffset>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>CarbonDioxide</pipeTypeDef>
-				<capacity>800</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<canChangePipeType>false</canChangePipeType>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(0, 0, 1)</barOffset>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
+				<pipeTypeDef>Mechanites</pipeTypeDef>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+				<drawPipeOverlay>true</drawPipeOverlay>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
@@ -6622,14 +6672,14 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 					<li>GenePrintStorage</li>
 				</linkableFacilities>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>800</WaterStorageCap>
-			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>false</canManualFill>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableWithLiquids</compClass>
 			</li>
 		</comps>
 	</ThingDef>
@@ -6638,7 +6688,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>Nanoshredder</defName>
 		<label>Nanoshredder</label>
 		<description>Robotic device for crushing materials with high strength.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater_HeatPush</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/Nanoshredder/Nanoshredder</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -6712,11 +6762,11 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
 			</li>
-			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>250</WaterStorageCap>
-			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 				<canManualFill>false</canManualFill>
+			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableHeatPush</compClass>
 			</li>
 		</comps>
 	</ThingDef>
@@ -6947,7 +6997,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<defName>RoboticEquipmentWorkbench</defName>
 		<label>Robotic equipment workbench</label>
 		<description>Workplace for creating complex weapons.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithLiquids</thingClass>
+		<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/RoboticEquipmentWorkbench/RoboticEquipmentWorkbench</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -7000,21 +7050,23 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 					<li>WorkingManipulator</li>
 				</linkableFacilities>
 			</li>
+			<li>
+				<compClass>ProjectParagon.Core.Things.CompWorkTableWithLiquids</compClass>
+			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>800</basePowerConsumption>
 				<shortCircuitInRain>true</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<capacity>100</capacity>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Plasma</pipeTypeDef>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(-1, 0, 0)</barOffset>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
+				<pipeTypeDef>Mechanites</pipeTypeDef>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<drawPipeOverlay>false</drawPipeOverlay>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
@@ -7236,7 +7288,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		</researchPrerequisites>
 	</ThingDef>
 	<!---->
-	<ThingDef ParentName="BenchBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>PlasmaGenerator</defName>
 		<label>Plasma generator</label>
 		<description>The radio frequency plasma generator is designed to create high-density plasma in vacuum technological installations for industrial and scientific research purposes.</description>
@@ -7298,7 +7350,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<plasmaLoseWhenNotPoweredPerDay>50</plasmaLoseWhenNotPoweredPerDay>
 			</li>
 			<li Class="CompProperties_HeatPusher">
-				<compClass>ProjectParagon.Core.Things.CompHeatPusherLiquidStoragePowered</compClass>
+				<compClass>ProjectParagon.Core.Things.CompHeatPusherPlasmaGenerator</compClass>
 				<heatPerSecond>100</heatPerSecond>
 				<heatPushMaxTemperature>1000</heatPushMaxTemperature>
 			</li>
@@ -7307,14 +7359,10 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 				<basePowerConsumption>5000</basePowerConsumption>
 				<shortCircuitInRain>true</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Plasma</pipeTypeDef>
-				<capacity>250</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>false</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
-				<drainFlowSpeedPerDay>250</drainFlowSpeedPerDay>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
@@ -7328,7 +7376,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		</researchPrerequisites>
 	</ThingDef>
 	<!---->
-	<ThingDef ParentName="BenchBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>PlasmaStorage</defName>
 		<label>Plasma storage</label>
 		<description>A special storage facility that can hold plasma.</description>
@@ -7370,8 +7418,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<Cleanliness>-5</Cleanliness>
 		</statBases>
 		<size>(3,2)</size>
-		<designationCategory>Production</designationCategory>
-		<designatorDropdown>Chemistry</designatorDropdown>
+		<designationCategory>LWM_DS_Storage</designationCategory>
 		<passability>PassThroughOnly</passability>
 		<pathCost>50</pathCost>
 		<hasInteractionCell>false</hasInteractionCell>
@@ -7394,11 +7441,9 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
 				<pipeTypeDef>Plasma</pipeTypeDef>
 				<capacity>500</capacity>
-				<canAutoDrain>true</canAutoDrain>
 				<canManualDrain>false</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
-				<drainFlowSpeedPerDay>250</drainFlowSpeedPerDay>
 			</li>
 			<li Class="CompProperties_HeatPusher">
 				<compClass>CompHeatPusherPowered</compClass>
@@ -7412,4 +7457,533 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>Smokehouse</defName>
+		<label>Smokehouse</label>
+		<description>Stone building for smoking and drying food.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_Smokehouse</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/Smokehouse/Smokehouse</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(4,4)</drawSize>
+		</graphicData>
+		<staticSunShadowHeight>0.2</staticSunShadowHeight>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>42</pathCost>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Mass>150</Mass>
+			<Flammability>0</Flammability>
+			<FuelConsumption>2.6</FuelConsumption>
+			<HeatingEfficiency>0.8</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
+		</statBases>
+		<size>(2,1)</size>
+		<costStuffCount>125</costStuffCount>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costList>
+			<ComponentPrimitive>8</ComponentPrimitive>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Smokehouse">
+				<storageDef>SadjuukBedroomUpgradeAA</storageDef>
+				<production>
+					<li>
+						<sourceDef>RegularMeat</sourceDef>
+						<outputDef>SmokedMeat</outputDef>
+						<countPerPortion>50</countPerPortion>
+						<outputCount>50</outputCount>
+						<produceTicks>30000</produceTicks>
+					</li>
+					<li>
+						<sourceDef>RegularFish</sourceDef>
+						<outputDef>SmokedFish</outputDef>
+						<countPerPortion>50</countPerPortion>
+						<outputCount>50</outputCount>
+						<produceTicks>30000</produceTicks>
+					</li>
+				</production>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WorkAnimation">
+				<graphicData>
+					<texPath>Core/Buildings/Smokehouse/SmokehouseFilled</texPath>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>(4,4)</drawSize>
+				</graphicData>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
+				<fuelCapacity>20.0</fuelCapacity>
+				<startedFuel>WoodLog</startedFuel>
+				<enableHeatPush>true</enableHeatPush>
+				<fuelFilter>
+					<thingDefs>
+						<li>WoodLog</li>
+						<li>Coal</li>
+						<li>CokeCoal</li>
+						<li>FuelBriquette</li>
+					</thingDefs>
+				</fuelFilter>
+				<initialFuelPercent>0</initialFuelPercent>
+				<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_ItemRecycler</li>
+		</inspectorTabs>
+		<researchPrerequisites>
+			<li>Smokehouse</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ItemRecycler</li>
+		</placeWorkers>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Cooking</designatorDropdown>
+		<constructionSkillPrerequisite>2</constructionSkillPrerequisite>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<hasInteractionCell>false</hasInteractionCell>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>ElectricAutoLoom</defName>
+		<label>Electric auto loom</label>
+		<description>A machine for the autonomous production of simple fabrics from plant materials.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_AutoLoom</thingClass>
+		<graphicData>
+			<texPath>Core/Buildings/ElectricAutoLoom/EmptyElectricAutoLoom</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>3,3</drawSize>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>false</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<canOverlapZones>false</canOverlapZones>
+		<pathCost>42</pathCost>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>25000</WorkToBuild>
+			<Mass>300</Mass>
+			<Flammability>0.5</Flammability>
+		</statBases>
+		<size>(3,3)</size>
+		<staticSunShadowHeight>0.3</staticSunShadowHeight>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>200</costStuffCount>
+		<costList>
+			<SimpleElectronic>4</SimpleElectronic>
+			<MechanismComplex>4</MechanismComplex>
+			<StrongPlates>75</StrongPlates>
+		</costList>
+		<tickerType>Normal</tickerType>
+		<building>
+			<destroySound>BuildingDestroyed_Metal_Small</destroySound>
+		</building>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_WorkAnimation">
+				<graphicData>
+					<texPath>Core/Buildings/ElectricAutoLoom/WorkingElectricAutoLoom</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<shaderType>CutoutComplex</shaderType>
+					<drawSize>3,3</drawSize>
+					<drawRotated>false</drawRotated>
+				</graphicData>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_AutoLoom">
+				<storageDef>LWM_ProductionPallet</storageDef>
+				<production>
+					<li>
+						<sourceDef>Flora_RawCotton</sourceDef>
+						<outputDef>Cloth</outputDef>
+						<countPerPortion>25</countPerPortion>
+						<outputCount>25</outputCount>
+						<produceTicks>2500</produceTicks>
+					</li>
+					<li>
+						<sourceDef>Flora_RawFlax</sourceDef>
+						<outputDef>LinenCloth</outputDef>
+						<countPerPortion>30</countPerPortion>
+						<outputCount>25</outputCount>
+						<produceTicks>3500</produceTicks>
+					</li>
+					<li>
+						<sourceDef>Flora_Devilstrand</sourceDef>
+						<outputDef>DevilstrandCloth</outputDef>
+						<countPerPortion>40</countPerPortion>
+						<outputCount>20</outputCount>
+						<produceTicks>5000</produceTicks>
+					</li>
+				</production>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>500</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_ItemRecycler</li>
+		</inspectorTabs>
+		<researchPrerequisites>
+			<li>ComplexClothingII</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ItemRecycler</li>
+		</placeWorkers>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Tailoring</designatorDropdown>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<hasInteractionCell>false</hasInteractionCell>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>MechanitesGenerator</defName>
+		<label>Mechanites factory</label>
+		<description>A device containing many magnets that keep the mass of mechanites from breaking through. Violation of containment conditions will lead to a rapid breakthrough of the mechanites.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_MechanitesGenerator</thingClass>
+		<drawerType>RealtimeOnly</drawerType>
+		<graphicData>
+			<texPath>Core/Buildings/MechanitesGenerator/MechanitesGenerator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(5,5)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<staticSunShadowHeight>0.25</staticSunShadowHeight>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<castEdgeShadows>false</castEdgeShadows>
+		<costStuffCount>300</costStuffCount>
+		<tickerType>Normal</tickerType>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<costList>
+			<MechanismSpacer>10</MechanismSpacer>
+			<Nanoelectronics>6</Nanoelectronics>
+			<Supermagnet>75</Supermagnet>
+			<SuperStrongPlates>100</SuperStrongPlates>
+			<BulletproofGlass>150</BulletproofGlass>
+			<CinderBlock>150</CinderBlock>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>75000</WorkToBuild>
+			<MaxHitPoints>150</MaxHitPoints>
+			<Flammability>0.2</Flammability>
+			<Cleanliness>-5</Cleanliness>
+		</statBases>
+		<size>(3,3)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Chemistry</designatorDropdown>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>false</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<rotatable>false</rotatable>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>MechanitesGenerator</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_MechanitesGenerator">
+				<storageDef>LWM_ProductionPallet</storageDef>
+				<costList>
+					<Nanoelectronics>5</Nanoelectronics>
+					<Biosynthetics>50</Biosynthetics>
+				</costList>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>7500</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
+				<pipeTypeDef>Mechanites</pipeTypeDef>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>Mechanites</li>
+		</researchPrerequisites>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>MechanitesStorage</defName>
+		<label>Mechanites storage</label>
+		<description>A special storage facility that can hold mechanites.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_MechanitesStorage</thingClass>
+		<drawerType>RealtimeOnly</drawerType>
+		<graphicData>
+			<texPath>Core/Buildings/MechanitesStorage/MechanitesStorage</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+			<drawSize>1.85</drawSize>
+			<drawOffset>0,0,0.2</drawOffset>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<uiIconScale>0.6</uiIconScale>
+		<castEdgeShadows>false</castEdgeShadows>
+		<costStuffCount>125</costStuffCount>
+		<tickerType>Normal</tickerType>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<costList>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Nanoelectronics>2</Nanoelectronics>
+			<Supermagnet>125</Supermagnet>
+			<SuperStrongPlates>75</SuperStrongPlates>
+			<BulletproofGlass>75</BulletproofGlass>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>35000</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<Cleanliness>-4</Cleanliness>
+		</statBases>
+		<size>(1,1)</size>
+		<designationCategory>LWM_DS_Storage</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>false</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<rotatable>true</rotatable>
+		<staticSunShadowHeight>0.1</staticSunShadowHeight>
+		<researchPrerequisites>
+			<li>Mechanites</li>
+		</researchPrerequisites>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_Pipe</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>750</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+				<compClass>ProjectParagon.Core.Things.CompLiquidStorage_Mechanites</compClass>
+				<pipeTypeDef>Mechanites</pipeTypeDef>
+				<capacity>250</capacity>
+				<canManualDrain>false</canManualDrain>
+				<linkToPossiblePipes>false</linkToPossiblePipes>
+				<canChangePipeType>false</canChangePipeType>
+				<barSize>0.75, 0.2</barSize>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>MechanitesRecycler</defName>
+		<label>Mechanites recycler</label>
+		<description>A device used to dispose of damaged and defective mechanites into relatively harmless waste.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_MechanitesRecycler</thingClass>
+		<drawerType>RealtimeOnly</drawerType>
+		<graphicData>
+			<texPath>Core/Buildings/MechanitesRecycler/MechanitesRecycler</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawRotated>false</drawRotated>
+			<drawSize>1.85</drawSize>
+			<drawOffset>0,0,0.25</drawOffset>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<staticSunShadowHeight>0.1</staticSunShadowHeight>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<uiIconScale>0.6</uiIconScale>
+		<castEdgeShadows>false</castEdgeShadows>
+		<costStuffCount>125</costStuffCount>
+		<tickerType>Normal</tickerType>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<costList>
+			<ComponentSpacer>1</ComponentSpacer>
+			<Nanoelectronics>3</Nanoelectronics>
+			<Supermagnet>100</Supermagnet>
+			<SuperStrongPlates>100</SuperStrongPlates>
+			<BulletproofGlass>100</BulletproofGlass>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Chemistry</designatorDropdown>
+		<statBases>
+			<WorkToBuild>40000</WorkToBuild>
+			<MaxHitPoints>125</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<Cleanliness>-4</Cleanliness>
+		</statBases>
+		<size>(1,1)</size>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+		<rotatable>true</rotatable>
+		<researchPrerequisites>
+			<li>Mechanites</li>
+		</researchPrerequisites>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>750</basePowerConsumption>
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+	</ThingDef>
+	<!---->
+	<!--
+	<ThingDef ParentName="BuildingBase">
+		<defName>ChickenCoop</defName>
+		<label>Chicken coop</label>
+		<description>A building in which animals can be bred to obtain useful resources.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_Barn</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Chicken</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(4.8, 4.8)</drawSize>
+			<shadowData>
+				<volume>(1.8, 1.0, 0.2)</volume>
+				<offset>(0.0, 0.0, -0.4)</offset>
+			</shadowData>
+		</graphicData>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<castEdgeShadows>false</castEdgeShadows>
+		<costStuffCount>250</costStuffCount>
+		<tickerType>Normal</tickerType>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<costList>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>20000</WorkToBuild>
+			<MaxHitPoints>125</MaxHitPoints>
+			<Flammability>0.5</Flammability>
+			<Cleanliness>-10</Cleanliness>
+		</statBases>
+		<size>(4,2)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Farming</designatorDropdown>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<rotatable>false</rotatable>
+		<hasInteractionCell>false</hasInteractionCell>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_Barn</li>
+		</inspectorTabs>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>ChickenCoop</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Barn">
+				<allowedAnimals>
+					<li>Chicken</li>
+					<li>Duck</li>
+					<li>Goose</li>
+					<li>Turkey</li>
+					
+					<li>Cow</li>
+					<li>Muffalo</li>
+					<li>DarkIbex</li>
+					<li>Arix</li>
+				</allowedAnimals>
+				<barnSize>100</barnSize> 
+			</li>
+		</comps>
+	</ThingDef>
+	-->
+	<!---->
 </Defs>

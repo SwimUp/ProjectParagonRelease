@@ -29,6 +29,35 @@
 	</StatDef>
 	
 	<StatDef>
+		<defName>MaxHeatingTemperature</defName>
+		<label>Max heating temperature</label>
+		<description>What is the maximum room temperature that can be achieved?</description>
+		<category>BasicsNonPawn</category>
+		<workerClass>ProjectParagon.Core.Stats.StatWorker_MaxHeatingTemperature</workerClass>
+		<defaultBaseValue>0</defaultBaseValue>
+		<hideAtValue>0</hideAtValue>
+		<minValue>0</minValue>
+		<toStringStyle>FloatTwo</toStringStyle>
+		<showOnPawns>false</showOnPawns>
+		<displayPriorityInCategory>1000</displayPriorityInCategory>
+		<formatString>{0} °</formatString>
+	</StatDef>
+	
+	<StatDef>
+		<defName>MaxHeatingTemperatureEfficiency</defName>
+		<label>Max heating temperature efficiency</label>
+		<description>Max heating temperature efficiency</description>
+		<category>BasicsNonPawn</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<hideAtValue>0</hideAtValue>
+		<minValue>0</minValue>
+		<toStringStyle>FloatTwo</toStringStyle>
+		<showOnPawns>false</showOnPawns>
+		<displayPriorityInCategory>1000</displayPriorityInCategory>
+		<formatString>{0}°</formatString>
+	</StatDef>
+	
+	<StatDef>
 		<defName>FuelConsumption</defName>
 		<label>Fuel consumption</label>
 		<description>Shows how efficiently the building uses fuel. The higher it is, the faster the fuel burns out. As a rule, the highest coefficients in open sources.</description>
@@ -51,6 +80,9 @@
 		<minValue>0</minValue>
 		<toStringStyle>PercentZero</toStringStyle>
 		<showOnPawns>false</showOnPawns>
+		<parts>
+			<li Class="ProjectParagon.Core.Stats.StatPart_StuffHeatingEfficiency" />
+		</parts>
 		<displayPriorityInCategory>1000</displayPriorityInCategory>
 	</StatDef>
 	
@@ -65,6 +97,19 @@
 		<toStringStyle>PercentZero</toStringStyle>
 		<showOnPawns>false</showOnPawns>
 		<displayPriorityInCategory>1000</displayPriorityInCategory>
+	</StatDef>
+	
+	<StatDef>
+		<defName>BuyPriceFactor</defName>
+		<label>buy price multiplier</label>
+		<description>A multiplier on the price at which you can buy items.</description>
+		<category>BasicsNonPawn</category>
+		<showIfUndefined>false</showIfUndefined>
+		<defaultBaseValue>1</defaultBaseValue>
+		<minValue>0</minValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<displayPriorityInCategory>2509</displayPriorityInCategory>
+		<showOnUntradeables>false</showOnUntradeables>
 	</StatDef>
 
 </Defs>

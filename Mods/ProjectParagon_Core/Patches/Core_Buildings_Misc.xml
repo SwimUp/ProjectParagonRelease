@@ -2619,6 +2619,74 @@
 					</ThingDef>
 				</value>
 			</li>
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="EggBox"]</xpath>
+				<value>
+					<ThingDef ParentName="LWM_DeepStorage">
+						<defName>EggBox</defName>
+						<label>egg box</label>
+						<description>A box with soft material made to hold eggs. Egg-laying animals will lay eggs in egg boxes if they can. Your haulers will take all the eggs out only when the box is full, to save time. The box also protects eggs from deteriorating outdoors, though it does not protect from temperature damage.</description>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<fillPercent>0.3</fillPercent>
+						<tickerType>Normal</tickerType>
+						<drawGUIOverlay>true</drawGUIOverlay>
+						<containedItemsSelectable>true</containedItemsSelectable>
+						<graphicData>
+							<texPath>Things/Building/Misc/EggBox</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shadowData>
+								<volume>(1,0.5,1)</volume>
+							</shadowData>
+							<damageData>
+								<rect>(0,0,1,1)</rect>
+							</damageData>
+						</graphicData>
+						<size>1,1</size>
+						<altitudeLayer>Building</altitudeLayer>
+						<minifiedDef>MinifiedThing</minifiedDef>
+						<thingCategories>
+							<li>BuildingsMisc</li>
+						</thingCategories>
+						<statBases>
+							<MaxHitPoints>50</MaxHitPoints>
+							<WorkToBuild>2000</WorkToBuild>
+							<Flammability>1</Flammability>
+							<Mass>3</Mass>
+						</statBases>
+						<comps>
+							<li Class="LWM.DeepStorage.Properties">
+								<maxNumberStacks>1</maxNumberStacks>
+								<minTimeStoringTakes>35</minTimeStoringTakes>
+								<additionalTimeEachStack>5</additionalTimeEachStack>
+								<additionalTimeEachDef>2</additionalTimeEachDef>
+								<overlayType>SumOfAllItems</overlayType>
+								<showContents>true</showContents>
+							</li>
+						</comps>
+						<stuffCategories>
+							<li>Metallic</li>
+							<li>Woody</li>
+						</stuffCategories>
+						<costStuffCount>20</costStuffCount>
+						<pathCost>10</pathCost>
+						<designationCategory>LWM_DS_Storage</designationCategory>
+						<uiOrder>2060</uiOrder>
+						<rotatable>false</rotatable>
+						<building>
+							<fixedStorageSettings>
+								<filter>
+									<categories>
+										<li>EggsUnfertilized</li>
+										<li>EggsFertilized</li>
+									</categories>
+								</filter>
+							</fixedStorageSettings>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+			
 		</operations>
 	</Operation>
 </Patch>

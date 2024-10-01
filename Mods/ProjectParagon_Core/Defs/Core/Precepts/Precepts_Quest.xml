@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>Quest</defName>
+		<label>Quest</label>
+		<iconPath>Core/UI/Issues/Quest</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>Quest_Exalted</defName>
+		<issue>Quest</issue>
+		<label>Exalted</label>
+		<description>The tasks of strangers are a source of wisdom and life experience.</description>
+		<impact>High</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>HAR_Xenophilia</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>QuestSuccess</eventDef>
+				<thought>QuestSuccess_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>QuestFail</eventDef>
+				<thought>QuestFail_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>QuestSuccessPawn</eventDef>
+				<thought>QuestSuccess_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>QuestSuccessPawn</eventDef>
+				<thought>QuestSuccess_Know_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>QuestFailPawn</eventDef>
+				<thought>QuestFail_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>QuestFailPawn</eventDef>
+				<thought>QuestFail_Know_Exalted</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>QuestSuccess_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>quest successfully completed</label>
+				<description>Mutually beneficial exchange is wonderful. It's worth doing this more often.</description>
+				<baseMoodEffect>8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>QuestFail_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>quest fail</label>
+				<description>Yes, we showed ourselves on the bad side...</description>
+				<baseMoodEffect>-6</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>QuestSuccess_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>quest successfully completed</label>
+				<baseOpinionOffset>10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>QuestFail_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>quest fail</label>
+				<baseOpinionOffset>-10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Quest_Encouraged</defName>
+		<issue>Quest</issue>
+		<label>Encouraged</label>
+		<description>Quests are a great reason to explore the world around you.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>HAR_Xenophilia</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>QuestSuccess</eventDef>
+				<thought>QuestSuccess_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>QuestFail</eventDef>
+				<thought>QuestFail_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>QuestSuccessPawn</eventDef>
+				<thought>QuestSuccess_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>QuestSuccessPawn</eventDef>
+				<thought>QuestSuccess_Know_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>QuestFailPawn</eventDef>
+				<thought>QuestFail_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>QuestFailPawn</eventDef>
+				<thought>QuestFail_Know_Encouraged</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>QuestSuccess_Encouraged</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>quest successfully completed</label>
+				<description>Mutually beneficial exchange is wonderful. It's worth doing this more often.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>QuestFail_Encouraged</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>quest fail</label>
+				<description>Yes, we showed ourselves on the bad side...</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>QuestSuccess_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>quest successfully completed</label>
+				<baseOpinionOffset>7</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>QuestFail_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>quest fail</label>
+				<baseOpinionOffset>-7</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Quest_Neutral</defName>
+		<issue>Quest</issue>
+		<label>Neutral</label>
+		<description>We should quest from time to time for our own benefit, but no more.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+	</PreceptDef>
+	<!---->
+	<PreceptDef>
+		<defName>Quest_Condemned</defName>
+		<issue>Quest</issue>
+		<label>Condemned</label>
+		<description>Quest only ruins us.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>5</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Isolationism</li>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>QuestSuccess</eventDef>
+				<thought>QuestSuccess_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>QuestSuccessPawn</eventDef>
+				<thought>QuestSuccess_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>QuestSuccessPawn</eventDef>
+				<thought>QuestSuccess_Know_Condemned</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>QuestSuccess_Condemned</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>quest successfully completed</label>
+				<description>Why carry out orders from strangers?</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>QuestSuccess_Know_Condemned</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>quest successfully completed</label>
+				<baseOpinionOffset>-5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Quest_Hatred</defName>
+		<issue>Quest</issue>
+		<label>Hatred</label>
+		<description>We shouldn't mind other people's business!</description>
+		<impact>High</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Isolationism</li>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>QuestSuccess</eventDef>
+				<thought>QuestSuccess_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>QuestSuccessPawn</eventDef>
+				<thought>QuestSuccess_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>QuestSuccessPawn</eventDef>
+				<thought>QuestSuccess_Know_Hatred</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>QuestSuccess_Hatred</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>quest successfully completed</label>
+				<description>Why carry out orders from strangers? Don't we have enough things to do?</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>QuestSuccess_Know_Hatred</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>8</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>quest successfully completed</label>
+				<baseOpinionOffset>-10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+</Defs>

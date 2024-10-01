@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>Recruiting</defName>
+		<label>Recruiting</label>
+		<iconPath>Core/UI/Issues/Recruiting</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>Recruiting_Exalted</defName>
+		<issue>Recruiting</issue>
+		<label>Exalted</label>
+		<description>Recruiting new members of the colony is what we need to focus on.</description>
+		<impact>High</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Proselytizer</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>PawnRecruit</eventDef>
+				<thought>PawnRecruit_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PawnRecruitByPawn</eventDef>
+				<thought>PawnRecruit_Recruiter_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PawnRecruitByPawn</eventDef>
+				<thought>PawnRecruit_Recruiter_Know_Exalted</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>pawn recruited</label>
+				<description>We are always happy to join the ranks.</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Recruiter_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>pawn recruited by me</label>
+				<description>I'm so proud that I was able to make a difference.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Recruiter_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>pawn recruited</label>
+				<baseOpinionOffset>10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Recruiting_Encouraged</defName>
+		<issue>Recruiting</issue>
+		<label>Encouraged</label>
+		<description>We always welcome new people.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Proselytizer</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>PawnRecruit</eventDef>
+				<thought>PawnRecruit_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PawnRecruitByPawn</eventDef>
+				<thought>PawnRecruit_Recruiter_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PawnRecruitByPawn</eventDef>
+				<thought>PawnRecruit_Recruiter_Know_Encouraged</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Encouraged</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>pawn recruited</label>
+				<description>We are always happy to join the ranks.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Recruiter_Encouraged</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>pawn recruited by me</label>
+				<description>I'm so glad I was able to make a difference.</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Recruiter_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>pawn recruited</label>
+				<baseOpinionOffset>5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Recruiting_Neutral</defName>
+		<issue>Recruiting</issue>
+		<label>Neutral</label>
+		<description>We should Recruiting from time to time for our own benefit, but no more.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+	</PreceptDef>
+	<!---->
+	<PreceptDef>
+		<defName>Recruiting_Condemned</defName>
+		<issue>Recruiting</issue>
+		<label>Condemned</label>
+		<description>Recruiting only ruins us.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>5</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Isolationism</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>PawnRecruit</eventDef>
+				<thought>PawnRecruit_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PawnRecruitByPawn</eventDef>
+				<thought>PawnRecruit_Recruiter_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PawnRecruitByPawn</eventDef>
+				<thought>PawnRecruit_Recruiter_Know_Condemned</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Condemned</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>pawn recruited</label>
+				<description>Do we really need new people?</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Recruiter_Condemned</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>pawn recruited by me</label>
+				<description>It seems I've only made things worse.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Recruiter_Know_Condemned</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>pawn recruited</label>
+				<baseOpinionOffset>-5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Recruiting_Hatred</defName>
+		<issue>Recruiting</issue>
+		<label>Hatred</label>
+		<description>We don't need others! We will get through everything ourselves.</description>
+		<impact>High</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Isolationism</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>PawnRecruit</eventDef>
+				<thought>PawnRecruit_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PawnRecruitByPawn</eventDef>
+				<thought>PawnRecruit_Recruiter_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PawnRecruitByPawn</eventDef>
+				<thought>PawnRecruit_Recruiter_Know_Hatred</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Hatred</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>pawn recruited</label>
+				<description>For what?! We don't need anyone!</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Recruiter_Hatred</defName>
+		<durationDays>10</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>pawn recruited by me</label>
+				<description>I doomed us to problems...</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PawnRecruit_Recruiter_Know_Hatred</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>pawn recruited</label>
+				<baseOpinionOffset>-10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+</Defs>

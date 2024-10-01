@@ -1029,7 +1029,7 @@
 						<defName>DrugLab</defName>
 						<label>drug lab</label>
 						<description>A work bench equipped with containers, heaters, and measurement devices for producing various drugs.</description>
-						<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+						<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 						<graphicData>
 							<texPath>Things/Building/Production/TableDrugLab</texPath>
 							<graphicClass>Graphic_Multi</graphicClass>
@@ -1151,7 +1151,7 @@
 						<defName>Brewery</defName>
 						<label>drug bench</label>
 						<description>Bench for processing plants and synthesizing various primitive drugs.</description>
-						<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater</thingClass>
+						<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 						<graphicData>
 							<texPath>Things/Building/Production/TableBrewery</texPath>
 							<graphicClass>Graphic_Multi</graphicClass>
@@ -1532,6 +1532,7 @@
 						</inspectorTabs>
 						<building>
 							<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+							<isMealSource>true</isMealSource>
 						</building>
 						<placeWorkers>
 							<li>PlaceWorker_ShowFacilitiesConnections</li>
@@ -1754,7 +1755,7 @@
 						<defName>ElectricStove</defName>
 						<label>electric stove</label>
 						<description>An electrically-powered stove with an attached countertop for preparing meals.</description>
-						<thingClass>ProjectParagon.Core.Things.Building_WorkTableWithWater_HeatPush</thingClass>
+						<thingClass>ProjectParagon.Core.Things.Building_ExtendedWorkTable</thingClass>
 						<graphicData>
 							<texPath>Things/Building/Production/TableStoveElectric</texPath>
 							<graphicClass>Graphic_Multi</graphicClass>
@@ -1828,6 +1829,9 @@
 							</li>
 							<li Class="ProjectParagon.Core.Things.CompProperties_WorkTableWithWater">
 								<canManualFill>false</canManualFill>
+							</li>
+							<li>
+								<compClass>ProjectParagon.Core.Things.CompWorkTableHeatPush</compClass>
 							</li>
 						</comps>
 						<building>
@@ -2085,19 +2089,13 @@
 								<basePowerConsumption>50</basePowerConsumption>
 							</li>
 							<li Class="CompProperties_Flickable"/>
-							<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+							<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 								<tag>SourceStorage</tag>
 								<pipeTypeDef>LiquidFertilizer</pipeTypeDef>
-								<capacity>10</capacity>
 								<pipeTypeDefsWhitelist>
 									<li>LiquidFertilizer</li>
 								</pipeTypeDefsWhitelist>
-								<canAutoDrain>true</canAutoDrain>
-								<canManualDrain>true</canManualDrain>
-								<drainFlowSpeedPerDay>250</drainFlowSpeedPerDay>
 								<drawPipeOverlay>false</drawPipeOverlay>
-								<drawStorageOverlay>false</drawStorageOverlay>
-								<showStorageInfo>true</showStorageInfo>
 							</li>
 						</comps>
 						<researchPrerequisites>

@@ -42,6 +42,7 @@
 			<Mass>0.010</Mass>
 			<Flammability>0.3</Flammability>
 			<DeteriorationRate>2</DeteriorationRate>
+			<FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
 		</statBases>
 		<thingCategories>
 			<li>FishRaw</li>
@@ -54,14 +55,273 @@
 			<tasteThought>AteRawFood</tasteThought>
 		</ingestible>
 		<comps>
-			<li Class="CompProperties_Rottable">
-				<daysToRotStart>7</daysToRotStart>
-				<rotDestroys>true</rotDestroys>
-			</li>
 			<li Class="CompProperties_Ingredients"/>
 			<li Class="CompProperties_FoodPoisonable"/>
 		</comps>
 		<tickerType>Normal</tickerType>
+	</ThingDef>
+	<ThingDef ParentName="FishBase">
+		<defName>SmokedFish</defName>
+		<label>Smoked fish</label>
+		<description>Smoked fish. Can be stored for a long time.</description>
+		<graphicData>
+			<texPath>Core/Food/Fish/SmokedFish</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>2.25</MarketValue>
+			<Nutrition>0.05</Nutrition>
+			<Protein>0.025</Protein>
+			<Fat>0.012</Fat>
+			<Carbohydrates>0.002</Carbohydrates>
+			<Vitamins>0.002</Vitamins>
+			<Flavor>0</Flavor>
+			<FoodPoisonChanceFixedHuman>0.01</FoodPoisonChanceFixedHuman>
+		</statBases>
+		<ingestible>
+			<foodType>Meal</foodType>
+			<preferability>MealSimple</preferability>
+			<ingestSound>Meal_Eat</ingestSound>
+			<optimalityOffsetHumanlikes>6</optimalityOffsetHumanlikes>
+		</ingestible>
+		<modExtensions>
+			<li Class="ParagonWiki.Other.DefExtension_Wiki">
+				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
+			</li>
+		</modExtensions>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>25</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+			<li Class="ProjectParagon.Core.FoodSystem.CompProperties_FoodComponent">
+				<slot>Meat, Fish</slot>
+				<foodSettings>
+					<li>
+						<foodTemplate>Soup</foodTemplate>
+						<foodParams>
+							<li>
+								<param>Nutrition</param>
+								<baseValue>0.05</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Protein</param>
+								<baseValue>0.025</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Fat</param>
+								<baseValue>0.011</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Carbohydrates</param>
+								<baseValue>0.001</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Vitamins</param>
+								<baseValue>0.001</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Flavor</param>
+								<baseValue>0.15</baseValue>
+								<compatabilityWithOtherFood>
+
+								</compatabilityWithOtherFood>
+							</li>
+						</foodParams>
+					</li>
+					<li>
+						<foodTemplate>Stew</foodTemplate>
+						<foodParams>
+							<li>
+								<param>Nutrition</param>
+								<baseValue>0.05</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Protein</param>
+								<baseValue>0.023</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Fat</param>
+								<baseValue>0.014</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Carbohydrates</param>
+								<baseValue>0.0</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Vitamins</param>
+								<baseValue>0.0</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Flavor</param>
+								<baseValue>0.2</baseValue>
+								<compatabilityWithOtherFood>
+
+								</compatabilityWithOtherFood>
+							</li>
+						</foodParams>
+					</li>
+					<li>
+						<foodTemplate>Fried</foodTemplate>
+						<foodParams>
+							<li>
+								<param>Nutrition</param>
+								<baseValue>0.06</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Protein</param>
+								<baseValue>0.030</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Fat</param>
+								<baseValue>0.015</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Carbohydrates</param>
+								<baseValue>0.0</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Vitamins</param>
+								<baseValue>0.0</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Flavor</param>
+								<baseValue>0.2</baseValue>
+								<compatabilityWithOtherFood>
+
+								</compatabilityWithOtherFood>
+							</li>
+						</foodParams>
+					</li>
+					<li>
+						<foodTemplate>Boiled</foodTemplate>
+						<foodParams>
+							<li>
+								<param>Nutrition</param>
+								<baseValue>0.06</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Protein</param>
+								<baseValue>0.023</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Fat</param>
+								<baseValue>0.015</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Carbohydrates</param>
+								<baseValue>0.003</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Vitamins</param>
+								<baseValue>0.003</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Flavor</param>
+								<baseValue>0.25</baseValue>
+								<compatabilityWithOtherFood>
+
+								</compatabilityWithOtherFood>
+							</li>
+						</foodParams>
+					</li>
+					<li>
+						<foodTemplate>Bake</foodTemplate>
+						<foodParams>
+							<li>
+								<param>Nutrition</param>
+								<baseValue>0.05</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Protein</param>
+								<baseValue>0.023</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Fat</param>
+								<baseValue>0.014</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Carbohydrates</param>
+								<baseValue>0.003</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Vitamins</param>
+								<baseValue>0.002</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Flavor</param>
+								<baseValue>0.2</baseValue>
+								<compatabilityWithOtherFood>
+
+								</compatabilityWithOtherFood>
+							</li>
+						</foodParams>
+					</li>
+					<li>
+						<foodTemplate>MealSurvivalPack</foodTemplate>
+						<foodParams>
+							<li>
+								<param>Nutrition</param>
+								<baseValue>0.05</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Protein</param>
+								<baseValue>0.024</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Fat</param>
+								<baseValue>0.011</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Carbohydrates</param>
+								<baseValue>0.003</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Vitamins</param>
+								<baseValue>0.002</baseValue>
+								<compatabilityWithOtherFood/>
+							</li>
+							<li>
+								<param>Flavor</param>
+								<baseValue>0.15</baseValue>
+								<compatabilityWithOtherFood>
+
+								</compatabilityWithOtherFood>
+							</li>
+						</foodParams>
+					</li>
+				</foodSettings>
+			</li>
+		</comps>
 	</ThingDef>
 	<ThingDef ParentName="FishBase">
 		<defName>RegularFish</defName>
@@ -85,6 +345,10 @@
 			</li>
 		</modExtensions>
 		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>7</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
 			<li Class="ProjectParagon.Core.FoodSystem.CompProperties_FoodComponent">
 				<slot>Meat, Fish</slot>
 				<foodSettings>
@@ -1554,6 +1818,10 @@
 			</li>
 		</modExtensions>
 		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>7</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
 			<li Class="ProjectParagon.Core.FoodSystem.CompProperties_FoodComponent">
 				<slot>Meat, Fish</slot>
 				<foodSettings>
@@ -3059,6 +3327,10 @@
 			</li>
 		</modExtensions>
 		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>7</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
 			<li Class="ProjectParagon.Core.FoodSystem.CompProperties_FoodComponent">
 				<slot>Meat, Fish</slot>
 				<foodSettings>

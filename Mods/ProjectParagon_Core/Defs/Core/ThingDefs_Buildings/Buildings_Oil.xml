@@ -150,9 +150,7 @@
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
 				<capacity>10000</capacity>
-				<canAutoDrain>true</canAutoDrain>
 				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>60000</drainFlowSpeedPerDay>
 				<pipeTypeDef>Oil</pipeTypeDef>
 				<canChangePipeType>true</canChangePipeType>
 				<pipeTypeDefsWhitelist>
@@ -183,7 +181,7 @@
 		</comps>
 	</ThingDef>
 
-	<ThingDef ParentName="BenchBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>DistillationColumnI</defName>
 		<label>Distillation column (stage I)</label>
 		<description>A device used in distillation processes. Allows the processing of crude oil to obtain medium and heavy oil fractions.</description>
@@ -217,6 +215,7 @@
 			<Cleanliness>-10</Cleanliness>
 			<FuelConsumption>6</FuelConsumption>
 			<HeatingEfficiency>1.0</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(3,3)</size>
 		<designationCategory>Production</designationCategory>
@@ -239,56 +238,39 @@
 				<basePowerConsumption>150</basePowerConsumption>
 				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Oil</pipeTypeDef>
-				<capacity>500</capacity>
-				<canAutoDrain>false</canAutoDrain>
-				<canManualDrain>false</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<capacity>1000</capacity>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>MediumOil</pipeTypeDef>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
-				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>false</drawStorageOverlay>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>HeavyOil</pipeTypeDef>
-				<capacity>1000</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
-				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>false</drawStorageOverlay>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>200</WaterStorageCap>
+				<WaterStorageCap>600</WaterStorageCap>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_Pipe">
 				<mode>Sewage</mode>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_SteamLiquidProcessor">
 				<sourcePipeTypeDef>Oil</sourcePipeTypeDef>
-				<maxGeneratedSteamPerIteration>15</maxGeneratedSteamPerIteration>
-				<fullEfficiencySteam>0.15</fullEfficiencySteam>
+				<steamEfficiency>0.25</steamEfficiency>
+				<presureEfficiency>0.5</presureEfficiency>
+				<waterUsageMultiplier>1</waterUsageMultiplier>
 				<baseProcessSpeedPerDay>3</baseProcessSpeedPerDay>
-				<sourceLiquidCountPerIteration>54</sourceLiquidCountPerIteration>
+				<sourceLiquidCountPerIteration>90</sourceLiquidCountPerIteration>
 				<processResult>
 					<li>
 						<pipeTypeDef>MediumOil</pipeTypeDef>
-						<baseCount>48</baseCount>
+						<baseCount>120</baseCount>
 					</li>
 					<li>
 						<pipeTypeDef>HeavyOil</pipeTypeDef>
-						<baseCount>6</baseCount>
+						<baseCount>30</baseCount>
 					</li>
 				</processResult>
 			</li>
@@ -296,10 +278,11 @@
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
 				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<alwaysShowTimeOfFuel>true</alwaysShowTimeOfFuel>
 				<fuelCapacity>200.0</fuelCapacity>
 				<startedFuel>WoodLog</startedFuel>
 				<enableHeatPush>true</enableHeatPush>
-				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+				<heatEfficiencyConfigurable>true</heatEfficiencyConfigurable>
 				<fuelFilter>
 					<thingDefs>
 						<li>WoodLog</li>
@@ -330,7 +313,7 @@
 		</modExtensions>
 	</ThingDef>
 	
-	<ThingDef ParentName="BenchBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>DistillationColumnII</defName>
 		<label>Distillation column (stage II)</label>
 		<description>A device used in distillation processes. Allows you to process the middle fraction of oil into useful fuel and light fraction of oil.</description>
@@ -364,6 +347,7 @@
 			<Cleanliness>-10</Cleanliness>
 			<FuelConsumption>6</FuelConsumption>
 			<HeatingEfficiency>1.0</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(3,3)</size>
 		<designationCategory>Production</designationCategory>
@@ -386,35 +370,17 @@
 				<basePowerConsumption>150</basePowerConsumption>
 				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>MediumOil</pipeTypeDef>
-				<capacity>500</capacity>
-				<canAutoDrain>false</canAutoDrain>
-				<canManualDrain>false</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<capacity>1000</capacity>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Diesel</pipeTypeDef>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
-				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>false</drawStorageOverlay>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>LightOil</pipeTypeDef>
-				<capacity>1000</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
-				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>false</drawStorageOverlay>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
 				<WaterStorageCap>200</WaterStorageCap>
@@ -424,18 +390,19 @@
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_SteamLiquidProcessor">
 				<sourcePipeTypeDef>MediumOil</sourcePipeTypeDef>
-				<maxGeneratedSteamPerIteration>15</maxGeneratedSteamPerIteration>
-				<fullEfficiencySteam>0.15</fullEfficiencySteam>
+				<steamEfficiency>0.25</steamEfficiency>
+				<presureEfficiency>0.5</presureEfficiency>
+				<waterUsageMultiplier>1</waterUsageMultiplier>
 				<baseProcessSpeedPerDay>3</baseProcessSpeedPerDay>
-				<sourceLiquidCountPerIteration>48</sourceLiquidCountPerIteration>
+				<sourceLiquidCountPerIteration>120</sourceLiquidCountPerIteration>
 				<processResult>
 					<li>
 						<pipeTypeDef>Diesel</pipeTypeDef>
-						<baseCount>36</baseCount>
+						<baseCount>90</baseCount>
 					</li>
 					<li>
 						<pipeTypeDef>LightOil</pipeTypeDef>
-						<baseCount>12</baseCount>
+						<baseCount>20</baseCount>
 					</li>
 				</processResult>
 			</li>
@@ -443,10 +410,11 @@
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
 				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<alwaysShowTimeOfFuel>true</alwaysShowTimeOfFuel>
 				<fuelCapacity>200.0</fuelCapacity>
 				<startedFuel>WoodLog</startedFuel>
 				<enableHeatPush>true</enableHeatPush>
-				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+				<heatEfficiencyConfigurable>true</heatEfficiencyConfigurable>
 				<fuelFilter>
 					<thingDefs>
 						<li>WoodLog</li>
@@ -477,7 +445,7 @@
 		</modExtensions>
 	</ThingDef>
 	
-	<ThingDef ParentName="BenchBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>DistillationColumnIII</defName>
 		<label>Distillation column (stage III)</label>
 		<description>A device used in distillation processes. Allows you to process the light fraction of oil into naphtha for further use in petroleum products.</description>
@@ -511,6 +479,7 @@
 			<Cleanliness>-10</Cleanliness>
 			<FuelConsumption>6</FuelConsumption>
 			<HeatingEfficiency>1.0</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(3,3)</size>
 		<designationCategory>Production</designationCategory>
@@ -533,24 +502,13 @@
 				<basePowerConsumption>150</basePowerConsumption>
 				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>LightOil</pipeTypeDef>
-				<capacity>500</capacity>
-				<canAutoDrain>false</canAutoDrain>
-				<canManualDrain>false</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Naphtha</pipeTypeDef>
-				<capacity>1000</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<canChangePipeType>false</canChangePipeType>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
-				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>false</drawStorageOverlay>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
 				<WaterStorageCap>200</WaterStorageCap>
@@ -560,14 +518,15 @@
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_SteamLiquidProcessor">
 				<sourcePipeTypeDef>LightOil</sourcePipeTypeDef>
-				<maxGeneratedSteamPerIteration>15</maxGeneratedSteamPerIteration>
-				<fullEfficiencySteam>0.2</fullEfficiencySteam>
+				<steamEfficiency>0.25</steamEfficiency>
+				<presureEfficiency>0.5</presureEfficiency>
+				<waterUsageMultiplier>1</waterUsageMultiplier>
 				<baseProcessSpeedPerDay>1</baseProcessSpeedPerDay>
-				<sourceLiquidCountPerIteration>36</sourceLiquidCountPerIteration>
+				<sourceLiquidCountPerIteration>50</sourceLiquidCountPerIteration>
 				<processResult>
 					<li>
 						<pipeTypeDef>Naphtha</pipeTypeDef>
-						<baseCount>72</baseCount>
+						<baseCount>90</baseCount>
 					</li>
 				</processResult>
 			</li>
@@ -575,10 +534,11 @@
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
 				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<alwaysShowTimeOfFuel>true</alwaysShowTimeOfFuel>
 				<fuelCapacity>200.0</fuelCapacity>
 				<startedFuel>WoodLog</startedFuel>
 				<enableHeatPush>true</enableHeatPush>
-				<heatEfficiencyConfigurable>false</heatEfficiencyConfigurable>
+				<heatEfficiencyConfigurable>true</heatEfficiencyConfigurable>
 				<fuelFilter>
 					<thingDefs>
 						<li>WoodLog</li>
@@ -641,6 +601,7 @@
 			<Cleanliness>-10</Cleanliness>
 			<FuelConsumption>6</FuelConsumption>
 			<HeatingEfficiency>1.0</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(3,3)</size>
 		<drawerType>MapMeshAndRealTime</drawerType>
@@ -672,29 +633,13 @@
 				<basePowerConsumption>300</basePowerConsumption>
 				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Naphtha</pipeTypeDef>
-				<capacity>250</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
-				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
 				<canChangePipeType>false</canChangePipeType>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<barOffset>(0, 0, -1)</barOffset>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Chlorine</pipeTypeDef>
-				<capacity>250</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<canChangePipeType>false</canChangePipeType>
-				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(0, 0, 1)</barOffset>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>                                                                                                                                            

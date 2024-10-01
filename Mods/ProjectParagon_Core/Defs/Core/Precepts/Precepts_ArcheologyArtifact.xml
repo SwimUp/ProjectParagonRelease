@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>ArcheologyArtifactCollected</defName>
+		<label>Archeology artifacts</label>
+		<iconPath>Core/UI/Issues/ArcheologyArtifactCollected</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>ArcheologyArtifactCollected_Encouraged</defName>
+		<issue>ArcheologyArtifactCollected</issue>
+		<label>Encouraged</label>
+		<description>Finding ancient artifacts and mysteries is very interesting.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>HAR_Xenophilia</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>HAR_Xenophobia</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactMined</eventDef>
+				<thought>ArcheologyArtifactMined_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>ArcheologyArtifactMined</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 1</li>
+						<!-- Племя -->
+						<li>1, 1</li>
+						<!-- Средневековье -->
+						<li>2, 1</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 2</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Small</eventDef>
+				<thought>ArcheologyArtifactCollected_Small_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>ArcheologyArtifactCollected_Small</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 50</li>
+						<!-- Племя -->
+						<li>1, 50</li>
+						<!-- Средневековье -->
+						<li>2, 75</li>
+						<!-- Индастриал -->
+						<li>3, 100</li>
+						<!-- Космос -->
+						<li>4, 125</li>
+						<!-- Ультра -->
+						<li>5, 150</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Medium</eventDef>
+				<thought>ArcheologyArtifactCollected_Medium_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>ArcheologyArtifactCollected_Medium</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 100</li>
+						<!-- Племя -->
+						<li>1, 100</li>
+						<!-- Средневековье -->
+						<li>2, 125</li>
+						<!-- Индастриал -->
+						<li>3, 150</li>
+						<!-- Космос -->
+						<li>4, 175</li>
+						<!-- Ультра -->
+						<li>5, 200</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Large</eventDef>
+				<thought>ArcheologyArtifactCollected_Large_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>ArcheologyArtifactCollected_Large</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 150</li>
+						<!-- Племя -->
+						<li>1, 150</li>
+						<!-- Средневековье -->
+						<li>2, 200</li>
+						<!-- Индастриал -->
+						<li>3, 240</li>
+						<!-- Космос -->
+						<li>4, 275</li>
+						<!-- Ультра -->
+						<li>5, 300</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactMined_Encouraged</defName>
+		<durationDays>3</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>archeology artifact mined</label>
+				<description>We unearthed an amazing find!</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Small_Encouraged</defName>
+		<durationDays>10</durationDays>
+		<stages>
+			<li>
+				<label>small archeology artifact collected</label>
+				<description>This is incredible! We are one step closer to solving the mystery of the past.</description>
+				<baseMoodEffect>10</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Medium_Encouraged</defName>
+		<durationDays>10</durationDays>
+		<stages>
+			<li>
+				<label>medium archeology artifact collected</label>
+				<description>This is incredible! We are one step closer to solving the mystery of the past.</description>
+				<baseMoodEffect>15</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Large_Encouraged</defName>
+		<durationDays>10</durationDays>
+		<stages>
+			<li>
+				<label>large archeology artifact collected</label>
+				<description>This is incredible! We are one step closer to solving the mystery of the past.</description>
+				<baseMoodEffect>20</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>ArcheologyArtifactCollected_Neutral</defName>
+		<issue>ArcheologyArtifactCollected</issue>
+		<label>Neutral</label>
+		<description>Ancient remains and artifacts are useful, but you shouldn’t strive for them.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Small</eventDef>
+				<thought>ArcheologyArtifactCollected_Small_Neutral</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>ArcheologyArtifactCollected_Small</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 25</li>
+						<!-- Племя -->
+						<li>1, 25</li>
+						<!-- Средневековье -->
+						<li>2, 50</li>
+						<!-- Индастриал -->
+						<li>3, 75</li>
+						<!-- Космос -->
+						<li>4, 100</li>
+						<!-- Ультра -->
+						<li>5, 125</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Medium</eventDef>
+				<thought>ArcheologyArtifactCollected_Medium_Neutral</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>ArcheologyArtifactCollected_Medium</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 50</li>
+						<!-- Племя -->
+						<li>1, 50</li>
+						<!-- Средневековье -->
+						<li>2, 75</li>
+						<!-- Индастриал -->
+						<li>3, 100</li>
+						<!-- Космос -->
+						<li>4, 125</li>
+						<!-- Ультра -->
+						<li>5, 150</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Large</eventDef>
+				<thought>ArcheologyArtifactCollected_Large_Neutral</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>ArcheologyArtifactCollected_Large</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 100</li>
+						<!-- Племя -->
+						<li>1, 100</li>
+						<!-- Средневековье -->
+						<li>2, 125</li>
+						<!-- Индастриал -->
+						<li>3, 150</li>
+						<!-- Космос -->
+						<li>4, 175</li>
+						<!-- Ультра -->
+						<li>5, 200</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Small_Neutral</defName>
+		<durationDays>7</durationDays>
+		<stages>
+			<li>
+				<label>small archeology artifact collected</label>
+				<description>Interesting, the world is not as simple as we think.</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Medium_Neutral</defName>
+		<durationDays>7</durationDays>
+		<stages>
+			<li>
+				<label>medium archeology artifact collected</label>
+				<description>Interesting, the world is not as simple as we think.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Large_Neutral</defName>
+		<durationDays>7</durationDays>
+		<stages>
+			<li>
+				<label>large archeology artifact collected</label>
+				<description>Interesting, the world is not as simple as we think.</description>
+				<baseMoodEffect>7</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>ArcheologyArtifactCollected_Condemned</defName>
+		<issue>ArcheologyArtifactCollected</issue>
+		<label>Condemned</label>
+		<description>Ancient civilizations and creatures are not worthy of our attention. We are the pinnacle of the universe.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>HAR_Xenophobia</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>HAR_Xenophilia</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactMined</eventDef>
+				<thought>ArcheologyArtifactMined_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Small</eventDef>
+				<thought>ArcheologyArtifactCollected_Small_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Medium</eventDef>
+				<thought>ArcheologyArtifactCollected_Medium_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ArcheologyArtifactCollected_Large</eventDef>
+				<thought>ArcheologyArtifactCollected_Large_Condemned</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactMined_Condemned</defName>
+		<durationDays>3</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>archeology artifact mined</label>
+				<description>Why are we doing this?</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>-1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Small_Condemned</defName>
+		<durationDays>7</durationDays>
+		<stages>
+			<li>
+				<label>small archeology artifact collected</label>
+				<description>An abomination. Why do we need this knowledge?</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>-1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Medium_Condemned</defName>
+		<durationDays>7</durationDays>
+		<stages>
+			<li>
+				<label>medium archeology artifact collected</label>
+				<description>An abomination. Why do we need this knowledge?</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>-1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ArcheologyArtifactCollected_Large_Condemned</defName>
+		<durationDays>7</durationDays>
+		<stages>
+			<li>
+				<label>large archeology artifact collected</label>
+				<description>An abomination. Why do we need this knowledge?</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<HAR_Xenophobia>-1</HAR_Xenophobia>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+</Defs>

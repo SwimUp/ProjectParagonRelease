@@ -2119,5 +2119,205 @@ This USP version is chambered in .45 ACP.</description>
 			</li>
 		</modExtensions>
 	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>G45_AW</defName>
+		<label>G45</label>
+		<description>Glock, upon request from law enforcement agencies,Change GLOCK 19X to GLOCK 45 And improved the ammunition with a modular optical system.</description>
+		<graphicData>
+			<texPath>Things/AWeapon/G45</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.15</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardMidFreq</li>
+		</thingSetMakerTags>
+		<recipeMaker IsNull="true" Inherit="false"/>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_Sidearm</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>Weapon_Pistol_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>21</magazineSize>
+				<reloadTime>1.9</reloadTime>
+				<ammoSet>AmmoSet_9x19mmPara</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Pistols</subWeaponSpecialization>
+			</li>
+		</comps>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>0.8</Mass>
+			<RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.1</SightsEfficiency>
+			<ShotSpread>0.11</ShotSpread>
+			<SwayFactor>0.83</SwayFactor>
+			<Bulk>2.1</Bulk>
+			<WorkToMake>8000</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>4</AdvancedWeaponComponents>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Plastic>30</Plastic>
+			<Polymers>2</Polymers>
+			<UpgradeWeaponParts>2</UpgradeWeaponParts>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_9x19mmPara_FMJ</defaultProjectile>
+				<warmupTime>0.20</warmupTime>
+				<range>35</range>
+				<soundCast>G45</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.8,0.8</DrawSize>
+				<DrawOffset>0.1,-0.1</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
 
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>G46AUTO_AW</defName>
+		<label>G46（AUTO）</label>
+		<description>Glock, upon request from law enforcement agencies,Modified from GLOCK 18 fully automatic version to GLOCK 46 fully automatic version Improved ammunition with modular optical system.</description>
+		<graphicData>
+			<texPath>Things/AWeapon/G46（AUTO）</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.1</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardMidFreq</li>
+		</thingSetMakerTags>
+		<recipeMaker IsNull="true" Inherit="false"/>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_Sidearm</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>Weapon_Pistol_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>21</magazineSize>
+				<reloadTime>1.9</reloadTime>
+				<ammoSet>AmmoSet_9x19mmPara</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>TRUE</aiUseBurstMode>
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Pistols</subWeaponSpecialization>
+			</li>
+		</comps>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>0.95</Mass>
+			<RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.1</SightsEfficiency>
+			<ShotSpread>0.10</ShotSpread>
+			<SwayFactor>0.83</SwayFactor>
+			<Bulk>2.3</Bulk>
+			<WorkToMake>11000</WorkToMake>
+		</statBases>
+		<costList>
+			<AdvancedWeaponComponents>4</AdvancedWeaponComponents>
+			<MechanismComplex>2</MechanismComplex>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Plastic>30</Plastic>
+			<Polymers>2</Polymers>
+			<UpgradeWeaponParts>2</UpgradeWeaponParts>
+			<SimpleElectronic>1</SimpleElectronic>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_9x19mmPara_FMJ</defaultProjectile>
+				<warmupTime>0.20</warmupTime>
+				<range>35</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+				<soundCast>G46-AUTO</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.8,0.8</DrawSize>
+				<DrawOffset>0.1,-0.1</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
 </Defs>

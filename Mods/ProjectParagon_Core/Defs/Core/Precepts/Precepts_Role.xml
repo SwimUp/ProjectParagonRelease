@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<PreceptDef ParentName="PreceptRoleMultiBase">
+		<defName>IdeoRole_SocialSpecialist</defName>
+		<label>Social specialist</label>
+		<description>A special ideological position. A colonist assigned to it will cope much better with negotiations and can guide others on the true path, reducing their social aggressiveness.</description>
+		<iconPath>Core/UI/Roles/SpecialistSocial</iconPath>
+		<nameMaker>NamerRoleSocial</nameMaker>
+		<roleRequirements>
+			<li Class="RoleRequirement_MinSkillAny">
+				<skills>
+					<Social>6</Social>
+				</skills>
+			</li>
+		</roleRequirements>
+		<roleRequiredWorkTags>
+			<li>Social</li>
+		</roleRequiredWorkTags>
+		<roleTags>
+			<li>SocialSpecialist</li>
+		</roleTags>
+		<requiredMemes>
+			<li>Nobility</li>
+		</requiredMemes>
+		<roleEffects>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>NegotiationAbility</statDef>
+				<modifier>0.3</modifier>
+			</li>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>ArrestSuccessChance</statDef>
+				<modifier>0.3</modifier>
+			</li>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>TradePriceImprovement</statDef>
+				<modifier>0.15</modifier>
+			</li>
+			<li Class="RoleEffect_PawnStatOffset">
+				<statDef>SocialImpact</statDef>
+				<modifier>0.7</modifier>
+			</li>
+		</roleEffects>
+		<displayOrderInImpact>2</displayOrderInImpact>
+		<roleDisabledWorkTags>
+			<li>Crafting</li>
+			<li>Cooking</li>
+			<li>Constructing</li>
+			<li>Mining</li>
+		</roleDisabledWorkTags>
+		<roleApparelRequirements>
+			<li>
+				<requirement>
+					<bodyPartGroupsMatchAny>
+						<li>UpperHead</li>
+					</bodyPartGroupsMatchAny>
+					<requiredDefs>
+						<li>DankPyon_Headgear_ZweihandersHat</li>
+					</requiredDefs>
+				</requirement>
+			</li>
+		</roleApparelRequirements>
+		<grantedAbilities>
+			<li>SocialMoral</li>
+		</grantedAbilities>
+	</PreceptDef>
+	<AbilityDef>
+		<defName>SocialMoral</defName>
+		<label>Social moral</label>
+		<description>The communication specialist will read the target's morality, reducing the chance of social conflicts.</description>
+		<groupDef>MultiRole</groupDef>
+		<iconPath>Core/UI/Abilities/SocialMoral</iconPath>
+		<warmupMoteSocialSymbol>Core/UI/Abilities/SocialMoral</warmupMoteSocialSymbol>
+		<jobDef>CastAbilityOnThingMelee</jobDef>
+		<stunTargetWhileCasting>True</stunTargetWhileCasting>
+		<showPsycastEffects>False</showPsycastEffects>
+		<sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+		<displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+		<disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+		<showWhenDrafted>false</showWhenDrafted>
+		<warmupSound>ImmunityDrive_Resolve</warmupSound>
+		<hostile>false</hostile>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<statBases>
+			<Ability_Duration>1000</Ability_Duration>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_AbilityGiveHediff">
+				<compClass>CompAbilityEffect_GiveHediff</compClass>
+				<hediffDef>SocialMoral</hediffDef>
+				<replaceExisting>true</replaceExisting>
+			</li>
+		</comps>
+		<verbProperties>
+			<verbClass>Verb_CastAbilityTouch</verbClass>
+			<drawAimPie>False</drawAimPie>
+			<range>-1</range>
+			<warmupTime>1.5</warmupTime>
+			<targetParams>
+				<canTargetBuildings>False</canTargetBuildings>
+				<neverTargetHostileFaction>True</neverTargetHostileFaction>
+				<canTargetMutants>false</canTargetMutants>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+	<HediffDef ParentName="RoleStatBuff">
+		<defName>SocialMoral</defName>
+		<label>Social moral</label>
+		<description>The desire for social conflicts is temporarily reduced.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<stages>
+			<li>
+				<socialFightChanceFactor>0</socialFightChanceFactor>
+			</li>
+		</stages>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+		</comps>
+		<isBad>false</isBad>
+	</HediffDef>
+	<RulePackDef>
+		<defName>NamerRoleSocial</defName>
+		<include>
+			<li>NamerRoleSpecialistUtility</li>
+		</include>
+		<rulePack>
+			<rulesStrings>
+				<li>r_roleName->socialist</li>
+				<li>firstPart->social</li>
+			</rulesStrings>
+		</rulePack>
+	</RulePackDef>
+	<!---->
+</Defs>

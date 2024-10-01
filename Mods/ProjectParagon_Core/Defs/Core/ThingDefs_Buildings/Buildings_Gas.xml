@@ -64,9 +64,7 @@
 		<comps>
 			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
 				<capacity>10000</capacity>
-				<canAutoDrain>true</canAutoDrain>
 				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>60000</drainFlowSpeedPerDay>
 				<pipeTypeDef>Hydrogen</pipeTypeDef>
 				<canChangePipeType>true</canChangePipeType>
 				<pipeTypeDefsWhitelist>
@@ -98,7 +96,7 @@
 		</comps>
 	</ThingDef>
 	
-	<ThingDef ParentName="BenchBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>AirSeparator</defName>
 		<label>Air separator</label>
 		<description>Performs a cryogenic distillation process at temperatures reaching -200 ºC to separate atmospheric air into its primary components - Oxygen and Nitrogen.</description>
@@ -158,51 +156,24 @@
 						<pipeTypeDef>Nitrogen</pipeTypeDef>
 						<baseCount>10</baseCount>
 					</li>
-					<!--<li>
-						<pipeTypeDef>CarbonDioxide</pipeTypeDef>
-						<baseCount>10</baseCount>
-					</li>-->
 				</processResult>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<capacity>500</capacity>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Oxyden</pipeTypeDef>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(1, 0, 0)</barOffset>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<capacity>500</capacity>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<pipeTypeDef>Nitrogen</pipeTypeDef>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(-1, 0, 0)</barOffset>
 			</li>
-			<!--<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
-				<capacity>500</capacity>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
-				<pipeTypeDef>CarbonDioxide</pipeTypeDef>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
-				<barOffset>(-1, 0, 0)</barOffset>
-			</li>-->
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 	</ThingDef>
 	
-	<ThingDef ParentName="BenchBase">
+	<ThingDef ParentName="BuildingBase">
 		<defName>GasChamber</defName>
 		<label>Gas chamber</label>
 		<description>Allows you to mix and combine different gases and liquids to create new ones.</description>
@@ -235,6 +206,7 @@
 			<Cleanliness>-4</Cleanliness>
 			<FuelConsumption>100</FuelConsumption>
 			<HeatingEfficiency>1.0</HeatingEfficiency>
+			<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 		</statBases>
 		<size>(4,4)</size>
 		<designationCategory>Production</designationCategory>
@@ -354,7 +326,7 @@
 						<outStorageTag>OutStorage</outStorageTag>
 						<pipeTypeDef>Diesel</pipeTypeDef>
 						<progressPerDay>4</progressPerDay>
-						<resultCount>16</resultCount>
+						<resultCount>28</resultCount>
 						<ingredients>
 							<li Class="ProjectParagon.Core.Things.GasProcessorIngredient_Water">
 								<waterRequired>80</waterRequired>
@@ -364,7 +336,7 @@
 								<sourcePipeTypeDefs>
 									<li>HeavyOil</li>
 								</sourcePipeTypeDefs>
-								<count>24</count>
+								<count>42</count>
 							</li>
 						</ingredients>
 					</li>
@@ -436,10 +408,9 @@
 				<basePowerConsumption>250</basePowerConsumption>
 				<shortCircuitInRain>false</shortCircuitInRain>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<tag>SourceStorage1</tag>
 				<pipeTypeDef>Nitrogen</pipeTypeDef>
-				<capacity>500</capacity>
 				<pipeTypeDefsWhitelist>
 					<li>Nitrogen</li>
 					<li>Ethanol</li>
@@ -448,34 +419,19 @@
 					<li>HeavyOil</li>
 					<li>HydrogenSulfide</li>
 				</pipeTypeDefsWhitelist>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>false</drawStorageOverlay>
-				<showStorageInfo>false</showStorageInfo>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<tag>SourceStorage2</tag>
-				<pipeTypeDef>Nitrogen</pipeTypeDef>
-				<capacity>500</capacity>
+				<pipeTypeDef>Oxyden</pipeTypeDef>
 				<pipeTypeDefsWhitelist>
-					<li>Nitrogen</li>
-					<li>Ethanol</li>
-					<li>Diesel</li>
 					<li>Oxyden</li>
-					<li>HeavyOil</li>
 				</pipeTypeDefsWhitelist>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>false</drawPipeOverlay>
-				<drawStorageOverlay>false</drawStorageOverlay>
-				<showStorageInfo>false</showStorageInfo>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
 			</li>
-			<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+			<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 				<tag>OutStorage</tag>
 				<pipeTypeDef>Ammonia</pipeTypeDef>
 				<pipeTypeDefsWhitelist>
@@ -487,13 +443,8 @@
 					<li>CarbonDioxide</li>
 					<li>Hydrogen</li>
 				</pipeTypeDefsWhitelist>
-				<capacity>500</capacity>
-				<canAutoDrain>true</canAutoDrain>
-				<canManualDrain>true</canManualDrain>
 				<linkToPossiblePipes>false</linkToPossiblePipes>
-				<drainFlowSpeedPerDay>5000</drainFlowSpeedPerDay>
 				<drawPipeOverlay>true</drawPipeOverlay>
-				<drawStorageOverlay>true</drawStorageOverlay>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
 				<WaterStorageCap>500</WaterStorageCap>

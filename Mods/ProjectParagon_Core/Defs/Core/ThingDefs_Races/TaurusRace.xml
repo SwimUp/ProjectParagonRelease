@@ -100,6 +100,8 @@
 		<race>
 			<thinkTreeMain>Humanlike</thinkTreeMain>
 			<thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<nameGenerator>NamerTaurusMale</nameGenerator>
+			<nameGeneratorFemale>NamerTaurusFemale</nameGeneratorFemale>
 			<intelligence>Humanlike</intelligence>
 			<makesFootprints>true</makesFootprints>
 			<lifeExpectancy>80</lifeExpectancy>
@@ -816,27 +818,40 @@
 			</li>
 		</comps>
 	</AlienRace.ThingDef_AlienRace>
-	<!--
-	<AlienRace.RaceSettings>
-		<defName>MinotaurRaceSettings</defName>
-		<pawnKindSettings>
-			<alienslavekinds>
-				<li>
-					<kindDefs>
-						<li>Minotaur_Slave</li>
-					</kindDefs>
-					<chance>10.0</chance>
+	<RulePackDef>
+		<defName>NamerTaurusMale</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>name->[FirstName] [LastName]</li>
+			</rulesStrings>
+			<rulesRaw>
+				<li Class="Rule_File">
+					<keyword>FirstName</keyword>
+					<path>Taurus/TaurusNames</path>
 				</li>
-			</alienslavekinds>
-			<alienrefugeekinds>
-				<li>
-					<kindDefs>
-						<li>Minotaur_Villager</li>
-					</kindDefs>
-					<chance>10.0</chance>
+				<li Class="Rule_File">
+					<keyword>LastName</keyword>
+					<path>Taurus/TaurusLastNames</path>
 				</li>
-			</alienrefugeekinds>
-		</pawnKindSettings>
-	</AlienRace.RaceSettings>
--->
+			</rulesRaw>
+		</rulePack>
+	</RulePackDef>
+	<RulePackDef>
+		<defName>NamerTaurusFemale</defName>
+		<rulePack>
+			<rulesStrings>
+				<li>name->[FirstName] [LastName]</li>
+			</rulesStrings>
+			<rulesRaw>
+				<li Class="Rule_File">
+					<keyword>FirstName</keyword>
+					<path>Taurus/TaurusFemaleNames</path>
+				</li>
+				<li Class="Rule_File">
+					<keyword>LastName</keyword>
+					<path>Taurus/TaurusLastNames</path>
+				</li>
+			</rulesRaw>
+		</rulePack>
+	</RulePackDef>
 </Defs>

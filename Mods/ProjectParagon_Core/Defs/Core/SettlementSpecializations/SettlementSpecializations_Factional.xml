@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+		<defName>SeedStorage</defName>
+		<label>Seed storage</label>
+		<description>Large storage of various seeds.</description>
+		<generationPriority>75</generationPriority>
+		<workerClass>ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Specialization_SeedStorage</workerClass>
+		<thingSetMakerDef>SettlementSpec_Basic_StackCount</thingSetMakerDef>
+		<validator Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.Basic_Validator">
+			<maxFactionTechLevel>Neolithic</maxFactionTechLevel>
+			<commonalityMultByTemperature>
+				<points>
+					<li>(-100, 0)</li>
+					<li>(0, 0)</li>
+					<li>(10, 1)</li>
+					<li>(25, 1.5)</li>
+					<li>(40, 0)</li>
+				</points>
+			</commonalityMultByTemperature>
+			<commonalityByHilliness>
+				<points>
+					<li>(0, 0)</li>
+					<!-- Undefined -->
+					<li>(1, 80)</li>
+					<!-- Flat -->
+					<li>(2, 30)</li>
+					<!-- SmallHills -->
+					<li>(3, 0)</li>
+					<!-- LargeHills -->
+					<li>(4, 0)</li>
+					<!-- Mountainous -->
+					<li>(5, 0)</li>
+					<!-- Impassable -->
+				</points>
+			</commonalityByHilliness>
+		</validator>
+		<requiredSpecs>
+			<li>Growers</li>
+		</requiredSpecs>
+		<props Class="ProjectParagon.Core.DynamicEconomy.SettlementSpecs.SeedStorageProps">
+			<extraStockGenerationCountByWealth>
+				<points>
+					<li>(0, 150)</li>
+					<li>(15000, 500)</li>
+				</points>
+			</extraStockGenerationCountByWealth>
+			<extraStockGenerationMult>0.85~1.25</extraStockGenerationMult>
+			<extraStockFilter>
+				<categories>
+					<li>ResourcesRaw</li>
+					<li>Manufactured</li>
+				</categories>
+			</extraStockFilter>
+			<priceBuyMultiplier>0.85~1</priceBuyMultiplier>
+			<priceSellMultiplier>0.5~0.85</priceSellMultiplier>
+			<thingFilter>
+				<categories>
+					<li>SeedsCategory</li>
+				</categories>
+			</thingFilter>
+			<stockFilterCountByWealth>
+				<points>
+					<li>(0, 1250)</li>
+					<li>(15000, 2000)</li>
+				</points>
+			</stockFilterCountByWealth>
+			<wantsToBuy>
+				<categories>
+					<li>Manufactured</li>
+					<li>ResourcesRaw</li>
+					<li>Apparel</li>
+					<li>Pawns</li>
+					<li>Animals</li>
+				</categories>
+			</wantsToBuy>
+			<priceMultiplierRangeWantsToBuy>1.1~1.25</priceMultiplierRangeWantsToBuy>
+			<willBuy>
+				<categories>
+					<li>Weapons</li>
+					<li>Foods</li>
+					<li>Buildings</li>
+					<li>Items</li>
+				</categories>
+			</willBuy>
+			<priceMultiplierRangeWillBuy>0.5~0.75</priceMultiplierRangeWillBuy>
+		</props>
+		<excludeFactions>
+			<li>TribeCivil</li>
+			<li>TribeRough</li>
+			<li>TribeSavage</li>
+			<li>Arachnids</li>
+			<li>ShekTribalUnion</li>
+			<li>ZorgBloodyHost</li>
+		</excludeFactions>
+	</ProjectParagon.Core.DynamicEconomy.SettlementSpecializationDef>
+	<!---->
+</Defs>

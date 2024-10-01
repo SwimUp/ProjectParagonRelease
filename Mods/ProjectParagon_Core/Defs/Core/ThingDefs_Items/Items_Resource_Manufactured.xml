@@ -235,7 +235,7 @@
 		<healthAffectsPrice>false</healthAffectsPrice>
 		<statBases>
 			<MaxHitPoints>50</MaxHitPoints>
-			<MarketValue>4</MarketValue>
+			<MarketValue>15</MarketValue>
 			<Mass>1</Mass>
 			<Flammability>1.0</Flammability>
 			<DeteriorationRate>2.0</DeteriorationRate>
@@ -260,7 +260,7 @@
 		<healthAffectsPrice>false</healthAffectsPrice>
 		<statBases>
 			<MaxHitPoints>50</MaxHitPoints>
-			<MarketValue>8</MarketValue>
+			<MarketValue>25</MarketValue>
 			<Mass>1.5</Mass>
 			<Flammability>1.0</Flammability>
 			<DeteriorationRate>2.0</DeteriorationRate>
@@ -285,7 +285,7 @@
 		<healthAffectsPrice>false</healthAffectsPrice>
 		<statBases>
 			<MaxHitPoints>50</MaxHitPoints>
-			<MarketValue>14</MarketValue>
+			<MarketValue>50</MarketValue>
 			<Mass>1.5</Mass>
 			<Flammability>1.0</Flammability>
 			<DeteriorationRate>2.0</DeteriorationRate>
@@ -310,7 +310,7 @@
 		<healthAffectsPrice>false</healthAffectsPrice>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
-			<MarketValue>1.5</MarketValue>
+			<MarketValue>3</MarketValue>
 			<Flammability>8.0</Flammability>
 			<Mass>0.15</Mass>
 		</statBases>
@@ -337,7 +337,7 @@
 		<healthAffectsPrice>false</healthAffectsPrice>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
-			<MarketValue>4</MarketValue>
+			<MarketValue>7</MarketValue>
 			<Flammability>8.0</Flammability>
 			<Mass>0.15</Mass>
 		</statBases>
@@ -1123,7 +1123,7 @@
 			<Mass>4.5</Mass>
 			<Flammability>0.7</Flammability>
 			<DeteriorationRate>0.7</DeteriorationRate>
-			<CalorificValue>41.0</CalorificValue>
+			<CalorificValue>41</CalorificValue>
 			<BurnoutRate>20.0</BurnoutRate>
 			<Nutrition>0.4</Nutrition>
 		</statBases>
@@ -1221,7 +1221,7 @@
 			<Mass>4.5</Mass>
 			<Flammability>0.7</Flammability>
 			<DeteriorationRate>0.8</DeteriorationRate>
-			<CalorificValue>42.0</CalorificValue>
+			<CalorificValue>42</CalorificValue>
 			<BurnoutRate>22.0</BurnoutRate>
 			<Nutrition>0.43</Nutrition>
 		</statBases>
@@ -1844,7 +1844,7 @@
 			<Mass>0.5</Mass>
 			<Flammability>1.5</Flammability>
 			<DeteriorationRate>1</DeteriorationRate>
-			<CalorificValue>18.0</CalorificValue>
+			<CalorificValue>21.0</CalorificValue>
 			<BurnoutRate>5.5</BurnoutRate>
 			<Nutrition>0.04</Nutrition>
 		</statBases>
@@ -1935,6 +1935,83 @@
 				</wickTicks>
 				<pipeTypeDef>UltraHighPressureSteam</pipeTypeDef>
 				<capacity>50</capacity>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>MechanitesCapsule</defName>
+		<label>Mechanites capsule</label>
+		<description>A stable capsule that contains millions of mechanites inside itself with the help of supermagnets. Should be stored in a safe place to prevent leakage.</description>
+		<graphicData>
+			<texPath>Core/Items/MechanitesCapsule/MechanitesCapsule</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>10</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>10</MaxHitPoints>
+			<MarketValue>130</MarketValue>
+			<Mass>0.1</Mass>
+			<Flammability>1</Flammability>
+			<DeteriorationRate>5.0</DeteriorationRate>
+		</statBases>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>NanoMaterials</li>
+		</thingCategories>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<techLevel>Spacer</techLevel>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<wickTicks>240</wickTicks>
+				<explosiveRadius>1.5</explosiveRadius>
+				<explosiveDamageType>ElectricalBurn</explosiveDamageType>
+				<postExplosionSpawnThingDef>Filth_Mechanites</postExplosionSpawnThingDef>
+				<postExplosionSpawnChance>0.85</postExplosionSpawnChance>
+				<postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+				<chanceNeverExplodeFromDamage>0.1</chanceNeverExplodeFromDamage>
+			</li>
+		</comps>
+	</ThingDef>
+	<ThingDef ParentName="ResourceBase">
+		<defName>PlasmaCell</defName>
+		<label>Plasma cell</label>
+		<description>A stable capsule that holds plasma inside. Should be stored in a safe place.</description>
+		<graphicData>
+			<texPath>Core/Items/PlasmaCell/PlasmaCell</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<stackLimit>10</stackLimit>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<statBases>
+			<MaxHitPoints>10</MaxHitPoints>
+			<MarketValue>100</MarketValue>
+			<Mass>0.1</Mass>
+			<Flammability>1</Flammability>
+			<DeteriorationRate>5.0</DeteriorationRate>
+		</statBases>
+		<intricate>true</intricate>
+		<thingCategories>
+			<li>NanoMaterials</li>
+		</thingCategories>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+		<techLevel>Spacer</techLevel>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<wickTicks>240</wickTicks>
+				<explosiveRadius>1.5</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+				<chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
 			</li>
 		</comps>
 	</ThingDef>

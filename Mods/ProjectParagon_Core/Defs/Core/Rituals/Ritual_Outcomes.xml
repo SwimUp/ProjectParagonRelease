@@ -80,4 +80,122 @@
 			</li>
 		</comps>
 	</RitualOutcomeEffectDef>
+	<RitualOutcomeEffectDef ParentName="ConsumableOutcomeBase">
+		<defName>Banquet</defName>
+		<description>Depending on ritual quality, participants will get between {MINMOOD} and {MAXMOOD} mood for {MOODDAYS} days.</description>
+		<workerClass>RitualOutcomeEffectWorker_RemoveConsumableBuilding</workerClass>
+		<comps Inherit="false">
+			<li Class="RitualOutcomeComp_RolePresentNotSubstituted">
+				<roleId>leader</roleId>
+				<label>leader present</label>
+				<qualityOffset>0.2</qualityOffset>
+			</li>
+			<li Class="RitualOutcomeComp_RoomStat">
+				<label>room impressiveness</label>
+				<statDef>Impressiveness</statDef>
+				<curve>
+					<points>
+						<li>0,  0</li>
+						<li>50,  0.1</li>
+						<li>120, 0.2</li>
+					</points>
+				</curve>
+			</li>
+			<li Class="RitualOutcomeComp_ParticipantCount">
+				<label>participant count</label>
+				<curve>
+					<points>
+						<li>(1,  -0.2)</li>
+						<li>(5,   0.0)</li>
+						<li>(10, 0.25)</li>
+					</points>
+				</curve>
+			</li>
+			<li Class="RitualOutcomeComp_DestroyConsumableBuilding"/>
+			<li Class="ProjectParagon.Core.Rituals.RitualOutcomeComp_BuildingOfAnyDefPresentCount">
+				<defs>
+					<li>GoldBowl</li>
+					<li>SilverBowl</li>
+				</defs>
+				<count>10</count>
+				<qualityOffset>0.1</qualityOffset>
+			</li>
+			<li Class="ProjectParagon.Core.Rituals.RitualOutcomeComp_BuildingOfAnyDefPresentCount">
+				<defs>
+					<li>GoldCup</li>
+					<li>SilverCup</li>
+				</defs>
+				<count>10</count>
+				<qualityOffset>0.1</qualityOffset>
+			</li>
+			<li Class="RitualOutcomeComp_RitualSeatPresent">
+				<qualityOffset>0.1</qualityOffset>
+			</li>
+		</comps>
+		<fleckDef>BloodSplashLong</fleckDef>
+		<flecksPerCell>15</flecksPerCell>
+		<fleckVelocitySpeed>0.1~1.5</fleckVelocitySpeed>
+		<fleckVelocityAngle>-55~55</fleckVelocityAngle>
+		<fleckScaleRange>1~2.5</fleckScaleRange>
+		<outcomeChances Inherit="false">
+			<li>
+				<label>Terrible</label>
+				<chance>0.05</chance>
+				<memory>TerribleBanquet</memory>
+				<description>The dish was over-salted and tasted disgusting, and the guests vomited all their drinks on the floor!</description>
+				<positivityIndex>-2</positivityIndex>
+			</li>
+			<li>
+				<label>Boring</label>
+				<chance>0.15</chance>
+				<memory>BoringBanquet</memory>
+				<description>The dish was not bad, but the guests did not like it. It was pretty boring.</description>
+				<positivityIndex>-1</positivityIndex>
+			</li>
+			<li>
+				<label>Fun</label>
+				<chance>0.6</chance>
+				<memory>FunBanquet</memory>
+				<description>Guests loved the dish and the atmosphere was great!</description>
+				<positivityIndex>1</positivityIndex>
+			</li>
+			<li>
+				<label>Unforgettable</label>
+				<chance>0.2</chance>
+				<memory>UnforgettableBanquet</memory>
+				<description>The cook is simply incredible! The guests are absolutely delighted and eager to repeat it someday.</description>
+				<positivityIndex>2</positivityIndex>
+			</li>
+		</outcomeChances>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_RitualOutcomeEffectDef">
+				<cultureByTechLevelCurve>
+					<points>
+						<li>0, 25</li>
+						<!-- None -->
+						<li>1, 25</li>
+						<!-- Племя -->
+						<li>2, 35</li>
+						<!-- Средневековье -->
+						<li>3, 45</li>
+						<!-- Индастриал -->
+						<li>4, 55</li>
+						<!-- Космос -->
+						<li>5, 70</li>
+						<!-- Ультра -->
+					</points>
+				</cultureByTechLevelCurve>
+				<cultureMultByQuality>
+					<points>
+						<!-- quality, mult -->
+						<li>-2, 0</li>
+						<li>-1, 0</li>
+						<li>0, 0.25</li>
+						<li>1, 1</li>
+						<li>2, 1.25</li>
+					</points>
+				</cultureMultByQuality>
+			</li>
+		</modExtensions>
+	</RitualOutcomeEffectDef>
 </Defs>

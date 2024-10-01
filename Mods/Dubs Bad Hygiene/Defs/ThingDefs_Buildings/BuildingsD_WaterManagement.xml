@@ -46,7 +46,7 @@
 				<Radius>7.9</Radius>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WaterWell">
-				<waterMult>1.5</waterMult>
+				<waterMult>1.8</waterMult>
 			</li>
 		</comps>
 		<placeWorkers>
@@ -96,7 +96,7 @@
 				<Radius>13.7</Radius>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WaterWell">
-				<waterMult>1.5</waterMult>
+				<waterMult>2.5</waterMult>
 			</li>
 		</comps>
 		<placeWorkers>
@@ -142,7 +142,7 @@
 				<Radius>17</Radius>
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_WaterWell">
-				<waterMult>3</waterMult>
+				<waterMult>5</waterMult>
 			</li>
 		</comps>
 		<placeWorkers>
@@ -204,7 +204,7 @@
 				<compClass>CompColorable</compClass>
 			</li>
 			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>200</WaterStorageCap>
+				<WaterStorageCap>300</WaterStorageCap>
 			</li>
 		</comps>
 		<blockWind>false</blockWind>
@@ -244,7 +244,7 @@
 		</costList>
 		<comps>
 			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
-				<WaterStorageCap>8000</WaterStorageCap>
+				<WaterStorageCap>10000</WaterStorageCap>
 			</li>
 		</comps>
 		<statBases>
@@ -289,10 +289,106 @@
 			<Flammability>0.0</Flammability>
 		</statBases>
 		<researchPrerequisites>
-			<li MayRequire="dbhlitemode">ElectricPumps</li>
+			<li MayRequire="dbhlitemode">WaterStorageII</li>
 		</researchPrerequisites>
 		<designatorDropdown>Hygiene_Reservoirs</designatorDropdown>
 	</ThingDef>
+	<ThingDef ParentName="BasedWaterTower" DBHLite="true">
+		<defName>WaterTank</defName>
+		<label>water tank</label>
+		<thingClass>DubsBadHygiene.Building_Butt</thingClass>
+		<graphicData>
+			<texPath>Things/Building/WaterTank/WaterTank</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1,2</drawSize>
+			<drawOffset>0,0,0.05</drawOffset>
+		</graphicData>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<size>(1,1)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<tradeNeverStack>true</tradeNeverStack>
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>110</costStuffCount>
+		<costList>
+			<ComponentSimple>3</ComponentSimple>
+			<MechanismSimple>2</MechanismSimple>
+		</costList>
+		<comps>
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>1500</WaterStorageCap>
+			</li>
+		</comps>
+		<blockWind>false</blockWind>
+		<canOverlapZones>true</canOverlapZones>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<Mass>5</Mass>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>1200</WorkToBuild>
+		</statBases>
+		<researchPrerequisites>
+			<li MayRequire="dbhlitemode">WaterStorageII</li>
+		</researchPrerequisites>
+		<designatorDropdown>Hygiene_Reservoirs</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BasedWaterTower" DBHLite="true">
+		<defName>WaterBigTank</defName>
+		<label>water big tank</label>
+		<thingClass>DubsBadHygiene.Building_Butt</thingClass>
+		<graphicData>
+			<texPath>Things/Building/LiquidTank/LiquidTank</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,3)</drawSize>
+			<shadowData>
+				<volume>(0.55, 0.30, 0.40)</volume>
+			</shadowData>
+		</graphicData>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<size>(2,3)</size>
+		<rotatable>true</rotatable>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<tradeNeverStack>true</tradeNeverStack>
+		<thingCategories>
+			<li>BuildingsFurniture</li>
+		</thingCategories>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>180</costStuffCount>
+		<costList>
+			<ComponentSimple>5</ComponentSimple>
+			<MechanismSimple>5</MechanismSimple>
+		</costList>
+		<comps>
+			<li>
+				<compClass>CompColorable</compClass>
+			</li>
+			<li Class="DubsBadHygiene.CompProperties_WaterStorage">
+				<WaterStorageCap>5000</WaterStorageCap>
+			</li>
+		</comps>
+		<blockWind>false</blockWind>
+		<canOverlapZones>true</canOverlapZones>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<Mass>5</Mass>
+			<MaxHitPoints>75</MaxHitPoints>
+			<WorkToBuild>1200</WorkToBuild>
+		</statBases>
+		<researchPrerequisites>
+			<li MayRequire="dbhlitemode">WaterStorageII</li>
+		</researchPrerequisites>
+		<designatorDropdown>Hygiene_Reservoirs</designatorDropdown>
+	</ThingDef>
+	
 	<ThingDef Name="BasedWaterPump" ParentName="BasedHygieneMom" Abstract="True">
 		<category>Building</category>
 		<tickerType>Normal</tickerType>
@@ -347,7 +443,7 @@
 		<comps>
 			<li Class="DubsBadHygiene.CompProperties_WaterPumpingStation">
 				<compClass>DubsBadHygiene.CompWindPump</compClass>
-				<Capacity>3000</Capacity>
+				<Capacity>3500</Capacity>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -369,6 +465,54 @@
 		<designatorDropdown>Hygiene_WaterExtraction</designatorDropdown>
 	</ThingDef>
 	<ThingDef ParentName="BasedWaterPump" DBHLite="true">
+		<defName>SteamPump</defName>
+		<label>Steam pump</label>
+		<description>Pumps water from wells to water towers. Pumping capacity: 3000 L/day.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_SteamPump</thingClass>
+		<graphicData>
+			<texPath>DBH/Things/Building/Water/SteamPump</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>5.9, 5.9</drawSize>
+		</graphicData>
+		<size>(3,3)</size>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsHygiene</li>
+		</thingCategories>
+		<tickerType>Normal</tickerType>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>125</costStuffCount>
+		<costList>
+			<ComponentSimple>6</ComponentSimple>
+			<MechanismSimple>4</MechanismSimple>
+			<StrongPlates>100</StrongPlates>
+		</costList>
+		<statBases>
+			<MaxHitPoints>125</MaxHitPoints>
+			<WorkToBuild>5000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Mass>100</Mass>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="DubsBadHygiene.CompProperties_WaterPumpingStation">
+				<Capacity>7000</Capacity>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SteamWorkbench">
+				<steamUsagePerTick>0.01</steamUsagePerTick>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li MayRequire="dbhlitemode">SteamPump</li>
+		</researchPrerequisites>
+		<designatorDropdown>Hygiene_WaterExtraction</designatorDropdown>
+	</ThingDef>
+	<ThingDef ParentName="BasedWaterPump" DBHLite="true">
 		<defName>ElectricPump</defName>
 		<label>electric pump</label>
 		<description>Pumps water from wells to water towers. Pumping capacity: 3000 L/day.</description>
@@ -387,16 +531,16 @@
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
-		<costStuffCount>150</costStuffCount>
+		<costStuffCount>75</costStuffCount>
 		<costList>
 			<ComponentIndustrial>4</ComponentIndustrial>
 			<MechanismComplex>4</MechanismComplex>
-			<StrongPlates>50</StrongPlates>
+			<StrongPlates>25</StrongPlates>
 			<SimpleElectronic>4</SimpleElectronic>
 		</costList>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
-			<WorkToBuild>1500</WorkToBuild>
+			<WorkToBuild>7000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Mass>25</Mass>
 		</statBases>
@@ -408,7 +552,7 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="DubsBadHygiene.CompProperties_WaterPumpingStation">
-				<Capacity>3500</Capacity>
+				<Capacity>9000</Capacity>
 			</li>
 		</comps>
 		<researchPrerequisites>
@@ -440,7 +584,7 @@
 		</costList>
 		<statBases>
 			<MaxHitPoints>150</MaxHitPoints>
-			<WorkToBuild>5000</WorkToBuild>
+			<WorkToBuild>15000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 		</statBases>
 		<comps>
@@ -451,7 +595,7 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 			<li Class="DubsBadHygiene.CompProperties_WaterPumpingStation">
-				<Capacity>15000</Capacity>
+				<Capacity>20000</Capacity>
 			</li>
 		</comps>
 		<researchPrerequisites>

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
 	<ThingDef Name="Flora_PlantBase" Abstract="True">
 		<category>Plant</category>
 		<thingClass>ProjectParagon.Core.Bees.PlantParagon</thingClass>
@@ -32,9 +31,58 @@
 			<visualSizeRange>0.5~1.0</visualSizeRange>
 			<topWindExposure>0.1</topWindExposure>
 		</plant>
-		 <thingCategories>
-		  <li>Plants</li>
+		<thingCategories>
+			<li>Plants</li>
 		</thingCategories>
 	</ThingDef>
-
+	<ThingDef Name="Flora_ResourceBase" Abstract="True">
+		<thingClass>ThingWithComps</thingClass>
+		<category>Item</category>
+		<resourceReadoutPriority>Middle</resourceReadoutPriority>
+		<useHitPoints>true</useHitPoints>
+		<selectable>true</selectable>
+		<altitudeLayer>Item</altitudeLayer>
+		<stackLimit>75</stackLimit>
+		<statBases>
+			<Beauty>-4</Beauty>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<alwaysHaulable>true</alwaysHaulable>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<rotatable>false</rotatable>
+		<pathCost>15</pathCost>
+	</ThingDef>
+	<ThingDef Abstract="True" ParentName="Flora_ResourceBase" Name="Flora_PlantProductBase">
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>5</DeteriorationRate>
+			<Mass>0.03</Mass>
+		</statBases>
+		<ingestible>
+			<foodType>Plant</foodType>
+			<preferability>NeverForNutrition</preferability>
+		</ingestible>
+		<tickerType>Rare</tickerType>
+	</ThingDef>
+	<ThingDef Abstract="True" ParentName="Flora_PlantProductBase" Name="Flora_RawFruitBase">
+		<statBases>
+			<Mass>0.05</Mass>
+			<Nutrition>0.05</Nutrition>
+			<FoodPoisonChanceFixedHuman>0.01</FoodPoisonChanceFixedHuman>
+		</statBases>
+		<ingestible>
+			<preferability>RawTasty</preferability>
+			<tasteThought/>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<ingestSound>RawVegetable_Eat</ingestSound>
+			<foodType>VegetableOrFruit</foodType>
+		</ingestible>
+	</ThingDef>
 </Defs>

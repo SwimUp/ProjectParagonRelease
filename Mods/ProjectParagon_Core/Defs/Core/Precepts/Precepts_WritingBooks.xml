@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>WritingBooks</defName>
+		<label>Writing books</label>
+		<iconPath>Core/UI/Issues/WritingBooks</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>WritingBooks_Exalted</defName>
+		<issue>WritingBooks</issue>
+		<label>Exalted</label>
+		<description>Writing a book is a sacred process. It is worth paying special attention to this activity and encouraging writers.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Proselytizer</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BookWritten</eventDef>
+				<thought>WritingBooks_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BookWritten</eventDef>
+				<thought>WritingBooks_Know_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>BookWritten</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 15</li>
+						<!-- Племя -->
+						<li>1, 15</li>
+						<!-- Средневековье -->
+						<li>2, 30</li>
+						<!-- Индастриал -->
+						<li>3, 45</li>
+						<!-- Космос -->
+						<li>4, 60</li>
+						<!-- Ультра -->
+						<li>5, 80</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>WritingBooks_Exalted</defName>
+		<durationDays>3</durationDays>
+		<stages>
+			<li>
+				<label>book written</label>
+				<description>I'm a real creator! This is an incredible feeling...</description>
+				<baseMoodEffect>10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>WritingBooks_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>book written</label>
+				<baseOpinionOffset>10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>WritingBooks_Encouraged</defName>
+		<issue>WritingBooks</issue>
+		<label>Encouraged</label>
+		<description>Writers do important work in our society, and we should treat them with respect.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Proselytizer</li>
+			<li>HumanPrimacy</li>
+			<li>Individualist</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BookWritten</eventDef>
+				<thought>WritingBooks_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BookWritten</eventDef>
+				<thought>WritingBooks_Know_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>BookWritten</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 10</li>
+						<!-- Племя -->
+						<li>1, 10</li>
+						<!-- Средневековье -->
+						<li>2, 20</li>
+						<!-- Индастриал -->
+						<li>3, 30</li>
+						<!-- Космос -->
+						<li>4, 45</li>
+						<!-- Ультра -->
+						<li>5, 60</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>WritingBooks_Encouraged</defName>
+		<durationDays>3</durationDays>
+		<stages>
+			<li>
+				<label>book written</label>
+				<description>I do a very important job educating people!</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>WritingBooks_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>book written</label>
+				<baseOpinionOffset>5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>WritingBooks_Neutral</defName>
+		<issue>WritingBooks</issue>
+		<label>Neutral</label>
+		<description>Writers are people just like everyone else. There is no point in attaching importance to this.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+	</PreceptDef>
+	<!---->
+	<PreceptDef>
+		<defName>WritingBooks_Condemned</defName>
+		<issue>WritingBooks</issue>
+		<label>Condemned</label>
+		<description>Books are trash, and those who write them are rats.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<comps>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>BookWritten</eventDef>
+				<thought>WritingBooks_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>BookWritten</eventDef>
+				<thought>WritingBooks_Know_Condemned</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>WritingBooks_Condemned</defName>
+		<durationDays>5</durationDays>
+		<stages>
+			<li>
+				<label>book written</label>
+				<description>I am a real parasite, I have no place in society...</description>
+				<baseMoodEffect>-7</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>WritingBooks_Know_Condemned</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>book written</label>
+				<baseOpinionOffset>-10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+</Defs>

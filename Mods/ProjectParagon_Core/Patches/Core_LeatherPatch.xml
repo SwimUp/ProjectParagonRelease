@@ -3,6 +3,13 @@
 	<Operation Class="PatchOperationSequence">
 		<success>Normal</success>
 		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[@Name="LeatherBase"]/statBases</xpath>
+				<value>
+					<SellPriceFactor>0.2</SellPriceFactor>
+				</value>
+			</li>
+		
 			<li Class="PatchOperationReplace">
 				<xpath>*/ThingDef[defName="Leather_Plain"]</xpath>
 				<value>
@@ -76,15 +83,13 @@
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="Muffalo"]/comps</xpath>
+				<xpath>*/ThingDef[defName="Muffalo"]/comps/li[@Class="CompProperties_Shearable"]</xpath>
 				<value>
-					<comps>
-						<li Class="CompProperties_Shearable">
-							<woolDef>Warm_Fur</woolDef>
-							<shearIntervalDays>25</shearIntervalDays>
-							<woolAmount>70</woolAmount>
-						</li>
-					</comps>
+					<li Class="CompProperties_Shearable">
+						<woolDef>Warm_Fur</woolDef>
+						<shearIntervalDays>25</shearIntervalDays>
+						<woolAmount>70</woolAmount>
+					</li>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">

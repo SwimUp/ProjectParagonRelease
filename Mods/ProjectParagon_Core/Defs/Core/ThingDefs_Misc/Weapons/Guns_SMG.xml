@@ -2560,7 +2560,6 @@ In 1999, Heckler and Koch developed the Heckler and Koch UMP, the MP5's successo
 			<drawSize>1.4</drawSize>
 		</graphicData>
 		<soundInteract>Interact_Autopistol</soundInteract>
-		<generateCommonality>0.1</generateCommonality>
 		<statBases>
 			<MaxHitPoints>300</MaxHitPoints>
 			<Mass>2.54</Mass>
@@ -3495,6 +3494,235 @@ In 1999, Heckler and Koch developed the Heckler and Koch UMP, the MP5's successo
 			<li Class="CombatExtended.GunDrawExtension">
 				<DrawSize>1.2,1.2</DrawSize>
 				<DrawOffset>-0.1,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>G45Carbine_AW</defName>
+		<label>G45(Carbine)</label>
+		<description>On the basis of GLOCK 45 A pistol carbine kit that imitates the MP17.</description>
+		<graphicData>
+			<texPath>Things/AWeapon/G45（Carbine）</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.35</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Autopistol</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardMidFreq</li>
+		</thingSetMakerTags>
+		<recipeMaker IsNull="true" Inherit="false"/>
+		<statBases>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Mass>2.8</Mass>
+			<RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.2</SightsEfficiency>
+			<ShotSpread>0.17</ShotSpread>
+			<SwayFactor>0.91</SwayFactor>
+			<Bulk>5.8</Bulk>
+			<WorkToMake>23000</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>21</magazineSize>
+				<reloadTime>2.1</reloadTime>
+				<ammoSet>AmmoSet_9x19mmPara</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SMG</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_SMG</li>
+			<li>Weapon_SMG_TierV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<SimpleWeaponComponents>15</SimpleWeaponComponents>
+			<AdvancedWeaponComponents>25</AdvancedWeaponComponents>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>8</ComponentIndustrial>
+			<Plastic>35</Plastic>
+			<Polymers>20</Polymers>
+			<UpgradeWeaponParts>10</UpgradeWeaponParts>
+		</costList>
+		<equippedStatOffsets>
+			<HuntingStealth>0.1</HuntingStealth>
+		</equippedStatOffsets>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>1.05</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_9x19mmPara_FMJ</defaultProjectile>
+				<warmupTime>0.6</warmupTime>
+				<range>26</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<soundCast>G45-Carbine</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.25,1.25</DrawSize>
+				<DrawOffset>0.05,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>SMG45_AW</defName>
+		<label>SMG45</label>
+		<description>The SMG-45 is a submachine gun designed with AR-style operating controls.</description>
+		<graphicData>
+			<texPath>Things/AWeapon/SMG45</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.25</drawSize>
+		</graphicData>
+		<thingSetMakerTags>
+			<li>RewardStandardMidFreq</li>
+		</thingSetMakerTags>
+		<recipeMaker IsNull="true" Inherit="false"/>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Mass>3.0</Mass>
+			<RangedWeapon_Cooldown>0.6</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.2</SightsEfficiency>
+			<ShotSpread>0.08</ShotSpread>
+			<SwayFactor>0.6</SwayFactor>
+			<Bulk>4.80</Bulk>
+			<WorkToMake>11000</WorkToMake>
+		</statBases>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>25</magazineSize>
+				<reloadTime>2.3</reloadTime>
+				<ammoSet>AmmoSet_45ACP</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+				<aimedBurstShotCount>3</aimedBurstShotCount>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>SMG</subWeaponSpecialization>
+			</li>
+		</comps>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_SMG</li>
+			<li>Weapon_SMG_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<costList>
+			<SimpleWeaponComponents>14</SimpleWeaponComponents>
+			<AdvancedWeaponComponents>18</AdvancedWeaponComponents>
+			<MechanismComplex>4</MechanismComplex>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<Plastic>70</Plastic>
+			<Polymers>10</Polymers>
+			<UpgradeWeaponParts>5</UpgradeWeaponParts>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<recoilAmount>0.95</recoilAmount>
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_45ACP_FMJ</defaultProjectile>
+				<warmupTime>0.35</warmupTime>
+				<range>38</range>
+				<burstShotCount>6</burstShotCount>
+				<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+				<soundCast>SMG45</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.2,1.2</DrawSize>
+				<DrawOffset>-0.12,-0.02</DrawOffset>
 			</li>
 		</modExtensions>
 	</ThingDef>

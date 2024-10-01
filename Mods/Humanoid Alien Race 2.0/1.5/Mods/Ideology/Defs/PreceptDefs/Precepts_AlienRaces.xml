@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
 	<!-- Issue -->
-
 	<IssueDef>
 		<defName>HAR_AlienRaces</defName>
 		<label>alien races</label>
 		<iconPath>AlienRace/UI/Issues/AlienRaces</iconPath>
 	</IssueDef>
-	
-
-
 	<!-- Precepts -->
-
 	<!-- Abhorrent -->
-
 	<PreceptDef>
 		<defName>HAR_AlienRaces_Abhorrent</defName>
 		<issue>HAR_AlienRaces</issue>
@@ -26,7 +19,7 @@
 			<li>HAR_Xenophilia</li>
 		</conflictingMemes>
 		<associatedMemes>
-			<li>HAR_Xenophobia</li>      
+			<li>HAR_Xenophobia</li>
 		</associatedMemes>
 		<comps>
 			<li Class="PreceptComp_SituationalThought">
@@ -35,11 +28,28 @@
 			<li Class="PreceptComp_SituationalThought">
 				<thought>HAR_AlienRaces_Abhorrent_Social</thought>
 			</li>
-
-
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByKilledXenos">
+				<eventDef>PawnKilled</eventDef>
+				<mult>1</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 1</li>
+						<!-- Племя -->
+						<li>1, 1</li>
+						<!-- Средневековье -->
+						<li>2, 1</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 2</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
 		</comps>
-	</PreceptDef> 
-
+	</PreceptDef>
 	<ThoughtDef>
 		<defName>HAR_AlienRaces_Abhorrent</defName>
 		<workerClass>AlienRace.ThoughtWorker_Precept_AlienRaces</workerClass>
@@ -49,10 +59,9 @@
 				<label>disgusting aliens!</label>
 				<description>Other races are absolutely repulsive and I can’t stand them!</description>
 				<baseMoodEffect>-5</baseMoodEffect>
-			</li>    
+			</li>
 		</stages>
 	</ThoughtDef>
-
 	<ThoughtDef>
 		<defName>HAR_AlienRaces_Abhorrent_Social</defName>
 		<thoughtClass>Thought_SituationalSocial</thoughtClass>
@@ -64,9 +73,7 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-
 	<!-- Horrible -->
-
 	<PreceptDef>
 		<defName>HAR_AlienRaces_Horrible</defName>
 		<issue>HAR_AlienRaces</issue>
@@ -78,15 +85,34 @@
 			<li>HAR_Xenophilia</li>
 		</conflictingMemes>
 		<associatedMemes>
-			<li>HAR_Xenophobia</li>      
+			<li>HAR_Xenophobia</li>
 		</associatedMemes>
-		<comps>      
+		<comps>
 			<li Class="PreceptComp_SituationalThought">
 				<thought>HAR_AlienRaces_Horrible_Social</thought>
-			</li>   
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByKilledXenos">
+				<eventDef>PawnKilled</eventDef>
+				<mult>1</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 1</li>
+						<!-- Племя -->
+						<li>1, 1</li>
+						<!-- Средневековье -->
+						<li>2, 1</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 2</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
 		</comps>
-	</PreceptDef>  
-
+	</PreceptDef>
 	<ThoughtDef>
 		<defName>HAR_AlienRaces_Horrible_Social</defName>
 		<thoughtClass>Thought_SituationalSocial</thoughtClass>
@@ -98,10 +124,7 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-
-
 	<!-- Standard -->
-
 	<PreceptDef>
 		<defName>HAR_AlienRaces_Standard</defName>
 		<issue>HAR_AlienRaces</issue>
@@ -110,31 +133,46 @@
 		<impact>Low</impact>
 		<displayOrderInIssue>30</displayOrderInIssue>
 		<defaultSelectionWeight>1</defaultSelectionWeight>
-
 	</PreceptDef>
-
 	<!-- Respected -->
-
 	<PreceptDef>
 		<defName>HAR_AlienRaces_Respected</defName>
 		<issue>HAR_AlienRaces</issue>
 		<label>respected</label>
 		<description>Xenos from beyond our home world deserve our admiration.</description>
 		<impact>Low</impact>
-		<displayOrderInIssue>10</displayOrderInIssue>     
+		<displayOrderInIssue>10</displayOrderInIssue>
 		<conflictingMemes>
 			<li>HAR_Xenophobia</li>
 		</conflictingMemes>
 		<associatedMemes>
-			<li>HAR_Xenophilia</li>      
+			<li>HAR_Xenophilia</li>
 		</associatedMemes>
-		<comps>     
+		<comps>
 			<li Class="PreceptComp_SituationalThought">
 				<thought>HAR_AlienRaces_Respected_Social</thought>
-			</li>   
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>RecruitXenophile</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 5</li>
+						<!-- Племя -->
+						<li>1, 5</li>
+						<!-- Средневековье -->
+						<li>2, 10</li>
+						<!-- Индастриал -->
+						<li>3, 15</li>
+						<!-- Космос -->
+						<li>4, 20</li>
+						<!-- Ультра -->
+						<li>5, 25</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
 		</comps>
 	</PreceptDef>
-
 	<ThoughtDef>
 		<defName>HAR_AlienRaces_Respected_Social</defName>
 		<thoughtClass>Thought_SituationalSocial</thoughtClass>
@@ -146,9 +184,7 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-
 	<!-- Exalted -->
-	
 	<PreceptDef>
 		<defName>HAR_AlienRaces_Exalted</defName>
 		<issue>HAR_AlienRaces</issue>
@@ -156,12 +192,11 @@
 		<description>Xenos from beyond our solar system are incredible, and we’re blessed to serve the role as their cordial hosts.</description>
 		<impact>Medium</impact>
 		<displayOrderInIssue>0</displayOrderInIssue>
-
 		<conflictingMemes>
 			<li>HAR_Xenophobia</li>
 		</conflictingMemes>
 		<associatedMemes>
-			<li>HAR_Xenophilia</li>      
+			<li>HAR_Xenophilia</li>
 		</associatedMemes>
 		<comps>
 			<li Class="PreceptComp_SituationalThought">
@@ -170,10 +205,27 @@
 			<li Class="PreceptComp_SituationalThought">
 				<thought>HAR_AlienRaces_Exalted_Social</thought>
 			</li>
-
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>RecruitXenophile</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 10</li>
+						<!-- Племя -->
+						<li>1, 10</li>
+						<!-- Средневековье -->
+						<li>2, 20</li>
+						<!-- Индастриал -->
+						<li>3, 30</li>
+						<!-- Космос -->
+						<li>4, 40</li>
+						<!-- Ультра -->
+						<li>5, 50</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
 		</comps>
 	</PreceptDef>
-
 	<ThoughtDef>
 		<defName>HAR_AlienRaces_Exalted</defName>
 		<workerClass>AlienRace.ThoughtWorker_Precept_AlienRaces</workerClass>
@@ -184,10 +236,8 @@
 				<description>I can’t believe I’m in the company of other races!</description>
 				<baseMoodEffect>5</baseMoodEffect>
 			</li>
-
 		</stages>
 	</ThoughtDef>
-
 	<ThoughtDef>
 		<defName>HAR_AlienRaces_Exalted_Social</defName>
 		<thoughtClass>Thought_SituationalSocial</thoughtClass>
@@ -199,6 +249,4 @@
 			</li>
 		</stages>
 	</ThoughtDef>
-
-
 </Defs>

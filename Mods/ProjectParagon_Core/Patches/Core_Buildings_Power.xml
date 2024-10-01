@@ -122,6 +122,9 @@
 							<Flammability>1.0</Flammability>
 							<Beauty>-20</Beauty>
 							<Mass>75</Mass>
+							<FuelConsumption>2.5</FuelConsumption>
+							<HeatingEfficiency>1.0</HeatingEfficiency>
+							<MaxHeatingTemperatureEfficiency>1.5</MaxHeatingTemperatureEfficiency>
 						</statBases>
 						<tickerType>Normal</tickerType>
 						<canOverlapZones>false</canOverlapZones>
@@ -149,6 +152,7 @@
 							<li Class="CompProperties_Flickable"/>
 							<li Class="ProjectParagon.Core.Things.CompProperties_RefuelableParagon">
 								<consumeFuelOnlyWhenUsed>false</consumeFuelOnlyWhenUsed>
+								<consumeFuelOnlyWhenPowered>false</consumeFuelOnlyWhenPowered>
 								<fuelCapacity>75</fuelCapacity>
 								<startedFuel>Canister_Diesel</startedFuel>
 								<enableHeatPush>true</enableHeatPush>
@@ -242,7 +246,7 @@
 						<comps>
 							<li Class="CompProperties_Power">
 								<compClass>CompPowerPlantSolar</compClass>
-								<basePowerConsumption>-1250</basePowerConsumption>
+								<basePowerConsumption>-500</basePowerConsumption>
 								<transmitsPower>true</transmitsPower>
 							</li>
 							<li Class="CompProperties_Breakdownable"/>
@@ -321,7 +325,7 @@
 						<comps>
 							<li Class="CompProperties_Power">
 								<compClass>CompPowerPlantWind</compClass>
-								<basePowerConsumption>-2300</basePowerConsumption>
+								<basePowerConsumption>-1500</basePowerConsumption>
 								<transmitsPower>true</transmitsPower>
 							</li>
 							<li Class="CompProperties_Breakdownable"/>
@@ -438,6 +442,38 @@
 						<researchPrerequisites>
 							<li>Electricity</li>
 						</researchPrerequisites>
+					</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="HiddenConduit"]</xpath>
+				<value>
+					<ThingDef ParentName="PowerConduit">
+						<defName>HiddenConduit</defName>
+						<label>hidden conduit</label>
+						<description>Hidden electrical cables for moving power around. They're tougher than regular conduits, but also slower to build and more expensive.</description>
+						<graphicData>
+							<color>(0,0,0,0)</color>
+							<shaderType>Transparent</shaderType>
+						</graphicData>
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<WorkToBuild>280</WorkToBuild>
+							<Flammability>0</Flammability>
+							<Beauty>0</Beauty>
+						</statBases>
+						<uiIconPath>Things/Building/Linked/HiddenConduit_MenuIcon</uiIconPath>
+						<designationHotKey>Misc9</designationHotKey>
+						<costList>
+							<Concrete>20</Concrete>
+						</costList>
+						<constructEffect>ConstructDirt</constructEffect>
+						<building>
+							<ai_neverTrashThis>true</ai_neverTrashThis>
+							<isTargetable>false</isTargetable>
+							<expandHomeArea>false</expandHomeArea>
+							<canBeDamagedByAttacks>false</canBeDamagedByAttacks>
+						</building>
 					</ThingDef>
 				</value>
 			</li>
@@ -625,7 +661,7 @@
 						<comps>
 							<li Class="CompProperties_Power">
 								<compClass>CompPowerPlantWater</compClass>
-								<basePowerConsumption>-800</basePowerConsumption>
+								<basePowerConsumption>-600</basePowerConsumption>
 								<transmitsPower>true</transmitsPower>
 								<soundAmbientProducingPower>WaterMill_Ambience</soundAmbientProducingPower>
 							</li>
@@ -701,16 +737,11 @@
 						<comps>
 							<li Class="CompProperties_Flickable"/>
 							<li Class="CompProperties_Breakdownable"/>
-							<li Class="ProjectParagon.Core.Things.CompProperties_LiquidStorage">
+							<li Class="ProjectParagon.Core.Things.CompProperties_Pipe">
 								<pipeTypeDef>UltraHighPressureSteam</pipeTypeDef>
-								<capacity>1000</capacity>
-								<canAutoDrain>true</canAutoDrain>
-								<canManualDrain>false</canManualDrain>
-								<drainFlowSpeedPerDay>10000</drainFlowSpeedPerDay>
 								<drawPipeOverlay>true</drawPipeOverlay>
-								<drawStorageOverlay>true</drawStorageOverlay>
-								<showStorageInfo>true</showStorageInfo>
-								<linkToPossiblePipes>true</linkToPossiblePipes>
+								<canChangePipeType>false</canChangePipeType>
+								<linkToPossiblePipes>false</linkToPossiblePipes>
 							</li>
 						</comps>
 						<rotatable>false</rotatable>

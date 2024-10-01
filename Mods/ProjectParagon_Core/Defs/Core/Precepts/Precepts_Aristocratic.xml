@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>Aristocratic</defName>
+		<label>Aristocratic</label>
+		<iconPath>Core/UI/Issues/Aristocratic</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>Aristocratic_Exalted</defName>
+		<issue>Aristocratic</issue>
+		<label>Exalted</label>
+		<description>Only the truly worthy can bear noble titles, and we cannot stand aside!</description>
+		<impact>High</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Nobility</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Isolationism</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAllKilledTitled">
+				<eventDef>PawnKilled</eventDef>
+				<thought>KilledTitled_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByTitle">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<arg>TryUpdateTitle_Seniority</arg>
+				<mult>1</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByTitle>
+					<points>
+						<!-- Default -->
+						<li>0, 50</li>
+						<!-- Freeholder -->
+						<li>0, 50</li>
+						<!-- Yeoman -->
+						<li>100, 75</li>
+						<!-- Acolyte -->
+						<li>200, 100</li>
+						<!-- Knight -->
+						<li>300, 150</li>
+						<!-- Praetor -->
+						<li>400, 200</li>
+						<!-- Baron -->
+						<li>500, 250</li>
+						<!-- Count -->
+						<li>600, 300</li>
+						<!-- Duke -->
+						<li>700, 400</li>
+						<!-- Consul -->
+						<li>800, 500</li>
+						<!-- Stellarch -->
+						<li>900, 750</li>
+						<!-- Emperor -->
+						<li>1000, 1000</li>
+					</points>
+				</curvePointsByTitle>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_ForMe_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_Know_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>ReceivedFavor</eventDef>
+				<thought>ReceivedFavor_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>ReceivedFavor</eventDef>
+				<thought>ReceivedFavor_Know_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>LostFavor</eventDef>
+				<thought>LostFavor_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>LostFavor</eventDef>
+				<thought>LostFavor_Know_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>EmpireRelations_Exalted</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>EmpireRelations_Exalted</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_EmpireRelations</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>empire is hostile</label>
+				<description>This is some kind of terrible mistake! We cannot fight the crown!</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+			<li>
+				<label>empire is neutral</label>
+				<description>We should show the empire our desire to cooperate!</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+			<li>
+				<label>empire is ally</label>
+				<description>This is exactly how it should be forever and ever.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>KilledTitled_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>killed titled</label>
+				<description>Who are we to take the lives of noble people?</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedFavor_Exalted</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>got a flavor</label>
+				<description>Another confirmation of our importance.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedFavor_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>received favor</label>
+				<baseOpinionOffset>5</baseOpinionOffset>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>LostFavor_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>lost a flavor</label>
+				<description>Just terrible, we have to get back into the crown's good graces!</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>LostFavor_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>lost favor</label>
+				<baseOpinionOffset>-5</baseOpinionOffset>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>we got a new title</label>
+				<description>This is a symbol of our influence!</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_ForMe_Exalted</defName>
+		<durationDays>10</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>got a new title</label>
+				<description>I'm just incredible!</description>
+				<baseMoodEffect>7</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>has title</label>
+				<baseOpinionOffset>15</baseOpinionOffset>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Aristocratic_Encouraged</defName>
+		<issue>Aristocratic</issue>
+		<label>Encouraged</label>
+		<description>Noble titles are an important confirmation of our right.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Nobility</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Isolationism</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAllKilledTitled">
+				<eventDef>PawnKilled</eventDef>
+				<thought>KilledTitled_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByTitle">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<arg>TryUpdateTitle_Seniority</arg>
+				<mult>0.5</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByTitle>
+					<points>
+						<!-- Default -->
+						<li>0, 50</li>
+						<!-- Freeholder -->
+						<li>0, 50</li>
+						<!-- Yeoman -->
+						<li>100, 75</li>
+						<!-- Acolyte -->
+						<li>200, 100</li>
+						<!-- Knight -->
+						<li>300, 150</li>
+						<!-- Praetor -->
+						<li>400, 200</li>
+						<!-- Baron -->
+						<li>500, 250</li>
+						<!-- Count -->
+						<li>600, 300</li>
+						<!-- Duke -->
+						<li>700, 400</li>
+						<!-- Consul -->
+						<li>800, 500</li>
+						<!-- Stellarch -->
+						<li>900, 750</li>
+						<!-- Emperor -->
+						<li>1000, 1000</li>
+					</points>
+				</curvePointsByTitle>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_ForMe_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_Know_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>ReceivedFavor</eventDef>
+				<thought>ReceivedFavor_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>ReceivedFavor</eventDef>
+				<thought>ReceivedFavor_Know_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>LostFavor</eventDef>
+				<thought>LostFavor_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>LostFavor</eventDef>
+				<thought>LostFavor_Know_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>EmpireRelations_Encouraged</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>EmpireRelations_Encouraged</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_EmpireRelations</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>empire is hostile</label>
+				<description>This is some kind of terrible mistake! We cannot fight the crown!</description>
+				<baseMoodEffect>-4</baseMoodEffect>
+			</li>
+			<li>
+				<label>empire is neutral</label>
+				<description>We should show the empire our desire to cooperate!</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<label>empire is ally</label>
+				<description>This is exactly how it should be forever and ever.</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>KilledTitled_Encouraged</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>killed titled</label>
+				<description>Why did we kill him?</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedFavor_Encouraged</defName>
+		<durationDays>2</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>got a flavor</label>
+				<description>Another confirmation of our importance.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedFavor_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>3</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>received favor</label>
+				<baseOpinionOffset>3</baseOpinionOffset>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>LostFavor_Encouraged</defName>
+		<durationDays>4</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>lost a flavor</label>
+				<description>We have to get back into the crown's good graces!</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>LostFavor_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>lost favor</label>
+				<baseOpinionOffset>-3</baseOpinionOffset>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_Encouraged</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>we got a new title</label>
+				<description>This is a symbol of our influence!</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_ForMe_Encouraged</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>got a new title</label>
+				<description>I'm just incredible!</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>10</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>has title</label>
+				<baseOpinionOffset>7</baseOpinionOffset>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Ascetic</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Aristocratic_Neutral</defName>
+		<issue>Aristocratic</issue>
+		<label>Neutral</label>
+		<description>Mayor, peer, sir, what's the difference?</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByTitle">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<arg>TryUpdateTitle_Seniority</arg>
+				<mult>0.25</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByTitle>
+					<points>
+						<!-- Default -->
+						<li>0, 50</li>
+						<!-- Freeholder -->
+						<li>0, 50</li>
+						<!-- Yeoman -->
+						<li>100, 75</li>
+						<!-- Acolyte -->
+						<li>200, 100</li>
+						<!-- Knight -->
+						<li>300, 150</li>
+						<!-- Praetor -->
+						<li>400, 200</li>
+						<!-- Baron -->
+						<li>500, 250</li>
+						<!-- Count -->
+						<li>600, 300</li>
+						<!-- Duke -->
+						<li>700, 400</li>
+						<!-- Consul -->
+						<li>800, 500</li>
+						<!-- Stellarch -->
+						<li>900, 750</li>
+						<!-- Emperor -->
+						<li>1000, 1000</li>
+					</points>
+				</curvePointsByTitle>
+			</li>
+		</comps>
+	</PreceptDef>
+	<!---->
+	<PreceptDef>
+		<defName>Aristocratic_Condemned</defName>
+		<issue>Aristocratic</issue>
+		<label>Condemned</label>
+		<description>Aristocrats are a sore on the body of our society.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>5</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Isolationism</li>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByKilledTitled">
+				<eventDef>PawnKilled</eventDef>
+				<mult>1</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByTitle>
+					<points>
+						<!-- Default -->
+						<li>0, 3</li>
+						<!-- Freeholder -->
+						<li>0, 3</li>
+						<!-- Yeoman -->
+						<li>100, 5</li>
+						<!-- Acolyte -->
+						<li>200, 7</li>
+						<!-- Knight -->
+						<li>300, 10</li>
+						<!-- Praetor -->
+						<li>400, 12</li>
+						<!-- Baron -->
+						<li>500, 15</li>
+						<!-- Count -->
+						<li>600, 20</li>
+						<!-- Duke -->
+						<li>700, 25</li>
+						<!-- Consul -->
+						<li>800, 30</li>
+						<!-- Stellarch -->
+						<li>900, 40</li>
+						<!-- Emperor -->
+						<li>1000, 50</li>
+					</points>
+				</curvePointsByTitle>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAllKilledTitled">
+				<eventDef>PawnKilled</eventDef>
+				<thought>KilledTitled_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_ForMe_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_Know_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>ReceivedFavor</eventDef>
+				<thought>ReceivedFavor_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>ReceivedFavor</eventDef>
+				<thought>ReceivedFavor_Know_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>EmpireRelations_Condemned</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>EmpireRelations_Condemned</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_EmpireRelations</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>empire is hostile</label>
+				<description>I hope it will always be like this.</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+			<li>
+				<label>empire is neutral</label>
+				<description>These upstarts should be shown their place.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<label>empire is ally</label>
+				<description>What a ridiculous mistake!</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>KilledTitled_Condemned</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>killed titled</label>
+				<description>One less ulcer.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedFavor_Condemned</defName>
+		<durationDays>2</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>got a flavor</label>
+				<description>I'm just another sycophant. What a humiliation...</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedFavor_Know_Condemned</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>3</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>received favor</label>
+				<baseOpinionOffset>-3</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_Condemned</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>we got a new title</label>
+				<description>One step closer to the abyss.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_ForMe_Condemned</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>got a new title</label>
+				<description>I am an insignificant ulcer on the body of society...</description>
+				<baseMoodEffect>-4</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_Know_Condemned</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>10</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>has title</label>
+				<baseOpinionOffset>-7</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>Aristocratic_Hatred</defName>
+		<issue>Aristocratic</issue>
+		<label>Hatred</label>
+		<description>Every duke, earl and king will be beheaded.</description>
+		<impact>High</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Isolationism</li>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByKilledTitled">
+				<eventDef>PawnKilled</eventDef>
+				<mult>2</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByTitle>
+					<points>
+						<!-- Default -->
+						<li>0, 3</li>
+						<!-- Freeholder -->
+						<li>0, 3</li>
+						<!-- Yeoman -->
+						<li>100, 5</li>
+						<!-- Acolyte -->
+						<li>200, 7</li>
+						<!-- Knight -->
+						<li>300, 10</li>
+						<!-- Praetor -->
+						<li>400, 12</li>
+						<!-- Baron -->
+						<li>500, 15</li>
+						<!-- Count -->
+						<li>600, 20</li>
+						<!-- Duke -->
+						<li>700, 25</li>
+						<!-- Consul -->
+						<li>800, 30</li>
+						<!-- Stellarch -->
+						<li>900, 40</li>
+						<!-- Emperor -->
+						<li>1000, 50</li>
+					</points>
+				</curvePointsByTitle>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAllKilledTitled">
+				<eventDef>PawnKilled</eventDef>
+				<thought>KilledTitled_Hatred</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_ForMe_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>ReceivedNobleTitle</eventDef>
+				<thought>ReceivedNobleTitle_Know_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>ReceivedFavor</eventDef>
+				<thought>ReceivedFavor_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>ReceivedFavor</eventDef>
+				<thought>ReceivedFavor_Know_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>EmpireRelations_Hatred</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>EmpireRelations_Hatred</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_EmpireRelations</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Child, Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>empire is hostile</label>
+				<description>I hope it will always be like this.</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+			<li>
+				<label>empire is neutral</label>
+				<description>These upstarts should be shown their place.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+			<li>
+				<label>empire is ally</label>
+				<description>What a ridiculous mistake!</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>KilledTitled_Hatred</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>killed titled</label>
+				<description>One less ulcer.</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedFavor_Hatred</defName>
+		<durationDays>4</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>got a flavor</label>
+				<description>I'm just another sycophant. What a humiliation...</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedFavor_Know_Hatred</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>6</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>received favor</label>
+				<baseOpinionOffset>-5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_Hatred</defName>
+		<durationDays>8</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>we got a new title</label>
+				<description>One step closer to the abyss.</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_ForMe_Hatred</defName>
+		<durationDays>12</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>got a new title</label>
+				<description>I am an insignificant ulcer on the body of society...</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>ReceivedNobleTitle_Know_Hatred</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>15</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>3</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>has title</label>
+				<baseOpinionOffset>-15</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+</Defs>

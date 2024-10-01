@@ -147,7 +147,7 @@
 						</statBases>
 						<plant>
 							<lifespanDaysPerGrowDays>8.3</lifespanDaysPerGrowDays>
-							<harvestYield>20</harvestYield>
+							<harvestYield>30</harvestYield>
 							<growDays>18</growDays>
 							<harvestedThingDef>Flora_RawCocoa</harvestedThingDef>
 							<immatureGraphicPath>Things/Plant/TreeCocoa_Immature</immatureGraphicPath>
@@ -297,7 +297,7 @@
 							<dieIfLeafless>true</dieIfLeafless>
 							<harvestTag>Standard</harvestTag>
 							<harvestedThingDef>RawCorn</harvestedThingDef>
-							<harvestYield>20</harvestYield>
+							<harvestYield>23</harvestYield>
 							<fertilitySensitivity>0.9</fertilitySensitivity>
 							<fertilityMin>0.85</fertilityMin>
 							<sowTags>
@@ -349,7 +349,7 @@
 							<dieIfLeafless>true</dieIfLeafless>
 							<harvestTag>Standard</harvestTag>
 							<harvestedThingDef>RawBerries</harvestedThingDef>
-							<harvestYield>12</harvestYield>
+							<harvestYield>8</harvestYield>
 							<fertilitySensitivity>1.0</fertilitySensitivity>
 							<fertilityMin>0.9</fertilityMin>
 							<sowTags>
@@ -761,7 +761,6 @@
 							<fertilitySensitivity>0.0</fertilitySensitivity>
 							<fertilityMin>0.25</fertilityMin>
 							<harvestTag>Standard</harvestTag>
-							<harvestAfterGrowth>0.5</harvestAfterGrowth>
 							<harvestedThingDef>RawAgave</harvestedThingDef>
 							<harvestWork>300</harvestWork>
 							<visualSizeRange>0.9~1.4</visualSizeRange>
@@ -800,20 +799,30 @@
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
-				<xpath>*/ThingDef[defName="Agarilux"]/plant/harvestedThingDef</xpath>
-				<value>
-					<harvestedThingDef>Raw_Agarilux</harvestedThingDef>
-				</value>
-			</li>
-			<li Class="PatchOperationAdd">
 				<xpath>*/ThingDef[defName="Agarilux"]/plant</xpath>
 				<value>
-					<sowTags>
-						<li>Ground</li>
-					</sowTags>
-					<sowResearchPrerequisites>
-						<li>Agro_MushroomsII</li>
-					</sowResearchPrerequisites>
+					<plant>
+						<fertilityMin>0.01</fertilityMin>
+						<fertilitySensitivity>0.15</fertilitySensitivity>
+						<growDays>60</growDays>
+						<dieIfLeafless>true</dieIfLeafless>
+						<harvestYield>50</harvestYield>
+						<sowMinSkill>4</sowMinSkill>
+						<harvestTag>Standard</harvestTag>
+						<harvestedThingDef>Raw_Agarilux</harvestedThingDef>
+						<neverBlightable>true</neverBlightable>
+						<visualSizeRange>0.9~1.5</visualSizeRange>
+						<topWindExposure>0.1</topWindExposure>
+						<cavePlantWeight>0.17</cavePlantWeight>
+						<purpose>Food</purpose>
+						<pollution>Any</pollution>
+						<sowTags>
+							<li>Ground</li>
+						</sowTags>
+						<sowResearchPrerequisites>
+							<li>Agro_MushroomsII</li>
+						</sowResearchPrerequisites>
+					</plant>
 				</value>
 			</li>
 			<li Class="PatchOperationReplace">
@@ -854,7 +863,7 @@
 						<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
 						<dieIfLeafless>false</dieIfLeafless>
 						<harvestedThingDef>Raw_Bryolux</harvestedThingDef>
-						<harvestYield>3</harvestYield>
+						<harvestYield>12</harvestYield>
 						<sowMinSkill>7</sowMinSkill>
 						<growDays>12</growDays>
 						<fertilitySensitivity>0.0</fertilitySensitivity>
@@ -898,7 +907,7 @@
 						<lifespanDaysPerGrowDays>8</lifespanDaysPerGrowDays>
 						<dieIfLeafless>false</dieIfLeafless>
 						<harvestedThingDef>Raw_Glowstool</harvestedThingDef>
-						<harvestYield>8</harvestYield>
+						<harvestYield>20</harvestYield>
 						<sowMinSkill>10</sowMinSkill>
 						<growDays>16</growDays>
 						<fertilitySensitivity>0.0</fertilitySensitivity>
@@ -939,11 +948,12 @@
 						<fertilitySensitivity>0.15</fertilitySensitivity>
 						<harvestTag>Standard</harvestTag>
 						<harvestedThingDef>RawFungus</harvestedThingDef>
-						<harvestYield>11</harvestYield>
+						<harvestYield>6</harvestYield>
 						<sowTags>
 							<li>Ground</li>
 							<li>Hydroponic</li>
 						</sowTags>
+						<sowMinSkill>10</sowMinSkill>
 						<topWindExposure>0</topWindExposure>
 						<growDays>6</growDays>
 						<cavePlantWeight>0</cavePlantWeight>
@@ -1183,6 +1193,35 @@
 						<harvestYield>8</harvestYield>
 						<sowTags Inherit="false"/>
 					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/ThingDef[defName="Plant_Moss"]/plant</xpath>
+				<value>
+					<plant>
+						<harvestedThingDef>RawMoss</harvestedThingDef>
+						<harvestYield>2</harvestYield>
+						<harvestTag>Standard</harvestTag>
+						<fertilityMin>0.05</fertilityMin>
+						<fertilitySensitivity>0</fertilitySensitivity>
+						<growDays>4</growDays>
+						<leaflessGraphicPath>Things/Plant/Moss_Leafless</leaflessGraphicPath>
+						<pollutedGraphicPath>Things/Plant/Moss_Polluted</pollutedGraphicPath>
+						<harvestWork>60</harvestWork>
+						<maxMeshCount>9</maxMeshCount>
+						<visualSizeRange>0.4~0.6</visualSizeRange>
+						<topWindExposure>0.0</topWindExposure>
+						<wildOrder>1</wildOrder>
+						<pollution>Any</pollution>
+						<purpose>Food</purpose>
+					</plant>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName="Plant_Moss"]</xpath>
+				<value>
+					<selectable>true</selectable>
+					<neverMultiSelect>false</neverMultiSelect>
 				</value>
 			</li>
 		</operations>

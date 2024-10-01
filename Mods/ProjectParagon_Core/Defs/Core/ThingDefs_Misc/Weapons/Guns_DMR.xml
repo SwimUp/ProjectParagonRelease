@@ -11,9 +11,6 @@
 		</graphicData>
 		<soundInteract>Interact_Rifle</soundInteract>
 		<equippedAngleOffset>40</equippedAngleOffset>
-		<thingSetMakerTags>
-			<li>RewardStandardQualitySuper</li>
-		</thingSetMakerTags>
 		<costList>
 			<AdvancedWeaponComponents>14</AdvancedWeaponComponents>
 			<MechanismComplex>4</MechanismComplex>
@@ -3432,6 +3429,118 @@ An improved version with advanced electronics that increase the weapon's effecti
 			<li Class="CombatExtended.GunDrawExtension">
 				<DrawSize>1.0,1.0</DrawSize>
 				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunIndustrial">
+		<defName>M5000_AW</defName>
+		<label>M5000</label>
+		<description>The Winchester M1894, initially crafted for hunting purposes, stands out as a groundbreaking lever-action rifle, distinguished for being the first of its kind to employ smokeless powder cartridges and for its pinpoint accuracy, embodying the ideal of "aim and hit." Paying homage to its legacy and the innovative spirit of America, it has since been rediscovered by a new generation of enthusiasts who have repurposed the iconic design as a testbed for advanced ammunition technologies, renaming it the M5500.</description>
+		<graphicData>
+			<texPath>Things/AWeapon/温彻斯特M5500</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.45</drawSize>
+		</graphicData>
+		<soundInteract>Interact_Rifle</soundInteract>
+		<thingSetMakerTags>
+			<li>RewardStandardMidFreq</li>
+		</thingSetMakerTags>
+		<recipeMaker IsNull="true" Inherit="false"/>
+		<costList>
+			<AdvancedWeaponComponents>16</AdvancedWeaponComponents>
+			<MechanismComplex>10</MechanismComplex>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Plastic>40</Plastic>
+			<Polymers>55</Polymers>
+			<UpgradeWeaponParts>16</UpgradeWeaponParts>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadTime>1.1</reloadTime>
+				<ammoSet>AmmoSet_4570Gov</ammoSet>
+				<reloadOneAtATime>true</reloadOneAtATime>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>DMR</subWeaponSpecialization>
+			</li>
+		</comps>
+		<equippedStatOffsets>
+			<HuntingStealth>0.25</HuntingStealth>
+		</equippedStatOffsets>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_DMR_TierVI</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>LongShots</li>
+		</weaponClasses>
+		<statBases>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Mass>4</Mass>
+			<RangedWeapon_Cooldown>0.95</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.8</SightsEfficiency>
+			<ShotSpread>0.1</ShotSpread>
+			<SwayFactor>1.1</SwayFactor>
+			<Bulk>8.3</Bulk>
+			<WorkToMake>21000</WorkToMake>
+		</statBases>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_4570Gov_FMJ</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>56</range>
+				<soundCast>WinchesterM1894SD</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.6,1.6</DrawSize>
+				<DrawOffset>0.06,-0.04</DrawOffset>
 			</li>
 		</modExtensions>
 	</ThingDef>

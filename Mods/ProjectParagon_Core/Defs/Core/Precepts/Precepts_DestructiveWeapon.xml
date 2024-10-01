@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>DestructiveWeapon</defName>
+		<label>DestructiveWeapon</label>
+		<iconPath>Core/UI/Issues/DestructiveWeapon</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>DestructiveWeapon_Exalted</defName>
+		<issue>DestructiveWeapon</issue>
+		<label>Exalted</label>
+		<description>Let's just launch a bomb at our enemies!</description>
+		<impact>High</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<conflictingMemes>
+			<li>NaturePrimacy</li>
+		</conflictingMemes>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponUsed</eventDef>
+				<thought>DestructiveWeaponUsed_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>NuclearWeaponUsed</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 50</li>
+						<!-- Племя -->
+						<li>1, 50</li>
+						<!-- Средневековье -->
+						<li>2, 75</li>
+						<!-- Индастриал -->
+						<li>3, 100</li>
+						<!-- Космос -->
+						<li>4, 125</li>
+						<!-- Ультра -->
+						<li>5, 150</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponResearched</eventDef>
+				<thought>DestructiveWeaponResearched_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponBuilt</eventDef>
+				<thought>DestructiveWeaponBuilt_Exalted</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponUsed_Exalted</defName>
+		<durationDays>12</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon used</label>
+				<description>Booooooom!</description>
+				<baseMoodEffect>7</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponResearched_Exalted</defName>
+		<durationDays>8</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon researched</label>
+				<description>I can't wait to use this!</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponBuilt_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon built</label>
+				<description>All that remains is to launch it. Forward!</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>DestructiveWeapon_Encouraged</defName>
+		<issue>DestructiveWeapon</issue>
+		<label>Encouraged</label>
+		<description>Sometimes a nuclear explosion is more effective than negotiations.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<conflictingMemes>
+			<li>NaturePrimacy</li>
+		</conflictingMemes>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponUsed</eventDef>
+				<thought>DestructiveWeaponUsed_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCulture">
+				<eventDef>NuclearWeaponUsed</eventDef>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 25</li>
+						<!-- Племя -->
+						<li>1, 25</li>
+						<!-- Средневековье -->
+						<li>2, 35</li>
+						<!-- Индастриал -->
+						<li>3, 50</li>
+						<!-- Космос -->
+						<li>4, 75</li>
+						<!-- Ультра -->
+						<li>5, 100</li>
+					</points>
+				</curvePointsByTechLevel>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponResearched</eventDef>
+				<thought>DestructiveWeaponResearched_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponBuilt</eventDef>
+				<thought>DestructiveWeaponBuilt_Encouraged</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponUsed_Encouraged</defName>
+		<durationDays>9</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon used</label>
+				<description>Booooooom!</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponResearched_Encouraged</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon researched</label>
+				<description>I can't wait to use this!</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponBuilt_Encouraged</defName>
+		<durationDays>4</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon built</label>
+				<description>All that remains is to launch it. Forward!</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>DestructiveWeapon_Neutral</defName>
+		<issue>DestructiveWeapon</issue>
+		<label>Neutral</label>
+		<description>Nuclear explosions can be useful, but should not be overused.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+		<conflictingMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</conflictingMemes>
+	</PreceptDef>
+	<!---->
+	<PreceptDef>
+		<defName>DestructiveWeapon_Condemned</defName>
+		<issue>DestructiveWeapon</issue>
+		<label>Condemned</label>
+		<description>We have no right to take lives so indiscriminately.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>5</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<conflictingMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</conflictingMemes>
+		<associatedMemes>
+			<li>NaturePrimacy</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponUsed</eventDef>
+				<thought>DestructiveWeaponUsed_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponResearched</eventDef>
+				<thought>DestructiveWeaponResearched_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponBuilt</eventDef>
+				<thought>DestructiveWeaponBuilt_Condemned</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponUsed_Condemned</defName>
+		<durationDays>9</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon used</label>
+				<description>How many lives will we take?</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+			<li>Cannibal</li>
+			<li>TP_Aggressiveness</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponResearched_Condemned</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon researched</label>
+				<description>This is dangerous research...</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+			<li>Cannibal</li>
+			<li>TP_Aggressiveness</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponBuilt_Condemned</defName>
+		<durationDays>4</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon built</label>
+				<description>We won't use it, will we?</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+			<li>Cannibal</li>
+			<li>TP_Aggressiveness</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>DestructiveWeapon_Hatred</defName>
+		<issue>DestructiveWeapon</issue>
+		<label>Hatred</label>
+		<description>This is a terrible weapon. We shouldn't even try to use it!</description>
+		<impact>High</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<conflictingMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+		</conflictingMemes>
+		<associatedMemes>
+			<li>NaturePrimacy</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponUsed</eventDef>
+				<thought>DestructiveWeaponUsed_Hatred</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponResearched</eventDef>
+				<thought>DestructiveWeaponResearched_Hatred</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>NuclearWeaponBuilt</eventDef>
+				<thought>DestructiveWeaponBuilt_Hatred</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponUsed_Hatred</defName>
+		<durationDays>12</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon used</label>
+				<description>How many lives will we take?</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+			<li>Cannibal</li>
+			<li>TP_Aggressiveness</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponResearched_Hatred</defName>
+		<durationDays>8</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon researched</label>
+				<description>This is dangerous research...</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+			<li>Cannibal</li>
+			<li>TP_Aggressiveness</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>DestructiveWeaponBuilt_Hatred</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>destructive weapon built</label>
+				<description>We won't use it, will we?</description>
+				<baseMoodEffect>-4</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingTraitDegrees>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+			<li>Cannibal</li>
+			<li>TP_Aggressiveness</li>
+		</nullifyingTraitDegrees>
+	</ThoughtDef>
+	<!---->
+</Defs>

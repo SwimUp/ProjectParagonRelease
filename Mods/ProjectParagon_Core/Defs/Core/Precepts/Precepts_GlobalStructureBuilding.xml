@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>GlobalStructureBuilding</defName>
+		<label>World building</label>
+		<iconPath>Core/UI/Issues/GlobalStructureBuilding</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>GlobalStructureBuilding_Exalted</defName>
+		<issue>GlobalStructureBuilding</issue>
+		<label>Exalted</label>
+		<description>We must show the whole world what we are worth!</description>
+		<impact>High</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Proselytizer</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<thought>GlobalStructureBuilt_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<arg>CulturalSiteWorker_CulturePoints</arg>
+				<mult>2</mult>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<thought>GlobalStructureBuiltSomeoneVisited_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<arg>CulturalSiteWorker_CaravanAIArrived</arg>
+				<mult>2</mult>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuilt_Exalted</defName>
+		<durationDays>15</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>world structure built</label>
+				<description>Everyone can see our greatness in person!</description>
+				<baseMoodEffect>12</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuiltSomeoneVisited_Exalted</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>someone visited our building</label>
+				<description>Amazing! Our architecture is popular!</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>GlobalStructureBuilding_Encouraged</defName>
+		<issue>GlobalStructureBuilding</issue>
+		<label>Encouraged</label>
+		<description>Our greatness is inextricably linked to what we build.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Proselytizer</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<thought>GlobalStructureBuilt_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<arg>CulturalSiteWorker_CulturePoints</arg>
+				<mult>1.5</mult>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<thought>GlobalStructureBuiltSomeoneVisited_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<arg>CulturalSiteWorker_CaravanAIArrived</arg>
+				<mult>1.5</mult>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuilt_Encouraged</defName>
+		<durationDays>10</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>world structure built</label>
+				<description>They will see our splendor.</description>
+				<baseMoodEffect>9</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuiltSomeoneVisited_Encouraged</defName>
+		<durationDays>3</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>someone visited our building</label>
+				<description>It's great that our efforts did not go unnoticed.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>GlobalStructureBuilding_Neutral</defName>
+		<issue>GlobalStructureBuilding</issue>
+		<label>Neutral</label>
+		<description>It turned out well.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<thought>GlobalStructureBuilt_Neutral</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<arg>CulturalSiteWorker_CulturePoints</arg>
+				<mult>1</mult>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<arg>CulturalSiteWorker_CaravanAIArrived</arg>
+				<mult>1</mult>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuilt_Neutral</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>world structure built</label>
+				<description>They will see our splendor.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>GlobalStructureBuilding_Condemned</defName>
+		<issue>GlobalStructureBuilding</issue>
+		<label>Condemned</label>
+		<description>There is no point in wasting your resources on this nonsense.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>5</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Isolationism</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<thought>GlobalStructureBuilt_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<arg>CulturalSiteWorker_CulturePoints</arg>
+				<mult>0.75</mult>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<thought>GlobalStructureBuiltSomeoneVisited_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<arg>CulturalSiteWorker_CaravanAIArrived</arg>
+				<mult>0.75</mult>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuilt_Condemned</defName>
+		<durationDays>10</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>world structure built</label>
+				<description>They will see our splendor.</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuiltSomeoneVisited_Condemned</defName>
+		<durationDays>3</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>someone visited our building</label>
+				<description>I hope they at least didn't litter there...</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>GlobalStructureBuilding_Hatred</defName>
+		<issue>GlobalStructureBuilding</issue>
+		<label>Hatred</label>
+		<description>We should not try to spread our influence. Let's focus on ourselves.</description>
+		<impact>High</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Isolationism</li>
+		</associatedMemes>
+		<comps>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<thought>GlobalStructureBuilt_Hatred</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuilt</eventDef>
+				<arg>CulturalSiteWorker_CulturePoints</arg>
+				<mult>0.5</mult>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAll">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<thought>GlobalStructureBuiltSomeoneVisited_Hatred</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByEventArg">
+				<eventDef>GlobalStructureBuiltSomeoneVisited</eventDef>
+				<arg>CulturalSiteWorker_CaravanAIArrived</arg>
+				<mult>0.5</mult>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuilt_Hatred</defName>
+		<durationDays>15</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>world structure built</label>
+				<description>They will see our splendor.</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>GlobalStructureBuiltSomeoneVisited_Hatred</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>someone visited our building</label>
+				<description>Disgusting! I'm sure they violated our values...</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+</Defs>

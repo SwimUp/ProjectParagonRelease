@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<IssueDef>
+		<defName>PsyAbilities</defName>
+		<label>Psy abilities</label>
+		<iconPath>Core/UI/Issues/PsyAbilities</iconPath>
+	</IssueDef>
+	<!---->
+	<PreceptDef>
+		<defName>PsyAbilities_Exalted</defName>
+		<issue>PsyAbilities</issue>
+		<label>Exalted</label>
+		<description>Psionics are real wizards! Becoming a psionicist is a real dream.</description>
+		<impact>High</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Ritualist</li>
+			<li>Blindsight</li>
+		</associatedMemes>
+		<requiredMemes>
+			<li>Ritualist</li>
+			<li>Blindsight</li>
+		</requiredMemes>
+		<comps>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PsyLevelGain</eventDef>
+				<thought>PsyLevelGain_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PsycastUsed</eventDef>
+				<thought>PsycastUsed_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>HasPsylink_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAllKilledPsionic">
+				<eventDef>PawnKilled</eventDef>
+				<thought>KilledPsionic_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PsyLevelGain</eventDef>
+				<thought>PsyLevelGain_Know_Exalted</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PsycastUsed</eventDef>
+				<thought>PsycastUsed_Know_Exalted</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByPsyLevel">
+				<eventDef>PsyLevelGain</eventDef>
+				<arg>Hediff_Psylink_ChangeLevel</arg>
+				<mult>2</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByPsyLevel>
+					<points>
+						<li>0, 25</li>
+						<li>6, 100</li>
+					</points>
+				</curvePointsByPsyLevel>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>PsyLevelGain_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>10</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>psy level changed</label>
+				<baseOpinionOffset>10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsycastUsed_Know_Exalted</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>10</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>psycast used</label>
+				<baseOpinionOffset>5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>HasPsylink_Exalted</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_HasPsylink</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>has not psylink</label>
+				<description>I'm nothing!</description>
+				<baseMoodEffect>-6</baseMoodEffect>
+			</li>
+			<li>
+				<label>has psylink</label>
+				<description>I'm stronger than you!</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsyLevelGain_Exalted</defName>
+		<durationDays>10</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>psy level changed</label>
+				<description>I'm one step closer to full power!</description>
+				<baseMoodEffect>8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsycastUsed_Exalted</defName>
+		<durationDays>1</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>psycast used</label>
+				<description>Feel my power!</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>KilledPsionic_Exalted</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>psionic killed</label>
+				<description>We killed a great man...</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>PsyAbilities_Encouraged</defName>
+		<issue>PsyAbilities</issue>
+		<label>Encouraged</label>
+		<description>Psionics are unique people, we are always glad to see them in our ranks.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>20</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<associatedMemes>
+			<li>Ritualist</li>
+			<li>Nobility</li>
+			<li>Blindsight</li>
+		</associatedMemes>
+		<requiredMemes>
+			<li>Ritualist</li>
+			<li>Nobility</li>
+			<li>Blindsight</li>
+		</requiredMemes>
+		<comps>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PsyLevelGain</eventDef>
+				<thought>PsyLevelGain_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PsycastUsed</eventDef>
+				<thought>PsycastUsed_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>HasPsylink_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAllKilledPsionic">
+				<eventDef>PawnKilled</eventDef>
+				<thought>KilledPsionic_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PsyLevelGain</eventDef>
+				<thought>PsyLevelGain_Know_Encouraged</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PsycastUsed</eventDef>
+				<thought>PsycastUsed_Know_Encouraged</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByPsyLevel">
+				<eventDef>PsyLevelGain</eventDef>
+				<arg>Hediff_Psylink_ChangeLevel</arg>
+				<mult>1</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByPsyLevel>
+					<points>
+						<li>0, 25</li>
+						<li>6, 100</li>
+					</points>
+				</curvePointsByPsyLevel>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>PsyLevelGain_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>psy level changed</label>
+				<baseOpinionOffset>5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsycastUsed_Know_Encouraged</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>psycast used</label>
+				<baseOpinionOffset>3</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>HasPsylink_Encouraged</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_HasPsylink</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>has not psylink</label>
+				<description>I'm nothing!</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+			<li>
+				<label>has psylink</label>
+				<description>I'm stronger than you!</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsyLevelGain_Encouraged</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>psy level changed</label>
+				<description>I'm one step closer to full power!</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsycastUsed_Encouraged</defName>
+		<durationDays>1</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>psycast used</label>
+				<description>Feel my power!</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>KilledPsionic_Encouraged</defName>
+		<durationDays>3</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>psionic killed</label>
+				<description>We killed a great man...</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>PsyAbilities_Neutral</defName>
+		<issue>PsyAbilities</issue>
+		<label>Neutral</label>
+		<description>Psionics have useful abilities, but nothing more.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>10</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<defaultSelectionWeight>1</defaultSelectionWeight>
+	</PreceptDef>
+	<!---->
+	<PreceptDef>
+		<defName>PsyAbilities_Condemned</defName>
+		<issue>PsyAbilities</issue>
+		<label>Condemned</label>
+		<description>Psionic abilities are useless nonsense that is not worth attention.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>5</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<comps>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PsyLevelGain</eventDef>
+				<thought>PsyLevelGain_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PsycastUsed</eventDef>
+				<thought>PsycastUsed_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>HasPsylink_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAllKilledPsionic">
+				<eventDef>PawnKilled</eventDef>
+				<thought>KilledPsionic_Condemned</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByKilledPsionic">
+				<eventDef>PawnKilled</eventDef>
+				<mult>1</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByLevel>
+					<points>
+						<li>0, 0</li>
+						<li>1, 1</li>
+						<li>6, 10</li>
+					</points>
+				</curvePointsByLevel>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PsyLevelGain</eventDef>
+				<thought>PsyLevelGain_Know_Condemned</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PsycastUsed</eventDef>
+				<thought>PsycastUsed_Know_Condemned</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>PsyLevelGain_Know_Condemned</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>psy level changed</label>
+				<baseOpinionOffset>-5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsycastUsed_Know_Condemned</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>7</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>psycast used</label>
+				<baseOpinionOffset>-3</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>HasPsylink_Condemned</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_HasPsylink</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>has not psylink</label>
+				<description>That's how it should be.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<label>has psylink</label>
+				<description>What a disgusting feeling...</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsyLevelGain_Condemned</defName>
+		<durationDays>7</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>psy level changed</label>
+				<description>I'm disgusting...</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsycastUsed_Condemned</defName>
+		<durationDays>1</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>psycast used</label>
+				<description>Dirty power.</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>KilledPsionic_Condemned</defName>
+		<durationDays>3</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>psionic killed</label>
+				<description>Burn, witch!</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef>
+		<defName>PsyAbilities_Hatred</defName>
+		<issue>PsyAbilities</issue>
+		<label>Hatred</label>
+		<description>Let them burn on fire!</description>
+		<impact>High</impact>
+		<displayOrderInIssue>0</displayOrderInIssue>
+		<displayOrderInImpact>100</displayOrderInImpact>
+		<comps>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PsyLevelGain</eventDef>
+				<thought>PsyLevelGain_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_SelfTookMemoryThought">
+				<eventDef>PsycastUsed</eventDef>
+				<thought>PsycastUsed_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>HasPsylink_Hatred</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_MemoryForAllKilledPsionic">
+				<eventDef>PawnKilled</eventDef>
+				<thought>KilledPsionic_Hatred</thought>
+			</li>
+			<li Class="ProjectParagon.Core.Precepts.PreceptComp_GainCultureByKilledPsionic">
+				<eventDef>PawnKilled</eventDef>
+				<mult>2</mult>
+				<curvePointsByTechLevel>
+					<points>
+						<!-- None -->
+						<li>0, 0.5</li>
+						<!-- Племя -->
+						<li>1, 0.5</li>
+						<!-- Средневековье -->
+						<li>2, 0.75</li>
+						<!-- Индастриал -->
+						<li>3, 1</li>
+						<!-- Космос -->
+						<li>4, 1.5</li>
+						<!-- Ультра -->
+						<li>5, 2</li>
+					</points>
+				</curvePointsByTechLevel>
+				<curvePointsByLevel>
+					<points>
+						<li>0, 0</li>
+						<li>1, 1</li>
+						<li>6, 10</li>
+					</points>
+				</curvePointsByLevel>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PsyLevelGain</eventDef>
+				<thought>PsyLevelGain_Know_Hatred</thought>
+			</li>
+			<li Class="PreceptComp_KnowsMemoryThought">
+				<eventDef>PsycastUsed</eventDef>
+				<thought>PsycastUsed_Know_Hatred</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef>
+		<defName>PsyLevelGain_Know_Hatred</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>10</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>psy level changed</label>
+				<baseOpinionOffset>-10</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsycastUsed_Know_Hatred</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>10</durationDays>
+		<stackLimit>100</stackLimit>
+		<stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+		<stages>
+			<li>
+				<label>psycast used</label>
+				<baseOpinionOffset>-5</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>HasPsylink_Hatred</defName>
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_HasPsylink</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<label>has not psylink</label>
+				<description>That's how it should be.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<label>has psylink</label>
+				<description>What a disgusting feeling...</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsyLevelGain_Hatred</defName>
+		<durationDays>10</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>psy level changed</label>
+				<description>I'm disgusting...</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>PsycastUsed_Hatred</defName>
+		<durationDays>1</durationDays>
+		<stackLimit>3</stackLimit>
+		<stages>
+			<li>
+				<label>psycast used</label>
+				<description>Dirty power.</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<ThoughtDef>
+		<defName>KilledPsionic_Hatred</defName>
+		<durationDays>5</durationDays>
+		<stackLimit>5</stackLimit>
+		<stages>
+			<li>
+				<label>psionic killed</label>
+				<description>Burn, witch!</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+</Defs>
