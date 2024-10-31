@@ -2320,4 +2320,109 @@ This USP version is chambered in .45 ACP.</description>
 		</modExtensions>
 	</ThingDef>
 	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>IW_Gun_IonPistol</defName>
+		<label>ion pistol</label>
+		<description>A lightweight rail pistol of spacer make, developed during mechanoid wars to counter the rampaging warmachines. Reliable and easy to operate, it launches a tiny tungsten spike at supersonic speed, penetrating deep into even the thickest plasteel carapace to deliver a payload of ionizing particles. The particles, once sufficiently built up, release in an electromagnetic pulse, breaking energy shields and stunning any mechanoid caught in the radius.</description>
+		<graphicData>
+			<texPath>Things/Weapons/IW_IonPistol</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<uiIconScale>1.4</uiIconScale>
+		<soundInteract>IW_Interact_IonPistol</soundInteract>
+		<recipeMaker>
+			<researchPrerequisite>EnergyWeapons</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>14</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_Pistol</li>
+			<li>CE_Sidearm</li>
+			<li>CE_OneHandedWeapon</li>
+			<li>Weapon_Pistol_TierVII</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Mass>1.2</Mass>
+			<RangedWeapon_Cooldown>0.55</RangedWeapon_Cooldown>
+			<SightsEfficiency>1.0</SightsEfficiency>
+			<ShotSpread>0.11</ShotSpread>
+			<SwayFactor>0.9</SwayFactor>
+			<Bulk>2.5</Bulk>
+			<WorkToMake>19000</WorkToMake>
+		</statBases>
+		<costList>
+			<HiTechWeaponComponents>7</HiTechWeaponComponents>
+			<MechanismSpacer>3</MechanismSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
+			<Plastic>20</Plastic>
+			<Polymers>20</Polymers>
+			<SimpleElectronic>2</SimpleElectronic>
+			<Microelectronics>1</Microelectronics>
+			<Nanoelectronics>1</Nanoelectronics>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>DS_CE_Bullet_PulseRifle</defaultProjectile>
+				<warmupTime>0.2</warmupTime>
+				<range>31</range>
+				<soundCast>IW_Shot_IonPistol</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<recoilAmount>1.1</recoilAmount>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>7</magazineSize>
+				<reloadTime>3.0</reloadTime>
+				<ammoSet>DS_AmmoSet_PulseRifle</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>Pistols</subWeaponSpecialization>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1,1</DrawSize>
+			</li>
+		</modExtensions>
+		
+	</ThingDef>
+	
 </Defs>

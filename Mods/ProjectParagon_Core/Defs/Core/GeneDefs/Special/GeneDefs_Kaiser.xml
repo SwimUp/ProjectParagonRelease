@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneKaiserBase" Abstract="True">
+		<displayCategory>Kaiser</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser</defName>
+		<label>Kaiser</label>
+		<description>Genetically modified kairos, given additional organs and capabilities. The Kaisers embodied the idea of ​​speed by strengthening the lungs to power modified muscles. They skillfully use the capabilities of their body to successfully survive in the desert.</description>
+		<iconPath>Core/Genes/Kaiser</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>5</biostatCpx>
+		<biostatMet>4</biostatMet>
+		<exclusionTags>
+			<li>GeneticEngineering</li>
+		</exclusionTags>
+		<capMods>
+			<li>
+				<capacity>Consciousness</capacity>
+				<offset>0.1</offset>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_SchirmerOrgan</defName>
+		<label>Schirmer organ</label>
+		<description>A small round organ located at the bottom of the brain. Gives the wearer special psionic potential and also slightly increases cognitive abilities.</description>
+		<iconPath>Core/Genes/Kaiser_SchirmerOrgan</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Kaiser</prerequisite>
+		<statFactors>
+			<PsychicSensitivity>1.25</PsychicSensitivity>
+			<MemoryFactor>1.05</MemoryFactor>
+		</statFactors>
+		<capMods>
+			<li>
+				<capacity>Consciousness</capacity>
+				<offset>0.05</offset>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_EnlargedLungs</defName>
+		<label>Enlarged lungs</label>
+		<description>Genetically enlarged lungs, allowing the wearer to pump much more air through the body.</description>
+		<iconPath>Core/Genes/Kaiser_EnlargedLungs</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Kaiser</prerequisite>
+		<capMods>
+			<li>
+				<capacity>Breathing</capacity>
+				<postFactor>1.5</postFactor>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_MuscleStimulation</defName>
+		<label>Muscle stimulation</label>
+		<description>An organ system that releases a set of hormones into the bloodstream that reduce the response time of muscle fibers.</description>
+		<iconPath>Core/Genes/Kaiser_MuscleStimulation</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Kaiser_EnlargedLungs</prerequisite>
+		<statFactors>
+			<MoveSpeed>1.1</MoveSpeed>
+		</statFactors>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_FlexibleLimbs</defName>
+		<label>Flexible limbs</label>
+		<description>Kaisers have increased joint flexibility, especially in the upper limbs, which allows for significantly increased mobility.</description>
+		<iconPath>Core/Genes/Kaiser_FlexibleLimbs</iconPath>
+		<displayOrderInCategory>40</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Kaiser</prerequisite>
+		<statFactors>
+			<WorkSpeedGlobal>1.15</WorkSpeedGlobal>
+			<MoveSpeed>1.05</MoveSpeed>
+		</statFactors>
+		<exclusionTags>
+		  <li>Hands</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_Cyrus</defName>
+		<label>Cyrus</label>
+		<description>Small round organs located on the back. Preserves a supply of important vitamins during times of excess, allowing them to be used more efficiently.</description>
+		<iconPath>Core/Genes/Kaiser_Cyrus</iconPath>
+		<displayOrderInCategory>50</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<prerequisite>Kaiser</prerequisite>
+		<statFactors>
+			<Food_VitaminsFactor>0.75</Food_VitaminsFactor>
+		</statFactors>
+		<exclusionTags>
+			<li>Vitamins</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_ArixGland</defName>
+		<label>Arix's gland</label>
+		<description>An organ located deep in the brain. Injects hormones into the creature’s blood, which allows it to quickly gain speed in life-threatening circumstances. Activated when suppressed.</description>
+		<geneClass>ProjectParagon.Core.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/Kaiser_ArixGland</iconPath>
+		<displayOrderInCategory>60</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Kaiser</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Genes.GeneProperties_ForceHediff">
+					<hediffDef>ArixGland</hediffDef>
+					<canAffectAnyLivePart>true</canAffectAnyLivePart>
+					<severity>1</severity>
+					<count>1</count>
+					<bodyParts>
+						<li>Brain</li>
+					</bodyParts>
+				</props>
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_Gitrix</defName>
+		<label>Gitrix</label>
+		<description>Supplement to the speech apparatus. This organ is located in the larynx, allowing you to parody voices and easily adjust intonation.</description>
+		<iconPath>Core/Genes/Kaiser_Gitrix</iconPath>
+		<displayOrderInCategory>70</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Kaiser</prerequisite>
+		<capMods>
+			<li>
+				<capacity>Talking</capacity>
+				<offset>0.25</offset>
+			</li>
+		</capMods>
+		<statOffsets>
+			<SocialImpact>0.1</SocialImpact>
+			<LanguageLearningSpeed>0.1</LanguageLearningSpeed>
+		</statOffsets>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_EyeMembrane</defName>
+		<label>Eye membrane</label>
+		<description>A small transparent membrane that covers the eyes from environmental influences. Allows you to ignore attempts to blind with sand or other soil.</description>
+		<geneClass>ProjectParagon.Core.Genes.Gene_InEyes</geneClass>
+		<iconPath>Core/Genes/Kaiser_EyeMembrane</iconPath>
+		<displayOrderInCategory>80</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Kaiser</prerequisite>
+		<capMods>
+			<li>
+				<capacity>Sight</capacity>
+				<offset>0.1</offset>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneKaiserBase">
+		<defName>Kaiser_DesertMetabolism</defName>
+		<label>Desert metabolism</label>
+		<description>Kaisers are able to speed up their metabolism when in hot areas. This is considered to be an environment with a temperature of half the maximum permissible for a creature.</description>
+		<geneClass>ProjectParagon.Core.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/Kaiser_DesertMetabolism</iconPath>
+		<displayOrderInCategory>90</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<prerequisite>Kaiser_EnlargedLungs</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Genes.GeneProperties_ForceHediff">
+					<hediffDef>DesertMetabolism</hediffDef>
+					<canAffectAnyLivePart>false</canAffectAnyLivePart>
+					<severity>1</severity>
+					<count>1</count>
+				</props>
+				<relatedRaces>
+					<li>Kairos_Prince</li>
+					<li>Kairos_Worker</li>
+					<li>Kairos_Soldier</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+</Defs>

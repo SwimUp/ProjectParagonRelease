@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<PawnKindDef Name="TreantBase" Abstract="True">
+	<PawnKindDef Name="LivingTreeBase" Abstract="True">
 		<race>TreantRace</race>
 		<defaultFactionType>TreantForestUnion</defaultFactionType>
 		<chemicalAddictionChance>0.0</chemicalAddictionChance>
@@ -17,24 +17,7 @@
 			</xenotypeChances>
 		</xenotypeSet>
 	</PawnKindDef>
-	<PawnKindDef Name="DryadBase" Abstract="True">
-		<race>DryadRace</race>
-		<defaultFactionType>TreantForestUnion</defaultFactionType>
-		<chemicalAddictionChance>0.0</chemicalAddictionChance>
-		<backstoryCryptosleepCommonality>0.0</backstoryCryptosleepCommonality>
-		<invNutrition>0.0</invNutrition>
-		<biocodeWeaponChance>0.0</biocodeWeaponChance>
-		<initialWillRange>0~1</initialWillRange>
-		<initialResistanceRange>7~12</initialResistanceRange>
-		<apparelMoney>0~0</apparelMoney>
-		<techHediffsChance>0</techHediffsChance>
-		<xenotypeSet>
-			<xenotypeChances>
-				<LivingTree>100</LivingTree>
-			</xenotypeChances>
-		</xenotypeSet>
-	</PawnKindDef>
-	<PawnKindDef ParentName="TreantBase" Name="Treant">
+	<PawnKindDef ParentName="LivingTreeBase" Name="Treant">
 		<defName>Treant</defName>
 		<label>Treant</label>
 		<combatPower>200</combatPower>
@@ -42,15 +25,6 @@
 		<requiredWorkTags>
 			<li>Violent</li>
 		</requiredWorkTags>
-		<inventoryOptions>
-			<skipChance>0.75</skipChance>
-			<subOptionsChooseOne>
-				<li>
-					<thingDef>LifeExtract</thingDef>
-					<countRange>1~2</countRange>
-				</li>
-			</subOptionsChooseOne>
-		</inventoryOptions>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
 				<pawnSkillGenerationSettings>
@@ -79,34 +53,16 @@
 		<defName>GrandTreant</defName>
 		<factionLeader>true</factionLeader>
 	</PawnKindDef>
-	<PawnKindDef ParentName="TreantBase">
-		<defName>NewbornTreant</defName>
-		<label>Treant</label>
-		<combatPower>200</combatPower>
-		<maxGenerationAge>50</maxGenerationAge>
-	</PawnKindDef>
-	<PawnKindDef ParentName="DryadBase">
+	<PawnKindDef ParentName="LivingTreeBase">
 		<defName>Dryad</defName>
 		<label>Dryad</label>
 		<combatPower>100</combatPower>
 		<itemQuality>Poor</itemQuality>
 		<trader>true</trader>
+		<race>DryadRace</race>
 		<requiredWorkTags>
 			<li>Violent</li>
 		</requiredWorkTags>
-		<inventoryOptions>
-			<skipChance>0.5</skipChance>
-			<subOptionsChooseOne>
-				<li>
-					<thingDef>LifeExtract</thingDef>
-					<countRange>1~3</countRange>
-				</li>
-				<li>
-					<thingDef>Weapon_BeeGrenade</thingDef>
-					<countRange>3~5</countRange>
-				</li>
-			</subOptionsChooseOne>
-		</inventoryOptions>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
 				<pawnSkillGenerationSettings>
@@ -127,38 +83,31 @@
 						</maxPassions>
 					</weaponSpecializationGenSettings>
 				</equipmentGenerationSettings>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>LivingTree</mustHaveXenotypeForEffect>
+					<forcedGenes>
+						<li>
+							<geneDefs>
+								<Plants_PsionicFibers>50</Plants_PsionicFibers>
+							</geneDefs>
+							<chance>0.05</chance>
+							<xenogene>false</xenogene>
+						</li>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 		</modExtensions>
 	</PawnKindDef>
-	<PawnKindDef ParentName="DryadBase">
-		<defName>NewbornDryad</defName>
-		<label>Dryad</label>
-		<combatPower>100</combatPower>
-		<maxGenerationAge>50</maxGenerationAge>
-	</PawnKindDef>
-	<PawnKindDef ParentName="DryadBase">
+	<PawnKindDef ParentName="LivingTreeBase">
 		<defName>PsionicDryad</defName>
 		<label>Psionic dryad</label>
 		<combatPower>150</combatPower>
-		<race>PsionicDryadRace</race>
+		<race>DryadRace</race>
 		<itemQuality>Poor</itemQuality>
 		<trader>false</trader>
 		<requiredWorkTags>
 			<li>Violent</li>
 		</requiredWorkTags>
-		<inventoryOptions>
-			<skipChance>0.5</skipChance>
-			<subOptionsChooseOne>
-				<li>
-					<thingDef>LifeExtract</thingDef>
-					<countRange>1~3</countRange>
-				</li>
-				<li>
-					<thingDef>Weapon_BeeGrenade</thingDef>
-					<countRange>3~5</countRange>
-				</li>
-			</subOptionsChooseOne>
-		</inventoryOptions>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
 				<pawnSkillGenerationSettings>
@@ -193,42 +142,18 @@
 						</li>
 					</forcedHediffs>
 				</hediffGenerationSettings>
-			</li>
-		</modExtensions>
-	</PawnKindDef>
-	<PawnKindDef ParentName="DryadBase">
-		<defName>NewbornPsionicDryad</defName>
-		<label>Psionic dryad</label>
-		<combatPower>150</combatPower>
-		<maxGenerationAge>50</maxGenerationAge>
-		<race>PsionicDryadRace</race>
-	</PawnKindDef>
-	<PawnKindDef ParentName="DryadBase">
-		<defName>PlayerPsionicDryad</defName>
-		<label>Psionic dryad</label>
-		<combatPower>150</combatPower>
-		<race>PsionicDryadRace</race>
-		<itemQuality>Poor</itemQuality>
-		<trader>false</trader>
-		<requiredWorkTags>
-			<li>Violent</li>
-		</requiredWorkTags>
-		<modExtensions>
-			<li Class="ProjectParagon.Core.FightSystem.PawnKindDefDefModExtension">
-				<hediffGenerationSettings>
-					<forcedHediffs>
+				<geneGenerationSettings>
+					<mustHaveXenotypeForEffect>LivingTree</mustHaveXenotypeForEffect>
+					<forcedGenes>
 						<li>
-							<hediffDef>PsychicAmplifier</hediffDef>
-							<severity>2</severity>
-							<count>1</count>
+							<geneDefs>
+								<Plants_PsionicFibers>50</Plants_PsionicFibers>
+							</geneDefs>
 							<chance>1</chance>
-							<canAffectAnyLivePart>true</canAffectAnyLivePart>
-							<bodyParts>
-								<li>Brain</li>
-							</bodyParts>
+							<xenogene>false</xenogene>
 						</li>
-					</forcedHediffs>
-				</hediffGenerationSettings>
+					</forcedGenes>
+				</geneGenerationSettings>
 			</li>
 		</modExtensions>
 	</PawnKindDef>

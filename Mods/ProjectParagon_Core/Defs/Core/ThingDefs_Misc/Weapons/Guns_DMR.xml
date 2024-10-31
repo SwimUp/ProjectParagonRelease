@@ -3544,4 +3544,122 @@ An improved version with advanced electronics that increase the weapon's effecti
 			</li>
 		</modExtensions>
 	</ThingDef>
+	
+	<ThingDef ParentName="ParagonBaseHumanMakeableGunSpacer">
+		<defName>WS_MechaSR</defName>
+		<label>XZero "Destroyer"</label>
+		<description>A special development for a new energy cartridge. Thanks to the new sight, the extended barrel managed to increase the overall accuracy, and the new cartridge adds firepower. It has an enlarged magazine, as well as improved ergonomics.</description>
+		<graphicData>
+			<texPath>Things/Weapons/MechaSR</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.25</drawSize>
+		</graphicData>
+		<equippedAngleOffset>45</equippedAngleOffset>
+		<soundInteract>Interact_ChargeRifle</soundInteract>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToMake>58000</WorkToMake>
+			<Mass>7.2</Mass>
+			<Bulk>8.6</Bulk>
+			<SwayFactor>0.75</SwayFactor>
+			<ShotSpread>0.04</ShotSpread>
+			<SightsEfficiency>2.5</SightsEfficiency>
+			<RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<HiTechWeaponComponents>30</HiTechWeaponComponents>
+			<MechanismSpacer>8</MechanismSpacer>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Plastic>100</Plastic>
+			<Polymers>120</Polymers>
+			<SimpleElectronic>10</SimpleElectronic>
+			<Microelectronics>12</Microelectronics>
+			<Nanoelectronics>10</Nanoelectronics>
+			<Supermagnet>5</Supermagnet>
+		</costList>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>8</magazineSize>
+				<reloadTime>2.9</reloadTime>
+				<ammoSet>AmmoSet_6x24mmCharged</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+                <aiAimMode>AimedShot</aiAimMode>
+			</li>
+			<li Class="ProjectParagon.Core.FightSystem.CompProperties_WeaponSpecialization">
+				<subWeaponSpecialization>DMR</subWeaponSpecialization>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>EnergyWeapons</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>17</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="false">
+				<li>RoboticEquipmentWorkbench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<weaponTags>
+			<li>CE_AI_AssaultWeapon</li>
+			<li>CE_AI_Rifle</li>
+			<li>Weapon_DMR_TierVV</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+			<li>LongShots</li>
+		</weaponClasses>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_6x24mmCharged</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>120</range>
+				<soundCast>ChargeLance_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>1.1,1.1</DrawSize>
+				<DrawOffset>0.0,0.05</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
 </Defs>

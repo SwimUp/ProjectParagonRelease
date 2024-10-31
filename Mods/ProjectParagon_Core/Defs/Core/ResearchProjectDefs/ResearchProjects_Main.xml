@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 	<ResearchProjectDef Abstract="true" Name="ParagonResearchBase">
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiResearchProjectDef"/>
-			</li>
-		</modExtensions>
 	</ResearchProjectDef>
 	<ResearchProjectDef Abstract="true" Name="PrimitiveResearchBench" ParentName="ParagonResearchBase">
 		<requiredResearchBuilding>PrimitiveResearchBench</requiredResearchBuilding>
@@ -6403,6 +6398,30 @@
 			<li>Mechanites</li>
 			<li>ModernMeleeWeapons</li>
 		</prerequisites>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef ParentName="SpacerResearchBenchAndMultiAnalyzer">
+		<defName>RestoringAncientAnimals</defName>
+		<label>Restoring ancient animals</label>
+		<description>Recreate ancient, extinct creatures found as skeletons underground.</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<researchViewX>254</researchViewX>
+		<researchViewY>254</researchViewY>
+		<prerequisites>
+			<li>GeneticLibrary</li>
+		</prerequisites>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.ResearchSystem.ResearchDefModExtension">
+				<researchActions>
+					<li Class="ProjectParagon.Core.ResearchSystem.ResearchAction_MakeTextBook">
+						<bookSkillDef>Animals</bookSkillDef>
+						<bookChance>1</bookChance>
+						<skillMult>2</skillMult>
+					</li>
+				</researchActions>
+			</li>
+		</modExtensions>
 	</ResearchProjectDef>
 
 </Defs>

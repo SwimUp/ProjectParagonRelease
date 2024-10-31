@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneMegarachnidBase" Abstract="True">
+		<displayCategory>Megarachnid</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid</defName>
+		<label>Megarachnid</label>
+		<description>A separate subspecies of arachnids, perfect in its lethality. Megarachnids are much more demanding, but are superior to their predecessors in almost everything.</description>
+		<iconPath>Core/Genes/Megarachnid</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>6</biostatCpx>
+		<biostatMet>3</biostatMet>
+		<statFactors>
+			<Food_ProteinFactor>1.25</Food_ProteinFactor>
+			<Food_FatFactor>1.25</Food_FatFactor>
+		</statFactors>
+		<exclusionTags>
+			<li>GeneticEngineering</li>
+		</exclusionTags>
+		<capMods>
+			<li>
+				<capacity>Consciousness</capacity>
+				<offset>0.1</offset>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid_YelloriumSkeleton</defName>
+		<label>Yellorium skeleton</label>
+		<description>The integration of hive-produced yelloworium into tissue allows megarachnids to withstand horrific wounds by quickly healing the damage. This is possible thanks to the storage of liquid yelloworium in special organs. The megarachnid is forced to constantly consume yelloworium in order not to die.</description>
+		<geneClass>ProjectParagon.Core.Genes.Gene_YelloriumSkeleton</geneClass>
+		<iconPath>Core/Genes/Megarachnid_YelloriumSkeleton</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Megarachnid</prerequisite>
+		<causesNeed>Need_Yellorium</causesNeed>
+		<statOffsets>
+			<ArmorRating_Blunt>4</ArmorRating_Blunt>
+			<ArmorRating_Sharp>3</ArmorRating_Sharp>
+		</statOffsets>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid_HypertrophiedMuscles</defName>
+		<label>Hypertrophied muscles</label>
+		<description>Megarachnid muscles are artificially enlarged and strengthened with yelloworium. This modification allows them to quickly move around the terrain. The power in close combat becomes crushing.</description>
+		<iconPath>Core/Genes/Megarachnid_HypertrophiedMuscles</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-3</biostatMet>
+		<prerequisite>Megarachnid_YelloriumSkeleton</prerequisite>
+		<statOffsets>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+		</statOffsets>
+		<statFactors>
+			<MeleeArmorPenetration>1.1</MeleeArmorPenetration>
+			<MeleeDPS>1.05</MeleeDPS>
+		</statFactors>
+		<capMods>
+			<li>
+				<capacity>Moving</capacity>
+				<offset>0.2</offset>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid_ThirdHeart</defName>
+		<label>Third heart</label>
+		<description>Arachnids have two main cardiac chambers, which allows them to efficiently supply their large body with all the nutrients. The third small heart chamber, located between the standard ones, completes the formation of the circulatory system for this death machine.</description>
+		<iconPath>Core/Genes/Megarachnid_ThirdHeart</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>2</biostatMet>
+		<prerequisite>Megarachnid</prerequisite>
+		<capMods>
+			<li>
+				<capacity>BloodPumping</capacity>
+				<offset>0.5</offset>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid_Ignitum</defName>
+		<label>Ignitum</label>
+		<description>Multiple glands located throughout the body near the chitinous plates. They produce a fire-resistant secretion that allows megarachnids to resist fire.</description>
+		<iconPath>Core/Genes/Megarachnid_Ignitum</iconPath>
+		<displayOrderInCategory>40</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-3</biostatMet>
+		<prerequisite>Megarachnid</prerequisite>
+		<statFactors>
+			<Flammability>0.1</Flammability>
+		</statFactors>
+		<damageFactors>
+			<Flame>0.1</Flame>
+		</damageFactors>
+		<exclusionTags>
+			<li>FireDamage</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid_DigestionDespecialization</defName>
+		<label>Digestion despecialization</label>
+		<description>Megarachnids have a powerful jaw with teeth that are restored several times during their lives. The digestive organs have been rebuilt, allowing better absorption of unprocessed food.</description>
+		<iconPath>Core/Genes/Megarachnid_DigestionDespecialization</iconPath>
+		<displayOrderInCategory>50</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<prerequisite>Megarachnid</prerequisite>
+		<statFactors>
+			<RawNutritionFactor>1.15</RawNutritionFactor>
+		</statFactors>
+		<capMods>
+			<li>
+				<capacity>Eating</capacity>
+				<offset>0.25</offset>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid_LargorOrgan</defName>
+		<label>Largor's organ</label>
+		<description>A special organ connected to the nervous system. Enhances muscle responses during stress. It was first discovered by xenobiologist Largor during the dissection of a megarachnid.</description>
+		<geneClass>ProjectParagon.Core.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/Megarachnid_LargorOrgan</iconPath>
+		<displayOrderInCategory>60</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Megarachnid</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Genes.GeneProperties_ForceHediff">
+					<hediffDef>LargorOrgan</hediffDef>
+					<canAffectAnyLivePart>true</canAffectAnyLivePart>
+					<severity>1</severity>
+					<count>1</count>
+					<bodyParts>
+						<li>Lung</li>
+					</bodyParts>
+				</props>
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid_SensoryMetamorphoses</defName>
+		<label>Sensory metamorphoses</label>
+		<description>The brain of megarachnids is rebuilt, which reduces the role of vision, practically turning it off, in return, greatly enhancing the hearing organs.</description>
+		<iconPath>Core/Genes/Megarachnid_SensoryMetamorphoses</iconPath>
+		<displayOrderInCategory>70</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Megarachnid</prerequisite>
+		<capMods>
+			<li>
+				<capacity>Sight</capacity>
+				<postFactor>0.1</postFactor>
+			</li>
+			<li>
+				<capacity>Hearing</capacity>
+				<postFactor>2</postFactor>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneMegarachnidBase">
+		<defName>Megarachnid_NeuralIntegration</defName>
+		<label>Neural integration</label>
+		<description>The nervous system of megarachnids is closely connected with the primary digestive organs, allowing them to absorb and process information contained in the nerve cells of the prey. Consuming corpses can lead to learning a language or skill.</description>
+		<geneClass>ProjectParagon.Core.Genes.Gene_NeuralIntegration</geneClass>
+		<iconPath>Core/Genes/Megarachnid_NeuralIntegration</iconPath>
+		<displayOrderInCategory>80</displayOrderInCategory>
+		<biostatCpx>3</biostatCpx>
+		<biostatMet>-3</biostatMet>
+		<prerequisite>Megarachnid</prerequisite>
+		<capMods>
+			<li>
+				<capacity>Consciousness</capacity>
+				<offset>0.1</offset>
+			</li>
+		</capMods>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>Alien_Arachnids_Worker</li>
+					<li>Alien_Arachnids_Soldier</li>
+					<li>Alien_Arachnids_Warrior</li>
+					<li>Alien_Arachnids_Scholary</li>
+					<li>Alien_Arachnids_Bombardier</li>
+					<li>Alien_Arachnids_Ram</li>
+					<li>Alien_Arachnids_Recycler</li>
+					<li>Alien_Arachnids_Cerebral</li>
+				</relatedRaces>
+				<overrideGeneBackground>Core/Genes/GeneBackground_GeneticEngineering</overrideGeneBackground>
+				<showInEditor>false</showInEditor>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+</Defs>

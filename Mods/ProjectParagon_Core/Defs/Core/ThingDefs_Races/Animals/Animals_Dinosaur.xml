@@ -1,0 +1,4157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>AnkylosaurusRace</defName>
+		<label>Ankylosaurus</label>
+		<description>A huge armored dinosaur, genetically recreated. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 1)</eastOffset>
+				<westOffset>(0.0, 0.0, 1)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>1500</MarketValue>
+			<ArmorRating_Blunt>8</ArmorRating_Blunt>
+			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<ComfyTemperatureMin>15</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggAnkylosaurusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>30</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~5</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>25</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>TailAttackTool</linkedBodyPartsGroup>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<armorPenetrationBlunt>16</armorPenetrationBlunt>
+				<chanceFactor>0.3</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>false</predator>
+			<maxPreyBodySize>3</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>4</baseBodySize>
+			<baseHungerRate>2</baseHungerRate>
+			<baseHealthScale>6</baseHealthScale>
+			<foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>20</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<packAnimal>true</packAnimal>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggAnkylosaurusFertilized</defName>
+		<label>Ankylosaurus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>100.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Ankylosaurus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Ankylosaurus</defName>
+		<label>Ankylosaurus</label>
+		<race>AnkylosaurusRace</race>
+		<combatPower>150</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildGroupSize>1~3</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ankylosaurus/Ankylosaurus</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ankylosaurus/Dessicated_Ankylosaurus</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ankylosaurus/Ankylosaurus</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ankylosaurus/Dessicated_Ankylosaurus</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ankylosaurus/Ankylosaurus</texPath>
+					<drawSize>6</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ankylosaurus/Dessicated_Ankylosaurus</texPath>
+					<drawSize>6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Ankylosaurus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>CactipineusRace</defName>
+		<label>Cactipineus</label>
+		<description>An ancient desert lizard. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3.2</MoveSpeed>
+			<MarketValue>750</MarketValue>
+			<ArmorRating_Blunt>1</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+			<ComfyTemperatureMin>15</ComfyTemperatureMin>
+			<ComfyTemperatureMax>55</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggCactipineusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>3</eggFertilizationCountMax>
+				<eggLayIntervalDays>15</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~3</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>false</predator>
+			<maxPreyBodySize>3</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>1</baseBodySize>
+			<baseHungerRate>0.5</baseHungerRate>
+			<baseHealthScale>0.85</baseHealthScale>
+			<foodType>VegetarianRoughAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>6</lifeExpectancy>
+			<manhunterOnTameFailChance>0.01</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.01</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggCactipineusFertilized</defName>
+		<label>Cactipineus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>50.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>7</hatcherDaystoHatch>
+				<hatcherPawn>Cactipineus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Cactipineus</defName>
+		<label>Cactipineus</label>
+		<race>CactipineusRace</race>
+		<combatPower>50</combatPower>
+		<ecoSystemWeight>0.3</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildGroupSize>1~5</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Cactipineus/Cactipineus</texPath>
+					<drawSize>1.5</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Cactipineus/Dessicated_Cactipineus</texPath>
+					<drawSize>1.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Cactipineus/Cactipineus</texPath>
+					<drawSize>1.75</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Cactipineus/Dessicated_Cactipineus</texPath>
+					<drawSize>1.75</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Cactipineus/Cactipineus</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Cactipineus/Dessicated_Cactipineus</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Cactipineus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>DilophosaurusRace</defName>
+		<label>Dilophosaurus</label>
+		<description>An ancient predatory therapod that went extinct many millions of years ago. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>4.5</MoveSpeed>
+			<MarketValue>1100</MarketValue>
+			<ArmorRating_Blunt>3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+			<ComfyTemperatureMin>10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+			<CaravanRidingSpeedFactor>1.6</CaravanRidingSpeedFactor>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggDilophosaurusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>2</eggFertilizationCountMax>
+				<eggLayIntervalDays>20</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>1</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>1.5</baseBodySize>
+			<baseHungerRate>1.5</baseHungerRate>
+			<baseHealthScale>2</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>15</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggDilophosaurusFertilized</defName>
+		<label>Dilophosaurus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>75.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>10</hatcherDaystoHatch>
+				<hatcherPawn>Dilophosaurus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Dilophosaurus</defName>
+		<label>Dilophosaurus</label>
+		<race>DilophosaurusRace</race>
+		<combatPower>125</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dilophosaurus/Dilophosaurus</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dilophosaurus/Dessicated_Dilophosaurus</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dilophosaurus/Dilophosaurus</texPath>
+					<drawSize>4.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dilophosaurus/Dessicated_Dilophosaurus</texPath>
+					<drawSize>4.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dilophosaurus/Dilophosaurus</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dilophosaurus/Dessicated_Dilophosaurus</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Dilophosaurus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>DimetrodonRace</defName>
+		<label>Dimetrodon</label>
+		<description>An ancient predatory synapsid that went extinct many millions of years ago. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>2.85</MoveSpeed>
+			<MarketValue>1500</MarketValue>
+			<ArmorRating_Blunt>6</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2.5</ArmorRating_Sharp>
+			<ComfyTemperatureMin>15</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggDimetrodonFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>30</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~5</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>3</armorPenetrationSharp>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>3</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>3.5</baseBodySize>
+			<baseHungerRate>2.5</baseHungerRate>
+			<baseHealthScale>5</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>20</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggDimetrodonFertilized</defName>
+		<label>Dimetrodon egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>100.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Dimetrodon</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Dimetrodon</defName>
+		<label>Dimetrodon</label>
+		<race>DimetrodonRace</race>
+		<combatPower>150</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dimetrodon/Dimetrodon</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dimetrodon/Dessicated_Dimetrodon</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dimetrodon/Dimetrodon</texPath>
+					<drawSize>3.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dimetrodon/Dessicated_Dimetrodon</texPath>
+					<drawSize>3.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dimetrodon/Dimetrodon</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dimetrodon/Dessicated_Dimetrodon</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Dimetrodon</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>DromaeosaurusRace</defName>
+		<label>Dromaeosaurus</label>
+		<description>Small carnivorous dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>4</MoveSpeed>
+			<MarketValue>1100</MarketValue>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>1</ArmorRating_Sharp>
+			<ComfyTemperatureMin>10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+			<CaravanRidingSpeedFactor>1.6</CaravanRidingSpeedFactor>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggDromaeosaurusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>3</eggFertilizationCountMax>
+				<eggLayIntervalDays>10</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~3</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>0.8</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>1</baseBodySize>
+			<baseHungerRate>1</baseHungerRate>
+			<baseHealthScale>1.25</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>7</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggDromaeosaurusFertilized</defName>
+		<label>Dromaeosaurus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>50.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>10</hatcherDaystoHatch>
+				<hatcherPawn>Dromaeosaurus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Dromaeosaurus</defName>
+		<label>Dromaeosaurus</label>
+		<race>DromaeosaurusRace</race>
+		<combatPower>75</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildGroupSize>1~2</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dromaeosaurus/Dromaeosaurus</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dromaeosaurus/Dessicated_Dromaeosaurus</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dromaeosaurus/Dromaeosaurus</texPath>
+					<drawSize>2.25</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dromaeosaurus/Dessicated_Dromaeosaurus</texPath>
+					<drawSize>2.25</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dromaeosaurus/Dromaeosaurus</texPath>
+					<drawSize>2.5</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Dromaeosaurus/Dessicated_Dromaeosaurus</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Dromaeosaurus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>IguanodonRace</defName>
+		<label>Iguanodon</label>
+		<description>Medium herbivorous dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.8)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>1300</MarketValue>
+			<ArmorRating_Blunt>6</ArmorRating_Blunt>
+			<ArmorRating_Sharp>3</ArmorRating_Sharp>
+			<ComfyTemperatureMin>10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggIguanodonFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>30</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~5</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>false</predator>
+			<maxPreyBodySize>3</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>4</baseBodySize>
+			<baseHungerRate>1.5</baseHungerRate>
+			<baseHealthScale>6</baseHealthScale>
+			<foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>25</lifeExpectancy>
+			<manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0</manhunterOnDamageChance>
+			<packAnimal>true</packAnimal>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggIguanodonFertilized</defName>
+		<label>Iguanodon egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>75.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Iguanodon</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Iguanodon</defName>
+		<label>Iguanodon</label>
+		<race>IguanodonRace</race>
+		<combatPower>125</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildGroupSize>1~3</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Iguanodon/Iguanodon</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Iguanodon/Dessicated_Iguanodon</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Iguanodon/Iguanodon</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Iguanodon/Dessicated_Iguanodon</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Iguanodon/Iguanodon</texPath>
+					<drawSize>6</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Iguanodon/Dessicated_Iguanodon</texPath>
+					<drawSize>6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Iguanodon</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>IndosaurusRace</defName>
+		<label>Indosaurus</label>
+		<description>An ancient carnivorous therapod. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>4</MoveSpeed>
+			<MarketValue>1500</MarketValue>
+			<ArmorRating_Blunt>6</ArmorRating_Blunt>
+			<ArmorRating_Sharp>3</ArmorRating_Sharp>
+			<ComfyTemperatureMin>15</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+			<CaravanRidingSpeedFactor>1.6</CaravanRidingSpeedFactor>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggIndosaurusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>25</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<armorPenetrationBlunt>5</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>3.5</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>4</baseBodySize>
+			<baseHungerRate>2.5</baseHungerRate>
+			<baseHealthScale>6</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>25</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggIndosaurusFertilized</defName>
+		<label>Indosaurus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>100.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Indosaurus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Indosaurus</defName>
+		<label>Indosaurus</label>
+		<race>IndosaurusRace</race>
+		<combatPower>150</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Indosaurus/Indosaurus</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Indosaurus/Dessicated_Indosaurus</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Indosaurus/Indosaurus</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Indosaurus/Dessicated_Indosaurus</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Indosaurus/Indosaurus</texPath>
+					<drawSize>6</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Indosaurus/Dessicated_Indosaurus</texPath>
+					<drawSize>6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Indosaurus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>OrnithomimusRace</defName>
+		<label>Ornithomimus</label>
+		<description>An ancient omnivorous dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.8)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>4.25</MoveSpeed>
+			<MarketValue>1100</MarketValue>
+			<ArmorRating_Blunt>1</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+			<CaravanRidingSpeedFactor>2</CaravanRidingSpeedFactor>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggOrnithomimusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>2</eggFertilizationCountMax>
+				<eggLayIntervalDays>10</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>false</predator>
+			<maxPreyBodySize>1</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>1.5</baseBodySize>
+			<baseHungerRate>1</baseHungerRate>
+			<baseHealthScale>1</baseHealthScale>
+			<foodType>OmnivoreAnimal, AnimalProduct</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>8</lifeExpectancy>
+			<manhunterOnTameFailChance>0.25</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.25</manhunterOnDamageChance>
+			<packAnimal>true</packAnimal>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggOrnithomimusFertilized</defName>
+		<label>Ornithomimus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>75.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>7</hatcherDaystoHatch>
+				<hatcherPawn>Ornithomimus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Ornithomimus</defName>
+		<label>Ornithomimus</label>
+		<race>OrnithomimusRace</race>
+		<combatPower>75</combatPower>
+		<ecoSystemWeight>0.3</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildGroupSize>1~5</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ornithomimus/Ornithomimus</texPath>
+					<drawSize>2.5</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ornithomimus/Dessicated_Ornithomimus</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ornithomimus/Ornithomimus</texPath>
+					<drawSize>2.75</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ornithomimus/Dessicated_Ornithomimus</texPath>
+					<drawSize>2.75</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ornithomimus/Ornithomimus</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Ornithomimus/Dessicated_Ornithomimus</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Ornithomimus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>PachysaurusRace</defName>
+		<label>Pachysaurus</label>
+		<description>An ancient herbivorous dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>1100</MarketValue>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+			<ComfyTemperatureMin>5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggPachysaurusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>3</eggFertilizationCountMax>
+				<eggLayIntervalDays>25</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~3</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>3</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>false</predator>
+			<maxPreyBodySize>1</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>1.5</baseBodySize>
+			<baseHungerRate>1</baseHungerRate>
+			<baseHealthScale>1</baseHealthScale>
+			<foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>8</lifeExpectancy>
+			<manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggPachysaurusFertilized</defName>
+		<label>Pachysaurus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>75.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>15</hatcherDaystoHatch>
+				<hatcherPawn>Pachysaurus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Pachysaurus</defName>
+		<label>Pachysaurus</label>
+		<race>PachysaurusRace</race>
+		<combatPower>100</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildGroupSize>1~3</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pachysaurus/Pachysaurus</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pachysaurus/Dessicated_Pachysaurus</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pachysaurus/Pachysaurus</texPath>
+					<drawSize>3.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pachysaurus/Dessicated_Pachysaurus</texPath>
+					<drawSize>3.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pachysaurus/Pachysaurus</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pachysaurus/Dessicated_Pachysaurus</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Pachysaurus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>ParasaurRace</defName>
+		<label>Parasaur</label>
+		<description>An ancient herbivorous dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.8)</northOffset>
+				<southOffset>(0.0, 0.0, 0.8)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>5</MoveSpeed>
+			<MarketValue>1300</MarketValue>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+			<ComfyTemperatureMin>5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+			<CaravanRidingSpeedFactor>2</CaravanRidingSpeedFactor>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggParasaurFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>2</eggFertilizationCountMax>
+				<eggLayIntervalDays>20</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.25</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>false</predator>
+			<maxPreyBodySize>1</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>1.5</baseBodySize>
+			<baseHungerRate>1.25</baseHungerRate>
+			<baseHealthScale>1.25</baseHealthScale>
+			<foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>12</lifeExpectancy>
+			<manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0</manhunterOnDamageChance>
+			<packAnimal>true</packAnimal>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggParasaurFertilized</defName>
+		<label>Parasaur egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>75.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>10</hatcherDaystoHatch>
+				<hatcherPawn>Parasaur</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Parasaur</defName>
+		<label>Parasaur</label>
+		<race>ParasaurRace</race>
+		<combatPower>75</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildGroupSize>1~7</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Parasaur/Parasaur</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Parasaur/Dessicated_Parasaur</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Parasaur/Parasaur</texPath>
+					<drawSize>3.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Parasaur/Dessicated_Parasaur</texPath>
+					<drawSize>3.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Parasaur/Parasaur</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Parasaur/Dessicated_Parasaur</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Parasaur</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>PterodactylRace</defName>
+		<label>Pterodactyl</label>
+		<description>Ancient flying dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.5)</northOffset>
+				<southOffset>(0.0, 0.0, 0.5)</southOffset>
+				<eastOffset>(-0.3, 0.0, 0.7)</eastOffset>
+				<westOffset>(0.3, 0.0, 0.7)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>5</MoveSpeed>
+			<MarketValue>1500</MarketValue>
+			<ArmorRating_Blunt>1</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+			<ComfyTemperatureMin>10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+			<CaravanRidingSpeedFactor>2.5</CaravanRidingSpeedFactor>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggPterodactylFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>2</eggFertilizationCountMax>
+				<eggLayIntervalDays>20</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>1.5</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>2.5</baseBodySize>
+			<baseHungerRate>2</baseHungerRate>
+			<baseHealthScale>1.5</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>10</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggPterodactylFertilized</defName>
+		<label>Pterodactyl egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>100.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>15</hatcherDaystoHatch>
+				<hatcherPawn>Pterodactyl</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Pterodactyl</defName>
+		<label>Pterodactyl</label>
+		<race>PterodactylRace</race>
+		<combatPower>125</combatPower>
+		<ecoSystemWeight>1</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildGroupSize>1~2</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pterodactyl/Pterodactyl</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pterodactyl/Dessicated_Pterodactyl</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pterodactyl/Pterodactyl</texPath>
+					<drawSize>4.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pterodactyl/Dessicated_Pterodactyl</texPath>
+					<drawSize>4.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pterodactyl/Pterodactyl</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Pterodactyl/Dessicated_Pterodactyl</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Pterodactyl</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>SarcosuchusRace</defName>
+		<label>Sarcosuchus</label>
+		<description>An ancient dinosaur from the crocodile family. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.0)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>2.85</MoveSpeed>
+			<MarketValue>1500</MarketValue>
+			<ArmorRating_Blunt>6</ArmorRating_Blunt>
+			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<ComfyTemperatureMin>15</ComfyTemperatureMin>
+			<ComfyTemperatureMax>40</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggSarcosuchusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>2</eggFertilizationCountMax>
+				<eggLayIntervalDays>30</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>TailAttackTool</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>3</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>3</baseBodySize>
+			<baseHungerRate>2.5</baseHungerRate>
+			<baseHealthScale>4</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>15</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggSarcosuchusFertilized</defName>
+		<label>Sarcosuchus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>100.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Sarcosuchus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Sarcosuchus</defName>
+		<label>Sarcosuchus</label>
+		<race>SarcosuchusRace</race>
+		<combatPower>150</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Sarcosuchus/Sarcosuchus</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Sarcosuchus/Dessicated_Sarcosuchus</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Sarcosuchus/Sarcosuchus</texPath>
+					<drawSize>3.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Sarcosuchus/Dessicated_Sarcosuchus</texPath>
+					<drawSize>3.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Sarcosuchus/Sarcosuchus</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Sarcosuchus/Dessicated_Sarcosuchus</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Sarcosuchus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>SpinosaurusRace</defName>
+		<label>Spinosaurus</label>
+		<description>An ancient dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>2.85</MoveSpeed>
+			<MarketValue>1750</MarketValue>
+			<ArmorRating_Blunt>7</ArmorRating_Blunt>
+			<ArmorRating_Sharp>3</ArmorRating_Sharp>
+			<ComfyTemperatureMin>15</ComfyTemperatureMin>
+			<ComfyTemperatureMax>40</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggSpinosaurusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>2</eggFertilizationCountMax>
+				<eggLayIntervalDays>30</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>2</armorPenetrationSharp>
+				<armorPenetrationBlunt>3</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>2</armorPenetrationSharp>
+				<armorPenetrationBlunt>3</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>25</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>TailAttackTool</linkedBodyPartsGroup>
+				<armorPenetrationSharp>2</armorPenetrationSharp>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+				<chanceFactor>0.1</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>3.5</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>4</baseBodySize>
+			<baseHungerRate>3</baseHungerRate>
+			<baseHealthScale>6</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>25</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggSpinosaurusFertilized</defName>
+		<label>Spinosaurus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>125.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Spinosaurus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Spinosaurus</defName>
+		<label>Spinosaurus</label>
+		<race>SpinosaurusRace</race>
+		<combatPower>200</combatPower>
+		<ecoSystemWeight>3</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Spinosaurus/Spinosaurus</texPath>
+					<drawSize>6</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Spinosaurus/Dessicated_Spinosaurus</texPath>
+					<drawSize>6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Spinosaurus/Spinosaurus</texPath>
+					<drawSize>8</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Spinosaurus/Dessicated_Spinosaurus</texPath>
+					<drawSize>8</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Spinosaurus/Spinosaurus</texPath>
+					<drawSize>10</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Spinosaurus/Dessicated_Spinosaurus</texPath>
+					<drawSize>10</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Spinosaurus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>StegosaurusRace</defName>
+		<label>Stegosaurus</label>
+		<description>An ancient dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.8)</northOffset>
+				<southOffset>(0.0, 0.0, 0.8)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>1750</MarketValue>
+			<ArmorRating_Blunt>8</ArmorRating_Blunt>
+			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<ComfyTemperatureMin>10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggStegosaurusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>2</eggFertilizationCountMax>
+				<eggLayIntervalDays>25</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>2</armorPenetrationSharp>
+				<armorPenetrationBlunt>3</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>2</armorPenetrationSharp>
+				<armorPenetrationBlunt>3</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>3</armorPenetrationSharp>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>TailAttackTool</linkedBodyPartsGroup>
+				<armorPenetrationSharp>3</armorPenetrationSharp>
+				<armorPenetrationBlunt>8</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>false</predator>
+			<maxPreyBodySize>3.5</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>4</baseBodySize>
+			<baseHungerRate>2</baseHungerRate>
+			<baseHealthScale>6</baseHealthScale>
+			<foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>30</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<packAnimal>true</packAnimal>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggStegosaurusFertilized</defName>
+		<label>Stegosaurus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>125.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Stegosaurus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Stegosaurus</defName>
+		<label>Stegosaurus</label>
+		<race>StegosaurusRace</race>
+		<combatPower>200</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Stegosaurus/Stegosaurus</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Stegosaurus/Dessicated_Stegosaurus</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Stegosaurus/Stegosaurus</texPath>
+					<drawSize>6</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Stegosaurus/Dessicated_Stegosaurus</texPath>
+					<drawSize>6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Stegosaurus/Stegosaurus</texPath>
+					<drawSize>7</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Stegosaurus/Dessicated_Stegosaurus</texPath>
+					<drawSize>7</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Stegosaurus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>TherizinosaurusRace</defName>
+		<label>Therizinosaurus</label>
+		<description>An ancient dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.0)</northOffset>
+				<southOffset>(0.0, 0.0, 0.8)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3.5</MoveSpeed>
+			<MarketValue>1750</MarketValue>
+			<ArmorRating_Blunt>5</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2.5</ArmorRating_Sharp>
+			<ComfyTemperatureMin>5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggTherizinosaurusFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>4</eggFertilizationCountMax>
+				<eggLayIntervalDays>15</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~4</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>15</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>2</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>2</baseBodySize>
+			<baseHungerRate>1.5</baseHungerRate>
+			<baseHealthScale>3</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>30</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggTherizinosaurusFertilized</defName>
+		<label>Therizinosaurus egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>100.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Therizinosaurus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Therizinosaurus</defName>
+		<label>Therizinosaurus</label>
+		<race>TherizinosaurusRace</race>
+		<combatPower>250</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Therizinosaurus/Therizinosaurus</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Therizinosaurus/Dessicated_Therizinosaurus</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Therizinosaurus/Therizinosaurus</texPath>
+					<drawSize>4.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Therizinosaurus/Dessicated_Therizinosaurus</texPath>
+					<drawSize>4.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Therizinosaurus/Therizinosaurus</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Therizinosaurus/Dessicated_Therizinosaurus</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Therizinosaurus</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>TitanoboaRace</defName>
+		<label>Titanoboa</label>
+		<description>A huge snake of incredible size. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.8)</northOffset>
+				<southOffset>(0.0, 0.0, 0.8)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>1750</MarketValue>
+			<ArmorRating_Blunt>3</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+			<ComfyTemperatureMin>5</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggTitanoboaFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>8</eggFertilizationCountMax>
+				<eggLayIntervalDays>10</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~8</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+				<armorPenetrationBlunt>4</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>20</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>2</maxPreyBodySize>
+			<body>Snake</body>
+			<baseBodySize>2.5</baseBodySize>
+			<baseHungerRate>2</baseHungerRate>
+			<baseHealthScale>3</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>10</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundWounded>Pawn_Cobra_Wounded</soundWounded>
+					<soundDeath>Pawn_Cobra_Death</soundDeath>
+					<soundCall>Pawn_Cobra_Call</soundCall>
+					<soundAngry>Pawn_Cobra_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggTitanoboaFertilized</defName>
+		<label>Titanoboa egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>100.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>15</hatcherDaystoHatch>
+				<hatcherPawn>Titanoboa</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Titanoboa</defName>
+		<label>Titanoboa</label>
+		<race>TitanoboaRace</race>
+		<combatPower>200</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Titanoboa/Titanoboa</texPath>
+					<drawSize>4</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Titanoboa/Dessicated_Titanoboa</texPath>
+					<drawSize>4</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Titanoboa/Titanoboa</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Titanoboa/Dessicated_Titanoboa</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Titanoboa/Titanoboa</texPath>
+					<drawSize>6</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Titanoboa/Dessicated_Titanoboa</texPath>
+					<drawSize>6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Titanoboa</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>TriceratopsRace</defName>
+		<label>Triceratops</label>
+		<description>Large ancient herbivorous dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 0.8)</northOffset>
+				<southOffset>(0.0, 0.0, 0.8)</southOffset>
+				<eastOffset>(0.0, 0.0, 0.8)</eastOffset>
+				<westOffset>(0.0, 0.0, 0.8)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>3</MoveSpeed>
+			<MarketValue>1750</MarketValue>
+			<ArmorRating_Blunt>8</ArmorRating_Blunt>
+			<ArmorRating_Sharp>4</ArmorRating_Sharp>
+			<ComfyTemperatureMin>10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>35</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggTriceratopsFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>2</eggFertilizationCountMax>
+				<eggLayIntervalDays>20</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftLeg</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightLeg</linkedBodyPartsGroup>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>25</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.5</chanceFactor>
+				<armorPenetrationSharp>8</armorPenetrationSharp>
+				<armorPenetrationBlunt>10</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>false</predator>
+			<maxPreyBodySize>3.5</maxPreyBodySize>
+			<body>QuadrupedAnimalWithHoovesAndHorn</body>
+			<baseBodySize>4</baseBodySize>
+			<baseHungerRate>2</baseHungerRate>
+			<baseHealthScale>5</baseHealthScale>
+			<foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>30</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<packAnimal>true</packAnimal>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggTriceratopsFertilized</defName>
+		<label>Triceratops egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1.75</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>100.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>20</hatcherDaystoHatch>
+				<hatcherPawn>Triceratops</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Triceratops</defName>
+		<label>Triceratops</label>
+		<race>TriceratopsRace</race>
+		<combatPower>150</combatPower>
+		<ecoSystemWeight>2</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Triceratops/Triceratops</texPath>
+					<drawSize>5</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Triceratops/Dessicated_Triceratops</texPath>
+					<drawSize>5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Triceratops/Triceratops</texPath>
+					<drawSize>5.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Triceratops/Dessicated_Triceratops</texPath>
+					<drawSize>5.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Triceratops/Triceratops</texPath>
+					<drawSize>6</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Triceratops/Dessicated_Triceratops</texPath>
+					<drawSize>6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Triceratops</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>TyrannosaurRace</defName>
+		<label>Tyrannosaur</label>
+		<description>Incredibly huge and voracious predator of ancient times. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+			<li Class="GiddyUp.DrawingOffset">
+				<northOffset>(0.0, 0.0, 1.5)</northOffset>
+				<southOffset>(0.0, 0.0, 1.5)</southOffset>
+				<eastOffset>(0.0, 0.0, 1.5)</eastOffset>
+				<westOffset>(0.0, 0.0, 1.5)</westOffset>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>5</MoveSpeed>
+			<MarketValue>3000</MarketValue>
+			<ArmorRating_Blunt>10</ArmorRating_Blunt>
+			<ArmorRating_Sharp>8</ArmorRating_Sharp>
+			<ComfyTemperatureMin>10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>12</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+			<CaravanRidingSpeedFactor>1.2</CaravanRidingSpeedFactor>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggTyrannosaurFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>30</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>2</armorPenetrationSharp>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>2</armorPenetrationSharp>
+				<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>8</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>50</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>8</armorPenetrationSharp>
+				<armorPenetrationBlunt>12</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>TailAttackTool</linkedBodyPartsGroup>
+				<armorPenetrationSharp>4</armorPenetrationSharp>
+				<armorPenetrationBlunt>8</armorPenetrationBlunt>
+				<chanceFactor>0.1</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>6</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>6</baseBodySize>
+			<baseHungerRate>6</baseHungerRate>
+			<baseHealthScale>8</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>50</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggTyrannosaurFertilized</defName>
+		<label>Tyrannosaur egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>2.5</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>250.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>30</hatcherDaystoHatch>
+				<hatcherPawn>Tyrannosaur</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Tyrannosaur</defName>
+		<label>Tyrannosaur</label>
+		<race>TyrannosaurRace</race>
+		<combatPower>400</combatPower>
+		<ecoSystemWeight>5</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Tyrannosaur/Tyrannosaur</texPath>
+					<drawSize>7</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Tyrannosaur/Dessicated_Tyrannosaur</texPath>
+					<drawSize>7</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Tyrannosaur/Tyrannosaur</texPath>
+					<drawSize>15</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Tyrannosaur/Dessicated_Tyrannosaur</texPath>
+					<drawSize>15</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Tyrannosaur/Tyrannosaur</texPath>
+					<drawSize>20</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Tyrannosaur/Dessicated_Tyrannosaur</texPath>
+					<drawSize>20</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Tyrannosaur</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>VelociraptorRace</defName>
+		<label>Velociraptor</label>
+		<description>Small feathered predatory dinosaur. The genetic structure has been changed to suit new climatic conditions.</description>
+		<thingClass>ProjectParagon.Core.Things.PawnParagon</thingClass>
+		<modExtensions>
+			<li Class="CombatExtended.RacePropertiesExtensionCE">
+				<bodyShape>Quadruped</bodyShape>
+			</li>
+			<li Class="ProjectParagon.Core.Things.RacePropertiesDefModExtension">
+				<tameResearchRequired>RestoringAncientAnimals</tameResearchRequired>
+				<damageMultsMap>
+					<damageMults>
+						<Electrical>0</Electrical>
+						<ElectricalBurn>0</ElectricalBurn>
+					</damageMults>
+				</damageMultsMap>
+			</li>
+		</modExtensions>
+		<statBases>
+			<MoveSpeed>6</MoveSpeed>
+			<MarketValue>1000</MarketValue>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>30</ComfyTemperatureMax>
+			<FilthRate>4</FilthRate>
+			<MeleeDodgeChance>0.3</MeleeDodgeChance>
+			<MeleeCritChance>0.3</MeleeCritChance>
+			<MeleeParryChance>0.3</MeleeParryChance>
+			<CaravanRidingSpeedFactor>2</CaravanRidingSpeedFactor>
+		</statBases>
+		<uiIconScale>1</uiIconScale>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>EggVelociraptorFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>5</eggFertilizationCountMax>
+				<eggLayIntervalDays>10</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~5</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<armorPenetrationSharp>0.5</armorPenetrationSharp>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>3</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.3</chanceFactor>
+				<armorPenetrationBlunt>1</armorPenetrationBlunt>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<armorPenetrationSharp>1</armorPenetrationSharp>
+				<armorPenetrationBlunt>2</armorPenetrationBlunt>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<bloodDef>Filth_Mechanites</bloodDef>
+			<predator>true</predator>
+			<maxPreyBodySize>0.8</maxPreyBodySize>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>0.8</baseBodySize>
+			<baseHungerRate>1</baseHungerRate>
+			<baseHealthScale>1</baseHealthScale>
+			<foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+			<leatherDef>Thick_Leather</leatherDef>
+			<wildness>1</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>10</lifeExpectancy>
+			<manhunterOnTameFailChance>1</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.45</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.8</minAge>
+					<soundCall>Pawn_Thrumbo_Call</soundCall>
+					<soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+					<soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+					<soundDeath>Pawn_Thrumbo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<soundEating>Herbivore_Eat</soundEating>
+			<hediffGiverSets>
+				<li>DinosaurGroup</li>
+			</hediffGiverSets>
+		</race>
+		<tradeTags>
+			<li>AnimalDinosaur</li>
+		</tradeTags>
+	</ThingDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>EggVelociraptorFertilized</defName>
+		<label>Velociraptor egg (fert.)</label>
+		<description>A fertilized dinosaur egg.</description>
+		<graphicData>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>50.0</MarketValue>
+			<Nutrition>0.25</Nutrition>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>30</hatcherDaystoHatch>
+				<hatcherPawn>Velociraptor</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>Velociraptor</defName>
+		<label>Velociraptor</label>
+		<race>VelociraptorRace</race>
+		<combatPower>75</combatPower>
+		<ecoSystemWeight>0.75</ecoSystemWeight>
+		<aiAvoidCover>true</aiAvoidCover>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Velociraptor/Velociraptor</texPath>
+					<drawSize>2</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Velociraptor/Dessicated_Velociraptor</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Velociraptor/Velociraptor</texPath>
+					<drawSize>2.5</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Velociraptor/Dessicated_Velociraptor</texPath>
+					<drawSize>2.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Velociraptor/Velociraptor</texPath>
+					<drawSize>3</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Core/Races/Animals/Dinosaurs/Velociraptor/Dessicated_Velociraptor</texPath>
+					<drawSize>3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.CultureSystem.Archeology.DefModExtension_RecipeMakeBySkeleton">
+				<skeletonDef>SkeletonDef_Velociraptor</skeletonDef>
+			</li>
+		</modExtensions>
+	</PawnKindDef>
+	<!---->
+</Defs>

@@ -10,15 +10,10 @@
 		<stages>
 			<li>
 				<label>trivial</label>
-				<restFallFactorOffset>0.05</restFallFactorOffset>
 			</li>
 			<li>
 				<minSeverity>0.2</minSeverity>
 				<label>minor</label>
-				<restFallFactorOffset>0.05</restFallFactorOffset>
-				<statOffsets>
-					<WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
-				</statOffsets>
 				<statFactors>
 					<MuscleBuilding>0.8</MuscleBuilding>
 				</statFactors>
@@ -26,9 +21,9 @@
 			<li>
 				<minSeverity>0.4</minSeverity>
 				<label>moderate</label>
-				<restFallFactorOffset>0.1</restFallFactorOffset>
+				<restFallFactorOffset>0.05</restFallFactorOffset>
 				<statOffsets>
-					<WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
+					<WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
 				</statOffsets>
 				<statFactors>
 					<MuscleBuilding>0.5</MuscleBuilding>
@@ -37,9 +32,10 @@
 			<li>
 				<minSeverity>0.6</minSeverity>
 				<label>severe</label>
-				<restFallFactorOffset>0.15</restFallFactorOffset>
+				<restFallFactorOffset>0.1</restFallFactorOffset>
+				<naturalHealingFactor>0.85</naturalHealingFactor>
 				<statOffsets>
-					<WorkSpeedGlobal>-0.15</WorkSpeedGlobal>
+					<WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
 				</statOffsets>
 				<statFactors>
 					<MuscleBuilding>0.25</MuscleBuilding>
@@ -48,10 +44,11 @@
 			<li>
 				<minSeverity>0.8</minSeverity>
 				<label>extreme</label>
-				<restFallFactorOffset>0.2</restFallFactorOffset>
+				<restFallFactorOffset>0.15</restFallFactorOffset>
 				<painOffset>0.1</painOffset>
+				<naturalHealingFactor>0.5</naturalHealingFactor>
 				<statOffsets>
-					<WorkSpeedGlobal>-0.2</WorkSpeedGlobal>
+					<WorkSpeedGlobal>-0.15</WorkSpeedGlobal>
 				</statOffsets>
 				<statFactors>
 					<MuscleBuilding>0</MuscleBuilding>
@@ -92,11 +89,7 @@
 				</comps>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
-			</li>
-		</modExtensions>
+		
 	</HediffDef>
 
 	<HediffDef>
@@ -157,11 +150,7 @@
 				</comps>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
-			</li>
-		</modExtensions>
+		
 	</HediffDef>
 
 	<HediffDef>
@@ -228,11 +217,7 @@
 				</comps>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
-			</li>
-		</modExtensions>
+		
 	</HediffDef>
 
 	<HediffDef>
@@ -296,11 +281,7 @@
 				</comps>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
-			</li>
-		</modExtensions>
+		
 	</HediffDef>
 
 	<HediffDef>
@@ -397,11 +378,7 @@
 				</comps>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
-			</li>
-		</modExtensions>
+		
 	</HediffDef>
 	
 	<HediffDef>
@@ -451,11 +428,48 @@
 				</statFactors>
 			</li>
 		</stages>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
+		
+	</HediffDef>
+	
+	<HediffDef>
+		<defName>Food_Yellorium</defName>
+		<label>lack of yellorium</label>
+		<description>Lack of yellorium in the creature's body causes general weakness and can lead to death.</description>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<hediffClass>HediffWithComps</hediffClass>
+		<lethalSeverity>1</lethalSeverity>
+		<stages>
+			<li>
+				<label>trivial</label>
+				<painOffset>0.03</painOffset>
+				<naturalHealingFactor>0.95</naturalHealingFactor>
 			</li>
-		</modExtensions>
+			<li>
+				<minSeverity>0.2</minSeverity>
+				<label>minor</label>
+				<painOffset>0.05</painOffset>
+				<naturalHealingFactor>0.85</naturalHealingFactor>
+			</li>
+			<li>
+				<minSeverity>0.4</minSeverity>
+				<label>moderate</label>
+				<painOffset>0.08</painOffset>
+				<naturalHealingFactor>0.75</naturalHealingFactor>
+			</li>
+			<li>
+				<minSeverity>0.6</minSeverity>
+				<label>severe</label>
+				<painOffset>0.15</painOffset>
+				<naturalHealingFactor>0.5</naturalHealingFactor>
+			</li>
+			<li>
+				<minSeverity>0.8</minSeverity>
+				<label>extreme</label>
+				<painOffset>0.3</painOffset>
+				<naturalHealingFactor>0</naturalHealingFactor>
+			</li>
+		</stages>
+		
 	</HediffDef>
 
 </Defs>

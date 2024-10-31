@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<!---->
+	<!---->
+	<PreceptDef Name="SkillLevelPrecept_Encouraged" Abstract="true">
+		<label>Encouraged</label>
+		<description>Possession of this skill is encouraged in society.</description>
+		<impact>Low</impact>
+		<displayOrderInIssue>40</displayOrderInIssue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+	</PreceptDef>
+	<!---->
+	<ThoughtDef Name="SkillLevelThought_Encouraged" Abstract="true">
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_SkillLevel</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<!-- <= 3 -->
+				<label>low skill</label>
+				<description>I'm weak!</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 6 -->
+				<label>poor skill</label>
+				<description>I'm not good enough.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 10 -->
+				<label>normal skill</label>
+				<description>I have something to strive for.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 13 -->
+				<label>good skill</label>
+				<description>I'm getting closer to mastery.</description>
+				<baseMoodEffect>1</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 18 -->
+				<label>master skill</label>
+				<description>I'm getting closer to mastery.</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 20 -->
+				<label>legendary skill</label>
+				<description>I am a true legendary master!</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Shooting</defName>
+		<issue>SkillLevel_Shooting</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Shooting</thought>
+			</li>
+		</comps>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+			<li>MaleSupremacy</li>
+			<li>Inhuman</li>
+			<li>HAR_Xenophilia</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>HighLife</li>
+			<li>Blindsight</li>
+		</conflictingMemes>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Shooting</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Shooting</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Melee</defName>
+		<issue>SkillLevel_Melee</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+			<li>MaleSupremacy</li>
+			<li>Blindsight</li>
+			<li>Inhuman</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>HighLife</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Melee</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Melee</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Melee</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Construction</defName>
+		<issue>SkillLevel_Construction</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Collectivist</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>NaturePrimacy</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Construction</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Construction</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Construction</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Mining</defName>
+		<issue>SkillLevel_Mining</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Darkness</li>
+			<li>Tunneler</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>NaturePrimacy</li>
+			<li>Nobility</li>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Mining</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Mining</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Mining</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Cooking</defName>
+		<issue>SkillLevel_Cooking</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Cannibal</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Nobility</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Cooking</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Cooking</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Cooking</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Plants</defName>
+		<issue>SkillLevel_Plants</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>HighLife</li>
+			<li>TreeConnection</li>
+			<li>NaturePrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Nobility</li>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Plants</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Plants</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Plants</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Animals</defName>
+		<issue>SkillLevel_Animals</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>AnimalPersonhood</li>
+			<li>Rancher</li>
+			<li>NaturePrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Animals</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Animals</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Animals</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Crafting</defName>
+		<issue>SkillLevel_Crafting</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Collectivist</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Crafting</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Crafting</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Crafting</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Artistic</defName>
+		<issue>SkillLevel_Artistic</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Nobility</li>
+			<li>Individualist</li>
+			<li>FemaleSupremacy</li>
+			<li>HighLife</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Artistic</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Artistic</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Artistic</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Medicine</defName>
+		<issue>SkillLevel_Medicine</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>FleshPurity</li>
+			<li>PainIsVirtue</li>
+			<li>HighLife</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Medicine</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Medicine</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Medicine</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Social</defName>
+		<issue>SkillLevel_Social</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>FemaleSupremacy</li>
+			<li>Proselytizer</li>
+			<li>SunCult</li>
+			<li>HAR_Xenophilia</li>
+			<li>Nobility</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+			<li>Supremacist</li>
+			<li>Cannibal</li>
+			<li>HAR_Xenophobia</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Social</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Social</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Social</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Encouraged">
+		<defName>SkillLevelPrecept_Encouraged_Intellectual</defName>
+		<issue>SkillLevel_Intellectual</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Individualist</li>
+			<li>Transhumanist</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Inhuman</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Encouraged_Intellectual</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Encouraged">
+		<defName>SkillLevelThought_Encouraged_Intellectual</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Intellectual</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<!---->
+	<!---->
+	<PreceptDef Name="SkillLevelPrecept_Exalted" Abstract="true">
+		<label>Exalted</label>
+		<description>Possession of this skill is Exalted in society.</description>
+		<impact>Medium</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+	</PreceptDef>
+	<!---->
+	<ThoughtDef Name="SkillLevelThought_Exalted" Abstract="true">
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_SkillLevel</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<!-- <= 3 -->
+				<label>low skill</label>
+				<description>I'm weak!</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 6 -->
+				<label>poor skill</label>
+				<description>I'm not good enough.</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 10 -->
+				<label>normal skill</label>
+				<description>I have something to strive for.</description>
+				<baseMoodEffect>0</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 13 -->
+				<label>good skill</label>
+				<description>I'm getting closer to mastery.</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 18 -->
+				<label>master skill</label>
+				<description>I'm getting closer to mastery.</description>
+				<baseMoodEffect>4</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 20 -->
+				<label>legendary skill</label>
+				<description>I am a true legendary master!</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Shooting</defName>
+		<issue>SkillLevel_Shooting</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+			<li>MaleSupremacy</li>
+			<li>Inhuman</li>
+			<li>HAR_Xenophilia</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>HighLife</li>
+			<li>Blindsight</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Shooting</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Shooting</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Shooting</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Melee</defName>
+		<issue>SkillLevel_Melee</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+			<li>MaleSupremacy</li>
+			<li>Blindsight</li>
+			<li>Inhuman</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>HighLife</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Melee</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Melee</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Melee</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Construction</defName>
+		<issue>SkillLevel_Construction</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Collectivist</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>NaturePrimacy</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Construction</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Construction</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Construction</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Mining</defName>
+		<issue>SkillLevel_Mining</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Darkness</li>
+			<li>Tunneler</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>NaturePrimacy</li>
+			<li>Nobility</li>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Mining</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Mining</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Mining</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Cooking</defName>
+		<issue>SkillLevel_Cooking</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Cannibal</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Nobility</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Cooking</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Cooking</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Cooking</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Plants</defName>
+		<issue>SkillLevel_Plants</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>HighLife</li>
+			<li>TreeConnection</li>
+			<li>NaturePrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Nobility</li>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Plants</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Plants</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Plants</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Animals</defName>
+		<issue>SkillLevel_Animals</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>AnimalPersonhood</li>
+			<li>Rancher</li>
+			<li>NaturePrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Animals</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Animals</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Animals</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Crafting</defName>
+		<issue>SkillLevel_Crafting</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Collectivist</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Crafting</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Crafting</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Crafting</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Artistic</defName>
+		<issue>SkillLevel_Artistic</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Nobility</li>
+			<li>Individualist</li>
+			<li>FemaleSupremacy</li>
+			<li>HighLife</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Artistic</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Artistic</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Artistic</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Medicine</defName>
+		<issue>SkillLevel_Medicine</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>FleshPurity</li>
+			<li>PainIsVirtue</li>
+			<li>HighLife</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Medicine</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Medicine</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Medicine</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Social</defName>
+		<issue>SkillLevel_Social</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>FemaleSupremacy</li>
+			<li>Proselytizer</li>
+			<li>SunCult</li>
+			<li>HAR_Xenophilia</li>
+			<li>Nobility</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+			<li>Supremacist</li>
+			<li>Cannibal</li>
+			<li>HAR_Xenophobia</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Social</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Social</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Social</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Exalted">
+		<defName>SkillLevelPrecept_Exalted_Intellectual</defName>
+		<issue>SkillLevel_Intellectual</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Individualist</li>
+			<li>Transhumanist</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Inhuman</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Exalted_Intellectual</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Exalted">
+		<defName>SkillLevelThought_Exalted_Intellectual</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Intellectual</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<!---->
+	<!---->
+	<PreceptDef Name="SkillLevelPrecept_Required" Abstract="true">
+		<label>Required</label>
+		<description>Possession of this skill is Required in society.</description>
+		<impact>High</impact>
+		<displayOrderInIssue>30</displayOrderInIssue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+	</PreceptDef>
+	<!---->
+	<ThoughtDef Name="SkillLevelThought_Required" Abstract="true">
+		<workerClass>ProjectParagon.Core.Thoughts.ThoughtWorker_Precept_AlwaysActive_SkillLevel</workerClass>
+		<validWhileDespawned>true</validWhileDespawned>
+		<developmentalStageFilter>Adult</developmentalStageFilter>
+		<stages>
+			<li>
+				<!-- <= 3 -->
+				<label>low skill</label>
+				<description>I'm weak!</description>
+				<baseMoodEffect>-5</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 6 -->
+				<label>poor skill</label>
+				<description>I'm not good enough.</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 10 -->
+				<label>normal skill</label>
+				<description>I have something to strive for.</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 13 -->
+				<label>good skill</label>
+				<description>I'm getting closer to mastery.</description>
+				<baseMoodEffect>2</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 18 -->
+				<label>master skill</label>
+				<description>I'm getting closer to mastery.</description>
+				<baseMoodEffect>5</baseMoodEffect>
+			</li>
+			<li>
+				<!-- <= 20 -->
+				<label>legendary skill</label>
+				<description>I am a true legendary master!</description>
+				<baseMoodEffect>7</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Shooting</defName>
+		<issue>SkillLevel_Shooting</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+			<li>MaleSupremacy</li>
+			<li>Inhuman</li>
+			<li>HAR_Xenophilia</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>HighLife</li>
+			<li>Blindsight</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Shooting</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Shooting</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Shooting</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Melee</defName>
+		<issue>SkillLevel_Melee</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Supremacist</li>
+			<li>Raider</li>
+			<li>MaleSupremacy</li>
+			<li>Blindsight</li>
+			<li>Inhuman</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>HighLife</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Melee</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Melee</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Melee</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Construction</defName>
+		<issue>SkillLevel_Construction</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Collectivist</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>NaturePrimacy</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Construction</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Construction</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Construction</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Mining</defName>
+		<issue>SkillLevel_Mining</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Darkness</li>
+			<li>Tunneler</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>NaturePrimacy</li>
+			<li>Nobility</li>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Mining</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Mining</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Mining</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Cooking</defName>
+		<issue>SkillLevel_Cooking</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Cannibal</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Nobility</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Cooking</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Cooking</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Cooking</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Plants</defName>
+		<issue>SkillLevel_Plants</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>HighLife</li>
+			<li>TreeConnection</li>
+			<li>NaturePrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Nobility</li>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Plants</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Plants</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Plants</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Animals</defName>
+		<issue>SkillLevel_Animals</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>AnimalPersonhood</li>
+			<li>Rancher</li>
+			<li>NaturePrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Animals</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Animals</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Animals</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Crafting</defName>
+		<issue>SkillLevel_Crafting</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Collectivist</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Crafting</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Crafting</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Crafting</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Artistic</defName>
+		<issue>SkillLevel_Artistic</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Nobility</li>
+			<li>Individualist</li>
+			<li>FemaleSupremacy</li>
+			<li>HighLife</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Artistic</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Artistic</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Artistic</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Medicine</defName>
+		<issue>SkillLevel_Medicine</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>FleshPurity</li>
+			<li>PainIsVirtue</li>
+			<li>HighLife</li>
+		</associatedMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Medicine</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Medicine</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Medicine</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Social</defName>
+		<issue>SkillLevel_Social</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>FemaleSupremacy</li>
+			<li>Proselytizer</li>
+			<li>SunCult</li>
+			<li>HAR_Xenophilia</li>
+			<li>Nobility</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Raider</li>
+			<li>Supremacist</li>
+			<li>Cannibal</li>
+			<li>HAR_Xenophobia</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Social</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Social</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Social</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<PreceptDef ParentName="SkillLevelPrecept_Required">
+		<defName>SkillLevelPrecept_Required_Intellectual</defName>
+		<issue>SkillLevel_Intellectual</issue>
+		<displayOrderInImpact>300</displayOrderInImpact>
+		<associatedMemes>
+			<li>Individualist</li>
+			<li>Transhumanist</li>
+			<li>HumanPrimacy</li>
+		</associatedMemes>
+		<conflictingMemes>
+			<li>Inhuman</li>
+		</conflictingMemes>
+		<comps>
+			<li Class="PreceptComp_SituationalThought">
+				<thought>SkillLevelThought_Required_Intellectual</thought>
+			</li>
+		</comps>
+	</PreceptDef>
+	<ThoughtDef ParentName="SkillLevelThought_Required">
+		<defName>SkillLevelThought_Required_Intellectual</defName>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Other.DefModExtension_ThoughtDefSkillLevel">
+				<skillDef>Intellectual</skillDef>
+			</li>
+		</modExtensions>
+	</ThoughtDef>
+	<!---->
+	<!---->
+	<!---->
+</Defs>

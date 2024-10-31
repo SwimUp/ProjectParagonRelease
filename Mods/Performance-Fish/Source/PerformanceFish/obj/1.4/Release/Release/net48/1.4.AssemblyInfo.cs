@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright (c) 2023 Bradson")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.6.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.6.2.0+b7cb90db03b6c000ac0450d8eaef410f7fc0220e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.6.2.0+e51d1c094171fc956f87cb22a14c7cfb9ff593ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("PerformanceFish")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PerformanceFish")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.6.2.0")]

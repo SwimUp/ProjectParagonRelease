@@ -870,12 +870,10 @@
 		<graphicData>
 			<texPath>Core/Buildings/Space/CenterNovax</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>5.3, 5.4</drawSize>
-			<shadowData>
-				<volume>(4.4,0.5,4.1)</volume>
-				<offset>(0,0,-0.5)</offset>
-			</shadowData>
+			<drawSize>11</drawSize>
+			<drawRotated>false</drawRotated>
 		</graphicData>
+		<staticSunShadowHeight>0.25</staticSunShadowHeight>
 		<costList>
 			<SuperStrongPlates>150</SuperStrongPlates>
 			<Microelectronics>20</Microelectronics>
@@ -891,14 +889,17 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>CenterNovax</scheme>
+			</li>
 		</comps>
 		<researchPrerequisites>
 			<li>Satellites</li>
 		</researchPrerequisites>
-		<rotatable>false</rotatable>
+		<rotatable>true</rotatable>
 		<constructEffect>ConstructMetal</constructEffect>
 		<fillPercent>0.5</fillPercent>
-		<altitudeLayer>Building</altitudeLayer>
+		<altitudeLayer>BuildingBelowTop</altitudeLayer>
 		<blockWind>true</blockWind>
 		<useHitPoints>True</useHitPoints>
 		<statBases>
@@ -907,7 +908,7 @@
 			<Flammability>0.1</Flammability>
 			<Mass>400</Mass>
 		</statBases>
-		<size>(5,5)</size>
+		<size>4,4</size>
 		<designationCategory>Satellites</designationCategory>
 		<passability>PassThroughOnly</passability>
 		<pathCost>60</pathCost>
@@ -918,9 +919,51 @@
 		<tickerType>Normal</tickerType>
 		<placeWorkers>
 			<li>PlaceWorker_NotUnderRoof</li>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
 		</placeWorkers>
 		<minifiedDef/>
 		<thingCategories Inherit="false"/>
+		<uiIconScale>0.75</uiIconScale>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>OrbitAnalyzer</defName>
+		<label>Orbit analyzer</label>
+		<description>Computer for calculating orbits and behavior of satellites. It is an integral part of the Novax control center.</description>
+		<graphicData>
+			<texPath>Core/Buildings/Space/OrbitAnalyzer/OrbitAnalyzer</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>3</drawSize>
+			<shaderType>CutoutComplex</shaderType>
+			<drawOffset>0,0,0</drawOffset>
+		</graphicData>
+		<staticSunShadowHeight>0.1</staticSunShadowHeight>
+		<thingClass>Building</thingClass>
+		<uiIconScale>1</uiIconScale>
+		<size>(3,1)</size>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>15000</WorkToBuild>
+			<Flammability>1</Flammability>
+			<Mass>125</Mass>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<constructEffect/>
+		<costStuffCount>200</costStuffCount>
+		<costList>
+			<Microelectronics>4</Microelectronics>
+			<ComponentIndustrial>4</ComponentIndustrial>
+			<BulletproofGlass>75</BulletproofGlass>
+		</costList>
+		<designationCategory>Satellites</designationCategory>
+		<researchPrerequisites>
+			<li>Satellites</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 	</ThingDef>
 	<!---->
 </Defs>

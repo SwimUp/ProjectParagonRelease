@@ -266,11 +266,6 @@
 				</capMods>
 			</li>
 		</stages>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
-			</li>
-		</modExtensions>
 	</HediffDef>
 	<HediffDef ParentName="InfectionBase">
 		<defName>HediffDef_HydrogenSulfide</defName>
@@ -364,11 +359,6 @@
 				</capMods>
 			</li>
 		</stages>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiHediffDef"/>
-			</li>
-		</modExtensions>
 	</HediffDef>
 	<HediffDef ParentName="InfectionBase">
 		<defName>Sneezing</defName>
@@ -543,273 +533,24 @@
 			</li>
 		</stages>
 	</HediffDef>
-	<!--<HediffDef ParentName="InfectionBase">
-		<defName>Irradiation</defName>
-		<label>Irradiation</label>
-		<description>Exposure to radioactive particles causes severe illness and irreversible processes when the dosage is exceeded.</description>
-		<initialSeverity>0.001</initialSeverity>
-		<maxSeverity>1</maxSeverity>
-		<lethalSeverity>1</lethalSeverity>
+	<!---->
+	<HediffDef ParentName="ChronicDiseaseBase">
+		<defName>GeneticInstability</defName>
+		<label>Genetic instability</label>
+		<description>The creature has been genetically recreated and is not stable enough to produce healthy offspring.</description>
+		<initialSeverity>1.0</initialSeverity>
+		<maxSeverity>1.0</maxSeverity>
 		<tendable>false</tendable>
-		<makesSickThought>true</makesSickThought>
-		<comps>
-			<li Class="HediffCompProperties_Immunizable">
-				<severityPerDayNotImmune>-0.04</severityPerDayNotImmune>
-			</li>
-			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
-				<comps>
-					<li>
-						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
-						<intervalTicks>300000~400000</intervalTicks>
-						<hediffDefs>
-							<li>Diseases_HediffDef_PsychosisOfHypersensitivity</li>
-							<li>Diseases_HediffDef_Hallucinosis</li>
-						</hediffDefs>
-						<partsToAffect>
-							<li>Brain</li>
-						</partsToAffect>
-						<chance>0.75</chance>
-						<severityRange>0.2~1.0</severityRange>
-						<letter>false</letter>
-					</li>
-					<li>
-						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
-						<intervalTicks>60000~120000</intervalTicks>
-						<hediffDefs>
-							<li>RadiationSickness</li>
-						</hediffDefs>
-						<chance>0.25</chance>
-						<severityRange>0.75~1.0</severityRange>
-						<letter>true</letter>
-					</li>
-				</comps>
-			</li>
-		</comps>
+		<makesSickThought>false</makesSickThought>
+		<isBad>false</isBad>
 		<stages>
 			<li>
-				<label>initial</label>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<offset>-0.15</offset>
-					</li>
-				</capMods>
-			</li>
-			<li>
-				<label>minor</label>
-				<minSeverity>0.2</minSeverity>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<offset>-0.25</offset>
-					</li>
-				</capMods>
-			</li>
-			<li>
-				<label>moderate</label>
-				<minSeverity>0.40</minSeverity>
-				<vomitMtbDays>1</vomitMtbDays>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<offset>-0.4</offset>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>Carcinoma</hediff>
-						<mtbDays>300</mtbDays>
-						<canAffectAnyLivePart>true</canAffectAnyLivePart>
-					</li>
-				</hediffGivers>
-			</li>
-			<li>
-				<label>serious</label>
-				<minSeverity>0.60</minSeverity>
-				<vomitMtbDays>1</vomitMtbDays>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<offset>-0.6</offset>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>Carcinoma</hediff>
-						<mtbDays>90</mtbDays>
-						<canAffectAnyLivePart>true</canAffectAnyLivePart>
-					</li>
-				</hediffGivers>
-			</li>
-			<li>
-				<label>extreme</label>
-				<minSeverity>0.80</minSeverity>
-				<vomitMtbDays>0.5</vomitMtbDays>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.10</setMax>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>Carcinoma</hediff>
-						<mtbDays>25</mtbDays>
-						<canAffectAnyLivePart>true</canAffectAnyLivePart>
-					</li>
-				</hediffGivers>
+				<fertilityFactor>0.2</fertilityFactor>
+				<statFactors>
+					<CancerRate>3</CancerRate>
+				</statFactors>
 			</li>
 		</stages>
 	</HediffDef>
-	<HediffDef ParentName="InfectionBase">
-		<defName>RadiationSickness</defName>
-		<label>Radiation sickness</label>
-		<description>Consequences of severe exposure. Severe radiation sickness can lead to blindness, vomiting, coma, and death.</description>
-		<initialSeverity>0.001</initialSeverity>
-		<maxSeverity>1</maxSeverity>
-		<lethalSeverity>1</lethalSeverity>
-		<tendable>true</tendable>
-		<makesSickThought>true</makesSickThought>
-		<comps>
-			<li Class="HediffCompProperties_SeverityPerDay">
-				<severityPerDay>0.05</severityPerDay>
-			</li>
-			<li Class="HediffCompProperties_TendDuration">
-				<baseTendDurationHours>48</baseTendDurationHours>
-				<disappearsAtTotalTendQuality>6.0</disappearsAtTotalTendQuality>
-			</li>
-			<li Class="Diseases.Hediffs.HediffCompProperties_Storage">
-				<comps>
-					<li>
-						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
-						<intervalTicks>150000~300000</intervalTicks>
-						<hediffDefs>
-							<li>Diseases_HediffDef_Hallucinosis</li>
-						</hediffDefs>
-						<partsToAffect>
-							<li>Brain</li>
-						</partsToAffect>
-						<severityRange>0.1~1.0</severityRange>
-						<letter>false</letter>
-						<chance>1</chance>
-					</li>
-					<li>
-						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
-						<intervalTicks>600000~720000</intervalTicks>
-						<hediffDefs>
-							<li>Diseases_HediffDef_Glaucoma</li>
-						</hediffDefs>
-						<partsToAffect>
-							<li>Eye</li>
-						</partsToAffect>
-						<countToAffect>2</countToAffect>
-						<letter>true</letter>
-						<severityRange>0.8~1.0</severityRange>
-						<chance>0.1</chance>
-					</li>
-					<li>
-						<compClass>Diseases.Hediffs.HediffComp_DiseaseAfterTicks</compClass>
-						<intervalTicks>60000~180000</intervalTicks>
-						<hediffDefs>
-							<li>Diseases_HediffDef_Coma</li>
-						</hediffDefs>
-						<countToAffect>1</countToAffect>
-						<letter>true</letter>
-						<chance>0.25</chance>
-						<severityRange>0.9~1.0</severityRange>
-					</li>
-				</comps>
-			</li>
-		</comps>
-		<stages>
-			<li>
-				<label>initial</label>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.9</setMax>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>Carcinoma</hediff>
-						<mtbDays>1000</mtbDays>
-						<canAffectAnyLivePart>true</canAffectAnyLivePart>
-					</li>
-				</hediffGivers>
-			</li>
-			<li>
-				<label>minor</label>
-				<minSeverity>0.2</minSeverity>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.8</setMax>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>Carcinoma</hediff>
-						<mtbDays>800</mtbDays>
-						<canAffectAnyLivePart>true</canAffectAnyLivePart>
-					</li>
-				</hediffGivers>
-			</li>
-			<li>
-				<label>moderate</label>
-				<minSeverity>0.40</minSeverity>
-				<vomitMtbDays>2</vomitMtbDays>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.7</setMax>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>Carcinoma</hediff>
-						<mtbDays>600</mtbDays>
-						<canAffectAnyLivePart>true</canAffectAnyLivePart>
-					</li>
-				</hediffGivers>
-			</li>
-			<li>
-				<label>serious</label>
-				<minSeverity>0.60</minSeverity>
-				<vomitMtbDays>3</vomitMtbDays>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.5</setMax>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>Carcinoma</hediff>
-						<mtbDays>400</mtbDays>
-						<canAffectAnyLivePart>true</canAffectAnyLivePart>
-					</li>
-				</hediffGivers>
-			</li>
-			<li>
-				<label>extreme</label>
-				<minSeverity>0.80</minSeverity>
-				<vomitMtbDays>0.5</vomitMtbDays>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<setMax>0.10</setMax>
-					</li>
-				</capMods>
-				<hediffGivers>
-					<li Class="HediffGiver_Random">
-						<hediff>Carcinoma</hediff>
-						<mtbDays>200</mtbDays>
-						<canAffectAnyLivePart>true</canAffectAnyLivePart>
-					</li>
-				</hediffGivers>
-			</li>
-		</stages>
-	</HediffDef>-->
-	
+	<!---->
 </Defs>

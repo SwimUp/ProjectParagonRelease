@@ -341,11 +341,6 @@
 				</extraMiningItems>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>HematiteOre</defName>
@@ -480,11 +475,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>BauxiteOre</defName>
@@ -845,11 +835,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>TetrahedriteOre</defName>
@@ -1216,11 +1201,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>CassiteriteOre</defName>
@@ -1581,11 +1561,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>SphaleriteOre</defName>
@@ -1716,11 +1691,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>ChromiteOre</defName>
@@ -2077,11 +2047,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>Coal</defName>
@@ -2440,11 +2405,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>CrenneriteOre</defName>
@@ -2798,11 +2758,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>RockSalt</defName>
@@ -2812,7 +2767,7 @@
 			<texPath>Core/Resources/Mineable/Sand</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
 		</graphicData>
-		<thingClass>ProjectParagon.Core.Things.Salt</thingClass>
+		<thingClass>ThingWithComps</thingClass>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
 		<ingestible>
@@ -2846,14 +2801,15 @@
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
 		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
 			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
 				<stalagmiteDef>StalagmiteRockSalt</stalagmiteDef>
 			</li>
 		</modExtensions>
 		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_IngestNeedLevel">
+				<needDef>Need_Salt</needDef>
+				<levelPerCount>0.05</levelPerCount>
+			</li>
 			<li Class="ProjectParagon.Core.FoodSystem.CompProperties_FoodComponent">
 				<slot>Misc</slot>
 				<!-- Слот еды -->
@@ -3247,22 +3203,17 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>Sulfur</defName>
 		<label>Sulfur</label>
-		<thingClass>ProjectParagon.Core.Things.Sulfur</thingClass>
 		<description>Yellow crystals of sulfur.</description>
 		<graphicData>
 			<texPath>Core/Resources/Mineable/Sand</texPath>
 			<graphicClass>Graphic_StackCount</graphicClass>
 			<color>(170,170,106)</color>
 		</graphicData>
+		<thingClass>ThingWithComps</thingClass>
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
 		<ingestible>
@@ -3293,6 +3244,12 @@
 		<burnableByRecipe>false</burnableByRecipe>
 		<!-- <smeltable>true</smeltable> -->
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_IngestNeedLevel">
+				<needDef>Need_Sulfur</needDef>
+				<levelPerCount>0.05</levelPerCount>
+			</li>
+		</comps>
 		<modExtensions>
 			<li Class="ProjectParagon.Core.Things.DefModExtension_Ore">
 				<stalagmiteDef>StalagmiteSulfur</stalagmiteDef>
@@ -3622,11 +3579,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>Saltpeter</defName>
@@ -3829,11 +3781,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>MagnesiumOre</defName>
@@ -3960,11 +3907,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>IlmeniteOre</defName>
@@ -4294,11 +4236,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="OreStalagmiteBase">
 		<defName>StalagmiteUraniumOre</defName>
@@ -4392,11 +4329,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>SkutteruditeOre</defName>
@@ -4523,11 +4455,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>WolframiteOre</defName>
@@ -4654,11 +4581,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>AdamantiumOre</defName>
@@ -4747,11 +4669,6 @@
 				</hillinessMultipliers>
 			</li>
 		</comps>
-		<modExtensions>
-			<li Class="ParagonWiki.Other.DefExtension_Wiki">
-				<wikiExtraInfo Class="ProjectParagon.Wiki.WikiExtraInfo_WikiThingDef"/>
-			</li>
-		</modExtensions>
 	</ThingDef>
 	<ThingDef ParentName="ResourceBase">
 		<defName>VibraniumOre</defName>
@@ -4786,7 +4703,6 @@
 		<defName>SleepingGrax</defName>
 		<label>Sleeping Grax</label>
 		<description>An ancient organism resting in eternal sleep.</description>
-		<thingClass>ProjectParagon.Core.Things.Building_SleepingGrax</thingClass>
 		<graphicData>
 			<texPath>Core/Buildings/SleepingGrax/SleepingGrax</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -4802,7 +4718,7 @@
 		<pathCost>50</pathCost>
 		<rotatable>true</rotatable>
 		<statBases>
-			<MaxHitPoints>300</MaxHitPoints>
+			<MaxHitPoints>500</MaxHitPoints>
 			<Mass>350</Mass>
 			<Flammability>0</Flammability>
 		</statBases>
@@ -4812,6 +4728,59 @@
 		<building>
 			<claimable>false</claimable>
 		</building>
+		<fillPercent>0.5</fillPercent>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SleepingPawn">
+				<awakeMessage>Grax awakens from his sleep and seems very angry.</awakeMessage>
+				<pawnKindDef>Newborn_Grax</pawnKindDef>
+				<adulthood>Backstories_Adulthood_Grax</adulthood>
+				<childhood>Backstories_Childhood_Grax</childhood>
+				<sleepFleckDef>SleepZ</sleepFleckDef>
+				<fleckTick>100</fleckTick>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>SleepingNectolite</defName>
+		<label>Sleeping Nectolite</label>
+		<description>An ancient organism resting in eternal sleep.</description>
+		<graphicData>
+			<texPath>Core/Buildings/SleepingNectolite/SleepingNectolite</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>4</drawSize>
+			<drawOffset>0,0,0</drawOffset>
+		</graphicData>
+		<uiIconScale>1</uiIconScale>
+		<drawerType>RealtimeOnly</drawerType>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<category>Building</category>
+		<pathCost>50</pathCost>
+		<rotatable>true</rotatable>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Mass>350</Mass>
+			<Flammability>0</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<useHitPoints>true</useHitPoints>
+		<tickerType>Normal</tickerType>
+		<building>
+			<claimable>false</claimable>
+		</building>
+		<fillPercent>0.5</fillPercent>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_SleepingPawn">
+				<compClass>ProjectParagon.Core.Things.CompSleepingNectolite</compClass>
+				<awakeMessage>Nectolite awakens from his sleep and seems very angry.</awakeMessage>
+				<pawnKindDef>Newborn_Nectolite</pawnKindDef>
+				<adulthood>Backstories_Adulthood_Nectolite</adulthood>
+				<childhood>Backstories_Childhood_Nectolite</childhood>
+				<sleepFleckDef>SleepZ</sleepFleckDef>
+				<fleckTick>100</fleckTick>
+			</li>
+		</comps>
 	</ThingDef>
 	<!---->
 </Defs>

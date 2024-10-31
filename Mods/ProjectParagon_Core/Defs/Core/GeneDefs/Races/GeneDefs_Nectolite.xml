@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!---->
+	<GeneDef Name="GeneNectoliteBase" Abstract="True">
+		<displayCategory>Nectolite</displayCategory>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNectoliteBase">
+		<defName>Nectolite</defName>
+		<label>Nectolite</label>
+		<description>A cephalopod with great psionic potential.</description>
+		<iconPath>Core/Genes/Nectolite</iconPath>
+		<displayOrderInCategory>0</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<exclusionTags>
+			<li>Race</li>
+		</exclusionTags>
+		<statFactors>
+			<HygieneRateMultiplier>1.5</HygieneRateMultiplier>
+		</statFactors>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>NectoliteRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<!---->
+	<GeneDef ParentName="GeneNectoliteBase">
+		<defName>SoftBody</defName>
+		<label>Soft body</label>
+		<description>The creature is very vulnerable to any damage.</description>
+		<iconPath>Core/Genes/SoftBody</iconPath>
+		<displayOrderInCategory>10</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>4</biostatMet>
+		<prerequisite>Nectolite</prerequisite>
+		<exclusionTags>
+			<li>Toughness</li>
+		</exclusionTags>
+		<statFactors>
+			<IncomingDamageFactor>1.25</IncomingDamageFactor>
+		</statFactors>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>NectoliteRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNectoliteBase">
+		<defName>Tentacles</defName>
+		<label>Tentacles</label>
+		<description>The creature's limbs are flexible tentacles with suction cups. They are not suitable for fine work.</description>
+		<iconPath>Core/Genes/Tentacles</iconPath>
+		<displayOrderInCategory>20</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>1</biostatMet>
+		<prerequisite>Nectolite</prerequisite>
+		<capMods>
+      <li>
+        <capacity>Manipulation</capacity>
+        <postFactor>0.75</postFactor>
+      </li>
+    </capMods>
+		<exclusionTags>
+      <li>Hands</li>
+    </exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>NectoliteRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNectoliteBase">
+		<defName>NectoliteShell</defName>
+		<label>Nectolite shell</label>
+		<description>A durable chitinous shell covering most of the body, coated with metal oxides.</description>
+		<geneClass>ProjectParagon.Core.Genes.Gene_ForceHediff</geneClass>
+		<iconPath>Core/Genes/NectoliteShell</iconPath>
+		<displayOrderInCategory>30</displayOrderInCategory>
+		<biostatCpx>1</biostatCpx>
+		<biostatMet>-2</biostatMet>
+		<prerequisite>Nectolite</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Genes.GeneProperties_ForceHediff">
+					<hediffDef>NectoliteShell</hediffDef>
+					<bodyParts>
+						<li>SnailCarapace</li>
+					</bodyParts>
+					<severity>1</severity>
+				</props>
+				<relatedRaces>
+					<li>NectoliteRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNectoliteBase">
+		<defName>DecentralizedNervousSystem</defName>
+		<label>Decentralized nervous system</label>
+		<description>The host's nervous system is distributed over many limbs.</description>
+		<iconPath>Core/Genes/DecentralizedNervousSystem</iconPath>
+		<displayOrderInCategory>40</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-1</biostatMet>
+		<prerequisite>Nectolite</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>NectoliteRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNectoliteBase">
+		<defName>PsychicalHyperactivity</defName>
+		<label>Psychical hyperactivity</label>
+		<description>The carrier of the gene has a special structure of brain centers, which makes it easy to concentrate and direct psionic activity.</description>
+		<iconPath>Core/Genes/PsychicalHyperactivity</iconPath>
+		<displayOrderInCategory>50</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-5</biostatMet>
+		<prerequisite>Nectolite</prerequisite>
+		<statOffsets>
+			<PsychicSensitivity>3</PsychicSensitivity>
+			<MeditationFocusGain>0.33</MeditationFocusGain>
+			<PsychicEntropyRecoveryRate>0.33</PsychicEntropyRecoveryRate>
+		</statOffsets>
+		<statFactors>
+			<RestFallRateFactor>1.5</RestFallRateFactor>
+		</statFactors>
+		<exclusionTags>
+			<li>Sleep</li>
+			<li>PsychicAbility</li>
+		</exclusionTags>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<relatedRaces>
+					<li>NectoliteRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+	<GeneDef ParentName="GeneNectoliteBase">
+		<defName>PsionicDispel</defName>
+		<label>Psionic dispel</label>
+		<description>The carrier of the gene is able to use his psionic power to reflect damage, which, however, can cause overheating. The creature will not dissipate damage at a critical level of overheating.</description>
+		<geneClass>ProjectParagon.Core.Genes.Gene_PsionicDispel</geneClass>
+		<iconPath>Core/Genes/PsionicDispel</iconPath>
+		<displayOrderInCategory>60</displayOrderInCategory>
+		<biostatCpx>2</biostatCpx>
+		<biostatMet>-4</biostatMet>
+		<prerequisite>PsychicalHyperactivity</prerequisite>
+		<modExtensions>
+			<li Class="ProjectParagon.Core.Genes.DefExtension_Gene">
+				<props Class="ProjectParagon.Core.Genes.GeneProperties_PsionicDispel">
+					<hediffSeverityByDamage>
+						<points>
+							<li>0, 0</li>
+							<li>100, 0.75</li>
+							<li>200, 2</li>
+						</points>
+					</hediffSeverityByDamage>
+				</props>
+				<relatedRaces>
+					<li>NectoliteRace</li>
+				</relatedRaces>
+				<genepackGenerated>false</genepackGenerated>
+				<overrideGeneBackground>Core/Genes/GeneBackground_Xenos</overrideGeneBackground>
+			</li>
+		</modExtensions>
+	</GeneDef>
+	<!---->
+</Defs>

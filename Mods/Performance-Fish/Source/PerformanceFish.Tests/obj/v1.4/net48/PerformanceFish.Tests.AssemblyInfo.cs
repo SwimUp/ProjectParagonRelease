@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PerformanceFish.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("v1.4")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7cb90db03b6c000ac0450d8eaef410f7fc0220e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e51d1c094171fc956f87cb22a14c7cfb9ff593ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("PerformanceFish.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PerformanceFish.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
