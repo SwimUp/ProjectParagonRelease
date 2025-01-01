@@ -7851,6 +7851,7 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 		<graphicData>
 			<texPath>Chicken</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
 			<drawSize>(4.8, 4.8)</drawSize>
 			<shadowData>
 				<volume>(1.8, 1.0, 0.2)</volume>
@@ -7861,13 +7862,13 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			<li>Woody</li>
 		</stuffCategories>
 		<castEdgeShadows>false</castEdgeShadows>
-		<costStuffCount>250</costStuffCount>
+		<costStuffCount>200</costStuffCount>
 		<tickerType>Normal</tickerType>
 		<minifiedDef isNull="true" Inherit="false"/>
 		<thingCategories isNull="true" Inherit="false"/>
 		<costList>
 			<ComponentSimple>4</ComponentSimple>
-			<Hay>150</Hay>
+			<Hay>125</Hay>
 		</costList>
 		<altitudeLayer>Building</altitudeLayer>
 		<fillPercent>0.5</fillPercent>
@@ -7902,16 +7903,133 @@ The normal temperature range is 0~25 degrees. Lack of care will result in damage
 			</li>
 			<li Class="ProjectParagon.Core.Things.CompProperties_Barn">
 				<allowedAnimals>
+					<li>Ostrich</li>
+					<li>Emu</li>
+					<li>Cassowary</li>
 					<li>Chicken</li>
 					<li>Duck</li>
-					<li>Goose</li>
 					<li>Turkey</li>
-					<!--<li>Cow</li>
-					<li>Muffalo</li>
-					<li>DarkIbex</li>
-					<li>Arix</li>-->
+					<li>Goose</li>
+					<li>Chocobo</li>
+					<li>Cockatoo</li>
+					<li>Hornbill</li>
+					<li>Toucan</li>
+					<li>Parrot</li>
+					<li>Vulture</li>
+					<li>Owl</li>
+					<li>Crow</li>
+					<li>Kestrel</li>
+					<li>Ibrex</li>
+					<li>Rimebeak</li>
+					<li>Penguin</li>
+					<li>RedBilledPenguin</li>
+					<li>Dodo</li>
+					<li>Cornion</li>
+					<li>Ornipteryx</li>
 				</allowedAnimals>
 				<barnSize>12</barnSize>
+				<mateIntervalTicks>60000~60000</mateIntervalTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	<!---->
+	<ThingDef ParentName="BuildingBase">
+		<defName>Barn</defName>
+		<label>Barn</label>
+		<description>A building in which animals can be bred to obtain useful resources.</description>
+		<thingClass>ProjectParagon.Core.Things.Building_Barn</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>Core/Buildings/Barn/Barn</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>10,10</drawSize>
+		</graphicData>
+		<staticSunShadowHeight>0.4</staticSunShadowHeight>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<castEdgeShadows>false</castEdgeShadows>
+		<costStuffCount>350</costStuffCount>
+		<tickerType>Normal</tickerType>
+		<minifiedDef isNull="true" Inherit="false"/>
+		<thingCategories isNull="true" Inherit="false"/>
+		<costList>
+			<ComponentSimple>15</ComponentSimple>
+			<Hay>200</Hay>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>True</useHitPoints>
+		<statBases>
+			<WorkToBuild>25000</WorkToBuild>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>1</Flammability>
+			<Cleanliness>-10</Cleanliness>
+		</statBases>
+		<size>(8,4)</size>
+		<designationCategory>Production</designationCategory>
+		<designatorDropdown>Farming</designatorDropdown>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<surfaceType>Item</surfaceType>
+		<constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+		<rotatable>true</rotatable>
+		<hasInteractionCell>false</hasInteractionCell>
+		<inspectorTabs>
+			<li>ProjectParagon.Core.ITabs.ITab_Barn</li>
+		</inspectorTabs>
+		<placeWorkers>
+			<li>ProjectParagon.Core.Things.PlaceWorker_ModularBuilding</li>
+		</placeWorkers>
+		<researchPrerequisites>
+			<li>LivestockII</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="ProjectParagon.Core.Things.CompProperties_ModularBuilding">
+				<scheme>Barn</scheme>
+			</li>
+			<li Class="ProjectParagon.Core.Things.CompProperties_Barn">
+				<allowedAnimals>
+					<li>Cow</li>
+					<li>Boomalope</li>
+					<li>Dromedary</li>
+					<li>Goat</li>
+					<li>Elk</li>
+					<li>Yak</li>
+					<li>Caribou</li>
+					<li>DarkIbex</li>
+					<li>DarkHare</li>
+					<li>DarkYak</li>
+					<li>Lanis</li>
+					<li>Arix</li>
+					<li>Crystalope</li>
+					<li>Crystalotl</li>
+					<li>Crystabara</li>
+					<li>Crystalix</li>
+					<li>Crystamole</li>
+					<li>Bonegoat</li>
+					<li>BoomMoth</li>
+					<li>Tropo</li>
+					<li>AutomatonCow</li>
+					<li>AutomatonChicken</li>
+					<li>AutomatonCassowary</li>
+					<li>AutomatonPig</li>
+					<li>AutomatonTortoise</li>
+					<li>Muffalo</li>
+					<li>Bison</li>
+					<li>Sheep</li>
+					<li>Alpaca</li>
+					<li>Megasloth</li>
+					<li>Boomrat</li>
+					<li>DankPyon_MuskOx</li>
+					<li>WoollyHorse</li>
+					<li>MountainSheep</li>
+					<li>Zion</li>
+					<li>Pig</li>
+					<li>Horse</li>
+				</allowedAnimals>
+				<barnSize>10</barnSize>
 				<mateIntervalTicks>60000~60000</mateIntervalTicks>
 			</li>
 		</comps>
